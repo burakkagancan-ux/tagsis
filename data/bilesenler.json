@@ -1,6 +1,6 @@
 {
  "meta": {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "generated": "2026-10-03",
   "description": "E kodu olmayan bileşenler: gizli şeker, palm yağı, 14 yasal alerjen, laktoz, hayvansal kaynak, ultra işlenmiş gıda (UPF) işaretleri.",
   "flags": {
@@ -27,7 +27,13 @@
    "vegan_suspect": "Kaynak bitkisel veya hayvansal olabilir",
    "non_vegetarian": "Et/balık/kesim yan ürünü (vejetaryen değil)",
    "vegetarian_suspect": "Vejetaryen uygunluğu belirsiz",
-   "upf": "Ultra işlenmiş gıda işareti (NOVA)"
+   "upf": "Ultra işlenmiş gıda işareti (NOVA)",
+   "caffeine": "Kafein kaynağı",
+   "alcohol": "Alkol",
+   "alcohol_trace": "Az miktarda alkol içerebilir",
+   "raw_milk": "Çiğ (pastörize edilmemiş) süt",
+   "infant_honey": "Bal: 1 yaşından küçüklere verilmez",
+   "pet_toxic": "Köpek ve kediler için zehirli"
   },
   "allergens": [
    [
@@ -133,15 +139,38 @@
     "note": "UPF işaretleri: aroma vericiler, lezzet artırıcılar, renklendiriciler, emülgatörler, tatlandırıcılar, kıvam artırıcılar; invert şeker, maltodekstrin, dekstroz, laktoz, yüksek fruktozlu mısır şurubu, meyve suyu konsantresi; hidrojenize/interesterifiye yağlar; hidrolize proteinler, soya protein izolatı, gluten, kazein, peynir altı suyu proteini, mekanik ayrılmış et."
    }
   ],
+  "sources_faz2": [
+   {
+    "name": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği, Ek-2 (ek bilgi gerektiren gıdalar)",
+    "note": "Yüksek kafein (150 mg/L üzeri), tatlandırıcı, aspartam (fenilalanin kaynağı), poliol (%10 üzeri laksatif) ve meyankökü ifadeleri. Metin: https://www.denib.gov.tr/files/downloads/sirku_ekleri/2016-02-ek1-1.pdf"
+   },
+   {
+    "name": "TGK Gıda Katkı Maddeleri Yönetmeliği / AB 1333/2008 Ek V",
+    "note": "E102, E104, E110, E122, E124, E129 içeren gıdalarda çocukların aktivitesi ve dikkatine ilişkin uyarı zorunludur."
+   },
+   {
+    "name": "EFSA (2015) Scientific Opinion on the safety of caffeine",
+    "note": "Hamile ve emziren kadınlar için günde 200 mg'a kadar kafein endişe oluşturmaz."
+   },
+   {
+    "name": "Bebeklerde botulizm: bal 1 yaşından küçüklere verilmez (DSÖ, CDC, Sağlık Bakanlığı önerileri)",
+    "note": "Genel bilgi; bu çalışmada tek tek kaynakla doğrulanmadı."
+   },
+   {
+    "name": "Evcil hayvanlar için zehirli gıdalar (ASPCA Animal Poison Control)",
+    "note": "Ksilitol, kakao/çikolata, üzüm/kuru üzüm, soğan/sarımsak, makadamya, alkol, kafein. Genel bilgi; bu çalışmada tek tek kaynakla doğrulanmadı."
+   }
+  ],
   "caveats": [
    "Bileşen eşleştirme yalnızca etiketteki 'İçindekiler' yazısına dayanır; miktar bilgisi yoktur.",
    "Alerjen sonucu bir onay değildir: 'tespit edilmedi' ürünün güvenli olduğu anlamına gelmez.",
    "UPF işaretleri bir puan değildir; NOVA'nın tanımladığı işaret maddelerinin listesidir.",
-   "Vegan/vejetaryen sonucu yalnızca içerik adlarına dayanır; üretim süreci ve çapraz bulaşma bilinmez."
+   "Vegan/vejetaryen sonucu yalnızca içerik adlarına dayanır; üretim süreci ve çapraz bulaşma bilinmez.",
+   "Hamile/bebek/çocuk, PKU ve evcil hayvan kontrolleri yalnızca bilinen maddeleri arar; miktar bilinmez ve sonuç bir onay değildir."
   ],
   "counts": {
-   "items": 86,
-   "aliases": 569
+   "items": 95,
+   "aliases": 663
   }
  },
  "items": [
@@ -302,12 +331,15 @@
    "aliases": [
     "bal",
     "çiçek balı",
-    "süzme bal"
+    "süzme bal",
+    "petek bal",
+    "çam balı"
    ],
    "flags": [
     "sugar",
     "sugar_hidden",
-    "non_vegan"
+    "non_vegan",
+    "infant_honey"
    ]
   },
   {
@@ -795,7 +827,16 @@
     "pikan",
     "pekan",
     "brezilya cevizi",
-    "brezilya fındığı",
+    "brezilya fındığı"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "makadamya",
+   "name": "Makadamya",
+   "aliases": [
     "makadamya",
     "makadamya fındığı",
     "macadamia",
@@ -804,7 +845,8 @@
     "queensland fındığı"
    ],
    "flags": [
-    "allergen_nuts"
+    "allergen_nuts",
+    "pet_toxic"
    ]
   },
   {
@@ -865,7 +907,6 @@
     "keçi sütü",
     "koyun sütü",
     "manda sütü",
-    "çiğ süt",
     "pastörize süt",
     "tam yağlı süt",
     "yarım yağlı süt",
@@ -965,7 +1006,6 @@
     "krema",
     "süt kreması",
     "kaymak",
-    "çiğ krema",
     "krema tozu",
     "kaymak tozu",
     "ekşi krema"
@@ -1267,6 +1307,184 @@
    "flags": [
     "non_vegan"
    ]
+  },
+  {
+   "id": "cig_sut",
+   "name": "Çiğ süt",
+   "aliases": [
+    "çiğ süt",
+    "çiğ inek sütü",
+    "çiğ keçi sütü",
+    "çiğ koyun sütü",
+    "pastörize edilmemiş süt",
+    "çiğ sütten",
+    "çiğ krema"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan",
+    "raw_milk"
+   ],
+   "note": "Pastörize edilmemiş süt ürünleri listeria gibi bakteriler taşıyabilir; hamilelikte ve bebeklerde önerilmez."
+  },
+  {
+   "id": "kafein",
+   "name": "Kafein / kahve / çay ekstraktı",
+   "aliases": [
+    "kafein",
+    "kahve",
+    "hazır kahve",
+    "çözünebilir kahve",
+    "kahve ekstraktı",
+    "kahve özütü",
+    "espresso",
+    "kahve çekirdeği",
+    "çay ekstraktı",
+    "yeşil çay ekstraktı",
+    "siyah çay ekstraktı",
+    "guarana",
+    "guarana ekstraktı",
+    "mate",
+    "yerba mate",
+    "kola cevizi",
+    "kola ekstraktı",
+    "kahveli"
+   ],
+   "flags": [
+    "caffeine",
+    "pet_toxic"
+   ],
+   "note": "Etikette 150 mg/L'den fazla kafein varsa “Yüksek miktarda kafein içerir. Çocuklar veya hamile ya da emziren kadınlar için tavsiye edilmez.” uyarısı zorunludur. EFSA hamilelikte günde 200 mg'ı aşmamayı önerir."
+  },
+  {
+   "id": "n_kafeinsiz",
+   "name": "Kafeinsiz kahve",
+   "aliases": [
+    "kafeinsiz kahve",
+    "kafeinsiz",
+    "dekafein",
+    "dekafeine kahve"
+   ],
+   "flags": [],
+   "note": "Kafeini alınmıştır; az miktarda kafein kalabilir."
+  },
+  {
+   "id": "kakao",
+   "name": "Kakao / çikolata",
+   "aliases": [
+    "kakao",
+    "kakao tozu",
+    "yağı azaltılmış kakao tozu",
+    "kakao kitlesi",
+    "kakao likörü",
+    "kakao çekirdeği",
+    "kakao parçacıkları",
+    "çikolata",
+    "bitter çikolata",
+    "sütlü çikolata",
+    "beyaz çikolata",
+    "çikolata parçacıkları",
+    "damla çikolata",
+    "kuvertür",
+    "kuvertür çikolata",
+    "kakaolu",
+    "çikolatalı"
+   ],
+   "flags": [
+    "pet_toxic"
+   ],
+   "note": "Teobromin içerir; köpek ve kediler için zehirlidir. Az miktarda kafein de içerir."
+  },
+  {
+   "id": "alkol",
+   "name": "Alkol",
+   "aliases": [
+    "alkol",
+    "etil alkol",
+    "etanol",
+    "şarap",
+    "kırmızı şarap",
+    "beyaz şarap",
+    "likör",
+    "rom",
+    "konyak",
+    "brendi",
+    "viski",
+    "votka",
+    "bira",
+    "rakı",
+    "kirsch",
+    "amaretto",
+    "marsala",
+    "porto şarabı"
+   ],
+   "flags": [
+    "alcohol",
+    "pet_toxic"
+   ],
+   "note": "Pişirme ve fırınlama sonrasında alkolün bir kısmı üründe kalabilir.",
+   "short_ok": true
+  },
+  {
+   "id": "n_alkolsuz",
+   "name": "Alkolsüz",
+   "aliases": [
+    "alkolsüz",
+    "alkolsüz bira",
+    "alkolsüz şarap"
+   ],
+   "flags": [
+    "alcohol_trace"
+   ],
+   "note": "“Alkolsüz” ürünler hacmen %0,5'e kadar alkol içerebilir."
+  },
+  {
+   "id": "uzum",
+   "name": "Üzüm / kuru üzüm",
+   "aliases": [
+    "üzüm",
+    "kuru üzüm",
+    "sultani üzüm",
+    "çekirdeksiz kuru üzüm",
+    "kuş üzümü",
+    "siyah kuru üzüm",
+    "üzümlü",
+    "kuru üzümlü"
+   ],
+   "flags": [
+    "pet_toxic"
+   ],
+   "note": "Üzüm ve kuru üzüm köpeklerde böbrek yetmezliğine yol açabilir."
+  },
+  {
+   "id": "sogan",
+   "name": "Soğan / sarımsak / pırasa",
+   "aliases": [
+    "soğan",
+    "kuru soğan",
+    "soğan tozu",
+    "toz soğan",
+    "soğan granülü",
+    "kurutulmuş soğan",
+    "soğan ekstraktı",
+    "taze soğan",
+    "arpacık soğan",
+    "sarımsak",
+    "sarımsak tozu",
+    "toz sarımsak",
+    "kurutulmuş sarımsak",
+    "sarımsak granülü",
+    "sarımsak ekstraktı",
+    "pırasa",
+    "frenk soğanı",
+    "soğanlı",
+    "sarımsaklı"
+   ],
+   "flags": [
+    "pet_toxic"
+   ],
+   "note": "Soğan grubu bitkiler köpek ve kedilerde kansızlığa yol açabilir; toz hâli daha yoğundur."
   },
   {
    "id": "aroma",

@@ -61,7 +61,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 </ul></details>
 <div class="note"><strong>Deneme sürümü.</strong> Katkı maddesi ve bileşen bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</div>
 
-<details id="pd"><summary id="profsum">Profilim (alerjen, laktoz, vegan…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
+<details id="pd"><summary id="profsum">Profilim (alerjen, vegan, hamile, çocuk…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
 
 <input type="file" id="foto" accept="image/*" capture="environment">
 <img id="pre" alt="Seçilen fotoğraf">
@@ -233,7 +233,10 @@ function analyze(text,idx){
 /* Analiz sonucunu özet bilgiye çevirir: şeker, palm, UPF, alerjen, laktoz, vegan, vejetaryen */
 function summarize(res,idx){
   var bm=idx.bmeta,upfE=bm.upf_e_categories||{};
-  var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[]};
+  var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[],
+    life:{caffeine:[],alcohol:[],alcoholTrace:[],raw:[],honey:[],sweet:[],hyper:[],phe:[],pet:[]}};
+  var LF=o.life;
+  function has(fl,f){return fl.indexOf(f)>-1}
   function al(f,kind,name){var a=o.allergen[f]=o.allergen[f]||{yes:[],may:[]};if(a[kind].indexOf(name)<0)a[kind].push(name)}
   function push(arr,v){if(arr.indexOf(v)<0)arr.push(v)}
   res.forEach(function(r){
@@ -259,6 +262,13 @@ function summarize(res,idx){
         if(fl.indexOf("vegan_suspect")>-1)push(o.vegan.unsure,it.name);
         if(fl.indexOf("non_vegetarian")>-1)push(o.veg.no,it.name);
         if(fl.indexOf("vegetarian_suspect")>-1||fl.indexOf("vegan_suspect")>-1)push(o.veg.unsure,it.name);
+        if(has(fl,"caffeine"))push(LF.caffeine,it.name);
+        if(has(fl,"alcohol"))push(LF.alcohol,it.name);
+        if(has(fl,"alcohol_trace"))push(LF.alcoholTrace,it.name);
+        if(has(fl,"raw_milk"))push(LF.raw,it.name);
+        if(has(fl,"infant_honey"))push(LF.honey,it.name);
+        if(has(fl,"pet_toxic"))push(LF.pet,it.name);
+        if(it.upf_class==="tatlandırıcı")push(LF.sweet,it.name);
       }else{
         var txt=" "+r.text+" ",kind=r.may?"may":"yes";
         if(fl.indexOf("allergen_sulphite")>-1)al("allergen_sulphite",kind,name);
@@ -270,9 +280,14 @@ function summarize(res,idx){
         if(fl.indexOf("vegan_suspect")>-1){push(o.vegan.unsure,name);push(o.veg.unsure,name)}
         if(fl.indexOf("insect_derived")>-1)push(o.veg.insect,name);
         else if(fl.indexOf("non_vegetarian")>-1)push(o.veg.no,name);
+        if(has(fl,"hyperactivity"))push(LF.hyper,name);
+        if(has(fl,"phenylalanine"))push(LF.phe,name);
+        if(has(fl,"pet_risk"))push(LF.pet,name);
+        if(it.category==="Tatlandırıcı")push(LF.sweet,name);
       }
     });
   });
+  if(LF.sweet.length>1)LF.sweet=LF.sweet.filter(function(x){return x!=="Tatlandırıcı"});   // genel "tatlandırıcı" sözcüğü, adı geçen tatlandırıcı varken tekrar edilmez
   return o;
 }
 /* Bakanlık listesindeki marka adlarını metinde arar (yalnızca bilgi amaçlı bağlantı) */
@@ -326,8 +341,9 @@ getJson("data/e_aciklama.json").then(function(a){ABOUT=a.about||{}}).catch(funct
 getJson("data/tagsis.json").then(function(t){BRANDS=buildBrands(t)}).catch(function(){BRANDS=null});
 
 /* ---------- Profil ---------- */
-var PROF={al:[],lactose:false,vegan:false,veg:false};
-try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)PROF=sp}catch(e){}
+var PROF={al:[],lactose:false,vegan:false,veg:false,preg:false,baby:false,child:false,pku:false,pet:false};
+try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
+var LIFE=[["preg","Hamileyim / emziriyorum"],["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["pku","Fenilketonüri (PKU)"],["pet","Evcil hayvanıma vereceğim"]];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
 function buildProfile(){
   var box=$("profil");box.textContent="";
@@ -343,13 +359,17 @@ function buildProfile(){
   g2.appendChild(cb("Vegan",PROF.vegan,function(v){PROF.vegan=v}));
   g2.appendChild(cb("Vejetaryen",PROF.veg,function(v){PROF.veg=v}));
   box.appendChild(g2);
+  box.appendChild(el("div","pt","Yaşam evresi ve diğer"));
+  var g3=el("div","pg");
+  LIFE.forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
+  box.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
   updProfSum();
 }
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
 function updProfSum(){
-  var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0);
-  $("profsum").textContent=n?("Profilim ("+n+" seçim)"):"Profilim (alerjen, laktoz, vegan…)";
+  var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
+  $("profsum").textContent=n?("Profilim ("+n+" seçim)"):"Profilim (alerjen, vegan, hamile, çocuk…)";
 }
 
 /* ---------- Sonuç ekranı ---------- */
@@ -359,7 +379,7 @@ function card(cls,title,lines){
   return d;
 }
 function profileCards(S){
-  var out=[],any=PROF.al.length||PROF.lactose||PROF.vegan||PROF.veg;
+  var out=[],any=PROF.al.length||PROF.lactose||PROF.vegan||PROF.veg||LIFE.some(function(x){return PROF[x[0]]});
   if(!any)return out;
   if(PROF.al.length){
     var yes=[],may=[];
@@ -386,6 +406,38 @@ function profileCards(S){
     else if(G.unsure.length)out.push(card("y","Vejetaryen uygunluğu belirsiz",["Kaynağı belirsiz: "+G.unsure.join(", ")]));
     else out.push(card("g","Et, balık ve kesim yan ürünü bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
   }
+  return out.concat(lifeCards(S.life));
+}
+/* Yaşam evresi, PKU ve evcil hayvan kartları. Satır: [seviye "r"/"y", metin]. Hiçbir zaman "uygun" denmez. */
+function lifeCard(title,rows,okTitle,okNote,extra){
+  rows=rows.filter(function(r){return r});
+  if(!rows.length)return card("g",okTitle,[okNote]);
+  var red=rows.some(function(r){return r[0]==="r"});
+  return card(red?"r":"y",title,rows.map(function(r){return r[1]}).concat(extra?[extra]:[]));
+}
+function lifeCards(L){
+  var out=[],j=function(a){return a.join(", ")};
+  var raw=L.raw.length?["r","Çiğ (pastörize edilmemiş) süt ürünü: "+j(L.raw)+". Listeria gibi bakteriler taşıyabilir."]:null;
+  var alc=L.alcohol.length?["r","Alkol: "+j(L.alcohol)+". Pişirmeyle tamamen uçmayabilir."]:null;
+  var trace=L.alcoholTrace.length?["y","“Alkolsüz” ürün: hacmen %0,5'e kadar alkol içerebilir."]:null;
+  var hyp=L.hyper.length?["y","Renklendirici: "+j(L.hyper)+". Bu boyaları içeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."]:null;
+  if(PROF.preg)out.push(lifeCard("Hamilelik / emzirme: dikkat",[alc,raw,
+    L.caffeine.length?["y","Kafein kaynağı: "+j(L.caffeine)+". EFSA hamilelikte günde en fazla 200 mg öneriyor; miktar için etiketteki kafein bilgisine bakın."]:null,trace],
+    "Hamilelik için işaretli madde bulunamadı","Bu bir onay değildir; etiketi kendiniz kontrol edin, beslenmeniz için doktorunuza danışın."));
+  if(PROF.baby)out.push(lifeCard("Bebek (1 yaş altı): dikkat",[
+    L.honey.length?["r","Bal: 1 yaşından küçük bebeklere verilmez (bebek botulizmi riski)."]:null,alc,
+    L.caffeine.length?["r","Kafein kaynağı: "+j(L.caffeine)+"."]:null,raw,
+    L.sweet.length?["y","Tatlandırıcı: "+j(L.sweet)+". Bebek ve küçük çocuk gıdalarında tatlandırıcı kullanımına izin verilmez."]:null,hyp,trace],
+    "Bebekler için işaretli madde bulunamadı","Bu bir onay değildir; bebeğinizin beslenmesi için doktorunuza danışın."));
+  if(PROF.child)out.push(lifeCard("Çocuk: dikkat",[alc,hyp,
+    L.caffeine.length?["y","Kafein kaynağı: "+j(L.caffeine)+". Yüksek kafeinli ürünler çocuklara tavsiye edilmez."]:null,
+    L.sweet.length?["y","Tatlandırıcı içerir: "+j(L.sweet)+"."]:null,trace],
+    "Çocuklar için işaretli madde bulunamadı","Bu bir onay değildir; etiketi kendiniz kontrol edin."));
+  if(PROF.pku)out.push(lifeCard("Fenilalanin kaynağı içerir",[L.phe.length?["r","Aspartam (fenilalanin kaynağı): "+j(L.phe)+"."]:null],
+    "Aspartam bulunamadı","Bu kontrol yalnızca tatlandırıcıya bakar. Proteinli tüm gıdalar fenilalanin içerir; protein miktarı için besin değeri tablosuna bakın."));
+  if(PROF.pet)out.push(lifeCard("Evcil hayvanlar için zehirli madde",[L.pet.length?["r","Köpek ve kediler için zehirli olduğu bilinen: "+j(L.pet)+"."]:null],
+    "Bilinen zehirli madde bulunamadı","Bu bir onay değildir. İnsan yiyeceklerini evcil hayvanınıza vermeden önce veterinerinize danışın.",
+    "Miktar bilinmez; hayvanınız yediyse veterinerinize başvurun."));
   return out;
 }
 function summaryCard(S,res){

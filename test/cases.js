@@ -28,6 +28,12 @@ const cases=[
  ["Koşineal, karmosin, ponzo 4R, pancar kökü kırmızısı", ["E120","E122","E124","E162"], []],
  ["brezilya fındığı, queensland fındığı, tritikale unu, kılçıksız buğday", ["B:pikan","B:bugday","B:spelt"], ["B:findik"]],
  ["balık jelatini, bitkisel steroller, rafine soya fasulyesi yağı", ["B:balik_jelatini","B:n_sterol","B:soya_yagi"], ["B:balik","B:soya"]],
+ // Faz 2: yaşam evresi / evcil hayvan
+ ["Kakao yağı, kakao tozu, bal kabağı çekirdeği, kahverengi şeker", ["B:n_kakao","B:kakao","B:n_balkabagi","B:seker"], ["B:kafein","B:bal"]],
+ ["Kafeinsiz kahve, şeker", ["B:n_kafeinsiz"], ["B:kafein"]],
+ ["Rom aroması, şeker alkolü (maltitol)", ["E965"], ["B:alkol"]],
+ ["Alkol içermez. Üzüm pekmezi, soğanlı, sarımsak tozu", ["B:alkol~neg","B:pekmez","B:sogan"], ["B:uzum","B:alkol"]],
+ ["Çiğ süt, kuru üzüm, makadamya", ["B:cig_sut","B:uzum","B:makadamya"], ["B:sut","B:pikan"]],
 ];
 let fail=0;
 for(const [t,must,mustNot] of cases){
@@ -42,3 +48,17 @@ console.log('peynir aromalı:',ids("Şeker, peynir aromalı çeşni").join(', ')
 const br=L.buildBrands(tg);console.log('marka sayısı',Object.keys(br).length);
 console.log(L.findBrands("Üretici: DOY HOREKA Gıda. İçindekiler: süt, tuz",br));
 console.log(L.findBrands("İçindekiler: doğal köy yoğurdu, petek bal, royal jelly, yıldız",br));
+
+// Faz 2 özet kontrolleri
+const life=t=>L.summarize(L.analyze(t,idx),idx).life;
+const lc=[
+ ["Bal, şeker, etil alkol, kahve", l=>l.honey.length&&l.alcohol.length&&l.caffeine.length],
+ ["tatlandırıcı (aspartam, asesülfam K), renklendirici (E 110)", l=>l.phe.length&&l.sweet.length>=2&&l.hyper.length],
+ ["Ksilitol, çikolata, kuru üzüm, soğan tozu", l=>l.pet.length===4],
+ ["Alkolsüz bira", l=>l.alcoholTrace.length&&!l.alcohol.length],
+ ["Rom aroması, şeker", l=>!l.alcohol.length&&!l.pet.length],
+ ["Çiğ sütten yapılmış peynir", l=>l.raw.length],
+ ["Şeker. Eser miktarda kakao içerebilir", l=>!l.pet.length],
+];
+let lf=0;for(const [t,f] of lc){if(!f(life(t))){lf++;console.log('YAŞAM HATA:',t,JSON.stringify(life(t)))}}
+console.log(lc.length+' yaşam evresi durumu, '+lf+' hata');

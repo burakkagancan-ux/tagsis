@@ -10,7 +10,7 @@ Kullanım:  python3 gen_bilesenler.py   (data/e_kodlari.json ile aynı depoda)
 """
 import json, re, os, datetime
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data", "bilesenler.json")
 EDB = os.path.join(HERE, "data", "e_kodlari.json")
@@ -45,6 +45,13 @@ FLAGS = {
     "non_vegetarian": "Et/balık/kesim yan ürünü (vejetaryen değil)",
     "vegetarian_suspect": "Vejetaryen uygunluğu belirsiz",
     "upf": "Ultra işlenmiş gıda işareti (NOVA)",
+    # Faz 2: yaşam evresi ve evcil hayvan
+    "caffeine": "Kafein kaynağı",
+    "alcohol": "Alkol",
+    "alcohol_trace": "Az miktarda alkol içerebilir",
+    "raw_milk": "Çiğ (pastörize edilmemiş) süt",
+    "infant_honey": "Bal: 1 yaşından küçüklere verilmez",
+    "pet_toxic": "Köpek ve kediler için zehirli",
 }
 
 # Profil ekranındaki alerjen listesi (TGK Etiketleme Yönetmeliği Ek-1 sırası ve adları; kısa gösterim)
@@ -81,7 +88,7 @@ ITEMS = [
     ("maltoz", "Maltoz", ["maltoz", "maltoz şurubu"], [S, H], "", {}),
     ("maltodekstrin", "Maltodekstrin", ["maltodekstrin"], [S, H, U], "Kimyasal olarak şeker sayılmaz ama kan şekerini hızla yükselten bir nişasta türevidir.", {"upf_class": "şeker türevi şurup"}),
     ("laktoz", "Laktoz (süt şekeri)", ["laktoz", "süt şekeri"], [S, H, U, MI, LA, NV], "", {"upf_class": "şeker türevi şurup"}),
-    ("bal", "Bal", ["bal", "çiçek balı", "süzme bal"], [S, H, NV], "", {}),
+    ("bal", "Bal", ["bal", "çiçek balı", "süzme bal", "petek bal", "çam balı"], [S, H, NV, "infant_honey"], "", {}),
     ("pekmez", "Pekmez", ["pekmez", "üzüm pekmezi", "dut pekmezi", "keçiboynuzu pekmezi", "harnup pekmezi"], [S, H], "", {}),
     ("melas", "Melas", ["melas", "şeker kamışı melası", "şeker pancarı melası"], [S, H], "", {}),
     ("surup_diger", "Bitkisel şurup", ["agave şurubu", "akçaağaç şurubu", "hurma şurubu", "pirinç şurubu", "esmer pirinç şurubu", "agave", "hurma özü"], [S, H], "", {}),
@@ -121,7 +128,8 @@ ITEMS = [
     ("ceviz", "Ceviz", ["ceviz", "ceviz içi", "ceviz parçaları"], ["allergen_nuts"], "", {}),
     ("kaju", "Kaju", ["kaju", "kaju fıstığı"], ["allergen_nuts"], "", {}),
     ("antep", "Antep fıstığı", ["antep fıstığı", "şam fıstığı", "boz içi", "bozici"], ["allergen_nuts"], "", {}),
-    ("pikan", "Pikan / Brezilya cevizi / makadamya", ["pikan cevizi", "pekan cevizi", "pikan", "pekan", "brezilya cevizi", "brezilya fındığı", "makadamya", "makadamya fındığı", "macadamia", "macadamia fındığı", "queensland cevizi", "queensland fındığı"], ["allergen_nuts"], "", {}),
+    ("pikan", "Pikan / Brezilya cevizi / makadamya", ["pikan cevizi", "pekan cevizi", "pikan", "pekan", "brezilya cevizi", "brezilya fındığı"], ["allergen_nuts"], "", {}),
+    ("makadamya", "Makadamya", ["makadamya", "makadamya fındığı", "macadamia", "macadamia fındığı", "queensland cevizi", "queensland fındığı"], ["allergen_nuts", "pet_toxic"], "", {}),
 
     # ---------- SOYA ----------
     ("soya", "Soya", ["soya", "soya fasulyesi", "soya unu", "soya proteini", "soya sütü", "soya içeceği", "soya sosu", "tofu", "edamame", "soya kırığı", "soya kepeği", "teksturize soya proteini"], ["allergen_soy"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın.", {}),
@@ -129,12 +137,12 @@ ITEMS = [
     ("soya_yagi", "Soya yağı", ["soya yağı", "rafine soya yağı", "soya fasulyesi yağı", "rafine soya fasulyesi yağı"], [], "Yönetmelik muafiyeti: rafine soya fasulyesi yağı (katı ve sıvı) soya alerjeni sayılmaz.", {}),
 
     # ---------- SÜT ----------
-    ("sut", "Süt", ["süt", "inek sütü", "keçi sütü", "koyun sütü", "manda sütü", "çiğ süt", "pastörize süt", "tam yağlı süt", "yarım yağlı süt", "yağsız süt", "sütü"], [MI, LA, NV], "", {}),
+    ("sut", "Süt", ["süt", "inek sütü", "keçi sütü", "koyun sütü", "manda sütü", "pastörize süt", "tam yağlı süt", "yarım yağlı süt", "yağsız süt", "sütü"], [MI, LA, NV], "", {}),
     ("sut_tozu", "Süt tozu", ["süt tozu", "yağsız süt tozu", "tam yağlı süt tozu", "yarım yağlı süt tozu", "inek sütü tozu", "keçi sütü tozu"], [MI, LA, NV], "", {}),
     ("pas", "Peynir altı suyu", ["peynir altı suyu", "peyniraltı suyu", "peynir altı suyu tozu", "peyniraltı suyu tozu", "demineralize peynir altı suyu tozu", "laktoserum", "whey", "peynir suyu tozu"], [MI, LA, NV, U], "", {"upf_class": "protein izolatı"}),
     ("pas_protein", "Süt / peynir altı suyu proteini", ["peynir altı suyu proteini", "peyniraltı suyu proteini", "whey protein", "peynir altı suyu protein konsantresi", "süt proteini", "süt protein konsantresi", "süt proteini konsantresi", "laktalbümin", "süt mineralleri"], [MI, NV, U], "", {"upf_class": "protein izolatı"}),
     ("kazein", "Kazein / kazeinat", ["kazein", "kazeinat", "sodyum kazeinat", "kalsiyum kazeinat", "potasyum kazeinat", "süt kazeini", "kazeinatlar"], [MI, NV, U, "lactose_low"], "Laktoz miktarı çok düşüktür ama süt alerjisinde sorun yaratır.", {"upf_class": "protein izolatı"}),
-    ("krema", "Krema / kaymak", ["krema", "süt kreması", "kaymak", "çiğ krema", "krema tozu", "kaymak tozu", "ekşi krema"], [MI, LA, NV], "", {}),
+    ("krema", "Krema / kaymak", ["krema", "süt kreması", "kaymak", "krema tozu", "kaymak tozu", "ekşi krema"], [MI, LA, NV], "", {}),
     ("tereyagi", "Tereyağı / süt yağı", ["tereyağı", "tereyağ", "sade yağ", "süt yağı", "tereyağı yağı", "anhidr süt yağı", "tereyağı tozu"], [MI, NV, "lactose_low"], "Laktoz miktarı düşüktür; süt alerjisinde sorun yaratır.", {}),
     ("yogurt", "Yoğurt / ayran / kefir", ["yoğurt", "yoğurt tozu", "süzme yoğurt", "ayran", "kefir", "yoğurt kültürü"], [MI, LA, NV], "", {}),
     ("peynir", "Peynir", ["peynir", "beyaz peynir", "kaşar", "kaşar peyniri", "lor", "lor peyniri", "çökelek", "tulum peyniri", "krem peynir", "eritme peynir", "peynir tozu", "mozzarella", "çedar", "cheddar", "parmesan", "labne", "lorlu"], [MI, LA, NV], "Olgunlaştırılmış sert peynirlerde laktoz çok düşüktür.", {}),
@@ -156,6 +164,16 @@ ITEMS = [
     ("mikrobiyal_maya", "Mikrobiyal peynir mayası", ["mikrobiyal peynir mayası", "mikrobiyal maya", "bitkisel peynir mayası", "mikrobiyal renin"], [], "Hayvansal kaynaklı değildir.", {}),
     ("ari_urunu", "Arı ürünleri", ["arı sütü", "propolis", "polen", "arı poleni"], [NV], "", {}),
     ("lanolin", "Lanolin", ["lanolin", "yün yağı"], [NV], "", {}),
+
+    # ---------- FAZ 2: HAMİLE / BEBEK / ÇOCUK / EVCİL HAYVAN ----------
+    ("cig_sut", "Çiğ süt", ["çiğ süt", "çiğ inek sütü", "çiğ keçi sütü", "çiğ koyun sütü", "pastörize edilmemiş süt", "çiğ sütten", "çiğ krema"], [MI, LA, NV, "raw_milk"], "Pastörize edilmemiş süt ürünleri listeria gibi bakteriler taşıyabilir; hamilelikte ve bebeklerde önerilmez.", {}),
+    ("kafein", "Kafein / kahve / çay ekstraktı", ["kafein", "kahve", "hazır kahve", "çözünebilir kahve", "kahve ekstraktı", "kahve özütü", "espresso", "kahve çekirdeği", "çay ekstraktı", "yeşil çay ekstraktı", "siyah çay ekstraktı", "guarana", "guarana ekstraktı", "mate", "yerba mate", "kola cevizi", "kola ekstraktı", "kahveli"], ["caffeine", "pet_toxic"], "Etikette 150 mg/L'den fazla kafein varsa “Yüksek miktarda kafein içerir. Çocuklar veya hamile ya da emziren kadınlar için tavsiye edilmez.” uyarısı zorunludur. EFSA hamilelikte günde 200 mg'ı aşmamayı önerir.", {}),
+    ("n_kafeinsiz", "Kafeinsiz kahve", ["kafeinsiz kahve", "kafeinsiz", "dekafein", "dekafeine kahve"], [], "Kafeini alınmıştır; az miktarda kafein kalabilir.", {}),
+    ("kakao", "Kakao / çikolata", ["kakao", "kakao tozu", "yağı azaltılmış kakao tozu", "kakao kitlesi", "kakao likörü", "kakao çekirdeği", "kakao parçacıkları", "çikolata", "bitter çikolata", "sütlü çikolata", "beyaz çikolata", "çikolata parçacıkları", "damla çikolata", "kuvertür", "kuvertür çikolata", "kakaolu", "çikolatalı"], ["pet_toxic"], "Teobromin içerir; köpek ve kediler için zehirlidir. Az miktarda kafein de içerir.", {}),
+    ("alkol", "Alkol", ["alkol", "etil alkol", "etanol", "şarap", "kırmızı şarap", "beyaz şarap", "likör", "rom", "konyak", "brendi", "viski", "votka", "bira", "rakı", "kirsch", "amaretto", "marsala", "porto şarabı"], ["alcohol", "pet_toxic"], "Pişirme ve fırınlama sonrasında alkolün bir kısmı üründe kalabilir.", {"short_ok": True}),
+    ("n_alkolsuz", "Alkolsüz", ["alkolsüz", "alkolsüz bira", "alkolsüz şarap"], ["alcohol_trace"], "“Alkolsüz” ürünler hacmen %0,5'e kadar alkol içerebilir.", {}),
+    ("uzum", "Üzüm / kuru üzüm", ["üzüm", "kuru üzüm", "sultani üzüm", "çekirdeksiz kuru üzüm", "kuş üzümü", "siyah kuru üzüm", "üzümlü", "kuru üzümlü"], ["pet_toxic"], "Üzüm ve kuru üzüm köpeklerde böbrek yetmezliğine yol açabilir.", {}),
+    ("sogan", "Soğan / sarımsak / pırasa", ["soğan", "kuru soğan", "soğan tozu", "toz soğan", "soğan granülü", "kurutulmuş soğan", "soğan ekstraktı", "taze soğan", "arpacık soğan", "sarımsak", "sarımsak tozu", "toz sarımsak", "kurutulmuş sarımsak", "sarımsak granülü", "sarımsak ekstraktı", "pırasa", "frenk soğanı", "soğanlı", "sarımsaklı"], ["pet_toxic"], "Soğan grubu bitkiler köpek ve kedilerde kansızlığa yol açabilir; toz hâli daha yoğundur.", {}),
 
     # ---------- UPF İŞARETLERİ (E kodsuz) ----------
     ("aroma", "Aroma verici", ["aroma", "aroma verici", "aroma vericiler", "aromalar", "doğal aroma", "doğal aroma verici", "doğala özdeş aroma", "doğal özdeş aroma", "yapay aroma", "aroma verici preparat", "vanilin", "etil vanilin", "vanilya aroması", "duman aroması", "tütsü aroması", "aroma maddesi", "aroma verici madde", "aroması", "aromalı", "aromaları", "esansı", "esans"], [U, "vegan_suspect"], "Aroma vericilerin kaynağı etikette genellikle yazmaz.", {"upf_class": "aroma verici"}),
@@ -235,11 +253,19 @@ def main():
                 {"name": "DSÖ (WHO) Guideline: Sugars intake for adults and children (2015)", "note": "'Serbest şeker' tanımı: eklenen şekerler + bal, şuruplar, meyve suyu ve konsantreleri."},
                 {"name": "Monteiro ve ark., Ultra-processed foods, diet quality, and health using the NOVA classification system (FAO, 2019)", "note": "UPF işaretleri: aroma vericiler, lezzet artırıcılar, renklendiriciler, emülgatörler, tatlandırıcılar, kıvam artırıcılar; invert şeker, maltodekstrin, dekstroz, laktoz, yüksek fruktozlu mısır şurubu, meyve suyu konsantresi; hidrojenize/interesterifiye yağlar; hidrolize proteinler, soya protein izolatı, gluten, kazein, peynir altı suyu proteini, mekanik ayrılmış et."},
             ],
+            "sources_faz2": [
+                {"name": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği, Ek-2 (ek bilgi gerektiren gıdalar)", "note": "Yüksek kafein (150 mg/L üzeri), tatlandırıcı, aspartam (fenilalanin kaynağı), poliol (%10 üzeri laksatif) ve meyankökü ifadeleri. Metin: https://www.denib.gov.tr/files/downloads/sirku_ekleri/2016-02-ek1-1.pdf"},
+                {"name": "TGK Gıda Katkı Maddeleri Yönetmeliği / AB 1333/2008 Ek V", "note": "E102, E104, E110, E122, E124, E129 içeren gıdalarda çocukların aktivitesi ve dikkatine ilişkin uyarı zorunludur."},
+                {"name": "EFSA (2015) Scientific Opinion on the safety of caffeine", "note": "Hamile ve emziren kadınlar için günde 200 mg'a kadar kafein endişe oluşturmaz."},
+                {"name": "Bebeklerde botulizm: bal 1 yaşından küçüklere verilmez (DSÖ, CDC, Sağlık Bakanlığı önerileri)", "note": "Genel bilgi; bu çalışmada tek tek kaynakla doğrulanmadı."},
+                {"name": "Evcil hayvanlar için zehirli gıdalar (ASPCA Animal Poison Control)", "note": "Ksilitol, kakao/çikolata, üzüm/kuru üzüm, soğan/sarımsak, makadamya, alkol, kafein. Genel bilgi; bu çalışmada tek tek kaynakla doğrulanmadı."},
+            ],
             "caveats": [
                 "Bileşen eşleştirme yalnızca etiketteki 'İçindekiler' yazısına dayanır; miktar bilgisi yoktur.",
                 "Alerjen sonucu bir onay değildir: 'tespit edilmedi' ürünün güvenli olduğu anlamına gelmez.",
                 "UPF işaretleri bir puan değildir; NOVA'nın tanımladığı işaret maddelerinin listesidir.",
                 "Vegan/vejetaryen sonucu yalnızca içerik adlarına dayanır; üretim süreci ve çapraz bulaşma bilinmez.",
+                "Hamile/bebek/çocuk, PKU ve evcil hayvan kontrolleri yalnızca bilinen maddeleri arar; miktar bilinmez ve sonuç bir onay değildir.",
             ],
             "counts": {"items": len(items), "aliases": sum(len(i["aliases"]) for i in items)},
         },
