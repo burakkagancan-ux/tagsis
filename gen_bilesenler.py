@@ -52,6 +52,9 @@ FLAGS = {
     "raw_milk": "Çiğ (pastörize edilmemiş) süt",
     "infant_honey": "Bal: 1 yaşından küçüklere verilmez",
     "pet_toxic": "Köpek ve kediler için zehirli",
+    # Tuz ve sodyum (profil: tansiyon / tuz kısıtlaması)
+    "salt": "Tuz (sodyum klorür)",
+    "sodium_hidden": "Sodyum kaynağı (adında 'tuz' geçmiyor)",
 }
 
 # Profil ekranındaki alerjen listesi (TGK Etiketleme Yönetmeliği Ek-1 sırası ve adları; kısa gösterim)
@@ -132,7 +135,7 @@ ITEMS = [
     ("makadamya", "Makadamya", ["makadamya", "makadamya fındığı", "macadamia", "macadamia fındığı", "queensland cevizi", "queensland fındığı"], ["allergen_nuts", "pet_toxic"], "", {}),
 
     # ---------- SOYA ----------
-    ("soya", "Soya", ["soya", "soya fasulyesi", "soya unu", "soya proteini", "soya sütü", "soya içeceği", "soya sosu", "tofu", "edamame", "soya kırığı", "soya kepeği", "teksturize soya proteini"], ["allergen_soy"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın.", {}),
+    ("soya", "Soya", ["soya", "soya fasulyesi", "soya unu", "soya proteini", "soya sütü", "soya içeceği", "tofu", "edamame", "soya kırığı", "soya kepeği", "teksturize soya proteini"], ["allergen_soy"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın.", {}),
     ("soya_izolat", "Soya protein izolatı", ["soya protein izolatı", "izole soya proteini", "soya izolatı", "soya protein konsantresi"], ["allergen_soy", U], "", {"upf_class": "protein izolatı"}),
     ("soya_yagi", "Soya yağı", ["soya yağı", "rafine soya yağı", "soya fasulyesi yağı", "rafine soya fasulyesi yağı"], [], "Yönetmelik muafiyeti: rafine soya fasulyesi yağı (katı ve sıvı) soya alerjeni sayılmaz.", {}),
 
@@ -198,6 +201,10 @@ ITEMS = [
     ("n_sut_aroma", "Süt ürünü aroması", ["kaymak aroması", "süt aroması", "tereyağı aroması", "peynir aroması", "yoğurt aroması"], [U, "vegan_suspect"], "Aroma olarak geçiyor; süt içerip içermediği belirsiz.", {"upf_class": "aroma verici"}),
     ("n_glutensiz_un", "Glutensiz un / nişasta", ["mısır unu", "pirinç unu", "nohut unu", "karabuğday", "karabuğday unu", "patates unu", "keçiboynuzu unu", "tapyoka", "tapyoka nişastası", "mısır nişastası", "patates nişastası", "pirinç nişastası", "mısır irmiği", "kinoa", "kinoa unu", "tef unu", "darı", "darı unu"], [], "Gluten içeren tahıllardan değildir; çapraz bulaşma için etikete bakın.", {}),
     ("n_sterol", "Bitkisel sterol / stanol", ["bitkisel sterol", "bitkisel steroller", "bitkisel sterol esteri", "bitkisel sterol esterleri", "bitkisel stanol esteri", "bitkisel stanol esterleri", "fitosterol", "fitosteroller"], [], "Yönetmelik muafiyeti: soya kaynaklı olsa bile bitkisel sterol ve stanol esterleri soya alerjeni sayılmaz.", {}),
+    ("tuz", "Tuz", ["tuz", "sofra tuzu", "iyotlu tuz", "iyotsuz tuz", "iyotlu sofra tuzu", "deniz tuzu", "kaya tuzu", "himalaya tuzu", "göl tuzu", "kristal tuz", "sodyum klorür", "salamura", "tuzlu"], ["salt"], "", {}),
+    ("soya_sosu", "Soya sosu", ["soya sosu", "soya sos", "soy sos", "tamari"], ["allergen_soy", "sodium_hidden"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın. Tuz oranı yüksektir.", {}),
+    ("n_bulyon", "Bulyon", ["bulyon", "sebze bulyonu", "bulyon tableti", "çorba bazı"], ["sodium_hidden", "vegan_suspect"], "Bulyon genellikle yoğun tuz içerir; et ya da tavuk içerip içermediği etikette ayrıca yazar.", {}),
+    ("n_bulyon_et", "Et / tavuk bulyonu", ["et bulyonu", "tavuk bulyonu", "dana bulyonu", "toz et suyu", "toz tavuk suyu"], ["sodium_hidden", NV, NVG], "Bulyon ve toz et suyu genellikle yoğun tuz içerir.", {}),
     ("n_hamur_mayasi", "Maya", ["maya", "ekmek mayası", "kuru maya", "yaş maya", "instant maya", "aktif kuru maya"], [], "", {}),
 ]
 

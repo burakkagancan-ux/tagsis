@@ -271,12 +271,26 @@ function analyze(text,idx){
     for(var i=m.a;i<m.b;i++)if(used[i])return;
     for(i=m.a;i<m.b;i++)used[i]=1;kept.push(m);
   });
+  // Besin değerleri tablosu satırı ("Tuz 1,2 g", "Şeker 30 g"): ad + sayı + birim -> bileşen sayılmaz
+  kept=kept.filter(function(m){
+    if(!/^\d/.test(tok[m.b]||""))return true;
+    for(var q=m.b+1;q<=m.b+4&&q<tok.length;q++){if(UNITS[tok[q]])return false;if(!/^\d/.test(tok[q])&&tok[q]!=="|")break}
+    return true;
+  });
+  // İçerik listesindeki sıra (bileşenler çoktan aza yazılır): "İçindekiler:" sonrası, ayraç dışındaki virgüller sayılır
+  var st=0;for(var q0=0;q0<tok.length;q0++)if(tok[q0]==="icindekiler"||tok[q0]==="bilesenler"||tok[q0]==="ingredients"){st=q0+1;break}
+  kept.forEach(function(m){
+    if(m.a<st)return;
+    var dep=0,n=1;
+    for(var q=st;q<m.a;q++){var t=tok[q];if(t==="(")dep++;else if(t===")")dep=Math.max(0,dep-1);else if(t===SENT&&dep===0){n=0;break}else if(t==="|"&&dep===0)n++}
+    if(n)m.ord=n;
+  });
   var zones=mayZones(tok,idx),negs={},arn={};
   idx.neg.forEach(function(n){negs[n]=1});idx.aromaNext.forEach(function(n){arn[n]=1});
   kept.forEach(function(m){
     m.may=zones.some(function(z){return m.a>=z[0]&&m.a<z[1]});
     var n1=tok[m.b]||"",n2=tok[m.b+1]||"";
-    m.neg=!!(negs[n1]||(negs[n2]&&!SEP[n1]&&n1!=="ve"));
+    m.neg=!!(negs[n1]||negs[n1+" "+n2]||(negs[n2]&&!SEP[n1]&&n1!=="ve"));   // iki sözcüklü olumsuzluk: "ilave edilmemiştir"
     m.aroma=!!(arn[n1]&&m.ids.every(function(id){var it=idx.byId[id];return it.isB&&!it.upf_class}));
   });
   var merged={};
@@ -288,7 +302,7 @@ function analyze(text,idx){
   var res=Object.keys(merged).map(function(k){
     var m=merged[k],isB=idx.byId[m.ids[0]].isB;
     var lv=isB?-1:Math.max.apply(null,m.ids.map(function(id){return RANK[idx.byId[id].risk_level]}));
-    return {ids:m.ids,how:m.how,fixed:!!m.fixed,text:m.text,alias:m.alias,rank:lv,isB:isB,may:m.may,neg:m.neg,aroma:m.aroma,pos:m.a};
+    return {ids:m.ids,how:m.how,fixed:!!m.fixed,text:m.text,alias:m.alias,rank:lv,isB:isB,may:m.may,neg:m.neg,aroma:m.aroma,pos:m.a,ord:m.ord};
   });
   res.sort(function(x,y){return y.rank-x.rank||x.pos-y.pos});
   return res;
@@ -297,7 +311,8 @@ function analyze(text,idx){
 function summarize(res,idx){
   var bm=idx.bmeta,upfE=bm.upf_e_categories||{};
   var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[],
-    life:{caffeine:[],alcohol:[],alcoholTrace:[],raw:[],honey:[],sweet:[],hyper:[],phe:[],pet:[]}};
+    life:{caffeine:[],alcohol:[],alcoholTrace:[],raw:[],honey:[],sweet:[],hyper:[],phe:[],pet:[]},
+    sodium:{salt:[],hidden:[],saltOrd:null}};
   var LF=o.life;
   function has(fl,f){return fl.indexOf(f)>-1}
   function al(f,kind,name){var a=o.allergen[f]=o.allergen[f]||{yes:[],may:[]};if(a[kind].indexOf(name)<0)a[kind].push(name)}
@@ -331,6 +346,8 @@ function summarize(res,idx){
         if(has(fl,"raw_milk"))push(LF.raw,it.name);
         if(has(fl,"infant_honey"))push(LF.honey,it.name);
         if(has(fl,"pet_toxic"))push(LF.pet,it.name);
+        if(has(fl,"salt")){push(o.sodium.salt,r.text);if(r.ord&&(o.sodium.saltOrd===null||r.ord<o.sodium.saltOrd))o.sodium.saltOrd=r.ord}
+        if(has(fl,"sodium_hidden"))push(o.sodium.hidden,it.name);
         if(it.upf_class==="tatlandırıcı")push(LF.sweet,it.name);
       }else{
         var txt=" "+r.text+" ",kind=r.may?"may":"yes";
@@ -346,6 +363,7 @@ function summarize(res,idx){
         if(has(fl,"hyperactivity"))push(LF.hyper,name);
         if(has(fl,"phenylalanine"))push(LF.phe,name);
         if(has(fl,"pet_risk"))push(LF.pet,name);
+        if(has(fl,"sodium"))push(o.sodium.hidden,name);
         if(it.category==="Tatlandırıcı")push(LF.sweet,name);
       }
     });
@@ -593,9 +611,9 @@ getJson("data/e_aciklama.json").then(function(a){ABOUT=a.about||{}}).catch(funct
 getJson("data/tagsis.json").then(function(t){BRANDS=buildBrands(t)}).catch(function(){BRANDS=null});
 
 /* ---------- Profil ---------- */
-var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,preg:false,baby:false,child:false,pku:false,pet:false};
+var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,preg:false,baby:false,child:false,pku:false,pet:false,salt:false};
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
-var LIFE=[["preg","Hamileyim / emziriyorum"],["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["pku","Fenilketonüri (PKU)"],["pet","Evcil hayvanıma vereceğim"]];
+var LIFE=[["preg","Hamileyim / emziriyorum"],["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["pku","Fenilketonüri (PKU)"],["pet","Evcil hayvanıma vereceğim"],["salt","Tansiyon / tuz kısıtlaması"]];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
 function buildProfile(){
   var box=$("profil");box.textContent="";
@@ -657,7 +675,7 @@ function profileCards(S){
     else if(G.unsure.length)out.push(card("y","Vejetaryen uygunluğu belirsiz",["Kaynağı belirsiz: "+G.unsure.join(", ")]));
     else out.push(card("g","Et, balık ve kesim yan ürünü bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
   }
-  return out.concat(lifeCards(S.life));
+  return out.concat(lifeCards(S.life,S.sodium));
 }
 /* Yaşam evresi, PKU ve evcil hayvan kartları. Satır: [seviye "r"/"y", metin]. Hiçbir zaman "uygun" denmez. */
 function lifeCard(title,rows,okTitle,okNote,extra){
@@ -666,7 +684,7 @@ function lifeCard(title,rows,okTitle,okNote,extra){
   var red=rows.some(function(r){return r[0]==="r"});
   return card(red?"r":"y",title,rows.map(function(r){return r[1]}).concat(extra?[extra]:[]));
 }
-function lifeCards(L){
+function lifeCards(L,NA){
   var out=[],j=function(a){return a.join(", ")};
   var raw=L.raw.length?["r","Çiğ (pastörize edilmemiş) süt ürünü: "+j(L.raw)+". Listeria gibi bakteriler taşıyabilir."]:null;
   var alc=L.alcohol.length?["r","Alkol: "+j(L.alcohol)+". Pişirmeyle tamamen uçmayabilir."]:null;
@@ -689,6 +707,11 @@ function lifeCards(L){
   if(PROF.pet)out.push(lifeCard("Evcil hayvanlar için zehirli madde",[L.pet.length?["r","Köpek ve kediler için zehirli olduğu bilinen: "+j(L.pet)+"."]:null],
     "Bilinen zehirli madde bulunamadı","Bu bir onay değildir. İnsan yiyeceklerini evcil hayvanınıza vermeden önce veterinerinize danışın.",
     "Miktar bilinmez; hayvanınız yediyse veterinerinize başvurun."));
+  if(PROF.salt&&NA)out.push(lifeCard("Tuz ve sodyum kaynakları",[
+    NA.salt.length?["y","Tuz içerir"+(NA.saltOrd&&NA.saltOrd<=3?": içerik listesinde "+NA.saltOrd+". sırada. Bileşenler çoktan aza doğru yazıldığı için üründe tuz oranı yüksek olabilir.":".")]:null,
+    NA.hidden.length?["y","Adında “tuz” geçmeyen sodyum kaynakları: "+j(NA.hidden)+". Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."]:null],
+    "Tuz ya da sodyum kaynağı bulunamadı","Bu bir onay değildir. Peynir, et, ekmek gibi bileşenler kendiliğinden tuz içerebilir; miktar için besin değerleri tablosuna bakın.",
+    "Miktarı etiketteki besin değerleri tablosunun “Tuz” satırı gösterir: 100 g'da 1,5 g'ın üzeri yüksek, 0,3 g'ın altı düşük sayılır (İngiltere NHS ölçütü)."));
   return out;
 }
 function summaryCard(S,res){
@@ -730,7 +753,7 @@ function additiveCard(r){
   var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",it.primary_name+" hakkında bilgi");b.setAttribute("aria-expanded","false");
   top.appendChild(b);d.appendChild(top);
   d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
-  it.flags.forEach(function(f){if(f==="sodium"||f==="aluminium"||f==="gmo_suspect")return;d.appendChild(el("span","chip",FLAGS[f]||f))});
+  it.flags.forEach(function(f){if((f==="sodium"&&!PROF.salt)||f==="aluminium"||f==="gmo_suspect")return;/* sodyum etiketi yalnızca tuz kısıtlaması seçiliyse */d.appendChild(el("span","chip",FLAGS[f]||f))});
   var pn=el("div","ipanel");pn.hidden=true;
   var same=items.length>1&&items.every(function(x){return ABOUT[x.id]===ABOUT[items[0].id]&&!x.tgk_note});
   if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4)}
