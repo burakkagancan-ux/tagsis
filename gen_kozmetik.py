@@ -3,6 +3,7 @@
 Kozmetik bileşen veri tabanını üretir:
   data/kozmetik.json       AB kozmetik yönetmeliği (1223/2009) eklerindeki düzenlenmiş maddeler
   data/kozmetik_inci.json  CosIng INCI ad listesi (işlev + hayvansal kaynak / PFAS bayrakları)
+  kozmetik.json "watch"    K3: AB dışı yasaklar ve AB değerlendirme listeleri (kaynak/kozmetik_k3.tsv)
 
 Kullanım:
   git clone https://github.com/inhouse-work/cosing ../cosing && git -C ../cosing checkout 268e3cd
@@ -19,13 +20,31 @@ Kullanım:
 import argparse, csv, json, os, re, sys
 from collections import defaultdict
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 LAST_UPDATED = "2026-10-03"
 COSING_COMMIT = "268e3cd"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data", "kozmetik.json")
 OUT_INCI = os.path.join(HERE, "data", "kozmetik_inci.json")
 UPD = os.path.join(HERE, "kaynak", "kozmetik_guncellemeler.tsv")
+K3 = os.path.join(HERE, "kaynak", "kozmetik_k3.tsv")
+
+# K3 listeleri. level: kartın en az alacağı renk (AB Ek II'deki madde kırmızı kalır).
+# Karar (03.10.2026, kullanıcı): başka büyük pazarda yasak -> turuncu; AB değerlendirme listeleri ve SIN List -> sarı.
+WATCH_LISTS = {
+    "ab_ed_a": {"label": "AB olası endokrin bozucu öncelik listesi (A grubu)", "chip": "AB olası endokrin bozucu listesi",
+                "level": "yellow", "kind": "ed",
+                "text": "Avrupa Komisyonu'nun kozmetikte olası endokrin bozucu (hormon sistemini etkileyebileceği şüphesi olan) maddeler için 2019'da oluşturduğu 28 maddelik öncelik listesinde, öncelikle değerlendirilen A grubunda. SCCS bu grubun çoğu için görüş verdi; AB'deki güncel kural bu kartta ayrıca yazar. Liste bir hüküm değildir, değerlendirme sırasını gösterir."},
+    "ab_ed_b": {"label": "AB olası endokrin bozucu öncelik listesi (B grubu)", "chip": "AB olası endokrin bozucu listesi",
+                "level": "yellow", "kind": "ed",
+                "text": "Avrupa Komisyonu'nun kozmetikte olası endokrin bozucu (hormon sistemini etkileyebileceği şüphesi olan) maddeler için 2019'da oluşturduğu 28 maddelik öncelik listesinde, B grubunda. Bu grubun değerlendirmesi henüz tamamlanmadı. Liste bir hüküm değildir, değerlendirme sırasını gösterir."},
+    "ca": {"label": "ABD – Kaliforniya", "chip": "Kaliforniya'da yasak", "level": "orange", "kind": "ban",
+           "text": "Kaliforniya'da kozmetik ürünlere kasıtlı olarak eklenmesi yasak (Toxic-Free Cosmetics Act). Eser miktarda, kaçınılmaz kirlilik olarak bulunması yasak kapsamında değildir."},
+    "asean": {"label": "ASEAN", "chip": "ASEAN'da yasak", "level": "orange", "kind": "ban",
+              "text": "ASEAN Kozmetik Direktifi'nin yasaklı maddeler ekinde (Ek II). ASEAN; Endonezya, Malezya, Tayland, Vietnam, Filipinler, Singapur gibi 10 ülkeyi kapsar."},
+    "sin": {"label": "ChemSec SIN List", "chip": "SIN List", "level": "yellow", "kind": "ngo",
+            "text": "Sivil toplum kuruluşu ChemSec'in, AB REACH ölçütlerine göre 'çok yüksek endişe verici' aday gördüğü maddeler listesinde. Resmi bir yasak değildir."},
+}
 
 # CSV başlıklarında "regulated_by" sütunu var ama satırlarda yok; satırlar bir sütun eksik.
 H2 = ["ref", "inn", "cas", "ec", "regulation", "other_regulations", "sccs", "chemical_name",
@@ -159,7 +178,9 @@ def trim(s, n=400):
 CHEM_STOP = {"INN", "ISO", "INNM", "NANO", "INCI", "CAS", "SALTS", "ESTERS", "ISOMERS", "ETHYL", "METHYL",
              "PROPYL", "BUTYL", "FRUIT", "COAL", "ACID", "OILS", "WATER", "EXTRACT", "POWDER"}
 # Bir kayda yanlışlıkla bağlanan genel adlar (kayıt id -> çıkarılacak adlar)
-ALIAS_EXCLUDE = {"V/59": {"CITRIC ACID"}}
+# II/1388 (D4): CosIng, D4 içerebileceği için CYCLOMETHICONE adını da bağlıyor; ama cyclomethicone (D4/D5/D6 karışımı)
+# kozmetik yönetmeliğinde yasak değil. Etikette görülünce "AB'de yasak" denmemesi için çıkarıldı.
+ALIAS_EXCLUDE = {"V/59": {"CITRIC ACID"}, "II/1388": {"CYCLOMETHICONE"}}
 
 
 def short_chem(s):
@@ -406,6 +427,36 @@ def apply_updates(entries):
     return log
 
 
+def read_watch(known):
+    """kaynak/kozmetik_k3.tsv -> watch kayıtları. Her kayıt: liste, INCI adları, tarih, dayanak, kaynak."""
+    if not os.path.exists(K3):
+        return []
+    out, head = [], None
+    for line in open(K3, encoding="utf-8"):
+        if line.startswith("#") or not line.strip():
+            continue
+        c = line.rstrip("\n").split("\t")
+        if head is None:
+            head = c
+            continue
+        c += [""] * (len(head) - len(c))
+        r = dict(zip(head, c))
+        if r["liste"] not in WATCH_LISTS:
+            print("uyarı: K3 bilinmeyen liste: %s" % r["liste"], file=sys.stderr)
+            continue
+        names = split_names(r["inci"], comma=False)
+        for n in names:
+            if n not in known:
+                print("uyarı: K3 adı CosIng/eklerde yok (yine de eklendi): %s" % n, file=sys.stderr)
+        w = {"list": r["liste"], "inci": names, "cas": split_cas(r["cas"]), "date": r["tarih"],
+             "basis": r["dayanak"], "source": r["kaynak"]}
+        if r["ad"]: w["name"] = r["ad"]
+        if r["not_tr"]: w["note_tr"] = r["not_tr"]
+        if r["inceleme"] == "1": w["needs_review"] = True
+        out.append(w)
+    return out
+
+
 def finalize(entries):
     fr = set(FORMALDEHYDE_RELEASERS)
     pa = set(PRESERVATIVE_ALLERGENS)
@@ -624,6 +675,8 @@ def main():
     entries, ing = build(a.cosing)
     log = apply_updates(entries)
     dropped = finalize(entries)
+    known = {norm_alias(r["inci_name"]) for r in ing} | {a for e in entries.values() for a in e["inci"]}
+    watch = read_watch(known)
     order = {"II": 0, "III": 1, "V": 2, "VI": 3, "IV": 4}
     def rk(e):
         m = re.match(r"(\d+)", e["ref"]); return (order[e["annex"]], int(m.group(1)) if m else 99999, e["ref"])
@@ -643,7 +696,7 @@ def main():
             "levels": LEVELS, "flags": FLAGS,
             "inci_flag_levels": {"pfas": "orange"},
             "inci_flag_reasons": {
-                "pfas": "PFAS grubundan (florlu, doğada parçalanmayan madde). Fransa'da 1 Ocak 2026'dan itibaren kozmetikte yasak (Kanun 2025-188); ABD'de Kaliforniya 2025'ten itibaren bazı PFAS'ları yasakladı; AB'de genel kısıtlama önerisi değerlendiriliyor. AB/Türkiye'de şu an yasak değil.",
+                "pfas": "PFAS grubundan (florlu, doğada parçalanmayan madde). Fransa'da 1 Ocak 2026'dan itibaren kozmetikte yasak (Kanun 2025-188); ABD Kaliforniya'da 1 Ocak 2025'ten itibaren kozmetiğe kasıtlı eklenen tüm PFAS yasak (AB 2771); AB'de genel kısıtlama önerisi değerlendiriliyor. AB/Türkiye'de şu an yasak değil.",
                 "non_vegan": "Hayvandan elde edilen bir bileşen.",
                 "non_veg": "Kesim, balık ya da böcek kaynaklı bir bileşen.",
                 "vegan_unsure": "Bitkisel, sentetik ya da hayvansal kaynaklı olabilir; etikette kaynak yazmaz."},
@@ -651,11 +704,16 @@ def main():
                 "(EU) 2026/78 ile Ek II'ye eklenen 15 CMR maddesinin adları henüz eklenmedi.",
                 "(EU) 2026/909: alüminyum içeren bileşenler, suda çözünen çinko tuzları, DHHB ve 4 yeni saç boyası eklenmedi.",
                 "2026 sonu taslak: benzofenon-1/-2, BHA, paraben ve CBD kısıtlamaları (henüz yayımlanmadı).",
+                "K3: ChemSec SIN List eklenmedi (verinin uygulamada yeniden kullanımı için ChemSec'ten yazılı izin gerekiyor).",
+                "K3: Kanada Hotlist, Çin, Japonya, Kore, Brezilya ve ABD'nin diğer eyalet yasakları (ör. Washington) eklenmedi.",
             ],
+            "watch_lists": WATCH_LISTS,
+            "watch_match": "watch kayıtları yalnızca inci alanındaki adlarla eşleşir; level, kartın en az alacağı renktir.",
             "counts": dict(sorted(counts.items())),
             "updates_applied": len(log), "aliases_dropped_ii_conflict": dropped,
         },
         "entries": lst,
+        "watch": watch,
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
@@ -672,6 +730,7 @@ def main():
     import collections
     print("kozmetik_inci.json: %d INCI adı, %d işlev, %d eş anlamlı %s" % (len(items), len(funcs), len(aliases), dict(collections.Counter(a[2] for a in aliases))))
     print("güncellemeler: %d işlem; II çakışmasıyla çıkarılan ad: %d" % (len(log), dropped))
+    print("K3 (watch): %d kayıt %s" % (len(watch), dict(collections.Counter(w["list"] for w in watch))))
 
 
 if __name__ == "__main__":
