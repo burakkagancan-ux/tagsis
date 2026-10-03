@@ -8,16 +8,21 @@
 //
 // Ortam (Cloudflare panelinde / wrangler.toml):
 //   VISION_KEY      gizli (secret)  Google Cloud Vision API anahtarı
-//   ALLOWED_ORIGIN  değişken        https://burakkagancan-ux.github.io
+//   ALLOWED_ORIGIN  değişken/gizli  https://burakkagancan-ux.github.io (virgülle birden çok adres verilebilir)
 //   IP_LIMIT        rate limit      IP başına dakikada en fazla istek (wrangler.toml)
 //   GLOBAL_LIMIT    rate limit      tüm kullanıcılar için dakikada en fazla istek (Cloudflare konumu başına)
 
-const MAX_BODY = 3_000_000;          // ~3 MB; uygulama 1800 px JPEG gönderir (genelde 0,3-1 MB)
+const MAX_BODY = 4_000_000;          // ~4 MB (eski Worker'la aynı); uygulama 1800 px JPEG gönderir (genelde 0,3-1 MB)
 const VISION_TIMEOUT_MS = 20_000;
 
-function cors(env) {
+function origins(env) {
+  return (env.ALLOWED_ORIGIN || "").split(",").map((s) => s.trim()).filter(Boolean);
+}
+
+function cors(env, origin) {
+  const list = origins(env);
   return {
-    "Access-Control-Allow-Origin": env.ALLOWED_ORIGIN || "",
+    "Access-Control-Allow-Origin": list.includes(origin) ? origin : list[0] || "",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
@@ -25,50 +30,51 @@ function cors(env) {
   };
 }
 
-function reply(env, status, obj, extra) {
+function reply(env, origin, status, obj, extra) {
   return new Response(JSON.stringify(obj), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...cors(env), ...(extra || {}) },
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...cors(env, origin), ...(extra || {}) },
   });
 }
 
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
-    const allowed = env.ALLOWED_ORIGIN && origin === env.ALLOWED_ORIGIN;
+    const allowed = origins(env).includes(origin);
+    const R = (status, obj, extra) => reply(env, origin, status, obj, extra);
 
     if (request.method === "OPTIONS") {
-      return new Response(null, { status: allowed ? 204 : 403, headers: cors(env) });
+      return new Response(null, { status: allowed ? 204 : 403, headers: cors(env, origin) });
     }
-    if (request.method !== "POST") return reply(env, 405, { error: "Yalnızca POST isteği kabul edilir." });
-    if (!allowed) return reply(env, 403, { error: "Bu adresten istek kabul edilmiyor." });
+    if (request.method !== "POST") return R(405, { error: "Yalnızca POST isteği kabul edilir." });
+    if (!allowed) return R(403, { error: "Bu adresten istek kabul edilmiyor." });
 
     // 1) İstek sınırı: önce IP başına, sonra genel sınır
     const ip = request.headers.get("CF-Connecting-IP") || "bilinmiyor";
     if (env.IP_LIMIT) {
       const { success } = await env.IP_LIMIT.limit({ key: "ip:" + ip });
-      if (!success) return reply(env, 429, { error: "Çok sık okuma yapıldı. Lütfen bir dakika sonra tekrar deneyin." }, { "Retry-After": "60" });
+      if (!success) return R(429, { error: "Çok sık okuma yapıldı. Lütfen bir dakika sonra tekrar deneyin." }, { "Retry-After": "60" });
     }
     if (env.GLOBAL_LIMIT) {
       const { success } = await env.GLOBAL_LIMIT.limit({ key: "global" });
-      if (!success) return reply(env, 429, { error: "Hizmet şu an yoğun. Lütfen biraz sonra tekrar deneyin." }, { "Retry-After": "60" });
+      if (!success) return R(429, { error: "Hizmet şu an yoğun. Lütfen biraz sonra tekrar deneyin." }, { "Retry-After": "60" });
     }
 
     // 2) Boyut ve biçim denetimi
     const len = Number(request.headers.get("Content-Length") || "0");
-    if (len > MAX_BODY) return reply(env, 413, { error: "Fotoğraf çok büyük. Daha küçük bir alan seçip tekrar deneyin." });
+    if (len > MAX_BODY) return R(413, { error: "Fotoğraf çok büyük. Daha küçük bir alan seçip tekrar deneyin." });
     let raw;
-    try { raw = await request.text(); } catch { return reply(env, 400, { error: "İstek okunamadı." }); }
-    if (raw.length > MAX_BODY) return reply(env, 413, { error: "Fotoğraf çok büyük. Daha küçük bir alan seçip tekrar deneyin." });
+    try { raw = await request.text(); } catch { return R(400, { error: "İstek okunamadı." }); }
+    if (raw.length > MAX_BODY) return R(413, { error: "Fotoğraf çok büyük. Daha küçük bir alan seçip tekrar deneyin." });
     let image;
-    try { image = JSON.parse(raw).image; } catch { return reply(env, 400, { error: "Geçersiz istek." }); }
-    if (typeof image !== "string" || image.length < 100) return reply(env, 400, { error: "Fotoğraf bulunamadı." });
+    try { image = JSON.parse(raw).image; } catch { return R(400, { error: "Geçersiz istek." }); }
+    if (typeof image !== "string" || image.length < 100) return R(400, { error: "Fotoğraf bulunamadı." });
     // Yalnızca JPEG (/9j/), PNG (iVBOR) ve WebP (UklGR) kabul edilir
     if (!/^(\/9j\/|iVBOR|UklGR)/.test(image) || /[^A-Za-z0-9+/=]/.test(image)) {
-      return reply(env, 415, { error: "Desteklenmeyen dosya biçimi." });
+      return R(415, { error: "Desteklenmeyen dosya biçimi." });
     }
 
-    if (!env.VISION_KEY) return reply(env, 500, { error: "Okuma hizmeti yapılandırılmamış." });
+    if (!env.VISION_KEY) return R(500, { error: "Okuma hizmeti yapılandırılmamış." });
 
     // 3) Google Cloud Vision
     const ctrl = new AbortController();
@@ -90,11 +96,14 @@ export default {
       const res = (j.responses && j.responses[0]) || {};
       if (!r.ok || res.error) {
         const code = r.status === 429 || (j.error && j.error.status === "RESOURCE_EXHAUSTED") ? 429 : 502;
-        return reply(env, code, { error: code === 429 ? "Günlük okuma kapasitesi doldu. Lütfen daha sonra tekrar deneyin." : "Okuma hizmetinde geçici bir sorun var." });
+        if (code === 429) return R(429, { error: "Okuma kapasitesi doldu. Lütfen daha sonra tekrar deneyin." });
+        // Google'ın hata mesajı (ör. "API key not valid") sorun tespiti için iletilir; anahtarı içermez
+        const msg = (res.error && res.error.message) || (j.error && j.error.message) || ("HTTP " + r.status);
+        return R(502, { error: "OCR hatası: " + String(msg).slice(0, 200) });
       }
-      return reply(env, 200, { text: (res.fullTextAnnotation && res.fullTextAnnotation.text) || "" });
+      return R(200, { text: (res.fullTextAnnotation && res.fullTextAnnotation.text) || "" });
     } catch (e) {
-      return reply(env, 504, { error: e && e.name === "AbortError" ? "Okuma zaman aşımına uğradı." : "Okuma hizmetine ulaşılamadı." });
+      return R(504, { error: e && e.name === "AbortError" ? "Okuma zaman aşımına uğradı." : "Okuma hizmetine ulaşılamadı." });
     } finally {
       clearTimeout(timer);
     }

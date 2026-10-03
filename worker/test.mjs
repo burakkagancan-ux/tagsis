@@ -20,13 +20,15 @@ await t("yabancı köken", req(JSON.stringify({ image: img }), { origin: "https:
 await t("GET reddi", req(null, { method: "GET" }), env(), 405);
 await t("bozuk JSON", req("{x"), env(), 400);
 await t("resim değil", req(JSON.stringify({ image: "SGVsbG8".repeat(30) })), env(), 415);
-await t("çok büyük", req(JSON.stringify({ image: "/9j/" + "A".repeat(3_100_000) })), env(), 413);
+await t("çok büyük", req(JSON.stringify({ image: "/9j/" + "A".repeat(4_100_000) })), env(), 413);
 { const e = env(); for (let i = 0; i < 6; i++) await w.fetch(req(JSON.stringify({ image: img })), e); await t("IP sınırı (7. istek)", req(JSON.stringify({ image: img })), e, 429, (j, r) => r.headers.get("Retry-After") === "60"); }
 { const e = env(); e.IP_LIMIT = lim(1000); for (let i = 0; i < 30; i++) await w.fetch(req(JSON.stringify({ image: img })), e); await t("genel sınır (31. istek)", req(JSON.stringify({ image: img })), e, 429); }
 visionReply = () => ({ status: 429, body: { error: { status: "RESOURCE_EXHAUSTED" } } });
 await t("Vision kotası doldu", req(JSON.stringify({ image: img })), env(), 429);
-visionReply = () => ({ status: 500, body: {} });
-await t("Vision hatası", req(JSON.stringify({ image: img })), env(), 502);
+visionReply = () => ({ status: 400, body: { responses: [{ error: { message: "API key not valid" } }] } });
+await t("Vision hatası mesajı iletilir", req(JSON.stringify({ image: img })), env(), 502, j => j.error === "OCR hatası: API key not valid");
+{ const e = env(); e.ALLOWED_ORIGIN = "http://localhost:8765, " + ORIGIN; visionReply = () => ({ status: 200, body: { responses: [{ fullTextAnnotation: { text: "x" } }] } });
+  await t("birden çok köken", req(JSON.stringify({ image: img }), { origin: "http://localhost:8765" }), e, 200, (j, r) => r.headers.get("Access-Control-Allow-Origin") === "http://localhost:8765"); }
 { const e = env(); delete e.VISION_KEY; visionReply = () => ({ status: 200, body: {} }); await t("anahtar yok", req(JSON.stringify({ image: img })), e, 500); }
 console.log(fail ? fail + " hata" : "tüm testler geçti");
 process.exit(fail ? 1 : 0);

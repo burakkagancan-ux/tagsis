@@ -6,8 +6,8 @@ compatibility_date = "2025-09-01"
 workers_dev = true
 keep_vars = true
 
-[vars]
-ALLOWED_ORIGIN = "https://burakkagancan-ux.github.io"
+# ALLOWED_ORIGIN ve VISION_KEY panelde (Settings > Variables and Secrets) tanımlı; keep_vars = true
+# sayesinde dağıtım onları silmez. Burada tekrar tanımlanmaz (gizli değişkenle çakışmasın diye).
 
 # Kayıt (log) kapalı: fotoğraf ve metin hiçbir yerde tutulmaz
 [observability]
