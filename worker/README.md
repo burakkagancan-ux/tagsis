@@ -5,8 +5,8 @@ Adres: https://inapp-ocr-3a8f.burakkagancan.workers.dev
 
 ## Korumalar
 - **İstek sınırı:** IP başına dakikada 6, toplamda dakikada 30 okuma (Cloudflare konumu başına; yaklaşık sayım). Aşınca 429 ve Türkçe mesaj.
-- **Köken denetimi:** Yalnızca `ALLOWED_ORIGIN` (GitHub Pages sitesi) kabul edilir.
-- **Boyut ve biçim:** En fazla ~3 MB; yalnızca JPEG, PNG, WebP.
+- **Köken denetimi:** Yalnızca `ALLOWED_ORIGIN` adresleri kabul edilir (virgülle birden çok adres yazılabilir; panelde tanımlı).
+- **Boyut ve biçim:** En fazla ~4 MB; yalnızca JPEG, PNG, WebP.
 - **Kayıt yok:** Kodda `console.log` yok; `wrangler.toml` içinde gözlemlenebilirlik (Workers Logs) kapalı.
 - **Zaman aşımı:** Vision 20 saniyede yanıt vermezse istek kesilir.
 
@@ -14,7 +14,7 @@ Adres: https://inapp-ocr-3a8f.burakkagancan.workers.dev
 1. Cloudflare paneli → Workers & Pages → `inapp-ocr-3a8f` → Settings → Builds → **Connect**.
 2. GitHub'ı bağla, `burakkagancan-ux/tagsis` deposunu seç. Dal: `main`. **Root directory: `worker`**. Deploy command: `npx wrangler deploy` (varsayılan).
 3. Varsa "Build watch paths" alanına `worker/*` yaz; böylece günlük veri güncellemeleri gereksiz dağıtım tetiklemez.
-4. `VISION_KEY` gizli değişkeni panelde kalır, dağıtım onu silmez.
+4. `VISION_KEY` ve `ALLOWED_ORIGIN` panelde kalır, dağıtım onları silmez (`keep_vars = true`).
 
 `wrangler.toml` içindeki `name`, paneldeki Worker adıyla aynı olmalıdır.
 
