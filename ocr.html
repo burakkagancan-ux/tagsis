@@ -202,7 +202,7 @@ var OCRDF={"0":"o","1":"l","5":"s","8":"b","6":"g"};
 function ocrFixF(w){
   return w.split(" ").map(function(x){
     if(x.indexOf("rn")>-1&&x.indexOf("karnauba")<0)x=x.replace(/rn/g,"m");
-    if(/\d/.test(x)&&(x.match(/[a-z]/g)||[]).length>=3)x=x.replace(/\d+(?=[a-z])|(?<=[a-z])\d+(?=[a-z])/g,function(ds){return ds.replace(/\d/g,function(d){return OCRDF[d]||d})});
+    if(/\d/.test(x)&&(x.match(/[a-z]/g)||[]).length>=3)x=x.replace(/\d+(?=[a-z])/g,function(ds){return ds.replace(/\d/g,function(d){return OCRDF[d]||d})});
     return x;
   }).join(" ");
 }
