@@ -31,11 +31,26 @@ for(const [t,o,exp,chk] of cases){
   for(const n in exp)if(by[n]!==exp[n]){fail++;console.log('HATA',JSON.stringify(t).slice(0,60),n,'beklenen',exp[n],'bulunan',by[n]);}
   if(chk&&!chk(KL.summarizeK(r))){fail++;console.log('HATA özet',JSON.stringify(t).slice(0,60),JSON.stringify(KL.summarizeK(r)));}
 }
+// Kullanıcının telefon testindeki gerçek OCR çıktıları (03.10.2026)
+const REAL=[
+ ["Ingredients: Aqua, Glycerin, Olea Europaea fru Come Nucifera O, Butyrospermum Parki Butter, Persea Grafis Cinnamomum Cassic Extract, Triethyl Citrate, Glyceryl Capryla Magresium Sulfate, Tocopherol, Parfum, Limonene ndod Berzy Salicylate, Cra \"Doğal kaynaklardan elde edilmi Hindistan Ceviz Yağ, ci Hario kullanamigindir Çocu yumaya yardima ulayamayacağ yerde soko, Hamile vevo ema den du Click korumaya döneminde, locular ok Hinddan Cevin Yog, herhangi bir hastalih klerden ve kirden mud fceri 4850 255 90 00",
+  ["BUTYROSPERMUM PARKII BUTTER","GLYCERYL CAPRYLATE","MAGNESIUM SULFATE","LIMONENE","BENZYL SALICYLATE","CINNAMOMUM CASSIA EXTRACT"],5,3],
+ ["ISODOCECANE POLYETHYLENE TRIMETHYLSILOXYPHENYL DIMETHICONE SOHEXADECANE-DIMETHICONE ACRYLATES/OIMETHICONE CUPOLYMER-POLYPROPYLSILSESQUIOXANE HYDROGENATED POLYSOBUTENE HYDROGENATED STYRENE METHYL STYPENE INDENE COPOLYMER ALUMINA SINTETIC FLUORPHLOGOPITE CALCIUM ALUMINUM BORDSLICATE ETHYLENEVA COPOLYMER-ACRYLATES COPOLYMER BENZVE ALCOHOL",
+  ["ISODODECANE","POLYETHYLENE","TRIMETHYLSILOXYPHENYL DIMETHICONE","ISOHEXADECANE","ACRYLATES/DIMETHICONE COPOLYMER","HYDROGENATED POLYISOBUTENE","SYNTHETIC FLUORPHLOGOPITE","CALCIUM ALUMINUM BOROSILICATE","BENZYL ALCOHOL"],0,0],
+ ["İçindekiler: Aqua, Hydrated Silica, Sorbitol, Glycerin, PEG-6, Sodium Lauryl Sulfate, Aroma, Limonene, CI 77491. Sodium Fluoride %0.31 w/w (1400ppm Fluoride) içerir. AMBALAJ ÜZERİNDEKİ UYARILARA UYUNUZ. Dişlerinizi günde 2 kez fırçalayınız. Haleon Tüketici Sağlığı A.Ş. Esentepe Mah. Bahar Sk. Özdilek River Plaza No: 13 Şişli/İstanbul tarafından ithal edilmiştir.",
+  ["AQUA","HYDRATED SILICA","PEG-6","CI 77491","SODIUM FLUORIDE"],6,0],
+];
+for(const [t,must,minExtra,maxUnknown] of REAL){
+  const t0=Date.now(),r=KL.analyzeK(t,K,{}),ms=Date.now()-t0,got=r.filter(x=>x.found).map(x=>x.name),unk=r.filter(x=>!x.found).length;
+  const miss=must.filter(m=>!got.includes(m));
+  if(miss.length||r.extra.length<minExtra||unk>maxUnknown||ms>3000){fail++;console.log('HATA gerçek etiket',t.slice(0,30),'eksik:',miss,'liste dışı:',r.extra.length,'tanınmayan:',unk,ms+'ms')}
+  if(got.includes('ICINDEKILER')||r.some(x=>/ICINDEKILER|ICERIR|1400PPM/.test(x.name))){fail++;console.log('HATA başlık/talimat bileşen sayıldı')}
+}
 // "may contain" bölümü
 const mi=KL.inciItems("Talc, Mica [+/- CI 77491, CI 77891]");
 if(!(mi.length===4&&mi[2].may&&!mi[1].may)){fail++;console.log('HATA may',JSON.stringify(mi))}
 // Kozmetik/gıda ayrımı
 if(!KL.looksCosmetic("Ingredients: Aqua, Glycerin, Parfum, Phenoxyethanol")){fail++;console.log('HATA looksCosmetic kozmetik')}
 if(KL.looksCosmetic("İçindekiler: Şeker, buğday unu, bitkisel yağ, süt tozu, tuz, sitrik asit")){fail++;console.log('HATA looksCosmetic gıda')}
-console.log(cases.length+3+' kozmetik durum, '+fail+' hata');
+console.log(cases.length+REAL.length+3+' kozmetik durum, '+fail+' hata');
 process.exit(fail?1:0);
