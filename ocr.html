@@ -527,19 +527,22 @@ var DB=null,BDB=null,ABOUT={},IDX=null,FLAGS={},BRANDS=null,ST=document.getEleme
 var CLS=["g","u","y","r"],LBL=["Özel uyarı yok","Durum doğrulanmadı","Dikkat","Uyarı"];
 function $(i){return document.getElementById(i)}
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+/* Durum satırı her mod için ayrı tutulur; mod değişince o modun mesajı gösterilir */
+var STMSG={gida:"",koz:""};
+function setSt(mode,msg){STMSG[mode]=msg;if((typeof MODE==="undefined"||!MODE?"gida":MODE)===mode)ST.textContent=msg}
 window.onerror=function(m,src,l){ST.textContent="Sayfa hatası: "+m+" (satır "+l+")";};
 
 /* ---------- Veri yükleme ---------- */
 var PATHS=["data/e_kodlari.json","e_kodlari.json"];
 function getJson(p){return fetch(p,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(p+" bulunamadı");return r.json()})}
 function loadDb(i){
-  if(i>=PATHS.length){var msg="Katkı maddesi listesi bulunamadı. GitHub'da dosyanın adı tam olarak e_kodlari.json olmalı ve data klasöründe durmalı.";ST.textContent=msg;$("sonuc").textContent=msg;return}
+  if(i>=PATHS.length){var msg="Katkı maddesi listesi bulunamadı. GitHub'da dosyanın adı tam olarak e_kodlari.json olmalı ve data klasöründe durmalı.";setSt("gida",msg);$("sonuc").textContent=msg;return}
   getJson(PATHS[i]).then(function(j){
     DB=j;FLAGS=(j.meta&&j.meta.flags)||{};
     return getJson("data/bilesenler.json").then(function(b){BDB=b},function(){BDB=null});
   }).then(function(){
     IDX=buildIndex(DB,BDB);
-    ST.textContent="Listeler yüklendi: "+DB.ingredients.length+" katkı maddesi"+(BDB?", "+BDB.items.length+" bileşen grubu.":". Bileşen listesi (data/bilesenler.json) bulunamadı; yalnızca E kodları aranacak.");
+    setSt("gida","Gıda listeleri yüklendi: "+DB.ingredients.length+" katkı maddesi"+(BDB?", "+BDB.items.length+" bileşen grubu.":". Bileşen listesi (data/bilesenler.json) bulunamadı; yalnızca E kodları aranacak."));
     buildProfile();
   }).catch(function(){if(!DB)loadDb(i+1)});
 }
@@ -745,12 +748,12 @@ try{MODE=localStorage.getItem("tur")==="koz"?"koz":"gida";PTYPE=localStorage.get
 function loadK(){
   if(KIDX)return Promise.resolve(KIDX);
   if(KLOAD)return KLOAD;
-  ST.textContent="Kozmetik listeleri yükleniyor…";
+  setSt("koz","Kozmetik listeleri yükleniyor…");
   KLOAD=Promise.all([getJson("data/kozmetik.json"),getJson("data/kozmetik_inci.json").catch(function(){return null})]).then(function(a){
     KDB=a[0];KINCI=a[1];KIDX=buildKIndex(KDB,KINCI);
-    ST.textContent="Kozmetik listeleri yüklendi: "+KDB.entries.length+" düzenlenmiş madde"+(KINCI?", "+KINCI.items.length+" INCI adı.":". INCI ad listesi yüklenemedi; yalnızca düzenlenmiş maddeler tanınır.");
+    setSt("koz","Kozmetik listeleri yüklendi: "+KDB.entries.length+" düzenlenmiş madde"+(KINCI?", "+KINCI.items.length+" INCI adı.":". INCI ad listesi yüklenemedi; yalnızca düzenlenmiş maddeler tanınır."));
     return KIDX;
-  }).catch(function(e){KLOAD=null;ST.textContent="Kozmetik listesi yüklenemedi (internet bağlantısını kontrol edin).";throw e});
+  }).catch(function(e){KLOAD=null;setSt("koz","Kozmetik listesi yüklenemedi (internet bağlantısını kontrol edin).");throw e});
   return KLOAD;
 }
 function setMode(m,save){
@@ -759,6 +762,7 @@ function setMode(m,save){
   $("ptype").hidden=m!=="koz";
   $("camtxt").textContent=m==="koz"?"Ürünün “Ingredients / İçindekiler” listesinin fotoğrafını çekin.":"Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.";
   if(save)try{localStorage.setItem("tur",m)}catch(e){}
+  ST.textContent=STMSG[m]||(m==="koz"?"Kozmetik listeleri yükleniyor…":"Gıda listeleri yükleniyor…");
   if(m==="koz")loadK().then(function(){if($("metin").value.trim())run()},function(){});
   else if($("metin").value.trim())run();
 }
