@@ -1,0 +1,187 @@
+# Kozmetik eş anlamlılar: etikette INCI yerine görülebilen adlar -> INCI adı.
+# gen_kozmetik.py bu dosyayı okur; hedef INCI adı listede yoksa uyarı verir ve satırı atlar.
+# Sütunlar sekmeyle ayrılır: ad | hedef INCI (birden çoksa ; ile) | tür
+# tür: tr = Türkçe ad | en = İngilizce yaygın ad | kisa = kısaltma | abd = ABD etiket adı / eski INCI
+# Türkçe kimyasal adlar (sodyum benzoat, sitrik asit...) ayrıca betikteki kurallarla otomatik üretilir.
+ad	inci	tur
+# --- Su, parfüm, alkol ---
+Su	AQUA	tr
+Arıtılmış su	AQUA	tr
+Saf su	AQUA	tr
+Deiyonize su	AQUA	tr
+Demineralize su	AQUA	tr
+Eau	AQUA	en
+Parfüm	PARFUM	tr
+Esans	PARFUM	tr
+Parfüm esansı	PARFUM	tr
+Koku	PARFUM	tr
+Fragrance	PARFUM	abd
+Perfume	PARFUM	en
+Alcohol denat	ALCOHOL	abd
+Denatured alcohol	ALCOHOL	en
+SD alcohol 40	ALCOHOL	abd
+SD alcohol 40-B	ALCOHOL	abd
+Ethanol	ALCOHOL	en
+Etanol	ALCOHOL	tr
+Etil alkol	ALCOHOL	tr
+Isopropanol	ISOPROPYL ALCOHOL	en
+İzopropanol	ISOPROPYL ALCOHOL	tr
+Glycerine	GLYCERIN	en
+Glycerol	GLYCERIN	en
+Gliserol	GLYCERIN	tr
+# --- Yağlar ve tereyağları ---
+Zeytinyağı	OLEA EUROPAEA FRUIT OIL	tr
+Zeytin yağı	OLEA EUROPAEA FRUIT OIL	tr
+Olive oil	OLEA EUROPAEA FRUIT OIL	en
+Hindistan cevizi yağı	COCOS NUCIFERA OIL	tr
+Hindistancevizi yağı	COCOS NUCIFERA OIL	tr
+Coconut oil	COCOS NUCIFERA OIL	en
+Shea yağı	BUTYROSPERMUM PARKII BUTTER	tr
+Shea butter	BUTYROSPERMUM PARKII BUTTER	en
+Karite yağı	BUTYROSPERMUM PARKII BUTTER	tr
+Butyrospermum parkii	BUTYROSPERMUM PARKII BUTTER	abd
+Badem yağı	PRUNUS AMYGDALUS DULCIS OIL	tr
+Tatlı badem yağı	PRUNUS AMYGDALUS DULCIS OIL	tr
+Sweet almond oil	PRUNUS AMYGDALUS DULCIS OIL	en
+Almond oil	PRUNUS AMYGDALUS DULCIS OIL	en
+Argan yağı	ARGANIA SPINOSA KERNEL OIL	tr
+Argan oil	ARGANIA SPINOSA KERNEL OIL	en
+Jojoba yağı	SIMMONDSIA CHINENSIS SEED OIL	tr
+Jojoba oil	SIMMONDSIA CHINENSIS SEED OIL	en
+Kakao yağı	THEOBROMA CACAO SEED BUTTER	tr
+Cocoa butter	THEOBROMA CACAO SEED BUTTER	en
+Hint yağı	RICINUS COMMUNIS SEED OIL	tr
+Castor oil	RICINUS COMMUNIS SEED OIL	en
+Ayçiçek yağı	HELIANTHUS ANNUUS SEED OIL	tr
+Ayçiçeği yağı	HELIANTHUS ANNUUS SEED OIL	tr
+Sunflower oil	HELIANTHUS ANNUUS SEED OIL	en
+Sunflower seed oil	HELIANTHUS ANNUUS SEED OIL	en
+Avokado yağı	PERSEA GRATISSIMA OIL	tr
+Avocado oil	PERSEA GRATISSIMA OIL	en
+Üzüm çekirdeği yağı	VITIS VINIFERA SEED OIL	tr
+Grape seed oil	VITIS VINIFERA SEED OIL	en
+Grapeseed oil	VITIS VINIFERA SEED OIL	en
+Kuşburnu yağı	ROSA CANINA FRUIT OIL	tr
+Rosehip oil	ROSA CANINA FRUIT OIL	en
+Susam yağı	SESAMUM INDICUM SEED OIL	tr
+Sesame oil	SESAMUM INDICUM SEED OIL	en
+Buğday tohumu yağı	TRITICUM VULGARE GERM OIL	tr
+Wheat germ oil	TRITICUM VULGARE GERM OIL	en
+Kenevir tohumu yağı	CANNABIS SATIVA SEED OIL	tr
+Hemp seed oil	CANNABIS SATIVA SEED OIL	en
+Çuha çiçeği yağı	OENOTHERA BIENNIS OIL	tr
+Evening primrose oil	OENOTHERA BIENNIS OIL	en
+Sıvı parafin	PARAFFINUM LIQUIDUM	tr
+Mineral yağ	PARAFFINUM LIQUIDUM	tr
+Mineral oil	PARAFFINUM LIQUIDUM	abd
+Liquid paraffin	PARAFFINUM LIQUIDUM	en
+Vazelin	PETROLATUM	tr
+Petroleum jelly	PETROLATUM	en
+Balmumu	CERA ALBA	tr
+Bal mumu	CERA ALBA	tr
+Arı mumu	CERA ALBA	tr
+Mikrokristalin mum	CERA MICROCRISTALLINA	tr
+# --- Bitki özleri, sular ---
+Aloe vera	ALOE BARBADENSIS LEAF JUICE	tr
+Aloe vera özü	ALOE BARBADENSIS LEAF JUICE	tr
+Aloe vera jeli	ALOE BARBADENSIS LEAF JUICE	tr
+Aloe vera gel	ALOE BARBADENSIS LEAF JUICE	en
+Aloe vera juice	ALOE BARBADENSIS LEAF JUICE	en
+Çay ağacı yağı	MELALEUCA ALTERNIFOLIA LEAF OIL	tr
+Tea tree oil	MELALEUCA ALTERNIFOLIA LEAF OIL	en
+Yeşil çay özü	CAMELLIA SINENSIS LEAF EXTRACT	tr
+Green tea extract	CAMELLIA SINENSIS LEAF EXTRACT	en
+Papatya özü	CHAMOMILLA RECUTITA FLOWER EXTRACT	tr
+Chamomile extract	CHAMOMILLA RECUTITA FLOWER EXTRACT	en
+Gül suyu	ROSA DAMASCENA FLOWER WATER	tr
+Rose water	ROSA DAMASCENA FLOWER WATER	en
+Lavanta yağı	LAVANDULA ANGUSTIFOLIA OIL	tr
+Lavender oil	LAVANDULA ANGUSTIFOLIA OIL	en
+Biberiye özü	ROSMARINUS OFFICINALIS LEAF EXTRACT	tr
+Rosemary extract	ROSMARINUS OFFICINALIS LEAF EXTRACT	en
+Nane yağı	MENTHA PIPERITA OIL	tr
+Peppermint oil	MENTHA PIPERITA OIL	en
+Salatalık özü	CUCUMIS SATIVUS FRUIT EXTRACT	tr
+Cucumber extract	CUCUMIS SATIVUS FRUIT EXTRACT	en
+Cadı fındığı	HAMAMELIS VIRGINIANA WATER	tr
+Witch hazel	HAMAMELIS VIRGINIANA WATER	en
+Aynısefa özü	CALENDULA OFFICINALIS FLOWER EXTRACT	tr
+Calendula extract	CALENDULA OFFICINALIS FLOWER EXTRACT	en
+Meyan kökü özü	GLYCYRRHIZA GLABRA ROOT EXTRACT	tr
+Licorice extract	GLYCYRRHIZA GLABRA ROOT EXTRACT	en
+Centella	CENTELLA ASIATICA EXTRACT	en
+Cica	CENTELLA ASIATICA EXTRACT	en
+Limon yağı	CITRUS LIMON PEEL OIL	tr
+Lemon oil	CITRUS LIMON PEEL OIL	en
+Portakal yağı	CITRUS AURANTIUM DULCIS PEEL OIL	tr
+Orange oil	CITRUS AURANTIUM DULCIS PEEL OIL	en
+Okaliptüs yağı	EUCALYPTUS GLOBULUS LEAF OIL	tr
+Eucalyptus oil	EUCALYPTUS GLOBULUS LEAF OIL	en
+Yulaf unu	AVENA SATIVA KERNEL FLOUR	tr
+Colloidal oatmeal	AVENA SATIVA KERNEL FLOUR	abd
+Deniz tuzu	MARIS SAL	tr
+Sea salt	MARIS SAL	en
+Dead sea salt	MARIS SAL	en
+# --- Hayvansal ---
+Bal	MEL	tr
+Honey	MEL	en
+Arı sütü	ROYAL JELLY EXTRACT	tr
+Propolis	PROPOLIS EXTRACT	tr
+Salyangoz özü	SNAIL SECRETION FILTRATE	tr
+Salyangoz salgısı	SNAIL SECRETION FILTRATE	tr
+Snail mucin	SNAIL SECRETION FILTRATE	en
+Kolajen	COLLAGEN	tr
+İpek proteini	HYDROLYZED SILK	tr
+Karmin	CI 75470	tr
+Carmine	CI 75470	abd
+# --- Vitaminler ve etken maddeler ---
+E vitamini	TOCOPHEROL	tr
+Vitamin E	TOCOPHEROL	en
+E vitamini asetat	TOCOPHERYL ACETATE	tr
+Vitamin E acetate	TOCOPHERYL ACETATE	en
+C vitamini	ASCORBIC ACID	tr
+Vitamin C	ASCORBIC ACID	en
+A vitamini	RETINOL	tr
+Vitamin A	RETINOL	en
+A vitamini palmitat	RETINYL PALMITATE	tr
+Vitamin A palmitate	RETINYL PALMITATE	en
+B5 vitamini	PANTHENOL	tr
+Provitamin B5	PANTHENOL	tr
+Pro-vitamin B5	PANTHENOL	en
+Vitamin B5	PANTHENOL	en
+D-pantenol	PANTHENOL	tr
+D-panthenol	PANTHENOL	en
+Dexpanthenol	PANTHENOL	en
+B3 vitamini	NIACINAMIDE	tr
+Vitamin B3	NIACINAMIDE	en
+Nicotinamide	NIACINAMIDE	en
+Hyaluronic acid	HYALURONIC ACID	en
+# --- Kısaltmalar ---
+SLS	SODIUM LAURYL SULFATE	kisa
+SLES	SODIUM LAURETH SULFATE	kisa
+ALS	AMMONIUM LAURYL SULFATE	kisa
+ALES	AMMONIUM LAURETH SULFATE	kisa
+CAPB	COCAMIDOPROPYL BETAINE	kisa
+MCT	CAPRYLIC/CAPRIC TRIGLYCERIDE	kisa
+MCT oil	CAPRYLIC/CAPRIC TRIGLYCERIDE	kisa
+MIT	METHYLISOTHIAZOLINONE	kisa
+CMIT	METHYLCHLOROISOTHIAZOLINONE	kisa
+MCI	METHYLCHLOROISOTHIAZOLINONE	kisa
+# --- Mineral pigmentler (ABD etiketlerinde CI numarası yerine) ---
+Iron oxides	CI 77491;CI 77492;CI 77499	abd
+Iron oxide	CI 77491;CI 77492;CI 77499	abd
+Demir oksit	CI 77491;CI 77492;CI 77499	tr
+Demir oksitler	CI 77491;CI 77492;CI 77499	tr
+Ultramarine	ULTRAMARINES	abd
+Chromium oxide greens	CI 77288	abd
+Chromium hydroxide green	CI 77289	abd
+Manganese violet	CI 77742	abd
+Ferric ferrocyanide	CI 77510	abd
+Bismuth oxychloride	CI 77163	abd
+Carbon black	CI 77266	abd
+Aluminum powder	CI 77000	abd
+Bronze powder	CI 77400	abd
+Copper powder	CI 77400	abd
+Annatto	CI 75120	abd
+Beta-carotene	CI 40800	abd
+Guanine	CI 75170	abd

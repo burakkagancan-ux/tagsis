@@ -46,11 +46,26 @@ for(const [t,must,minExtra,maxUnknown] of REAL){
   if(miss.length||r.extra.length<minExtra||unk>maxUnknown||ms>3000){fail++;console.log('HATA gerçek etiket',t.slice(0,30),'eksik:',miss,'liste dışı:',r.extra.length,'tanınmayan:',unk,ms+'ms')}
   if(got.includes('ICINDEKILER')||r.some(x=>/ICINDEKILER|ICERIR|1400PPM/.test(x.name))){fail++;console.log('HATA başlık/talimat bileşen sayıldı')}
 }
+// Eş anlamlılar: Türkçe etiket, ABD etiketi, kısaltmalar
+const ESA=[
+ ["İçindekiler: Su, Gliserin, Shea yağı, Hindistan cevizi yağı, E vitamini, Parfüm, Sodyum benzoat, Potasyum sorbat, Sitrik asit, Setearil alkol, Ksantan gam, Pantenol",
+  ["AQUA","GLYCERIN","BUTYROSPERMUM PARKII BUTTER","COCOS NUCIFERA OIL","TOCOPHEROL","PARFUM","SODIUM BENZOATE","POTASSIUM SORBATE","CITRIC ACID","CETEARYL ALCOHOL","XANTHAN GUM","PANTHENOL"]],
+ ["Ingredients: Water, Glycerin, Butyrospermum Parkii (Shea) Butter, Mineral Oil, Fragrance, FD&C Yellow No. 5, Red 40 Lake, D&C Red No. 7 Calcium Lake, Iron Oxides, Mica, Titanium Dioxide (CI 77891)",
+  ["WATER","GLYCERIN","BUTYROSPERMUM PARKII BUTTER","PARAFFINUM LIQUIDUM","PARFUM","CI 19140","CI 16035","CI 15850","CI 77491 / CI 77492 / CI 77499","MICA","TITANIUM DIOXIDE"]],
+ ["Aqua, SLES, CAPB, MIT, Sodyum lauril sülfat, Kokamidopropil betain, Salisilik asit, Hyalüronik asit, Niasinamid",
+  ["AQUA","SODIUM LAURETH SULFATE","COCAMIDOPROPYL BETAINE","METHYLISOTHIAZOLINONE","SODIUM LAURYL SULFATE","SALICYLIC ACID","HYALURONIC ACID","NIACINAMIDE"]],
+];
+for(const [t,must] of ESA){
+  const r=KL.analyzeK(t,K,{}),got=r.filter(x=>x.found).map(x=>x.name),miss=must.filter(m=>!got.includes(m));
+  if(miss.length){fail++;console.log('HATA eş anlamlı',t.slice(0,30),'eksik:',miss,'bulunan:',got)}
+}
+// Eş anlamlı üzerinden gelen kayıt düzenleme bilgisini korumalı: "Fragrance" -> PARFUM, "SLES" yüzey aktif, "MIT" sarı
+{const r=KL.analyzeK("Aqua, MIT, Fragrance",K,{});const mit=r.find(x=>x.name==="METHYLISOTHIAZOLINONE");if(!mit||mit.level!=="yellow"){fail++;console.log('HATA MIT seviyesi',mit&&mit.level)}if(!KL.summarizeK(r).parfum){fail++;console.log('HATA Fragrance parfüm sayılmadı')}}
 // "may contain" bölümü
 const mi=KL.inciItems("Talc, Mica [+/- CI 77491, CI 77891]");
 if(!(mi.length===4&&mi[2].may&&!mi[1].may)){fail++;console.log('HATA may',JSON.stringify(mi))}
 // Kozmetik/gıda ayrımı
 if(!KL.looksCosmetic("Ingredients: Aqua, Glycerin, Parfum, Phenoxyethanol")){fail++;console.log('HATA looksCosmetic kozmetik')}
 if(KL.looksCosmetic("İçindekiler: Şeker, buğday unu, bitkisel yağ, süt tozu, tuz, sitrik asit")){fail++;console.log('HATA looksCosmetic gıda')}
-console.log(cases.length+REAL.length+3+' kozmetik durum, '+fail+' hata');
+console.log(cases.length+REAL.length+ESA.length+4+' kozmetik durum, '+fail+' hata');
 process.exit(fail?1:0);

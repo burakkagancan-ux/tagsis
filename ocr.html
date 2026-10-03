@@ -366,6 +366,14 @@ function buildKIndex(kdb,kinci){
   function slot(k,name){var s=map.get(k);if(!s){s={name:name,funcs:[],flags:[],reg:[]};map.set(k,s)}return s}
   (kinci?kinci.items:[]).forEach(function(it){var k=norm(it[0]);if(!k)return;var s=slot(k,it[0]);s.funcs=it[1].map(function(i){return kinci.functions[i]});s.flags=it[2]||[]});
   kdb.entries.forEach(function(e){e.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.reg.indexOf(e)<0)s.reg.push(e)})});
+  // Eş anlamlılar (Türkçe ad, ABD etiket adı, kısaltma): hedef INCI kaydına bağlanır; birden çok hedef birleştirilir
+  function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i})}
+  (kinci&&kinci.aliases||[]).forEach(function(a){
+    var k=norm(a[0]);if(!k||map.has(k))return;
+    var ts=a[1].map(function(t){return map.get(norm(t))}).filter(Boolean);if(!ts.length)return;
+    map.set(k,ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(t){return t.funcs}))),
+      flags:uniq([].concat.apply([],ts.map(function(t){return t.flags}))),reg:uniq([].concat.apply([],ts.map(function(t){return t.reg})))});
+  });
   // Benzer yazım araması için kova: ilk harf + uzunluk; ilk harfi düşmüş okumalar için ikinci harf + uzunluk
   var bySecond={};
   map.forEach(function(s,k){var b=k[0]+k.length;(byFirst[b]=byFirst[b]||[]).push(k);if(k.length>7){b=k[1]+(k.length-1);(bySecond[b]=bySecond[b]||[]).push(k)}});
@@ -376,7 +384,7 @@ function buildKIndex(kdb,kinci){
 /* Metin kozmetik etiketine benziyor mu? (Gıda seçiliyken öneri göstermek için) */
 function looksCosmetic(text){
   var t=" "+norm(text)+" ",n=0;
-  ["aqua","parfum","ingredients","glycerin","cetearyl","sodium laureth","dimethicone","phenoxyethanol","tocopheryl","peg ","ci 77","butylene glycol","propylene glycol","xanthan gum","sodium benzoate","citric acid","fragrance","limonene","linalool","carbomer","isopropyl","paraben","stearate"].forEach(function(w){if(t.indexOf(" "+w)>-1)n++});
+  ["aqua","parfum","ingredients","glycerin","cetearyl","sodium laureth","dimethicone","phenoxyethanol","tocopheryl","peg ","ci 77","butylene glycol","propylene glycol","xanthan gum","sodium benzoate","citric acid","fragrance","limonene","linalool","carbomer","isopropyl","paraben","stearate","gliserin","setearil","sodyum lauril","sodyum lauret","fenoksietanol","dimetikon","shea"].forEach(function(w){if(t.indexOf(" "+w)>-1)n++});
   var food=["seker","tuz","un ","sut","yag","icindekiler","bugday","nisasta","aroma verici","enerji","protein"].filter(function(w){return t.indexOf(" "+w)>-1}).length;
   return n>=3&&n>food;
 }
@@ -390,7 +398,8 @@ function inciItems(text){
   var segs=mayAt>-1?[[t.slice(0,mayAt),false],[t.slice(mayAt),true]]:[[t,false]];
   var out=[];
   segs.forEach(function(sg){
-    var s=sg[0].replace(/(\d),(\d)/g,"$1\u0001$2").replace(/\.(\s|$)/g,",$1");
+    // "No. 5", "Ext. D&C", "Alcohol denat." gibi kısaltma noktaları ayırıcı sayılmaz
+    var s=sg[0].replace(/(\d),(\d)/g,"$1\u0001$2").replace(/\b(no|nr|ext|denat)\.(?=\s|,|$)/gi,"$1").replace(/\.(\s|$)/g,",$1");
     s.split(/[,;•·•]/).forEach(function(p){
       p=p.replace(/\u0001/g,",").replace(/\[\s*\+\s*\/?\s*-?\s*\]?|\(\s*\+\s*\/?\s*-?\s*\)|\+\s*\/\s*-|may contain|peut contenir|puede contener|içerebilir|icerebilir/ig," ");
       p=p.replace(/[\[\]{}*°†‡¹²³]+/g," ").replace(/\s+/g," ").replace(/^[\s:.\-–]+|[\s:.\-–]+$/g,"");
@@ -472,7 +481,7 @@ function kResult(raw,h,may,pos,K,opts){
 function analyzeK(text,K,opts){
   opts=opts||{};
   var items=inciItems(text),out=[],seen={},extra=[],found=0,ended=false,pos=0;
-  function add(raw,h,may){var key=h?h.key:"?"+norm(raw);if(seen[key])return;seen[key]=1;if(h)found++;out.push(kResult(raw,h,may,pos++,K,opts))}
+  function add(raw,h,may){var key=h?h.s.name:"?"+norm(raw);if(seen[key])return;seen[key]=1;if(h)found++;out.push(kResult(raw,h,may,pos++,K,opts))}
   items.forEach(function(it){
     var h=kMatch(it.raw,K);
     if(h&&!ended){add(it.raw,h,it.may);return}
@@ -866,6 +875,7 @@ function renderK(res){
     var b=el("b",null,r.name);li.appendChild(b);
     if(r.funcs.length)li.appendChild(el("span","fn"," · "+r.funcs.join(", ")));
     if(r.how==="benzer")li.appendChild(el("span","fn"," · okunan: “"+r.raw+"”"));
+    else if(norm(r.raw).indexOf(norm(r.name))<0)li.appendChild(el("span","fn"," · etikette: “"+r.raw+"”"));
     if(r.may)li.appendChild(el("span","fn"," · içerebilir"));
     kChips(r).forEach(function(c){li.appendChild(el("span","chip",c))});
     ol.appendChild(li);
