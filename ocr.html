@@ -54,6 +54,16 @@ details.gz{font-size:13px;color:var(--mute);margin:0 0 10px}details.gz summary{c
 .tabbar a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .tabbar a[aria-current="page"]{color:var(--ok)}
 body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.seg{display:flex;border:1.5px solid var(--ok);border-radius:12px;overflow:hidden;margin:12px 0 8px}
+.seg button{flex:1;border:0;border-radius:0;background:var(--card);color:var(--ok);padding:10px 8px}
+.seg button[aria-checked="true"]{background:var(--ok);color:var(--bg)}
+.ptype{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;font-size:14px}
+.ptype button{font-size:13px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--card);color:var(--ok);border:1.5px solid var(--line)}
+.ptype button[aria-pressed="true"]{border-color:var(--ok);background:var(--ok);color:var(--bg)}
+.res.o{border-left-color:#c45a00}.sv.o{color:#c45a00;font-weight:600}
+@media (prefers-color-scheme:dark){.res.o{border-left-color:#ffab70}.sv.o{color:#ffab70}}
+.klist{font-size:14px;margin:6px 0}.klist li{margin:3px 0}.klist .fn{color:var(--mute)}
+.suggest{border-left-color:var(--ok)}.suggest button{margin-top:8px}
 </style>
 </head>
 <body>
@@ -70,7 +80,9 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 
 <details id="pd"><summary id="profsum">Profilim (alerjen, vegan, hamile, çocuk…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
 
-<label class="camera" for="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span>Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</span></label>
+<div class="seg" role="radiogroup" aria-label="Ürün türü"><button type="button" role="radio" id="m-gida" aria-checked="true">Gıda</button><button type="button" role="radio" id="m-koz" aria-checked="false">Kozmetik</button></div>
+<div class="ptype" id="ptype" hidden><span class="mut">Ürün tipi (isteğe bağlı):</span><button type="button" data-p="rinse" aria-pressed="false">Durulanan</button><button type="button" data-p="leave" aria-pressed="false">Durulanmayan</button><button type="button" data-p="makeup" aria-pressed="false">Makyaj</button><button type="button" data-p="baby" aria-pressed="false">Bebek/çocuk</button></div>
+<label class="camera" for="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span id="camtxt">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</span></label>
 <input type="file" id="foto" class="vh" accept="image/*" capture="environment">
 <img id="pre" alt="Seçilen fotoğraf">
 <div class="row">
@@ -321,6 +333,110 @@ function findBrands(text,brands){
   Object.keys(brands).forEach(function(p){if(s.indexOf(" "+p+" ")>-1)out.push(brands[p])});
   return out;
 }
+/* ---------- Kozmetik (INCI) ---------- */
+var KRANK={info:0,yellow:1,orange:2,red:3};
+/* kdb: kozmetik.json, kinci: kozmetik_inci.json. Anahtar: norm(INCI adı). */
+function buildKIndex(kdb,kinci){
+  var map=new Map(),byFirst={};
+  function slot(k,name){var s=map.get(k);if(!s){s={name:name,funcs:[],flags:[],reg:[]};map.set(k,s)}return s}
+  (kinci?kinci.items:[]).forEach(function(it){var k=norm(it[0]);if(!k)return;var s=slot(k,it[0]);s.funcs=it[1].map(function(i){return kinci.functions[i]});s.flags=it[2]||[]});
+  kdb.entries.forEach(function(e){e.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.reg.indexOf(e)<0)s.reg.push(e)})});
+  map.forEach(function(s,k){var f=k[0];(byFirst[f]=byFirst[f]||[]).push(k)});
+  var nos=new Map();map.forEach(function(s,k){if(k.indexOf(" ")>-1)nos.set(k.replace(/ /g,""),k)});
+  var m=kdb.meta||{};
+  return {map:map,nos:nos,byFirst:byFirst,flagLevels:m.inci_flag_levels||{},flagReasons:m.inci_flag_reasons||{},flags:m.flags||{}};
+}
+/* Metin kozmetik etiketine benziyor mu? (Gıda seçiliyken öneri göstermek için) */
+function looksCosmetic(text){
+  var t=" "+norm(text)+" ",n=0;
+  ["aqua","parfum","ingredients","glycerin","cetearyl","sodium laureth","dimethicone","phenoxyethanol","tocopheryl","peg ","ci 77","butylene glycol","propylene glycol","xanthan gum","sodium benzoate","citric acid","fragrance","limonene","linalool","carbomer","isopropyl","paraben","stearate"].forEach(function(w){if(t.indexOf(" "+w)>-1)n++});
+  var food=["seker","tuz","un ","sut","yag","icindekiler","bugday","nisasta","aroma verici","enerji","protein"].filter(function(w){return t.indexOf(" "+w)>-1}).length;
+  return n>=3&&n>food;
+}
+/* INCI listesini öğelere böler. Dönüş: [{raw, may}] */
+function inciItems(text){
+  var t=String(text||"").replace(/\r/g,"");
+  var m=/(ingredients|ingrédients|ingredientes|zutaten|i̇çindekiler|içindekiler|bileşenler|bilesenler|composition|inci)\s*[:：]/i.exec(t);
+  if(m)t=t.slice(m.index+m[0].length);
+  t=t.replace(/-\s*\n\s*/g,"-").replace(/\s*\n\s*/g," ");
+  var mayAt=t.search(/\[\s*\+\s*\/?\s*-|\(\s*\+\s*\/?\s*-|\+\s*\/\s*-|may contain|peut contenir|puede contener|içerebilir|icerebilir/i);
+  var segs=mayAt>-1?[[t.slice(0,mayAt),false],[t.slice(mayAt),true]]:[[t,false]];
+  var out=[];
+  segs.forEach(function(sg){
+    var s=sg[0].replace(/(\d),(\d)/g,"$1\u0001$2").replace(/\.(\s|$)/g,",$1");
+    s.split(/[,;•·•]/).forEach(function(p){
+      p=p.replace(/\u0001/g,",").replace(/\[\s*\+\s*\/?\s*-?\s*\]?|\(\s*\+\s*\/?\s*-?\s*\)|\+\s*\/\s*-|may contain|peut contenir|puede contener|içerebilir|icerebilir/ig," ");
+      p=p.replace(/[\[\]{}*°†‡¹²³]+/g," ").replace(/\s+/g," ").replace(/^[\s:.\-–]+|[\s:.\-–]+$/g,"");
+      if(p.length>=2&&/[a-zA-Z]{2}/.test(p))out.push({raw:p,may:sg[1]});
+    });
+  });
+  return out;
+}
+function kLookup(k,K){
+  if(!k)return null;
+  var s=K.map.get(k);if(s)return {s:s,how:"isim",key:k};
+  var ns=K.nos.get(k.replace(/ /g,""));if(ns)return {s:K.map.get(ns),how:"isim",key:ns};
+  var ci=/^c[il1] ?([0-9oils]{5})$/.exec(k);
+  if(ci){var d=ci[1].replace(/o/g,"0").replace(/[il]/g,"1").replace(/s/g,"5"),k2="ci "+d;s=K.map.get(k2);if(s)return {s:s,how:d!==ci[1]?"benzer":"isim",key:k2}}
+  if(k.length<7)return null;
+  var t=k.length>=14?2:1,list=K.byFirst[k[0]]||[],best=null,bd=t+1,tie=false;
+  for(var i=0;i<list.length;i++){var c=list[i];if(Math.abs(c.length-k.length)>t)continue;var d2=lev(k,c,t);if(d2<bd){bd=d2;best=c;tie=false}else if(d2===bd&&best&&K.map.get(best)!==K.map.get(c))tie=true}
+  if(best&&!tie&&bd<=t)return {s:K.map.get(best),how:"benzer",key:best};
+  return null;
+}
+function kMatch(raw,K){
+  var cands=[raw],inner=[];
+  raw.replace(/\(([^)]*)\)/g,function(x,a){inner.push(a)});
+  var noPar=raw.replace(/\([^)]*\)/g," ").replace(/\s+/g," ").trim();
+  if(noPar&&noPar!==raw)cands.push(noPar);
+  cands=cands.concat(inner);
+  if(raw.indexOf("/")>-1)cands=cands.concat(noPar.split("/"));
+  for(var i=0;i<cands.length;i++){var h=kLookup(norm(cands[i]),K);if(h&&h.how==="isim")return h}
+  for(i=0;i<cands.length;i++){h=kLookup(norm(cands[i]),K);if(h)return h}
+  return null;
+}
+/* opts: {ptype:"rinse"|"leave"|"makeup"|"baby"|""} */
+function analyzeK(text,K,opts){
+  opts=opts||{};
+  var items=inciItems(text),out=[],seen={};
+  items.forEach(function(it,i){
+    var h=kMatch(it.raw,K),key=h?h.key:"?"+norm(it.raw);
+    if(seen[key])return;seen[key]=1;
+    var r={raw:it.raw,may:it.may,pos:i,found:!!h,how:h?h.how:null,name:h?h.s.name:it.raw,funcs:h?h.s.funcs:[],iflags:h?h.s.flags:[],reg:h?h.s.reg:[],level:"info",notes:[]};
+    r.reg.forEach(function(e){if(KRANK[e.level]>KRANK[r.level])r.level=e.level});
+    r.iflags.forEach(function(f){var l=K.flagLevels[f];if(l&&KRANK[l]>KRANK[r.level])r.level=l});
+    if(/\bnano\b/i.test(it.raw))r.nano=true;
+    var leaveLike=opts.ptype==="leave"||opts.ptype==="makeup"||opts.ptype==="baby";
+    r.reg.forEach(function(e){
+      if(e.rinse_only&&leaveLike){r.notes.push("Yalnızca durulanan ürünlerde izinli; seçtiğiniz ürün tipinde (durulanmayan) kullanılmamalı.");if(KRANK[r.level]<2)r.level="orange"}
+      if(e.kids_under&&opts.ptype==="baby"){r.notes.push(e.kids_under+" yaş altı çocuklar için ürünlerde kısıtlı ya da yasak.");if(KRANK[r.level]<2)r.level="orange"}
+      if(e.only_tr&&r.notes.indexOf("o:"+e.only_tr)<0)r.notes.push("o:"+e.only_tr);
+    });
+    r.rank=KRANK[r.level];
+    out.push(r);
+  });
+  return out;
+}
+function summarizeK(res){
+  var o={total:res.length,found:0,red:[],orange:[],yellow:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
+  function push(a,v){if(a.indexOf(v)<0)a.push(v)}
+  res.forEach(function(r){
+    if(!r.found){o.unknown.push(r.raw);if(/^(parfum|fragrance|aroma|perfume|parfüm)$/i.test(r.raw.trim()))o.parfum=true;return}
+    o.found++;
+    if(r.how==="benzer")o.fuzzy.push(r.raw);
+    if(/^(PARFUM|FRAGRANCE|AROMA|PERFUME)\b/.test(r.name))o.parfum=true;
+    if(r.level==="red")push(o.red,r.name);else if(r.level==="orange")push(o.orange,r.name);else if(r.level==="yellow")push(o.yellow,r.name);
+    var fl={};r.reg.forEach(function(e){e.flags.forEach(function(f){fl[f]=1});if(e.kids_under)push(o.kids,r.name);if(/^III\/376$/.test(e.id))push(o.vitA,r.name)});
+    r.iflags.forEach(function(f){fl[f]=1});
+    if(fl.allergen_fragrance)push(o.fragrance,r.name);
+    if(fl.formaldehyde_releaser)push(o.formaldehyde,r.name);
+    if(fl.allergen_hairdye)push(o.hairdye,r.name);
+    if(fl.pfas)push(o.pfas,r.name);
+    if(fl.non_veg)push(o.nonVeg,r.name);else if(fl.non_vegan)push(o.nonVegan,r.name);else if(fl.vegan_unsure)push(o.veganUnsure,r.name);
+    if(r.funcs.indexOf("Koruyucu")>-1||r.reg.some(function(e){return e.annex==="V"}))push(o.preservative,r.name);
+  });
+  return o;
+}
 /*LOGIC-END*/
 
 var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare Worker adresi; boşsa telefonda Tesseract kullanılır
@@ -349,7 +465,7 @@ getJson("data/e_aciklama.json").then(function(a){ABOUT=a.about||{}}).catch(funct
 getJson("data/tagsis.json").then(function(t){BRANDS=buildBrands(t)}).catch(function(){BRANDS=null});
 
 /* ---------- Profil ---------- */
-var PROF={al:[],lactose:false,vegan:false,veg:false,preg:false,baby:false,child:false,pku:false,pet:false};
+var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,preg:false,baby:false,child:false,pku:false,pet:false};
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
 var LIFE=[["preg","Hamileyim / emziriyorum"],["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["pku","Fenilketonüri (PKU)"],["pet","Evcil hayvanıma vereceğim"]];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
@@ -365,6 +481,7 @@ function buildProfile(){
   g2.appendChild(cb("Laktoz intoleransı",PROF.lactose,function(v){PROF.lactose=v}));
   g2.appendChild(cb("Vegan",PROF.vegan,function(v){PROF.vegan=v}));
   g2.appendChild(cb("Vejetaryen",PROF.veg,function(v){PROF.veg=v}));
+  g2.appendChild(cb("Koku alerjisi (kozmetik)",!!PROF.koku,function(v){PROF.koku=v}));
   b2.appendChild(g2);
   var b3=pbox("Yaşam Evresi ve Diğer"),g3=el("div","pg");
   LIFE.forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
@@ -374,7 +491,7 @@ function buildProfile(){
 }
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
 function updProfSum(){
-  var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
+  var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+(PROF.koku?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
   $("profsum").textContent=n?("Profilim ("+n+" seçim)"):"Profilim (alerjen, vegan, hamile, çocuk…)";
 }
 
@@ -521,14 +638,169 @@ function render(res,br){
   box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
 }
 function run(){
-  if(!IDX){$("sonuc").textContent="Listeler henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
   var t=$("metin").value;
+  if(MODE==="koz"){
+    if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
+    if(!KIDX){$("sonuc").textContent="Kozmetik listeleri yükleniyor…";loadK().then(run,function(){$("sonuc").textContent="Kozmetik listesi yüklenemedi; internet bağlantısını kontrol edin."});return}
+    try{renderK(analyzeK(t,KIDX,{ptype:PTYPE}))}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+    return;
+  }
+  if(!IDX){$("sonuc").textContent="Listeler henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
   if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
   try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[])}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+  if(looksCosmetic(t))$("sonuc").insertBefore(suggestCard(),$("sonuc").firstChild);
 }
 // Metin elle düzeltildiğinde sonuç kendiliğinden güncellenir (yazmayı bitirmesi beklenir)
 var RUN_T=null;$("metin").addEventListener("input",function(){clearTimeout(RUN_T);RUN_T=setTimeout(run,600)});
-$("ornek").onclick=function(){$("metin").value="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";run()};
+var ORNEK_GIDA="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";
+var ORNEK_KOZ="Ingredients: Aqua, Glycerin, Cetearyl Alcohol, Paraffinum Liquidum, Parfum, Methylparaben, DMDM Hydantoin, Linalool, Limonene, Hexyl Cinnamal, Butylphenyl Methylpropional, Retinyl Palmitate, Lanolin, Glycerln Stearate, Cl 77891 [+/- CI 77491]";
+$("ornek").onclick=function(){$("metin").value=MODE==="koz"?ORNEK_KOZ:ORNEK_GIDA;run()};
+
+/* ---------- Kozmetik modu ---------- */
+var MODE="gida",PTYPE="",KDB=null,KINCI=null,KIDX=null,KLOAD=null;
+try{MODE=localStorage.getItem("tur")==="koz"?"koz":"gida";PTYPE=localStorage.getItem("ktip")||""}catch(e){}
+function loadK(){
+  if(KIDX)return Promise.resolve(KIDX);
+  if(KLOAD)return KLOAD;
+  ST.textContent="Kozmetik listeleri yükleniyor…";
+  KLOAD=Promise.all([getJson("data/kozmetik.json"),getJson("data/kozmetik_inci.json").catch(function(){return null})]).then(function(a){
+    KDB=a[0];KINCI=a[1];KIDX=buildKIndex(KDB,KINCI);
+    ST.textContent="Kozmetik listeleri yüklendi: "+KDB.entries.length+" düzenlenmiş madde"+(KINCI?", "+KINCI.items.length+" INCI adı.":". INCI ad listesi yüklenemedi; yalnızca düzenlenmiş maddeler tanınır.");
+    return KIDX;
+  }).catch(function(e){KLOAD=null;ST.textContent="Kozmetik listesi yüklenemedi (internet bağlantısını kontrol edin).";throw e});
+  return KLOAD;
+}
+function setMode(m,save){
+  MODE=m;
+  $("m-gida").setAttribute("aria-checked",String(m==="gida"));$("m-koz").setAttribute("aria-checked",String(m==="koz"));
+  $("ptype").hidden=m!=="koz";
+  $("camtxt").textContent=m==="koz"?"Ürünün “Ingredients / İçindekiler” listesinin fotoğrafını çekin.":"Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.";
+  if(save)try{localStorage.setItem("tur",m)}catch(e){}
+  if(m==="koz")loadK().then(function(){if($("metin").value.trim())run()},function(){});
+  else if($("metin").value.trim())run();
+}
+$("m-gida").onclick=function(){setMode("gida",true)};
+$("m-koz").onclick=function(){setMode("koz",true)};
+document.querySelectorAll("#ptype button").forEach(function(b){
+  b.onclick=function(){
+    PTYPE=PTYPE===b.getAttribute("data-p")?"":b.getAttribute("data-p");
+    document.querySelectorAll("#ptype button").forEach(function(x){x.setAttribute("aria-pressed",String(x.getAttribute("data-p")===PTYPE))});
+    try{localStorage.setItem("ktip",PTYPE)}catch(e){}
+    if(MODE==="koz"&&$("metin").value.trim())run();
+  };
+  b.setAttribute("aria-pressed",String(b.getAttribute("data-p")===PTYPE));
+});
+function suggestCard(){
+  var d=el("div","res suggest");d.appendChild(el("div","t","Bu bir kozmetik etiketine benziyor"));
+  d.appendChild(el("div","ln","Metinde “Aqua”, “Parfum” gibi kozmetik bileşen adları var. Gıda listeleriyle yapılan analiz yanıltıcı olabilir."));
+  var b=el("button",null,"Kozmetik olarak analiz et");b.type="button";b.onclick=function(){setMode("koz",true);window.scrollTo(0,0)};d.appendChild(b);
+  return d;
+}
+var KCLS={red:"r",orange:"o",yellow:"y",info:"g"},KLBL={red:"AB'de yasak",orange:"Uyarı",yellow:"Dikkat",info:"Özel uyarı yok"};
+function kChips(r){
+  var out=[],seen={},F=KIDX.flags;
+  r.reg.forEach(function(e){e.flags.forEach(function(f){if(!seen[f]&&f!=="cmr_ban"){seen[f]=1;out.push(F[f]||f)}})});
+  r.iflags.forEach(function(f){if(!seen[f]){seen[f]=1;out.push(F[f]||f)}});
+  if(r.nano&&!seen.nano)out.push("Nano biçim");
+  return out;
+}
+function kCard(r){
+  var d=el("div","res "+KCLS[r.level]),top=el("div","hd");
+  top.appendChild(el("div","t",r.name));
+  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",r.name+" hakkında bilgi");b.setAttribute("aria-expanded","false");
+  top.appendChild(b);d.appendChild(top);
+  d.appendChild(el("div","how",KLBL[r.level]+" · "+(r.how==="benzer"?"benzer yazım, kontrol edin: “"+r.raw+"”":"isimle bulundu")+(r.may?" · “içerebilir” bölümünde":"")));
+  kChips(r).forEach(function(c){d.appendChild(el("span","chip",c))});
+  r.notes.forEach(function(n){d.appendChild(el("div","ln",n.indexOf("o:")===0?"Yalnızca "+n.slice(2)+" izinli; başka ürün tipinde görülmesi beklenmez.":n))});
+  var pn=el("div","ipanel");pn.hidden=true;
+  function line(lbl,txt){if(!txt)return;var p=el("div","ln");p.appendChild(el("b",null,lbl+" "));p.appendChild(document.createTextNode(txt));pn.appendChild(p)}
+  line("İşlevi:",r.funcs.join(", "));
+  var seen={};
+  r.reg.forEach(function(e){
+    if(seen[e.id])return;seen[e.id]=1;
+    if(r.reg.length>1)pn.appendChild(el("div","ih","AB Ek "+e.annex+(e.ref&&e.ref!=="?"?" · giriş "+e.ref:"")));
+    line("Değerlendirme:",e.reason);
+    line("Not:",e.note_tr);
+    (e.updates||[]).forEach(function(u){line("Değişiklik ("+u.regulation+(u.applies_from?", "+u.applies_from:"")+"):",u.note_tr)});
+    var cond=[e.product_type&&("Ürün tipi: "+e.product_type),e.max&&("Üst sınır: "+e.max),e.conditions_en].filter(Boolean).join(" · ");
+    if(cond)pn.appendChild(el("div","how","AB koşulu (özgün metin): "+cond));
+    pn.appendChild(el("div","how","Kaynak: AB kozmetik yönetmeliği "+(e.regulation||"(EC) 1223/2009")+(e.applies_from?" · uygulama "+e.applies_from:"")));
+    if(e.needs_review)pn.appendChild(el("div","how","Bu kayıt henüz resmi metinle satır satır doğrulanmadı."));
+  });
+  r.iflags.forEach(function(f){line("Değerlendirme:",KIDX.flagReasons[f])});
+  d.appendChild(pn);
+  b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
+  return d;
+}
+function kSummaryCard(S){
+  var d=el("div","res sumbox");d.appendChild(el("div","t","Özet"));
+  function row(label,val,cls){var r=el("div","srow");r.appendChild(el("span","sl",label));r.appendChild(el("span","sv"+(cls?" "+cls:""),val));d.appendChild(r)}
+  function lst(a){return a.length?a.length+": "+a.join(", "):"Bulunamadı"}
+  row("Bileşen",S.found+"/"+S.total+" tanındı"+(S.unknown.length?" · "+S.unknown.length+" tanınmadı":""));
+  row("AB'de yasak",lst(S.red),S.red.length?"r":"");
+  var w=S.orange.concat(S.yellow);
+  row("Uyarı / dikkat",lst(w),S.orange.length?"o":S.yellow.length?"y":"");
+  row("Koku alerjeni",lst(S.fragrance),"");
+  row("Parfüm",S.parfum?"Var (içeriği ayrıca yazılmaz)":"Yazmıyor");
+  row("Koruyucu",lst(S.preservative));
+  if(S.formaldehyde.length)row("Formaldehit salıcı",lst(S.formaldehyde),"y");
+  if(S.pfas.length)row("PFAS",lst(S.pfas),"o");
+  if(S.fuzzy.length)d.appendChild(el("div","how","Benzer yazımla eşleşen bileşenler var; “Okunan Metin” bölümünden kontrol edin."));
+  return d;
+}
+function kProfileCards(S,res){
+  var out=[],j=function(a){return a.join(", ")};
+  if(PROF.koku){
+    if(S.fragrance.length)out.push(card("r","Koku alerjeni içerir",[j(S.fragrance)].concat(S.parfum?["Ayrıca “Parfum” içerir; içindeki maddelerin yalnızca etiketlenmesi zorunlu olanları ayrıca yazılır."]:[])));
+    else if(S.parfum)out.push(card("y","Parfüm içerir",["Etiketlenmesi zorunlu koku alerjeni bulunamadı, ancak “Parfum” birçok maddeyi tek ad altında toplar. Eşik altındaki alerjenler yazılmaz."]));
+    else out.push(card("g","Koku alerjeni bulunamadı",["Bu bir onay değildir. Okuma hatası olabilir; etiketi kendiniz kontrol edin."]));
+  }
+  if(PROF.vegan){
+    var no=S.nonVeg.concat(S.nonVegan);
+    if(no.length)out.push(card("r","Vegan değil",[j(no)].concat(S.veganUnsure.length?["Kaynağı belirsiz: "+j(S.veganUnsure)]:[])));
+    else if(S.veganUnsure.length)out.push(card("y","Vegan uygunluğu belirsiz",["Bitkisel, sentetik ya da hayvansal olabilir: "+j(S.veganUnsure)]));
+    else out.push(card("g","Hayvansal bileşen bulunamadı",["Bu bir onay değildir; vegan logosu ya da sertifika en güvenilir göstergedir."]));
+  }
+  if(PROF.veg){
+    if(S.nonVeg.length)out.push(card("r","Vejetaryen değil",["Kesim, balık ya da böcek kaynaklı: "+j(S.nonVeg)]));
+    else out.push(card("g","Kesim ya da böcek kaynaklı bileşen bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+  }
+  if(PROF.preg){
+    if(S.vitA.length)out.push(card("y","Hamilelik / emzirme: dikkat",["A vitamini (retinol ya da esterleri): "+j(S.vitA)+". AB'de bu ürünlerde “günlük alımınızı göz önünde bulundurun” uyarısı zorunlu. Hamilelikte kullanım için doktorunuza danışın."]));
+    else out.push(card("g","Hamilelik için işaretli madde bulunamadı",["Bu bir onay değildir; hamilelikte kozmetik kullanımı için doktorunuza danışın."]));
+  }
+  if(PROF.baby||PROF.child||PTYPE==="baby"){
+    var rows=[];res.forEach(function(r){var a=null;r.reg.forEach(function(e){if(e.kids_under&&(a===null||e.kids_under<a))a=e.kids_under});if(a)rows.push(r.name+" ("+a+" yaş altı için ürünlerde kısıtlı ya da yasak)")});
+    if(rows.length)out.push(card("y","Çocuklarda kısıtlı madde",rows.concat(["Kısıtlamanın ürün tipine göre değiştiği durumlar var; ayrıntı için kartlardaki (i) düğmesine bakın."])));
+    else out.push(card("g","Çocuklar için kısıtlı madde bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+  }
+  return out;
+}
+function renderK(res){
+  var box=$("sonuc");box.textContent="";
+  if(!res.length){box.textContent="Bileşen listesi bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
+  var S=summarizeK(res);
+  kProfileCards(S,res).forEach(function(c){box.appendChild(c)});
+  box.appendChild(kSummaryCard(S));
+  var W=res.filter(function(r){return r.found&&r.rank>0}).sort(function(a,b){return b.rank-a.rank||a.pos-b.pos});
+  if(W.length){box.appendChild(el("h2",null,"Dikkat Gerektiren Bileşenler"));W.forEach(function(r){box.appendChild(kCard(r))})}
+  box.appendChild(el("h2",null,"Tüm Bileşenler"));
+  var ol=el("ol","klist");
+  res.forEach(function(r){
+    var li=el("li");
+    if(!r.found){li.appendChild(document.createTextNode(r.raw+" "));li.appendChild(el("span","fn","(tanınmadı)"));ol.appendChild(li);return}
+    var b=el("b",null,r.name);li.appendChild(b);
+    if(r.funcs.length)li.appendChild(el("span","fn"," · "+r.funcs.join(", ")));
+    if(r.how==="benzer")li.appendChild(el("span","fn"," · okunan: “"+r.raw+"”"));
+    if(r.may)li.appendChild(el("span","fn"," · içerebilir"));
+    kChips(r).forEach(function(c){li.appendChild(el("span","chip",c))});
+    ol.appendChild(li);
+  });
+  box.appendChild(ol);
+  if(S.parfum)box.appendChild(el("div","ln nt","“Parfum” tek bir ad altında çok sayıda koku maddesini kapsar. Yalnızca etiketlenmesi zorunlu koku alerjenleri, belirli bir oranı aşınca ayrıca yazılır."));
+  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle uyumludur."));
+}
+setMode(MODE,false);
 
 /* ---------- Alt menü: "Profil" sekmesi bu sayfadaki profil bölümünü açar ---------- */
 function tabSync(){

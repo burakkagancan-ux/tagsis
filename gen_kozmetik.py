@@ -230,6 +230,38 @@ def level_reason(e):
     return " ".join(parts)
 
 
+ONLY_TR = [
+    (r"artificial nail systems", "yapay tırnak sistemlerinde (profesyonel kullanım)"),
+    (r"hair dye substance", "saç boyalarında"),
+    (r"oral products|toothpaste", "ağız ve diş bakım ürünlerinde"),
+    (r"nail products|nail hardener", "tırnak ürünlerinde"),
+    (r"(products intended for colouring eyelashes|eye products)", "göz/kirpik ürünlerinde"),
+    (r"hair waving or straightening", "saç kıvırma/düzleştirme ürünlerinde"),
+    (r"depilator", "tüy dökücülerde"),
+    (r"hair products", "saç ürünlerinde"),
+]
+
+
+def use_fields(e):
+    """Ürün tipine bağlı kuralları istemci için sadeleştirir: rinse_only, kids_under, only_tr."""
+    pt = (e.get("product_type") or "")
+    mx = (e.get("max") or "")
+    allt = " ".join([pt, mx, e.get("conditions_en") or "", e.get("note_tr") or ""] + [u.get("note_tr", "") for u in e.get("updates", [])])
+    if e["annex"] in ("III", "V") and not e.get("_skip_use"):
+        scope = pt or mx
+        if re.search(r"rinse[\s\-\u00ad]*off", scope, re.I) and not re.search(r"leave[\s\-\u00ad]*on|other products|\(b\)|b\)", scope, re.I):
+            e["rinse_only"] = True
+        if pt and not re.search(r"\(b\)|b\)|other products|all cosmetic", pt, re.I) and not e.get("rinse_only"):
+            for rx, tr in ONLY_TR:
+                if re.match(r"\s*(\(a\)\s*)?" + rx, pt.replace("\u00ad", ""), re.I):
+                    e["only_tr"] = tr
+                    break
+    ages = [int(x) for x in re.findall(r"children under (\d+)", allt, re.I)] + \
+           [int(x) for x in re.findall(r"(\d+) yaş altı", allt)]
+    if ages:
+        e["kids_under"] = min(ages)
+
+
 def compute_level(e):
     f = set(e["flags"])
     if e["annex"] == "II":
@@ -405,6 +437,7 @@ def finalize(entries):
             if e["name"] not in keep:
                 e["name"] = keep[0]
     for e in entries.values():
+        use_fields(e)
         e["level"] = compute_level(e)
         e["reason"] = level_reason(e)
     return dropped
