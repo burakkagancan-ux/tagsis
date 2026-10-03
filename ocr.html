@@ -99,9 +99,6 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <input type="file" id="foto" class="vh" accept="image/*" capture="environment">
 <div id="cropwrap"><img id="pre" alt="Seçilen fotoğraf"><div id="crop" aria-hidden="true"><span class="h" data-h="nw"></span><span class="h" data-h="n"></span><span class="h" data-h="ne"></span><span class="h" data-h="e"></span><span class="h" data-h="se"></span><span class="h" data-h="s"></span><span class="h" data-h="sw"></span><span class="h" data-h="w"></span><span class="mv" data-h="move"></span></div></div>
 <div id="cropbar" class="row"><span>Köşeleri sürükleyerek yalnızca içerik listesini çerçeveye alın.</span><button type="button" class="alt" id="cropreset">Tümünü seç</button></div>
-<div class="row">
-<label><input type="checkbox" id="onis" checked> Görüntüyü iyileştir</label>
-</div>
 <div class="row"><button id="oku" disabled>Metni oku</button><button class="alt" id="ornek">Örnek metin dene</button></div>
 <div id="st"></div>
 
@@ -403,7 +400,7 @@ function buildKIndex(kdb,kinci){
   map.forEach(function(s,k){var b=k[0]+k.length;(byFirst[b]=byFirst[b]||[]).push(k);if(k.length>7){b=k[1]+(k.length-1);(bySecond[b]=bySecond[b]||[]).push(k)}});
   var nos=new Map();map.forEach(function(s,k){if(k.indexOf(" ")>-1)nos.set(k.replace(/ /g,""),k)});
   var m=kdb.meta||{};
-  return {map:map,nos:nos,byFirst:byFirst,bySecond:bySecond,flagLevels:m.inci_flag_levels||{},flagReasons:m.inci_flag_reasons||{},flags:m.flags||{},watchLists:m.watch_lists||{}};
+  return {map:map,nos:nos,byFirst:byFirst,bySecond:bySecond,flagLevels:m.inci_flag_levels||{},flagReasons:m.inci_flag_reasons||{},flags:m.flags||{},watchLists:m.watch_lists||{},trText:m.tr_text||{}};
 }
 /* Metin kozmetik etiketine benziyor mu? (Gıda seçiliyken öneri göstermek için) */
 function looksCosmetic(text){
@@ -747,7 +744,12 @@ function additiveCard(r){
   var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
   p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
   pn.appendChild(p2);
-  if(it.needs_review)pn.appendChild(el("div","how","Bu değerlendirme henüz kaynakla doğrulanmadı."));
+  if(it.sources&&it.sources.length){   // doğrulama kaynakları: bağlantı metni alan adı
+    var ps=el("div","how","Kaynak: ");
+    it.sources.forEach(function(u,i){var a=el("a",null,u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u;a.target="_blank";a.rel="noopener";if(i)ps.appendChild(document.createTextNode(" · "));ps.appendChild(a)});
+    pn.appendChild(ps);
+  }
+  if(it.needs_review)pn.appendChild(el("div","how",it.sources&&it.verification!=="partially_checked"?"Türkiye'deki izin durumu henüz doğrulanmadı.":it.sources?"Bu değerlendirmenin bir kısmı henüz kaynakla doğrulanmadı.":"Bu değerlendirme henüz kaynakla doğrulanmadı."));
   d.appendChild(pn);
   b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
@@ -867,6 +869,8 @@ function kCard(r){
     var cond=[e.product_type&&("Ürün tipi: "+e.product_type),e.max&&("Üst sınır: "+e.max),e.conditions_en].filter(Boolean).join(" · ");
     if(cond)pn.appendChild(el("div","how","AB koşulu (özgün metin): "+cond));
     pn.appendChild(el("div","how","Kaynak: AB kozmetik yönetmeliği "+(e.regulation||"(EC) 1223/2009")+(e.applies_from?" · uygulama "+e.applies_from:"")));
+    var trs=[e.tr].concat((e.updates||[]).map(function(u){return u.tr})).filter(Boolean)[0];   // AB değişikliğinin Türkiye'deki durumu
+    if(trs&&KIDX.trText[trs])pn.appendChild(el("div","how",KIDX.trText[trs]));
     if(e.needs_review)pn.appendChild(el("div","how","Bu kayıt henüz resmi metinle satır satır doğrulanmadı."));
   });
   r.iflags.forEach(function(f){line("Değerlendirme:",KIDX.flagReasons[f])});
@@ -960,7 +964,7 @@ function renderK(res){
     box.appendChild(dx);
   }
   if(S.parfum)box.appendChild(el("div","ln nt","“Parfum” tek bir ad altında çok sayıda koku maddesini kapsar. Yalnızca etiketlenmesi zorunlu koku alerjenleri, belirli bir oranı aşınca ayrıca yazılır."));
-  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle uyumludur. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları."));
+  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle 2023 sonuna kadar uyumludur; sonraki AB değişikliklerinin Türkiye durumu kartlarda yazar. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları."));
 }
 setMode(MODE,false);
 
@@ -1033,7 +1037,8 @@ function prep(img,on){
 $("oku").onclick=function(){
   if(!OCR_URL&&!window.Tesseract){ST.textContent="OCR bileşeni yüklenemedi (internet gerekir).";return}
   var btn=this,t0=Date.now();btn.disabled=true;ST.textContent="Hazırlanıyor… (ilk kullanımda dil verisi indirilir)";
-  var cv=prep($("pre"),$("onis").checked&&!OCR_URL);
+  // Gri ton + kontrast germe yalnızca yedek OCR'da (Tesseract) yarar; Google Vision kendi ön işlemesini yapar
+  var cv=prep($("pre"),!OCR_URL);
   if(OCR_URL){
     ST.textContent="Google Vision ile okunuyor…";
     fetch(OCR_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({image:cv.toDataURL("image/jpeg",0.85).split(",")[1]})})

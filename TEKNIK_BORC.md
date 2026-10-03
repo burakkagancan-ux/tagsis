@@ -19,7 +19,7 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - `index.html`, yazı tipini Google Fonts'tan yüklüyor. Bu yüzden kullanıcının IP adresi Google'a gidiyor. Gizlilik metniyle tutarlı olması için yazı tipi depoya alınabilir (self-host).
 
 ## 4. Kozmetik verisi (data/kozmetik.json) — yayın öncesi
-- **Türkiye ekleri:** Kozmetik Ürünler Yönetmeliği (RG 08.05.2023) Ek II–VI ile madde madde karşılaştırma yapılmadı; AB ile uyumlu varsayılıyor. Gıdadaki TGK karşılaştırmasının eşi yapılmalı.
+- **Türkiye ekleri:** Durum karşılaştırması yapıldı (kaynak/TR_KOZMETIK_KARSILASTIRMA.md): son TR değişikliği 05.03.2024 (AB 2023/1490), sonraki AB değişiklikleri `tr` alanında. Ek II–VI satır satır karşılaştırması Resmî Gazete metnine erişilemediği için yapılamadı; Eylül 2026 taslağının resmî metni de görülmedi.
 - **Anlık görüntü yaşı:** CosIng verisi 2024 başına ait (inhouse-work/cosing @268e3cd). Sonraki değişiklikler `kaynak/kozmetik_guncellemeler.tsv` ile elle eklendi. Eksikler: 2026/78 ile eklenen 15 CMR maddesinin adları; 2026/909'daki alüminyum, çinko tuzları, DHHB ve 4 saç boyası; 2026 sonu taslak (benzofenon-1/-2, BHA, paraben, CBD).
 - **Doğrulama:** `inceleme=1` olan güncellemeler (needs_review) EUR-Lex metniyle satır satır karşılaştırılmalı; 2026/78 ve 2026/909 ek sıra numaraları doğrulanamadı.
 - **Otomatik güncelleme:** CosIng'e bu ortamdan erişilemedi. GitHub Actions ile aylık CosIng kontrolü kurulmalı.

@@ -29,6 +29,17 @@ OUT_INCI = os.path.join(HERE, "data", "kozmetik_inci.json")
 UPD = os.path.join(HERE, "kaynak", "kozmetik_guncellemeler.tsv")
 K3 = os.path.join(HERE, "kaynak", "kozmetik_k3.tsv")
 
+# Türkiye durumu (03.10.2026): Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) en son 05.03.2024'te
+# (RG 32480) değişti; bu değişiklik AB (EU) 2023/1490 ile uyumludur. Ondan sonraki AB değişiklikleri Türkiye'de
+# yayımlanmış olarak bulunamadı. Ticaret Bakanlığı'nın Eylül 2026 taslağı (basın haberleri) 2024/996, 2026/78 ve
+# 2026/909'daki hükümlerin bir kısmını içeriyor. Kaynak: kaynak/TR_KOZMETIK_KARSILASTIRMA.md
+TR_BY_REG = {"(EU) 2024/858": "yok", "(EU) 2024/996": "taslak", "(EU) 2025/877": "yok",
+             "(EU) 2026/78": "taslak", "(EU) 2026/909": "taslak"}
+TR_TEXT = {
+    "yok": "Türkiye: Bu AB değişikliği Türkiye'de henüz yayımlanmadı (03.10.2026 itibarıyla). Türk mevzuatı AB'yi genellikle aylar sonra izler.",
+    "taslak": "Türkiye: Bu AB değişikliği henüz yürürlükte değil; benzer hükümler Ticaret Bakanlığı'nın Eylül 2026 yönetmelik taslağında yer alıyor.",
+}
+
 # K3 listeleri. level: kartın en az alacağı renk (AB Ek II'deki madde kırmızı kalır).
 # Karar (03.10.2026, kullanıcı): başka büyük pazarda yasak -> turuncu; AB değerlendirme listeleri ve SIN List -> sarı.
 WATCH_LISTS = {
@@ -42,6 +53,10 @@ WATCH_LISTS = {
            "text": "Kaliforniya'da kozmetik ürünlere kasıtlı olarak eklenmesi yasak (Toxic-Free Cosmetics Act). Eser miktarda, kaçınılmaz kirlilik olarak bulunması yasak kapsamında değildir."},
     "asean": {"label": "ASEAN", "chip": "ASEAN'da yasak", "level": "orange", "kind": "ban",
               "text": "ASEAN Kozmetik Direktifi'nin yasaklı maddeler ekinde (Ek II). ASEAN; Endonezya, Malezya, Tayland, Vietnam, Filipinler, Singapur gibi 10 ülkeyi kapsar."},
+    "ab_reach": {"label": "AB REACH kısıtlaması", "chip": "AB'de kısıtlı (REACH)", "level": "yellow", "kind": "eu",
+                 "text": "AB kimyasallar mevzuatı REACH (Ek XVII) ile kozmetikte kısıtlandı. Kozmetik yönetmeliğinin eklerinde görünmediği için ayrıca gösterilir."},
+    "tr_taslak": {"label": "Türkiye – yönetmelik taslağı", "chip": "Türkiye taslağında", "level": "yellow", "kind": "tr",
+                  "text": "Ticaret Bakanlığı'nın Eylül 2026'da görüşe açtığı Kozmetik Ürünler Yönetmeliği değişiklik taslağında yasaklanması öngörülüyor. Taslaktır, henüz yürürlükte değildir."},
     "sin": {"label": "ChemSec SIN List", "chip": "SIN List", "level": "yellow", "kind": "ngo",
             "text": "Sivil toplum kuruluşu ChemSec'in, AB REACH ölçütlerine göre 'çok yüksek endişe verici' aday gördüğü maddeler listesinde. Resmi bir yasak değildir."},
 }
@@ -378,6 +393,7 @@ def apply_updates(entries):
         op, annex, ref = r["islem"], r["ek"], r["ref"]
         inci = split_names(r["inci"], comma=False)
         upd = {"regulation": r["yonetmelik"], "applies_from": r["uygulama"], "note_tr": r["not_tr"], "source": r["kaynak"]}
+        if TR_BY_REG.get(r["yonetmelik"]): upd["tr"] = TR_BY_REG[r["yonetmelik"]]
         if op == "sil":
             eid = "%s/%s" % (annex, ref)
             if entries.pop(eid, None):
@@ -408,6 +424,7 @@ def apply_updates(entries):
                  "name": names[0] if names else r["ad"], "inci": names, "cas": split_cas(r["cas"]),
                  "flags": [], "regulation": r["yonetmelik"], "applies_from": r["uygulama"],
                  "note_tr": r["not_tr"], "source": r["kaynak"]}
+            if TR_BY_REG.get(r["yonetmelik"]): e["tr"] = TR_BY_REG[r["yonetmelik"]]
             if annex == "II" and "CMR" in r["not_tr"]:
                 e["flags"].append("cmr_ban")
             if any("(NANO)" in a for a in names):
@@ -691,7 +708,8 @@ def main():
             "description": "AB kozmetik yönetmeliği (EC) 1223/2009 eklerindeki düzenlenmiş maddeler. Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile uyumludur.",
             "source": "Avrupa Komisyonu CosIng veritabanı (anlık görüntü: inhouse-work/cosing @%s, 2024 başı) + kaynak/kozmetik_guncellemeler.tsv (2024-2026 değişiklikleri)." % COSING_COMMIT,
             "license": "CosIng içeriği Komisyon'un 2011/833/AB kararıyla kaynak gösterilerek yeniden kullanılabilir.",
-            "tr_status": "Türkiye ekleriyle madde madde karşılaştırma yapılmadı; AB ile uyumlu varsayıldı.",
+            "tr_status": "Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile (EU) 2023/1490'a kadar uyumlu (son değişiklik RG 05.03.2024, 32480). Sonraki AB değişikliklerinin Türkiye durumu kayıtlardaki 'tr' alanında. Ek'ler satır satır karşılaştırılamadı (Resmî Gazete metnine erişilemedi).",
+            "tr_text": TR_TEXT,
             "match": "inci alanındaki adlar büyük harfle, etiketteki INCI adlarıyla eşleştirilir.",
             "levels": LEVELS, "flags": FLAGS,
             "inci_flag_levels": {"pfas": "orange"},

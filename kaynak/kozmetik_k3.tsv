@@ -1,7 +1,8 @@
 # Kozmetik K3: AB'de izinli ya da kısıtlı olsa da başka bir resmi listede yer alan maddeler ("tartışmalı katman").
 # gen_kozmetik.py bu dosyayı okuyup data/kozmetik.json içindeki "watch" alanına yazar. Sütunlar sekmeyle ayrılır.
 # liste: meta.watch_lists anahtarı (ab_ed_a, ab_ed_b = AB olası endokrin bozucu öncelik listesi A/B grubu;
-#        ca = ABD Kaliforniya yasağı; asean = ASEAN Kozmetik Direktifi yasağı; sin = ChemSec SIN List, lisans izni bekliyor, satır yok)
+#        ca = ABD Kaliforniya yasağı; asean = ASEAN Kozmetik Direktifi yasağı; ab_reach = AB REACH Ek XVII kısıtlaması;
+#        tr_taslak = Türkiye yönetmelik taslağı; sin = ChemSec SIN List, lisans izni bekliyor, satır yok)
 # inci: etiketteki INCI adları (; ile ayrılır). Eşleştirme yalnızca bu adlarla yapılır; CAS belgeleme içindir.
 # tarih: listeye girme ya da yasağın başlama tarihi. inceleme: 1 = resmi metinle satır satır karşılaştırılmadı.
 # Not: Kaliforniya'nın 13 PFAS maddesi burada yok; AB 2771 (2025) tüm kasıtlı eklenmiş PFAS'ı yasakladığı için PFAS bayrağıyla gösterilir.
@@ -82,3 +83,8 @@ ca	MUSK TIBETENE	145-39-1		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		http
 ca	MUSK MOSKENE	116-66-5		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
 ca	MUSK XYLENE	81-15-2		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
 asean	MICONAZOLE;MICONAZOLE NITRATE	22916-47-8;22832-87-7		2025-12-12	ASEAN Kozmetik Direktifi Ek II (giriş 1724)		https://www.cirs-group.com/en/cosmetics/asean-cosmetic-directive-acd-updates-made-to-annexes-ii-iii-and-vii	1
+ab_reach	CYCLOTETRASILOXANE	556-67-2	D4	2027-06-06	(EU) 2024/1328 (REACH Ek XVII giriş 70)	Ağırlıkça %0,1 ve üzeri: durulanan üründe 31 Ocak 2020'den (D4, D5), durulanmayan üründe 6 Haziran 2027'den itibaren yasak.	https://cosmeticobs.com/en/articles/european-commission-45/regulation-20241328-new-restrictions-for-d4-d5-and-d6-8116	1
+ab_reach	CYCLOPENTASILOXANE	541-02-6	D5	2027-06-06	(EU) 2024/1328 (REACH Ek XVII giriş 70)	Ağırlıkça %0,1 ve üzeri: durulanan üründe 31 Ocak 2020'den (D4, D5), durulanmayan üründe 6 Haziran 2027'den itibaren yasak.	https://cosmeticobs.com/en/articles/european-commission-45/regulation-20241328-new-restrictions-for-d4-d5-and-d6-8116	1
+ab_reach	CYCLOHEXASILOXANE	540-97-6	D6	2027-06-06	(EU) 2024/1328 (REACH Ek XVII giriş 70)	Ağırlıkça %0,1 ve üzeri: durulanan üründe 6 Haziran 2026'dan, durulanmayan üründe 6 Haziran 2027'den itibaren yasak.	https://cosmeticobs.com/en/articles/european-commission-45/regulation-20241328-new-restrictions-for-d4-d5-and-d6-8116	1
+ab_reach	CYCLOMETHICONE	69430-24-6	D4/D5/D6 karışımı	2027-06-06	(EU) 2024/1328 (REACH Ek XVII giriş 70)	Cyclomethicone, D4/D5/D6 karışımıdır; bu maddeler ağırlıkça %0,1 ve üzeri durulanmayan üründe 6 Haziran 2027'den itibaren yasak.	https://cosmeticobs.com/en/articles/european-commission-45/regulation-20241328-new-restrictions-for-d4-d5-and-d6-8116	1
+tr_taslak	CYCLOPENTASILOXANE	541-02-6	Decamethylcyclopentasiloxane (D5)	2026-12-31	Kozmetik Ürünler Yönetmeliği değişiklik taslağı (Ticaret Bakanlığı, Eylül 2026)	Haberlere göre saç spreyi, güneş kremi, nemlendirici ve fondötende 31 Aralık 2026'dan itibaren piyasaya arz edilemeyecek.	https://www.karar.com/guncel-haberler/kozmetik-urunlerde-yeni-donem-bazi-icerikler-yasaklanacak-karekod-2069502	1

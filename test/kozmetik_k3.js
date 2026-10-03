@@ -29,15 +29,17 @@ const cases=[
   {"SODIUM PERBORATE":["orange",["ca"]],"ZINC BORATE":["orange",["ca"]],"MEA-BORATE":["orange",["ca"]]},s=>s.ban.length===3],
  // AB'de zaten yasak: kırmızı kalır, K3 bilgisi eklenir
  ["Aqua, Isobutylparaben, Cyclotetrasiloxane, Butylphenyl Methylpropional",
-  {"ISOBUTYLPARABEN":["red",["ca"]],"CYCLOTETRASILOXANE":["red",["ca"]],"BUTYLPHENYL METHYLPROPIONAL":["red",["ab_ed_b","ca"]]},s=>s.red.length===3&&s.ban.length===3],
+  {"ISOBUTYLPARABEN":["red",["ca"]],"CYCLOTETRASILOXANE":["red",["ab_reach","ca"]],"BUTYLPHENYL METHYLPROPIONAL":["red",["ab_ed_b","ca"]]},s=>s.red.length===3&&s.ban.length===3],
  // Cyclomethicone artık "AB'de yasak" (D4 kaydı) sayılmaz; endokrin listesi B grubu
- ["Cyclomethicone, Dimethicone",{"CYCLOMETHICONE":["yellow",["ab_ed_b"]],"DIMETHICONE":["info",[]]},s=>s.red.length===0],
+ ["Cyclomethicone, Dimethicone",{"CYCLOMETHICONE":["yellow",["ab_ed_b","ab_reach"]],"DIMETHICONE":["info",[]]},s=>s.red.length===0],
  ["Aqua, Miconazole Nitrate",{"MICONAZOLE NITRATE":["orange",["asean"]]},s=>s.ban.length===1],
  // UV filtreleri: AB Ek VI (bilgi) + A grubu -> sarı
  ["C12-15 Alkyl Benzoate, Benzophenone-3, Octocrylene, Homosalate, Butyl Methoxydibenzoylmethane",
   {"BENZOPHENONE-3":["yellow",["ab_ed_a"]],"OCTOCRYLENE":["yellow",["ab_ed_a"]],"HOMOSALATE":["yellow",["ab_ed_a"]],"BUTYL METHOXYDIBENZOYLMETHANE":["info",[]]},s=>s.ed.length===3],
  // Eş anlamlı / Türkçe ad üzerinden de gelir
  ["Su, Gliserin, Metilparaben, BHT",{"METHYLPARABEN":["yellow",["ab_ed_b"]]},s=>s.ed.length===2],
+ // D5: AB REACH kısıtlaması + Türkiye taslağı + AB endokrin B grubu; özette yalnızca endokrin satırına girer
+ ["Cyclopentasiloxane, Cyclohexasiloxane",{"CYCLOPENTASILOXANE":["yellow",["ab_ed_b","ab_reach","tr_taslak"]],"CYCLOHEXASILOXANE":["yellow",["ab_reach"]]},s=>s.ed.length===1&&s.ban.length===0],
  // PFAS: Kaliforniya AB 2771 bilgisi bayrak açıklamasında
  ["PTFE, Mica",{"PTFE":["orange",[]]},s=>s.pfas.length===1],
 ];
@@ -53,6 +55,12 @@ for(const [t,exp,chk] of cases){
   ok(!chk||chk(S),'özet '+t.slice(0,30)+' '+JSON.stringify({ban:S.ban,ed:S.ed,red:S.red,pfas:S.pfas}));
 }
 ok(/AB 2771/.test(kdb.meta.inci_flag_reasons.pfas),'PFAS açıklamasında AB 2771 yok');
+// Türkiye durumu: 2023/1490 sonrası AB değişikliklerinde "tr" alanı ve açıklama metni
+const TRT=kdb.meta.tr_text;ok(TRT&&TRT.yok&&TRT.taslak,'meta.tr_text yok');
+const byId={};kdb.entries.forEach(e=>byId[e.id]=e);
+ok(byId['II/1730']&&byId['II/1730'].tr==='taslak','4-MBC (2024/996) tr=taslak değil');
+ok(byId['II/1731']&&byId['II/1731'].tr==='yok','TPO (2025/877) tr=yok değil');
+ok(kdb.entries.filter(e=>e.annex==='II'&&!e.tr&&!(e.updates||[]).some(u=>u.tr)).length>1000,'eski kayıtlara tr eklenmemeli');
 // summarizeK eski çağrı biçimi (K olmadan) çalışmaya devam etmeli
 ok(KL.summarizeK(KL.analyzeK("Aqua, Methylparaben",K,{})).ed.length===1,'summarizeK K olmadan');
 console.log(n+' K3 denetimi, '+fail+' hata');

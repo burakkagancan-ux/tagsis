@@ -131,6 +131,7 @@ META = {'description': 'E kodlu (INS numaralı) gıda katkı maddeleri veri taba
            'sodium': 'Sodyum içerir (tansiyon takibi)',
            'aluminium': 'Alüminyum içerir'},
  'verification': {'checked_in_session': 'Bu çalışmada kaynakla doğrulandı (E127, E203).',
+                  'checked_2026_10': "03.10.2026'da kaynakla doğrulandı; kaynaklar kaydın 'sources' alanında.",
                   'general_knowledge': 'Model bilgisine dayanıyor; yayımlanmadan önce kaynakla doğrulanmalı.',
                   'partially_checked': 'İddianın bir kısmı (ör. Türkiye durumu) kaynakla doğrulandı, kalanı model bilgisi.',
                   'inventory_only': 'Yalnızca kod ve isim envanteri; özel bir iddia içermiyor.'},
@@ -495,6 +496,74 @@ ITEMS = [
 ]
 
 
+# 03.10.2026 kaynak doğrulaması. Anahtar: E kodu -> {sources, isteğe bağlı reason/risk/flags/partial}.
+# partial=True: iddianın bir kısmı doğrulandı (needs_review kalır). TR izin durumu belirsiz kayıtlar da needs_review kalır.
+S6 = "https://cms.law/en/gbr/legal-updates/compulsory-warnings-on-colours-in-food-and-drink"
+BENZ = "https://www.fda.gov/food/process-contaminants-food/questions-and-answers-occurrence-benzene-soft-drinks-and-other-beverages"
+SULF = "https://www.denib.gov.tr/files/downloads/sirku_ekleri/2016-02-ek1-1.pdf"
+NITR = "https://science.food.gov.uk/article/144676-safety-of-nitrates-and-nitrites-as-food-additives"
+POLY = "https://www.cargill.com/food-beverage/emea/eu-labeling-and-legislation"
+GLU = "https://efsa.europa.eu/en/efsajournal/pub/4910"
+ASP = "https://www.who.int/news/item/14-07-2023-aspartame-hazard-and-risk-assessment-results-released"
+AB418 = "https://bclplaw.com/en-US/events-insights-news/california-bans-use-of-certain-food-additives.html"
+CARR = "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009739"
+CARR_REASON = ("Kırmızı deniz yosunundan elde edilir. EFSA 2018 yeniden değerlendirmesinde mevcut grup ADI'yi (75 mg/kg vücut ağırlığı/gün) "
+               "veri eksikleri nedeniyle geçici saydı ve bazı nüfus gruplarında tahmini alımın bu değeri 10 kata kadar aşabildiğini bildirdi.")
+VERIFY = {
+    **{k: {"sources": [S6]} for k in ("E102", "E104", "E110", "E122", "E124", "E129")},
+    "E123": {"sources": ["https://en.wikipedia.org/wiki/Amaranth_(dye)"]},
+    "E128": {"sources": ["https://www.ecolex.org/details/legislation/commission-regulation-ec-no-8842007-on-emergency-measures-suspending-the-use-of-e-128-red-2g-as-food-colour-lex-faoc073000/"]},
+    "E150c": {"sources": ["https://www.cfs.gov.hk/english/programme/programme_rafs/programme_rafs_fa_01_07.html"]},
+    "E150d": {"sources": ["https://www.cfs.gov.hk/english/programme/programme_rafs/programme_rafs_fa_01_07.html"]},
+    "E154": {"sources": ["https://en.wikipedia.org/wiki/Brown_FK"], "risk": "red", "flags": ["banned_eu"],
+             "reason": "AB'de gıda katkısı olarak izinli değil: EFSA 2011'de artık kullanılmadığını bildirdi ve AB izinli listesine alınmadı."},
+    "E160f": {"sources": ["https://en.wikipedia.org/wiki/Food_orange_7"], "risk": "red", "flags": ["banned_eu"],
+              "reason": "AB izinli katkı listesinden Kasım 2011'de (Tüzük 1129/2011) artık üretilmediği için çıkarıldı."},
+    "E161g": {"sources": ["https://efsa.europa.eu/en/efsajournal/pub/1852"],
+              "reason": "Renklendirici. AB'de gıdada yalnızca Strasbourg sosisinde (saucisse de Strasbourg) izinlidir; EFSA ADI'yi 0,03 mg/kg olarak belirledi ve alımın bu değeri aşmasının olası olmadığını bildirdi."},
+    "E171": {"sources": ["https://www.fsai.ie/news-and-alerts/latest-news/titanium-dioxide-is-no-longer-authorised-as-a-food"]},
+    **{k: {"sources": [BENZ]} for k in ("E210", "E211", "E212", "E213")},
+    "E216": {"sources": [AB418], "partial": True},
+    "E217": {"sources": [AB418], "partial": True},
+    "E924a": {"sources": ["https://bakeryandsnacks.com/Article/2019/09/25/Potassium-bromate-in-bread-Outlawed-in-Europe-but-considered-safe-in-America", AB418],
+              "reason": "AB'de un işlem maddesi olarak izinli değil. IARC 1998'de Grup 2B (olası kanserojen) olarak sınıflandırdı. ABD California AB 418 ile 1 Ocak 2027'den itibaren yasaklanıyor."},
+    **{k: {"sources": [SULF]} for k in ("E220", "E221", "E222", "E223", "E224", "E226", "E227", "E228")},
+    "E230": {"sources": ["https://en.wikipedia.org/wiki/Biphenyl"], "risk": "red", "flags": ["banned_eu"],
+             "reason": "AB'de gıda katkısı olarak artık izinli değil (eskiden narenciye kabuğunun taşıma sırasında korunmasında kullanılırdı)."},
+    **{k: {"sources": [NITR]} for k in ("E249", "E250", "E251", "E252")},
+    "E284": {"sources": ["https://decode.ipb.pt/additives/E284"]},
+    "E285": {"sources": ["https://decode.ipb.pt/additives/E285"]},
+    "E320": {"sources": ["https://foodadditives.net/antioxidant/butylated-hydroxyanisole-bha/"]},
+    "E407": {"sources": [CARR], "risk": "yellow", "reason": CARR_REASON},
+    "E407a": {"sources": [CARR], "risk": "yellow", "reason": CARR_REASON},
+    **{k: {"sources": [POLY]} for k in ("E420", "E421", "E953", "E964", "E965", "E966", "E967")},
+    **{k: {"sources": [GLU]} for k in ("E620", "E621", "E622", "E623", "E624", "E625")},
+    "E951": {"sources": [ASP]}, "E962": {"sources": [ASP]},
+    "E952": {"sources": ["https://en.wikipedia.org/wiki/Cyclamate"],
+             "reason": "ABD'de 1969'da genel gıdalarda, 1970'te tamamen yasaklandı; AB'de 1996'daki yeniden değerlendirmeden sonra izinlidir ve kabul edilebilir günlük alım değeri belirlenmiştir."},
+    "E954": {"sources": ["https://inchem.org/documents/iarc/vol73/73-19.html"]},
+    "E955": {"sources": ["https://www.efsa.europa.eu/en/plain-language-summary/re-evaluation-sucralose-e-955-food-additive"], "flags": [],
+             "reason": "EFSA 16 Şubat 2026'daki yeniden değerlendirmede ADI'yi (15 mg/kg vücut ağırlığı/gün) değiştirmedi; en yüksek tahmini alımın bile bu değerin altında olduğunu ve güvenlik endişesi olmadığını bildirdi."},
+    "E968": {"sources": ["https://www.efsa.europa.eu/en/efsajournal/pub/8430", "https://fs-cpc.charite.de/en/der-kuenstliche-suessstoff-erythrit-und-das-risiko-kardiovaskulaerer-komplikationen/"],
+             "risk": "yellow",
+             "reason": "EFSA 2023 yeniden değerlendirmesinde ADI'yi 0,5 g/kg vücut ağırlığı/gün olarak belirledi (ishal/laksatif etki esas alındı) ve tahmini alımın bu değerin üzerinde olduğunu bildirdi. 2023'te yayımlanan bir çalışma kandaki eritritol düzeyiyle kalp-damar olayları arasında ilişki bildirdi; nedensellik kanıtlanmadı."},
+}
+
+
+def apply_verify(rec, review):
+    v = VERIFY.get(rec["id"])
+    if not v:
+        return review
+    rec["sources"] = v["sources"]
+    if "reason" in v: rec["reason"] = v["reason"]
+    if "risk" in v: rec["risk_level"] = v["risk"]
+    if "flags" in v:
+        keep = [f for f in rec["flags"] if f not in ("debated", "banned_eu")]
+        rec["flags"] = keep + [f for f in v["flags"] if f not in keep]
+    rec["verification"] = "partially_checked" if v.get("partial") else "checked_2026_10"
+    return True if v.get("partial") else False
+
+
 def code_aliases(eid):
     c = eid[1:].lower()
     a = ["e" + c, "e-" + c, "e " + c, "ins " + c, "ins" + c]
@@ -535,6 +604,8 @@ def build():
                "aliases": code_aliases(eid) + with_folds(names), "flags": list(flags),
                "risk_level": risk, "reason": reason if reason is not None else DEFAULT_REASON.replace("{K}", cat),
                "agencies": list(agencies), "eu_status": eu, "needs_review": review, "verification": verif}
+        tr_unknown = bool(tgk) and eid not in tgk and eid not in TGK_NOTES and rec["risk_level"] == "green"
+        rec["needs_review"] = apply_verify(rec, review) or (review and eid not in VERIFY) or tr_unknown
         if eid in tgk:
             rec["tgk_name"] = tgk[eid]
         if eid in TGK_NOTES or (tgk and eid not in tgk):
