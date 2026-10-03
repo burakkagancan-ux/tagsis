@@ -14,6 +14,7 @@ Son güncelleme: 03.10.2026.
 - Gıda: E kodları (data/e_kodlari.json, gen_e_kodlari.py, TGK ile karşılaştırılmış), bileşen grupları (data/bilesenler.json), açıklamalar (data/e_aciklama.json), profiller (alerjen, laktoz, vegan, vejetaryen, hamile, bebek, çocuk, PKU, evcil hayvan, tansiyon/tuz kısıtlaması, koku alerjisi).
 - Kozmetik: AB 1223/2009 ekleri (data/kozmetik.json, 1.972 kayıt) + CosIng INCI listesi ve 2.978 eş anlamlı (data/kozmetik_inci.json). Üretim: gen_kozmetik.py (CosIng verisi: `git clone https://github.com/inhouse-work/cosing ../cosing`, commit 268e3cd), kaynak/kozmetik_guncellemeler.tsv (2024-2026 AB değişiklikleri), kaynak/kozmetik_esanlamlilar.tsv.
 - Kozmetik K3 ("tartışmalı katman"): kaynak/kozmetik_k3.tsv → kozmetik.json `watch` alanı + `meta.watch_lists`. AB olası endokrin bozucu öncelik listesi (A/B, 28 madde), Kaliforniya HSC §108980 (AB 2762: 2025, AB 496: 2027), ASEAN Ek II farkı (mikonazol). Eşleştirme yalnızca INCI adıyla; CAS belgeleme için.
+- "Birlikte dikkat" eşleşmeleri: data/eslesmeler.json, gen_eslesmeler.py (gen_e_kodlari.py ve gen_kozmetik.py'den SONRA çalıştır; kozmetik INCI listeleri AB koşul metinlerinden üretilir). 10 kural: gıda 6 (benzoat + C vitamini, Southampton renkleri + sodyum benzoat, polioller, fosfatlar, alüminyum, sülfitler), kozmetik 4 (nitrozamin ikilisi, formaldehit salıcılar, parabenler, florürler). Türleri: cift (iki grup birlikte) ve toplam (aynı gruptan en az 2). "içermez" ve "içerebilir" sayılmaz.
 - Bakanlık verisi: fetch_data_arsivli.py, .github/workflows/update.yml (her gün 05:00 UTC).
 - OCR: ocr.html → Cloudflare Worker (worker/, https://inapp-ocr-3a8f.burakkagancan.workers.dev) → Google Cloud Vision. Worker'a ulaşılamazsa Tesseract.js.
 
@@ -27,7 +28,7 @@ Son güncelleme: 03.10.2026.
 - Korumalar: IP başına 6/dk, genel 30/dk (IP_LIMIT/GLOBAL_LIMIT), ALLOWED_ORIGIN (panelde secret, virgülle çoklu), ~4 MB, JPEG/PNG/WebP, 20 sn zaman aşımı, observability kapalı, keep_vars. wrangler.toml'a [vars] ALLOWED_ORIGIN EKLENMEZ (secret ile çakışır).
 
 ## Testler
-- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node test/e_dogrulama.js` (E kodu kaynakları), `node test/sodyum.js` (tuz/sodyum, besin tablosu satırı, olumsuzluk), `node test/sozdizimi.js` (sayfalardaki tüm script bloklarının sözdizimi; arayüz kodu başka testte çalışmaz, her değişiklikten sonra çalıştır), `node worker/test.mjs` (14 durum).
+- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node test/e_dogrulama.js` (E kodu kaynakları), `node test/sodyum.js` (tuz/sodyum, besin tablosu satırı, olumsuzluk), `node test/eslesme.js` (birlikte dikkat), `node test/sozdizimi.js` (sayfalardaki tüm script bloklarının sözdizimi; arayüz kodu başka testte çalışmaz, her değişiklikten sonra çalıştır), `node worker/test.mjs` (14 durum).
 - test/kozmetik_cases.js'i başka betikten `require` et (node -e içinde çalışmıyor).
 - Tarayıcı: `python3 -m http.server 8765 &` + Playwright; "Okunan Metin" details kapalı, textarea'ya yazmadan önce summary'ye tıkla. OCR isteği `page.route('**/inapp-ocr-3a8f**')` ile taklit edilir.
 
@@ -39,6 +40,7 @@ Son güncelleme: 03.10.2026.
 - K3 renkleri (03.10.2026, kullanıcı kararı): başka büyük pazarda yasak (Kaliforniya, ASEAN) → turuncu; AB endokrin bozucu öncelik listesi ve SIN List → sarı. AB Ek II'deki madde kırmızı kalır, K3 yalnızca not ekler.
 - CYCLOMETHICONE, D4 kaydından (II/1388) çıkarıldı: kozmetik yönetmeliğinde yasak değil.
 - "Görüntüyü iyileştir" düğmesi kaldırıldı (03.10.2026): Google Vision yolunda etkisi yoktu; yedek OCR'da (Tesseract) gri ton + kontrast hep açık.
+- Birlikte dikkat (03.10.2026): her kural resmi kaynağa dayanır; dil olasılık bildirir ("oluşabilir"), "tehlikeli/zehir" denmez; renk sarı, kırmızı yok. Kaynaksız "şu ikisi birlikte zehir" iddiaları eklenmez. Açık: E210-E213 kartları benzen notunu tek başına da gösteriyor (C vitamini olmasa da); sadeleştirilip sadeleştirilmeyeceği kullanıcıya soruldu.
 - Gizli sodyum (03.10.2026): yalnızca "Tansiyon / tuz kısıtlaması" profili seçilince kart çıkar. Tuz, sodyumlu E kodları (adında sodyum geçen 42 kod), soya sosu ve bulyon gösterilir. Miktar hesaplanmaz; tuz ilk 3 bileşendeyse belirtilir. Eşik bilgisi NHS'e dayanır: 100 g'da >1,5 g yüksek, <0,3 g düşük.
 - Temizlik ürünleri ayrı bir faz olacak (kozmetiğe karıştırılmaz; AB deterjan ve CLP mevzuatı).
 - Barkod en sona; belki hiç kapsama alınmaz.

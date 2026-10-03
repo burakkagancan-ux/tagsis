@@ -580,6 +580,29 @@ function summarizeK(res,K){
   });
   return o;
 }
+/* "Birlikte dikkat" eşleşmeleri (data/eslesmeler.json). items: [{keys:[E kodu ya da INCI adı], label}]
+   cift: her gruptan en az bir madde (aynı madde iki grubu birden karşılayamaz); toplam: aynı gruptan en az R.min farklı madde */
+function findCombos(rules,mode,items){
+  var out=[];
+  (rules||[]).forEach(function(R){
+    if(R.mode!==mode)return;
+    var per=R.groups.map(function(g){var set={};(g.ids||g.inci||[]).forEach(function(x){set[x]=1});
+      return items.filter(function(it){return it.keys.some(function(k){return set[k]})})});
+    if(R.type==="cift"){
+      if(!per.every(function(h){return h.length}))return;
+      if(per.length===2&&per[0].length===1&&per[1].length===1&&per[0][0]===per[1][0])return;
+    }else if(per[0].length<(R.min||2))return;
+    out.push({rule:R,hits:per.map(function(h){return h.map(function(it){return it.label}).filter(function(x,i,a){return a.indexOf(x)===i})})});
+  });
+  return out;
+}
+function comboItemsFood(res,idx){
+  return res.filter(function(r){return !r.isB&&!r.neg&&!r.may}).map(function(r){
+    return {keys:r.ids,label:r.ids.length===1?r.ids[0]+" "+idx.byId[r.ids[0]].primary_name:r.text}});
+}
+function comboItemsK(res){
+  return res.filter(function(r){return r.found&&!r.may}).map(function(r){return {keys:[r.name].concat(r.name.split(" / ")),label:r.name}});
+}
 /*LOGIC-END*/
 
 var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare Worker adresi; boşsa telefonda Tesseract kullanılır
@@ -594,6 +617,7 @@ window.onerror=function(m,src,l){ST.textContent="Sayfa hatası: "+m+" (satır "+
 
 /* ---------- Veri yükleme ---------- */
 var PATHS=["data/e_kodlari.json","e_kodlari.json"];
+var COMBO=null;getJson("data/eslesmeler.json").then(function(j){COMBO=j.rules}).catch(function(){COMBO=null});
 function getJson(p){return fetch(p,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(p+" bulunamadı");return r.json()})}
 function loadDb(i){
   if(i>=PATHS.length){var msg="Katkı maddesi listesi bulunamadı. GitHub'da dosyanın adı tam olarak e_kodlari.json olmalı ve data klasöründe durmalı.";setSt("gida",msg);$("sonuc").textContent=msg;return}
@@ -777,6 +801,22 @@ function additiveCard(r){
   b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
 }
+function comboCard(c){
+  var R=c.rule,d=el("div","res "+(R.level==="yellow"?"y":"g"));d.appendChild(el("div","t",R.title));
+  d.appendChild(el("div","ln",R.text));
+  var p=el("div","ln");p.appendChild(el("b",null,"Bu üründe: "));
+  p.appendChild(document.createTextNode(c.hits.map(function(h,i){return (R.type==="cift"?R.groups[i].label+": ":"")+h.join(", ")}).join(" · ")));d.appendChild(p);
+  var ps=el("div","how","Kaynak: ");
+  (R.sources||[]).forEach(function(u,i){var a=el("a",null,u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u;a.target="_blank";a.rel="noopener";if(i)ps.appendChild(document.createTextNode(" · "));ps.appendChild(a)});
+  d.appendChild(ps);
+  d.appendChild(el("div","how","Miktar etiketten bilinemez; bu bir risk hesabı değil, bilgi notudur."));
+  return d;
+}
+function comboSection(box,list){
+  if(!list.length)return;
+  box.appendChild(el("h2",null,"Birlikte Dikkat"));
+  list.forEach(function(c){box.appendChild(comboCard(c))});
+}
 function render(res,br){
   var box=$("sonuc");box.textContent="";LAST=res;LASTBR=br||[];
   var S=summarize(res,IDX);LASTSUM=S;
@@ -784,6 +824,7 @@ function render(res,br){
   profileCards(S).forEach(function(c){box.appendChild(c)});
   box.appendChild(summaryCard(S,res));
   if(LASTBR.length)box.appendChild(brandCard(LASTBR));
+  comboSection(box,findCombos(COMBO,"gida",comboItemsFood(res,IDX)));
   var E=res.filter(function(r){return !r.isB&&!r.neg});
   if(E.length){box.appendChild(el("h2",null,"Katkı Maddeleri"));E.forEach(function(r){box.appendChild(additiveCard(r))})}
   var notes=res.filter(function(r){return r.isB&&!r.neg}).map(function(r){return IDX.byId[r.ids[0]]}).filter(function(it){return it.note});
@@ -964,6 +1005,7 @@ function renderK(res){
   var S=summarizeK(res,KIDX);
   kProfileCards(S,res).forEach(function(c){box.appendChild(c)});
   box.appendChild(kSummaryCard(S));
+  comboSection(box,findCombos(COMBO,"koz",comboItemsK(res)));
   var W=res.filter(function(r){return r.found&&r.rank>0}).sort(function(a,b){return b.rank-a.rank||a.pos-b.pos});
   if(W.length){box.appendChild(el("h2",null,"Dikkat Gerektiren Bileşenler"));W.forEach(function(r){box.appendChild(kCard(r))})}
   box.appendChild(el("h2",null,"Tüm Bileşenler"));
