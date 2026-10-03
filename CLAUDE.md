@@ -19,7 +19,7 @@ Son güncelleme: 03.10.2026.
 
 ## ocr.html yapısı
 - `/*LOGIC-START*/ ... /*LOGIC-END*/` arası saf mantık; testler bu bölümü eval ile yükler.
-- Gıda: buildIndex, analyze, summarize. Kozmetik: buildKIndex, looksCosmetic, inciItems, kLookup (bantlı Levenshtein, byFirst/bySecond kovaları), kMatch, kSegment (virgülsüz listeleri böler), isProse (talimat/adres ayıklar), kResult, analyzeK (.extra), summarizeK(res, K) (.ban, .ed: K3 özetleri). K3 rengi kResult'ta: watch_lists[liste].level en az renk olur.
+- Gıda: buildIndex, analyze, summarize. OCR toleransı (findNames): ocrFixF ("rn"->"m", harf arası rakam) ve short1 (4-8 harfli tek sözcük, mesafe 1, tek aday, yalnızca B: bileşen gruplarında kabul; yalnızca sondaki ek farkı sayılmaz: "alkolü" alkol değildir). Kozmetik: buildKIndex, looksCosmetic, inciItems, kLookup (bantlı Levenshtein, byFirst/bySecond kovaları; ocrFix: "rn"->"m", harf içi rakam; KSHORT: 5-6 harfli sık adlarda benzer yazım, kSegment içinde kapalı), kMatch, kSegment (virgülsüz listeleri böler), isProse (talimat/adres ayıklar), kResult, analyzeK (.extra), summarizeK(res, K) (.ban, .ed: K3 özetleri). K3 rengi kResult'ta: watch_lists[liste].level en az renk olur.
 - Arayüz: Gıda | Kozmetik anahtarı (localStorage "tur"), ürün tipi ("ktip"), fotoğraf kırpma (CROP, prep()), mod başına durum satırı (setSt/STMSG), profil (localStorage "profil").
 
 ## Worker (worker/)
@@ -27,7 +27,7 @@ Son güncelleme: 03.10.2026.
 - Korumalar: IP başına 6/dk, genel 30/dk (IP_LIMIT/GLOBAL_LIMIT), ALLOWED_ORIGIN (panelde secret, virgülle çoklu), ~4 MB, JPEG/PNG/WebP, 20 sn zaman aşımı, observability kapalı, keep_vars. wrangler.toml'a [vars] ALLOWED_ORIGIN EKLENMEZ (secret ile çakışır).
 
 ## Testler
-- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node worker/test.mjs` (14 durum).
+- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node worker/test.mjs` (14 durum).
 - test/kozmetik_cases.js'i başka betikten `require` et (node -e içinde çalışmıyor).
 - Tarayıcı: `python3 -m http.server 8765 &` + Playwright; "Okunan Metin" details kapalı, textarea'ya yazmadan önce summary'ye tıkla. OCR isteği `page.route('**/inapp-ocr-3a8f**')` ile taklit edilir.
 
@@ -45,6 +45,10 @@ Son güncelleme: 03.10.2026.
 - OCR: iki sütunlu etikette kesik adlar, ağır bozulmalar, 2024 sonrası INCI'ler (ör. STEVIOL GLYCOSIDES) tanınmıyor.
 - K3: ChemSec SIN List yok (uygulamada yeniden kullanım için ChemSec'ten yazılı izin gerekiyor, info@chemsec.org). Kanada Hotlist, Çin, Japonya, Kore, Brezilya, Washington eyaleti eklenmedi. ASEAN satırı needs_review.
 - GLYCERIN gibi maddelerde "kaynağı belirsiz" vegan uyarısı sık çıkıyor.
+
+## Eş anlamlı ölçümü (03.10.2026)
+- 25 gerçekçi Türkçe gıda etiketi ve 17 INCI listesiyle denetlendi: temiz metinde kozmetik %100, gıdada eksik 5 ifade bulunup eklendi (amonyak sülfitli karamel, briliant mavi FCF, koyulaştırıcı, aroma güçlendirici, stabilizörler).
+- Yapay OCR hatası testi (tek harf karışması): kozmetik %92 -> %98, gıda %74 -> %88; yeni yanlış eşleşme yok. Kalan zayıflık: iki harfi bozulmuş adlar, 4 harften kısa sözcükler (süt, palm).
 
 ## Sıradaki işler
 1. Telefon testleri (eş anlamlılar, Türkçe etiketler, kırpma) ve sonuçlara göre ayar.

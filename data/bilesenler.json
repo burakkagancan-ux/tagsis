@@ -170,7 +170,7 @@
   ],
   "counts": {
    "items": 95,
-   "aliases": 663
+   "aliases": 674
   }
  },
  "items": [
@@ -1584,8 +1584,14 @@
     "jelleştirici",
     "jelleştirici madde",
     "stabilizör",
+    "stabilizörler",
     "stabilizatör",
-    "stabilizatörler"
+    "stabilizatörler",
+    "koyulaştırıcı",
+    "koyulaştırıcılar",
+    "kıvam verici",
+    "kıvam vericiler",
+    "jelleştiriciler"
    ],
    "flags": [
     "upf"
@@ -1626,7 +1632,12 @@
     "lezzet artırıcı",
     "lezzet arttırıcı",
     "lezzet artırıcılar",
-    "lezzet güçlendirici"
+    "lezzet güçlendirici",
+    "lezzet güçlendiriciler",
+    "aroma güçlendirici",
+    "aroma güçlendiriciler",
+    "aroma artırıcı",
+    "aroma arttırıcı"
    ],
    "flags": [
     "upf"

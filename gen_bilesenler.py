@@ -180,10 +180,10 @@ ITEMS = [
     ("hidrolize_protein", "Hidrolize protein", ["hidrolize protein", "hidrolize bitkisel protein", "hidrolize soya proteini", "hidrolize buğday proteini", "protein hidrolizatı", "maya özütü", "maya ekstraktı", "otolize maya"], [U], "Doğal glutamat kaynağıdır; 'lezzet artırıcı içermez' etiketlerinde sık kullanılır.", {"upf_class": "lezzet artırıcı"}),
     ("hidrojenize", "Hidrojenize / interesterifiye yağ", ["hidrojenize yağ", "hidrojenize bitkisel yağ", "kısmen hidrojenize", "kısmen hidrojenize yağ", "tamamen hidrojenize yağ", "interesterifiye yağ", "interesterifiye bitkisel yağ", "hidrojenize", "margarin"], [U], "", {"upf_class": "hidrojenize yağ"}),
     ("upf_sinif_emulgator", "Emülgatör", ["emülgatör", "emülgatörler", "emülsifiye edici", "emülsiyon verici", "eritme tuzu", "eritme tuzları"], [U], "", {"upf_class": "emülgatör"}),
-    ("upf_sinif_kivam", "Kıvam artırıcı", ["kıvam artırıcı", "kıvam arttırıcı", "kıvam artırıcılar", "jelleştirici", "jelleştirici madde", "stabilizör", "stabilizatör", "stabilizatörler"], [U], "", {"upf_class": "kıvam artırıcı"}),
+    ("upf_sinif_kivam", "Kıvam artırıcı", ["kıvam artırıcı", "kıvam arttırıcı", "kıvam artırıcılar", "jelleştirici", "jelleştirici madde", "stabilizör", "stabilizörler", "stabilizatör", "stabilizatörler", "koyulaştırıcı", "koyulaştırıcılar", "kıvam verici", "kıvam vericiler", "jelleştiriciler"], [U], "", {"upf_class": "kıvam artırıcı"}),
     ("upf_sinif_renk", "Renklendirici", ["renklendirici", "renklendiriciler", "renk verici", "gıda boyası"], [U], "", {"upf_class": "renklendirici"}),
     ("upf_sinif_tatlandirici", "Tatlandırıcı", ["tatlandırıcı", "tatlandırıcılar", "yapay tatlandırıcı"], [U], "", {"upf_class": "tatlandırıcı"}),
-    ("upf_sinif_lezzet", "Lezzet artırıcı", ["lezzet artırıcı", "lezzet arttırıcı", "lezzet artırıcılar", "lezzet güçlendirici"], [U], "", {"upf_class": "lezzet artırıcı"}),
+    ("upf_sinif_lezzet", "Lezzet artırıcı", ["lezzet artırıcı", "lezzet arttırıcı", "lezzet artırıcılar", "lezzet güçlendirici", "lezzet güçlendiriciler", "aroma güçlendirici", "aroma güçlendiriciler", "aroma artırıcı", "aroma arttırıcı"], [U], "", {"upf_class": "lezzet artırıcı"}),
     ("upf_sinif_parlatici", "Parlatıcı", ["parlatıcı", "parlatıcı madde", "kaplama maddesi", "kaplama ajanı"], [U], "", {"upf_class": "parlatıcı"}),
     ("upf_sinif_kopuk", "Köpük önleyici / kabartıcı", ["köpük önleyici", "köpürtücü", "dolgu maddesi", "hacim artırıcı"], [U], "", {"upf_class": "köpük/dolgu maddesi"}),
 
