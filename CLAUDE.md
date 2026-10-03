@@ -27,7 +27,7 @@ Son güncelleme: 03.10.2026.
 - Korumalar: IP başına 6/dk, genel 30/dk (IP_LIMIT/GLOBAL_LIMIT), ALLOWED_ORIGIN (panelde secret, virgülle çoklu), ~4 MB, JPEG/PNG/WebP, 20 sn zaman aşımı, observability kapalı, keep_vars. wrangler.toml'a [vars] ALLOWED_ORIGIN EKLENMEZ (secret ile çakışır).
 
 ## Testler
-- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node worker/test.mjs` (14 durum).
+- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node test/e_dogrulama.js` (E kodu kaynakları), `node worker/test.mjs` (14 durum).
 - test/kozmetik_cases.js'i başka betikten `require` et (node -e içinde çalışmıyor).
 - Tarayıcı: `python3 -m http.server 8765 &` + Playwright; "Okunan Metin" details kapalı, textarea'ya yazmadan önce summary'ye tıkla. OCR isteği `page.route('**/inapp-ocr-3a8f**')` ile taklit edilir.
 
@@ -38,10 +38,14 @@ Son güncelleme: 03.10.2026.
 - Etiket oku'daki "Profilim" kutusu kalıyor. Kırpma kalıyor.
 - K3 renkleri (03.10.2026, kullanıcı kararı): başka büyük pazarda yasak (Kaliforniya, ASEAN) → turuncu; AB endokrin bozucu öncelik listesi ve SIN List → sarı. AB Ek II'deki madde kırmızı kalır, K3 yalnızca not ekler.
 - CYCLOMETHICONE, D4 kaydından (II/1388) çıkarıldı: kozmetik yönetmeliğinde yasak değil.
-- Açık: "Görüntüyü iyileştir" kaldırılsın mı; temizlik ürünleri ayrı faz mı.
+- "Görüntüyü iyileştir" düğmesi kaldırıldı (03.10.2026): Google Vision yolunda etkisi yoktu; yedek OCR'da (Tesseract) gri ton + kontrast hep açık.
+- Temizlik ürünleri ayrı bir faz olacak (kozmetiğe karıştırılmaz; AB deterjan ve CLP mevzuatı).
+- Barkod en sona; belki hiç kapsama alınmaz.
+- İş sırası (kullanıcı, 03.10.2026): telefon testleri (kullanıcı) → besin değeri tablosu → aylık mevzuat izleme → hukuki görüş en son. Google Fonts ön yüz işiyle birlikte. CI bekleyebilir. Google Cloud Vision dakikalık kotası düşürüldü.
+- E kodu renk ölçütleri değişmedi; kaynak taramasında E407/E407a ve E968 EFSA ADI aşımı nedeniyle (K6) sarıya, E154/E160f/E230 AB listesinde olmadığı için (K1) kırmızıya geçti.
 
 ## Bilinen sınırlamalar
-- 110 E kodu needs_review. Kozmetik CosIng verisi 2024 başı; 2026 değişikliklerinin sıra numaraları doğrulanmadı; TR kozmetik ekleri madde madde karşılaştırılmadı; ABD renk tablosu (US_COLORS) ve eş anlamlılar bilgiye dayalı.
+- E kodları: 57 kayıt needs_review (çoğu vegan/helal kaynak bayrakları ve Türkiye izin durumu); renkli (sarı/kırmızı) kayıtların hepsi kaynaklı (`sources`). Kozmetik CosIng verisi 2024 başı; 2026 değişikliklerinin sıra numaraları doğrulanmadı; TR kozmetik ekleri satır satır karşılaştırılamadı (bkz. kaynak/TR_KOZMETIK_KARSILASTIRMA.md, `tr` alanı); ABD renk tablosu (US_COLORS) ve eş anlamlılar bilgiye dayalı.
 - OCR: iki sütunlu etikette kesik adlar, ağır bozulmalar, 2024 sonrası INCI'ler (ör. STEVIOL GLYCOSIDES) tanınmıyor.
 - K3: ChemSec SIN List yok (uygulamada yeniden kullanım için ChemSec'ten yazılı izin gerekiyor, info@chemsec.org). Kanada Hotlist, Çin, Japonya, Kore, Brezilya, Washington eyaleti eklenmedi. ASEAN satırı needs_review.
 - GLYCERIN gibi maddelerde "kaynağı belirsiz" vegan uyarısı sık çıkıyor.
@@ -51,11 +55,12 @@ Son güncelleme: 03.10.2026.
 - Yapay OCR hatası testi (tek harf karışması): kozmetik %92 -> %98, gıda %74 -> %88; yeni yanlış eşleşme yok. Kalan zayıflık: iki harfi bozulmuş adlar, 4 harften kısa sözcükler (süt, palm).
 
 ## Sıradaki işler
-1. Telefon testleri (eş anlamlılar, Türkçe etiketler, kırpma) ve sonuçlara göre ayar.
-2. Hukuki görüş hazırlığı (KVKK / Google Vision, "zararlı" dili, arşiv gösterimi) — kullanıcı avukata soracak.
-3. Kozmetik K3 tamamlandı (SIN List hariç). Sırada: ChemSec izni gelirse SIN List; istenirse Kanada Hotlist.
-4. Faz 2: besin değeri tablosu okuma; helal ("kaynağı belirsiz, sertifikaya bakın").
-5. Teknik borç: TEKNIK_BORC.md (Google Fonts, TR kozmetik ekleri, eksik 2026 AB değişiklikleri, CI ile testler).
+1. Telefon testleri (kullanıcı yapıyor) ve sonuçlara göre ayar.
+2. Faz 2: besin değeri tablosu okuma. Ardından helal ("kaynağı belirsiz, sertifikaya bakın").
+3. Aylık mevzuat izleme (GitHub Actions: EUR-Lex, Resmî Gazete, CosIng -> issue). Türkiye taslağı yayımlanınca `TR_BY_REG` güncellenir.
+4. Google Fonts'u depoya alma (ön yüz işleriyle birlikte).
+5. Hukuki görüş hazırlığı (KVKK / Google Vision, "zararlı" dili, arşiv gösterimi) — en son.
+6. Sonra: temizlik ürünleri fazı, CI ile testler, SIN List (ChemSec izni), barkod (belki hiç).
 
 ## Belgeler (Claude Docs)
 - Kozmetik araştırması: https://claude.ai/code/artifact/690f07f0-5bc7-4600-bd75-aa9d38fbfb21
