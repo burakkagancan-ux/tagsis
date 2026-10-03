@@ -1,6 +1,6 @@
 {
  "meta": {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "generated": "2026-10-03",
   "description": "E kodu olmayan bileşenler: gizli şeker, palm yağı, 14 yasal alerjen, laktoz, hayvansal kaynak, ultra işlenmiş gıda (UPF) işaretleri.",
   "flags": {
@@ -8,7 +8,7 @@
    "sugar_hidden": "Gizli şeker (adında 'şeker' geçmiyor)",
    "palm": "Palm yağı",
    "allergen_gluten": "Gluten içeren tahıl",
-   "allergen_crustacean": "Kabuklu deniz ürünü",
+   "allergen_crustacean": "Kabuklular (kabuklu deniz ürünü)",
    "allergen_egg": "Yumurta",
    "allergen_fish": "Balık",
    "allergen_peanut": "Yer fıstığı",
@@ -18,7 +18,7 @@
    "allergen_celery": "Kereviz",
    "allergen_mustard": "Hardal",
    "allergen_sesame": "Susam",
-   "allergen_sulphite": "Sülfit",
+   "allergen_sulphite": "Kükürt dioksit ve sülfitler",
    "allergen_lupin": "Acı bakla (lupin)",
    "allergen_mollusc": "Yumuşakça",
    "lactose": "Laktoz içerir",
@@ -32,11 +32,11 @@
   "allergens": [
    [
     "allergen_gluten",
-    "Gluten (çölyak)"
+    "Gluten içeren tahıllar"
    ],
    [
     "allergen_crustacean",
-    "Kabuklu deniz ürünleri"
+    "Kabuklular"
    ],
    [
     "allergen_egg",
@@ -76,7 +76,7 @@
    ],
    [
     "allergen_sulphite",
-    "Sülfit"
+    "Kükürt dioksit ve sülfitler"
    ],
    [
     "allergen_lupin",
@@ -122,7 +122,7 @@
    {
     "name": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği, Ek-1 (alerjenler)",
     "ref": "Resmî Gazete 26.01.2017, sayı 29960 (1. mükerrer); son değişiklik 06.04.2024",
-    "note": "Ek-1'in metni bu çalışmada birebir okunamadı; liste ve muafiyetler, Ek-1'in uyumlaştırıldığı AB Tüzüğü 1169/2011 Ek II'den alındı. Yayından önce Ek-1 ile karşılaştırılmalı."
+    "note": "03.10.2026'da Ek-1'in Türkçe metniyle karşılaştırıldı (DENİB genelge eki kopyası: https://www.denib.gov.tr/files/downloads/sirku_ekleri/2016-02-ek1-1.pdf ; resmi metin mevzuat.gov.tr'den okunamadı). 14 madde, sıra ve muafiyetler uyumlu; kılçıksız buğday, tritikale (melez), Brezilya fındığı, Queensland fındığı, balık jelatini/isinglass ve bitkisel sterol muafiyetleri eklendi."
    },
    {
     "name": "DSÖ (WHO) Guideline: Sugars intake for adults and children (2015)",
@@ -140,8 +140,8 @@
    "Vegan/vejetaryen sonucu yalnızca içerik adlarına dayanır; üretim süreci ve çapraz bulaşma bilinmez."
   ],
   "counts": {
-   "items": 84,
-   "aliases": 548
+   "items": 86,
+   "aliases": 569
   }
  },
  "items": [
@@ -453,6 +453,8 @@
    "aliases": [
     "buğday",
     "buğday unu",
+    "tritikale",
+    "tritikale unu",
     "tam buğday unu",
     "tam buğday",
     "irmik",
@@ -556,6 +558,7 @@
    "name": "Kavuzlu buğday",
    "aliases": [
     "kavuzlu buğday",
+    "kılçıksız buğday",
     "spelt",
     "spelt unu",
     "kamut",
@@ -636,7 +639,6 @@
     "uskumru",
     "balık unu",
     "balık özü",
-    "balık jelatini",
     "balık kolajeni"
    ],
    "flags": [
@@ -644,6 +646,21 @@
     "non_vegan",
     "non_vegetarian"
    ]
+  },
+  {
+   "id": "balik_jelatini",
+   "name": "Balık jelatini",
+   "aliases": [
+    "balık jelatini",
+    "isinglass",
+    "balık tutkalı"
+   ],
+   "flags": [
+    "allergen_fish",
+    "non_vegan",
+    "non_vegetarian"
+   ],
+   "note": "Yönetmelik muafiyeti: vitamin veya karotenoid preparatlarında taşıyıcı olarak ya da bira ve şarapta durultma için kullanılan balık jelatini/isinglass alerjen sayılmaz. Diğer kullanımlarda balık alerjenidir."
   },
   {
    "id": "yumurta",
@@ -778,9 +795,13 @@
     "pikan",
     "pekan",
     "brezilya cevizi",
+    "brezilya fındığı",
     "makadamya",
     "makadamya fındığı",
-    "queensland cevizi"
+    "macadamia",
+    "macadamia fındığı",
+    "queensland cevizi",
+    "queensland fındığı"
    ],
    "flags": [
     "allergen_nuts"
@@ -828,10 +849,12 @@
    "name": "Soya yağı",
    "aliases": [
     "soya yağı",
-    "rafine soya yağı"
+    "rafine soya yağı",
+    "soya fasulyesi yağı",
+    "rafine soya fasulyesi yağı"
    ],
    "flags": [],
-   "note": "Yönetmelik muafiyeti: tamamen rafine soya yağı soya alerjeni sayılmaz."
+   "note": "Yönetmelik muafiyeti: rafine soya fasulyesi yağı (katı ve sıvı) soya alerjeni sayılmaz."
   },
   {
    "id": "sut",
@@ -1079,12 +1102,15 @@
   },
   {
    "id": "sulfit",
-   "name": "Sülfit",
-   "aliases": [],
+   "name": "Kükürt dioksit ve sülfitler",
+   "aliases": [
+    "kükürt dioksit ve sülfitler",
+    "sülfitler ve kükürt dioksit"
+   ],
    "flags": [
     "allergen_sulphite"
    ],
-   "note": "10 mg/kg üzerindeki sülfit alerjen olarak bildirilmek zorundadır."
+   "note": "Toplam SO2 cinsinden 10 mg/kg veya 10 mg/L üzerindeki kükürt dioksit ve sülfitler alerjen olarak bildirilmek zorundadır. Tür belirtilmemiş “sülfit” E220–E228 koruyucularından biridir."
   },
   {
    "id": "et",
@@ -1536,6 +1562,22 @@
    ],
    "flags": [],
    "note": "Gluten içeren tahıllardan değildir; çapraz bulaşma için etikete bakın."
+  },
+  {
+   "id": "n_sterol",
+   "name": "Bitkisel sterol / stanol",
+   "aliases": [
+    "bitkisel sterol",
+    "bitkisel steroller",
+    "bitkisel sterol esteri",
+    "bitkisel sterol esterleri",
+    "bitkisel stanol esteri",
+    "bitkisel stanol esterleri",
+    "fitosterol",
+    "fitosteroller"
+   ],
+   "flags": [],
+   "note": "Yönetmelik muafiyeti: soya kaynaklı olsa bile bitkisel sterol ve stanol esterleri soya alerjeni sayılmaz."
   },
   {
    "id": "n_hamur_mayasi",

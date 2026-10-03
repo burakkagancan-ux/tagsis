@@ -402,7 +402,8 @@ function additiveCard(r){
   var items=r.ids.map(function(id){return IDX.byId[id]});
   var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
   var top=el("div","hd");
-  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+items[0].primary_name+" (tür belirtilmemiş)")));
+  var grp=items.every(function(i){return i.category===items[0].category})?items[0].category:"Katkı maddesi";
+  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+grp+" (türü belirtilmemiş)")));
   var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",it.primary_name+" hakkında bilgi");b.setAttribute("aria-expanded","false");
   top.appendChild(b);d.appendChild(top);
   d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
@@ -412,6 +413,8 @@ function additiveCard(r){
     var ab=ABOUT[x.id];
     if(items.length>1)pn.appendChild(el("div","ih",x.id+" · "+x.primary_name));
     if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,"Nedir? "));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
+    if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,"Yönetmelikteki adı: "));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
+    if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,"Türkiye: "));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
   });
   var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
   p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));

@@ -21,6 +21,13 @@ const cases=[
  ["Laktozsuz süt, laktaz enzimi", ["B:sut"], []],
  ["peynir mayası, mikrobiyal peynir mayası", ["B:peynir_mayasi","B:mikrobiyal_maya"], []],
  ["Antep fıstığı, çam fıstığı, fıstık", ["B:antep","B:n_cam_fistigi","B:fistik"], []],
+ // TGK karşılaştırması (03.10.2026)
+ ["Kuru kayısı, koruyucu (sülfit)", ["E220+E221+E222+E223+E224+E226+E227+E228"], ["E228"]],
+ ["Kükürt dioksit ve sülfitler", ["B:sulfit"], ["E220"]],
+ ["tatlandırıcı (sorbitol), mannitol, guar gam, jellan gam, şellak", ["E420","E421","E412","E418","E904"], []],
+ ["Koşineal, karmosin, ponzo 4R, pancar kökü kırmızısı", ["E120","E122","E124","E162"], []],
+ ["brezilya fındığı, queensland fındığı, tritikale unu, kılçıksız buğday", ["B:pikan","B:bugday","B:spelt"], ["B:findik"]],
+ ["balık jelatini, bitkisel steroller, rafine soya fasulyesi yağı", ["B:balik_jelatini","B:n_sterol","B:soya_yagi"], ["B:balik","B:soya"]],
 ];
 let fail=0;
 for(const [t,must,mustNot] of cases){

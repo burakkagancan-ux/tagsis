@@ -10,7 +10,7 @@ Kullanım:  python3 gen_bilesenler.py   (data/e_kodlari.json ile aynı depoda)
 """
 import json, re, os, datetime
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data", "bilesenler.json")
 EDB = os.path.join(HERE, "data", "e_kodlari.json")
@@ -25,7 +25,7 @@ FLAGS = {
     "sugar_hidden": "Gizli şeker (adında 'şeker' geçmiyor)",
     "palm": "Palm yağı",
     "allergen_gluten": "Gluten içeren tahıl",
-    "allergen_crustacean": "Kabuklu deniz ürünü",
+    "allergen_crustacean": "Kabuklular (kabuklu deniz ürünü)",
     "allergen_egg": "Yumurta",
     "allergen_fish": "Balık",
     "allergen_peanut": "Yer fıstığı",
@@ -35,7 +35,7 @@ FLAGS = {
     "allergen_celery": "Kereviz",
     "allergen_mustard": "Hardal",
     "allergen_sesame": "Susam",
-    "allergen_sulphite": "Sülfit",
+    "allergen_sulphite": "Kükürt dioksit ve sülfitler",
     "allergen_lupin": "Acı bakla (lupin)",
     "allergen_mollusc": "Yumuşakça",
     "lactose": "Laktoz içerir",
@@ -47,13 +47,13 @@ FLAGS = {
     "upf": "Ultra işlenmiş gıda işareti (NOVA)",
 }
 
-# Profil ekranındaki alerjen listesi (TGK Etiketleme Yönetmeliği Ek-1 sırası)
+# Profil ekranındaki alerjen listesi (TGK Etiketleme Yönetmeliği Ek-1 sırası ve adları; kısa gösterim)
 ALLERGENS = [
-    ["allergen_gluten", "Gluten (çölyak)"], ["allergen_crustacean", "Kabuklu deniz ürünleri"],
+    ["allergen_gluten", "Gluten içeren tahıllar"], ["allergen_crustacean", "Kabuklular"],
     ["allergen_egg", "Yumurta"], ["allergen_fish", "Balık"], ["allergen_peanut", "Yer fıstığı"],
     ["allergen_soy", "Soya"], ["allergen_milk", "Süt"], ["allergen_nuts", "Sert kabuklu meyveler"],
     ["allergen_celery", "Kereviz"], ["allergen_mustard", "Hardal"], ["allergen_sesame", "Susam"],
-    ["allergen_sulphite", "Sülfit"], ["allergen_lupin", "Acı bakla (lupin)"], ["allergen_mollusc", "Yumuşakçalar"],
+    ["allergen_sulphite", "Kükürt dioksit ve sülfitler"], ["allergen_lupin", "Acı bakla (lupin)"], ["allergen_mollusc", "Yumuşakçalar"],
 ]
 
 # E kodu kategorisi -> UPF işaret sınıfı (NOVA'daki "kozmetik katkılar")
@@ -95,19 +95,20 @@ ITEMS = [
     ("palm_cekirdek", "Palm çekirdek yağı", ["palm çekirdek yağı", "palm çekirdeği yağı", "palmiye çekirdeği yağı", "palm kernel"], ["palm"], "", {}),
 
     # ---------- GLUTEN ----------
-    ("bugday", "Buğday", ["buğday", "buğday unu", "tam buğday unu", "tam buğday", "irmik", "buğday irmiği", "bulgur", "firik", "kuskus", "galeta unu", "ekmek kırıntısı", "buğday kepeği", "buğday ruşeymi", "buğday nişastası", "buğday proteini", "durum buğdayı", "durum buğdayı irmiği", "siyez", "siyez unu", "kavılca", "yufka"], [GL], "", {}),
+    ("bugday", "Buğday", ["buğday", "buğday unu", "tritikale", "tritikale unu", "tam buğday unu", "tam buğday", "irmik", "buğday irmiği", "bulgur", "firik", "kuskus", "galeta unu", "ekmek kırıntısı", "buğday kepeği", "buğday ruşeymi", "buğday nişastası", "buğday proteini", "durum buğdayı", "durum buğdayı irmiği", "siyez", "siyez unu", "kavılca", "yufka"], [GL], "", {}),
     ("un", "Un", ["un", "ekmeklik un", "beyaz un", "tip 550 un", "pastalık un"], [GL], "Türü belirtilmemiş 'un' genellikle buğday unudur.", {"short_ok": True}),
     ("gluten", "Gluten", ["gluten", "buğday gluteni", "vital gluten", "glüten"], [GL, U], "", {"upf_class": "protein izolatı"}),
     ("arpa", "Arpa", ["arpa", "arpa unu", "arpa maltı", "malt", "kavrulmuş arpa", "arpa şehriye"], [GL], "", {}),
     ("cavdar", "Çavdar", ["çavdar", "çavdar unu", "tam çavdar unu"], [GL], "", {}),
     ("yulaf", "Yulaf", ["yulaf", "yulaf ezmesi", "yulaf unu", "yulaf kepeği", "yulaf lifi", "yulaf sütü", "yulaf içeceği"], [GL], "Yulaf yönetmelikte gluten içeren tahıllar arasındadır; 'glutensiz yulaf' ibaresini etikette kontrol edin.", {}),
-    ("spelt", "Kavuzlu buğday", ["kavuzlu buğday", "spelt", "spelt unu", "kamut", "kamut unu", "einkorn", "emmer"], [GL], "", {}),
+    ("spelt", "Kavuzlu buğday", ["kavuzlu buğday", "kılçıksız buğday", "spelt", "spelt unu", "kamut", "kamut unu", "einkorn", "emmer"], [GL], "", {}),
 
     # ---------- KABUKLU / YUMUŞAKÇA / BALIK ----------
     ("kabuklu", "Kabuklu deniz ürünleri", ["karides", "ıstakoz", "yengeç", "kerevit", "kabuklular", "karides özü", "kabuklu deniz ürünleri"], ["allergen_crustacean", NV, NVG], "", {}),
     ("yumusakca", "Yumuşakçalar", ["midye", "kalamar", "ahtapot", "istiridye", "salyangoz", "mürekkep balığı", "deniz tarağı", "yumuşakçalar"], ["allergen_mollusc", NV, NVG], "", {}),
     ("deniz_urunu", "Deniz ürünleri", ["deniz ürünleri", "deniz mahsulleri"], ["allergen_crustacean", "allergen_mollusc", "allergen_fish", NV, NVG], "Türü belirtilmemiş; kabuklu, yumuşakça ve balık olabilir.", {}),
-    ("balik", "Balık", ["balık", "balık eti", "balık yağı", "balık sosu", "ançüez", "hamsi", "ton balığı", "somon", "sardalya", "uskumru", "balık unu", "balık özü", "balık jelatini", "balık kolajeni"], ["allergen_fish", NV, NVG], "", {}),
+    ("balik", "Balık", ["balık", "balık eti", "balık yağı", "balık sosu", "ançüez", "hamsi", "ton balığı", "somon", "sardalya", "uskumru", "balık unu", "balık özü", "balık kolajeni"], ["allergen_fish", NV, NVG], "", {}),
+    ("balik_jelatini", "Balık jelatini", ["balık jelatini", "isinglass", "balık tutkalı"], ["allergen_fish", NV, NVG], "Yönetmelik muafiyeti: vitamin veya karotenoid preparatlarında taşıyıcı olarak ya da bira ve şarapta durultma için kullanılan balık jelatini/isinglass alerjen sayılmaz. Diğer kullanımlarda balık alerjenidir.", {}),
 
     # ---------- YUMURTA ----------
     ("yumurta", "Yumurta", ["yumurta", "yumurta tozu", "tam yumurta tozu", "yumurta akı", "yumurta akı tozu", "yumurta sarısı", "yumurta sarısı tozu", "pastörize yumurta", "sıvı yumurta", "albümin", "yumurta albümini", "ovalbümin"], ["allergen_egg", NV], "", {}),
@@ -120,12 +121,12 @@ ITEMS = [
     ("ceviz", "Ceviz", ["ceviz", "ceviz içi", "ceviz parçaları"], ["allergen_nuts"], "", {}),
     ("kaju", "Kaju", ["kaju", "kaju fıstığı"], ["allergen_nuts"], "", {}),
     ("antep", "Antep fıstığı", ["antep fıstığı", "şam fıstığı", "boz içi", "bozici"], ["allergen_nuts"], "", {}),
-    ("pikan", "Pikan / Brezilya cevizi / makadamya", ["pikan cevizi", "pekan cevizi", "pikan", "pekan", "brezilya cevizi", "makadamya", "makadamya fındığı", "queensland cevizi"], ["allergen_nuts"], "", {}),
+    ("pikan", "Pikan / Brezilya cevizi / makadamya", ["pikan cevizi", "pekan cevizi", "pikan", "pekan", "brezilya cevizi", "brezilya fındığı", "makadamya", "makadamya fındığı", "macadamia", "macadamia fındığı", "queensland cevizi", "queensland fındığı"], ["allergen_nuts"], "", {}),
 
     # ---------- SOYA ----------
     ("soya", "Soya", ["soya", "soya fasulyesi", "soya unu", "soya proteini", "soya sütü", "soya içeceği", "soya sosu", "tofu", "edamame", "soya kırığı", "soya kepeği", "teksturize soya proteini"], ["allergen_soy"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın.", {}),
     ("soya_izolat", "Soya protein izolatı", ["soya protein izolatı", "izole soya proteini", "soya izolatı", "soya protein konsantresi"], ["allergen_soy", U], "", {"upf_class": "protein izolatı"}),
-    ("soya_yagi", "Soya yağı", ["soya yağı", "rafine soya yağı"], [], "Yönetmelik muafiyeti: tamamen rafine soya yağı soya alerjeni sayılmaz.", {}),
+    ("soya_yagi", "Soya yağı", ["soya yağı", "rafine soya yağı", "soya fasulyesi yağı", "rafine soya fasulyesi yağı"], [], "Yönetmelik muafiyeti: rafine soya fasulyesi yağı (katı ve sıvı) soya alerjeni sayılmaz.", {}),
 
     # ---------- SÜT ----------
     ("sut", "Süt", ["süt", "inek sütü", "keçi sütü", "koyun sütü", "manda sütü", "çiğ süt", "pastörize süt", "tam yağlı süt", "yarım yağlı süt", "yağsız süt", "sütü"], [MI, LA, NV], "", {}),
@@ -143,7 +144,7 @@ ITEMS = [
     ("hardal", "Hardal", ["hardal", "hardal tohumu", "hardal unu", "hardal tozu", "hardal yağı", "dijon hardalı"], ["allergen_mustard"], "", {}),
     ("susam", "Susam", ["susam", "susam tohumu", "tahin", "susam yağı", "susam ezmesi", "kavrulmuş susam"], ["allergen_sesame"], "", {}),
     ("lupin", "Acı bakla (lupin)", ["acı bakla", "lupin", "lupin unu", "termiye", "termiye unu"], ["allergen_lupin"], "", {}),
-    ("sulfit", "Sülfit", ["sülfit", "sülfitler", "kükürt dioksit", "sülfür dioksit", "sodyum metabisülfit", "potasyum metabisülfit", "sodyum bisülfit"], ["allergen_sulphite"], "10 mg/kg üzerindeki sülfit alerjen olarak bildirilmek zorundadır.", {}),
+    ("sulfit", "Kükürt dioksit ve sülfitler", ["kükürt dioksit ve sülfitler", "sülfitler ve kükürt dioksit", "sülfit", "sülfitler", "kükürt dioksit", "sülfür dioksit", "sodyum metabisülfit", "potasyum metabisülfit", "sodyum bisülfit"], ["allergen_sulphite"], "Toplam SO2 cinsinden 10 mg/kg veya 10 mg/L üzerindeki kükürt dioksit ve sülfitler alerjen olarak bildirilmek zorundadır. Tür belirtilmemiş “sülfit” E220–E228 koruyucularından biridir.", {}),
 
     # ---------- HAYVANSAL (vegan / vejetaryen) ----------
     ("et", "Et", ["et", "kırmızı et", "sığır eti", "dana eti", "kuzu eti", "koyun eti", "keçi eti", "manda eti", "sığır", "dana", "kuzu", "mekanik ayrılmış et", "mekanik ayrılmış kanatlı eti", "et suyu", "et suyu tozu", "et ekstraktı", "et özü", "kemik suyu", "sakatat", "işkembe", "jambon", "bacon", "salam", "sucuk", "sosis", "pastırma", "kavurma"], [NV, NVG], "", {"short_ok": True}),
@@ -178,6 +179,7 @@ ITEMS = [
     ("n_balkabagi", "Bal kabağı", ["bal kabağı", "balkabağı", "bal kabağı çekirdeği"], [], "", {}),
     ("n_sut_aroma", "Süt ürünü aroması", ["kaymak aroması", "süt aroması", "tereyağı aroması", "peynir aroması", "yoğurt aroması"], [U, "vegan_suspect"], "Aroma olarak geçiyor; süt içerip içermediği belirsiz.", {"upf_class": "aroma verici"}),
     ("n_glutensiz_un", "Glutensiz un / nişasta", ["mısır unu", "pirinç unu", "nohut unu", "karabuğday", "karabuğday unu", "patates unu", "keçiboynuzu unu", "tapyoka", "tapyoka nişastası", "mısır nişastası", "patates nişastası", "pirinç nişastası", "mısır irmiği", "kinoa", "kinoa unu", "tef unu", "darı", "darı unu"], [], "Gluten içeren tahıllardan değildir; çapraz bulaşma için etikete bakın.", {}),
+    ("n_sterol", "Bitkisel sterol / stanol", ["bitkisel sterol", "bitkisel steroller", "bitkisel sterol esteri", "bitkisel sterol esterleri", "bitkisel stanol esteri", "bitkisel stanol esterleri", "fitosterol", "fitosteroller"], [], "Yönetmelik muafiyeti: soya kaynaklı olsa bile bitkisel sterol ve stanol esterleri soya alerjeni sayılmaz.", {}),
     ("n_hamur_mayasi", "Maya", ["maya", "ekmek mayası", "kuru maya", "yaş maya", "instant maya", "aktif kuru maya"], [], "", {}),
 ]
 
@@ -191,7 +193,8 @@ def main():
     e_aliases = {}
     for it in edb["ingredients"]:
         for a in it["aliases"]:
-            e_aliases[norm(a)] = it["id"]
+            ids = e_aliases.setdefault(norm(a), [])
+            if it["id"] not in ids: ids.append(it["id"])
     seen, items, dropped = {}, [], []
     for (iid, name, aliases, flags, note, extra) in ITEMS:
         for f in flags:
@@ -203,7 +206,7 @@ def main():
             if len(n) < 3 and not extra.get("short_ok"):
                 dropped.append((iid, a, "çok kısa")); continue
             if n in e_aliases:
-                dropped.append((iid, a, "e_kodlari.json'da var: " + e_aliases[n])); continue
+                dropped.append((iid, a, "e_kodlari.json'da var: " + ",".join(e_aliases[n]))); continue
             if seen.get(n) == iid:
                 continue
             if n in seen:
@@ -228,7 +231,7 @@ def main():
             "aroma_next": AROMA_NEXT,
             "sources": [
                 {"name": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği, Ek-1 (alerjenler)", "ref": "Resmî Gazete 26.01.2017, sayı 29960 (1. mükerrer); son değişiklik 06.04.2024",
-                 "note": "Ek-1'in metni bu çalışmada birebir okunamadı; liste ve muafiyetler, Ek-1'in uyumlaştırıldığı AB Tüzüğü 1169/2011 Ek II'den alındı. Yayından önce Ek-1 ile karşılaştırılmalı."},
+                 "note": "03.10.2026'da Ek-1'in Türkçe metniyle karşılaştırıldı (DENİB genelge eki kopyası: https://www.denib.gov.tr/files/downloads/sirku_ekleri/2016-02-ek1-1.pdf ; resmi metin mevzuat.gov.tr'den okunamadı). 14 madde, sıra ve muafiyetler uyumlu; kılçıksız buğday, tritikale (melez), Brezilya fındığı, Queensland fındığı, balık jelatini/isinglass ve bitkisel sterol muafiyetleri eklendi."},
                 {"name": "DSÖ (WHO) Guideline: Sugars intake for adults and children (2015)", "note": "'Serbest şeker' tanımı: eklenen şekerler + bal, şuruplar, meyve suyu ve konsantreleri."},
                 {"name": "Monteiro ve ark., Ultra-processed foods, diet quality, and health using the NOVA classification system (FAO, 2019)", "note": "UPF işaretleri: aroma vericiler, lezzet artırıcılar, renklendiriciler, emülgatörler, tatlandırıcılar, kıvam artırıcılar; invert şeker, maltodekstrin, dekstroz, laktoz, yüksek fruktozlu mısır şurubu, meyve suyu konsantresi; hidrojenize/interesterifiye yağlar; hidrolize proteinler, soya protein izolatı, gluten, kazein, peynir altı suyu proteini, mekanik ayrılmış et."},
             ],

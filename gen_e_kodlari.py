@@ -12,11 +12,13 @@ Kullanım:  python3 gen_e_kodlari.py
 - counts (sayımlar) her çalıştırmada yeniden hesaplanır.
 
 Not: Bu betik 03.10.2026'da depodaki e_kodlari.json v0.2.1'den geri üretildi
-(özgün betik kayboldu); ilk çalıştırmada çıktı v0.2.1 ile bayt bayt aynıdır.
+(özgün betik kayboldu). v0.3.0: TGK izinli katkı listesi (kaynak/tgk_ek2_2013.tsv)
+ile karşılaştırma -> tgk_name / tgk_note alanları, resmi adlar eş anlamlı olarak eklendi,
+eksik 4 madde (E420, E421, E907, E964) eklendi.
 """
 import json, os, re
 
-VERSION = '0.2.1'
+VERSION = '0.3.0'
 LAST_UPDATED = '2026-10-03'
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data", "e_kodlari.json")
@@ -24,6 +26,67 @@ OUT = os.path.join(HERE, "data", "e_kodlari.json")
 TR = str.maketrans("çğıöşüâîûİ", "cgiosuaiui")
 def fold(s):
     return s.translate(TR)
+
+TGK_TSV = os.path.join(HERE, "kaynak", "tgk_ek2_2013.tsv")
+
+# TGK listesiyle karşılaştırmada özel durumlar (2013 metninden sonraki değişiklikler, bağlam)
+TGK_NOTES = {
+    "E171": "Türk Gıda Kodeksi'nde 13.10.2023 tarihli değişiklikle izinli listeden çıkarıldı; 1 Nisan 2024'ten sonra piyasaya arz edilemez.",
+    "E243": "2013 tarihli izinli listede yoktu; sonradan Türk Gıda Kodeksi izinli listesine eklendi.",
+    "E441": "Jelatin katkı maddesi değil gıda bileşeni sayılır; bu yüzden izinli katkı listesinde yer almaz.",
+}
+TGK_MISSING = "Türk Gıda Kodeksi izinli katkı listesinin 2013 metninde yok; Türkiye'deki güncel izin durumu doğrulanmadı."
+
+
+def load_tgk(path=TGK_TSV):
+    """kaynak/tgk_ek2_2013.tsv -> {E kodu: resmi Türkçe ad}"""
+    out = {}
+    if not os.path.exists(path):
+        return out
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#") or not line.strip():
+                continue
+            k, v = line.rstrip("\n").split("\t")
+            out[k] = v
+    return out
+
+
+# Resmi adda virgül/eğik çizgi ayrı adları ayırıyorsa (ör. "Koşineal, Karminik asit, Karminler") parçalar
+# ayrı eş anlamlı olur. Diğerlerinde virgül adın parçasıdır ("Balmumu, beyaz ve sarı"), bölünmez.
+TGK_SPLIT = {"E110", "E120", "E122", "E124", "E132", "E151", "E160b", "E160c", "E162",
+             "E410", "E413", "E427", "E466", "E468", "E469"}
+
+
+def tgk_aliases(eid, name):
+    """Resmi adı etiketlerde geçebilecek biçimlere çevirir: parantezsiz ad, (izinliyse) parçalar, anlamlı parantez içi."""
+    if not name:
+        return []
+    low = name.replace("İ", "i").replace("I", "ı").lower()
+    out = []
+    def add(x):
+        x = " ".join(x.split()).strip(" ,/")
+        if len(re.sub(r"[^a-zçğıöşü]", "", x)) >= 4 and x not in out:
+            out.append(x)
+    inner, outer = [], low
+    while "(" in outer:
+        m = re.search(r"\(([^()]*)\)", outer)
+        if not m:
+            break
+        inner.append(m.group(1))
+        outer = outer[:m.start()] + " " + outer[m.end():]
+    if eid in TGK_SPLIT:
+        for part in re.split(r"[,/]", outer):
+            add(part)
+    else:
+        add(outer)
+        if "(" in low:
+            add(low)
+    for x in inner:
+        if re.search(r"[a-zçğıöşü]{4}", x):
+            add(x)
+    return out
+
 
 DEFAULT_REASON = "{K}. Bu listedeki özel uyarı ölçütlerinden hiçbirine girmiyor; ayrıntılı bir değerlendirme yapılmamıştır."
 
@@ -82,7 +145,7 @@ META = {'description': 'E kodlu (INS numaralı) gıda katkı maddeleri veri taba
              {'name': 'TGK Gıda Katkı Maddeleri rehberi, Ek 1 izinli katkı listesi (Türkçe adlar için kaynak)',
               'url': 'https://www.gaib.org.tr/tr/site/download-file/7004.html?class=AnnouncementFiles'},
              {'name': 'AB Tüzüğü 2018/98: E203 kalsiyum sorbatın listeden çıkarılması', 'url': 'https://www.legislation.gov.uk/eur/2018/98/data.html'}],
- 'caveats': ["Türkiye'deki mevzuat (Türk Gıda Kodeksi Gıda Katkı Maddeleri Yönetmeliği) bu çalışmada tek tek karşılaştırılmadı.",
+ 'caveats': ["Türk Gıda Kodeksi izinli katkı listesi (Ek II) ile karşılaştırma 2013 tarihli ilk metne dayanır (kaynak/tgk_ek2_2013.tsv); sonraki değişiklikler (ör. E171'in 2023'te çıkarılması) tgk_note alanında ayrıca belirtilmiştir.",
              'CSPI ve diğer tüketici kuruluşlarının derecelendirmeleri eklenmedi; doğrulanmadan kurum adıyla renk atanmadı.',
              "Gıda katkısı sayılmayan gizli şeker, maya özütü, kazeinat gibi maddeler bu dosyada yoktur; ayrı bir 'bileşen' listesi olarak kurulmalıdır. Maya "
              'özütünü E621 ile eş anlamlı yapmak doğru değildir (doğal glutamat içerir, katkı olarak eklenen E621 değildir).',
@@ -246,6 +309,8 @@ ITEMS = [
     ('E416', 'Karaya zamkı', 'Karaya gum', 'Kıvam artırıcı / jelleştirici', ['karaya zamkı', 'karaya gum', 'karaya gamı', 'karaya gam', 'karaya sakızı'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E417', 'Tara zamkı', 'Tara gum', 'Kıvam artırıcı / jelleştirici', ['tara zamkı', 'tara gum', 'tara gamı', 'tara gam', 'tara sakızı'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E418', 'Gellan zamkı', 'Gellan gum', 'Kıvam artırıcı / jelleştirici', ['gellan zamkı', 'gellan gum', 'gellan', 'gellan gam', 'gellan gamı', 'gellan sakızı'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
+    ('E420', 'Sorbitol', 'Sorbitol', 'Tatlandırıcı', ['sorbitol', 'sorbitol şurubu', 'sorbitol syrup', 'sorbit'], ['laxative_polyols', 'fodmap'], 'yellow', "Poliol (şeker alkolü): %10'dan fazla ilave poliol içeren ürünlerde AB'de “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur; hassas bağırsak (FODMAP) diyetinde kaçınılır.", [], 'listed', True, 'general_knowledge', None),
+    ('E421', 'Mannitol', 'Mannitol', 'Tatlandırıcı', ['mannitol', 'manitol'], ['laxative_polyols', 'fodmap'], 'yellow', "Poliol (şeker alkolü): %10'dan fazla ilave poliol içeren ürünlerde AB'de “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur; hassas bağırsak (FODMAP) diyetinde kaçınılır.", [], 'listed', True, 'general_knowledge', None),
     ('E422', 'Gliserol', 'Glycerol', 'Diğer (taşıyıcı, nem tutucu, çözücü vb.)', ['gliserol', 'glycerol', 'gliserin', 'glycerin', 'glycerine'], ['vegan_suspect', 'halal_suspect'], 'green', 'Bitkisel veya hayvansal yağlardan elde edilebilir.', [], 'listed', True, 'general_knowledge', None),
     ('E425', 'Konjak', 'Konjac', 'Kıvam artırıcı / jelleştirici', ['konjak', 'konjac', 'konjak zamkı', 'glukomannan', 'glucomannan', 'konjak gamı', 'konjak gam', 'konjak sakızı'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E426', 'Soya hemiselülozu', 'Soybean hemicellulose', 'Kıvam artırıcı / jelleştirici', ['soya hemiselülozu', 'soybean hemicellulose'], ['allergen_soy_possible'], 'green', 'Soyadan elde edilir (soya alerjisi olanlar için önemlidir).', [], 'listed', True, 'general_knowledge', None),
@@ -368,6 +433,7 @@ ITEMS = [
     ('E903', 'Karnauba mumu', 'Carnauba wax', 'Parlatıcı / kaplama maddesi', ['karnauba mumu', 'carnauba wax', 'karnauba', 'carnauba'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E904', 'Gomalak', 'Shellac', 'Parlatıcı / kaplama maddesi', ['gomalak', 'shellac', 'şellak', 'lak', "confectioner's glaze", 'glaze'], ['non_vegan', 'insect_derived'], 'green', 'Lak böceğinin salgısından elde edilir (vegan değildir).', [], 'listed', True, 'general_knowledge', None),
     ('E905', 'Mikrokristalin mum', 'Microcrystalline wax', 'Parlatıcı / kaplama maddesi', ['mikrokristalin mum', 'microcrystalline wax'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
+    ('E907', 'Hidrojenize poli-1-deken', 'Hydrogenated poly-1-decene', 'Parlatıcı / kaplama maddesi', ['hidrojenize poli-1-deken', 'hydrogenated poly-1-decene'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E912', 'Montan asit esterleri', 'Montan acid esters', 'Parlatıcı / kaplama maddesi', ['montan asit esterleri', 'montan acid esters'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E914', 'Oksitlenmiş polietilen mumu', 'Oxidised polyethylene wax', 'Parlatıcı / kaplama maddesi', ['oksitlenmiş polietilen mumu', 'oxidised polyethylene wax'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E920', 'L-Sistein', 'L-Cysteine', 'Diğer (taşıyıcı, nem tutucu, çözücü vb.)', ['l-sistein', 'l-cysteine', 'sistein', 'cysteine'], ['vegan_suspect', 'halal_suspect'], 'green', 'Tüy, boynuz veya bazı ülkelerde insan saçından elde edilebilir; fermantasyon veya sentetik kaynaklıları da vardır.', [], 'listed', True, 'general_knowledge', None),
@@ -393,6 +459,7 @@ ITEMS = [
     ('E960', 'Steviol glikozitler', 'Steviol glycosides', 'Tatlandırıcı', ['steviol glikozitler', 'steviol glycosides', 'stevya', 'stevia', 'steviol glikozit', 'rebaudioside a', 'reb a', 'rebaudiosid a', 'stevia ekstresi', 'steviol glikozitleri', 'stevia yaprağı özütü', 'stevia ekstraktı', 'stevia özütü', 'stevia yaprağı ekstresi', 'stevia yaprağı ekstraktı'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E961', 'Neotam', 'Neotame', 'Tatlandırıcı', ['neotam', 'neotame'], [], 'green', None, [], 'listed', False, 'inventory_only', None),
     ('E962', 'Aspartam-asesülfam tuzu', 'Salt of aspartame-acesulfame', 'Tatlandırıcı', ['aspartam-asesülfam tuzu', 'salt of aspartame-acesulfame', 'aspartam-asesülfam', 'aspartame-acesulfame salt'], ['iarc_listed', 'phenylalanine'], 'yellow', "Aspartam içerir: IARC 2023'te aspartamı Grup 2B (olası kanserojen) olarak sınıflandırdı. Fenilketonürililer için etikette “fenilalanin kaynağı içerir” uyarısı zorunludur.", ['IARC_2B_2023', 'EU_phenylalanine_label'], 'listed', True, 'general_knowledge', None),
+    ('E964', 'Poliglisitol şurubu', 'Polyglycitol syrup', 'Tatlandırıcı', ['poliglisitol şurubu', 'polyglycitol syrup', 'hidrojenize nişasta hidrolizatı', 'hydrogenated starch hydrolysate'], ['laxative_polyols', 'fodmap'], 'yellow', "Poliol (şeker alkolü): %10'dan fazla ilave poliol içeren ürünlerde AB'de “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur; hassas bağırsak (FODMAP) diyetinde kaçınılır.", [], 'listed', True, 'general_knowledge', None),
     ('E965', 'Maltitol', 'Maltitol', 'Tatlandırıcı', ['maltitol', 'maltitol şurubu', 'maltitol syrup'], ['laxative_polyols', 'fodmap'], 'yellow', "Poliol (şeker alkolü): %10'dan fazla ilave poliol içeren ürünlerde AB'de “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur; hassas bağırsak (FODMAP) diyetinde kaçınılır.", [], 'listed', True, 'general_knowledge', None),
     ('E966', 'Laktitol', 'Lactitol', 'Tatlandırıcı', ['laktitol', 'lactitol'], ['laxative_polyols', 'fodmap'], 'yellow', "Poliol (şeker alkolü): %10'dan fazla ilave poliol içeren ürünlerde AB'de “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur; hassas bağırsak (FODMAP) diyetinde kaçınılır.", [], 'listed', True, 'general_knowledge', None),
     ('E967', 'Ksilitol', 'Xylitol', 'Tatlandırıcı', ['ksilitol', 'xylitol', 'huş ağacı şekeri'], ['laxative_polyols', 'fodmap', 'pet_risk'], 'yellow', "Poliol (şeker alkolü): %10'dan fazla ilave poliol içeren ürünlerde AB'de “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur; hassas bağırsak (FODMAP) diyetinde kaçınılır. Köpekler için çok toksiktir; evcil hayvanlara verilmemelidir.", [], 'listed', True, 'general_knowledge', None),
@@ -447,6 +514,7 @@ def with_folds(names):
 
 
 def build():
+    tgk = load_tgk()
     seen = set()
     items = []
     for (eid, name, en, cat, names, flags, risk, reason, agencies, eu, review, verif, ctx) in ITEMS:
@@ -456,10 +524,21 @@ def build():
             assert f in META["flags"], (eid, f)
         assert risk in META["risk_levels"], (eid, risk)
         assert verif in META["verification"], (eid, verif)
+        names = list(names)
+        if tgk:
+            for a in tgk_aliases(eid, tgk.get(eid, "")):
+                if a not in names:
+                    names.append(a)
+            if eid not in tgk and not review and eid not in TGK_NOTES and risk == "green":
+                review = True            # TR izin durumu belirsiz: doğrulanana kadar işaretli
         rec = {"id": eid, "ins": eid[1:], "primary_name": name, "name_en": en, "category": cat,
-               "aliases": code_aliases(eid) + with_folds(list(names)), "flags": list(flags),
+               "aliases": code_aliases(eid) + with_folds(names), "flags": list(flags),
                "risk_level": risk, "reason": reason if reason is not None else DEFAULT_REASON.replace("{K}", cat),
                "agencies": list(agencies), "eu_status": eu, "needs_review": review, "verification": verif}
+        if eid in tgk:
+            rec["tgk_name"] = tgk[eid]
+        if eid in TGK_NOTES or (tgk and eid not in tgk):
+            rec["tgk_note"] = TGK_NOTES.get(eid, TGK_MISSING)
         if ctx:
             rec["context_aliases"] = CONTEXT[ctx]
         items.append(rec)
