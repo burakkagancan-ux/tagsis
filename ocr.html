@@ -969,9 +969,9 @@ $("oku").onclick=function(){
   if(OCR_URL){
     ST.textContent="Google Vision ile okunuyor…";
     fetch(OCR_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({image:cv.toDataURL("image/jpeg",0.85).split(",")[1]})})
-    .then(function(r){return r.json().then(function(j){if(!r.ok||j.error)throw new Error(j.error||("HTTP "+r.status));return j})})
+    .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||j.error){var er=new Error(j.error||("HTTP "+r.status));er.srv=true;throw er}return j})})
     .then(function(j){$("metin").value=j.text||"";ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn, Google Vision).";run()})
-    .catch(function(e){ST.textContent="Okuma hatası: "+e.message+" (internet bağlantısını kontrol edin)"}).then(function(){btn.disabled=false});
+    .catch(function(e){ST.textContent="Okuma hatası: "+e.message+(e.srv?"":" (internet bağlantısını kontrol edin)")}).then(function(){btn.disabled=false});
     return;
   }
   Tesseract.createWorker("tur+eng",1,{logger:function(m){if(m.status)ST.textContent=m.status+(m.progress?" %"+Math.round(m.progress*100):"")}}).then(function(w){
