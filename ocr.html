@@ -3,7 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>İçindekiler Okuma Denemesi</title>
+<title>Etiket Oku</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1d4d3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tağşiş">
 <style>
 :root{--bg:#eef1ee;--card:#fff;--ink:#17201c;--mute:#5d6b64;--line:#d3dad5;--red:#b3261e;--yel:#8a6100;--ok:#1d4d3a;--redbg:#fbe9e7;--yelbg:#fff3d1;--unbg:#e8e8e8;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -33,13 +39,26 @@ a{color:var(--ok);font-weight:600}
 .hd{display:flex;align-items:flex-start;gap:8px}.hd .t{flex:1;min-width:0}
 button.info{flex:0 0 auto;width:30px;height:30px;padding:0;border-radius:50%;font:italic 700 16px/1 Georgia,serif;background:none;color:var(--ok);border:1.5px solid var(--ok)}
 button.info.on{background:var(--ok);color:var(--bg)}
+details.gz{font-size:13px;color:var(--mute);margin:0 0 10px}details.gz summary{cursor:pointer;color:var(--ok);font-weight:600}details.gz ul{margin:6px 0 0;padding-left:20px}details.gz li{margin:3px 0}
 .ipanel{margin-top:8px;padding-top:6px;border-top:1px dashed var(--line)}.ih{font-weight:600;font-size:13px;margin-top:6px}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabbar a{flex:1;max-width:240px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px 7px;font-size:12px;font-weight:600;color:var(--mute);text-decoration:none}
+.tabbar a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tabbar a[aria-current="page"]{color:var(--ok)}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 </style>
 </head>
 <body>
 <div class="w">
-<h1>İçindekiler okuma denemesi</h1>
-<p class="sub">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin. Fotoğraf, metnin okunması için Google Cloud Vision'a gönderilir ve saklanmaz.</p>
+<h1>Etiket oku</h1>
+<p class="sub">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</p>
+<details class="gz" id="gizlilik"><summary>Gizlilik: fotoğrafınıza ne oluyor?</summary>
+<ul>
+<li>Fotoğraf, yalnızca üzerindeki yazının okunması için Google Cloud Vision hizmetine gönderilir. Bu uygulama fotoğrafı ve okunan metni kaydetmez. Google tarafındaki işlem Google'ın kendi koşullarına tabidir.</li>
+<li>Yalnızca ambalajın içindekiler bölümünü çekin. Kadrajda yüz, ad, adres ya da belge gibi kişisel bilgi bulunmamasına dikkat edin.</li>
+<li>Profil seçimleriniz (alerjen, vegan vb.) yalnızca bu cihazda saklanır, bize iletilmez.</li>
+<li>Uygulama üyelik istemez, reklam ya da izleme aracı kullanmaz.</li>
+</ul></details>
 <div class="note"><strong>Deneme sürümü.</strong> Katkı maddesi ve bileşen bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</div>
 
 <details id="pd"><summary id="profsum">Profilim (alerjen, laktoz, vegan…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
@@ -59,6 +78,7 @@ button.info.on{background:var(--ok);color:var(--bg)}
 <h2>Sonuç</h2>
 <div id="sonuc" class="mut">Henüz analiz yapılmadı.</div>
 </div>
+<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profil</a></nav>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" async></script>
 <script>
@@ -402,16 +422,21 @@ function additiveCard(r){
   var items=r.ids.map(function(id){return IDX.byId[id]});
   var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
   var top=el("div","hd");
-  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+items[0].primary_name+" (tür belirtilmemiş)")));
+  var grp=items.every(function(i){return i.category===items[0].category})?items[0].category:"Katkı maddesi";
+  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+grp+" (türü belirtilmemiş)")));
   var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",it.primary_name+" hakkında bilgi");b.setAttribute("aria-expanded","false");
   top.appendChild(b);d.appendChild(top);
   d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
   it.flags.forEach(function(f){if(f==="sodium"||f==="aluminium"||f==="gmo_suspect")return;d.appendChild(el("span","chip",FLAGS[f]||f))});
   var pn=el("div","ipanel");pn.hidden=true;
-  items.forEach(function(x){
+  var same=items.length>1&&items.every(function(x){return ABOUT[x.id]===ABOUT[items[0].id]&&!x.tgk_note});
+  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4)}
+  else items.forEach(function(x){
     var ab=ABOUT[x.id];
     if(items.length>1)pn.appendChild(el("div","ih",x.id+" · "+x.primary_name));
     if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,"Nedir? "));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
+    if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,"Yönetmelikteki adı: "));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
+    if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,"Türkiye: "));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
   });
   var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
   p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
@@ -452,6 +477,16 @@ $("kopya").onclick=function(){
   var s=JSON.stringify(o,null,1);
   if(navigator.clipboard)navigator.clipboard.writeText(s).then(function(){ST.textContent="Sonuç panoya kopyalandı."},function(){$("metin").select()});else $("metin").select();
 };
+
+/* ---------- Alt menü: "Profil" sekmesi bu sayfadaki profil bölümünü açar ---------- */
+function tabSync(){
+  var prof=location.hash==="#profil";
+  document.querySelectorAll(".tabbar a").forEach(function(a){if(a.getAttribute("data-tab")===(prof?"profil":"oku"))a.setAttribute("aria-current","page");else if(a.getAttribute("data-tab")!=="liste")a.removeAttribute("aria-current")});
+  if(prof){$("pd").open=true;$("pd").scrollIntoView({block:"start"})}
+}
+window.addEventListener("hashchange",tabSync);tabSync();
+$("pd").addEventListener("toggle",function(){if(!$("pd").open&&location.hash==="#profil")history.replaceState(null,"",location.pathname+location.search);tabSync()});
+try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}
 
 $("foto").onchange=function(){
   var f=this.files[0];if(!f)return;var im=$("pre");im.src=URL.createObjectURL(f);im.style.display="block";$("oku").disabled=false;

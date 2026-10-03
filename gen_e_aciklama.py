@@ -9,7 +9,7 @@ Kullanım: python3 gen_e_aciklama.py
 """
 import json, os, datetime
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 # Ortak kalıplar
@@ -186,6 +186,8 @@ A = {
 "E416": "Karaya ağacının reçinesinden elde edilen doğal bir zamk. Kıvam artırıcı olarak kullanılır.",
 "E417": "Tara ağacının tohumlarından elde edilen bitkisel bir zamk. Dondurma ve soslarda kıvam verir.",
 "E418": "Bakteri fermantasyonuyla üretilen bir jel yapıcı. Bitkisel sütler, tatlılar ve içeceklerde kıvam ve askıda tutma sağlar.",
+"E420": "Glukozdan üretilen bir poliol (şeker alkolü). Tatlandırıcı ve nem tutucu olarak şekersiz sakız, şekerleme ve kekte kullanılır; bazı meyvelerde doğal olarak bulunur.",
+"E421": "Bir poliol (şeker alkolü); deniz yosunlarında ve mantarlarda doğal olarak bulunur. Şekersiz sakız ve şekerlemelerde tatlandırıcı ve toz önleyici olarak kullanılır.",
 "E422": "Gliserin olarak da bilinen tatlımsı, şurup kıvamında bir sıvı. Nem tutucudur; şekerleme, kek ve kuru meyvelerde kurumayı önler.",
 "E425": "Konjak bitkisinin yumrusundan elde edilen bir lif (glukomannan). Jöle, şehriye ve diyet ürünlerinde kıvam verir.",
 "E426": "Soya fasulyesinden elde edilen bir lif. İçecek ve erişte gibi ürünlerde kıvam ve stabilite sağlar.",
@@ -311,6 +313,7 @@ A = {
 "E903": "Karnauba palmiyesinin yapraklarından elde edilen bitkisel mum. Şekerleme, draje ve meyvelerde parlatıcıdır.",
 "E904": "Lak böceğinin salgısından elde edilen reçine. Draje, şekerleme, meyve ve ilaç kaplamalarında parlatıcıdır.",
 "E905": "Petrol kaynaklı bir mum. Peynir kabukları ve sakızlarda kaplama olarak kullanılır.",
+"E907": "Sentetik, petrol kaynaklı bir hidrokarbon. Şekerleme ve kuru meyvelerde parlatıcı kaplama olarak kullanılır.",
 "E912": "Linyit kömüründen elde edilen mumun esterleri. Narenciye kabuğu kaplamasında kullanılır.",
 "E914": "Sentetik bir mum. Narenciye ve bazı meyvelerin kabuk kaplamasında kullanılır.",
 "E920": "Bir amino asit. Ekmek hamurunu yumuşatır; tüy, kıl veya fermantasyonla üretilebilir.",
@@ -337,6 +340,7 @@ A = {
 "E960": "Stevia bitkisinin yapraklarından saflaştırılan, kalorisiz bir tatlandırıcı. İçecek, yoğurt ve şekersiz ürünlerde kullanılır.",
 "E961": "Aspartama benzeyen, ondan çok daha tatlı sentetik bir tatlandırıcı. Çok küçük miktarlarda kullanılır.",
 "E962": "Aspartam ve asesülfam K'nın birleşik tuzu. Diyet içecek ve sakızlarda kullanılır.",
+"E964": "Nişastanın parçalanıp hidrojenlenmesiyle elde edilen poliol (şeker alkolü) karışımı. Şekersiz şekerlemelerde tatlandırıcı olarak kullanılır.",
 "E965": "Nişastadan üretilen bir poliol (şeker alkolü). Şekersiz çikolata, şekerleme ve sakızlarda kullanılır.",
 "E966": "Süt şekerinden (laktoz) üretilen bir poliol. Şekersiz şekerleme ve çikolatalarda kullanılır.",
 "E967": "Huş ağacı veya mısır koçanından elde edilen bir poliol. Şekersiz sakız ve diş dostu şekerlemelerde yaygındır.",
