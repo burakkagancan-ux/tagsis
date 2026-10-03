@@ -559,7 +559,7 @@ function analyzeK(text,K,opts){
   return out;
 }
 function summarizeK(res,K){
-  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
+  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],child:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   res.forEach(function(r){
     if(!r.found){o.unknown.push(r.raw);if(/^(parfum|fragrance|aroma|perfume|parfüm)$/i.test(r.raw.trim()))o.parfum=true;return}
@@ -570,7 +570,7 @@ function summarizeK(res,K){
     var fl={};r.reg.forEach(function(e){e.flags.forEach(function(f){fl[f]=1});if(e.kids_under)push(o.kids,r.name);if(/^III\/376$/.test(e.id))push(o.vitA,r.name)});
     r.iflags.forEach(function(f){fl[f]=1});
     (r.k3||[]).forEach(function(w){var L=K&&K.watchLists[w.list],kind=L?L.kind:(w.list==="ca"||w.list==="asean"?"ban":"ed");
-      if(kind==="ban")push(o.ban,r.name);else if(kind==="ed")push(o.ed,r.name)});
+      if(kind==="ban")push(o.ban,r.name);else if(kind==="ed")push(o.ed,r.name);else if(kind==="child")push(o.child,r.name)});
     if(fl.allergen_fragrance)push(o.fragrance,r.name);
     if(fl.formaldehyde_releaser)push(o.formaldehyde,r.name);
     if(fl.allergen_hairdye)push(o.hairdye,r.name);
@@ -802,14 +802,21 @@ function additiveCard(r){
   return d;
 }
 function comboCard(c){
-  var R=c.rule,d=el("div","res "+(R.level==="yellow"?"y":"g"));d.appendChild(el("div","t",R.title));
-  d.appendChild(el("div","ln",R.text));
+  var R=c.rule,d=el("div","res "+(R.level==="yellow"?"y":"g")),top=el("div","hd");
+  top.appendChild(el("div","t",R.title));
+  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",R.title+" hakkında bilgi");b.setAttribute("aria-expanded","false");
+  top.appendChild(b);d.appendChild(top);
   var p=el("div","ln");p.appendChild(el("b",null,"Bu üründe: "));
   p.appendChild(document.createTextNode(c.hits.map(function(h,i){return (R.type==="cift"?R.groups[i].label+": ":"")+h.join(", ")}).join(" · ")));d.appendChild(p);
+  // Ayrıntı (açıklama, kaynak, not) yalnızca (i) düğmesine basınca görünür
+  var pn=el("div","ipanel");pn.hidden=true;
+  pn.appendChild(el("div","ln",R.text));
   var ps=el("div","how","Kaynak: ");
   (R.sources||[]).forEach(function(u,i){var a=el("a",null,u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u;a.target="_blank";a.rel="noopener";if(i)ps.appendChild(document.createTextNode(" · "));ps.appendChild(a)});
-  d.appendChild(ps);
-  d.appendChild(el("div","how","Miktar etiketten bilinemez; bu bir risk hesabı değil, bilgi notudur."));
+  pn.appendChild(ps);
+  pn.appendChild(el("div","how","Miktar etiketten bilinemez; bu bir risk hesabı değil, bilgi notudur."));
+  d.appendChild(pn);
+  b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
 }
 function comboSection(box,list){
@@ -907,6 +914,8 @@ function kChips(r){
 var AYLAR=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
 function k3When(w,kind){
   var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(w.date||"");
+  var ym=/^(\d{4})-(\d{2})$/.exec(w.date||"");
+  if(ym)return "Tarih: "+AYLAR[+ym[2]-1]+" "+ym[1];
   if(!m)return w.date?"Listeye giriş: "+w.date:"";
   var d=(+m[3])+" "+AYLAR[+m[2]-1]+" "+m[1],today=new Date().toISOString().slice(0,10);
   if(kind!=="ban")return "Tarih: "+d;
@@ -967,7 +976,7 @@ function kSummaryCard(S){
   if(S.formaldehyde.length)row("Formaldehit salıcı",lst(S.formaldehyde),"y");
   if(S.pfas.length)row("PFAS",lst(S.pfas),"o");
   if(S.ban.length)row("Başka ülkede yasak",lst(S.ban),"o");
-  if(S.ed.length)row("AB endokrin listesinde",lst(S.ed),"y");
+  if(S.ed.length)row("Endokrin bozucu şüphesi",lst(S.ed),"y");
   if(S.fuzzy.length)d.appendChild(el("div","how","Benzer yazımla eşleşen bileşenler var; “Okunan Metin” bölümünden kontrol edin."));
   return d;
 }
@@ -987,6 +996,14 @@ function kProfileCards(S,res){
   if(PROF.veg){
     if(S.nonVeg.length)out.push(card("r","Vejetaryen değil",["Kesim, balık ya da böcek kaynaklı: "+j(S.nonVeg)]));
     else out.push(card("g","Kesim ya da böcek kaynaklı bileşen bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+  }
+  // Endokrin bozucu şüphesi: hamilelik ve küçük çocuklar için ayrı kart (yalnızca madde bulunursa)
+  if((PROF.preg||PROF.baby||PROF.child||PTYPE==="baby")&&(S.ed.length||S.child.length)){
+    var el2=[];
+    if(S.ed.length)el2.push("Endokrin bozucu şüphesi olan resmi listelerde: "+j(S.ed)+". Çoğu AB'de sınırla izinlidir; ayrıntı ve kaynak için kartlardaki (i) düğmesine bakın.");
+    if(S.child.length&&(PROF.baby||PROF.child||PTYPE==="baby"))el2.push("3 yaş altı çocuklara yönelik ürünlerde Danimarka'da yasak: "+j(S.child)+".");
+    el2.push(PROF.preg?"Hamilelikte ve emzirirken kullanım için doktorunuza danışın.":"Küçük çocuklarda kullanım için doktorunuza danışın.");
+    out.push(card("y","Endokrin bozucu şüphesi",el2));
   }
   if(PROF.preg){
     if(S.vitA.length)out.push(card("y","Hamilelik / emzirme: dikkat",["A vitamini (retinol ya da esterleri): "+j(S.vitA)+". AB'de bu ürünlerde “günlük alımınızı göz önünde bulundurun” uyarısı zorunlu. Hamilelikte kullanım için doktorunuza danışın."]));

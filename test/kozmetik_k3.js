@@ -22,14 +22,14 @@ ok(WL.ca.level==='orange'&&WL.asean.level==='orange'&&WL.ab_ed_a.level==='yellow
 const cases=[
  // Salicylic acid AB'de CMR 2 olduğu için zaten turuncu; K3 rengi düşürmez
  ["Aqua, Methylparaben, Propylparaben, Salicylic Acid, Glycerin",
-  {"METHYLPARABEN":["yellow",["ab_ed_b"]],"PROPYLPARABEN":["yellow",["ab_ed_a"]],"SALICYLIC ACID":["orange",["ab_ed_b"]],"GLYCERIN":["info",[]]},
+  {"METHYLPARABEN":["yellow",["ab_ed_b"]],"PROPYLPARABEN":["yellow",["ab_ed_a","dk"]],"SALICYLIC ACID":["orange",["ab_ed_b"]],"GLYCERIN":["info",[]]},
   s=>s.ed.length===3&&s.ban.length===0],
  // AB'de kısıtlı (Ek III) ama Kaliforniya'da 2027'den itibaren yasak -> turuncu
  ["Aqua, Sodium Perborate, Zinc Borate, MEA-Borate",
   {"SODIUM PERBORATE":["orange",["ca"]],"ZINC BORATE":["orange",["ca"]],"MEA-BORATE":["orange",["ca"]]},s=>s.ban.length===3],
  // AB'de zaten yasak: kırmızı kalır, K3 bilgisi eklenir
  ["Aqua, Isobutylparaben, Cyclotetrasiloxane, Butylphenyl Methylpropional",
-  {"ISOBUTYLPARABEN":["red",["ca"]],"CYCLOTETRASILOXANE":["red",["ab_reach","ca"]],"BUTYLPHENYL METHYLPROPIONAL":["red",["ab_ed_b","ca"]]},s=>s.red.length===3&&s.ban.length===3],
+  {"ISOBUTYLPARABEN":["red",["ca","fr"]],"CYCLOTETRASILOXANE":["red",["ab_reach","ca"]],"BUTYLPHENYL METHYLPROPIONAL":["red",["ab_ed_b","ca"]]},s=>s.red.length===3&&s.ban.length===3],
  // Cyclomethicone artık "AB'de yasak" (D4 kaydı) sayılmaz; endokrin listesi B grubu
  ["Cyclomethicone, Dimethicone",{"CYCLOMETHICONE":["yellow",["ab_ed_b","ab_reach"]],"DIMETHICONE":["info",[]]},s=>s.red.length===0],
  ["Aqua, Miconazole Nitrate",{"MICONAZOLE NITRATE":["orange",["asean"]]},s=>s.ban.length===1],
@@ -40,6 +40,9 @@ const cases=[
  ["Su, Gliserin, Metilparaben, BHT",{"METHYLPARABEN":["yellow",["ab_ed_b"]]},s=>s.ed.length===2],
  // D5: AB REACH kısıtlaması + Türkiye taslağı + AB endokrin B grubu; özette yalnızca endokrin satırına girer
  ["Cyclopentasiloxane, Cyclohexasiloxane",{"CYCLOPENTASILOXANE":["yellow",["ab_ed_b","ab_reach","tr_taslak"]],"CYCLOHEXASILOXANE":["yellow",["ab_reach"]]},s=>s.ed.length===1&&s.ban.length===0],
+ // Endokrin: REACH aday listesi, AB Eylül 2026 taslağı, Danimarka, Fransa (04.10.2026)
+ ["Aqua, Butylparaben, Benzophenone-1, Resorcinol",{"BUTYLPARABEN":["yellow",["ab_ed_b","ab_taslak","dk","eu_svhc_ed","fr"]],"BENZOPHENONE-1":["yellow",["ab_ed_b","ab_taslak"]],"RESORCINOL":["yellow",["ab_ed_a","eu_svhc_ed"]]},
+  s=>s.ed.length===3&&s.child.length===1&&s.ban.length===0],
  // PFAS: Kaliforniya AB 2771 bilgisi bayrak açıklamasında
  ["PTFE, Mica",{"PTFE":["orange",[]]},s=>s.pfas.length===1],
 ];
@@ -61,6 +64,11 @@ const byId={};kdb.entries.forEach(e=>byId[e.id]=e);
 ok(byId['II/1730']&&byId['II/1730'].tr==='taslak','4-MBC (2024/996) tr=taslak değil');
 ok(byId['II/1731']&&byId['II/1731'].tr==='yok','TPO (2025/877) tr=yok değil');
 ok(kdb.entries.filter(e=>e.annex==='II'&&!e.tr&&!(e.updates||[]).some(u=>u.tr)).length>1000,'eski kayıtlara tr eklenmemeli');
+// 28'lik listedeki sonuçlanmış maddelerin durum notu var
+const mbc=kdb.watch.find(w=>w.list==='ab_ed_a'&&w.inci.includes('4-METHYLBENZYLIDENE CAMPHOR'));ok(mbc&&/yasakland/.test(mbc.note_tr||''),'4-MBC durum notu');
+['eu_svhc_ed','ab_taslak','dk','fr'].forEach(l=>ok(WL[l]&&WL[l].level==='yellow','yeni liste sarı: '+l));
+ok(WL.fr.kind==='ed'&&WL.eu_svhc_ed.kind==='ed'&&WL.dk.kind==='child','liste türleri');
+ok(kdb.meta.known_gaps.some(g=>/Fransa ANSES/.test(g)),'gelişim alanı notu');
 // summarizeK eski çağrı biçimi (K olmadan) çalışmaya devam etmeli
 ok(KL.summarizeK(KL.analyzeK("Aqua, Methylparaben",K,{})).ed.length===1,'summarizeK K olmadan');
 console.log(n+' K3 denetimi, '+fail+' hata');

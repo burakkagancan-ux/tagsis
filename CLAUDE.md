@@ -14,6 +14,7 @@ Son güncelleme: 03.10.2026.
 - Gıda: E kodları (data/e_kodlari.json, gen_e_kodlari.py, TGK ile karşılaştırılmış), bileşen grupları (data/bilesenler.json), açıklamalar (data/e_aciklama.json), profiller (alerjen, laktoz, vegan, vejetaryen, hamile, bebek, çocuk, PKU, evcil hayvan, tansiyon/tuz kısıtlaması, koku alerjisi).
 - Kozmetik: AB 1223/2009 ekleri (data/kozmetik.json, 1.972 kayıt) + CosIng INCI listesi ve 2.978 eş anlamlı (data/kozmetik_inci.json). Üretim: gen_kozmetik.py (CosIng verisi: `git clone https://github.com/inhouse-work/cosing ../cosing`, commit 268e3cd), kaynak/kozmetik_guncellemeler.tsv (2024-2026 AB değişiklikleri), kaynak/kozmetik_esanlamlilar.tsv.
 - Kozmetik K3 ("tartışmalı katman"): kaynak/kozmetik_k3.tsv → kozmetik.json `watch` alanı + `meta.watch_lists`. AB olası endokrin bozucu öncelik listesi (A/B, 28 madde), Kaliforniya HSC §108980 (AB 2762: 2025, AB 496: 2027), ASEAN Ek II farkı (mikonazol). Eşleştirme yalnızca INCI adıyla; CAS belgeleme için.
+- Kozmetik endokrin (04.10.2026, araştırma: https://claude.ai/code/artifact/f3487ffa-3ac4-4f20-910f-1980191e91af): K3'e eklenen listeler `eu_svhc_ed` (REACH aday listesi, endokrin gerekçesi: butylparaben, resorcinol), `ab_taslak` (AB Eylül 2026 taslağı: BP-1, BP-2 yasak; BHA %0,07; butylparaben çocuk sınırı), `dk` (Danimarka, 3 yaş altı paraben yasağı), `fr` (Fransa ANSES listesi; yalnızca ikincil kaynakta adı geçen 7 madde). 28'lik AB listesindeki sonuçlanmış maddelere durum notu (not_tr) yazıldı. Kind `ed` olan listeler özette "Endokrin bozucu şüphesi" satırına, `child` olanlar çocuk kartına girer. Hamile/bebek/çocuk profilinde ayrı "Endokrin bozucu şüphesi" kartı. Hepsi sarı; dil "şüphe/aday".
 - "Birlikte dikkat" eşleşmeleri: data/eslesmeler.json, gen_eslesmeler.py (gen_e_kodlari.py ve gen_kozmetik.py'den SONRA çalıştır; kozmetik INCI listeleri AB koşul metinlerinden üretilir). 10 kural: gıda 6 (benzoat + C vitamini, Southampton renkleri + sodyum benzoat, polioller, fosfatlar, alüminyum, sülfitler), kozmetik 4 (nitrozamin ikilisi, formaldehit salıcılar, parabenler, florürler). Türleri: cift (iki grup birlikte) ve toplam (aynı gruptan en az 2). "içermez" ve "içerebilir" sayılmaz.
 - Bakanlık verisi: fetch_data_arsivli.py, .github/workflows/update.yml (her gün 05:00 UTC).
 - OCR: ocr.html → Cloudflare Worker (worker/, https://inapp-ocr-3a8f.burakkagancan.workers.dev) → Google Cloud Vision. Worker'a ulaşılamazsa Tesseract.js.
@@ -40,7 +41,7 @@ Son güncelleme: 03.10.2026.
 - K3 renkleri (03.10.2026, kullanıcı kararı): başka büyük pazarda yasak (Kaliforniya, ASEAN) → turuncu; AB endokrin bozucu öncelik listesi ve SIN List → sarı. AB Ek II'deki madde kırmızı kalır, K3 yalnızca not ekler.
 - CYCLOMETHICONE, D4 kaydından (II/1388) çıkarıldı: kozmetik yönetmeliğinde yasak değil.
 - "Görüntüyü iyileştir" düğmesi kaldırıldı (03.10.2026): Google Vision yolunda etkisi yoktu; yedek OCR'da (Tesseract) gri ton + kontrast hep açık.
-- Birlikte dikkat (03.10.2026): her kural resmi kaynağa dayanır; dil olasılık bildirir ("oluşabilir"), "tehlikeli/zehir" denmez; renk sarı, kırmızı yok. Kaynaksız "şu ikisi birlikte zehir" iddiaları eklenmez. Açık: E210-E213 kartları benzen notunu tek başına da gösteriyor (C vitamini olmasa da); sadeleştirilip sadeleştirilmeyeceği kullanıcıya soruldu.
+- Birlikte dikkat (03.10.2026): her kural resmi kaynağa dayanır; dil olasılık bildirir ("oluşabilir"), "tehlikeli/zehir" denmez; renk sarı, kırmızı yok. Kaynaksız "şu ikisi birlikte zehir" iddiaları eklenmez. E210-E213 kartları benzen notunu tek başına da gösterir ve sarı kalır (kullanıcı kararı, 03.10.2026). Kart görünümü: başlık + "Bu üründe" görünür; açıklama, kaynak ve not (i) düğmesinin arkasında.
 - Gizli sodyum (03.10.2026): yalnızca "Tansiyon / tuz kısıtlaması" profili seçilince kart çıkar. Tuz, sodyumlu E kodları (adında sodyum geçen 42 kod), soya sosu ve bulyon gösterilir. Miktar hesaplanmaz; tuz ilk 3 bileşendeyse belirtilir. Eşik bilgisi NHS'e dayanır: 100 g'da >1,5 g yüksek, <0,3 g düşük.
 - Temizlik ürünleri ayrı bir faz olacak (kozmetiğe karıştırılmaz; AB deterjan ve CLP mevzuatı).
 - Barkod en sona; belki hiç kapsama alınmaz.
@@ -65,6 +66,12 @@ Son güncelleme: 03.10.2026.
 5. Hukuki görüş hazırlığı (KVKK / Google Vision, "zararlı" dili, arşiv gösterimi) — en son.
 6. Sonra: temizlik ürünleri fazı, CI ile testler, SIN List (ChemSec izni), barkod (belki hiç).
 
+## Gelişim alanları (bilerek sonraya bırakılan genişletmeler)
+- Birlikte dikkat: şimdilik 10 kural; kaynağı bulunan yeni eşleşmelerle artırılacak.
+- Endokrin: Fransa ANSES listesinin tam metni (Légifrance, bu ortamdan erişilemedi), edlists.org Liste I-III, AB CLP ED HH 1/2 sınıflandırması almış maddeler, ChemSec SIN List (izin gerekli).
+- AB Eylül 2026 taslağı yayımlanınca `ab_taslak` kayıtları kozmetik_guncellemeler.tsv'ye gerçek değişiklik olarak taşınmalı.
+
 ## Belgeler (Claude Docs)
 - Kozmetik araştırması: https://claude.ai/code/artifact/690f07f0-5bc7-4600-bd75-aa9d38fbfb21
+- Endokrin bozucu araştırması: https://claude.ai/code/artifact/f3487ffa-3ac4-4f20-910f-1980191e91af
 - SWOT analizi: https://claude.ai/code/artifact/bf937ec9-f5fd-4517-8171-747190a098d0
