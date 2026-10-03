@@ -30,6 +30,10 @@ details#pd{background:var(--card);border:1px solid var(--line);border-radius:10p
 details#pd summary{font-weight:700;cursor:pointer}.pt{font-weight:600;font-size:14px;margin:10px 0 4px}
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}.pc{font-size:14px}
 a{color:var(--ok);font-weight:600}
+.hd{display:flex;align-items:flex-start;gap:8px}.hd .t{flex:1;min-width:0}
+button.info{flex:0 0 auto;width:30px;height:30px;padding:0;border-radius:50%;font:italic 700 16px/1 Georgia,serif;background:none;color:var(--ok);border:1.5px solid var(--ok)}
+button.info.on{background:var(--ok);color:var(--bg)}
+.ipanel{margin-top:8px;padding-top:6px;border-top:1px dashed var(--line)}.ih{font-weight:600;font-size:13px;margin-top:6px}
 </style>
 </head>
 <body>
@@ -277,7 +281,7 @@ function findBrands(text,brands){
 /*LOGIC-END*/
 
 var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare Worker adresi; boşsa telefonda Tesseract kullanılır
-var DB=null,BDB=null,IDX=null,FLAGS={},BRANDS=null,ST=document.getElementById("st"),LAST=[],LASTSUM=null,LASTBR=[];
+var DB=null,BDB=null,ABOUT={},IDX=null,FLAGS={},BRANDS=null,ST=document.getElementById("st"),LAST=[],LASTSUM=null,LASTBR=[];
 var CLS=["g","u","y","r"],LBL=["Özel uyarı yok","Durum doğrulanmadı","Dikkat","Uyarı"];
 function $(i){return document.getElementById(i)}
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
@@ -298,6 +302,7 @@ function loadDb(i){
   }).catch(function(){if(!DB)loadDb(i+1)});
 }
 loadDb(0);
+getJson("data/e_aciklama.json").then(function(a){ABOUT=a.about||{}}).catch(function(){ABOUT={}});
 getJson("data/tagsis.json").then(function(t){BRANDS=buildBrands(t)}).catch(function(){BRANDS=null});
 
 /* ---------- Profil ---------- */
@@ -395,11 +400,25 @@ function brandCard(br){
 function additiveCard(r){
   var d=el("div","res "+CLS[r.rank]);
   var items=r.ids.map(function(id){return IDX.byId[id]});
-  d.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+items[0].primary_name+" (tür belirtilmemiş)")));
-  d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
   var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
-  if(it.risk_level!=="green"){var p=el("div","ln",it.reason);d.appendChild(p)}
+  var top=el("div","hd");
+  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+items[0].primary_name+" (tür belirtilmemiş)")));
+  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",it.primary_name+" hakkında bilgi");b.setAttribute("aria-expanded","false");
+  top.appendChild(b);d.appendChild(top);
+  d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
   it.flags.forEach(function(f){if(f==="sodium"||f==="aluminium"||f==="gmo_suspect")return;d.appendChild(el("span","chip",FLAGS[f]||f))});
+  var pn=el("div","ipanel");pn.hidden=true;
+  items.forEach(function(x){
+    var ab=ABOUT[x.id];
+    if(items.length>1)pn.appendChild(el("div","ih",x.id+" · "+x.primary_name));
+    if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,"Nedir? "));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
+  });
+  var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
+  p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
+  pn.appendChild(p2);
+  if(it.needs_review)pn.appendChild(el("div","how","Bu değerlendirme henüz kaynakla doğrulanmadı."));
+  d.appendChild(pn);
+  b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
 }
 function render(res,br){
