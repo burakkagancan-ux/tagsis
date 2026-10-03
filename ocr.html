@@ -142,9 +142,16 @@ var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare 
 var DB=null,IDX=null,FLAGS={},ST=document.getElementById("st"),LAST=[];
 var CLS=["g","u","y","r"],LBL=["Özel uyarı yok","Durum doğrulanmadı","Dikkat","Uyarı"];
 function $(i){return document.getElementById(i)}
-fetch("data/e_kodlari.json").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
-  DB=j;FLAGS=(j.meta&&j.meta.flags)||{};IDX=buildIndex(j);ST.textContent="Katkı maddesi listesi yüklendi ("+j.ingredients.length+" madde).";
-}).catch(function(){ST.textContent="data/e_kodlari.json yüklenemedi. Dosyanın depoda data klasöründe olduğundan emin olun."});
+window.onerror=function(m,src,l){ST.textContent="Sayfa hatası: "+m+" (satır "+l+")";};
+var PATHS=["data/e_kodlari.json","e_kodlari.json","data/e_kodlari (1).json"];
+function loadDb(i){
+  if(i>=PATHS.length){var msg="Katkı maddesi listesi bulunamadı. GitHub'da dosyanın adı tam olarak e_kodlari.json olmalı ve data klasöründe durmalı.";ST.textContent=msg;$("sonuc").textContent=msg;return}
+  fetch(PATHS[i],{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+    DB=j;FLAGS=(j.meta&&j.meta.flags)||{};IDX=buildIndex(j);
+    ST.textContent="Katkı maddesi listesi yüklendi ("+j.ingredients.length+" madde, "+PATHS[i]+").";
+  }).catch(function(){loadDb(i+1)});
+}
+loadDb(0);
 
 function render(res){
   var box=$("sonuc");box.textContent="";LAST=res;
@@ -169,7 +176,11 @@ function render(res){
     box.appendChild(d);
   });
 }
-function run(){if(!IDX){ST.textContent="Liste henüz yüklenmedi.";return}render(analyze($("metin").value,IDX))}
+function run(){
+  if(!IDX){$("sonuc").textContent="Katkı maddesi listesi henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
+  if(!$("metin").value.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
+  try{render(analyze($("metin").value,IDX))}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+}
 $("analiz").onclick=run;
 $("ornek").onclick=function(){$("metin").value="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici. Enerji 450 kcal, E 100 g";run()};
 $("kopya").onclick=function(){
