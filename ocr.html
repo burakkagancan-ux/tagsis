@@ -29,7 +29,8 @@ textarea{width:100%;min-height:140px;font:14px/1.4 ui-monospace,monospace;paddin
 .t{font-weight:700}.how{font-size:12px;color:var(--mute);margin-top:2px}
 .chip{display:inline-block;border:1.5px solid var(--line);border-radius:4px;padding:0 6px;font-size:12px;margin:4px 4px 0 0}
 .sum{font-weight:700;margin:10px 0}#st{font-size:14px;color:var(--mute)}
-.ln{font-size:14px;margin-top:4px}.nt{color:var(--mute)}
+.ln{font-size:14px;margin-top:4px}.nt{color:var(--mute);font-style:italic;margin-bottom:14px}.upfnote{font-style:italic}
+details#okunan{margin:20px 0 8px}details#okunan summary{font-size:18px;font-weight:700;cursor:pointer}details#okunan textarea{margin-top:8px}
 .sumbox{border-left-color:var(--ok)}.srow{display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:14px}.srow:first-of-type{border-top:0}
 .sl{flex:0 0 38%;color:var(--mute)}.sv{flex:1;min-width:0}.sv.r{color:var(--red);font-weight:600}.sv.y{color:var(--yel);font-weight:600}
 details#pd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:10px 0}
@@ -66,14 +67,14 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <input type="file" id="foto" accept="image/*" capture="environment">
 <img id="pre" alt="Seçilen fotoğraf">
 <div class="row">
-<label><input type="checkbox" id="onis" checked> Görüntüyü iyileştir (gri + kontrast)</label>
+<label><input type="checkbox" id="onis" checked> Görüntüyü iyileştir</label>
 </div>
 <div class="row"><button id="oku" disabled>Metni oku</button><button class="alt" id="ornek">Örnek metin dene</button></div>
 <div id="st"></div>
 
-<h2>Okunan metin <span class="mut">(düzeltebilirsiniz)</span></h2>
-<textarea id="metin" placeholder="Okunan metin burada görünür. Yanlış okunan yerleri düzeltip “Analiz et”e basın."></textarea>
-<div class="row"><button id="analiz">Analiz et</button><button class="alt" id="kopya">Sonucu kopyala</button></div>
+<details id="okunan"><summary>Okunan Metin</summary>
+<textarea id="metin" placeholder="Okunan metin burada görünür. Yanlış okunan yerleri düzeltirseniz sonuç kendiliğinden güncellenir."></textarea>
+</details>
 
 <h2>Sonuç</h2>
 <div id="sonuc" class="mut">Henüz analiz yapılmadı.</div>
@@ -457,7 +458,7 @@ function summaryCard(S,res){
   var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
   row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
   if(S.claims.length)row("Etiket beyanı",S.claims.join(", "));
-  if(u.length)d.appendChild(el("div","how","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
+  if(u.length)d.appendChild(el("div","how upfnote","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
   return d;
 }
 function brandCard(br){
@@ -501,12 +502,12 @@ function additiveCard(r){
 function render(res,br){
   var box=$("sonuc");box.textContent="";LAST=res;LASTBR=br||[];
   var S=summarize(res,IDX);LASTSUM=S;
-  if(!res.length&&!LASTBR.length){box.textContent="Eşleşen bir şey bulunamadı. Metni kontrol edin.";return}
+  if(!res.length&&!LASTBR.length){box.textContent="Eşleşen bir şey bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
   profileCards(S).forEach(function(c){box.appendChild(c)});
   box.appendChild(summaryCard(S,res));
   if(LASTBR.length)box.appendChild(brandCard(LASTBR));
   var E=res.filter(function(r){return !r.isB&&!r.neg});
-  if(E.length){box.appendChild(el("h2",null,"Katkı maddeleri"));E.forEach(function(r){box.appendChild(additiveCard(r))})}
+  if(E.length){box.appendChild(el("h2",null,"Katkı Maddeleri"));E.forEach(function(r){box.appendChild(additiveCard(r))})}
   var notes=res.filter(function(r){return r.isB&&!r.neg}).map(function(r){return IDX.byId[r.ids[0]]}).filter(function(it){return it.note});
   if(notes.length){
     box.appendChild(el("h2",null,"Notlar"));
@@ -520,15 +521,9 @@ function run(){
   if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
   try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[])}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
 }
-$("analiz").onclick=run;
+// Metin elle düzeltildiğinde sonuç kendiliğinden güncellenir (yazmayı bitirmesi beklenir)
+var RUN_T=null;$("metin").addEventListener("input",function(){clearTimeout(RUN_T);RUN_T=setTimeout(run,600)});
 $("ornek").onclick=function(){$("metin").value="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";run()};
-$("kopya").onclick=function(){
-  function tag(r){return r.ids.join("+")+" ("+r.how+(r.fixed?",düzeltildi":"")+(r.may?",içerebilir":"")+(r.neg?",içermez":"")+(r.aroma?",aroma":"")+")"}
-  var o={metin:$("metin").value,bulunan:LAST.filter(function(r){return !r.isB}).map(tag),bilesen:LAST.filter(function(r){return r.isB}).map(tag),
-    marka:LASTBR.map(function(b){return b.label}),profil:PROF,surum:{e:DB&&DB.meta&&DB.meta.version,b:BDB&&BDB.meta.version}};
-  var s=JSON.stringify(o,null,1);
-  if(navigator.clipboard)navigator.clipboard.writeText(s).then(function(){ST.textContent="Sonuç panoya kopyalandı."},function(){$("metin").select()});else $("metin").select();
-};
 
 /* ---------- Alt menü: "Profil" sekmesi bu sayfadaki profil bölümünü açar ---------- */
 function tabSync(){
@@ -567,13 +562,13 @@ $("oku").onclick=function(){
     ST.textContent="Google Vision ile okunuyor…";
     fetch(OCR_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({image:cv.toDataURL("image/jpeg",0.85).split(",")[1]})})
     .then(function(r){return r.json().then(function(j){if(!r.ok||j.error)throw new Error(j.error||("HTTP "+r.status));return j})})
-    .then(function(j){$("metin").value=j.text||"";ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn, Google Vision). Metni kontrol edin.";run()})
+    .then(function(j){$("metin").value=j.text||"";ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn, Google Vision).";run()})
     .catch(function(e){ST.textContent="Okuma hatası: "+e.message+" (internet bağlantısını kontrol edin)"}).then(function(){btn.disabled=false});
     return;
   }
   Tesseract.createWorker("tur+eng",1,{logger:function(m){if(m.status)ST.textContent=m.status+(m.progress?" %"+Math.round(m.progress*100):"")}}).then(function(w){
     return w.recognize(cv).then(function(r){
-      $("metin").value=r.data.text;ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn). Metni kontrol edin.";
+      $("metin").value=r.data.text;ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn).";
       run();return w.terminate();
     });
   }).catch(function(e){ST.textContent="Okuma hatası: "+(e&&e.message?e.message:e)}).then(function(){btn.disabled=false});
