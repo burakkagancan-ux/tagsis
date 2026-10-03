@@ -303,6 +303,8 @@ def build(cdir):
             # Koku alerjenlerinin etikette yazılacak toplu adı (ör. 'Lavandula Oil/Extract', 'Rose Flower Oil/Extract')
             for q in re.findall(r"indicated (?:as )?[\u2018'\"]([^\u2019'\"]{3,60})[\u2019'\"]", d.get("other", "") + " " + d.get("wording", "")):
                 inci.append(norm_alias(q))
+            # "TITANIUM DIOXIDE/CI 77891" gibi ad+CI birleşimleri iki ayrı ada bölünür
+            inci = [p for a in inci for p in (a.split("/") if re.search(r"/CI \d{5}$", a) else [a])]
             inci = list(dict.fromkeys(a for a in inci if a and a not in ALIAS_EXCLUDE.get(eid, ())
                                       and a not in CHEM_STOP))
             if not inci:
@@ -477,6 +479,142 @@ def inci_file(ing):
     return funcs, items
 
 
+# ---------------- Eş anlamlılar ----------------
+ESA = os.path.join(HERE, "kaynak", "kozmetik_esanlamlilar.tsv")
+
+# ABD sertifikalı renklendiricileri (FD&C / D&C adları) -> CI numarası
+US_COLORS = {
+    ("BLUE", 1): "CI 42090", ("BLUE", 4): "CI 42090", ("GREEN", 3): "CI 42053", ("GREEN", 5): "CI 61570",
+    ("GREEN", 6): "CI 61565", ("GREEN", 8): "CI 59040", ("ORANGE", 4): "CI 15510", ("ORANGE", 5): "CI 45370",
+    ("ORANGE", 10): "CI 45425", ("ORANGE", 11): "CI 45425", ("RED", 3): "CI 45430", ("RED", 4): "CI 14700",
+    ("RED", 6): "CI 15850", ("RED", 7): "CI 15850", ("RED", 17): "CI 26100", ("RED", 21): "CI 45380",
+    ("RED", 22): "CI 45380", ("RED", 27): "CI 45410", ("RED", 28): "CI 45410", ("RED", 30): "CI 73360",
+    ("RED", 31): "CI 15800", ("RED", 33): "CI 17200", ("RED", 34): "CI 15880", ("RED", 36): "CI 12085",
+    ("RED", 40): "CI 16035", ("VIOLET", 2): "CI 60725", ("YELLOW", 5): "CI 19140", ("YELLOW", 6): "CI 15985",
+    ("YELLOW", 7): "CI 45350", ("YELLOW", 8): "CI 45350", ("YELLOW", 10): "CI 47005", ("YELLOW", 11): "CI 47000",
+    ("BROWN", 1): "CI 20170",
+}
+
+
+def us_color_aliases():
+    out = []
+    for (c, n), ci in US_COLORS.items():
+        for pre in ("", "FD&C ", "D&C ", "EXT. D&C "):
+            for mid in ("%s %d", "%s NO. %d"):
+                base = pre + (mid % (c, n))
+                for suf in ("", " LAKE", " ALUMINUM LAKE", " CALCIUM LAKE", " BARIUM LAKE", " AL LAKE", " CA LAKE"):
+                    out.append((base + suf, [ci], "abd"))
+    return out
+
+
+# Türkçe kimyasal ad kuralları: INCI'deki her sözcük bu sözlükte (ya da sayı) ise Türkçe biçim üretilir.
+TR_WORD = {
+    "SODIUM": ["sodyum"], "POTASSIUM": ["potasyum"], "CALCIUM": ["kalsiyum"], "MAGNESIUM": ["magnezyum"],
+    "ZINC": ["çinko"], "ALUMINUM": ["alüminyum"], "AMMONIUM": ["amonyum"], "IRON": ["demir"], "COPPER": ["bakır"],
+    "SILVER": ["gümüş"], "TITANIUM": ["titanyum"], "BARIUM": ["baryum"], "LITHIUM": ["lityum"], "STRONTIUM": ["stronsiyum"],
+    "DISODIUM": ["disodyum"], "TRISODIUM": ["trisodyum"], "TETRASODIUM": ["tetrasodyum"], "DIPOTASSIUM": ["dipotasyum"],
+    "CHLORIDE": ["klorür"], "FLUORIDE": ["florür"], "MONOFLUOROPHOSPHATE": ["monoflorofosfat"], "SULFATE": ["sülfat"],
+    "SULFITE": ["sülfit"], "PHOSPHATE": ["fosfat"], "PYROPHOSPHATE": ["pirofosfat"], "CARBONATE": ["karbonat"],
+    "BICARBONATE": ["bikarbonat"], "HYDROXIDE": ["hidroksit"], "OXIDE": ["oksit"], "DIOXIDE": ["dioksit"],
+    "PEROXIDE": ["peroksit"], "CITRATE": ["sitrat"], "BENZOATE": ["benzoat"], "SORBATE": ["sorbat"], "LACTATE": ["laktat"],
+    "GLUCONATE": ["glukonat"], "SALICYLATE": ["salisilat"], "STEARATE": ["stearat"], "PALMITATE": ["palmitat"],
+    "ACETATE": ["asetat"], "NITRATE": ["nitrat"], "SILICATE": ["silikat"], "HYALURONATE": ["hyalüronat", "hiyalüronat"],
+    "ASCORBATE": ["askorbat"], "GLUTAMATE": ["glutamat"], "THIOGLYCOLATE": ["tiyoglikolat"], "LAURATE": ["laurat"],
+    "MYRISTATE": ["miristat"], "OLEATE": ["oleat"], "COCOATE": ["kokoat"], "ISETHIONATE": ["izetiyonat"],
+    "SACCHARIN": ["sakarin"], "EDTA": ["edta"], "PCA": ["pca"],
+    "ACID": ["asit", "asidi"], "CITRIC": ["sitrik"], "LACTIC": ["laktik"], "GLYCOLIC": ["glikolik"], "SALICYLIC": ["salisilik"],
+    "ASCORBIC": ["askorbik"], "HYALURONIC": ["hyalüronik", "hiyalüronik"], "STEARIC": ["stearik"], "BENZOIC": ["benzoik"],
+    "SORBIC": ["sorbik"], "MALIC": ["malik"], "TARTARIC": ["tartarik"], "KOJIC": ["kojik"], "AZELAIC": ["azelaik"],
+    "MANDELIC": ["mandelik"], "FERULIC": ["ferulik"], "PHYTIC": ["fitik"], "LINOLEIC": ["linoleik"], "OLEIC": ["oleik"],
+    "PALMITIC": ["palmitik"], "MYRISTIC": ["miristik"], "LAURIC": ["laurik"], "THIOGLYCOLIC": ["tiyoglikolik"],
+    "FORMIC": ["formik"], "ACETIC": ["asetik"], "BORIC": ["borik"], "PHOSPHORIC": ["fosforik"], "GLUTAMIC": ["glutamik"],
+    "DEHYDROACETIC": ["dehidroasetik"], "UNDECYLENIC": ["undesilenik"],
+    "ALCOHOL": ["alkol"], "CETYL": ["setil"], "CETEARYL": ["setearil"], "STEARYL": ["stearil"], "BENZYL": ["benzil"],
+    "LAURYL": ["lauril"], "MYRISTYL": ["miristil"], "BEHENYL": ["behenil"], "ISOPROPYL": ["izopropil"],
+    "ETHYLHEXYL": ["etilheksil"], "OCTYLDODECANOL": ["oktildodekanol"], "GLYCERIN": ["gliserin"], "GLYCERYL": ["gliseril"],
+    "GLYCOL": ["glikol"], "PROPYLENE": ["propilen"], "BUTYLENE": ["bütilen"], "PENTYLENE": ["pentilen"],
+    "HEXYLENE": ["heksilen"], "CAPRYLYL": ["kaprilil"], "LAURETH": ["lauret", "laureth"], "COCAMIDOPROPYL": ["kokamidopropil"],
+    "BETAINE": ["betain"], "GLUCOSIDE": ["glukozit", "glikozit"], "DECYL": ["desil"], "HYDRATED": ["hidratlı"],
+    "SILICA": ["silika"], "DIMETHICONE": ["dimetikon"], "DIMETHICONOL": ["dimetikonol"],
+    "CYCLOPENTASILOXANE": ["siklopentasiloksan"], "CYCLOHEXASILOXANE": ["siklohekzasiloksan", "siklohegzasiloksan"],
+    "PHENOXYETHANOL": ["fenoksietanol"], "METHYLPARABEN": ["metilparaben"], "ETHYLPARABEN": ["etilparaben"],
+    "PROPYLPARABEN": ["propilparaben"], "BUTYLPARABEN": ["bütilparaben"], "PARAFFIN": ["parafin"],
+    "TALC": ["talk"], "UREA": ["üre"], "CAFFEINE": ["kafein"], "MENTHOL": ["mentol"], "CAMPHOR": ["kafur", "kâfur"],
+    "ALLANTOIN": ["alantoin"], "PANTHENOL": ["pantenol"], "NIACINAMIDE": ["niasinamid", "niyasinamid"],
+    "TOCOPHEROL": ["tokoferol"], "TOCOPHERYL": ["tokoferil"], "RETINYL": ["retinil"], "SQUALANE": ["skualan"],
+    "CARBOMER": ["karbomer"], "TRIETHANOLAMINE": ["trietanolamin"], "XANTHAN": ["ksantan"], "GUM": ["gam", "sakızı"],
+    "POLYSORBATE": ["polisorbat"], "SORBITAN": ["sorbitan"], "LIMONENE": ["limonen"], "LINALOOL": ["linalol"],
+    "CITRONELLOL": ["sitronellol"], "CITRAL": ["sitral"], "EUGENOL": ["öjenol"], "COUMARIN": ["kumarin"],
+    "HYDROGENATED": ["hidrojene"], "STEARETH": ["stearet"], "CETEARETH": ["setearet"], "CHLORHEXIDINE": ["klorheksidin"],
+    "TRICLOSAN": ["triklosan"], "HYDROQUINONE": ["hidrokinon"], "FORMALDEHYDE": ["formaldehit"],
+    "METHYLISOTHIAZOLINONE": ["metilizotiyazolinon"], "METHYLCHLOROISOTHIAZOLINONE": ["metilkloroizotiyazolinon"],
+    "HYDANTOIN": ["hidantoin"], "IMIDAZOLIDINYL": ["imidazolidinil"], "DIAZOLIDINYL": ["diazolidinil"],
+    "SORBITOL": ["sorbitol"], "KAOLIN": ["kaolin"], "MICA": ["mika"], "LANOLIN": ["lanolin"], "RETINOL": ["retinol"],
+    "PEG": ["peg"], "PPG": ["ppg"], "DMDM": ["dmdm"], "BENTONITE": ["bentonit"], "ZEOLITE": ["zeolit"],
+    "SALT": ["tuzu"], "CHLORHYDRATE": ["klorhidrat"], "CHLOROHYDRATE": ["klorohidrat"], "TRIGLYCERIDE": ["trigliserit"],
+}
+
+
+def tr_rule_aliases(names):
+    out = []
+    for n in names:
+        words = re.split(r"[\s\-]+", n)
+        if not words or any(w not in TR_WORD and not re.fullmatch(r"\d+", w) for w in words):
+            continue
+        forms = [""]
+        for w in words:
+            opts = TR_WORD.get(w, [w])
+            forms = [(f + " " + o).strip() for f in forms for o in opts][:8]
+        for f in forms:
+            if f.upper() != n:
+                out.append((f, [n], "tr_kural"))
+    return out
+
+
+def fold_key(s):
+    """İstemcideki norm() ile aynı anahtar: Türkçe harfler sadeleşir, harf/rakam dışı boşluk olur."""
+    s = s.replace("İ", "i").replace("I", "ı").lower()
+    s = s.translate(str.maketrans("çğıöşüâîû", "cgiosuaiu"))
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+def build_aliases(inci_names, reg_names):
+    known = set(inci_names) | set(reg_names)
+    rows = []
+    if os.path.exists(ESA):
+        head = None
+        for line in open(ESA, encoding="utf-8"):
+            if line.startswith("#") or not line.strip():
+                continue
+            c = line.rstrip("\n").split("\t")
+            if head is None:
+                head = c
+                continue
+            rows.append((c[0].strip(), [t.strip() for t in c[1].split(";") if t.strip()], c[2].strip() if len(c) > 2 else ""))
+    rows += us_color_aliases()
+    rows += tr_rule_aliases(sorted(inci_names))
+    existing = {fold_key(n): n for n in known}
+    out, seen, skipped = [], {}, []
+    for ad, targets, tur in rows:
+        bad = [t for t in targets if t not in known]
+        if bad:
+            skipped.append((ad, bad)); continue
+        k = fold_key(ad)
+        if len(k) < (2 if tur == "tr" else 3):   # "Su" gibi kısa Türkçe adlar yalnızca elle eklenen listeden
+            continue
+        if k in existing:          # etiketteki ad zaten bir INCI adı: eş anlamlıya gerek yok
+            continue
+        if k in seen:
+            if seen[k] != targets:
+                print("uyarı: '%s' iki farklı hedefe bağlanıyor: %s / %s" % (ad, seen[k], targets), file=sys.stderr)
+            continue
+        seen[k] = targets
+        out.append([ad, targets, tur])
+    for ad, bad in skipped:
+        print("uyarı: eş anlamlı hedefi listede yok: %s -> %s" % (ad, bad), file=sys.stderr)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cosing", default=os.environ.get("COSING_DIR", os.path.join(HERE, "..", "cosing", "data")))
@@ -523,13 +661,16 @@ def main():
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
     funcs, items = inci_file(ing)
+    aliases = build_aliases([i[0] for i in items], [a for e in lst for a in e["inci"]])
     with open(OUT_INCI, "w", encoding="utf-8") as f:
         json.dump({"version": VERSION, "last_updated": LAST_UPDATED,
                    "meta": {"source": "Avrupa Komisyonu CosIng INCI listesi (inhouse-work/cosing @%s)" % COSING_COMMIT,
-                            "item": "[INCI adı, [işlev indeksleri], [bayraklar]?]", "flags": {k: FLAGS[k] for k in ("non_vegan", "non_veg", "vegan_unsure", "pfas")}},
-                   "functions": funcs, "items": items}, f, ensure_ascii=False, separators=(",", ":"))
+                            "item": "[INCI adı, [işlev indeksleri], [bayraklar]?]",
+                            "aliases": "[etiketteki ad, [hedef INCI adları], tür (tr | tr_kural | en | abd | kisa)]; kaynak/kozmetik_esanlamlilar.tsv + Türkçe ad kuralları + ABD renklendirici adları", "flags": {k: FLAGS[k] for k in ("non_vegan", "non_veg", "vegan_unsure", "pfas")}},
+                   "functions": funcs, "items": items, "aliases": aliases}, f, ensure_ascii=False, separators=(",", ":"))
     print("kozmetik.json: %d kayıt %s" % (len(lst), json.dumps(dict(counts), ensure_ascii=False)))
-    print("kozmetik_inci.json: %d INCI adı, %d işlev" % (len(items), len(funcs)))
+    import collections
+    print("kozmetik_inci.json: %d INCI adı, %d işlev, %d eş anlamlı %s" % (len(items), len(funcs), len(aliases), dict(collections.Counter(a[2] for a in aliases))))
     print("güncellemeler: %d işlem; II çakışmasıyla çıkarılan ad: %d" % (len(log), dropped))
 
 
