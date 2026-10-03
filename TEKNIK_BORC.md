@@ -2,7 +2,7 @@
 
 Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmalı.
 
-## 1. OCR Worker'a istek sınırı yok — yüksek öncelik (03.10.2026: kod hazır, `worker/`; Cloudflare'de Workers Builds bağlantısı ve Vision kotası bekleniyor)
+## 1. OCR Worker'a istek sınırı — KAPANDI (03.10.2026: worker/ depoda, Workers Builds ile dağıtılıyor, IP ve genel istek sınırı çalışıyor). Kalan: Google Cloud Vision "Requests per minute" kotasının düşürülmesi.
 - **Durum:** `ocr.html`, Cloudflare Worker'a (`inapp-ocr-3a8f…workers.dev`) istek atıyor; Worker da Google Cloud Vision'ı çağırıyor. Worker yalnızca `ALLOWED_ORIGIN` başlığına bakıyor. Bu başlığı tarayıcı dışından istek atan biri kolayca taklit edebilir, yani bu kontrol tek başına koruma sağlamaz.
 - **Risk:** Adresi bulan biri yüksek hacimde istek atarak Vision kotasını ve faturayı şişirebilir. Google Cloud'da bütçe uyarısı kurulu (03.10.2026). Uyarı yalnızca haber verir, harcamayı durdurmaz.
 - **Önerilen çözüm:**
@@ -12,7 +12,7 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
   4. İsteğe bağlı: bütçe aşılınca Vision API'yi otomatik kapatan bütçe → Pub/Sub → Cloud Function.
 - **Kod:** Worker kodu bu depoda yok. Önce depoya eklenmeli (`worker/`), sonra sınır eklenmeli.
 
-## 2. Worker'ın kayıt (log) tutmadığının doğrulanması (yeni kodda log yok, observability kapalı; panelde Logpush olmadığı kontrol edilmeli)
+## 2. Worker'ın kayıt (log) tutmaması — KAPANDI (kodda log yok, observability kapalı, panelde Exports/Logpush tanımlı değil)
 - `ocr.html` gizlilik notu "fotoğraf ve metin kaydedilmez" diyor. Worker kodunda `console.log` ile görüntü ya da metin yazılmadığı ve Workers Logs/Logpush'ın kapalı olduğu kontrol edilmeli.
 
 ## 3. Google Fonts
