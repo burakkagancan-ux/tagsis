@@ -24,3 +24,8 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - **Doğrulama:** `inceleme=1` olan güncellemeler (needs_review) EUR-Lex metniyle satır satır karşılaştırılmalı; 2026/78 ve 2026/909 ek sıra numaraları doğrulanamadı.
 - **Otomatik güncelleme:** CosIng'e bu ortamdan erişilemedi. GitHub Actions ile aylık CosIng kontrolü kurulmalı.
 - **Eş anlamlılar:** `kaynak/kozmetik_esanlamlilar.tsv` (Türkçe/İngilizce yaygın adlar) ve `gen_kozmetik.py` içindeki ABD renklendirici tablosu (FD&C/D&C → CI) bilgiye dayanarak yazıldı; FDA 21 CFR 74/82 listeleriyle karşılaştırılmalı. Türkçe kimyasal adlar kuralla üretiliyor (975 ad); Türk etiketlerinde görülen gerçek yazımlarla denetlenmeli.
+
+## 5. Kozmetik K3 (kaynak/kozmetik_k3.tsv)
+- **Kaynak denetimi:** Kaliforniya listesi HSC §108980 metninin Justia kopyasından (2024 kodu) alındı; resmi leginfo sitesinden karşılaştırılmadı. ASEAN satırı (mikonazol) ikincil kaynaktan (CIRS), needs_review.
+- **Güncelleme:** AB endokrin bozucu listesinin B grubu için ikinci veri çağrısı ve SCCS görüşleri izlenmeli; tarihleri elle güncellenir.
+- **SIN List:** ChemSec'in veri yeniden kullanım koşulları belirsiz; yazılı izin alınmadan eklenmemeli.

@@ -1,0 +1,84 @@
+# Kozmetik K3: AB'de izinli ya da kısıtlı olsa da başka bir resmi listede yer alan maddeler ("tartışmalı katman").
+# gen_kozmetik.py bu dosyayı okuyup data/kozmetik.json içindeki "watch" alanına yazar. Sütunlar sekmeyle ayrılır.
+# liste: meta.watch_lists anahtarı (ab_ed_a, ab_ed_b = AB olası endokrin bozucu öncelik listesi A/B grubu;
+#        ca = ABD Kaliforniya yasağı; asean = ASEAN Kozmetik Direktifi yasağı; sin = ChemSec SIN List, lisans izni bekliyor, satır yok)
+# inci: etiketteki INCI adları (; ile ayrılır). Eşleştirme yalnızca bu adlarla yapılır; CAS belgeleme içindir.
+# tarih: listeye girme ya da yasağın başlama tarihi. inceleme: 1 = resmi metinle satır satır karşılaştırılmadı.
+# Not: Kaliforniya'nın 13 PFAS maddesi burada yok; AB 2771 (2025) tüm kasıtlı eklenmiş PFAS'ı yasakladığı için PFAS bayrağıyla gösterilir.
+liste	inci	cas	ad	tarih	dayanak	not_tr	kaynak	inceleme
+ab_ed_a	BENZOPHENONE-3	131-57-7		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	KOJIC ACID	501-30-4		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	4-METHYLBENZYLIDENE CAMPHOR	36861-47-9		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	PROPYLPARABEN	94-13-3		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	TRICLOSAN	3380-34-5		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	RESORCINOL	108-46-3		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	OCTOCRYLENE	6197-30-4		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	TRICLOCARBAN	101-20-2		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	BHT;BUTYLATED HYDROXYTOLUENE	128-37-0		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	BENZOPHENONE	119-61-9		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	HOMOSALATE	118-56-9		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	BENZYL SALICYLATE	118-58-1		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	GENISTEIN	446-72-0		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_a	DAIDZEIN	486-66-8		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BUTYLPARABEN	94-26-8		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BHA	25013-16-5		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	ETHYLHEXYL METHOXYCINNAMATE	5466-77-3		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BENZOPHENONE-1	131-56-6		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BENZOPHENONE-2	131-55-5		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BENZOPHENONE-4	4065-45-6		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BENZOPHENONE-5	6628-37-1		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	METHYLPARABEN	99-76-3		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	CYCLOPENTASILOXANE	541-02-6		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	CYCLOMETHICONE	69430-24-6		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	SALICYLIC ACID	69-72-7		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	BUTYLPHENYL METHYLPROPIONAL	80-54-6		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	TRIPHENYL PHOSPHATE	115-86-6		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ab_ed_b	DELTAMETHRIN	52918-63-5		2019	AB Komisyonu öncelik listesi		https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-products-specific-topics/endocrine-disruptors_en	0
+ca	DIBUTYL PHTHALATE	84-74-2		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	DIETHYLHEXYL PHTHALATE	117-81-7		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	FORMALDEHYDE	50-00-0		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	PARAFORMALDEHYDE	30525-89-4		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	METHYLENE GLYCOL	463-57-0		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	QUATERNIUM-15	51229-78-8		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MERCURY	7439-97-6		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	ISOBUTYLPARABEN	4247-02-3		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	ISOPROPYLPARABEN	4191-73-5		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	M-PHENYLENEDIAMINE	108-45-2		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	O-PHENYLENEDIAMINE	95-54-5		2025-01-01	Kaliforniya AB 2762 (HSC §108980(a))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BUTYLPHENYL METHYLPROPIONAL	80-54-6	Lily aldehyde	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	ACETALDEHYDE	75-07-0		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	CYCLOHEXYLAMINE	108-91-8		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	CYCLOTETRASILOXANE	556-67-2		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	PHYTONADIONE	84-80-0		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	SODIUM PERBORATE	15120-21-5;10332-33-9		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	STYRENE	100-42-5		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	TRICHLOROACETIC ACID	76-03-9		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	TRICRESYL PHOSPHATE	1330-78-5		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	VINYL ACETATE	108-05-4		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	CHLOROACETAMIDE	79-07-2	2-Chloracetamide	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	ALLYL ISOTHIOCYANATE	57-06-7		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	ANTHRAQUINONE	84-65-1		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC GREEN 4;CI 42000	569-64-2	Malachite green	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	LAURUS NOBILIS SEED OIL	84603-73-6	Oil from the seeds of Laurus nobilis L.	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	PYROGALLOL	87-66-1		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	DISPERSE BLUE 1	2475-45-8		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	TRISODIUM NTA	5064-31-3	Trisodium nitrilotriacetate	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BORIC ACID	10043-35-3;11113-50-1		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	POTASSIUM BORATE	12712-38-8		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	TRIOCTYLDODECYL BORATE			2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	ZINC BORATE	1332-07-6		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	SODIUM BORATE;BORAX	1330-43-4;1303-96-4;12179-04-3	Sodium borate / disodium tetraborate	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MEA-BORATE	10377-81-8	2-Aminoethanol, monoester with boric acid	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MIPA-BORATE	68003-13-4	2-Hydroxypropyl ammonium dihydrogen orthoborate	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	DISPERSE BLUE 3	2475-46-9		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC GREEN 1	633-03-4		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC BLUE 7	2390-60-5		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC RED 46	89959-98-8;12221-69-1	Triazolium azo dye	2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC VIOLET 4	2390-59-2		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC BLUE 3	33203-82-6		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	BASIC BLUE 9	61-73-4		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MUSK AMBRETTE	83-66-9		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MUSK TIBETENE	145-39-1		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MUSK MOSKENE	116-66-5		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+ca	MUSK XYLENE	81-15-2		2027-01-01	Kaliforniya AB 496 (HSC §108980(b))		https://law.justia.com/codes/california/code-hsc/division-104/part-3/chapter-14/section-108980	0
+asean	MICONAZOLE;MICONAZOLE NITRATE	22916-47-8;22832-87-7		2025-12-12	ASEAN Kozmetik Direktifi Ek II (giriş 1724)		https://www.cirs-group.com/en/cosmetics/asean-cosmetic-directive-acd-updates-made-to-annexes-ii-iii-and-vii	1

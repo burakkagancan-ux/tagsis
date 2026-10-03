@@ -363,23 +363,26 @@ var KRANK={info:0,yellow:1,orange:2,red:3};
 /* kdb: kozmetik.json, kinci: kozmetik_inci.json. Anahtar: norm(INCI adı). */
 function buildKIndex(kdb,kinci){
   var map=new Map(),byFirst={};
-  function slot(k,name){var s=map.get(k);if(!s){s={name:name,funcs:[],flags:[],reg:[]};map.set(k,s)}return s}
+  function slot(k,name){var s=map.get(k);if(!s){s={name:name,funcs:[],flags:[],reg:[],k3:[]};map.set(k,s)}return s}
   (kinci?kinci.items:[]).forEach(function(it){var k=norm(it[0]);if(!k)return;var s=slot(k,it[0]);s.funcs=it[1].map(function(i){return kinci.functions[i]});s.flags=it[2]||[]});
   kdb.entries.forEach(function(e){e.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.reg.indexOf(e)<0)s.reg.push(e)})});
+  // K3: AB dışı yasaklar ve AB değerlendirme listeleri (kozmetik.json "watch")
+  (kdb.watch||[]).forEach(function(w){w.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.k3.indexOf(w)<0)s.k3.push(w)})});
   // Eş anlamlılar (Türkçe ad, ABD etiket adı, kısaltma): hedef INCI kaydına bağlanır; birden çok hedef birleştirilir
   function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i})}
   (kinci&&kinci.aliases||[]).forEach(function(a){
     var k=norm(a[0]);if(!k||map.has(k))return;
     var ts=a[1].map(function(t){return map.get(norm(t))}).filter(Boolean);if(!ts.length)return;
     map.set(k,ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(t){return t.funcs}))),
-      flags:uniq([].concat.apply([],ts.map(function(t){return t.flags}))),reg:uniq([].concat.apply([],ts.map(function(t){return t.reg})))});
+      flags:uniq([].concat.apply([],ts.map(function(t){return t.flags}))),reg:uniq([].concat.apply([],ts.map(function(t){return t.reg}))),
+      k3:uniq([].concat.apply([],ts.map(function(t){return t.k3})))});
   });
   // Benzer yazım araması için kova: ilk harf + uzunluk; ilk harfi düşmüş okumalar için ikinci harf + uzunluk
   var bySecond={};
   map.forEach(function(s,k){var b=k[0]+k.length;(byFirst[b]=byFirst[b]||[]).push(k);if(k.length>7){b=k[1]+(k.length-1);(bySecond[b]=bySecond[b]||[]).push(k)}});
   var nos=new Map();map.forEach(function(s,k){if(k.indexOf(" ")>-1)nos.set(k.replace(/ /g,""),k)});
   var m=kdb.meta||{};
-  return {map:map,nos:nos,byFirst:byFirst,bySecond:bySecond,flagLevels:m.inci_flag_levels||{},flagReasons:m.inci_flag_reasons||{},flags:m.flags||{}};
+  return {map:map,nos:nos,byFirst:byFirst,bySecond:bySecond,flagLevels:m.inci_flag_levels||{},flagReasons:m.inci_flag_reasons||{},flags:m.flags||{},watchLists:m.watch_lists||{}};
 }
 /* Metin kozmetik etiketine benziyor mu? (Gıda seçiliyken öneri göstermek için) */
 function looksCosmetic(text){
@@ -464,9 +467,10 @@ var MARKER_RE=/^(ingredients?|icindekiler|bilesenler|composition|inci|ingredient
 var PROSE_RE=/[çğışöüÇĞŞÖÜİ]|\b(ve|ile|icin|bir|gibi|olan|ise|kez|gunde|kullan\w*|sakla\w*|uyari\w*|dikkat|tarafindan|ithal|uretici\w*|imalat\w*|icerir|ppm|mah|sk|cad|sok|no|tel|ltd|sti|made in|lot|skt|exp|www|http|danis\w*|cocuk\w*|bebek\w*)\b|\d{3}\s?\d{3}\s?\d{2}\s?\d{2}/i;
 function isProse(raw){var w=raw.trim().split(/\s+/).length;return PROSE_RE.test(raw)||PROSE_RE.test(norm(raw))||w>=9}
 function kResult(raw,h,may,pos,K,opts){
-  var r={raw:raw,may:may,pos:pos,found:!!h,how:h?h.how:null,name:h?h.s.name:raw,funcs:h?h.s.funcs:[],iflags:h?h.s.flags:[],reg:h?h.s.reg:[],level:"info",notes:[]};
+  var r={raw:raw,may:may,pos:pos,found:!!h,how:h?h.how:null,name:h?h.s.name:raw,funcs:h?h.s.funcs:[],iflags:h?h.s.flags:[],reg:h?h.s.reg:[],k3:h?(h.s.k3||[]):[],level:"info",notes:[]};
   r.reg.forEach(function(e){if(KRANK[e.level]>KRANK[r.level])r.level=e.level});
   r.iflags.forEach(function(f){var l=K.flagLevels[f];if(l&&KRANK[l]>KRANK[r.level])r.level=l});
+  r.k3.forEach(function(w){var L=K.watchLists[w.list],l=L&&L.level;if(l&&KRANK[l]>KRANK[r.level])r.level=l});
   if(/\bnano\b/i.test(raw))r.nano=true;
   var leaveLike=opts.ptype==="leave"||opts.ptype==="makeup"||opts.ptype==="baby";
   r.reg.forEach(function(e){
@@ -500,8 +504,8 @@ function analyzeK(text,K,opts){
   out.extra=extra;
   return out;
 }
-function summarizeK(res){
-  var o={total:res.length,found:0,red:[],orange:[],yellow:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
+function summarizeK(res,K){
+  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   res.forEach(function(r){
     if(!r.found){o.unknown.push(r.raw);if(/^(parfum|fragrance|aroma|perfume|parfüm)$/i.test(r.raw.trim()))o.parfum=true;return}
@@ -511,6 +515,8 @@ function summarizeK(res){
     if(r.level==="red")push(o.red,r.name);else if(r.level==="orange")push(o.orange,r.name);else if(r.level==="yellow")push(o.yellow,r.name);
     var fl={};r.reg.forEach(function(e){e.flags.forEach(function(f){fl[f]=1});if(e.kids_under)push(o.kids,r.name);if(/^III\/376$/.test(e.id))push(o.vitA,r.name)});
     r.iflags.forEach(function(f){fl[f]=1});
+    (r.k3||[]).forEach(function(w){var L=K&&K.watchLists[w.list],kind=L?L.kind:(w.list==="ca"||w.list==="asean"?"ban":"ed");
+      if(kind==="ban")push(o.ban,r.name);else if(kind==="ed")push(o.ed,r.name)});
     if(fl.allergen_fragrance)push(o.fragrance,r.name);
     if(fl.formaldehyde_releaser)push(o.formaldehyde,r.name);
     if(fl.allergen_hairdye)push(o.hairdye,r.name);
@@ -789,7 +795,17 @@ function kChips(r){
   r.reg.forEach(function(e){e.flags.forEach(function(f){if(!seen[f]&&f!=="cmr_ban"){seen[f]=1;out.push(F[f]||f)}})});
   r.iflags.forEach(function(f){if(!seen[f]){seen[f]=1;out.push(F[f]||f)}});
   if(r.nano&&!seen.nano)out.push("Nano biçim");
+  (r.k3||[]).forEach(function(w){var L=KIDX.watchLists[w.list],c=L?L.chip:w.list;if(!seen["k3:"+c]){seen["k3:"+c]=1;out.push(c)}});
   return out;
+}
+/* K3 tarih ifadesi: "2027-01-01" -> "1 Ocak 2027'den itibaren" / "...'den beri"; "2019" -> "listeye giriş: 2019" */
+var AYLAR=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+function k3When(w,kind){
+  var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(w.date||"");
+  if(!m)return w.date?"Listeye giriş: "+w.date:"";
+  var d=(+m[3])+" "+AYLAR[+m[2]-1]+" "+m[1],today=new Date().toISOString().slice(0,10);
+  if(kind!=="ban")return "Tarih: "+d;
+  return w.date>today?d+" tarihinden itibaren yasak (yasalaştı, henüz yürürlükte değil).":d+" tarihinden beri yasak.";
 }
 function kCard(r){
   var d=el("div","res "+KCLS[r.level]),top=el("div","hd");
@@ -815,6 +831,17 @@ function kCard(r){
     if(e.needs_review)pn.appendChild(el("div","how","Bu kayıt henüz resmi metinle satır satır doğrulanmadı."));
   });
   r.iflags.forEach(function(f){line("Değerlendirme:",KIDX.flagReasons[f])});
+  if(r.k3&&r.k3.length){
+    pn.appendChild(el("div","ih","Diğer resmi listeler"));
+    r.k3.forEach(function(w){
+      var L=KIDX.watchLists[w.list]||{label:w.list,text:""};
+      line(L.label+":",L.text+(w.note_tr?" "+w.note_tr:""));
+      var src=el("div","how",[k3When(w,L.kind),w.basis].filter(Boolean).join(" · ")+" · ");
+      if(w.source){var a=el("a",null,"kaynak");a.href=w.source;a.target="_blank";a.rel="noopener";src.appendChild(a)}
+      pn.appendChild(src);
+      if(w.needs_review)pn.appendChild(el("div","how","Bu bilgi henüz resmi metinle satır satır doğrulanmadı."));
+    });
+  }
   d.appendChild(pn);
   b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
@@ -832,6 +859,8 @@ function kSummaryCard(S){
   row("Koruyucu",lst(S.preservative));
   if(S.formaldehyde.length)row("Formaldehit salıcı",lst(S.formaldehyde),"y");
   if(S.pfas.length)row("PFAS",lst(S.pfas),"o");
+  if(S.ban.length)row("Başka ülkede yasak",lst(S.ban),"o");
+  if(S.ed.length)row("AB endokrin listesinde",lst(S.ed),"y");
   if(S.fuzzy.length)d.appendChild(el("div","how","Benzer yazımla eşleşen bileşenler var; “Okunan Metin” bölümünden kontrol edin."));
   return d;
 }
@@ -866,7 +895,7 @@ function kProfileCards(S,res){
 function renderK(res){
   var box=$("sonuc");box.textContent="";
   if(!res.length){box.textContent="Bileşen listesi bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
-  var S=summarizeK(res);
+  var S=summarizeK(res,KIDX);
   kProfileCards(S,res).forEach(function(c){box.appendChild(c)});
   box.appendChild(kSummaryCard(S));
   var W=res.filter(function(r){return r.found&&r.rank>0}).sort(function(a,b){return b.rank-a.rank||a.pos-b.pos});
@@ -892,7 +921,7 @@ function renderK(res){
     box.appendChild(dx);
   }
   if(S.parfum)box.appendChild(el("div","ln nt","“Parfum” tek bir ad altında çok sayıda koku maddesini kapsar. Yalnızca etiketlenmesi zorunlu koku alerjenleri, belirli bir oranı aşınca ayrıca yazılır."));
-  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle uyumludur."));
+  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle uyumludur. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları."));
 }
 setMode(MODE,false);
 
