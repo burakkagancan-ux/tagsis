@@ -1,0 +1,33 @@
+# Etiket Oku OCR Worker'ı. Cloudflare "Workers Builds" bu klasörden (root directory: worker) dağıtır.
+# name, Cloudflare panelindeki Worker adıyla AYNI olmalı; değilse dağıtım başarısız olur.
+name = "inapp-ocr-3a8f"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+workers_dev = true
+keep_vars = true
+
+[vars]
+ALLOWED_ORIGIN = "https://burakkagancan-ux.github.io"
+
+# Kayıt (log) kapalı: fotoğraf ve metin hiçbir yerde tutulmaz
+[observability]
+enabled = false
+
+# IP başına dakikada en fazla 6 okuma
+[[ratelimits]]
+name = "IP_LIMIT"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 6
+  period = 60
+
+# Tüm kullanıcılar için dakikada en fazla 30 okuma (Cloudflare konumu başına)
+[[ratelimits]]
+name = "GLOBAL_LIMIT"
+namespace_id = "1002"
+  [ratelimits.simple]
+  limit = 30
+  period = 60
+
+# VISION_KEY gizli değişkeni panelde zaten tanımlı; dağıtım onu silmez. Yeniden tanımlamak gerekirse:
+#   Settings > Variables and Secrets > Add > Type: Secret, Name: VISION_KEY
