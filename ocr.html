@@ -53,9 +53,12 @@ textarea{width:100%;min-height:140px;font:14px/1.4 ui-monospace,monospace;paddin
 var TRMAP={"ç":"c","ğ":"g","ı":"i","ö":"o","ş":"s","ü":"u","â":"a","î":"i","û":"u"};
 var UNITS={g:1,mg:1,kg:1,ml:1,kcal:1,kj:1,gr:1,lt:1,cl:1,l:1};
 var RANK={red:3,yellow:2,unrated:1,green:0};
+var SEP={"|":1,"(":1,")":1,":":1};
+var ROMAN=["iii","vii","vi","iv","ii","v","i"];
 function low(s){return s.replace(/İ/g,"i").replace(/I/g,"ı").toLowerCase().replace(/[çğıöşüâîû]/g,function(c){return TRMAP[c]})}
 function norm(s){return low(s).replace(/[^a-z0-9]+/g," ").trim()}
-function normText(s){return low(s).replace(/[,;:()\[\]\/•·*]+/g," | ").replace(/[^a-z0-9|]+/g," ").trim()}
+function normText(s){return low(s).replace(/[,;\[\]\/•·*]+/g," | ").replace(/\(/g," ( ").replace(/\)/g," ) ").replace(/:/g," : ").replace(/[^a-z0-9|():]+/g," ").trim()}
+function hasSep(a){for(var i=0;i<a.length;i++)if(SEP[a[i]])return true;return false}
 function lev(a,b,max){
   if(Math.abs(a.length-b.length)>max)return max+1;
   var p=[],i,j;for(j=0;j<=b.length;j++)p[j]=j;
@@ -64,33 +67,45 @@ function lev(a,b,max){
   return p[b.length];
 }
 function buildIndex(db){
-  var exact=new Map(),byK={},ks={},byId={};
+  var exact=new Map(),nos=new Map(),byK={},ks={1:1,2:1,3:1,4:1},byId={},ctx={};
+  function add(m,k,id){if(!m.has(k))m.set(k,new Set());m.get(k).add(id)}
   db.ingredients.forEach(function(it){
     byId[it.id]=it;
     it.aliases.forEach(function(a){
       if(/^(e[-\s]?\d|ins\s?\d)/.test(a))return;
       var n=norm(a);if(n.length<3)return;
-      if(!exact.has(n))exact.set(n,new Set());exact.get(n).add(it.id);
+      add(exact,n,it.id);
+      if(n.indexOf(" ")>-1&&n.length>=8)add(nos,n.replace(/ /g,""),it.id);
+    });
+    (it.context_aliases||[]).forEach(function(c){
+      var k=norm(c.alias);(ctx[k]=ctx[k]||{req:c.requires_any.map(norm),ids:[]}).ids.push(it.id);
     });
   });
   exact.forEach(function(ids,n){var k=n.split(" ").length;ks[k]=1;if(n.length>=8){(byK[k]=byK[k]||[]).push({n:n,ids:Array.from(ids)})}});
-  return {exact:exact,byK:byK,ks:Object.keys(ks).map(Number),byId:byId};
+  return {exact:exact,nos:nos,byK:byK,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx};
+}
+function codeId(cand,idx){
+  var list=[cand];ROMAN.forEach(function(r){if(cand.length-r.length>=4&&cand.slice(-r.length)===r)list.push(cand.slice(0,-r.length))});
+  for(var q=0;q<list.length;q++){
+    var m=/^e([0-9oli]{3,4})([a-z]?)$/.exec(list[q]);if(!m)continue;
+    if((m[1].match(/[0-9]/g)||[]).length<2)continue;
+    var digits=m[1].replace(/o/g,"0").replace(/[li]/g,"1");
+    var id="E"+digits+m[2];
+    if(idx.byId[id])return {id:id,fixed:digits!==m[1]};
+  }
+  return null;
 }
 function findCodes(tok,idx){
   var out=[],i,k;
   for(i=0;i<tok.length;i++){
-    if(!/^e([0-9oli]|$)/.test(tok[i]))continue;if(/^vitamini?$/.test(tok[i-1]||""))continue;
+    if(!/^e([0-9oli]|$)/.test(tok[i]))continue;
+    if(/^vitamini?$/.test(tok[i-1]||""))continue;
     for(k=2;k>=0;k--){
       if(i+k>=tok.length)continue;
-      var cand=tok.slice(i,i+k+1).join("");
-      var m=/^e([0-9oli]{3,4})([a-z]?)$/.exec(cand);if(!m)continue;
-      var digits=m[1].replace(/o/g,"0").replace(/[li]/g,"1");
-      if((m[1].match(/[0-9]/g)||[]).length<2)continue;
-      var id="E"+digits+m[2],id2="E"+digits,fixed=digits!==m[1];
-      var use=idx.byId[id]?id:null;
-      if(!use)continue;
-      var nx=tok[i+k+1];if(nx&&(UNITS[nx]))break;
-      out.push({a:i,b:i+k+1,ids:[use],how:"kod",fixed:fixed,text:tok.slice(i,i+k+1).join(" ")});
+      var part=tok.slice(i,i+k+1);if(hasSep(part))continue;
+      var hit=codeId(part.join(""),idx);if(!hit)continue;
+      var nx=tok[i+k+1];if(nx&&UNITS[nx])break;
+      out.push({a:i,b:i+k+1,ids:[hit.id],how:"kod",fixed:hit.fixed,text:part.join(" ")});
       i+=k;break;
     }
   }
@@ -100,7 +115,9 @@ function findNames(tok,idx){
   var out=[],i;
   idx.ks.forEach(function(k){
     for(i=0;i+k<=tok.length;i++){
-      var w=tok.slice(i,i+k).join(" ");if(w.indexOf("|")>-1)continue;var hit=idx.exact.get(w);
+      var part=tok.slice(i,i+k);if(hasSep(part))continue;
+      var w=part.join(" "),hit=idx.exact.get(w);
+      if(!hit&&k<=4)hit=idx.nos.get(part.join(""));
       if(hit){out.push({a:i,b:i+k,ids:Array.from(hit),how:"isim",text:w});continue}
       var list=idx.byK[k];if(!list||w.length<8)continue;
       var t=w.length>=12?2:1;
@@ -113,9 +130,20 @@ function findNames(tok,idx){
   });
   return out;
 }
+function findContext(tok,idx){
+  var out=[];
+  tok.forEach(function(t,i){
+    var c=idx.ctx[t];if(!c)return;
+    var prev=[];
+    for(var j=i-1;j>=0&&prev.length<4;j--){if(tok[j]==="|"||tok[j]===")")break;if(SEP[tok[j]])continue;prev.unshift(tok[j])}
+    var s=" "+prev.join(" ")+" ";
+    if(c.req.some(function(r){return s.indexOf(" "+r+" ")>-1}))out.push({a:i,b:i+1,ids:c.ids.slice(),how:"isim",text:t});
+  });
+  return out;
+}
 function analyze(text,idx){
   var tok=normText(text).split(" ").filter(Boolean);
-  var all=findCodes(tok,idx).concat(findNames(tok,idx));
+  var all=findCodes(tok,idx).concat(findNames(tok,idx),findContext(tok,idx));
   var pr={kod:3,isim:2,benzer:1};
   all.sort(function(x,y){return (y.b-y.a)-(x.b-x.a)||pr[y.how]-pr[x.how]});
   var used={},kept=[];
