@@ -11,7 +11,7 @@ Son güncelleme: 03.10.2026.
 ## Ürün
 - Son tüketiciye Tarım ve Orman Bakanlığı taklit/tağşiş listesini gösteren PWA (index.html) ve etiketteki içerik listesini fotoğraftan okuyup analiz eden "Etiket oku" sayfası (ocr.html).
 - Site: https://burakkagancan-ux.github.io/tagsis/ (GitHub Pages, main dalı).
-- Gıda: E kodları (data/e_kodlari.json, gen_e_kodlari.py, TGK ile karşılaştırılmış), bileşen grupları (data/bilesenler.json), açıklamalar (data/e_aciklama.json), profiller (alerjen, laktoz, vegan, vejetaryen, hamile, bebek, çocuk, PKU, evcil hayvan, koku alerjisi).
+- Gıda: E kodları (data/e_kodlari.json, gen_e_kodlari.py, TGK ile karşılaştırılmış), bileşen grupları (data/bilesenler.json), açıklamalar (data/e_aciklama.json), profiller (alerjen, laktoz, vegan, vejetaryen, hamile, bebek, çocuk, PKU, evcil hayvan, tansiyon/tuz kısıtlaması, koku alerjisi).
 - Kozmetik: AB 1223/2009 ekleri (data/kozmetik.json, 1.972 kayıt) + CosIng INCI listesi ve 2.978 eş anlamlı (data/kozmetik_inci.json). Üretim: gen_kozmetik.py (CosIng verisi: `git clone https://github.com/inhouse-work/cosing ../cosing`, commit 268e3cd), kaynak/kozmetik_guncellemeler.tsv (2024-2026 AB değişiklikleri), kaynak/kozmetik_esanlamlilar.tsv.
 - Kozmetik K3 ("tartışmalı katman"): kaynak/kozmetik_k3.tsv → kozmetik.json `watch` alanı + `meta.watch_lists`. AB olası endokrin bozucu öncelik listesi (A/B, 28 madde), Kaliforniya HSC §108980 (AB 2762: 2025, AB 496: 2027), ASEAN Ek II farkı (mikonazol). Eşleştirme yalnızca INCI adıyla; CAS belgeleme için.
 - Bakanlık verisi: fetch_data_arsivli.py, .github/workflows/update.yml (her gün 05:00 UTC).
@@ -19,7 +19,7 @@ Son güncelleme: 03.10.2026.
 
 ## ocr.html yapısı
 - `/*LOGIC-START*/ ... /*LOGIC-END*/` arası saf mantık; testler bu bölümü eval ile yükler.
-- Gıda: buildIndex, analyze, summarize. OCR toleransı (findNames): ocrFixF ("rn"->"m", harf arası rakam) ve short1 (4-8 harfli tek sözcük, mesafe 1, tek aday, yalnızca B: bileşen gruplarında kabul; yalnızca sondaki ek farkı sayılmaz: "alkolü" alkol değildir). Kozmetik: buildKIndex, looksCosmetic, inciItems, kLookup (bantlı Levenshtein, byFirst/bySecond kovaları; ocrFix: "rn"->"m", harf içi rakam; KSHORT: 5-6 harfli sık adlarda benzer yazım, kSegment içinde kapalı), kMatch, kSegment (virgülsüz listeleri böler), isProse (talimat/adres ayıklar), kResult, analyzeK (.extra), summarizeK(res, K) (.ban, .ed: K3 özetleri). K3 rengi kResult'ta: watch_lists[liste].level en az renk olur.
+- Gıda: buildIndex, analyze (besin değerleri tablosu satırlarını "Tuz 1,2 g" atar; m.ord = içerik listesindeki sıra), summarize (.sodium: tuz, gizli sodyum kaynakları, tuzun sırası). OCR toleransı (findNames): ocrFixF ("rn"->"m", harf arası rakam) ve short1 (4-8 harfli tek sözcük, mesafe 1, tek aday, yalnızca B: bileşen gruplarında kabul; yalnızca sondaki ek farkı sayılmaz: "alkolü" alkol değildir). Kozmetik: buildKIndex, looksCosmetic, inciItems, kLookup (bantlı Levenshtein, byFirst/bySecond kovaları; ocrFix: "rn"->"m", harf içi rakam; KSHORT: 5-6 harfli sık adlarda benzer yazım, kSegment içinde kapalı), kMatch, kSegment (virgülsüz listeleri böler), isProse (talimat/adres ayıklar), kResult, analyzeK (.extra), summarizeK(res, K) (.ban, .ed: K3 özetleri). K3 rengi kResult'ta: watch_lists[liste].level en az renk olur.
 - Arayüz: Gıda | Kozmetik anahtarı (localStorage "tur"), ürün tipi ("ktip"), fotoğraf kırpma (CROP, prep()), mod başına durum satırı (setSt/STMSG), profil (localStorage "profil").
 
 ## Worker (worker/)
@@ -27,7 +27,7 @@ Son güncelleme: 03.10.2026.
 - Korumalar: IP başına 6/dk, genel 30/dk (IP_LIMIT/GLOBAL_LIMIT), ALLOWED_ORIGIN (panelde secret, virgülle çoklu), ~4 MB, JPEG/PNG/WebP, 20 sn zaman aşımı, observability kapalı, keep_vars. wrangler.toml'a [vars] ALLOWED_ORIGIN EKLENMEZ (secret ile çakışır).
 
 ## Testler
-- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node test/e_dogrulama.js` (E kodu kaynakları), `node worker/test.mjs` (14 durum).
+- `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 8 durum), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node test/e_dogrulama.js` (E kodu kaynakları), `node test/sodyum.js` (tuz/sodyum, besin tablosu satırı, olumsuzluk), `node test/sozdizimi.js` (sayfalardaki tüm script bloklarının sözdizimi; arayüz kodu başka testte çalışmaz, her değişiklikten sonra çalıştır), `node worker/test.mjs` (14 durum).
 - test/kozmetik_cases.js'i başka betikten `require` et (node -e içinde çalışmıyor).
 - Tarayıcı: `python3 -m http.server 8765 &` + Playwright; "Okunan Metin" details kapalı, textarea'ya yazmadan önce summary'ye tıkla. OCR isteği `page.route('**/inapp-ocr-3a8f**')` ile taklit edilir.
 
@@ -39,6 +39,7 @@ Son güncelleme: 03.10.2026.
 - K3 renkleri (03.10.2026, kullanıcı kararı): başka büyük pazarda yasak (Kaliforniya, ASEAN) → turuncu; AB endokrin bozucu öncelik listesi ve SIN List → sarı. AB Ek II'deki madde kırmızı kalır, K3 yalnızca not ekler.
 - CYCLOMETHICONE, D4 kaydından (II/1388) çıkarıldı: kozmetik yönetmeliğinde yasak değil.
 - "Görüntüyü iyileştir" düğmesi kaldırıldı (03.10.2026): Google Vision yolunda etkisi yoktu; yedek OCR'da (Tesseract) gri ton + kontrast hep açık.
+- Gizli sodyum (03.10.2026): yalnızca "Tansiyon / tuz kısıtlaması" profili seçilince kart çıkar. Tuz, sodyumlu E kodları (adında sodyum geçen 42 kod), soya sosu ve bulyon gösterilir. Miktar hesaplanmaz; tuz ilk 3 bileşendeyse belirtilir. Eşik bilgisi NHS'e dayanır: 100 g'da >1,5 g yüksek, <0,3 g düşük.
 - Temizlik ürünleri ayrı bir faz olacak (kozmetiğe karıştırılmaz; AB deterjan ve CLP mevzuatı).
 - Barkod en sona; belki hiç kapsama alınmaz.
 - İş sırası (kullanıcı, 03.10.2026): telefon testleri (kullanıcı) → besin değeri tablosu → aylık mevzuat izleme → hukuki görüş en son. Google Fonts ön yüz işiyle birlikte. CI bekleyebilir. Google Cloud Vision dakikalık kotası düşürüldü.
@@ -56,7 +57,7 @@ Son güncelleme: 03.10.2026.
 
 ## Sıradaki işler
 1. Telefon testleri (kullanıcı yapıyor) ve sonuçlara göre ayar.
-2. Faz 2: besin değeri tablosu okuma. Ardından helal ("kaynağı belirsiz, sertifikaya bakın").
+2. Faz 2: helal ("kaynağı belirsiz, sertifikaya bakın"). Besin değeri tablosu ve yeşil aklama bekleyen geliştirmeler (sıraya alınmadı; yeşil aklama ikinci fotoğraf gerektirdiği için ertelendi).
 3. Aylık mevzuat izleme (GitHub Actions: EUR-Lex, Resmî Gazete, CosIng -> issue). Türkiye taslağı yayımlanınca `TR_BY_REG` güncellenir.
 4. Google Fonts'u depoya alma (ön yüz işleriyle birlikte).
 5. Hukuki görüş hazırlığı (KVKK / Google Vision, "zararlı" dili, arşiv gösterimi) — en son.
