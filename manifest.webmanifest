@@ -1,7 +1,7 @@
 {
  "name": "Tağşiş Listesi",
  "short_name": "Tağşiş",
- "description": "Tarım ve Orman Bakanlığı'nın duyurduğu taklit ve tağşiş kayıtlarını arayın.",
+ "description": "Tarım ve Orman Bakanlığı'nın duyurduğu taklit ve tağşiş kayıtlarını arayın; ambalajdaki içindekiler yazısını okutun.",
  "lang": "tr",
  "start_url": "./",
  "scope": "./",
@@ -24,6 +24,32 @@
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Etiket oku",
+   "short_name": "Etiket oku",
+   "url": "ocr.html",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Tağşiş listesi",
+   "short_name": "Liste",
+   "url": "index.html",
+   "icons": [
+    {
+     "src": "icon-192.png",
+     "sizes": "192x192",
+     "type": "image/png"
+    }
+   ]
   }
  ]
 }
