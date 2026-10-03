@@ -5,6 +5,7 @@ import urllib.parse, urllib.request
 URL = os.environ.get("TAGSIS_URL", "https://guvenilirgida.tarimorman.gov.tr/GuvenilirGida/GKD/DataTablesList")
 REFERER = "https://guvenilirgida.tarimorman.gov.tr/GuvenilirGida/gkd/TaklitVeyaTagsisListe1?siteYayinDurumu=True"
 OUT = "data/tagsis.json"
+DURUM = "data/durum.json"   # her başarılı çalışmada yazılır: son kontrol zamanı
 COLS = ["DuyuruTarihi", "FirmaAdi", "Marka", "UrunAdi", "Uygunsuzluk", "PartiSeriNo", "FirmaIlce", "FirmaIl", "UrunGrupAdi"]
 IDS = [""] + [str(i) for i in range(300, 321)]   # "" = sağlığı tehlikeye düşürecek liste
 NAMES = {"": "saglik"}
@@ -72,10 +73,21 @@ def main():
             sys.exit(f"HATA: kayıt sayısı {eski} -> {yeni} düştü, dosya değiştirilmedi")
         if onceki["listeler"] == listeler:
             print("Değişiklik yok.")
+            durum_yaz(onceki.get("guncelleme"), listeler)
             return
+    simdi = datetime.datetime.now(datetime.timezone.utc).isoformat()
     with open(OUT, "w", encoding="utf-8") as f:
-        json.dump({"guncelleme": datetime.datetime.now(datetime.timezone.utc).isoformat(), "listeler": listeler}, f, ensure_ascii=False)
+        json.dump({"guncelleme": simdi, "listeler": listeler}, f, ensure_ascii=False)
     print(f"Yazıldı: toplam {yeni} kayıt")
+    durum_yaz(simdi, listeler)
+
+
+def durum_yaz(son_degisiklik, listeler):
+    """Liste değişmese de 'son kontrol' zamanını kaydeder; ekranda 'son kontrol' olarak gösterilir."""
+    with open(DURUM, "w", encoding="utf-8") as f:
+        json.dump({"son_kontrol": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                   "son_degisiklik": son_degisiklik,
+                   "kayit": {k: len(v) for k, v in listeler.items()}}, f, ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":

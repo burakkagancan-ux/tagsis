@@ -106,7 +106,7 @@ try{var sv=localStorage.getItem("tagsis_raw");if(sv){var pv=JSON.parse(sv);if(pv
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 function fill(sel,vals){Array.from(new Set(vals)).filter(Boolean).sort(function(a,b){return a.localeCompare(b,"tr")}).forEach(function(v){var o=el("option",null,v);o.value=v;sel.appendChild(o)})}
 var $q=document.getElementById("q"),$il=document.getElementById("il"),$tur=document.getElementById("tur"),$list=document.getElementById("list"),$count=document.getElementById("count");
-var SON="";
+var SON="",KONTROL="";
 var LN={saglik:"Sağlığı tehlikeye düşürecek gıdalar","304":"Aynı değeri taşımayan madde eklenmesi","305":"Temel bileşen eksiltilmesi"};
 var LST="",$ilce=document.getElementById("ilce"),$srt=document.getElementById("srt"),$chips=document.getElementById("chips"),$grup=document.getElementById("grup"),$note=document.getElementById("note"),$msg=document.getElementById("msg");
 function cmp(){return $srt.value==="tarih"?function(a,b){return b.tarih-a.tarih}:function(a,b){return a.firma.localeCompare(b.firma,"tr")||b.tarih-a.tarih}}
@@ -136,7 +136,7 @@ function dt(d){return d.toLocaleDateString("tr-TR",{day:"numeric",month:"long",y
 function render(){
   var q=fold($q.value.trim()),il=$il.value,tur=$tur.value,gr=$grup.value,ls=LST,ic=$ilce.value;
   var rows=DATA.filter(function(d){return (!q||d.hay.indexOf(q)>-1)&&(!il||d.il===il)&&(!gr||d.grup===gr)&&(!ls||d.liste===ls)&&(!ic||d.ilce===ic)&&(!tur||d.tur.indexOf(tur)>-1)});
-  rows.sort(cmp());$count.textContent=rows.length+" kayıt"+(SON?" – son güncelleme: "+SON:"");
+  rows.sort(cmp());$count.textContent=rows.length+" kayıt"+(KONTROL?" – son kontrol: "+KONTROL+(SON&&SON!==KONTROL?" (liste en son "+SON+" tarihinde değişti)":""):(SON?" – son güncelleme: "+SON:""));
   $list.textContent="";
   if(!rows.length){$list.appendChild(el("div","empty","Sonuç yok. Aramayı kısaltın veya filtreleri temizleyin."));return}
   rows.forEach(function(d){
@@ -177,6 +177,10 @@ fetch("data/tagsis.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;r
   DATA=build(arr);IMPORTED=true;
   if(j.guncelleme)SON=new Date(j.guncelleme).toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"});
   opts();render();
+}).catch(function(){});
+// Son kontrol zamanı: liste değişmese de günlük güncelleme her çalıştığında yenilenir
+fetch("data/durum.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+  if(d.son_kontrol){KONTROL=new Date(d.son_kontrol).toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"});render()}
 }).catch(function(){});
 </script>
 </body>
