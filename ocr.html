@@ -33,13 +33,21 @@ a{color:var(--ok);font-weight:600}
 .hd{display:flex;align-items:flex-start;gap:8px}.hd .t{flex:1;min-width:0}
 button.info{flex:0 0 auto;width:30px;height:30px;padding:0;border-radius:50%;font:italic 700 16px/1 Georgia,serif;background:none;color:var(--ok);border:1.5px solid var(--ok)}
 button.info.on{background:var(--ok);color:var(--bg)}
+details.gz{font-size:13px;color:var(--mute);margin:0 0 10px}details.gz summary{cursor:pointer;color:var(--ok);font-weight:600}details.gz ul{margin:6px 0 0;padding-left:20px}details.gz li{margin:3px 0}
 .ipanel{margin-top:8px;padding-top:6px;border-top:1px dashed var(--line)}.ih{font-weight:600;font-size:13px;margin-top:6px}
 </style>
 </head>
 <body>
 <div class="w">
 <h1>İçindekiler okuma denemesi</h1>
-<p class="sub">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin. Fotoğraf, metnin okunması için Google Cloud Vision'a gönderilir ve saklanmaz.</p>
+<p class="sub">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</p>
+<details class="gz" id="gizlilik"><summary>Gizlilik: fotoğrafınıza ne oluyor?</summary>
+<ul>
+<li>Fotoğraf, yalnızca üzerindeki yazının okunması için Google Cloud Vision hizmetine gönderilir. Bu uygulama fotoğrafı ve okunan metni kaydetmez. Google tarafındaki işlem Google'ın kendi koşullarına tabidir.</li>
+<li>Yalnızca ambalajın içindekiler bölümünü çekin. Kadrajda yüz, ad, adres ya da belge gibi kişisel bilgi bulunmamasına dikkat edin.</li>
+<li>Profil seçimleriniz (alerjen, vegan vb.) yalnızca bu cihazda saklanır, bize iletilmez.</li>
+<li>Uygulama üyelik istemez, reklam ya da izleme aracı kullanmaz.</li>
+</ul></details>
 <div class="note"><strong>Deneme sürümü.</strong> Katkı maddesi ve bileşen bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</div>
 
 <details id="pd"><summary id="profsum">Profilim (alerjen, laktoz, vegan…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
