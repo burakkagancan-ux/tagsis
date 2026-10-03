@@ -1,0 +1,45 @@
+# CosIng anlık görüntüsünden (inhouse-work/cosing, commit 268e3cd, 2024 başı) SONRA yayımlanan AB değişiklikleri.
+# gen_kozmetik.py bu dosyayı CosIng verisinin üstüne uygular. Sütunlar sekmeyle ayrılır.
+# islem: ekle = yeni kayıt | sil = mevcut kaydı kaldır | guncelle = mevcut kayda (id ya da INCI ile bulunur) not ve yönetmelik ekle
+# ek: II yasaklı, III kısıtlı, IV renklendirici, V koruyucu, VI UV filtre
+# ref: AB ek sıra numarası; "?" = numara doğrulanamadı (id otomatik üretilir)
+# inci: INCI adları (; ile ayrılır); boşsa kimyasal ad eşleştirmede kullanılır
+# inceleme: 1 = ayrıntılar EUR-Lex metniyle satır satır karşılaştırılmadı (needs_review)
+islem	ek	ref	inci	ad	cas	uygulama	yonetmelik	not_tr	kaynak	inceleme
+ekle	II	1725	STYRENE/ACRYLATES COPOLYMER (NANO);SODIUM STYRENE/ACRYLATES COPOLYMER (NANO)	Styrene/Acrylates copolymer (nano)	9010-92-8	2025-02-01	(EU) 2024/858	Nano biçimi yasak; nano olmayan biçimi bu kayda girmez.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0858	0
+ekle	II	1726	COPPER (NANO);COLLOIDAL COPPER (NANO)	Copper (nano)	7440-50-8	2025-02-01	(EU) 2024/858	Nano bakır yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0858	0
+ekle	II	1727	COLLOIDAL SILVER (NANO)	Colloidal silver (nano)	7440-22-4	2025-02-01	(EU) 2024/858	Nano gümüş yasak. 2026/78 ile kayıt yeniden düzenlendi.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0858	1
+ekle	II	1728	GOLD (NANO);COLLOIDAL GOLD (NANO);GOLD THIOETHYLAMINO HYALURONIC ACID (NANO);ACETYL HEPTAPEPTIDE-9 COLLOIDAL GOLD (NANO)	Gold (nano)	7440-57-5	2025-02-01	(EU) 2024/858	Nano altın yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0858	0
+ekle	II	1729	PLATINUM (NANO);COLLOIDAL PLATINUM (NANO);ACETYL TETRAPEPTIDE-17 COLLOIDAL PLATINUM (NANO)	Platinum (nano)	7440-06-4	2025-02-01	(EU) 2024/858	Nano platin yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0858	0
+ekle	III	372	HYDROXYAPATITE (NANO)	Hydroxyapatite (nano)	1306-06-5	2025-02-01	(EU) 2024/858	Yalnızca diş macununda en fazla %10, ağız gargarasında en fazla %0,465; püskürtme ürünlerde kullanılamaz.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0858	0
+ekle	II	1730	4-METHYLBENZYLIDENE CAMPHOR	4-Methylbenzylidene camphor (4-MBC)	36861-47-9;38102-62-4	2025-05-01	(EU) 2024/996	Eski UV filtresi; endokrin bozucu değerlendirmesi sonrası yasaklandı. 1 Mayıs 2026'dan sonra rafta bulunamaz.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+sil	VI	18
+ekle	III	373	GENISTEIN	Genistein	446-72-0	2025-02-01	(EU) 2024/996	En fazla %0,007. Endokrin bozucu öncelik listesindeydi.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+ekle	III	374	DAIDZEIN	Daidzein	486-66-8	2025-02-01	(EU) 2024/996	En fazla %0,02. Endokrin bozucu öncelik listesindeydi.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+ekle	III	375	KOJIC ACID	Kojic acid	501-30-4	2025-02-01	(EU) 2024/996	Yalnızca yüz ve el ürünlerinde, en fazla %1. Endokrin bozucu öncelik listesindeydi.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+ekle	III	376	RETINOL;RETINYL ACETATE;RETINYL PALMITATE	A vitamini (retinol ve esterleri)	11103-57-4;68-26-8;127-47-9;79-81-2	2025-11-01	(EU) 2024/996	Vücut losyonunda en fazla %0,05, diğer ürünlerde %0,3 (retinol eşdeğeri). Etikette "A vitamini içerir; günlük alımınızı göz önünde bulundurun" uyarısı zorunlu.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+ekle	III	377	ALPHA-ARBUTIN	Alpha-arbutin	84380-01-8	2025-02-01	(EU) 2024/996	Yüz kreminde en fazla %2, vücut losyonunda %0,5; hidrokinon kalıntısı en düşük düzeyde olmalı.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+ekle	III	378	ARBUTIN	Arbutin	497-76-7	2025-02-01	(EU) 2024/996	Yalnızca yüz kreminde en fazla %7; hidrokinon kalıntısı en düşük düzeyde olmalı.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+guncelle	V	23	TRICLOCARBAN			2024-12-31	(EU) 2024/996	En fazla %0,2 (ağız gargarası hariç); 6 yaş altı çocuklar için diş macununda kullanılamaz.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+guncelle	V	25	TRICLOSAN			2024-12-31	(EU) 2024/996	Yalnızca diş macunu, el ve vücut sabunu, sprey olmayan deodorant, yüz pudrası, kapatıcı ve tırnak temizleyicide en fazla %0,3; 3 yaş altı için diş macununda kullanılamaz.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0996	0
+ekle	II	1731	TRIMETHYLBENZOYL DIPHENYLPHOSPHINE OXIDE	TPO (diphenyl(2,4,6-trimethylbenzoyl)phosphine oxide)	75980-60-8	2025-09-01	(EU) 2025/877	Jel ojelerde kullanılıyordu; üreme için toksik (CMR 1B) sınıflandırıldığı için yasaklandı.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+sil	III	311
+ekle	II	1732		Tetrabromobisphenol A	79-94-7	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1733		Transfluthrin	118712-89-3	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1734		Clothianidin	210880-92-5	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1739		Dimethyl propylphosphonate	18755-43-6	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1740		Dibutyltin maleate	78-04-6	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1741		Dibutyltin oxide	818-08-6	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1743	BISPHENOL AF	Bisphenol AF	1478-61-1	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1744		Benfluralin	1861-40-1	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1745	DIMETHYLTOLYLAMINE	N,N-dimethyl-p-toluidine	99-97-8	2025-09-01	(EU) 2025/877	Tırnak ürünlerinde kullanılıyordu; kanserojen (CMR 1B) sınıflandırıldığı için yasaklandı.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	1
+ekle	II	1747		4-Nitrosomorpholine	59-89-2	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1748		Difenoconazole	119446-68-3	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1749		4-Methylimidazole	822-36-6	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	II	1751		Foramsulfuron	173159-57-4	2025-09-01	(EU) 2025/877	CMR sınıflaması nedeniyle yasak.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0877	0
+ekle	III	?	HEXYL SALICYLATE	Hexyl salicylate	6259-76-3	2026-05-01	(EU) 2026/78	Kısıtlandı: parfümde en fazla %2, durulanan üründe %0,5, durulanmayan üründe %0,3; 3 yaş altı çocuk ürünlerinde (bazı istisnalarla) kullanılamaz.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026R0078	1
+guncelle	V	7	O-PHENYLPHENOL;SODIUM O-PHENYLPHENATE			2026-05-01	(EU) 2026/78	Durulanan üründe en fazla %0,2, durulanmayanda %0,15; ağız ürünlerinde ve solunabilecek ürünlerde kullanılamaz.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026R0078	1
+ekle	II	?	TRIPHENYL PHOSPHATE	Triphenyl phosphate	115-86-6	2027-01-01	(EU) 2026/909	Yasaklandı (ojelerde plastikleştirici olarak kullanılıyordu). 1 Ocak 2027'den sonra piyasaya arz edilemez.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026R0909	1
+guncelle	III	70	CITRAL			2027-01-01	(EU) 2026/909	Ürün tipine göre yeni üst sınırlar (%0,004–1,2) getirildi.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026R0909	1
+guncelle	III	75	BENZYL SALICYLATE			2027-01-01	(EU) 2026/909	Ürün tipine göre yeni üst sınırlar (%0,004–4) getirildi.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026R0909	1
+ekle	III	?	ACETYLATED VETIVER OIL	Acetylated vetiver oil	84082-84-8	2027-01-01	(EU) 2026/909	Ürün tipine göre %0,05–0,9 üst sınır.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026R0909	1
