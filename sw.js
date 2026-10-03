@@ -1,9 +1,9 @@
-const CACHE = "tagsis-v2";
+const CACHE = "tagsis-v4";
 // Uygulamanın çevrimdışı da açılabilmesi için ilk kurulumda önbelleğe alınan dosyalar
 const CORE = [
   "./", "index.html", "ocr.html", "manifest.webmanifest",
   "icon-192.png", "icon-512.png", "apple-touch-icon.png",
-  "data/tagsis.json", "data/e_kodlari.json", "data/bilesenler.json", "data/e_aciklama.json",
+  "data/tagsis.json", "data/durum.json", "data/arsiv.json", "data/e_kodlari.json", "data/bilesenler.json", "data/e_aciklama.json",
 ];
 self.addEventListener("install", (e) => {
   e.waitUntil(

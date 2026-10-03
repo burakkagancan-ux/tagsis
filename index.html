@@ -45,6 +45,8 @@ textarea{width:100%;min-height:90px;font:12px/1.3 ui-monospace,monospace;color:v
 .det dt{color:var(--mute);font-size:12px;margin-top:6px}.det dd{margin:0}
 .src{margin-top:10px;font-size:12px;color:var(--mute)}
 .src a{color:var(--ok)}
+.rec.out{border-left-color:var(--mute);opacity:.85}.rec.out .tag{border-color:var(--mute);color:var(--mute)}
+.outtag{display:inline-block;background:var(--ink);color:var(--bg);border-radius:4px;padding:1px 7px;font-size:12px;font-weight:700;margin-bottom:6px}
 .empty{text-align:center;color:var(--mute);padding:32px 8px}
 footer{color:var(--mute);font-size:12px;padding:16px 0 24px}
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -76,7 +78,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <div class="count" id="count"></div>
 <div id="list"></div>
 
-<footer>Kaynak: guvenilirgida.tarimorman.gov.tr. Bilgiler bakanlığın duyurusuyla aynen gösterilir; bu uygulama yorum eklemez. Bu uygulama resmi bir uygulama değildir; Tarım ve Orman Bakanlığı ile bağlantısı yoktur.</footer>
+<footer>Kaynak: guvenilirgida.tarimorman.gov.tr. Bilgiler bakanlığın duyurusuyla aynen gösterilir; bu uygulama yorum eklemez. Bakanlık listesinden çıkan kayıtlar “Listeden çıktı” etiketiyle gösterilmeye devam eder. Bu uygulama resmi bir uygulama değildir; Tarım ve Orman Bakanlığı ile bağlantısı yoktur.</footer>
 </div>
 <nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profil</a></nav>
 <script>
@@ -98,7 +100,7 @@ function dash(s){s=clean(s);return s==="-"?"":s}
 function build(raw){return raw.map(function(r){
   var ms=parseInt(String(r.DuyuruTarihi).replace(/\D/g,""),10);
   var tur=String(r.Uygunsuzluk||"").split(/<\/br>/i).map(function(x){return clean(x).replace(/[,\s]+$/,"")}).filter(function(x){return !/^[-–—\s]*$/.test(x)});
-  var o={tarih:new Date(ms),firma:clean(r.FirmaAdi),marka:dash(r.Marka),urun:clean(r.UrunAdi),tur:tur,parti:dash(r.PartiSeriNo),il:dash(r.FirmaIl),ilce:dash(r.FirmaIlce),grup:clean(r.UrunGrupAdi),liste:String(r._liste||"304")};
+  var o={tarih:new Date(ms),firma:clean(r.FirmaAdi),marka:dash(r.Marka),urun:clean(r.UrunAdi),tur:tur,parti:dash(r.PartiSeriNo),il:dash(r.FirmaIl),ilce:dash(r.FirmaIlce),grup:clean(r.UrunGrupAdi),liste:String(r._liste||"304"),cikti:r._cikti?new Date(r._cikti+"T12:00:00Z"):null};
   o.hay=fold([o.firma,o.marka,o.urun].join(" "));return o;
 }).sort(function(a,b){return b.tarih-a.tarih})}
 var DATA=build(RAW),IMPORTED=false;
@@ -106,7 +108,7 @@ try{var sv=localStorage.getItem("tagsis_raw");if(sv){var pv=JSON.parse(sv);if(pv
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 function fill(sel,vals){Array.from(new Set(vals)).filter(Boolean).sort(function(a,b){return a.localeCompare(b,"tr")}).forEach(function(v){var o=el("option",null,v);o.value=v;sel.appendChild(o)})}
 var $q=document.getElementById("q"),$il=document.getElementById("il"),$tur=document.getElementById("tur"),$list=document.getElementById("list"),$count=document.getElementById("count");
-var SON="";
+var SON="",KONTROL="";
 var LN={saglik:"Sağlığı tehlikeye düşürecek gıdalar","304":"Aynı değeri taşımayan madde eklenmesi","305":"Temel bileşen eksiltilmesi"};
 var LST="",$ilce=document.getElementById("ilce"),$srt=document.getElementById("srt"),$chips=document.getElementById("chips"),$grup=document.getElementById("grup"),$note=document.getElementById("note"),$msg=document.getElementById("msg");
 function cmp(){return $srt.value==="tarih"?function(a,b){return b.tarih-a.tarih}:function(a,b){return a.firma.localeCompare(b.firma,"tr")||b.tarih-a.tarih}}
@@ -117,13 +119,16 @@ function ilceOpts(){
 }
 function chips(){
   $chips.textContent="";
-  [["","Tümü"],["saglik","Sağlığı tehlikeye düşürecek"],["304","Aynı değeri taşımayan madde"],["305","Temel bileşen eksiltilmesi"]].forEach(function(k){
-    var n=k[0]?DATA.filter(function(d){return d.liste===k[0]}).length:DATA.length;
+  var ks=[["","Tümü"],["saglik","Sağlığı tehlikeye düşürecek"],["304","Aynı değeri taşımayan madde"],["305","Temel bileşen eksiltilmesi"]];
+  if(DATA.some(function(d){return d.cikti}))ks.push(["cikti","Listeden çıkanlar"]);
+  ks.forEach(function(k){
+    var n=k[0]?DATA.filter(function(d){return inList(d,k[0])}).length:DATA.length;
     var b=el("button","chip",k[1]+" ("+n+")");b.type="button";b.setAttribute("aria-pressed",String(LST===k[0]));
     b.addEventListener("click",function(){LST=k[0];chips();render()});
     $chips.appendChild(b);
   });
 }
+function inList(d,ls){return ls==="cikti"?!!d.cikti:d.liste===ls}
 function opts(){
   [[$il,"Tüm iller"],[$grup,"Tüm ürün grupları"],[$tur,"Tüm uygunsuzluklar"]].forEach(function(p){p[0].textContent="";var o=el("option",null,p[1]);o.value="";p[0].appendChild(o)});
   fill($il,DATA.map(function(d){return d.il}));
@@ -135,18 +140,19 @@ function opts(){
 function dt(d){return d.toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"})}
 function render(){
   var q=fold($q.value.trim()),il=$il.value,tur=$tur.value,gr=$grup.value,ls=LST,ic=$ilce.value;
-  var rows=DATA.filter(function(d){return (!q||d.hay.indexOf(q)>-1)&&(!il||d.il===il)&&(!gr||d.grup===gr)&&(!ls||d.liste===ls)&&(!ic||d.ilce===ic)&&(!tur||d.tur.indexOf(tur)>-1)});
-  rows.sort(cmp());$count.textContent=rows.length+" kayıt"+(SON?" – son güncelleme: "+SON:"");
+  var rows=DATA.filter(function(d){return (!q||d.hay.indexOf(q)>-1)&&(!il||d.il===il)&&(!gr||d.grup===gr)&&(!ls||inList(d,ls))&&(!ic||d.ilce===ic)&&(!tur||d.tur.indexOf(tur)>-1)});
+  rows.sort(cmp());$count.textContent=rows.length+" kayıt"+(KONTROL?" – son kontrol: "+KONTROL+(SON&&SON!==KONTROL?" (liste en son "+SON+" tarihinde değişti)":""):(SON?" – son güncelleme: "+SON:""));
   $list.textContent="";
   if(!rows.length){$list.appendChild(el("div","empty","Sonuç yok. Aramayı kısaltın veya filtreleri temizleyin."));return}
   rows.forEach(function(d){
-    var b=el("button","rec");b.type="button";b.setAttribute("aria-expanded","false");if(d.liste==="saglik")b.style.borderLeftWidth="10px";
+    var b=el("button","rec"+(d.cikti?" out":""));b.type="button";b.setAttribute("aria-expanded","false");if(d.liste==="saglik")b.style.borderLeftWidth="10px";
+    if(d.cikti)b.appendChild(el("span","outtag","Listeden çıktı · "+dt(d.cikti)));
     b.appendChild(el("div","brand",d.marka||d.firma));
     b.appendChild(el("div","prod",d.urun));
     var t=el("div","tags");d.tur.forEach(function(x){t.appendChild(el("span","tag",x))});b.appendChild(t);
     b.appendChild(el("div","meta",([d.ilce,d.il].filter(Boolean).join(", ")||"Yer belirtilmemiş")+" – duyuru: "+dt(d.tarih)));
     var dl=el("dl","det");
-    [["Liste",LN[d.liste]||("Diğer liste ("+d.liste+")")],["Firma",d.firma],["Ürün grubu",d.grup],["Parti / seri no",d.parti||"Belirtilmemiş"]].forEach(function(p){dl.appendChild(el("dt",null,p[0]));dl.appendChild(el("dd",null,p[1]))});
+    [["Liste",LN[d.liste]||("Diğer liste ("+d.liste+")")],["Firma",d.firma],["Ürün grubu",d.grup],["Parti / seri no",d.parti||"Belirtilmemiş"]].concat(d.cikti?[["Durum","Bu kayıt Bakanlığın güncel listesinde artık yer almıyor. Listede görülmediği ilk gün: "+dt(d.cikti)+". Kaldırılma nedeni Bakanlıkça açıklanmaz."]]:[]).forEach(function(p){dl.appendChild(el("dt",null,p[0]));dl.appendChild(el("dd",null,p[1]))});
     var s=el("div","src","Kaynak: Tarım ve Orman Bakanlığı, Gıda Kamuoyu Duyurusu. ");
     var a=el("a",null,"Resmi sayfa");a.href="https://guvenilirgida.tarimorman.gov.tr/gkd";a.target="_blank";a.rel="noopener";
     a.addEventListener("click",function(e){e.stopPropagation()});s.appendChild(a);dl.appendChild(s);b.appendChild(dl);
@@ -171,12 +177,20 @@ document.getElementById("reset").addEventListener("click",function(){
 try{var QP=new URLSearchParams(location.search).get("q");if(QP)$q.value=QP}catch(e){}
 opts();render();
 try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}
-fetch("data/tagsis.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+function getJ(p){return fetch(p,{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()})}
+// Güncel liste + arşiv (listeden çıkan kayıtlar). Arşiv yoksa yalnızca güncel liste gösterilir.
+Promise.all([getJ("data/tagsis.json"),getJ("data/arsiv.json").catch(function(){return null})]).then(function(res){
+  var j=res[0],ar=res[1];
   var arr=[];Object.keys(j.listeler).forEach(function(k){j.listeler[k].forEach(function(x){x._liste=k;arr.push(x)})});
   if(!arr.length)return;
+  if(ar&&ar.kayitlar)ar.kayitlar.forEach(function(a){var x=Object.assign({},a.kayit);x._liste=a.liste;x._cikti=a.kaldirilma;arr.push(x)});
   DATA=build(arr);IMPORTED=true;
   if(j.guncelleme)SON=new Date(j.guncelleme).toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"});
   opts();render();
+}).catch(function(){});
+// Son kontrol zamanı: liste değişmese de günlük güncelleme her çalıştığında yenilenir
+fetch("data/durum.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+  if(d.son_kontrol){KONTROL=new Date(d.son_kontrol).toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"});render()}
 }).catch(function(){});
 </script>
 </body>
