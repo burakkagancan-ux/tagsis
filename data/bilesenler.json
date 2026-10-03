@@ -1,0 +1,1554 @@
+{
+ "meta": {
+  "version": "0.1.0",
+  "generated": "2026-10-03",
+  "description": "E kodu olmayan bileşenler: gizli şeker, palm yağı, 14 yasal alerjen, laktoz, hayvansal kaynak, ultra işlenmiş gıda (UPF) işaretleri.",
+  "flags": {
+   "sugar": "Şeker kaynağı",
+   "sugar_hidden": "Gizli şeker (adında 'şeker' geçmiyor)",
+   "palm": "Palm yağı",
+   "allergen_gluten": "Gluten içeren tahıl",
+   "allergen_crustacean": "Kabuklu deniz ürünü",
+   "allergen_egg": "Yumurta",
+   "allergen_fish": "Balık",
+   "allergen_peanut": "Yer fıstığı",
+   "allergen_soy": "Soya",
+   "allergen_milk": "Süt",
+   "allergen_nuts": "Sert kabuklu meyve",
+   "allergen_celery": "Kereviz",
+   "allergen_mustard": "Hardal",
+   "allergen_sesame": "Susam",
+   "allergen_sulphite": "Sülfit",
+   "allergen_lupin": "Acı bakla (lupin)",
+   "allergen_mollusc": "Yumuşakça",
+   "lactose": "Laktoz içerir",
+   "lactose_low": "Laktoz düşük olabilir",
+   "non_vegan": "Hayvansal kaynaklı (vegan değil)",
+   "vegan_suspect": "Kaynak bitkisel veya hayvansal olabilir",
+   "non_vegetarian": "Et/balık/kesim yan ürünü (vejetaryen değil)",
+   "vegetarian_suspect": "Vejetaryen uygunluğu belirsiz",
+   "upf": "Ultra işlenmiş gıda işareti (NOVA)"
+  },
+  "allergens": [
+   [
+    "allergen_gluten",
+    "Gluten (çölyak)"
+   ],
+   [
+    "allergen_crustacean",
+    "Kabuklu deniz ürünleri"
+   ],
+   [
+    "allergen_egg",
+    "Yumurta"
+   ],
+   [
+    "allergen_fish",
+    "Balık"
+   ],
+   [
+    "allergen_peanut",
+    "Yer fıstığı"
+   ],
+   [
+    "allergen_soy",
+    "Soya"
+   ],
+   [
+    "allergen_milk",
+    "Süt"
+   ],
+   [
+    "allergen_nuts",
+    "Sert kabuklu meyveler"
+   ],
+   [
+    "allergen_celery",
+    "Kereviz"
+   ],
+   [
+    "allergen_mustard",
+    "Hardal"
+   ],
+   [
+    "allergen_sesame",
+    "Susam"
+   ],
+   [
+    "allergen_sulphite",
+    "Sülfit"
+   ],
+   [
+    "allergen_lupin",
+    "Acı bakla (lupin)"
+   ],
+   [
+    "allergen_mollusc",
+    "Yumuşakçalar"
+   ]
+  ],
+  "upf_e_categories": {
+   "Renklendirici": "renklendirici",
+   "Lezzet artırıcı": "lezzet artırıcı",
+   "Tatlandırıcı": "tatlandırıcı",
+   "Emülgatör": "emülgatör",
+   "Kıvam artırıcı / jelleştirici": "kıvam artırıcı",
+   "Modifiye nişasta": "modifiye nişasta",
+   "Parlatıcı / kaplama maddesi": "parlatıcı"
+  },
+  "may_triggers": [
+   "icerebilir",
+   "iceribilir",
+   "eser",
+   "ayni tesiste",
+   "ayni hatta",
+   "ayni uretim",
+   "bulunabilir"
+  ],
+  "negations": [
+   "icermez",
+   "yoktur",
+   "icermemektedir",
+   "ilave edilmemistir",
+   "katilmamistir"
+  ],
+  "aroma_next": [
+   "aromasi",
+   "aromali",
+   "aroma",
+   "esansi"
+  ],
+  "sources": [
+   {
+    "name": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği, Ek-1 (alerjenler)",
+    "ref": "Resmî Gazete 26.01.2017, sayı 29960 (1. mükerrer); son değişiklik 06.04.2024",
+    "note": "Ek-1'in metni bu çalışmada birebir okunamadı; liste ve muafiyetler, Ek-1'in uyumlaştırıldığı AB Tüzüğü 1169/2011 Ek II'den alındı. Yayından önce Ek-1 ile karşılaştırılmalı."
+   },
+   {
+    "name": "DSÖ (WHO) Guideline: Sugars intake for adults and children (2015)",
+    "note": "'Serbest şeker' tanımı: eklenen şekerler + bal, şuruplar, meyve suyu ve konsantreleri."
+   },
+   {
+    "name": "Monteiro ve ark., Ultra-processed foods, diet quality, and health using the NOVA classification system (FAO, 2019)",
+    "note": "UPF işaretleri: aroma vericiler, lezzet artırıcılar, renklendiriciler, emülgatörler, tatlandırıcılar, kıvam artırıcılar; invert şeker, maltodekstrin, dekstroz, laktoz, yüksek fruktozlu mısır şurubu, meyve suyu konsantresi; hidrojenize/interesterifiye yağlar; hidrolize proteinler, soya protein izolatı, gluten, kazein, peynir altı suyu proteini, mekanik ayrılmış et."
+   }
+  ],
+  "caveats": [
+   "Bileşen eşleştirme yalnızca etiketteki 'İçindekiler' yazısına dayanır; miktar bilgisi yoktur.",
+   "Alerjen sonucu bir onay değildir: 'tespit edilmedi' ürünün güvenli olduğu anlamına gelmez.",
+   "UPF işaretleri bir puan değildir; NOVA'nın tanımladığı işaret maddelerinin listesidir.",
+   "Vegan/vejetaryen sonucu yalnızca içerik adlarına dayanır; üretim süreci ve çapraz bulaşma bilinmez."
+  ],
+  "counts": {
+   "items": 84,
+   "aliases": 548
+  }
+ },
+ "items": [
+  {
+   "id": "seker",
+   "name": "Şeker",
+   "aliases": [
+    "şeker",
+    "toz şeker",
+    "kristal şeker",
+    "pudra şekeri",
+    "esmer şeker",
+    "kahverengi şeker",
+    "küp şeker",
+    "şeker şurubu",
+    "karamelize şeker",
+    "beyaz şeker",
+    "rafine şeker",
+    "sakaroz",
+    "sakkaroz",
+    "sukroz"
+   ],
+   "flags": [
+    "sugar"
+   ]
+  },
+  {
+   "id": "glukoz_surubu",
+   "name": "Glukoz şurubu",
+   "aliases": [
+    "glukoz şurubu",
+    "glikoz şurubu",
+    "glukoz",
+    "glikoz",
+    "kurutulmuş glukoz şurubu",
+    "glukoz şurubu tozu",
+    "nişasta şurubu"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf"
+   ],
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "gfs",
+   "name": "Glukoz-fruktoz şurubu",
+   "aliases": [
+    "glukoz fruktoz şurubu",
+    "glikoz fruktoz şurubu",
+    "fruktoz glukoz şurubu",
+    "fruktoz glikoz şurubu",
+    "fruktoz şurubu",
+    "mısır şurubu",
+    "yüksek fruktozlu mısır şurubu",
+    "nişasta bazlı şeker",
+    "nbş",
+    "izoglukoz"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf"
+   ],
+   "note": "Nişasta bazlı şeker (NBŞ) olarak da bilinir.",
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "invert",
+   "name": "İnvert şeker",
+   "aliases": [
+    "invert şeker",
+    "invert şeker şurubu",
+    "invert şurup",
+    "invert şurubu"
+   ],
+   "flags": [
+    "sugar",
+    "upf"
+   ],
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "dekstroz",
+   "name": "Dekstroz",
+   "aliases": [
+    "dekstroz",
+    "dekstroz monohidrat"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf"
+   ],
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "fruktoz",
+   "name": "Fruktoz",
+   "aliases": [
+    "fruktoz",
+    "meyve şekeri",
+    "kristal fruktoz"
+   ],
+   "flags": [
+    "sugar",
+    "upf"
+   ],
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "maltoz",
+   "name": "Maltoz",
+   "aliases": [
+    "maltoz",
+    "maltoz şurubu"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden"
+   ]
+  },
+  {
+   "id": "maltodekstrin",
+   "name": "Maltodekstrin",
+   "aliases": [
+    "maltodekstrin"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf"
+   ],
+   "note": "Kimyasal olarak şeker sayılmaz ama kan şekerini hızla yükselten bir nişasta türevidir.",
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "laktoz",
+   "name": "Laktoz (süt şekeri)",
+   "aliases": [
+    "laktoz",
+    "süt şekeri"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf",
+    "allergen_milk",
+    "lactose",
+    "non_vegan"
+   ],
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "bal",
+   "name": "Bal",
+   "aliases": [
+    "bal",
+    "çiçek balı",
+    "süzme bal"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "pekmez",
+   "name": "Pekmez",
+   "aliases": [
+    "pekmez",
+    "üzüm pekmezi",
+    "dut pekmezi",
+    "keçiboynuzu pekmezi",
+    "harnup pekmezi"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden"
+   ]
+  },
+  {
+   "id": "melas",
+   "name": "Melas",
+   "aliases": [
+    "melas",
+    "şeker kamışı melası",
+    "şeker pancarı melası"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden"
+   ]
+  },
+  {
+   "id": "surup_diger",
+   "name": "Bitkisel şurup",
+   "aliases": [
+    "agave şurubu",
+    "akçaağaç şurubu",
+    "hurma şurubu",
+    "pirinç şurubu",
+    "esmer pirinç şurubu",
+    "agave",
+    "hurma özü"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden"
+   ]
+  },
+  {
+   "id": "meyve_konsantre",
+   "name": "Meyve suyu konsantresi",
+   "aliases": [
+    "meyve suyu konsantresi",
+    "konsantre meyve suyu",
+    "elma suyu konsantresi",
+    "üzüm suyu konsantresi",
+    "meyve konsantresi",
+    "konsantre elma suyu",
+    "konsantre üzüm suyu"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf"
+   ],
+   "note": "Eklenen meyve suyu konsantresi DSÖ tanımına göre serbest şekerdir.",
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "malt",
+   "name": "Malt ekstraktı",
+   "aliases": [
+    "malt ekstraktı",
+    "malt özütü",
+    "arpa malt ekstraktı",
+    "arpa maltı ekstraktı",
+    "malt şurubu",
+    "arpa malt özütü"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "allergen_gluten"
+   ],
+   "note": "Genellikle arpadan elde edilir; gluten içerir."
+  },
+  {
+   "id": "bugday_glukoz",
+   "name": "Buğday glukoz şurubu",
+   "aliases": [
+    "buğday glukoz şurubu",
+    "buğday glikoz şurubu",
+    "buğday bazlı glukoz şurubu",
+    "buğday kaynaklı glukoz şurubu",
+    "buğday glukoz fruktoz şurubu",
+    "buğday maltodekstrini",
+    "buğday maltodekstrin",
+    "buğday dekstrozu",
+    "arpa glukoz şurubu"
+   ],
+   "flags": [
+    "sugar",
+    "sugar_hidden",
+    "upf"
+   ],
+   "note": "Yönetmelik muafiyeti: buğday veya arpa bazlı glukoz şurubu ve maltodekstrin gluten alerjeni sayılmaz.",
+   "upf_class": "şeker türevi şurup"
+  },
+  {
+   "id": "palm",
+   "name": "Palm yağı",
+   "aliases": [
+    "palm yağı",
+    "palmiye yağı",
+    "palm",
+    "rafine palm yağı",
+    "palm stearin",
+    "palm stearini",
+    "palm olein",
+    "palm oleini",
+    "fraksiyone palm yağı",
+    "palm yağları"
+   ],
+   "flags": [
+    "palm"
+   ]
+  },
+  {
+   "id": "palm_cekirdek",
+   "name": "Palm çekirdek yağı",
+   "aliases": [
+    "palm çekirdek yağı",
+    "palm çekirdeği yağı",
+    "palmiye çekirdeği yağı",
+    "palm kernel"
+   ],
+   "flags": [
+    "palm"
+   ]
+  },
+  {
+   "id": "bugday",
+   "name": "Buğday",
+   "aliases": [
+    "buğday",
+    "buğday unu",
+    "tam buğday unu",
+    "tam buğday",
+    "irmik",
+    "buğday irmiği",
+    "bulgur",
+    "firik",
+    "kuskus",
+    "galeta unu",
+    "ekmek kırıntısı",
+    "buğday kepeği",
+    "buğday ruşeymi",
+    "buğday nişastası",
+    "buğday proteini",
+    "durum buğdayı",
+    "durum buğdayı irmiği",
+    "siyez",
+    "siyez unu",
+    "kavılca",
+    "yufka"
+   ],
+   "flags": [
+    "allergen_gluten"
+   ]
+  },
+  {
+   "id": "un",
+   "name": "Un",
+   "aliases": [
+    "un",
+    "ekmeklik un",
+    "beyaz un",
+    "tip 550 un",
+    "pastalık un"
+   ],
+   "flags": [
+    "allergen_gluten"
+   ],
+   "note": "Türü belirtilmemiş 'un' genellikle buğday unudur.",
+   "short_ok": true
+  },
+  {
+   "id": "gluten",
+   "name": "Gluten",
+   "aliases": [
+    "gluten",
+    "buğday gluteni",
+    "vital gluten"
+   ],
+   "flags": [
+    "allergen_gluten",
+    "upf"
+   ],
+   "upf_class": "protein izolatı"
+  },
+  {
+   "id": "arpa",
+   "name": "Arpa",
+   "aliases": [
+    "arpa",
+    "arpa unu",
+    "arpa maltı",
+    "malt",
+    "kavrulmuş arpa",
+    "arpa şehriye"
+   ],
+   "flags": [
+    "allergen_gluten"
+   ]
+  },
+  {
+   "id": "cavdar",
+   "name": "Çavdar",
+   "aliases": [
+    "çavdar",
+    "çavdar unu",
+    "tam çavdar unu"
+   ],
+   "flags": [
+    "allergen_gluten"
+   ]
+  },
+  {
+   "id": "yulaf",
+   "name": "Yulaf",
+   "aliases": [
+    "yulaf",
+    "yulaf ezmesi",
+    "yulaf unu",
+    "yulaf kepeği",
+    "yulaf lifi",
+    "yulaf sütü",
+    "yulaf içeceği"
+   ],
+   "flags": [
+    "allergen_gluten"
+   ],
+   "note": "Yulaf yönetmelikte gluten içeren tahıllar arasındadır; 'glutensiz yulaf' ibaresini etikette kontrol edin."
+  },
+  {
+   "id": "spelt",
+   "name": "Kavuzlu buğday",
+   "aliases": [
+    "kavuzlu buğday",
+    "spelt",
+    "spelt unu",
+    "kamut",
+    "kamut unu",
+    "einkorn",
+    "emmer"
+   ],
+   "flags": [
+    "allergen_gluten"
+   ]
+  },
+  {
+   "id": "kabuklu",
+   "name": "Kabuklu deniz ürünleri",
+   "aliases": [
+    "karides",
+    "ıstakoz",
+    "yengeç",
+    "kerevit",
+    "kabuklular",
+    "karides özü",
+    "kabuklu deniz ürünleri"
+   ],
+   "flags": [
+    "allergen_crustacean",
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "yumusakca",
+   "name": "Yumuşakçalar",
+   "aliases": [
+    "midye",
+    "kalamar",
+    "ahtapot",
+    "istiridye",
+    "salyangoz",
+    "mürekkep balığı",
+    "deniz tarağı",
+    "yumuşakçalar"
+   ],
+   "flags": [
+    "allergen_mollusc",
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "deniz_urunu",
+   "name": "Deniz ürünleri",
+   "aliases": [
+    "deniz ürünleri",
+    "deniz mahsulleri"
+   ],
+   "flags": [
+    "allergen_crustacean",
+    "allergen_mollusc",
+    "allergen_fish",
+    "non_vegan",
+    "non_vegetarian"
+   ],
+   "note": "Türü belirtilmemiş; kabuklu, yumuşakça ve balık olabilir."
+  },
+  {
+   "id": "balik",
+   "name": "Balık",
+   "aliases": [
+    "balık",
+    "balık eti",
+    "balık yağı",
+    "balık sosu",
+    "ançüez",
+    "hamsi",
+    "ton balığı",
+    "somon",
+    "sardalya",
+    "uskumru",
+    "balık unu",
+    "balık özü",
+    "balık jelatini",
+    "balık kolajeni"
+   ],
+   "flags": [
+    "allergen_fish",
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "yumurta",
+   "name": "Yumurta",
+   "aliases": [
+    "yumurta",
+    "yumurta tozu",
+    "tam yumurta tozu",
+    "yumurta akı",
+    "yumurta akı tozu",
+    "yumurta sarısı",
+    "yumurta sarısı tozu",
+    "pastörize yumurta",
+    "sıvı yumurta",
+    "albümin",
+    "yumurta albümini",
+    "ovalbümin"
+   ],
+   "flags": [
+    "allergen_egg",
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "yer_fistigi",
+   "name": "Yer fıstığı",
+   "aliases": [
+    "yer fıstığı",
+    "yerfıstığı",
+    "yer fıstığı ezmesi",
+    "fıstık ezmesi",
+    "yer fıstığı yağı",
+    "yer fıstığı unu",
+    "fıstık yağı"
+   ],
+   "flags": [
+    "allergen_peanut"
+   ]
+  },
+  {
+   "id": "fistik",
+   "name": "Fıstık (türü belirtilmemiş)",
+   "aliases": [
+    "fıstık",
+    "fıstıklı"
+   ],
+   "flags": [
+    "allergen_peanut",
+    "allergen_nuts"
+   ],
+   "note": "Yer fıstığı veya Antep fıstığı olabilir."
+  },
+  {
+   "id": "badem",
+   "name": "Badem",
+   "aliases": [
+    "badem",
+    "badem unu",
+    "badem ezmesi",
+    "badem sütü",
+    "badem içeceği",
+    "badem yağı",
+    "badem parçaları",
+    "marzipan",
+    "acıbadem",
+    "acı badem"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "findik",
+   "name": "Fındık",
+   "aliases": [
+    "fındık",
+    "fındık ezmesi",
+    "fındık püresi",
+    "fındık içi",
+    "fındık parçaları",
+    "fındık unu",
+    "fındık yağı",
+    "kavrulmuş fındık",
+    "pralin"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "ceviz",
+   "name": "Ceviz",
+   "aliases": [
+    "ceviz",
+    "ceviz içi",
+    "ceviz parçaları"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "kaju",
+   "name": "Kaju",
+   "aliases": [
+    "kaju",
+    "kaju fıstığı"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "antep",
+   "name": "Antep fıstığı",
+   "aliases": [
+    "antep fıstığı",
+    "şam fıstığı",
+    "boz içi",
+    "bozici"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "pikan",
+   "name": "Pikan / Brezilya cevizi / makadamya",
+   "aliases": [
+    "pikan cevizi",
+    "pekan cevizi",
+    "pikan",
+    "pekan",
+    "brezilya cevizi",
+    "makadamya",
+    "makadamya fındığı",
+    "queensland cevizi"
+   ],
+   "flags": [
+    "allergen_nuts"
+   ]
+  },
+  {
+   "id": "soya",
+   "name": "Soya",
+   "aliases": [
+    "soya",
+    "soya fasulyesi",
+    "soya unu",
+    "soya proteini",
+    "soya sütü",
+    "soya içeceği",
+    "soya sosu",
+    "tofu",
+    "edamame",
+    "soya kırığı",
+    "soya kepeği",
+    "teksturize soya proteini"
+   ],
+   "flags": [
+    "allergen_soy"
+   ],
+   "note": "Soya sosu çoğunlukla buğday da içerir; etikete bakın."
+  },
+  {
+   "id": "soya_izolat",
+   "name": "Soya protein izolatı",
+   "aliases": [
+    "soya protein izolatı",
+    "izole soya proteini",
+    "soya izolatı",
+    "soya protein konsantresi"
+   ],
+   "flags": [
+    "allergen_soy",
+    "upf"
+   ],
+   "upf_class": "protein izolatı"
+  },
+  {
+   "id": "soya_yagi",
+   "name": "Soya yağı",
+   "aliases": [
+    "soya yağı",
+    "rafine soya yağı"
+   ],
+   "flags": [],
+   "note": "Yönetmelik muafiyeti: tamamen rafine soya yağı soya alerjeni sayılmaz."
+  },
+  {
+   "id": "sut",
+   "name": "Süt",
+   "aliases": [
+    "süt",
+    "inek sütü",
+    "keçi sütü",
+    "koyun sütü",
+    "manda sütü",
+    "çiğ süt",
+    "pastörize süt",
+    "tam yağlı süt",
+    "yarım yağlı süt",
+    "yağsız süt",
+    "sütü"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "sut_tozu",
+   "name": "Süt tozu",
+   "aliases": [
+    "süt tozu",
+    "yağsız süt tozu",
+    "tam yağlı süt tozu",
+    "yarım yağlı süt tozu",
+    "inek sütü tozu",
+    "keçi sütü tozu"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "pas",
+   "name": "Peynir altı suyu",
+   "aliases": [
+    "peynir altı suyu",
+    "peyniraltı suyu",
+    "peynir altı suyu tozu",
+    "peyniraltı suyu tozu",
+    "demineralize peynir altı suyu tozu",
+    "laktoserum",
+    "whey",
+    "peynir suyu tozu"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan",
+    "upf"
+   ],
+   "upf_class": "protein izolatı"
+  },
+  {
+   "id": "pas_protein",
+   "name": "Süt / peynir altı suyu proteini",
+   "aliases": [
+    "peynir altı suyu proteini",
+    "peyniraltı suyu proteini",
+    "whey protein",
+    "peynir altı suyu protein konsantresi",
+    "süt proteini",
+    "süt protein konsantresi",
+    "süt proteini konsantresi",
+    "laktalbümin",
+    "süt mineralleri"
+   ],
+   "flags": [
+    "allergen_milk",
+    "non_vegan",
+    "upf"
+   ],
+   "upf_class": "protein izolatı"
+  },
+  {
+   "id": "kazein",
+   "name": "Kazein / kazeinat",
+   "aliases": [
+    "kazein",
+    "kazeinat",
+    "sodyum kazeinat",
+    "kalsiyum kazeinat",
+    "potasyum kazeinat",
+    "süt kazeini",
+    "kazeinatlar"
+   ],
+   "flags": [
+    "allergen_milk",
+    "non_vegan",
+    "upf",
+    "lactose_low"
+   ],
+   "note": "Laktoz miktarı çok düşüktür ama süt alerjisinde sorun yaratır.",
+   "upf_class": "protein izolatı"
+  },
+  {
+   "id": "krema",
+   "name": "Krema / kaymak",
+   "aliases": [
+    "krema",
+    "süt kreması",
+    "kaymak",
+    "çiğ krema",
+    "krema tozu",
+    "kaymak tozu",
+    "ekşi krema"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "tereyagi",
+   "name": "Tereyağı / süt yağı",
+   "aliases": [
+    "tereyağı",
+    "tereyağ",
+    "sade yağ",
+    "süt yağı",
+    "tereyağı yağı",
+    "anhidr süt yağı",
+    "tereyağı tozu"
+   ],
+   "flags": [
+    "allergen_milk",
+    "non_vegan",
+    "lactose_low"
+   ],
+   "note": "Laktoz miktarı düşüktür; süt alerjisinde sorun yaratır."
+  },
+  {
+   "id": "yogurt",
+   "name": "Yoğurt / ayran / kefir",
+   "aliases": [
+    "yoğurt",
+    "yoğurt tozu",
+    "süzme yoğurt",
+    "ayran",
+    "kefir",
+    "yoğurt kültürü"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "peynir",
+   "name": "Peynir",
+   "aliases": [
+    "peynir",
+    "beyaz peynir",
+    "kaşar",
+    "kaşar peyniri",
+    "lor",
+    "lor peyniri",
+    "çökelek",
+    "tulum peyniri",
+    "krem peynir",
+    "eritme peynir",
+    "peynir tozu",
+    "mozzarella",
+    "çedar",
+    "cheddar",
+    "parmesan",
+    "labne",
+    "lorlu"
+   ],
+   "flags": [
+    "allergen_milk",
+    "lactose",
+    "non_vegan"
+   ],
+   "note": "Olgunlaştırılmış sert peynirlerde laktoz çok düşüktür."
+  },
+  {
+   "id": "kereviz",
+   "name": "Kereviz",
+   "aliases": [
+    "kereviz",
+    "kereviz sapı",
+    "kereviz kökü",
+    "kereviz tohumu",
+    "kereviz tozu",
+    "kereviz yaprağı"
+   ],
+   "flags": [
+    "allergen_celery"
+   ]
+  },
+  {
+   "id": "hardal",
+   "name": "Hardal",
+   "aliases": [
+    "hardal",
+    "hardal tohumu",
+    "hardal unu",
+    "hardal tozu",
+    "hardal yağı",
+    "dijon hardalı"
+   ],
+   "flags": [
+    "allergen_mustard"
+   ]
+  },
+  {
+   "id": "susam",
+   "name": "Susam",
+   "aliases": [
+    "susam",
+    "susam tohumu",
+    "tahin",
+    "susam yağı",
+    "susam ezmesi",
+    "kavrulmuş susam"
+   ],
+   "flags": [
+    "allergen_sesame"
+   ]
+  },
+  {
+   "id": "lupin",
+   "name": "Acı bakla (lupin)",
+   "aliases": [
+    "acı bakla",
+    "lupin",
+    "lupin unu",
+    "termiye",
+    "termiye unu"
+   ],
+   "flags": [
+    "allergen_lupin"
+   ]
+  },
+  {
+   "id": "sulfit",
+   "name": "Sülfit",
+   "aliases": [],
+   "flags": [
+    "allergen_sulphite"
+   ],
+   "note": "10 mg/kg üzerindeki sülfit alerjen olarak bildirilmek zorundadır."
+  },
+  {
+   "id": "et",
+   "name": "Et",
+   "aliases": [
+    "et",
+    "kırmızı et",
+    "sığır eti",
+    "dana eti",
+    "kuzu eti",
+    "koyun eti",
+    "keçi eti",
+    "manda eti",
+    "sığır",
+    "dana",
+    "kuzu",
+    "mekanik ayrılmış et",
+    "mekanik ayrılmış kanatlı eti",
+    "et suyu",
+    "et suyu tozu",
+    "et ekstraktı",
+    "et özü",
+    "kemik suyu",
+    "sakatat",
+    "işkembe",
+    "jambon",
+    "bacon",
+    "salam",
+    "sucuk",
+    "sosis",
+    "pastırma",
+    "kavurma"
+   ],
+   "flags": [
+    "non_vegan",
+    "non_vegetarian"
+   ],
+   "short_ok": true
+  },
+  {
+   "id": "tavuk",
+   "name": "Tavuk / hindi",
+   "aliases": [
+    "tavuk",
+    "tavuk eti",
+    "tavuk göğsü",
+    "hindi",
+    "hindi eti",
+    "kanatlı eti",
+    "tavuk suyu",
+    "tavuk suyu tozu",
+    "tavuk yağı",
+    "tavuk derisi",
+    "tavuk ekstraktı"
+   ],
+   "flags": [
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "domuz",
+   "name": "Domuz",
+   "aliases": [
+    "domuz",
+    "domuz eti",
+    "domuz yağı",
+    "domuz derisi"
+   ],
+   "flags": [
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "hayvansal_yag",
+   "name": "Hayvansal yağ",
+   "aliases": [
+    "hayvansal yağ",
+    "iç yağı",
+    "kuyruk yağı",
+    "donyağı",
+    "don yağı",
+    "sığır yağı",
+    "hayvansal yağlar"
+   ],
+   "flags": [
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "kolajen",
+   "name": "Kolajen",
+   "aliases": [
+    "kolajen",
+    "kolajen peptidi",
+    "hidrolize kolajen",
+    "sığır kolajeni"
+   ],
+   "flags": [
+    "non_vegan",
+    "non_vegetarian"
+   ]
+  },
+  {
+   "id": "peynir_mayasi",
+   "name": "Peynir mayası",
+   "aliases": [
+    "peynir mayası",
+    "şirden mayası",
+    "buzağı şirdeni",
+    "renin",
+    "rennet"
+   ],
+   "flags": [
+    "non_vegan",
+    "vegetarian_suspect"
+   ],
+   "note": "Hayvansal (şirden) ya da mikrobiyal olabilir; mikrobiyal maya vejetaryene uygundur."
+  },
+  {
+   "id": "mikrobiyal_maya",
+   "name": "Mikrobiyal peynir mayası",
+   "aliases": [
+    "mikrobiyal peynir mayası",
+    "mikrobiyal maya",
+    "bitkisel peynir mayası",
+    "mikrobiyal renin"
+   ],
+   "flags": [],
+   "note": "Hayvansal kaynaklı değildir."
+  },
+  {
+   "id": "ari_urunu",
+   "name": "Arı ürünleri",
+   "aliases": [
+    "arı sütü",
+    "propolis",
+    "polen",
+    "arı poleni"
+   ],
+   "flags": [
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "lanolin",
+   "name": "Lanolin",
+   "aliases": [
+    "lanolin",
+    "yün yağı"
+   ],
+   "flags": [
+    "non_vegan"
+   ]
+  },
+  {
+   "id": "aroma",
+   "name": "Aroma verici",
+   "aliases": [
+    "aroma",
+    "aroma verici",
+    "aroma vericiler",
+    "aromalar",
+    "doğal aroma",
+    "doğal aroma verici",
+    "doğala özdeş aroma",
+    "doğal özdeş aroma",
+    "yapay aroma",
+    "aroma verici preparat",
+    "vanilin",
+    "etil vanilin",
+    "vanilya aroması",
+    "duman aroması",
+    "tütsü aroması",
+    "aroma maddesi",
+    "aroma verici madde",
+    "aroması",
+    "aromalı",
+    "aromaları",
+    "esansı",
+    "esans"
+   ],
+   "flags": [
+    "upf",
+    "vegan_suspect"
+   ],
+   "note": "Aroma vericilerin kaynağı etikette genellikle yazmaz.",
+   "upf_class": "aroma verici"
+  },
+  {
+   "id": "hidrolize_protein",
+   "name": "Hidrolize protein",
+   "aliases": [
+    "hidrolize protein",
+    "hidrolize bitkisel protein",
+    "hidrolize soya proteini",
+    "hidrolize buğday proteini",
+    "protein hidrolizatı",
+    "maya özütü",
+    "maya ekstraktı",
+    "otolize maya"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "note": "Doğal glutamat kaynağıdır; 'lezzet artırıcı içermez' etiketlerinde sık kullanılır.",
+   "upf_class": "lezzet artırıcı"
+  },
+  {
+   "id": "hidrojenize",
+   "name": "Hidrojenize / interesterifiye yağ",
+   "aliases": [
+    "hidrojenize yağ",
+    "hidrojenize bitkisel yağ",
+    "kısmen hidrojenize",
+    "kısmen hidrojenize yağ",
+    "tamamen hidrojenize yağ",
+    "interesterifiye yağ",
+    "interesterifiye bitkisel yağ",
+    "hidrojenize",
+    "margarin"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "hidrojenize yağ"
+  },
+  {
+   "id": "upf_sinif_emulgator",
+   "name": "Emülgatör",
+   "aliases": [
+    "emülgatör",
+    "emülgatörler",
+    "emülsifiye edici",
+    "emülsiyon verici",
+    "eritme tuzu",
+    "eritme tuzları"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "emülgatör"
+  },
+  {
+   "id": "upf_sinif_kivam",
+   "name": "Kıvam artırıcı",
+   "aliases": [
+    "kıvam artırıcı",
+    "kıvam arttırıcı",
+    "kıvam artırıcılar",
+    "jelleştirici",
+    "jelleştirici madde",
+    "stabilizör",
+    "stabilizatör",
+    "stabilizatörler"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "kıvam artırıcı"
+  },
+  {
+   "id": "upf_sinif_renk",
+   "name": "Renklendirici",
+   "aliases": [
+    "renklendirici",
+    "renklendiriciler",
+    "renk verici",
+    "gıda boyası"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "renklendirici"
+  },
+  {
+   "id": "upf_sinif_tatlandirici",
+   "name": "Tatlandırıcı",
+   "aliases": [
+    "tatlandırıcı",
+    "tatlandırıcılar",
+    "yapay tatlandırıcı"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "tatlandırıcı"
+  },
+  {
+   "id": "upf_sinif_lezzet",
+   "name": "Lezzet artırıcı",
+   "aliases": [
+    "lezzet artırıcı",
+    "lezzet arttırıcı",
+    "lezzet artırıcılar",
+    "lezzet güçlendirici"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "lezzet artırıcı"
+  },
+  {
+   "id": "upf_sinif_parlatici",
+   "name": "Parlatıcı",
+   "aliases": [
+    "parlatıcı",
+    "parlatıcı madde",
+    "kaplama maddesi",
+    "kaplama ajanı"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "parlatıcı"
+  },
+  {
+   "id": "upf_sinif_kopuk",
+   "name": "Köpük önleyici / kabartıcı",
+   "aliases": [
+    "köpük önleyici",
+    "köpürtücü",
+    "dolgu maddesi",
+    "hacim artırıcı"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "upf_class": "köpük/dolgu maddesi"
+  },
+  {
+   "id": "n_hindistan",
+   "name": "Hindistan cevizi",
+   "aliases": [
+    "hindistan cevizi",
+    "hindistan cevizi sütü",
+    "hindistan cevizi kreması",
+    "hindistan cevizi yağı",
+    "hindistan cevizi unu",
+    "rendelenmiş hindistan cevizi"
+   ],
+   "flags": [],
+   "note": "Yönetmelikteki sert kabuklu meyveler listesinde yoktur."
+  },
+  {
+   "id": "n_muskat",
+   "name": "Muskat",
+   "aliases": [
+    "muskat",
+    "muskat cevizi",
+    "küçük hindistan cevizi"
+   ],
+   "flags": []
+  },
+  {
+   "id": "n_cam_fistigi",
+   "name": "Çam fıstığı",
+   "aliases": [
+    "çam fıstığı",
+    "dolmalık fıstık"
+   ],
+   "flags": [],
+   "note": "Yönetmelikteki sert kabuklu meyveler listesinde yoktur; ayrı bir alerji olabilir."
+  },
+  {
+   "id": "n_kakao",
+   "name": "Kakao yağı",
+   "aliases": [
+    "kakao yağı",
+    "kakao tereyağı"
+   ],
+   "flags": [],
+   "note": "Süt ürünü değildir."
+  },
+  {
+   "id": "n_bitkisel_krema",
+   "name": "Bitkisel krema",
+   "aliases": [
+    "bitkisel krema",
+    "bitkisel krem şanti",
+    "bitkisel kaymak",
+    "bitkisel bazlı krema"
+   ],
+   "flags": [
+    "upf"
+   ],
+   "note": "Süt kreması değildir; genellikle bitkisel yağ ve katkılarla yapılır.",
+   "upf_class": "hidrojenize yağ"
+  },
+  {
+   "id": "n_pirinc_sutu",
+   "name": "Pirinç sütü",
+   "aliases": [
+    "pirinç sütü",
+    "pirinç içeceği"
+   ],
+   "flags": []
+  },
+  {
+   "id": "n_balkabagi",
+   "name": "Bal kabağı",
+   "aliases": [
+    "bal kabağı",
+    "balkabağı",
+    "bal kabağı çekirdeği"
+   ],
+   "flags": []
+  },
+  {
+   "id": "n_sut_aroma",
+   "name": "Süt ürünü aroması",
+   "aliases": [
+    "kaymak aroması",
+    "süt aroması",
+    "tereyağı aroması",
+    "peynir aroması",
+    "yoğurt aroması"
+   ],
+   "flags": [
+    "upf",
+    "vegan_suspect"
+   ],
+   "note": "Aroma olarak geçiyor; süt içerip içermediği belirsiz.",
+   "upf_class": "aroma verici"
+  },
+  {
+   "id": "n_glutensiz_un",
+   "name": "Glutensiz un / nişasta",
+   "aliases": [
+    "mısır unu",
+    "pirinç unu",
+    "nohut unu",
+    "karabuğday",
+    "karabuğday unu",
+    "patates unu",
+    "tapyoka",
+    "tapyoka nişastası",
+    "mısır nişastası",
+    "patates nişastası",
+    "pirinç nişastası",
+    "mısır irmiği",
+    "kinoa",
+    "kinoa unu",
+    "tef unu",
+    "darı",
+    "darı unu"
+   ],
+   "flags": [],
+   "note": "Gluten içeren tahıllardan değildir; çapraz bulaşma için etikete bakın."
+  },
+  {
+   "id": "n_hamur_mayasi",
+   "name": "Maya",
+   "aliases": [
+    "maya",
+    "ekmek mayası",
+    "kuru maya",
+    "yaş maya",
+    "instant maya",
+    "aktif kuru maya"
+   ],
+   "flags": []
+  }
+ ]
+}

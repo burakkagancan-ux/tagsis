@@ -23,13 +23,22 @@ textarea{width:100%;min-height:140px;font:14px/1.4 ui-monospace,monospace;paddin
 .t{font-weight:700}.how{font-size:12px;color:var(--mute);margin-top:2px}
 .chip{display:inline-block;border:1.5px solid var(--line);border-radius:4px;padding:0 6px;font-size:12px;margin:4px 4px 0 0}
 .sum{font-weight:700;margin:10px 0}#st{font-size:14px;color:var(--mute)}
+.ln{font-size:14px;margin-top:4px}.nt{color:var(--mute)}
+.sumbox{border-left-color:var(--ok)}.srow{display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:14px}.srow:first-of-type{border-top:0}
+.sl{flex:0 0 38%;color:var(--mute)}.sv{flex:1;min-width:0}.sv.r{color:var(--red);font-weight:600}.sv.y{color:var(--yel);font-weight:600}
+details#pd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:10px 0}
+details#pd summary{font-weight:700;cursor:pointer}.pt{font-weight:600;font-size:14px;margin:10px 0 4px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}.pc{font-size:14px}
+a{color:var(--ok);font-weight:600}
 </style>
 </head>
 <body>
 <div class="w">
 <h1>İçindekiler okuma denemesi</h1>
 <p class="sub">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin. Fotoğraf, metnin okunması için Google Cloud Vision'a gönderilir ve saklanmaz.</p>
-<div class="note"><strong>Deneme sürümü.</strong> Katkı maddesi bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</div>
+<div class="note"><strong>Deneme sürümü.</strong> Katkı maddesi ve bileşen bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</div>
+
+<details id="pd"><summary id="profsum">Profilim (alerjen, laktoz, vegan…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
 
 <input type="file" id="foto" accept="image/*" capture="environment">
 <img id="pre" alt="Seçilen fotoğraf">
@@ -43,7 +52,7 @@ textarea{width:100%;min-height:140px;font:14px/1.4 ui-monospace,monospace;paddin
 <textarea id="metin" placeholder="Okunan metin burada görünür. Yanlış okunan yerleri düzeltip “Analiz et”e basın."></textarea>
 <div class="row"><button id="analiz">Analiz et</button><button class="alt" id="kopya">Sonucu kopyala</button></div>
 
-<h2>Bulunan katkı maddeleri</h2>
+<h2>Sonuç</h2>
 <div id="sonuc" class="mut">Henüz analiz yapılmadı.</div>
 </div>
 
@@ -53,11 +62,12 @@ textarea{width:100%;min-height:140px;font:14px/1.4 ui-monospace,monospace;paddin
 var TRMAP={"ç":"c","ğ":"g","ı":"i","ö":"o","ş":"s","ü":"u","â":"a","î":"i","û":"u"};
 var UNITS={g:1,mg:1,kg:1,ml:1,kcal:1,kj:1,gr:1,lt:1,cl:1,l:1};
 var RANK={red:3,yellow:2,unrated:1,green:0};
-var SEP={"|":1,"(":1,")":1,":":1};
+var SENT="zzsentzz";
+var SEP={"|":1,"(":1,")":1,":":1,"zzsentzz":1};
 var ROMAN=["iii","vii","vi","iv","ii","v","i"];
 function low(s){return s.replace(/İ/g,"i").replace(/I/g,"ı").toLowerCase().replace(/[çğıöşüâîû]/g,function(c){return TRMAP[c]})}
 function norm(s){return low(s).replace(/[^a-z0-9]+/g," ").trim()}
-function normText(s){return low(s).replace(/[,;\[\]\/•·*]+/g," | ").replace(/\(/g," ( ").replace(/\)/g," ) ").replace(/:/g," : ").replace(/[^a-z0-9|():]+/g," ").trim()}
+function normText(s){return low(s.replace(/[.!?]+(?=\s|$)/g," "+SENT+" ")).replace(/[,;\[\]\/•·*]+/g," | ").replace(/\(/g," ( ").replace(/\)/g," ) ").replace(/:/g," : ").replace(/[^a-z0-9|():]+/g," ").trim()}
 function hasSep(a){for(var i=0;i<a.length;i++)if(SEP[a[i]])return true;return false}
 function lev(a,b,max){
   if(Math.abs(a.length-b.length)>max)return max+1;
@@ -66,14 +76,18 @@ function lev(a,b,max){
     if(mn>max)return max+1;p=c}
   return p[b.length];
 }
-function buildIndex(db){
+/* db: e_kodlari.json; bdb: bilesenler.json (isteğe bağlı). Bileşen kimlikleri "B:" ile başlar. */
+function buildIndex(db,bdb){
   var exact=new Map(),nos=new Map(),byK={},ks={1:1,2:1,3:1,4:1},byId={},ctx={};
   function add(m,k,id){if(!m.has(k))m.set(k,new Set());m.get(k).add(id)}
-  db.ingredients.forEach(function(it){
-    byId[it.id]=it;
+  var list=db.ingredients.slice();
+  if(bdb)bdb.items.forEach(function(b){list.push({id:"B:"+b.id,bil:b,aliases:b.aliases,short_ok:b.short_ok})});
+  list.forEach(function(it){
+    byId[it.id]=it.bil?it.bil:it;
+    if(it.bil)byId[it.id].isB=true;
     it.aliases.forEach(function(a){
-      if(/^(e[-\s]?\d|ins\s?\d)/.test(a))return;
-      var n=norm(a);if(n.length<3)return;
+      if(!it.bil&&/^(e[-\s]?\d|ins\s?\d)/.test(a))return;
+      var n=norm(a);if(!n||(n.length<3&&!it.short_ok))return;
       add(exact,n,it.id);
       if(n.indexOf(" ")>-1&&n.length>=8)add(nos,n.replace(/ /g,""),it.id);
     });
@@ -82,7 +96,9 @@ function buildIndex(db){
     });
   });
   exact.forEach(function(ids,n){var k=n.split(" ").length;ks[k]=1;if(n.length>=8){(byK[k]=byK[k]||[]).push({n:n,ids:Array.from(ids)})}});
-  return {exact:exact,nos:nos,byK:byK,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx};
+  var m=(bdb&&bdb.meta)||{};
+  return {exact:exact,nos:nos,byK:byK,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx,
+    bmeta:m,may:(m.may_triggers||[]),neg:(m.negations||[]),aromaNext:(m.aroma_next||[])};
 }
 function codeId(cand,idx){
   var list=[cand];ROMAN.forEach(function(r){if(cand.length-r.length>=4&&cand.slice(-r.length)===r)list.push(cand.slice(0,-r.length))});
@@ -135,11 +151,28 @@ function findContext(tok,idx){
   tok.forEach(function(t,i){
     var c=idx.ctx[t];if(!c)return;
     var prev=[];
-    for(var j=i-1;j>=0&&prev.length<4;j--){if(tok[j]==="|"||tok[j]===")")break;if(SEP[tok[j]])continue;prev.unshift(tok[j])}
+    for(var j=i-1;j>=0&&prev.length<4;j--){if(tok[j]==="|"||tok[j]===")"||tok[j]===SENT)break;if(SEP[tok[j]])continue;prev.unshift(tok[j])}
     var s=" "+prev.join(" ")+" ";
     if(c.req.some(function(r){return s.indexOf(" "+r+" ")>-1}))out.push({a:i,b:i+1,ids:c.ids.slice(),how:"isim",text:t});
   });
   return out;
+}
+/* "Eser miktarda ... içerebilir" bölgeleri: token aralıkları [a,b) */
+function mayZones(tok,idx){
+  var z=[],trig={};idx.may.forEach(function(t){trig[t]=1});
+  function sentStart(i){for(var j=i-1;j>=0;j--)if(tok[j]===SENT)return j+1;return 0}
+  function sentEnd(i){for(var j=i+1;j<tok.length;j++)if(tok[j]===SENT)return j;return tok.length}
+  for(var i=0;i<tok.length;i++){
+    var t=tok[i],two=t+" "+(tok[i+1]||"");
+    if(t==="eser"){z.push([i,sentEnd(i)]);continue}
+    if(trig[two]){var s=sentStart(i),e=sentEnd(i);z.push([Math.max(s,i-12),Math.min(e,i+14)]);continue}
+    if(trig[t]){
+      var s0=sentStart(i),st=Math.max(s0,i-10);
+      for(var j=i-1;j>=s0;j--)if(tok[j]==="eser"){st=j;break}
+      z.push([st,i]);
+    }
+  }
+  return z;
 }
 function analyze(text,idx){
   var tok=normText(text).split(" ").filter(Boolean);
@@ -151,71 +184,256 @@ function analyze(text,idx){
     for(var i=m.a;i<m.b;i++)if(used[i])return;
     for(i=m.a;i<m.b;i++)used[i]=1;kept.push(m);
   });
+  var zones=mayZones(tok,idx),negs={},arn={};
+  idx.neg.forEach(function(n){negs[n]=1});idx.aromaNext.forEach(function(n){arn[n]=1});
+  kept.forEach(function(m){
+    m.may=zones.some(function(z){return m.a>=z[0]&&m.a<z[1]});
+    var n1=tok[m.b]||"",n2=tok[m.b+1]||"";
+    m.neg=!!(negs[n1]||(negs[n2]&&!SEP[n1]&&n1!=="ve"));
+    m.aroma=!!(arn[n1]&&m.ids.every(function(id){var it=idx.byId[id];return it.isB&&!it.upf_class}));
+  });
   var merged={};
   kept.forEach(function(m){
-    var key=m.ids.slice().sort().join("+"),cur=merged[key];
+    var key=m.ids.slice().sort().join("+")+"/"+(m.neg?"n":"")+(m.may?"m":"")+(m.aroma?"a":"");
+    var cur=merged[key];
     if(!cur||pr[m.how]>pr[cur.how])merged[key]=m;
   });
   var res=Object.keys(merged).map(function(k){
-    var m=merged[k];
-    var lv=Math.max.apply(null,m.ids.map(function(id){return RANK[idx.byId[id].risk_level]}));
-    return {ids:m.ids,how:m.how,fixed:!!m.fixed,text:m.text,alias:m.alias,rank:lv};
+    var m=merged[k],isB=idx.byId[m.ids[0]].isB;
+    var lv=isB?-1:Math.max.apply(null,m.ids.map(function(id){return RANK[idx.byId[id].risk_level]}));
+    return {ids:m.ids,how:m.how,fixed:!!m.fixed,text:m.text,alias:m.alias,rank:lv,isB:isB,may:m.may,neg:m.neg,aroma:m.aroma,pos:m.a};
   });
-  res.sort(function(x,y){return y.rank-x.rank});
+  res.sort(function(x,y){return y.rank-x.rank||x.pos-y.pos});
   return res;
+}
+/* Analiz sonucunu özet bilgiye çevirir: şeker, palm, UPF, alerjen, laktoz, vegan, vejetaryen */
+function summarize(res,idx){
+  var bm=idx.bmeta,upfE=bm.upf_e_categories||{};
+  var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[]};
+  function al(f,kind,name){var a=o.allergen[f]=o.allergen[f]||{yes:[],may:[]};if(a[kind].indexOf(name)<0)a[kind].push(name)}
+  function push(arr,v){if(arr.indexOf(v)<0)arr.push(v)}
+  res.forEach(function(r){
+    r.ids.forEach(function(id){
+      var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
+      if(r.neg){push(o.claims,(it.isB?it.name:it.primary_name)+" içermez");return}
+      if(it.isB){
+        if(r.aroma){
+          fl.forEach(function(f){if(f.indexOf("allergen_")===0)al(f,"may",name+" (aroma)")});
+          if(fl.indexOf("lactose")>-1)push(o.lactose.may,name+" (aroma)");
+          if(fl.indexOf("non_vegan")>-1)push(o.vegan.unsure,name+" (aroma)");
+          if(fl.indexOf("non_vegetarian")>-1)push(o.veg.unsure,name+" (aroma)");
+          return;
+        }
+        fl.forEach(function(f){if(f.indexOf("allergen_")===0)al(f,r.may?"may":"yes",it.name)});
+        if(r.may){if(fl.indexOf("lactose")>-1)push(o.lactose.may,it.name);return}
+        if(fl.indexOf("sugar")>-1)o.sugar.push({name:it.name,hidden:fl.indexOf("sugar_hidden")>-1,text:r.text});
+        if(fl.indexOf("palm")>-1)push(o.palm,it.name);
+        if(it.upf_class)(o.upf[it.upf_class]=o.upf[it.upf_class]||[]).push(r.text);
+        if(fl.indexOf("lactose")>-1)push(o.lactose.yes,it.name);
+        if(fl.indexOf("lactose_low")>-1)push(o.lactose.low,it.name);
+        if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,it.name);
+        if(fl.indexOf("vegan_suspect")>-1)push(o.vegan.unsure,it.name);
+        if(fl.indexOf("non_vegetarian")>-1)push(o.veg.no,it.name);
+        if(fl.indexOf("vegetarian_suspect")>-1||fl.indexOf("vegan_suspect")>-1)push(o.veg.unsure,it.name);
+      }else{
+        var txt=" "+r.text+" ",kind=r.may?"may":"yes";
+        if(fl.indexOf("allergen_sulphite")>-1)al("allergen_sulphite",kind,name);
+        if(fl.indexOf("allergen_egg")>-1)al("allergen_egg",kind,name);
+        if(fl.indexOf("allergen_soy_possible")>-1)al("allergen_soy",txt.indexOf(" soya")>-1?kind:"may",name+(txt.indexOf(" soya")>-1?"":" (kaynağı soya olabilir)"));
+        if(r.may)return;
+        var cl=upfE[it.category];if(cl)(o.upf[cl]=o.upf[cl]||[]).push(it.id);
+        if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,name);
+        if(fl.indexOf("vegan_suspect")>-1){push(o.vegan.unsure,name);push(o.veg.unsure,name)}
+        if(fl.indexOf("insect_derived")>-1)push(o.veg.insect,name);
+        else if(fl.indexOf("non_vegetarian")>-1)push(o.veg.no,name);
+      }
+    });
+  });
+  return o;
+}
+/* Bakanlık listesindeki marka adlarını metinde arar (yalnızca bilgi amaçlı bağlantı) */
+var GENERIC=("sut urunleri urun gida ciftlik ciftligi mandira mandirasi koy koyu koop doga dogal yore yoresel kasap kasabi lokma petek royal elmas zirve sirin damar fidan sacak pelit yildiz makbul gurme baharat baharatlari peynir peyniri sucuk sucugu et eti bal bali zeytinyagi sizma naturel taze tam yagli kasar isil islem gormus ve ltd sti san tic sanayi ticaret limited sirketi organik ev evi evim lezzet lezzeti anadolu ege karadeniz akdeniz altin ozel premium gold super hakiki asil nefis kral sultan saray tatli aile usta has saf tabii kuzu kinali yaylasi yayla yag yagi tereyagi kaymak yogurt ayran helva lokum pekmez tahin firin firini unlu mamulleri kahve cay bitki market gurme lezzetleri kofte doner tavuk dana sigir tadinda tadi kekik oregano zeytin bahcesi keyif zamani dunyasi natural siyah mevsimsel park gross pek ala al guven sera lop i ehl urla binbir since life balance kids hayat ornek harika mutlu cenneti piknik").split(" ");
+function buildBrands(tg){
+  var stop={},map={};GENERIC.forEach(function(w){stop[w]=1});
+  var recs=[];Object.keys(tg.listeler||{}).forEach(function(k){recs=recs.concat(tg.listeler[k]||[])});
+  recs.forEach(function(r){[r.FirmaIl,r.FirmaIlce].forEach(function(x){if(x)norm(x).split(" ").forEach(function(w){stop[w]=1})})});
+  recs.forEach(function(r){
+    var raw=(r.Marka||"").trim();if(!raw||raw==="-")return;
+    var w=norm(raw).split(" ").filter(Boolean);if(!w.length)return;
+    if(w.length>4)w=w.slice(0,2);
+    if(w.every(function(x){return stop[x]||/^\d+$/.test(x)}))return;
+    var p=w.join(" ");
+    if(w.length===1&&p.length<5)return;
+    if(p.length<6&&w.length>1)return;
+    var e=map[p]=map[p]||{label:raw,q:w.length>2||raw.length<=40?raw:w.join(" "),n:0};e.n++;
+  });
+  return map;
+}
+function findBrands(text,brands){
+  var tok=normText(text).split(" ").filter(Boolean).map(function(t){return SEP[t]?"|":t}),s=" "+tok.join(" ")+" ",out=[];
+  Object.keys(brands).forEach(function(p){if(s.indexOf(" "+p+" ")>-1)out.push(brands[p])});
+  return out;
 }
 /*LOGIC-END*/
 
-var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare Worker adresi buraya yazılacak; boşsa telefonda Tesseract kullanılır
-var DB=null,IDX=null,FLAGS={},ST=document.getElementById("st"),LAST=[];
+var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare Worker adresi; boşsa telefonda Tesseract kullanılır
+var DB=null,BDB=null,IDX=null,FLAGS={},BRANDS=null,ST=document.getElementById("st"),LAST=[],LASTSUM=null,LASTBR=[];
 var CLS=["g","u","y","r"],LBL=["Özel uyarı yok","Durum doğrulanmadı","Dikkat","Uyarı"];
 function $(i){return document.getElementById(i)}
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
 window.onerror=function(m,src,l){ST.textContent="Sayfa hatası: "+m+" (satır "+l+")";};
-var PATHS=["data/e_kodlari.json","e_kodlari.json","data/e_kodlari (1).json"];
+
+/* ---------- Veri yükleme ---------- */
+var PATHS=["data/e_kodlari.json","e_kodlari.json"];
+function getJson(p){return fetch(p,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(p+" bulunamadı");return r.json()})}
 function loadDb(i){
   if(i>=PATHS.length){var msg="Katkı maddesi listesi bulunamadı. GitHub'da dosyanın adı tam olarak e_kodlari.json olmalı ve data klasöründe durmalı.";ST.textContent=msg;$("sonuc").textContent=msg;return}
-  fetch(PATHS[i],{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
-    DB=j;FLAGS=(j.meta&&j.meta.flags)||{};IDX=buildIndex(j);
-    ST.textContent="Katkı maddesi listesi yüklendi ("+j.ingredients.length+" madde, "+PATHS[i]+").";
-  }).catch(function(){loadDb(i+1)});
+  getJson(PATHS[i]).then(function(j){
+    DB=j;FLAGS=(j.meta&&j.meta.flags)||{};
+    return getJson("data/bilesenler.json").then(function(b){BDB=b},function(){BDB=null});
+  }).then(function(){
+    IDX=buildIndex(DB,BDB);
+    ST.textContent="Listeler yüklendi: "+DB.ingredients.length+" katkı maddesi"+(BDB?", "+BDB.items.length+" bileşen grubu.":". Bileşen listesi (data/bilesenler.json) bulunamadı; yalnızca E kodları aranacak.");
+    buildProfile();
+  }).catch(function(){if(!DB)loadDb(i+1)});
 }
 loadDb(0);
+getJson("data/tagsis.json").then(function(t){BRANDS=buildBrands(t)}).catch(function(){BRANDS=null});
 
-function render(res){
-  var box=$("sonuc");box.textContent="";LAST=res;
-  if(!res.length){box.textContent="Eşleşen katkı maddesi bulunamadı.";return}
-  var cnt=[0,0,0,0];res.forEach(function(r){cnt[r.rank]++});
-  var s=document.createElement("div");s.className="sum";
-  s.textContent=res.length+" madde: "+cnt[3]+" uyarı, "+cnt[2]+" dikkat, "+cnt[1]+" doğrulanmamış, "+cnt[0]+" özel uyarı yok";box.appendChild(s);
-  res.forEach(function(r){
-    var d=document.createElement("div");d.className="res "+CLS[r.rank];
-    var items=r.ids.map(function(id){return IDX.byId[id]});
-    var t=document.createElement("div");t.className="t";
-    t.textContent=items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+items[0].primary_name+" (tür belirtilmemiş)");
-    d.appendChild(t);
-    var h=document.createElement("div");h.className="how";
-    h.textContent=LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”");
-    d.appendChild(h);
-    var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
-    if(it.risk_level!=="green"||it.flags.length){
-      var p=document.createElement("div");p.style.fontSize="14px";p.style.marginTop="6px";p.textContent=it.risk_level!=="green"?it.reason:"";if(it.risk_level!=="green")d.appendChild(p);
-      it.flags.forEach(function(f){if(f==="sodium"||f==="aluminium")return;var c=document.createElement("span");c.className="chip";c.textContent=FLAGS[f]||f;d.appendChild(c)});
-    }
-    box.appendChild(d);
+/* ---------- Profil ---------- */
+var PROF={al:[],lactose:false,vegan:false,veg:false};
+try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)PROF=sp}catch(e){}
+function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
+function buildProfile(){
+  var box=$("profil");box.textContent="";
+  if(!BDB){box.appendChild(el("div","mut","Profil filtreleri için bileşen listesi gerekli."));return}
+  function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
+  box.appendChild(el("div","pt","Alerjenler"));
+  var g=el("div","pg");
+  BDB.meta.allergens.forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
+  box.appendChild(g);
+  box.appendChild(el("div","pt","Diğer"));
+  var g2=el("div","pg");
+  g2.appendChild(cb("Laktoz intoleransı",PROF.lactose,function(v){PROF.lactose=v}));
+  g2.appendChild(cb("Vegan",PROF.vegan,function(v){PROF.vegan=v}));
+  g2.appendChild(cb("Vejetaryen",PROF.veg,function(v){PROF.veg=v}));
+  box.appendChild(g2);
+  box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
+  updProfSum();
+}
+function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
+function updProfSum(){
+  var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0);
+  $("profsum").textContent=n?("Profilim ("+n+" seçim)"):"Profilim (alerjen, laktoz, vegan…)";
+}
+
+/* ---------- Sonuç ekranı ---------- */
+function card(cls,title,lines){
+  var d=el("div","res "+cls);d.appendChild(el("div","t",title));
+  (lines||[]).forEach(function(l){if(l)d.appendChild(typeof l==="string"?el("div","ln",l):l)});
+  return d;
+}
+function profileCards(S){
+  var out=[],any=PROF.al.length||PROF.lactose||PROF.vegan||PROF.veg;
+  if(!any)return out;
+  if(PROF.al.length){
+    var yes=[],may=[];
+    PROF.al.forEach(function(f){var a=S.allergen[f];if(!a)return;if(a.yes.length)yes.push(alName(f)+": "+a.yes.join(", "));if(a.may.length)may.push(alName(f)+": "+a.may.join(", "))});
+    if(yes.length)out.push(card("r","Seçtiğiniz alerjen var",yes.concat(may.length?["Ayrıca içerebilir → "+may.join("; ")]:[])));
+    else if(may.length)out.push(card("y","Seçtiğiniz alerjeni içerebilir",may));
+    else out.push(card("g","Seçtiğiniz alerjenler metinde bulunamadı",["Bu bir onay değildir. Okuma hatası olabilir; etiketteki koyu yazılmış alerjenleri kendiniz kontrol edin."]));
+  }
+  if(PROF.lactose){
+    var L=S.lactose;
+    if(L.yes.length)out.push(card("r","Laktoz içerir",[L.yes.join(", ")].concat(L.low.length?["Düşük laktozlu: "+L.low.join(", ")]:[])));
+    else if(L.low.length||L.may.length)out.push(card("y","Laktoz düşük ya da belirsiz",[L.low.length?"Düşük laktozlu: "+L.low.join(", "):"",L.may.length?"İçerebilir / aroma: "+L.may.join(", "):""]));
+    else out.push(card("g","Laktoz kaynağı bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+  }
+  if(PROF.vegan){
+    var V=S.vegan;
+    if(V.no.length)out.push(card("r","Vegan değil",[V.no.join(", ")].concat(V.unsure.length?["Kaynağı belirsiz: "+V.unsure.join(", ")]:[])));
+    else if(V.unsure.length)out.push(card("y","Vegan uygunluğu belirsiz",["Kaynağı bitkisel ya da hayvansal olabilir: "+V.unsure.join(", ")]));
+    else out.push(card("g","Hayvansal içerik bulunamadı",["Bu bir onay değildir; vegan logosu ya da sertifika en güvenilir göstergedir."]));
+  }
+  if(PROF.veg){
+    var G=S.veg;
+    if(G.no.length||G.insect.length)out.push(card("r","Vejetaryen değil",[G.no.length?G.no.join(", "):"",G.insect.length?"Böcek kaynaklı: "+G.insect.join(", "):""].concat(G.unsure.length?["Kaynağı belirsiz: "+G.unsure.join(", ")]:[])));
+    else if(G.unsure.length)out.push(card("y","Vejetaryen uygunluğu belirsiz",["Kaynağı belirsiz: "+G.unsure.join(", ")]));
+    else out.push(card("g","Et, balık ve kesim yan ürünü bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+  }
+  return out;
+}
+function summaryCard(S,res){
+  var d=el("div","res sumbox");d.appendChild(el("div","t","Özet"));
+  function row(label,val,cls){var r=el("div","srow");r.appendChild(el("span","sl",label));var v=el("span","sv"+(cls?" "+cls:""));if(typeof val==="string")v.textContent=val;else v.appendChild(val);r.appendChild(v);d.appendChild(r)}
+  var E=res.filter(function(r){return !r.isB&&!r.neg}),cnt=[0,0,0,0];E.forEach(function(r){cnt[r.rank]++});
+  row("Katkı maddesi",E.length?(E.length+" adet: "+cnt[3]+" uyarı, "+cnt[2]+" dikkat"+(cnt[1]?", "+cnt[1]+" doğrulanmamış":"")):"Bulunamadı",cnt[3]?"r":cnt[2]?"y":"");
+  if(S.sugar.length){
+    var f=document.createDocumentFragment();
+    f.appendChild(document.createTextNode(S.sugar.length+" kaynak: "));
+    S.sugar.forEach(function(s,i){if(i)f.appendChild(document.createTextNode(", "));f.appendChild(document.createTextNode(s.name));if(s.hidden){f.appendChild(document.createTextNode(" "));f.appendChild(el("span","chip","gizli"))}});
+    row("Şeker",f,S.sugar.some(function(s){return s.hidden})?"y":"");
+  }else row("Şeker","Kaynak bulunamadı");
+  row("Palm yağı",S.palm.length?"Var ("+S.palm.join(", ")+")":"Bulunamadı",S.palm.length?"y":"");
+  var u=Object.keys(S.upf);
+  row("Ultra işlenmiş gıda",u.length?(u.length+" işaret: "+u.join(", ")):"İşaret bulunamadı",u.length>=2?"y":"");
+  var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
+  row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
+  if(S.claims.length)row("Etiket beyanı",S.claims.join(", "));
+  if(u.length)d.appendChild(el("div","how","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
+  return d;
+}
+function brandCard(br){
+  var d=el("div","res u");d.appendChild(el("div","t","Bakanlık listesinde benzer marka adı"));
+  br.forEach(function(b){
+    var r=el("div","ln");r.appendChild(document.createTextNode("“"+b.label+"” adı listede "+b.n+" kayıtta geçiyor. "));
+    var a=el("a",null,"Listede gör");a.href="index.html?q="+encodeURIComponent(b.q);r.appendChild(a);d.appendChild(r);
   });
+  d.appendChild(el("div","how","Liste ürün ve parti bazındadır. Aynı adın geçmesi bu ürünün listede olduğu anlamına gelmez; ürün adını ve parti numarasını karşılaştırın."));
+  return d;
+}
+function additiveCard(r){
+  var d=el("div","res "+CLS[r.rank]);
+  var items=r.ids.map(function(id){return IDX.byId[id]});
+  d.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+items[0].primary_name+" (tür belirtilmemiş)")));
+  d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
+  var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
+  if(it.risk_level!=="green"){var p=el("div","ln",it.reason);d.appendChild(p)}
+  it.flags.forEach(function(f){if(f==="sodium"||f==="aluminium"||f==="gmo_suspect")return;d.appendChild(el("span","chip",FLAGS[f]||f))});
+  return d;
+}
+function render(res,br){
+  var box=$("sonuc");box.textContent="";LAST=res;LASTBR=br||[];
+  var S=summarize(res,IDX);LASTSUM=S;
+  if(!res.length&&!LASTBR.length){box.textContent="Eşleşen bir şey bulunamadı. Metni kontrol edin.";return}
+  profileCards(S).forEach(function(c){box.appendChild(c)});
+  box.appendChild(summaryCard(S,res));
+  if(LASTBR.length)box.appendChild(brandCard(LASTBR));
+  var E=res.filter(function(r){return !r.isB&&!r.neg});
+  if(E.length){box.appendChild(el("h2",null,"Katkı maddeleri"));E.forEach(function(r){box.appendChild(additiveCard(r))})}
+  var notes=res.filter(function(r){return r.isB&&!r.neg}).map(function(r){return IDX.byId[r.ids[0]]}).filter(function(it){return it.note});
+  if(notes.length){
+    box.appendChild(el("h2",null,"Notlar"));
+    var seen={};notes.forEach(function(it){if(seen[it.id])return;seen[it.id]=1;box.appendChild(el("div","ln nt",it.name+": "+it.note))});
+  }
+  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
 }
 function run(){
-  if(!IDX){$("sonuc").textContent="Katkı maddesi listesi henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
-  if(!$("metin").value.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
-  try{render(analyze($("metin").value,IDX))}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+  if(!IDX){$("sonuc").textContent="Listeler henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
+  var t=$("metin").value;
+  if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
+  try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[])}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
 }
 $("analiz").onclick=run;
-$("ornek").onclick=function(){$("metin").value="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici. Enerji 450 kcal, E 100 g";run()};
+$("ornek").onclick=function(){$("metin").value="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";run()};
 $("kopya").onclick=function(){
-  var o={metin:$("metin").value,bulunan:LAST.map(function(r){return r.ids.join("+")+" ("+r.how+(r.fixed?",düzeltildi":"")+")"})};
+  function tag(r){return r.ids.join("+")+" ("+r.how+(r.fixed?",düzeltildi":"")+(r.may?",içerebilir":"")+(r.neg?",içermez":"")+(r.aroma?",aroma":"")+")"}
+  var o={metin:$("metin").value,bulunan:LAST.filter(function(r){return !r.isB}).map(tag),bilesen:LAST.filter(function(r){return r.isB}).map(tag),
+    marka:LASTBR.map(function(b){return b.label}),profil:PROF,surum:{e:DB&&DB.meta&&DB.meta.version,b:BDB&&BDB.meta.version}};
   var s=JSON.stringify(o,null,1);
   if(navigator.clipboard)navigator.clipboard.writeText(s).then(function(){ST.textContent="Sonuç panoya kopyalandı."},function(){$("metin").select()});else $("metin").select();
 };
+
 $("foto").onchange=function(){
   var f=this.files[0];if(!f)return;var im=$("pre");im.src=URL.createObjectURL(f);im.style.display="block";$("oku").disabled=false;
 };

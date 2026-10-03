@@ -71,7 +71,7 @@ footer{color:var(--mute);font-size:12px;padding:16px 0 24px}
 <div class="count" id="count"></div>
 <div id="list"></div>
 
-<footer>Kaynak: guvenilirgida.tarimorman.gov.tr. Bilgiler bakanlığın duyurusuyla aynen gösterilir; bu uygulama yorum eklemez.</footer>
+<footer>Kaynak: guvenilirgida.tarimorman.gov.tr. Bilgiler bakanlığın duyurusuyla aynen gösterilir; bu uygulama yorum eklemez. Bu uygulama resmi bir uygulama değildir; Tarım ve Orman Bakanlığı ile bağlantısı yoktur.</footer>
 </div>
 <script>
 var RAW=[
@@ -162,6 +162,7 @@ document.getElementById("reset").addEventListener("click",function(){
   try{localStorage.removeItem("tagsis_raw")}catch(e){}
   DATA=build(RAW);IMPORTED=false;opts();render();$msg.textContent="Örnek veriye dönüldü.";
 });
+try{var QP=new URLSearchParams(location.search).get("q");if(QP)$q.value=QP}catch(e){}
 opts();render();
 try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}
 fetch("data/tagsis.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
