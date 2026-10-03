@@ -21,7 +21,10 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 button,.btn{font:inherit;font-weight:600;padding:10px 14px;border-radius:10px;border:1.5px solid var(--ok);background:var(--ok);color:var(--bg);cursor:pointer}
 button.alt{background:none;color:var(--ok)}button:disabled{opacity:.5}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
-input[type=file]{width:100%;padding:10px;border:1.5px dashed var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+label.camera{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:1.5px dashed var(--ok);border-radius:12px;background:var(--card);color:var(--ink);font-weight:600;cursor:pointer}
+label.camera svg{flex:0 0 auto;width:40px;height:40px;padding:8px;border-radius:50%;background:var(--ok);fill:none;stroke:var(--bg);stroke-width:2;stroke-linejoin:round}
+#foto:focus-visible+img,label.camera:focus-within{outline:3px solid var(--ok)}
 img#pre{max-width:100%;max-height:260px;border-radius:8px;display:none;margin-top:8px}
 textarea{width:100%;min-height:140px;font:14px/1.4 ui-monospace,monospace;padding:10px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
 .res{background:var(--card);border:1px solid var(--line);border-left:8px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
@@ -35,7 +38,11 @@ details#okunan{margin:20px 0 8px}details#okunan summary{font-size:18px;font-weig
 .sl{flex:0 0 38%;color:var(--mute)}.sv{flex:1;min-width:0}.sv.r{color:var(--red);font-weight:600}.sv.y{color:var(--yel);font-weight:600}
 details#pd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:10px 0}
 details#pd summary{font-weight:700;cursor:pointer}.pt{font-weight:600;font-size:14px;margin:10px 0 4px}
-.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}.pc{font-size:14px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}.pc{font-size:14px;display:flex;gap:6px;align-items:flex-start}.pc input{margin-top:3px;flex:0 0 auto}
+.pbox{border:1px solid var(--line);border-radius:10px;padding:4px 12px 10px;margin:10px 0;background:var(--bg)}.pbox .pt{font-size:15px;margin:8px 0 6px}
+/* Profil sekmesi: sayfada yalnızca başlık ve profil görünür */
+body.mode-profil .w>:not(h1):not(#pd){display:none!important}
+body.mode-profil details#pd{border:0;background:none;padding:0}body.mode-profil details#pd>summary{display:none}
 a{color:var(--ok);font-weight:600}
 .hd{display:flex;align-items:flex-start;gap:8px}.hd .t{flex:1;min-width:0}
 button.info{flex:0 0 auto;width:30px;height:30px;padding:0;border-radius:50%;font:italic 700 16px/1 Georgia,serif;background:none;color:var(--ok);border:1.5px solid var(--ok)}
@@ -52,7 +59,6 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <body>
 <div class="w">
 <h1>Etiket oku</h1>
-<p class="sub">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</p>
 <details class="gz" id="gizlilik"><summary>Gizlilik: fotoğrafınıza ne oluyor?</summary>
 <ul>
 <li>Fotoğraf, yalnızca üzerindeki yazının okunması için Google Cloud Vision hizmetine gönderilir. Bu uygulama fotoğrafı ve okunan metni kaydetmez. Google tarafındaki işlem Google'ın kendi koşullarına tabidir.</li>
@@ -64,7 +70,8 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 
 <details id="pd"><summary id="profsum">Profilim (alerjen, vegan, hamile, çocuk…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
 
-<input type="file" id="foto" accept="image/*" capture="environment">
+<label class="camera" for="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span>Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</span></label>
+<input type="file" id="foto" class="vh" accept="image/*" capture="environment">
 <img id="pre" alt="Seçilen fotoğraf">
 <div class="row">
 <label><input type="checkbox" id="onis" checked> Görüntüyü iyileştir</label>
@@ -350,20 +357,18 @@ function buildProfile(){
   var box=$("profil");box.textContent="";
   if(!BDB){box.appendChild(el("div","mut","Profil filtreleri için bileşen listesi gerekli."));return}
   function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
-  box.appendChild(el("div","pt","Alerjenler"));
-  var g=el("div","pg");
+  function pbox(t){var d=el("div","pbox");d.appendChild(el("div","pt",t));box.appendChild(d);return d}
+  var b1=pbox("Alerjenler"),g=el("div","pg");
   BDB.meta.allergens.forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
-  box.appendChild(g);
-  box.appendChild(el("div","pt","Diğer"));
-  var g2=el("div","pg");
+  b1.appendChild(g);
+  var b2=pbox("Diğer"),g2=el("div","pg");
   g2.appendChild(cb("Laktoz intoleransı",PROF.lactose,function(v){PROF.lactose=v}));
   g2.appendChild(cb("Vegan",PROF.vegan,function(v){PROF.vegan=v}));
   g2.appendChild(cb("Vejetaryen",PROF.veg,function(v){PROF.veg=v}));
-  box.appendChild(g2);
-  box.appendChild(el("div","pt","Yaşam evresi ve diğer"));
-  var g3=el("div","pg");
+  b2.appendChild(g2);
+  var b3=pbox("Yaşam Evresi ve Diğer"),g3=el("div","pg");
   LIFE.forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
-  box.appendChild(g3);
+  b3.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
   updProfSum();
 }
@@ -529,7 +534,10 @@ $("ornek").onclick=function(){$("metin").value="İçindekiler: Şeker, buğday u
 function tabSync(){
   var prof=location.hash==="#profil";
   document.querySelectorAll(".tabbar a").forEach(function(a){if(a.getAttribute("data-tab")===(prof?"profil":"oku"))a.setAttribute("aria-current","page");else if(a.getAttribute("data-tab")!=="liste")a.removeAttribute("aria-current")});
-  if(prof){$("pd").open=true;$("pd").scrollIntoView({block:"start"})}
+  document.body.classList.toggle("mode-profil",prof);
+  document.querySelector("h1").textContent=prof?"Profilim":"Etiket oku";
+  document.title=prof?"Profilim":"Etiket Oku";
+  if(prof){$("pd").open=true;window.scrollTo(0,0)}
 }
 window.addEventListener("hashchange",tabSync);tabSync();
 $("pd").addEventListener("toggle",function(){if(!$("pd").open&&location.hash==="#profil")history.replaceState(null,"",location.pathname+location.search);tabSync()});
