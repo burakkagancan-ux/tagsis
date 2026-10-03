@@ -164,9 +164,11 @@ function buildIndex(db,bdb){
       var k=norm(c.alias);(ctx[k]=ctx[k]||{req:c.requires_any.map(norm),ids:[]}).ids.push(it.id);
     });
   });
-  exact.forEach(function(ids,n){var k=n.split(" ").length;ks[k]=1;if(n.length>=8){(byK[k]=byK[k]||[]).push({n:n,ids:Array.from(ids)})}});
+  var short1=[];   // kısa tek sözcüklü bileşen adları (alerjen, şeker vb.; E kodu adları hariç: "niasin" -> nisin olmasın). Yalnızca tek adayla benzer yazım ("svt" değil, "susarn" -> susam)
+  exact.forEach(function(ids,n){var k=n.split(" ").length;ks[k]=1;if(n.length>=8){(byK[k]=byK[k]||[]).push({n:n,ids:Array.from(ids)})}
+    if(k===1&&n.length>=4&&n.length<=8&&!/\d/.test(n))short1.push({n:n,ids:Array.from(ids)})});
   var m=(bdb&&bdb.meta)||{};
-  return {exact:exact,nos:nos,byK:byK,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx,
+  return {exact:exact,nos:nos,byK:byK,short1:short1,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx,
     bmeta:m,may:(m.may_triggers||[]),neg:(m.negations||[]),aromaNext:(m.aroma_next||[])};
 }
 function codeId(cand,idx){
@@ -196,6 +198,14 @@ function findCodes(tok,idx){
   }
   return out;
 }
+var OCRDF={"0":"o","1":"l","5":"s","8":"b","6":"g"};
+function ocrFixF(w){
+  return w.split(" ").map(function(x){
+    if(x.indexOf("rn")>-1&&x.indexOf("karnauba")<0)x=x.replace(/rn/g,"m");
+    if(/\d/.test(x)&&(x.match(/[a-z]/g)||[]).length>=3)x=x.replace(/\d+(?=[a-z])|(?<=[a-z])\d+(?=[a-z])/g,function(ds){return ds.replace(/\d/g,function(d){return OCRDF[d]||d})});
+    return x;
+  }).join(" ");
+}
 function findNames(tok,idx){
   var out=[],i;
   idx.ks.forEach(function(k){
@@ -204,6 +214,17 @@ function findNames(tok,idx){
       var w=part.join(" "),hit=idx.exact.get(w);
       if(!hit&&k<=4)hit=idx.nos.get(part.join(""));
       if(hit){out.push({a:i,b:i+k,ids:Array.from(hit),how:"isim",text:w});continue}
+      var fx=ocrFixF(w);   // sık OCR karışmaları: "rn"->"m", harf arasındaki rakam ("5itrik", "fınd1k")
+      if(fx!==w&&(hit=idx.exact.get(fx))){out.push({a:i,b:i+k,ids:Array.from(hit),how:"benzer",text:w,alias:fx});continue}
+      if(k===1&&w.length>=5&&w.length<8&&idx.short1){
+        var one=null,many=false;
+        for(var q0=0;q0<idx.short1.length&&!many;q0++){var c0=idx.short1[q0];
+          if((c0.n[0]!==fx[0]&&!(/[il]/.test(c0.n[0])&&/[il]/.test(fx[0])))||Math.abs(c0.n.length-fx.length)>1)continue;
+          if(fx.indexOf(c0.n)===0||c0.n.indexOf(fx)===0)continue;   // yalnızca sondaki ek farkı: Türkçe çekim eki olabilir ("alkolü" -> alkol değil)
+          if(lev(fx,c0.n,1)===1){if(one&&one.ids.join()!==c0.ids.join())many=true;else one=c0}}
+        if(one&&!many&&one.ids.every(function(x){return x.indexOf("B:")===0}))out.push({a:i,b:i+k,ids:one.ids,how:"benzer",text:w,alias:one.n});
+        continue;
+      }
       var list=idx.byK[k];if(!list||w.length<8)continue;
       var t=w.length>=12?2:1;
       for(var q=0;q<list.length;q++){
@@ -411,13 +432,30 @@ function inciItems(text){
   });
   return out;
 }
-function kLookup(k,K){
+/* Sık OCR karışmaları: "rn"->"m" ("Parfurn"), harf içindeki rakam ("8enzyl", "50dium", "Pantheh0l").
+   Rakam yalnızca en az 3 harf içeren sözcükte ve sözcüğün sonunda değilse harfe çevrilir (PEG-32, C12-15, CI 77891 korunur). */
+var KSHORT=["water","parfum","aroma","silica","butane","kaolin","glycol"];   // 4 harfliler (aqua, mica, talc, urea) bilerek yok: "area", "talk" gibi sözcüklerle karışır
+var OCRD={"0":"o","1":"l","5":"s","8":"b","6":"g"};
+function ocrFix(k){
+  return k.split(" ").map(function(w){
+    if(w.indexOf("rn")>-1)w=w.replace(/rn/g,"m");
+    if(/\d/.test(w)&&(w.match(/[a-z]/g)||[]).length>=3)w=w.replace(/\d+(?=[a-z])/g,function(ds){return ds.replace(/\d/g,function(d){return OCRD[d]||d})});
+    return w;
+  }).join(" ");
+}
+function kLookup(k,K,noFix){
   if(!k)return null;
   var s=K.map.get(k);if(s)return {s:s,how:"isim",key:k};
   var ns=K.nos.get(k.replace(/ /g,""));if(ns)return {s:K.map.get(ns),how:"isim",key:ns};
   var ci=/^c[il1] ?([0-9oils]{5})$/.exec(k);
   if(ci){var d=ci[1].replace(/o/g,"0").replace(/[il]/g,"1").replace(/s/g,"5"),k2="ci "+d;s=K.map.get(k2);if(s)return {s:s,how:d!==ci[1]?"benzer":"isim",key:k2}}
-  if(k.length<7||k.length>60)return null;
+  if(!noFix){var fx=ocrFix(k);if(fx!==k){var hf=kLookup(fx,K,true);if(hf)return {s:hf.s,how:"benzer",key:hf.key,dist:(hf.dist||0)+1}}}
+  if(k.length<7){   // kısa adlarda benzer yazım yalnızca çok sık görülen birkaç ad için (yanlış eşleşmeyi önlemek için)
+    if(k.length<5)return null;
+    var hit=null;for(var j=0;j<KSHORT.length;j++)if(lev(k,KSHORT[j],1)===1){if(hit)return null;hit=KSHORT[j]}
+    return hit&&K.map.get(hit)?{s:K.map.get(hit),how:"benzer",key:hit,dist:1}:null;
+  }
+  if(k.length>60)return null;
   var t=k.length>=14?2:1,best=null,bd=t+1,tie=false,ln,q,list,c,d2;
   function scan(bucket,ref){
     for(ln=k.length-t;ln<=k.length+t;ln++){list=bucket[ref+ln]||[];
@@ -453,6 +491,7 @@ function kSegment(raw,K){
       var key=tk.slice(i,i+L).join(" ");
       if(L===1&&(key.length<4||/^\d/.test(key)))continue;
       var h=kLookup(key,K);if(!h)continue;
+      if(h.how==="benzer"&&key.length<7)continue;   // kısa sözcükte benzer yazım yalnızca virgülle ayrılmış öğede kabul edilir ("later" -> WATER olmasın)
       if(h.how==="benzer"&&(/^\d+$/.test(tk[i])||/^\d+$/.test(tk[i+L-1]))&&h.key.indexOf(tk[i+L-1])<0)continue;   // "SODIUM FLUORIDE 0" gibi sayı yutan eşleşme olmaz
       upd(i+L,best[i].sc+L*10-1-(h.how==="benzer"?4+(h.dist||1)*2:0),i,h);
     }
