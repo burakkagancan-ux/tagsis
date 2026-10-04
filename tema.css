@@ -1,0 +1,16 @@
+/* Ortak görünüm (ansiklopedi ile aynı): index.html, ocr.html, ansiklopedi.html. Yazı tipleri fonts/ansiklopedi.css'te. */
+:root{--bg:#F5F1E8;--card:#FFFFFF;--line:#E4DED2;--ok:#1F4D3A;--ink:#1B211E;--mute:#5A615C;
+--amb:#8A5A00;--ambbg:#FFF3D1;--hi:#A4470B;--hibg:#FCE9DA;--red:#B3261E;--redbg:#FBE9E7;--okbg:#E6EFE9;--sunk:#EEE9DD;
+--hf:"Bricolage Grotesque",system-ui,sans-serif;--bf:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+--warn:var(--hi);--warnbg:var(--hibg);--yel:var(--amb);--yelbg:var(--ambbg);--unbg:var(--sunk)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--bf)}
+a{color:var(--ok);font-weight:600}
+h1,h2,h3{font-family:var(--hf);font-weight:700;line-height:1.2}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabbar a{flex:1;max-width:240px;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 4px 7px;font-size:12px;font-weight:600;color:var(--mute);text-decoration:none}
+.tabbar a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tabbar a[aria-current="page"]{color:var(--ok)}
