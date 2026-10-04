@@ -4,6 +4,7 @@
 #        ca = ABD Kaliforniya yasağı; asean = ASEAN Kozmetik Direktifi yasağı; ab_reach = AB REACH Ek XVII kısıtlaması;
 #        tr_taslak = Türkiye yönetmelik taslağı; eu_svhc_ed = REACH aday listesi (endokrin gerekçesi);
 #        ab_taslak = AB Eylül 2026 taslak tüzüğü; dk = Danimarka; fr = Fransa ANSES listesi (yalnızca bulunan örnekler);
+#        komedo = Fulton 1989 komedojenite testi (bilgi notu, renk değiştirmez; durulanan üründe gösterilmez);
 #        sin = ChemSec SIN List, lisans izni bekliyor, satır yok)
 # inci: etiketteki INCI adları (; ile ayrılır). Eşleştirme yalnızca bu adlarla yapılır; CAS belgeleme içindir.
 # tarih: listeye girme ya da yasağın başlama tarihi. inceleme: 1 = resmi metinle satır satır karşılaştırılmadı.
@@ -105,3 +106,12 @@ fr	DIBUTYL PHTHALATE	84-74-2		2023-10-12	Fransa ANSES endokrin bozucu listesi (A
 fr	DIETHYLHEXYL PHTHALATE	117-81-7		2023-10-12	Fransa ANSES endokrin bozucu listesi (AGEC md. 13)	Listedeki kategorisi (kanıtlanmış / varsayılan) bu kaynakta ayrıca belirtilmedi.	https://www.phytodia.com/fr/blog/france-publie-liste-perturbateurs-endocriniens-n223	1
 fr	BUTYL BENZYL PHTHALATE	85-68-7		2023-10-12	Fransa ANSES endokrin bozucu listesi (AGEC md. 13)	Listedeki kategorisi (kanıtlanmış / varsayılan) bu kaynakta ayrıca belirtilmedi.	https://www.phytodia.com/fr/blog/france-publie-liste-perturbateurs-endocriniens-n223	1
 fr	DIISOBUTYL PHTHALATE	84-69-5		2023-10-12	Fransa ANSES endokrin bozucu listesi (AGEC md. 13)	Listedeki kategorisi (kanıtlanmış / varsayılan) bu kaynakta ayrıca belirtilmedi.	https://www.phytodia.com/fr/blog/france-publie-liste-perturbateurs-endocriniens-n223	1
+komedo	ISOPROPYL MYRISTATE	110-27-0		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da 5 (en yüksek; testte karşılaştırma maddesi). Kligman 1996'ya göre saf hâlde 2–3, %2,5'te 0; kaynaklar çelişiyor.	https://library.scconline.org/v040n06/15	0
+komedo	MYRISTYL MYRISTATE	3234-85-3		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da 5 (en yüksek).	https://library.scconline.org/v040n06/15	0
+komedo	LAURETH-4	5274-68-0		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da 5 (en yüksek).	https://library.scconline.org/v040n06/17	0
+komedo	OLETH-3	5274-66-8		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da 5 (en yüksek).	https://library.scconline.org/v040n06/17	0
+komedo	ACETYLATED LANOLIN ALCOHOL	61788-49-6		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da hem gözenek tıkayıcı hem tahriş edici bulundu. Kligman 1996'ya göre saf hâlde 4–5, %2,5'te 1.	https://library.scconline.org/v040n06/19	0
+komedo	THEOBROMA CACAO SEED BUTTER	8002-31-1		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Kakao yağı. Fulton 1989'da 4.	https://library.scconline.org/v040n06/17	0
+komedo	COCOS NUCIFERA OIL	8001-31-8		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Hindistan cevizi yağı. Fulton 1989'da “coconut butter” adıyla 4.	https://library.scconline.org/v040n06/17	0
+komedo	STEARETH-10	9005-00-9		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da 4.	https://library.scconline.org/v040n06/17	0
+komedo	ISOSTEARYL NEOPENTANOATE	58958-60-4		1989	Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989'da gözenek tıkayıcı maddeler arasında anılıyor; sayısal not okunamadı.	https://library.scconline.org/v040n06/17	1

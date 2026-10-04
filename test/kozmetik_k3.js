@@ -43,6 +43,11 @@ const cases=[
  // Endokrin: REACH aday listesi, AB Eylül 2026 taslağı, Danimarka, Fransa (04.10.2026)
  ["Aqua, Butylparaben, Benzophenone-1, Resorcinol",{"BUTYLPARABEN":["yellow",["ab_ed_b","ab_taslak","dk","eu_svhc_ed","fr"]],"BENZOPHENONE-1":["yellow",["ab_ed_b","ab_taslak"]],"RESORCINOL":["yellow",["ab_ed_a","eu_svhc_ed"]]},
   s=>s.ed.length===3&&s.child.length===1&&s.ban.length===0],
+ // Komedojenite: bilgi notu, renk değiştirmez; ABD yazımıyla da bulunur
+ ["Aqua, Isopropyl Myristate, Cocos Nucifera (Coconut) Oil, Theobroma Cacao Seed Butter, Glycerin",
+  {"ISOPROPYL MYRISTATE":["info",["komedo"]],"COCOS NUCIFERA OIL":["info",["komedo"]],"THEOBROMA CACAO SEED BUTTER":["info",["komedo"]],"GLYCERIN":["info",[]]},
+  s=>s.comedo.length===3&&s.ed.length===0&&s.yellow.length===0],
+ ["Aqua, Laureth-4, Propylparaben",{"LAURETH-4":["info",["komedo"]],"PROPYLPARABEN":["yellow",["ab_ed_a","dk"]]},s=>s.comedo.length===1&&s.ed.length===1],
  // PFAS: Kaliforniya AB 2771 bilgisi bayrak açıklamasında
  ["PTFE, Mica",{"PTFE":["orange",[]]},s=>s.pfas.length===1],
 ];
@@ -69,6 +74,9 @@ const mbc=kdb.watch.find(w=>w.list==='ab_ed_a'&&w.inci.includes('4-METHYLBENZYLI
 ['eu_svhc_ed','ab_taslak','dk','fr'].forEach(l=>ok(WL[l]&&WL[l].level==='yellow','yeni liste sarı: '+l));
 ok(WL.fr.kind==='ed'&&WL.eu_svhc_ed.kind==='ed'&&WL.dk.kind==='child','liste türleri');
 ok(kdb.meta.known_gaps.some(g=>/Fransa ANSES/.test(g)),'gelişim alanı notu');
+ok(WL.komedo&&WL.komedo.level==='info'&&WL.komedo.kind==='comedo','komedo listesi bilgi düzeyinde');
+ok(kdb.watch.filter(w=>w.list==='komedo').length===9,'komedo 9 madde');
+ok(kdb.meta.known_gaps.some(g=>/Komedojenite/.test(g)),'komedojenite gelişim notu');
 // summarizeK eski çağrı biçimi (K olmadan) çalışmaya devam etmeli
 ok(KL.summarizeK(KL.analyzeK("Aqua, Methylparaben",K,{})).ed.length===1,'summarizeK K olmadan');
 console.log(n+' K3 denetimi, '+fail+' hata');

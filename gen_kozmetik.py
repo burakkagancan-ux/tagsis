@@ -66,6 +66,9 @@ WATCH_LISTS = {
            "text": "Danimarka, endokrin bozucu şüphesi nedeniyle bu maddeyi 3 yaş altı çocuklara yönelik kozmetiklerde AB'den önce ulusal olarak yasakladı."},
     "fr": {"label": "Fransa – ANSES endokrin bozucu listesi", "chip": "Fransa endokrin listesinde", "level": "yellow", "kind": "ed",
            "text": "Fransa'nın 12 Ekim 2023'te yayımladığı 128 maddelik resmi endokrin bozucu listesinde. Fransa'da bu listedeki kanıtlanmış ya da varsayılan endokrin bozucuları içeren ürünler için üretici dijital ortamda bilgi vermek zorundadır. Uygulamada listenin yalnızca ikincil kaynaklarda adı geçen maddeleri var; tam liste eklenmedi."},
+    "komedo": {"label": "Gözenek tıkayıcılık (komedojenite) testleri", "chip": "Gözenek tıkayıcı olabilir",
+               "level": "info", "kind": "comedo",
+               "text": "Eski laboratuvar testlerinde (tavşan kulağı, çoğunlukla saf madde) gözenek tıkayıcı bulundu. Ürünlerde genellikle düşük oranda bulunur ve etkisi orana ve formüle göre değişir; bu etiketten anlaşılamaz. Bu bir yasak ya da sağlık uyarısı değildir. Cildiniz akneye eğilimliyse ürünü önce küçük bir alanda deneyin."},
     "sin": {"label": "ChemSec SIN List", "chip": "SIN List", "level": "yellow", "kind": "ngo",
             "text": "Sivil toplum kuruluşu ChemSec'in, AB REACH ölçütlerine göre 'çok yüksek endişe verici' aday gördüğü maddeler listesinde. Resmi bir yasak değildir."},
 }
@@ -735,6 +738,7 @@ def main():
                 "K3: Kanada Hotlist, Çin, Japonya, Kore, Brezilya ve ABD'nin diğer eyalet yasakları (ör. Washington) eklenmedi.",
                 "Endokrin: Fransa ANSES listesinin tam metni (Légifrance) ve edlists.org listeleri eklenmedi; yalnızca ikincil kaynaklarda adı geçen Fransa maddeleri var.",
                 "Endokrin: AB CLP ED HH 1/2 sınıflandırması almış maddeler henüz taranmadı.",
+                "Komedojenite: liste Fulton 1989'da en yüksek bulunan 9 maddeyle başladı; kaynakla genişletilecek (ör. izopropil palmitat, izopropil izostearat, bütil stearat, desil oleat).",
             ],
             "watch_lists": WATCH_LISTS,
             "watch_match": "watch kayıtları yalnızca inci alanındaki adlarla eşleşir; level, kartın en az alacağı renktir.",
