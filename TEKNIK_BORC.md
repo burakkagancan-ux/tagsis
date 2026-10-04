@@ -22,8 +22,8 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - **Türkiye ekleri:** Durum karşılaştırması yapıldı (kaynak/TR_KOZMETIK_KARSILASTIRMA.md): son TR değişikliği 05.03.2024 (AB 2023/1490), sonraki AB değişiklikleri `tr` alanında. Ek II–VI satır satır karşılaştırması Resmî Gazete metnine erişilemediği için yapılamadı; Eylül 2026 taslağının resmî metni de görülmedi.
 - **Anlık görüntü yaşı:** CosIng verisi 2024 başına ait (inhouse-work/cosing @268e3cd). Sonraki değişiklikler `kaynak/kozmetik_guncellemeler.tsv` ile elle eklendi. Eksikler: 2026/78 ile eklenen 15 CMR maddesinin adları; 2026/909'daki alüminyum, çinko tuzları, DHHB ve 4 saç boyası; 2026 sonu taslak (benzofenon-1/-2, BHA, paraben, CBD).
 - **Doğrulama:** `inceleme=1` olan güncellemeler (needs_review) EUR-Lex metniyle satır satır karşılaştırılmalı; 2026/78 ve 2026/909 ek sıra numaraları doğrulanamadı.
-- **Otomatik güncelleme:** CosIng'e bu ortamdan erişilemedi. GitHub Actions ile aylık CosIng kontrolü kurulmalı.
-- **Eş anlamlılar:** `kaynak/kozmetik_esanlamlilar.tsv` (Türkçe/İngilizce yaygın adlar) ve `gen_kozmetik.py` içindeki ABD renklendirici tablosu (FD&C/D&C → CI) bilgiye dayanarak yazıldı; FDA 21 CFR 74/82 listeleriyle karşılaştırılmalı. Türkçe kimyasal adlar kuralla üretiliyor (975 ad); Türk etiketlerinde görülen gerçek yazımlarla denetlenmeli.
+- **Otomatik güncelleme:** CosIng verisi artık depoda (`kaynak/cosing/`, `cosing_al.py` ile alınır). Kaynak depo inhouse-work/cosing 13.05.2024'ten beri güncellenmiyor (268e3cd en son commit), yani oradan yeni veri gelmez. Daha yeni veri için Komisyon'un CosIng sitesinden indirme gerekir (bu ortamdan erişilemedi); aylık mevzuat izleme işine bağlı.
+- **Eş anlamlılar:** `kaynak/kozmetik_esanlamlilar.tsv` (Türkçe/İngilizce yaygın adlar) ve ABD renklendirici tablosu (`kaynak/kozmetik_abd_renkler.tsv`) (FD&C/D&C → CI) bilgiye dayanarak yazıldı; FDA 21 CFR 74/82 listeleriyle karşılaştırılmalı. Türkçe kimyasal adlar kuralla üretiliyor (975 ad); Türk etiketlerinde görülen gerçek yazımlarla denetlenmeli.
 
 ## 5. Kozmetik K3 (kaynak/kozmetik_k3.tsv)
 - **Kaynak denetimi:** Kaliforniya listesi HSC §108980 metninin Justia kopyasından (2024 kodu) alındı; resmi leginfo sitesinden karşılaştırılmadı. ASEAN satırı (mikonazol) ikincil kaynaktan (CIRS), needs_review.
@@ -32,3 +32,11 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 
 ## ocr.html tek dosyada — KAPANDI (04.10.2026)
 - ~1.550 satırlık ocr.html gıda, kozmetik, temizlik ve arayüz kodunu birlikte taşıyordu. Kod `js/` klasöründe alana göre 9 dosyaya bölündü (derleme adımı yok, davranış değişmedi; eski ve yeni sayfanın sonuç ekranları tarayıcıda birebir karşılaştırıldı). Kalan: arayüz kodunun sözdizimi dışında otomatik testi yok (tarayıcı testi CI'da çalışmıyor).
+
+## Veri kod dosyalarının içinde — KAPANDI (04.10.2026)
+- Üreteçlerdeki (gen_e_kodlari.py 120 KB, gen_e_aciklama.py, gen_bilesenler.py, gen_temizlik.py, gen_kozmetik.py) gömülü veri `kaynak/` altındaki JSON/TSV dosyalarına taşındı: `e_kodlari_maddeler.json`, `e_kodlari_ek.json`, `e_aciklama.tsv`, `bilesenler.json`, `temizlik_ifadeler.tsv`, `temizlik_birlesik.tsv`, `temizlik_onlemler.tsv`, `temizlik_gruplar.json`, `kozmetik_listeler.json`, `kozmetik_islevler.tsv`, `kozmetik_tr_sozcukler.tsv`, `kozmetik_abd_renkler.tsv`. Üretilen data/*.json dosyaları birebir aynı kaldı.
+- CI ("Testler") üreteçleri çalıştırıp data/ değişmiş mi diye bakar: kaynak dosya düzeltilip üreteç çalıştırılmazsa ya da JSON elle düzenlenirse hata verir.
+
+## CosIng verisi depo dışında — KAPANDI (04.10.2026)
+- gen_kozmetik.py artık `../cosing` kopyasına ihtiyaç duymaz; kullanılan kısım `kaynak/cosing/` altında (Ek II–VI aynen, INCI listesinden 3 sütun; ~3 MB, sürüm `surum.txt`, lisans `LICENSE.txt`). Yenilemek için `python3 cosing_al.py`. Verinin eski olması (2024 başı) ayrı sorun, bkz. 4.
+

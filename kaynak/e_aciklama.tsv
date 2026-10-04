@@ -1,0 +1,360 @@
+# Katkı maddesi açıklamaları (Nedir / nerede kullanılır) -> data/e_aciklama.json (gen_e_aciklama.py).
+# Sütunlar: kod<TAB>metin. '@AD' ile başlayan satırlar ortak metindir; metin yerine '@AD' yazılırsa o ortak metin kullanılır.
+@PARABEN	Paraben grubundan sentetik bir koruyucu (p-hidroksibenzoik asit esteri). Küf ve mayaya karşı kullanılır; gıdadan çok kozmetikte yaygındır.
+@SULFIT	Kükürt bileşiği olan bir koruyucu ve antioksidan. Kuru meyve, şarap, sirke ve bazı patates ürünlerinde renk kararmasını ve mikrop üremesini önler.
+@POLISORBAT	Polisorbat grubundan sentetik bir emülgatör. Yağ ile suyun karışmasını sağlar; dondurma, sos ve kek karışımlarında kullanılır.
+@GALLAT	Gallik asitten elde edilen sentetik bir antioksidan. Yağların acılaşmasını geciktirir; yağlarda ve yağlı ürünlerde kullanılır.
+@TOKOFEROL	E vitamini ailesinden bir antioksidan. Bitkisel yağlardan elde edilir veya sentezlenir; yağların bozulmasını geciktirir.
+@ALJINAT	Kahverengi deniz yosunlarından elde edilen aljinik asidin bir tuzu. Kıvam verir ve jel oluşturur; dondurma, tatlı ve soslarda kullanılır.
+@SELULOZ	Bitki hücre duvarındaki selülozdan kimyasal işlemle elde edilen bir kıvam artırıcı. Sos, dondurma, glutensiz ürün ve hazır gıdalarda doku sağlar.
+@MONO_DI	Yağ asitlerinin mono ve digliseritlerinden türetilen bir emülgatör. Ekmek, kek ve margarinde dokuyu düzeltir; yağ kaynağı bitkisel veya hayvansal olabilir.
+@SORBITAN	Sorbitol ve yağ asitlerinden üretilen sentetik bir emülgatör. Kuru maya, şekerleme kaplamaları ve krema benzeri ürünlerde kullanılır.
+@GLUTAMAT	Glutamik asidin bir tuzu; lezzet artırıcıdır. Umami (et suyu) tadını belirginleştirir; hazır çorba, cips ve çeşnilerde kullanılır.
+@GUANILAT	Guanilik asit ve tuzları: nükleotit grubundan lezzet artırıcı. Genellikle glutamatla birlikte, hazır çorba ve çeşnilerde kullanılır.
+@INOSINAT	İnosinik asit ve tuzları: nükleotit grubundan lezzet artırıcı. Et veya balıktan ya da fermantasyonla elde edilir; hazır çorba ve cipslerde kullanılır.
+@MOD_NISASTA	Modifiye nişasta: mısır, patates veya buğday nişastasının ısıya, asite ve dondurmaya dayanıklı olması için kimyasal ya da fiziksel olarak işlenmiş hâli. Sos, çorba, hazır tatlı ve yoğurtlarda kıvam verir.
+@FOSFAT	Fosforik asidin tuzları. Asitliği düzenler, kabartmaya yardım eder ve et ürünlerinde su tutar; işlenmiş et, eritme peyniri ve kabartma tozunda kullanılır.
+@GAZ	Ambalajda havanın yerine konan veya itici gaz olarak kullanılan bir gaz. Ürünün oksitlenmesini önler ya da sprey ambalajlardan çıkmasını sağlar.
+@ALUMINYUM_SILIKAT	Alüminyum içeren bir silikat. Toz ürünlerin topaklanmasını önler; tuz, toz şeker ve baharat karışımlarında kullanılır.
+@POLIOL	Poliol grubundan (şeker alkolü) bir tatlandırıcı. Şekerden daha az kalori verir ve diş çürümesine yol açmaz; şekersiz sakız ve şekerlemelerde kullanılır.
+# ---------- RENKLENDİRİCİLER ----------
+E100	Zerdeçal kökünden elde edilen sarı bir boya. Hardal, köri, sos ve şekerlemelerde renk verir.
+E101	B2 vitamini; sarı-turuncu renklidir. Hem vitamin takviyesi hem renklendirici olarak kullanılır.
+E102	Sentetik, sarı renkli bir azo boya. Şekerleme, içecek, puding ve çerezlerde kullanılır.
+E104	Sentetik, yeşilimsi sarı bir boya. Şekerleme, içecek ve tatlılarda kullanılır.
+E110	Sentetik, turuncu-sarı bir azo boya. Portakal aromalı içecek, şekerleme ve hazır tatlılarda kullanılır.
+E120	Koşnil adlı kırmızı böceklerden elde edilen kırmızı bir boya. Şekerleme, yoğurt, sucuk benzeri ürünler ve içeceklerde kullanılır.
+E122	Sentetik, kırmızı bir azo boya. Şekerleme, jöle ve içeceklerde kullanılır.
+E123	Sentetik, koyu kırmızı bir azo boya. AB'de çok sınırlı ürünlerde (bazı aperatif şaraplar, balık yumurtası) izinlidir.
+E124	Sentetik, kırmızı bir azo boya. Şekerleme, içecek ve tatlılarda kullanılır.
+E127	Sentetik, pembe-kırmızı bir boya. Kokteyl kirazı ve bazı şekerlemelerde kullanılmıştır.
+E128	Sentetik, kırmızı bir azo boya. Eskiden sosis ve burgerlerde kullanılırdı.
+E129	Sentetik, kırmızı bir azo boya. Şekerleme, içecek ve tatlılarda kullanılır.
+E131	Sentetik, mavi bir boya. Şekerleme ve tatlılarda kullanılır; tıpta tanı boyası olarak da bilinir.
+E132	Sentetik, mavi bir boya (çivit mavisinin sentetik hâli). Şekerleme, içecek ve tatlılarda kullanılır.
+E133	Sentetik, parlak mavi bir boya. Şekerleme, içecek ve dondurmada kullanılır; sarı boyalarla birlikte yeşil renk verir.
+E140	Yeşil bitkilerdeki doğal yeşil pigment olan klorofil. Yeşil renkli şekerleme, dondurma ve soslarda kullanılır.
+E141	Klorofilin bakırla stabilize edilmiş hâli; daha dayanıklı yeşil renk verir. Konserve sebze, şekerleme ve dondurmada kullanılır.
+E142	Sentetik, yeşil bir boya. Konserve bezelye, şekerleme ve soslarda kullanılır.
+E150a	Şekerin ısıtılmasıyla elde edilen sade karamel boyası. Kahverengi renk verir; kola, bira, sos ve unlu mamullerde kullanılır.
+E150b	Şekerin sülfit bileşikleriyle ısıtılmasıyla elde edilen karamel boyası. Şarap, likör ve sirkede kahverengi renk verir.
+E150c	Şekerin amonyak bileşikleriyle ısıtılmasıyla elde edilen karamel boyası. Bira, soya sosu ve et soslarında kullanılır.
+E150d	Şekerin sülfit ve amonyak bileşikleriyle ısıtılmasıyla elde edilen karamel boyası. Kola ve diğer koyu renkli içeceklerde en yaygın kullanılan karameldir.
+E151	Sentetik, siyah-mor bir azo boya. Siyah renkli şekerleme ve balık yumurtası taklitlerinde kullanılır.
+E153	Bitkisel maddelerin yakılmasıyla elde edilen siyah karbon. Siyah şekerleme ve peynir kabuklarında kullanılır.
+E154	Sentetik, kahverengi bir azo boya. Eskiden tütsülenmiş ringa balığına renk vermek için kullanılırdı.
+E155	Sentetik, kırmızımsı kahverengi bir azo boya. Çikolata aromalı kek ve şekerlemelerde kullanılır.
+E160a	Havuç gibi bitkilerde bulunan turuncu pigmentler (beta-karoten vb.); A vitamini öncüsüdür. Margarin, meyve suyu ve şekerlemelerde kullanılır.
+E160b	Annatto ağacının tohumlarından elde edilen sarı-turuncu bir boya. Çedar peyniri, tereyağı ve çerezlerde kullanılır.
+E160c	Kırmızı biber (paprika) ekstresi; kırmızı-turuncu renk ve hafif lezzet verir. Sucuk, sos ve cipslerde kullanılır.
+E160d	Domateste bulunan kırmızı pigment. Kırmızı renk verir; içecek, sos ve tatlılarda kullanılır.
+E160e	Karotenoid grubundan turuncu-kırmızı bir pigment. Doğada da bulunur, genellikle sentezlenir; sos ve şekerlemelerde kullanılır.
+E160f	Karotenoid türevi turuncu bir pigment. 2011'den bu yana AB'de izinli değildir.
+E161b	Kadife çiçeği ve yeşil yapraklı sebzelerde bulunan sarı bir karotenoid. Şekerleme, içecek ve sütlü tatlılarda kullanılır.
+E161g	Turuncu-kırmızı bir karotenoid. AB'de gıdada yalnızca Strazburg sosisinde izinlidir; hayvan yeminde de kullanılır.
+E162	Kırmızı pancardan elde edilen kırmızı-mor bir boya. Yoğurt, dondurma, şekerleme ve içeceklerde kullanılır.
+E163	Üzüm kabuğu, mor havuç ve böğürtlen gibi meyve ve sebzelerdeki kırmızı-mor-mavi pigmentler. İçecek, reçel ve şekerlemelerde kullanılır.
+E170	Kireç taşı ve tebeşirin ana bileşeni olan beyaz bir mineral. Beyaz renk verir, kalsiyum kaynağıdır ve topaklanmayı önler; ekmek, şekerleme ve takviyelerde kullanılır.
+E171	Beyaz bir mineral pigment. Şekerleme kaplamaları, sakız ve beyaz soslarda opak beyaz renk vermek için kullanılırdı.
+E172	Demirin oksit ve hidroksitleri; sarı, kırmızı veya siyah renk verir. Şekerleme kaplamaları ve ilaç tabletlerinde kullanılır.
+E173	Metalik alüminyum tozu; gümüş rengi verir. Yalnızca şekerleme ve pasta süslemelerinin dış yüzeyinde kullanılır.
+E174	Metalik gümüş; gümüş rengi verir. Pasta süslemesi ve şekerlemelerin dış yüzeyinde kullanılır.
+E175	Metalik altın; varak hâlinde altın rengi verir. Pasta süslemesi, şekerleme ve bazı likörlerde kullanılır.
+E180	Sentetik, kırmızı bir azo boya. Yalnızca peynir kabuklarında kullanılır.
+# ---------- KORUYUCULAR ----------
+E200	Üvez meyvesinde doğal olarak bulunan, bugün sentezlenen bir koruyucu. Küf ve mayaya karşı etkilidir; peynir, şarap, unlu mamul ve soslarda kullanılır.
+E202	Sorbik asidin potasyum tuzu; en yaygın kullanılan koruyuculardan biridir. Peynir, şarap, reçel, unlu mamul ve soslarda küf ve mayayı önler.
+E203	Sorbik asidin kalsiyum tuzu; küf ve mayaya karşı kullanılan bir koruyucu.
+E210	Bazı meyvelerde doğal olarak bulunan, bugün sentezlenen bir koruyucu. Asitli gıdalarda maya ve bakteri üremesini önler; içecek, turşu ve soslarda kullanılır.
+E211	Benzoik asidin sodyum tuzu. Asitli içecek, meyve suyu, turşu ve soslarda maya ve bakteri üremesini önler.
+E212	Benzoik asidin potasyum tuzu. Asitli içecek ve soslarda koruyucu olarak kullanılır.
+E213	Benzoik asidin kalsiyum tuzu. Asitli gıdalarda koruyucu olarak kullanılır.
+E214	@PARABEN
+E215	@PARABEN
+E216	@PARABEN
+E217	@PARABEN
+E218	@PARABEN
+E219	@PARABEN
+E220	@SULFIT
+E221	@SULFIT
+E222	@SULFIT
+E223	@SULFIT
+E224	@SULFIT
+E226	@SULFIT
+E227	@SULFIT
+E228	@SULFIT
+E230	Sentetik bir mantar önleyici. Narenciye kabuklarında küf oluşumunu önlemek için kullanılırdı.
+E234	Bakterilerin fermantasyonla ürettiği doğal bir antimikrobiyal peptit. Eritme peyniri, puding ve konservelerde bakteri üremesini önler.
+E235	Bakterilerin fermantasyonla ürettiği bir mantar önleyici. Peynir kabukları ve kuru sucuk yüzeylerinde küfü önler.
+E239	Formaldehit ve amonyaktan üretilen bir koruyucu. AB'de yalnızca İtalyan Provolone peynirinde izinlidir.
+E242	İçeceklere eklendikten sonra kısa sürede parçalanan bir koruyucu. Meyve suyu, soğuk çay ve şaraplarda mayayı öldürmek için kullanılır.
+E243	Arjinin amino asidi ve laurik asitten üretilen bir koruyucu. Et ürünleri ve peynirde bakteri üremesini önler.
+E249	Nitrit tuzu. İşlenmiş etlerde pembe rengi korur ve botulizm bakterisinin üremesini önler.
+E250	Nitrit tuzu. Sucuk, salam, sosis ve jambonda pembe rengi korur ve botulizm bakterisinin üremesini önler.
+E251	Nitrat tuzu; vücutta ve ette nitrite dönüşür. Kürlenmiş et ve bazı peynirlerde kullanılır.
+E252	Nitrat tuzu (güherçile). Kürlenmiş et ve bazı peynirlerde kullanılır.
+E260	Sirkeye ekşi tadını veren asit. Turşu, sos, ketçap ve mayonezde asitlik ve koruma sağlar.
+E261	Asetik asidin potasyum tuzu. Asitliği düzenler ve koruyucudur.
+E262	Asetik asidin sodyum tuzları. Asitliği düzenler; cips çeşnilerinde sirke tadı verir ve unlu mamullerde küfü önler.
+E263	Asetik asidin kalsiyum tuzu. Asitlik düzenleyici, koruyucu ve sertleştirici olarak kullanılır.
+E270	Fermantasyonla oluşan, yoğurt ve turşuya ekşiliğini veren asit. Bugün genellikle şeker veya nişastanın fermantasyonuyla üretilir; asitlik düzenleyici olarak kullanılır.
+E280	Peynirde doğal olarak da oluşan bir organik asit. Ekmek ve unlu mamullerde küfü önler.
+E281	Propiyonik asidin sodyum tuzu. Ekmek ve unlu mamullerde küfü önler.
+E282	Propiyonik asidin kalsiyum tuzu. Paketli ekmeklerde en yaygın kullanılan küf önleyicidir.
+E283	Propiyonik asidin potasyum tuzu. Unlu mamullerde küf önleyici olarak kullanılır.
+E284	Bor içeren bir asit. AB'de gıdada yalnızca mersin balığı havyarında izinlidir.
+E285	Bor içeren bir mineral tuz (boraks). AB'de gıdada yalnızca mersin balığı havyarında izinlidir.
+E290	Karbondioksit gazı. Gazlı içeceklere köpük verir, ambalajda havanın yerine konur ve kabartmada rol oynar.
+E296	Elma gibi meyvelerde doğal olarak bulunan bir asit. Ekşi tat verir; şekerleme, içecek ve reçellerde kullanılır.
+E297	Doğada da bulunan bir organik asit. Ekşi tat verir; toz içecek, jöle ve tatlılarda kullanılır.
+# ---------- ANTİOKSİDANLAR ----------
+E300	C vitamini. Antioksidan olarak meyve suyu ve et ürünlerinde renk bozulmasını önler, ekmekte un iyileştiricidir.
+E301	C vitamininin sodyum tuzu. Et ürünlerinde renk korunmasına yardım eder ve antioksidan olarak kullanılır.
+E302	C vitamininin kalsiyum tuzu. Antioksidan ve vitamin kaynağı olarak kullanılır.
+E304	C vitamininin yağda çözünen hâli (askorbil palmitat vb.). Yağların acılaşmasını geciktirir.
+E306	@TOKOFEROL
+E307	@TOKOFEROL
+E308	@TOKOFEROL
+E309	@TOKOFEROL
+E310	@GALLAT
+E311	@GALLAT
+E312	@GALLAT
+E315	C vitaminine benzer yapıda bir antioksidan. İşlenmiş etlerde rengi korur ve nitrit kürlemeyi hızlandırır.
+E316	Eritorbik asidin sodyum tuzu. İşlenmiş etlerde rengi korur.
+E319	Petrol kaynaklı sentetik bir antioksidan. Kızartma yağları ve yağlı atıştırmalıklarda acılaşmayı geciktirir.
+E320	Petrol kaynaklı sentetik bir antioksidan. Yağlar, sakız ve tahıl ürünlerinde acılaşmayı geciktirir.
+E321	Petrol kaynaklı sentetik bir antioksidan. Yağlar, sakız ve ambalajlarda acılaşmayı geciktirir.
+E322	Soya, ayçiçeği, kolza veya yumurtadan elde edilen doğal bir emülgatör. Çikolata, margarin ve unlu mamullerde yağ ile suyun karışmasını sağlar.
+E325	Laktik asidin sodyum tuzu. Et ürünlerinde nem tutar, raf ömrünü uzatır ve asitliği düzenler.
+E326	Laktik asidin potasyum tuzu. Asitlik düzenleyici ve nem tutucu olarak kullanılır.
+E327	Laktik asidin kalsiyum tuzu. Sertleştirici ve kalsiyum kaynağıdır; konserve meyve ve sebzelerde dokuyu korur.
+E330	Limon ve portakal gibi narenciyede doğal olarak bulunan asit; bugün çoğunlukla şeker veya nişastanın küf mayası ile fermantasyonuyla üretilir. Ekşi tat verir, asitliği düzenler ve antioksidanlara yardım eder; içecek, şekerleme, reçel ve konservelerde en yaygın kullanılan katkılardan biridir.
+E331	Sitrik asidin sodyum tuzları. Asitliği düzenler; eritme peynirinde eritme tuzu olarak, içeceklerde ekşiliği yumuşatmak için kullanılır.
+E332	Sitrik asidin potasyum tuzları. Asitlik düzenleyici olarak içecek ve tatlılarda kullanılır.
+E333	Sitrik asidin kalsiyum tuzları. Asitlik düzenleyici, sertleştirici ve kalsiyum kaynağıdır.
+E334	Üzümde doğal olarak bulunan bir asit. Ekşi tat verir; şarap, şekerleme ve kabartma tozunda kullanılır.
+E335	Tartarik asidin sodyum tuzları. Asitlik düzenleyici olarak kullanılır.
+E336	Tartarik asidin potasyum tuzları; krem tartar olarak da bilinir. Kabartma tozu ve beze tatlılarında kullanılır.
+E337	Tartarik asidin sodyum-potasyum tuzu (Rochelle tuzu). Asitlik düzenleyici olarak kullanılır.
+E338	Mineral bir asit. Kola tipi içeceklere keskin ekşi tat verir.
+E339	@FOSFAT
+E340	@FOSFAT
+E341	Fosforik asidin kalsiyum tuzları. Kabartma tozu, topaklanma önleyici ve kalsiyum kaynağı olarak kullanılır.
+E343	Fosforik asidin magnezyum tuzları. Topaklanma önleyici ve asitlik düzenleyici olarak kullanılır.
+E350	Malik asidin sodyum tuzları. Asitlik düzenleyici olarak kullanılır.
+E351	Malik asidin potasyum tuzu. Asitlik düzenleyici olarak kullanılır.
+E352	Malik asidin kalsiyum tuzları. Asitlik düzenleyici ve sertleştirici olarak kullanılır.
+E353	Tartarik asitten elde edilir. Şarapta tartar kristallerinin çökmesini önler.
+E354	Tartarik asidin kalsiyum tuzu. Asitlik düzenleyici olarak kullanılır.
+E355	Sentetik bir organik asit. Toz içecek, jöle ve tatlılarda ekşi tat verir.
+E356	Adipik asidin sodyum tuzu. Asitlik düzenleyici olarak kullanılır.
+E357	Adipik asidin potasyum tuzu. Asitlik düzenleyici olarak kullanılır.
+E363	Doğada da bulunan bir organik asit. Ekşi tat verir; çorba ve tatlılarda asitlik düzenleyici olarak kullanılır.
+E380	Sitrik asidin amonyum tuzu. Asitlik düzenleyici olarak kullanılır.
+E385	EDTA olarak bilinen bir bağlayıcı. Metal iyonlarını bağlayarak renk ve tat bozulmasını önler; konserve, mayonez ve soslarda kullanılır.
+E392	Biberiye yapraklarından elde edilen doğal bir antioksidan. Yağlarda, et ürünlerinde ve soslarda acılaşmayı geciktirir.
+# ---------- KIVAM ARTIRICILAR / EMÜLGATÖRLER ----------
+E400	Kahverengi deniz yosunlarından elde edilen bir polisakkarit. Kıvam verir ve jel oluşturur; dondurma ve tatlılarda kullanılır.
+E401	@ALJINAT
+E402	@ALJINAT
+E403	@ALJINAT
+E404	@ALJINAT
+E405	Aljinik asitten üretilen bir kıvam artırıcı. Bira köpüğünü korur, salata soslarında kıvam verir.
+E406	Kırmızı deniz yosunlarından elde edilen bitkisel jel yapıcı. Jelatin yerine jöle, muhallebi ve tatlılarda kullanılır.
+E407	Kırmızı deniz yosunlarından elde edilen bir kıvam artırıcı. Süt ürünleri, tatlı, dondurma ve işlenmiş etlerde kullanılır.
+E407a	Karagenana benzeyen, daha az saflaştırılmış bir deniz yosunu ürünü. Kıvam artırıcı olarak kullanılır.
+E410	Keçiboynuzu çekirdeklerinden elde edilen bitkisel bir zamk. Dondurma, krem peynir ve soslarda kıvam verir.
+E412	Guar bitkisinin tohumlarından elde edilen bitkisel bir zamk. Dondurma, sos ve glutensiz ürünlerde kıvam verir.
+E413	Geven bitkisinin gövdesinden sızan doğal bir zamk (kitre). Şekerleme ve soslarda kıvam verir.
+E414	Akasya ağacının reçinesinden elde edilen doğal bir zamk. Şekerleme, sakız ve içeceklerde aroma taşıyıcı ve kıvam artırıcı olarak kullanılır.
+E415	Şekerin bakterilerle fermantasyonuyla üretilen bir kıvam artırıcı. Sos, salata sosu ve glutensiz ürünlerde çok yaygındır.
+E416	Karaya ağacının reçinesinden elde edilen doğal bir zamk. Kıvam artırıcı olarak kullanılır.
+E417	Tara ağacının tohumlarından elde edilen bitkisel bir zamk. Dondurma ve soslarda kıvam verir.
+E418	Bakteri fermantasyonuyla üretilen bir jel yapıcı. Bitkisel sütler, tatlılar ve içeceklerde kıvam ve askıda tutma sağlar.
+E420	Glukozdan üretilen bir poliol (şeker alkolü). Tatlandırıcı ve nem tutucu olarak şekersiz sakız, şekerleme ve kekte kullanılır; bazı meyvelerde doğal olarak bulunur.
+E421	Bir poliol (şeker alkolü); deniz yosunlarında ve mantarlarda doğal olarak bulunur. Şekersiz sakız ve şekerlemelerde tatlandırıcı ve toz önleyici olarak kullanılır.
+E422	Gliserin olarak da bilinen tatlımsı, şurup kıvamında bir sıvı. Nem tutucudur; şekerleme, kek ve kuru meyvelerde kurumayı önler.
+E425	Konjak bitkisinin yumrusundan elde edilen bir lif (glukomannan). Jöle, şehriye ve diyet ürünlerinde kıvam verir.
+E426	Soya fasulyesinden elde edilen bir lif. İçecek ve erişte gibi ürünlerde kıvam ve stabilite sağlar.
+E427	Kasya bitkisinin tohumlarından elde edilen bir zamk. Krema, peynir ve et ürünlerinde kıvam verir.
+E431	Sentetik bir emülgatör. AB'de gıdada kullanımına izin verilmez.
+E432	@POLISORBAT
+E433	@POLISORBAT
+E434	@POLISORBAT
+E435	@POLISORBAT
+E436	@POLISORBAT
+E440	Meyvelerin (özellikle elma ve narenciye kabuğunun) hücre duvarında bulunan doğal bir lif. Reçel, marmelat, jöle ve meyveli yoğurtlarda jel oluşturur.
+E441	Hayvan derisi ve kemiğinden (sığır, domuz veya balık) elde edilen bir protein. Lokum, şekerleme, jöle ve bazı tatlılarda jel oluşturur.
+E442	Yağlardan üretilen sentetik bir emülgatör. Çikolatada lesitin yerine akışkanlık sağlamak için kullanılır.
+E444	Şekerden üretilen bir yağ ağırlığı ayarlayıcı. Bulanık meyveli içeceklerde aroma yağlarının yüzeye çıkmasını önler.
+E445	Çam reçinesinden üretilen bir ağırlık ayarlayıcı. Narenciye aromalı içeceklerde aromanın dağılmasını sağlar.
+E450	Difosfatlar: fosfat tuzları. Kabartma tozunda kabartıcı, işlenmiş etlerde su tutucu olarak kullanılır.
+E451	Trifosfatlar: fosfat tuzları. İşlenmiş et, deniz ürünleri ve eritme peynirinde su tutar ve dokuyu iyileştirir.
+E452	Polifosfatlar: fosfat tuzları. İşlenmiş et, deniz ürünleri ve eritme peynirinde su tutar.
+E459	Nişastadan enzimle üretilen halka şeklinde bir şeker molekülü. Aroma ve vitaminleri tutarak kararlı hâle getirir.
+E460	Bitki liflerinin ana yapı taşı olan selüloz. Toz hâlinde topaklanmayı önler ve rendelenmiş peynir gibi ürünlerde dolgu maddesidir.
+E461	@SELULOZ
+E462	@SELULOZ
+E463	@SELULOZ
+E464	@SELULOZ
+E465	@SELULOZ
+E466	Selülozdan üretilen bir kıvam artırıcı (CMC). Dondurma, içecek, sos ve unlu mamullerde kullanılır.
+E468	Selülozdan üretilen bir kıvam artırıcı. Takviye tabletlerinin dağılmasını kolaylaştırır.
+E469	Selülozdan enzimle üretilen bir kıvam artırıcı. Kıvam artırıcı ve stabilizatör olarak kullanılır.
+E470a	Yağ asitlerinin sodyum, potasyum ve kalsiyum tuzları. Emülgatör ve topaklanma önleyici olarak kullanılır; yağ kaynağı bitkisel veya hayvansal olabilir.
+E470b	Yağ asitlerinin magnezyum tuzu (magnezyum stearat vb.). Tabletlerde ve toz ürünlerde topaklanmayı önler; yağ kaynağı bitkisel veya hayvansal olabilir.
+E471	Yağlardan üretilen, en yaygın kullanılan emülgatörlerden biri. Ekmek, kek, margarin, dondurma ve krema benzeri ürünlerde dokuyu düzeltir ve bayatlamayı geciktirir.
+E472a	@MONO_DI
+E472b	@MONO_DI
+E472c	@MONO_DI
+E472d	@MONO_DI
+E472e	Mono ve digliseritlerden türetilen bir emülgatör (DATEM). Ekmek hamurunu güçlendirir ve hacmini artırır.
+E472f	@MONO_DI
+E473	Şeker ve yağ asitlerinden üretilen bir emülgatör. Kek, dondurma ve krema benzeri ürünlerde, ayrıca meyvelerin kaplamasında kullanılır.
+E474	Şeker ve yağlardan üretilen bir emülgatör karışımı. Kek ve dondurmada kullanılır.
+E475	Gliserol ve yağ asitlerinden üretilen bir emülgatör. Kek ve unlu mamullerde kullanılır.
+E476	Hint yağı ve gliserolden üretilen bir emülgatör (PGPR). Çikolatada akışkanlığı artırır ve kakao yağı ihtiyacını azaltır.
+E477	Yağ asitlerinden üretilen bir emülgatör. Çırpılmış krema ve kek karışımlarında kullanılır.
+E479b	Isıyla oksitlenmiş soya yağından üretilen bir emülgatör. Kızartma yağlarında sıçramayı azaltmak için kullanılır.
+E481	Laktik asit ve yağ asitlerinden üretilen bir emülgatör. Ekmekte hamuru güçlendirir ve yumuşaklığı korur.
+E482	Laktik asit ve yağ asitlerinden üretilen bir emülgatör. Ekmek ve unlu mamullerde hamur iyileştiricidir.
+E483	Stearil alkol ve tartarik asitten üretilen bir emülgatör. Unlu mamullerde hamur iyileştiricidir.
+E491	@SORBITAN
+E492	@SORBITAN
+E493	@SORBITAN
+E494	@SORBITAN
+E495	@SORBITAN
+# ---------- ASİTLİK DÜZENLEYİCİLER / MİNERAL TUZLAR ----------
+E500	Sodyum karbonat ve sodyum bikarbonat (karbonat). Kabartma tozunun ana bileşenidir; hamuru kabartır ve asitliği düzenler.
+E501	Potasyum karbonatlar. Kabartıcı ve asitlik düzenleyici olarak kullanılır; kakao işlemede rengi koyulaştırır.
+E503	Amonyum karbonatlar (kabartma amonyağı). Kurabiye ve bisküvilerde kabartıcı olarak kullanılır.
+E504	Magnezyum karbonatlar. Topaklanma önleyici ve asitlik düzenleyici olarak kullanılır.
+E507	Hidroklorik asit (tuz ruhu). Gıda üretiminde asitlik düzenlemek ve nişasta veya protein parçalamak için kullanılır.
+E508	Potasyum klorür. Az sodyumlu tuzlarda sodyumun yerine kullanılır; jel yapıcılara yardımcıdır.
+E509	Kalsiyum klorür. Konserve sebze ve meyvelerde dokuyu sertleştirir, peynir yapımında pıhtılaşmaya yardım eder.
+E511	Magnezyum klorür. Tofu yapımında pıhtılaştırıcı (nigari) olarak kullanılır.
+E512	Kalay klorür. Konserve kuşkonmaz gibi ürünlerde rengin korunması için kullanılır.
+E513	Sülfürik asit. Gıda üretiminde asitlik düzenleyici ve işlem yardımcısı olarak kullanılır.
+E514	Sodyum sülfatlar. Asitlik düzenleyici olarak kullanılır.
+E515	Potasyum sülfatlar. Tuz yerine geçen karışımlarda kullanılır.
+E516	Kalsiyum sülfat (alçı taşı). Tofu yapımında pıhtılaştırıcı ve ekmekte un iyileştirici olarak kullanılır.
+E517	Amonyum sülfat. Mayanın beslenmesine yardım eden bir un iyileştirici olarak kullanılır.
+E520	Alüminyum sülfat. Sertleştirici olarak, örneğin şekerlenmiş meyvelerde kullanılır.
+E521	Alüminyum sodyum sülfat. Sertleştirici olarak kullanılır.
+E522	Alüminyum potasyum sülfat (şap). Sertleştirici olarak kullanılır.
+E523	Alüminyum amonyum sülfat. Sertleştirici olarak kullanılır.
+E524	Sodyum hidroksit (kostik soda). Zeytinin acılığını gidermekte, simit ve pretzel kabuğunda ve kakao işlemede kullanılır.
+E525	Potasyum hidroksit. Kakao işlemede ve asitlik düzenleyici olarak kullanılır.
+E526	Kalsiyum hidroksit (sönmüş kireç). Mısır unu işlemede ve asitlik düzenleyici olarak kullanılır.
+E527	Amonyum hidroksit. Kakao ve bazı ürünlerde asitlik düzenleyici olarak kullanılır.
+E528	Magnezyum hidroksit. Asitlik düzenleyici olarak kullanılır.
+E529	Kalsiyum oksit (sönmemiş kireç). Asitlik düzenleyici ve un iyileştirici olarak kullanılır.
+E530	Magnezyum oksit. Topaklanma önleyici ve asitlik düzenleyici olarak kullanılır.
+E535	Sodyum ferrosiyanür. Sofra tuzunun topaklanmasını önler.
+E536	Potasyum ferrosiyanür. Sofra tuzunun topaklanmasını önler; şarapta metal gidermede de kullanılır.
+E538	Kalsiyum ferrosiyanür. Sofra tuzunun topaklanmasını önler.
+E541	Alüminyum içeren bir fosfat tuzu. Kabartma tozlarında kabartıcı asit olarak kullanılır.
+E551	Silika olarak da bilinen silikon dioksit. Toz baharat, tuz, kahve kreması ve toz içeceklerin topaklanmasını önler.
+E552	Kalsiyum silikat. Tuz ve toz ürünlerde topaklanmayı önler.
+E553a	Magnezyum silikat. Toz ürünlerde topaklanmayı önler.
+E553b	Doğal bir mineral olan talk. Topaklanma önleyici olarak ve bazı şekerlemelerin yüzeyinde kullanılır.
+E554	@ALUMINYUM_SILIKAT
+E555	Mika olarak da bilinen alüminyum içeren bir mineral. Şekerleme kaplamalarında parlak inci efekti veren pigmentlerin taşıyıcısıdır.
+E556	@ALUMINYUM_SILIKAT
+E558	Volkanik kül kökenli bir kil. Şarap ve meyve suyunu berraklaştırmak ve topaklanmayı önlemek için kullanılır.
+E559	@ALUMINYUM_SILIKAT
+E570	Bitkisel veya hayvansal yağlardan elde edilen yağ asitleri (stearik asit vb.). Emülgatör, kaplama ve tablet yardımcısı olarak kullanılır.
+E574	Glukozdan elde edilen hafif bir asit. Asitlik düzenleyici olarak kullanılır.
+E575	Glukozdan elde edilen bir asitlendirici; suda yavaşça glukonik aside dönüşür. Tofu yapımında, kabartma tozunda ve fermente sucukta kullanılır.
+E576	Glukonik asidin sodyum tuzu. Bağlayıcı ve asitlik düzenleyici olarak kullanılır.
+E577	Glukonik asidin potasyum tuzu. Asitlik düzenleyici olarak kullanılır.
+E578	Glukonik asidin kalsiyum tuzu. Sertleştirici ve kalsiyum kaynağıdır.
+E579	Glukonik asidin demir tuzu. Siyah zeytinin rengini sabitler; demir kaynağıdır.
+E585	Laktik asidin demir tuzu. Siyah zeytinin rengini sabitler.
+E586	Sentetik bir antioksidan. Karides ve kabuklu deniz ürünlerinde kararmayı önler.
+# ---------- LEZZET ARTIRICILAR ----------
+E620	Domates, peynir ve et suyunda doğal olarak bulunan bir amino asit. Umami (et suyu) tadı verir.
+E621	Glutamik asidin sodyum tuzu (MSG). Umami (et suyu) tadını belirginleştirir; hazır çorba, cips, çeşni ve hazır yemeklerde kullanılır.
+E622	@GLUTAMAT
+E623	@GLUTAMAT
+E624	@GLUTAMAT
+E625	@GLUTAMAT
+E626	@GUANILAT
+E627	Guanilik asidin sodyum tuzu; nükleotit grubundan bir lezzet artırıcı. Genellikle MSG ile birlikte hazır çorba, cips ve çeşnilerde kullanılır.
+E628	@GUANILAT
+E629	@GUANILAT
+E630	@INOSINAT
+E631	İnosinik asidin sodyum tuzu; nükleotit grubundan bir lezzet artırıcı. Et veya balıktan ya da fermantasyonla elde edilir; MSG ile birlikte kullanılır.
+E632	@INOSINAT
+E633	@INOSINAT
+E634	Guanilat ve inosinat tuzlarının karışımı; lezzet artırıcıdır. Hazır çorba ve çeşnilerde kullanılır.
+E635	Disodyum guanilat ve inosinat karışımı (I+G); lezzet artırıcıdır. Hazır çorba, cips ve noodle çeşnilerinde yaygındır.
+E640	En basit amino asit olan glisin ve tuzu. Hafif tatlı tat verir ve lezzet artırıcıdır.
+E650	Çinko asetat. Sakızlarda lezzet artırıcı olarak kullanılır.
+# ---------- DİĞER ----------
+E900	Silikon esaslı bir köpük önleyici. Kızartma yağları, meyve suları ve reçel kaynatmada köpürmeyi önler.
+E901	Arıların ürettiği doğal mum. Şekerleme, meyve ve peynir kaplamalarında parlatıcıdır.
+E902	Kandelilla bitkisinden elde edilen bitkisel mum. Şekerleme ve sakızlarda parlatıcıdır.
+E903	Karnauba palmiyesinin yapraklarından elde edilen bitkisel mum. Şekerleme, draje ve meyvelerde parlatıcıdır.
+E904	Lak böceğinin salgısından elde edilen reçine. Draje, şekerleme, meyve ve ilaç kaplamalarında parlatıcıdır.
+E905	Petrol kaynaklı bir mum. Peynir kabukları ve sakızlarda kaplama olarak kullanılır.
+E907	Sentetik, petrol kaynaklı bir hidrokarbon. Şekerleme ve kuru meyvelerde parlatıcı kaplama olarak kullanılır.
+E912	Linyit kömüründen elde edilen mumun esterleri. Narenciye kabuğu kaplamasında kullanılır.
+E914	Sentetik bir mum. Narenciye ve bazı meyvelerin kabuk kaplamasında kullanılır.
+E920	Bir amino asit. Ekmek hamurunu yumuşatır; tüy, kıl veya fermantasyonla üretilebilir.
+E924a	Güçlü bir un iyileştirici. Ekmek hamurunu güçlendirmek için kullanılırdı.
+E927b	Üre olarak da bilinen bir bileşik. Sakızlarda kullanılır.
+E938	@GAZ
+E939	@GAZ
+E941	Azot gazı. Cips ve kahve ambalajlarında havanın yerine konarak bayatlamayı önler; sıvı azot dondurmada kullanılır.
+E942	Diazot monoksit (gülme gazı). Sprey kremada itici gaz olarak kullanılır.
+E943a	@GAZ
+E943b	@GAZ
+E944	@GAZ
+E948	Oksijen gazı. Taze et ambalajlarında kırmızı rengi korumak için kullanılır.
+E949	@GAZ
+# ---------- TATLANDIRICILAR ----------
+E950	Şekerden yaklaşık 200 kat tatlı, kalorisiz sentetik bir tatlandırıcı. Diyet içecek, sakız ve şekersiz ürünlerde, genellikle başka tatlandırıcılarla birlikte kullanılır.
+E951	Şekerden yaklaşık 200 kat tatlı, iki amino asitten yapılmış bir tatlandırıcı. Diyet içecek, sakız ve şekersiz tatlılarda kullanılır.
+E952	Şekerden yaklaşık 30-50 kat tatlı, sentetik bir tatlandırıcı. Diyet içecek ve masa tatlandırıcılarında kullanılır.
+E953	Şeker pancarından üretilen bir poliol (şeker alkolü). Şekersiz sert şekerleme ve sakızlarda kullanılır.
+E954	Şekerden yüzlerce kat tatlı, en eski sentetik tatlandırıcı. Masa tatlandırıcıları ve diyet içeceklerde kullanılır.
+E955	Şekerden yaklaşık 600 kat tatlı, şekerden türetilen kalorisiz bir tatlandırıcı. Diyet içecek ve şekersiz ürünlerde kullanılır.
+E957	Afrika'ya özgü bir meyveden elde edilen, çok tatlı bir protein. Tatlandırıcı ve lezzet artırıcı olarak kullanılır.
+E959	Narenciyeden elde edilen bir maddeden üretilen yoğun bir tatlandırıcı. Acılığı maskelemek için de kullanılır.
+E960	Stevia bitkisinin yapraklarından saflaştırılan, kalorisiz bir tatlandırıcı. İçecek, yoğurt ve şekersiz ürünlerde kullanılır.
+E961	Aspartama benzeyen, ondan çok daha tatlı sentetik bir tatlandırıcı. Çok küçük miktarlarda kullanılır.
+E962	Aspartam ve asesülfam K'nın birleşik tuzu. Diyet içecek ve sakızlarda kullanılır.
+E964	Nişastanın parçalanıp hidrojenlenmesiyle elde edilen poliol (şeker alkolü) karışımı. Şekersiz şekerlemelerde tatlandırıcı olarak kullanılır.
+E965	Nişastadan üretilen bir poliol (şeker alkolü). Şekersiz çikolata, şekerleme ve sakızlarda kullanılır.
+E966	Süt şekerinden (laktoz) üretilen bir poliol. Şekersiz şekerleme ve çikolatalarda kullanılır.
+E967	Huş ağacı veya mısır koçanından elde edilen bir poliol. Şekersiz sakız ve diş dostu şekerlemelerde yaygındır.
+E968	Fermantasyonla üretilen, neredeyse kalorisiz bir poliol. Şekersiz içecek ve tatlılarda, sıklıkla steviayla birlikte kullanılır.
+E969	Aspartamdan türetilen, şekerden binlerce kat tatlı sentetik bir tatlandırıcı. Çok küçük miktarlarda kullanılır.
+E999	Kilay ağacının kabuğundan elde edilen bir ekstre. İçeceklerde köpük oluşturur.
+E1103	Şekeri glukoz ve fruktoza ayıran bir enzim. Yumuşak dolgulu şekerlemelerde ve invert şeker üretiminde kullanılır.
+E1105	Yumurta akından elde edilen bir enzim. Bazı peynirlerde istenmeyen bakteri üremesini önler.
+E1200	Glukozdan sentezlenen, çözünür lif özelliğinde bir dolgu maddesi. Az şekerli ve az kalorili ürünlerde hacim verir.
+E1201	Sentetik bir polimer (PVP). Takviye tabletlerinde bağlayıcı olarak kullanılır.
+E1202	Sentetik bir polimer (PVPP). Bira ve şarabı berraklaştırmak için kullanılır.
+E1203	Sentetik bir polimer. Takviye tabletlerinin kaplamasında kullanılır.
+E1204	Nişastanın mantar benzeri bir mikroorganizmayla fermantasyonuyla üretilen bir polisakkarit. Kapsül ve nefes tazeleyici şeritlerde kullanılır.
+E1205	Sentetik bir polimer. Takviye tabletlerinin kaplamasında kullanılır.
+E1404	@MOD_NISASTA
+E1410	@MOD_NISASTA
+E1412	@MOD_NISASTA
+E1413	@MOD_NISASTA
+E1414	@MOD_NISASTA
+E1420	@MOD_NISASTA
+E1422	@MOD_NISASTA
+E1440	@MOD_NISASTA
+E1442	@MOD_NISASTA
+E1450	Yağı suda dağıtabilen bir modifiye nişasta. Bebek mamaları, aroma emülsiyonları ve içeceklerde emülgatör olarak kullanılır.
+E1451	@MOD_NISASTA
+E1452	Alüminyum içeren bir modifiye nişasta. Vitamin takviyelerinde kaplama olarak kullanılır.
+E1505	Sitrik asit ve etanolden üretilen bir taşıyıcı. Yumurta akı tozu ve aromalarda köpük stabilizatörü ve çözücüdür.
+E1517	Gliserol ve asetik asitten üretilen bir taşıyıcı. Aromalarda çözücü olarak kullanılır.
+E1518	Gliserol ve asetik asitten üretilen bir nem tutucu. Sakız ve aromalarda kullanılır.
+E1519	Bazı meyvelerde doğal olarak bulunan bir alkol. Aromalarda çözücü ve taşıyıcı olarak kullanılır.
+E1520	Propilen glikol. Aromalarda ve gıda boyalarında taşıyıcı ve çözücüdür.
+E1521	Sentetik bir polimer. Takviye tabletlerinde kaplama ve taşıyıcı olarak kullanılır.

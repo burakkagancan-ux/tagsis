@@ -12,6 +12,14 @@ import json, re, os, datetime
 
 VERSION = "0.3.0"
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def kaynak_json(ad):
+    """kaynak/ klasöründeki JSON veri dosyası"""
+    with open(os.path.join(HERE, "kaynak", ad), encoding="utf-8") as f:
+        return json.load(f)
+
+
 OUT = os.path.join(HERE, "data", "bilesenler.json")
 EDB = os.path.join(HERE, "data", "e_kodlari.json")
 
@@ -20,42 +28,9 @@ def norm(s):
     s = s.replace("İ", "i").replace("I", "ı").lower().translate(TR)
     return re.sub(r"[^a-z0-9]+", " ", s).strip()
 
-FLAGS = {
-    "sugar": "Şeker kaynağı",
-    "sugar_hidden": "Gizli şeker (adında 'şeker' geçmiyor)",
-    "palm": "Palm yağı",
-    "allergen_gluten": "Gluten içeren tahıl",
-    "allergen_crustacean": "Kabuklular (kabuklu deniz ürünü)",
-    "allergen_egg": "Yumurta",
-    "allergen_fish": "Balık",
-    "allergen_peanut": "Yer fıstığı",
-    "allergen_soy": "Soya",
-    "allergen_milk": "Süt",
-    "allergen_nuts": "Sert kabuklu meyve",
-    "allergen_celery": "Kereviz",
-    "allergen_mustard": "Hardal",
-    "allergen_sesame": "Susam",
-    "allergen_sulphite": "Kükürt dioksit ve sülfitler",
-    "allergen_lupin": "Acı bakla (lupin)",
-    "allergen_mollusc": "Yumuşakça",
-    "lactose": "Laktoz içerir",
-    "lactose_low": "Laktoz düşük olabilir",
-    "non_vegan": "Hayvansal kaynaklı (vegan değil)",
-    "vegan_suspect": "Kaynak bitkisel veya hayvansal olabilir",
-    "non_vegetarian": "Et/balık/kesim yan ürünü (vejetaryen değil)",
-    "vegetarian_suspect": "Vejetaryen uygunluğu belirsiz",
-    "upf": "Ultra işlenmiş gıda işareti (NOVA)",
-    # Faz 2: yaşam evresi ve evcil hayvan
-    "caffeine": "Kafein kaynağı",
-    "alcohol": "Alkol",
-    "alcohol_trace": "Az miktarda alkol içerebilir",
-    "raw_milk": "Çiğ (pastörize edilmemiş) süt",
-    "infant_honey": "Bal: 1 yaşından küçüklere verilmez",
-    "pet_toxic": "Köpek ve kediler için zehirli",
-    # Tuz ve sodyum (profil: tansiyon / tuz kısıtlaması)
-    "salt": "Tuz (sodyum klorür)",
-    "sodium_hidden": "Sodyum kaynağı (adında 'tuz' geçmiyor)",
-}
+# Bayraklar ve maddeler: kaynak/bilesenler.json
+BL = kaynak_json("bilesenler.json")
+FLAGS = BL["bayraklar"]
 
 # Profil ekranındaki alerjen listesi (TGK Etiketleme Yönetmeliği Ek-1 sırası ve adları; kısa gösterim)
 ALLERGENS = [
@@ -74,139 +49,9 @@ UPF_E_CATEGORIES = {
     "Parlatıcı / kaplama maddesi": "parlatıcı",
 }
 
-S, H, U = "sugar", "sugar_hidden", "upf"
-GL, MI, LA, NV = "allergen_gluten", "allergen_milk", "lactose", "non_vegan"
-NVG = "non_vegetarian"
-
-# (id, ad, [eş anlamlılar], [bayraklar], not, ek alanlar)
-# ek: upf_class = UPF sınıfı adı; short_ok = 3 harften kısa eş anlamlıya izin
-ITEMS = [
-    # ---------- ŞEKER ----------
-    ("seker", "Şeker", ["şeker", "toz şeker", "kristal şeker", "pudra şekeri", "esmer şeker", "kahverengi şeker", "küp şeker", "şeker şurubu", "karamelize şeker", "beyaz şeker", "rafine şeker", "sakaroz", "sakkaroz", "sukroz"], [S], "", {}),
-    ("glukoz_surubu", "Glukoz şurubu", ["glukoz şurubu", "glikoz şurubu", "glukoz", "glikoz", "kurutulmuş glukoz şurubu", "glukoz şurubu tozu", "nişasta şurubu"], [S, H, U], "", {"upf_class": "şeker türevi şurup"}),
-    ("gfs", "Glukoz-fruktoz şurubu", ["glukoz fruktoz şurubu", "glikoz fruktoz şurubu", "fruktoz glukoz şurubu", "fruktoz glikoz şurubu", "fruktoz şurubu", "mısır şurubu", "yüksek fruktozlu mısır şurubu", "nişasta bazlı şeker", "nbş", "izoglukoz"], [S, H, U], "Nişasta bazlı şeker (NBŞ) olarak da bilinir.", {"upf_class": "şeker türevi şurup"}),
-    ("invert", "İnvert şeker", ["invert şeker", "invert şeker şurubu", "invert şurup", "invert şurubu"], [S, U], "", {"upf_class": "şeker türevi şurup"}),
-    ("dekstroz", "Dekstroz", ["dekstroz", "dekstroz monohidrat"], [S, H, U], "", {"upf_class": "şeker türevi şurup"}),
-    ("fruktoz", "Fruktoz", ["fruktoz", "meyve şekeri", "kristal fruktoz"], [S, U], "", {"upf_class": "şeker türevi şurup"}),
-    ("maltoz", "Maltoz", ["maltoz", "maltoz şurubu"], [S, H], "", {}),
-    ("maltodekstrin", "Maltodekstrin", ["maltodekstrin"], [S, H, U], "Kimyasal olarak şeker sayılmaz ama kan şekerini hızla yükselten bir nişasta türevidir.", {"upf_class": "şeker türevi şurup"}),
-    ("laktoz", "Laktoz (süt şekeri)", ["laktoz", "süt şekeri"], [S, H, U, MI, LA, NV], "", {"upf_class": "şeker türevi şurup"}),
-    ("bal", "Bal", ["bal", "çiçek balı", "süzme bal", "petek bal", "çam balı"], [S, H, NV, "infant_honey"], "", {}),
-    ("pekmez", "Pekmez", ["pekmez", "üzüm pekmezi", "dut pekmezi", "keçiboynuzu pekmezi", "harnup pekmezi"], [S, H], "", {}),
-    ("melas", "Melas", ["melas", "şeker kamışı melası", "şeker pancarı melası"], [S, H], "", {}),
-    ("surup_diger", "Bitkisel şurup", ["agave şurubu", "akçaağaç şurubu", "hurma şurubu", "pirinç şurubu", "esmer pirinç şurubu", "agave", "hurma özü"], [S, H], "", {}),
-    ("meyve_konsantre", "Meyve suyu konsantresi", ["meyve suyu konsantresi", "konsantre meyve suyu", "elma suyu konsantresi", "üzüm suyu konsantresi", "meyve konsantresi", "konsantre elma suyu", "konsantre üzüm suyu"], [S, H, U], "Eklenen meyve suyu konsantresi DSÖ tanımına göre serbest şekerdir.", {"upf_class": "şeker türevi şurup"}),
-    ("malt", "Malt ekstraktı", ["malt ekstraktı", "malt özütü", "arpa malt ekstraktı", "arpa maltı ekstraktı", "malt şurubu", "arpa malt özütü"], [S, H, GL], "Genellikle arpadan elde edilir; gluten içerir.", {}),
-    # Yönetmelik muafiyeti: buğday/arpa bazlı glukoz şurubu, maltodekstrin gluten alerjeni sayılmaz
-    ("bugday_glukoz", "Buğday glukoz şurubu", ["buğday glukoz şurubu", "buğday glikoz şurubu", "buğday bazlı glukoz şurubu", "buğday kaynaklı glukoz şurubu", "buğday glukoz fruktoz şurubu", "buğday maltodekstrini", "buğday maltodekstrin", "buğday dekstrozu", "arpa glukoz şurubu"], [S, H, U], "Yönetmelik muafiyeti: buğday veya arpa bazlı glukoz şurubu ve maltodekstrin gluten alerjeni sayılmaz.", {"upf_class": "şeker türevi şurup"}),
-
-    # ---------- PALM ----------
-    ("palm", "Palm yağı", ["palm yağı", "palmiye yağı", "palm", "rafine palm yağı", "palm stearin", "palm stearini", "palm olein", "palm oleini", "fraksiyone palm yağı", "palm yağları"], ["palm"], "", {}),
-    ("palm_cekirdek", "Palm çekirdek yağı", ["palm çekirdek yağı", "palm çekirdeği yağı", "palmiye çekirdeği yağı", "palm kernel"], ["palm"], "", {}),
-
-    # ---------- GLUTEN ----------
-    ("bugday", "Buğday", ["buğday", "buğday unu", "tritikale", "tritikale unu", "tam buğday unu", "tam buğday", "irmik", "buğday irmiği", "bulgur", "firik", "kuskus", "galeta unu", "ekmek kırıntısı", "buğday kepeği", "buğday ruşeymi", "buğday nişastası", "buğday proteini", "durum buğdayı", "durum buğdayı irmiği", "siyez", "siyez unu", "kavılca", "yufka"], [GL], "", {}),
-    ("un", "Un", ["un", "ekmeklik un", "beyaz un", "tip 550 un", "pastalık un"], [GL], "Türü belirtilmemiş 'un' genellikle buğday unudur.", {"short_ok": True}),
-    ("gluten", "Gluten", ["gluten", "buğday gluteni", "vital gluten", "glüten"], [GL, U], "", {"upf_class": "protein izolatı"}),
-    ("arpa", "Arpa", ["arpa", "arpa unu", "arpa maltı", "malt", "kavrulmuş arpa", "arpa şehriye"], [GL], "", {}),
-    ("cavdar", "Çavdar", ["çavdar", "çavdar unu", "tam çavdar unu"], [GL], "", {}),
-    ("yulaf", "Yulaf", ["yulaf", "yulaf ezmesi", "yulaf unu", "yulaf kepeği", "yulaf lifi", "yulaf sütü", "yulaf içeceği"], [GL], "Yulaf yönetmelikte gluten içeren tahıllar arasındadır; 'glutensiz yulaf' ibaresini etikette kontrol edin.", {}),
-    ("spelt", "Kavuzlu buğday", ["kavuzlu buğday", "kılçıksız buğday", "spelt", "spelt unu", "kamut", "kamut unu", "einkorn", "emmer"], [GL], "", {}),
-
-    # ---------- KABUKLU / YUMUŞAKÇA / BALIK ----------
-    ("kabuklu", "Kabuklu deniz ürünleri", ["karides", "ıstakoz", "yengeç", "kerevit", "kabuklular", "karides özü", "kabuklu deniz ürünleri"], ["allergen_crustacean", NV, NVG], "", {}),
-    ("yumusakca", "Yumuşakçalar", ["midye", "kalamar", "ahtapot", "istiridye", "salyangoz", "mürekkep balığı", "deniz tarağı", "yumuşakçalar"], ["allergen_mollusc", NV, NVG], "", {}),
-    ("deniz_urunu", "Deniz ürünleri", ["deniz ürünleri", "deniz mahsulleri"], ["allergen_crustacean", "allergen_mollusc", "allergen_fish", NV, NVG], "Türü belirtilmemiş; kabuklu, yumuşakça ve balık olabilir.", {}),
-    ("balik", "Balık", ["balık", "balık eti", "balık yağı", "balık sosu", "ançüez", "hamsi", "ton balığı", "somon", "sardalya", "uskumru", "balık unu", "balık özü", "balık kolajeni"], ["allergen_fish", NV, NVG], "", {}),
-    ("balik_jelatini", "Balık jelatini", ["balık jelatini", "isinglass", "balık tutkalı"], ["allergen_fish", NV, NVG], "Yönetmelik muafiyeti: vitamin veya karotenoid preparatlarında taşıyıcı olarak ya da bira ve şarapta durultma için kullanılan balık jelatini/isinglass alerjen sayılmaz. Diğer kullanımlarda balık alerjenidir.", {}),
-
-    # ---------- YUMURTA ----------
-    ("yumurta", "Yumurta", ["yumurta", "yumurta tozu", "tam yumurta tozu", "yumurta akı", "yumurta akı tozu", "yumurta sarısı", "yumurta sarısı tozu", "pastörize yumurta", "sıvı yumurta", "albümin", "yumurta albümini", "ovalbümin"], ["allergen_egg", NV], "", {}),
-
-    # ---------- YER FISTIĞI / KABUKLU MEYVELER ----------
-    ("yer_fistigi", "Yer fıstığı", ["yer fıstığı", "yerfıstığı", "yer fıstığı ezmesi", "fıstık ezmesi", "yer fıstığı yağı", "yer fıstığı unu", "fıstık yağı"], ["allergen_peanut"], "", {}),
-    ("fistik", "Fıstık (türü belirtilmemiş)", ["fıstık", "fıstıklı"], ["allergen_peanut", "allergen_nuts"], "Yer fıstığı veya Antep fıstığı olabilir.", {}),
-    ("badem", "Badem", ["badem", "badem unu", "badem ezmesi", "badem sütü", "badem içeceği", "badem yağı", "badem parçaları", "marzipan", "acıbadem", "acı badem"], ["allergen_nuts"], "", {}),
-    ("findik", "Fındık", ["fındık", "fındık ezmesi", "fındık püresi", "fındık içi", "fındık parçaları", "fındık unu", "fındık yağı", "kavrulmuş fındık", "pralin"], ["allergen_nuts"], "", {}),
-    ("ceviz", "Ceviz", ["ceviz", "ceviz içi", "ceviz parçaları"], ["allergen_nuts"], "", {}),
-    ("kaju", "Kaju", ["kaju", "kaju fıstığı"], ["allergen_nuts"], "", {}),
-    ("antep", "Antep fıstığı", ["antep fıstığı", "şam fıstığı", "boz içi", "bozici"], ["allergen_nuts"], "", {}),
-    ("pikan", "Pikan / Brezilya cevizi / makadamya", ["pikan cevizi", "pekan cevizi", "pikan", "pekan", "brezilya cevizi", "brezilya fındığı"], ["allergen_nuts"], "", {}),
-    ("makadamya", "Makadamya", ["makadamya", "makadamya fındığı", "macadamia", "macadamia fındığı", "queensland cevizi", "queensland fındığı"], ["allergen_nuts", "pet_toxic"], "", {}),
-
-    # ---------- SOYA ----------
-    ("soya", "Soya", ["soya", "soya fasulyesi", "soya unu", "soya proteini", "soya sütü", "soya içeceği", "tofu", "edamame", "soya kırığı", "soya kepeği", "teksturize soya proteini"], ["allergen_soy"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın.", {}),
-    ("soya_izolat", "Soya protein izolatı", ["soya protein izolatı", "izole soya proteini", "soya izolatı", "soya protein konsantresi"], ["allergen_soy", U], "", {"upf_class": "protein izolatı"}),
-    ("soya_yagi", "Soya yağı", ["soya yağı", "rafine soya yağı", "soya fasulyesi yağı", "rafine soya fasulyesi yağı"], [], "Yönetmelik muafiyeti: rafine soya fasulyesi yağı (katı ve sıvı) soya alerjeni sayılmaz.", {}),
-
-    # ---------- SÜT ----------
-    ("sut", "Süt", ["süt", "inek sütü", "keçi sütü", "koyun sütü", "manda sütü", "pastörize süt", "tam yağlı süt", "yarım yağlı süt", "yağsız süt", "sütü"], [MI, LA, NV], "", {}),
-    ("sut_tozu", "Süt tozu", ["süt tozu", "yağsız süt tozu", "tam yağlı süt tozu", "yarım yağlı süt tozu", "inek sütü tozu", "keçi sütü tozu"], [MI, LA, NV], "", {}),
-    ("pas", "Peynir altı suyu", ["peynir altı suyu", "peyniraltı suyu", "peynir altı suyu tozu", "peyniraltı suyu tozu", "demineralize peynir altı suyu tozu", "laktoserum", "whey", "peynir suyu tozu"], [MI, LA, NV, U], "", {"upf_class": "protein izolatı"}),
-    ("pas_protein", "Süt / peynir altı suyu proteini", ["peynir altı suyu proteini", "peyniraltı suyu proteini", "whey protein", "peynir altı suyu protein konsantresi", "süt proteini", "süt protein konsantresi", "süt proteini konsantresi", "laktalbümin", "süt mineralleri"], [MI, NV, U], "", {"upf_class": "protein izolatı"}),
-    ("kazein", "Kazein / kazeinat", ["kazein", "kazeinat", "sodyum kazeinat", "kalsiyum kazeinat", "potasyum kazeinat", "süt kazeini", "kazeinatlar"], [MI, NV, U, "lactose_low"], "Laktoz miktarı çok düşüktür ama süt alerjisinde sorun yaratır.", {"upf_class": "protein izolatı"}),
-    ("krema", "Krema / kaymak", ["krema", "süt kreması", "kaymak", "krema tozu", "kaymak tozu", "ekşi krema"], [MI, LA, NV], "", {}),
-    ("tereyagi", "Tereyağı / süt yağı", ["tereyağı", "tereyağ", "sade yağ", "süt yağı", "tereyağı yağı", "anhidr süt yağı", "tereyağı tozu"], [MI, NV, "lactose_low"], "Laktoz miktarı düşüktür; süt alerjisinde sorun yaratır.", {}),
-    ("yogurt", "Yoğurt / ayran / kefir", ["yoğurt", "yoğurt tozu", "süzme yoğurt", "ayran", "kefir", "yoğurt kültürü"], [MI, LA, NV], "", {}),
-    ("peynir", "Peynir", ["peynir", "beyaz peynir", "kaşar", "kaşar peyniri", "lor", "lor peyniri", "çökelek", "tulum peyniri", "krem peynir", "eritme peynir", "peynir tozu", "mozzarella", "çedar", "cheddar", "parmesan", "labne", "lorlu"], [MI, LA, NV], "Olgunlaştırılmış sert peynirlerde laktoz çok düşüktür.", {}),
-
-    # ---------- KEREVİZ / HARDAL / SUSAM / LUPİN / SÜLFİT ----------
-    ("kereviz", "Kereviz", ["kereviz", "kereviz sapı", "kereviz kökü", "kereviz tohumu", "kereviz tozu", "kereviz yaprağı"], ["allergen_celery"], "", {}),
-    ("hardal", "Hardal", ["hardal", "hardal tohumu", "hardal unu", "hardal tozu", "hardal yağı", "dijon hardalı"], ["allergen_mustard"], "", {}),
-    ("susam", "Susam", ["susam", "susam tohumu", "tahin", "susam yağı", "susam ezmesi", "kavrulmuş susam"], ["allergen_sesame"], "", {}),
-    ("lupin", "Acı bakla (lupin)", ["acı bakla", "lupin", "lupin unu", "termiye", "termiye unu"], ["allergen_lupin"], "", {}),
-    ("sulfit", "Kükürt dioksit ve sülfitler", ["kükürt dioksit ve sülfitler", "sülfitler ve kükürt dioksit", "sülfit", "sülfitler", "kükürt dioksit", "sülfür dioksit", "sodyum metabisülfit", "potasyum metabisülfit", "sodyum bisülfit"], ["allergen_sulphite"], "Toplam SO2 cinsinden 10 mg/kg veya 10 mg/L üzerindeki kükürt dioksit ve sülfitler alerjen olarak bildirilmek zorundadır. Tür belirtilmemiş “sülfit” E220–E228 koruyucularından biridir.", {}),
-
-    # ---------- HAYVANSAL (vegan / vejetaryen) ----------
-    ("et", "Et", ["et", "kırmızı et", "sığır eti", "dana eti", "kuzu eti", "koyun eti", "keçi eti", "manda eti", "sığır", "dana", "kuzu", "mekanik ayrılmış et", "mekanik ayrılmış kanatlı eti", "et suyu", "et suyu tozu", "et ekstraktı", "et özü", "kemik suyu", "sakatat", "işkembe", "jambon", "bacon", "salam", "sucuk", "sosis", "pastırma", "kavurma"], [NV, NVG], "", {"short_ok": True}),
-    ("tavuk", "Tavuk / hindi", ["tavuk", "tavuk eti", "tavuk göğsü", "hindi", "hindi eti", "kanatlı eti", "tavuk suyu", "tavuk suyu tozu", "tavuk yağı", "tavuk derisi", "tavuk ekstraktı"], [NV, NVG], "", {}),
-    ("domuz", "Domuz", ["domuz", "domuz eti", "domuz yağı", "domuz jelatini", "domuz derisi"], [NV, NVG], "", {}),
-    ("hayvansal_yag", "Hayvansal yağ", ["hayvansal yağ", "iç yağı", "kuyruk yağı", "donyağı", "don yağı", "sığır yağı", "hayvansal yağlar"], [NV, NVG], "", {}),
-    ("kolajen", "Kolajen", ["kolajen", "kolajen peptidi", "hidrolize kolajen", "sığır kolajeni", "sığır jelatini"], [NV, NVG], "", {}),
-    ("peynir_mayasi", "Peynir mayası", ["peynir mayası", "şirden mayası", "buzağı şirdeni", "renin", "rennet"], [NV, "vegetarian_suspect"], "Hayvansal (şirden) ya da mikrobiyal olabilir; mikrobiyal maya vejetaryene uygundur.", {}),
-    ("mikrobiyal_maya", "Mikrobiyal peynir mayası", ["mikrobiyal peynir mayası", "mikrobiyal maya", "bitkisel peynir mayası", "mikrobiyal renin"], [], "Hayvansal kaynaklı değildir.", {}),
-    ("ari_urunu", "Arı ürünleri", ["arı sütü", "propolis", "polen", "arı poleni"], [NV], "", {}),
-    ("lanolin", "Lanolin", ["lanolin", "yün yağı"], [NV], "", {}),
-
-    # ---------- FAZ 2: HAMİLE / BEBEK / ÇOCUK / EVCİL HAYVAN ----------
-    ("cig_sut", "Çiğ süt", ["çiğ süt", "çiğ inek sütü", "çiğ keçi sütü", "çiğ koyun sütü", "pastörize edilmemiş süt", "çiğ sütten", "çiğ krema"], [MI, LA, NV, "raw_milk"], "Pastörize edilmemiş süt ürünleri listeria gibi bakteriler taşıyabilir; hamilelikte ve bebeklerde önerilmez.", {}),
-    ("kafein", "Kafein / kahve / çay ekstraktı", ["kafein", "kahve", "hazır kahve", "çözünebilir kahve", "kahve ekstraktı", "kahve özütü", "espresso", "kahve çekirdeği", "çay ekstraktı", "yeşil çay ekstraktı", "siyah çay ekstraktı", "guarana", "guarana ekstraktı", "mate", "yerba mate", "kola cevizi", "kola ekstraktı", "kahveli"], ["caffeine", "pet_toxic"], "Etikette 150 mg/L'den fazla kafein varsa “Yüksek miktarda kafein içerir. Çocuklar veya hamile ya da emziren kadınlar için tavsiye edilmez.” uyarısı zorunludur. EFSA hamilelikte günde 200 mg'ı aşmamayı önerir.", {}),
-    ("n_kafeinsiz", "Kafeinsiz kahve", ["kafeinsiz kahve", "kafeinsiz", "dekafein", "dekafeine kahve"], [], "Kafeini alınmıştır; az miktarda kafein kalabilir.", {}),
-    ("kakao", "Kakao / çikolata", ["kakao", "kakao tozu", "yağı azaltılmış kakao tozu", "kakao kitlesi", "kakao likörü", "kakao çekirdeği", "kakao parçacıkları", "çikolata", "bitter çikolata", "sütlü çikolata", "beyaz çikolata", "çikolata parçacıkları", "damla çikolata", "kuvertür", "kuvertür çikolata", "kakaolu", "çikolatalı"], ["pet_toxic"], "Teobromin içerir; köpek ve kediler için zehirlidir. Az miktarda kafein de içerir.", {}),
-    ("alkol", "Alkol", ["alkol", "etil alkol", "etanol", "şarap", "kırmızı şarap", "beyaz şarap", "likör", "rom", "konyak", "brendi", "viski", "votka", "bira", "rakı", "kirsch", "amaretto", "marsala", "porto şarabı"], ["alcohol", "pet_toxic"], "Pişirme ve fırınlama sonrasında alkolün bir kısmı üründe kalabilir.", {"short_ok": True}),
-    ("n_alkolsuz", "Alkolsüz", ["alkolsüz", "alkolsüz bira", "alkolsüz şarap"], ["alcohol_trace"], "“Alkolsüz” ürünler hacmen %0,5'e kadar alkol içerebilir.", {}),
-    ("uzum", "Üzüm / kuru üzüm", ["üzüm", "kuru üzüm", "sultani üzüm", "çekirdeksiz kuru üzüm", "kuş üzümü", "siyah kuru üzüm", "üzümlü", "kuru üzümlü"], ["pet_toxic"], "Üzüm ve kuru üzüm köpeklerde böbrek yetmezliğine yol açabilir.", {}),
-    ("sogan", "Soğan / sarımsak / pırasa", ["soğan", "kuru soğan", "soğan tozu", "toz soğan", "soğan granülü", "kurutulmuş soğan", "soğan ekstraktı", "taze soğan", "arpacık soğan", "sarımsak", "sarımsak tozu", "toz sarımsak", "kurutulmuş sarımsak", "sarımsak granülü", "sarımsak ekstraktı", "pırasa", "frenk soğanı", "soğanlı", "sarımsaklı"], ["pet_toxic"], "Soğan grubu bitkiler köpek ve kedilerde kansızlığa yol açabilir; toz hâli daha yoğundur.", {}),
-
-    # ---------- UPF İŞARETLERİ (E kodsuz) ----------
-    ("aroma", "Aroma verici", ["aroma", "aroma verici", "aroma vericiler", "aromalar", "doğal aroma", "doğal aroma verici", "doğala özdeş aroma", "doğal özdeş aroma", "yapay aroma", "aroma verici preparat", "vanilin", "etil vanilin", "vanilya aroması", "duman aroması", "tütsü aroması", "aroma maddesi", "aroma verici madde", "aroması", "aromalı", "aromaları", "esansı", "esans"], [U, "vegan_suspect"], "Aroma vericilerin kaynağı etikette genellikle yazmaz.", {"upf_class": "aroma verici"}),
-    ("hidrolize_protein", "Hidrolize protein", ["hidrolize protein", "hidrolize bitkisel protein", "hidrolize soya proteini", "hidrolize buğday proteini", "protein hidrolizatı", "maya özütü", "maya ekstraktı", "otolize maya"], [U], "Doğal glutamat kaynağıdır; 'lezzet artırıcı içermez' etiketlerinde sık kullanılır.", {"upf_class": "lezzet artırıcı"}),
-    ("hidrojenize", "Hidrojenize / interesterifiye yağ", ["hidrojenize yağ", "hidrojenize bitkisel yağ", "kısmen hidrojenize", "kısmen hidrojenize yağ", "tamamen hidrojenize yağ", "interesterifiye yağ", "interesterifiye bitkisel yağ", "hidrojenize", "margarin"], [U], "", {"upf_class": "hidrojenize yağ"}),
-    ("upf_sinif_emulgator", "Emülgatör", ["emülgatör", "emülgatörler", "emülsifiye edici", "emülsiyon verici", "eritme tuzu", "eritme tuzları"], [U], "", {"upf_class": "emülgatör"}),
-    ("upf_sinif_kivam", "Kıvam artırıcı", ["kıvam artırıcı", "kıvam arttırıcı", "kıvam artırıcılar", "jelleştirici", "jelleştirici madde", "stabilizör", "stabilizörler", "stabilizatör", "stabilizatörler", "koyulaştırıcı", "koyulaştırıcılar", "kıvam verici", "kıvam vericiler", "jelleştiriciler"], [U], "", {"upf_class": "kıvam artırıcı"}),
-    ("upf_sinif_renk", "Renklendirici", ["renklendirici", "renklendiriciler", "renk verici", "gıda boyası"], [U], "", {"upf_class": "renklendirici"}),
-    ("upf_sinif_tatlandirici", "Tatlandırıcı", ["tatlandırıcı", "tatlandırıcılar", "yapay tatlandırıcı"], [U], "", {"upf_class": "tatlandırıcı"}),
-    ("upf_sinif_lezzet", "Lezzet artırıcı", ["lezzet artırıcı", "lezzet arttırıcı", "lezzet artırıcılar", "lezzet güçlendirici", "lezzet güçlendiriciler", "aroma güçlendirici", "aroma güçlendiriciler", "aroma artırıcı", "aroma arttırıcı"], [U], "", {"upf_class": "lezzet artırıcı"}),
-    ("upf_sinif_parlatici", "Parlatıcı", ["parlatıcı", "parlatıcı madde", "kaplama maddesi", "kaplama ajanı"], [U], "", {"upf_class": "parlatıcı"}),
-    ("upf_sinif_kopuk", "Köpük önleyici / kabartıcı", ["köpük önleyici", "köpürtücü", "dolgu maddesi", "hacim artırıcı"], [U], "", {"upf_class": "köpük/dolgu maddesi"}),
-
-    # ---------- NÖTR (yanlış eşleşmeyi önleyen) ----------
-    ("n_hindistan", "Hindistan cevizi", ["hindistan cevizi", "hindistan cevizi sütü", "hindistan cevizi kreması", "hindistan cevizi yağı", "hindistan cevizi unu", "rendelenmiş hindistan cevizi"], [], "Yönetmelikteki sert kabuklu meyveler listesinde yoktur.", {}),
-    ("n_muskat", "Muskat", ["muskat", "muskat cevizi", "küçük hindistan cevizi"], [], "", {}),
-    ("n_cam_fistigi", "Çam fıstığı", ["çam fıstığı", "dolmalık fıstık"], [], "Yönetmelikteki sert kabuklu meyveler listesinde yoktur; ayrı bir alerji olabilir.", {}),
-    ("n_kakao", "Kakao yağı", ["kakao yağı", "kakao tereyağı"], [], "Süt ürünü değildir.", {}),
-    ("n_bitkisel_krema", "Bitkisel krema", ["bitkisel krema", "bitkisel krem şanti", "bitkisel kaymak", "bitkisel bazlı krema"], [U], "Süt kreması değildir; genellikle bitkisel yağ ve katkılarla yapılır.", {"upf_class": "hidrojenize yağ"}),
-    ("n_pirinc_sutu", "Pirinç sütü", ["pirinç sütü", "pirinç içeceği"], [], "", {}),
-    ("n_balkabagi", "Bal kabağı", ["bal kabağı", "balkabağı", "bal kabağı çekirdeği"], [], "", {}),
-    ("n_sut_aroma", "Süt ürünü aroması", ["kaymak aroması", "süt aroması", "tereyağı aroması", "peynir aroması", "yoğurt aroması"], [U, "vegan_suspect"], "Aroma olarak geçiyor; süt içerip içermediği belirsiz.", {"upf_class": "aroma verici"}),
-    ("n_glutensiz_un", "Glutensiz un / nişasta", ["mısır unu", "pirinç unu", "nohut unu", "karabuğday", "karabuğday unu", "patates unu", "keçiboynuzu unu", "tapyoka", "tapyoka nişastası", "mısır nişastası", "patates nişastası", "pirinç nişastası", "mısır irmiği", "kinoa", "kinoa unu", "tef unu", "darı", "darı unu"], [], "Gluten içeren tahıllardan değildir; çapraz bulaşma için etikete bakın.", {}),
-    ("n_sterol", "Bitkisel sterol / stanol", ["bitkisel sterol", "bitkisel steroller", "bitkisel sterol esteri", "bitkisel sterol esterleri", "bitkisel stanol esteri", "bitkisel stanol esterleri", "fitosterol", "fitosteroller"], [], "Yönetmelik muafiyeti: soya kaynaklı olsa bile bitkisel sterol ve stanol esterleri soya alerjeni sayılmaz.", {}),
-    ("tuz", "Tuz", ["tuz", "sofra tuzu", "iyotlu tuz", "iyotsuz tuz", "iyotlu sofra tuzu", "deniz tuzu", "kaya tuzu", "himalaya tuzu", "göl tuzu", "kristal tuz", "sodyum klorür", "salamura", "tuzlu"], ["salt"], "", {}),
-    ("soya_sosu", "Soya sosu", ["soya sosu", "soya sos", "soy sos", "tamari"], ["allergen_soy", "sodium_hidden"], "Soya sosu çoğunlukla buğday da içerir; etikete bakın. Tuz oranı yüksektir.", {}),
-    ("n_bulyon", "Bulyon", ["bulyon", "sebze bulyonu", "bulyon tableti", "çorba bazı"], ["sodium_hidden", "vegan_suspect"], "Bulyon genellikle yoğun tuz içerir; et ya da tavuk içerip içermediği etikette ayrıca yazar.", {}),
-    ("n_bulyon_et", "Et / tavuk bulyonu", ["et bulyonu", "tavuk bulyonu", "dana bulyonu", "toz et suyu", "toz tavuk suyu"], ["sodium_hidden", NV, NVG], "Bulyon ve toz et suyu genellikle yoğun tuz içerir.", {}),
-    ("n_hamur_mayasi", "Maya", ["maya", "ekmek mayası", "kuru maya", "yaş maya", "instant maya", "aktif kuru maya"], [], "", {}),
-]
+# kaynak/bilesenler.json "maddeler": {id, ad, adlar (eş anlamlılar), bayraklar, not, ek}
+# ek: upf_class = UPF sınıfı adı; short_ok = 3 harften kısa eş anlamlıya izin. Düz metin satırları bölüm başlığıdır, atlanır.
+ITEMS = [(x["id"], x["ad"], x["adlar"], x["bayraklar"], x["not"], x["ek"]) for x in BL["maddeler"] if isinstance(x, dict)]
 
 # Cümle düzeyinde "eser miktarda içerebilir" tetikleyicileri (normalize edilmiş)
 MAY_TRIGGERS = ["icerebilir", "iceribilir", "eser", "ayni tesiste", "ayni hatta", "ayni uretim", "bulunabilir"]

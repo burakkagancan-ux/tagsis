@@ -38,3 +38,8 @@ jobs:
         run: node test/temizlik.js
       - name: OCR Worker
         run: node worker/test.mjs
+      - name: Veri üreteçleri (data/ ile kaynak/ uyumlu mu)
+        # Üreteçleri depodaki kaynak dosyalarıyla çalıştırır; data/ değişirse JSON elle düzenlenmiş ya da üreteç çalıştırılmamış demektir.
+        run: |
+          for g in gen_e_kodlari gen_bilesenler gen_e_aciklama gen_kozmetik gen_eslesmeler gen_temizlik; do python3 $g.py; done
+          git diff --stat --exit-code -I '"generated":' -- data/
