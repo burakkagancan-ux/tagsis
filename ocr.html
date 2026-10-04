@@ -1333,7 +1333,6 @@ function hzCard(x){
   return infoCard(TCLS[h.level],h.code+" · "+h.tr.replace(/^içerir\. /,""),TLBL[h.level]+" · "+(M.group_labels[h.group]||h.group)+" · "+how,function(pn,d){
     if(h.note)d.appendChild(el("div","ln",h.note));
     if(h.code==="EUH208"&&x.names&&x.names.length)d.appendChild(el("div","ln","Adı geçen: "+x.names.join("; ")));
-    var p=el("div","ln");p.appendChild(el("b",null,"İngilizce: "));p.appendChild(document.createTextNode(h.en));pn.appendChild(p);
     pn.appendChild(el("div","ln","Bu ifade, üreticinin ürünü resmi tehlike sınıflandırmasına göre etikete yazmak zorunda olduğu bilgidir; uygulamanın kendi yorumu değildir."));
     var eu=h.code.indexOf("EUH")===0;
     pn.appendChild(el("div","how","Mevzuat: SEA Yönetmeliği (RG 11.12.2013, 28848) / AB CLP (EC) 1272/2008. "+(!eu?"Türkçe metin SEA'ya dayalı listeden.":h.needs_review?"Türkçe metin çeviridir; resmi metinle birebir karşılaştırılmadı.":"Türkçe metin, Türkçe güvenlik bilgi formlarındaki ifadeyle karşılaştırıldı.")));
