@@ -238,6 +238,90 @@
    "year": 2019,
    "url": "https://doaj.org/article/0a1c82d8dcc846e5a02ef0c9430d96eb",
    "official": true
+  },
+  "efsa_starch": {
+   "title": "Re-evaluation of oxidised starch (E 1404), monostarch phosphate (E 1410), distarch phosphate (E 1412), phosphated distarch phosphate (E 1413), acetylated distarch phosphate (E 1414), acetylated starch (E 1420), acetylated distarch adipate (E 1422), hydroxypropyl starch (E 1440), hydroxypropyl distarch phosphate (E 1442), starch sodium octenyl succinate (E 1450), acetylated oxidised starch (E 1451) and starch aluminium octenyl succinate (E 1452) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(10):4911)",
+   "year": 2017,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009865",
+   "official": true
+  },
+  "efsa_cellulose": {
+   "title": "Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives",
+   "publisher": "EFSA (EFSA Journal 16(1))",
+   "year": 2018,
+   "url": "https://doaj.org/article/a2d7be6d96ba4de880758e732520093b",
+   "official": true
+  },
+  "efsa_alginate": {
+   "title": "Re-evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(11):5049)",
+   "year": 2017,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7010146",
+   "official": true
+  },
+  "efsa_tocopherol": {
+   "title": "Scientific Opinion on the re-evaluation of tocopherol-rich extract (E 306), α-tocopherol (E 307), γ-tocopherol (E 308) and δ-tocopherol (E 309) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(9):4247)",
+   "year": 2015,
+   "url": "https://doaj.org/article/c4ddc00f52424fe7926e1ceb443a87c2",
+   "official": true
+  },
+  "efsa_e410": {
+   "title": "Re-evaluation of locust bean gum (E 410) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(1):4646)",
+   "year": 2017,
+   "url": "https://doaj.org/article/e0399038e2024cae9cf36cb88005860f",
+   "official": true
+  },
+  "efsa_e412": {
+   "title": "Re-evaluation of guar gum (E 412) as a food additive",
+   "publisher": "EFSA",
+   "year": 2017,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/4669",
+   "official": true
+  },
+  "efsa_e414": {
+   "title": "Re-evaluation of acacia gum (E 414) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(4):4741)",
+   "year": 2017,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32625453/",
+   "official": true
+  },
+  "efsa_e415": {
+   "title": "Re-evaluation of xanthan gum (E 415) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(7))",
+   "year": 2017,
+   "url": "https://doaj.org/article/661bdc5dc843407a8966f6f2f7d97037",
+   "official": true
+  },
+  "efsa_e440": {
+   "title": "Re-evaluation of pectin (E 440i) and amidated pectin (E 440ii) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(7))",
+   "year": 2017,
+   "url": "https://doaj.org/article/7b24fcb3311843d8a921cbf758cbf73b",
+   "official": true
+  },
+  "efsa_e471": {
+   "title": "Opinion on the re-evaluation of mono- and diglycerides of fatty acids (E 471) as food additive in foods for infants below 16 weeks of age and follow-up of their re-evaluation as food additives for uses in foods for all population groups",
+   "publisher": "EFSA (EFSA Journal 19(11))",
+   "year": 2021,
+   "url": "https://doaj.org/article/7e97e3fcf5284a9c925ea73ed1e45619",
+   "official": true
+  },
+  "efsa_e422": {
+   "title": "Re-evaluation of glycerol (E 422) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(3))",
+   "year": 2017,
+   "url": "https://doaj.org/article/1971368db70e45fd8b612ca1ff0a6d21",
+   "official": true
+  },
+  "ab2026_196": {
+   "title": "Komisyon Tüzüğü (AB) 2026/196: E 407, E 410, E 412, E 414, E 415, E 440 ve E 1450 ile ilgili değişiklikler",
+   "publisher": "Avrupa Komisyonu",
+   "year": 2026,
+   "url": "https://eur-lex.europa.eu/eli/reg/2026/196/oj",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -3094,6 +3178,1039 @@
    ],
    "sources": [
     "efsa_sorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1404": {
+   "evidence_level": "strong",
+   "what_it_does": "Okside nişasta; kıvam verir ve jelleşmeyi düzenler.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1410": {
+   "evidence_level": "strong",
+   "what_it_does": "Fosfatla değiştirilmiş nişasta; kıvam verir, donma ve çözülmeye dayanıklıdır.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1412": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı nişasta; ısıya, asite ve karıştırmaya dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1413": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı ve fosfatlanmış nişasta; dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1414": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı ve asetillenmiş nişasta; soslarda ve hazır yemeklerde dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1420": {
+   "evidence_level": "strong",
+   "what_it_does": "Asetillenmiş nişasta; kıvam verir ve soğukta bulanıklaşmayı azaltır.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1422": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı ve asetillenmiş nişasta; ısıya ve asite dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1440": {
+   "evidence_level": "strong",
+   "what_it_does": "Hidroksipropil grubu eklenmiş nişasta; dondurulup çözülmeye dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1442": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı hidroksipropil nişasta; ısıya, asite ve dondurmaya dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1450": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağı suda dağıtabilen modifiye nişasta; emülgatör ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Bebek mamaları",
+    "Aroma emülsiyonları",
+    "İçecekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı. E 1450'nin bebek formüllerindeki güvenliği mevcut verilerle tam değerlendirilemedi.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bebek formüllerinde ve devam formüllerinde kullanılan E 1450 glutensiz olmalıdır (18.08.2026'dan itibaren).",
+     "year": 2026,
+     "src": "ab2026_196"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch",
+    "ab2026_196"
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, E 1450'nin bebek formüllerindeki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi. AB 2026'da bebek formüllerinde kullanılan E 1450'nin glutensiz olmasını şart koştu."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, E 1450'nin bebek formüllerindeki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi. AB 2026'da bebek formüllerinde kullanılan E 1450'nin glutensiz olmasını şart koştu."
+    }
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1451": {
+   "evidence_level": "strong",
+   "what_it_does": "Okside ve asetillenmiş nişasta; kıvam verir ve jelleşmeyi düzenler.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E460": {
+   "evidence_level": "strong",
+   "what_it_does": "Topaklanmayı önler, dolgu ve lif kaynağı olarak kullanılır.",
+   "found_in": [
+    "Rendelenmiş peynir",
+    "Toz gıdalar",
+    "Gıda takviyesi tabletleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E461": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir; ısıtınca jelleşir, soğuyunca akışkanlaşır.",
+   "found_in": [
+    "Glutensiz unlu mamuller",
+    "Hazır soslar",
+    "Bitkisel et ürünleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E462": {
+   "evidence_level": "strong",
+   "what_it_does": "Kaplama ve bağlayıcı olarak kullanılır.",
+   "found_in": [
+    "Gıda takviyesi tabletleri ve kapsülleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E463": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve bağlayıcı olarak kullanılır.",
+   "found_in": [
+    "Hazır soslar",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E464": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, bağlar ve kaplama oluşturur.",
+   "found_in": [
+    "Glutensiz unlu mamuller",
+    "Gıda takviyesi kapsülleri",
+    "Hazır soslar"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E465": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve köpüğü dengeler.",
+   "found_in": [
+    "Tatlılar ve kremalar"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E466": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve su tutar.",
+   "found_in": [
+    "Dondurma",
+    "İçecekler",
+    "Hazır soslar",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E468": {
+   "evidence_level": "strong",
+   "what_it_does": "Tabletlerin suda dağılmasını kolaylaştırır.",
+   "found_in": [
+    "Gıda takviyesi tabletleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E469": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Hazır soslar",
+    "Süt ürünleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E400": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E401": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E402": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E403": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E404": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E306": {
+   "evidence_level": "moderate",
+   "what_it_does": "Tokoferolce zengin ekstre; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E307": {
+   "evidence_level": "moderate",
+   "what_it_does": "Alfa-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E308": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gama-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E309": {
+   "evidence_level": "moderate",
+   "what_it_does": "Delta-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E410": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve buz kristallerinin büyümesini yavaşlatır.",
+   "found_in": [
+    "Dondurma",
+    "Krem peynir",
+    "Hazır soslar"
+   ],
+   "in_the_body": "Keçiboynuzu zamkı pratikte sindirilmez ve emilmez; kalın bağırsakta bakterilerce büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_e410"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e410",
+    "ab2026_196"
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E412": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve su tutar.",
+   "found_in": [
+    "Dondurma",
+    "Hazır soslar",
+    "Glutensiz unlu mamuller"
+   ],
+   "in_the_body": "Guar zamkı çözünür bir liftir; emilmez ve kalın bağırsakta bakterilerce fermente edilir. EFSA bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalarda güvenliğini gösterecek verinin yetersiz olduğunu bildirdi; AB bu nedenle 2026'da bu ürünlerdeki iznini kaldırdı. Diğer gıdalarda izinli olmaya devam ediyor.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalarda izni kaldırıldı (18.08.2026'dan itibaren; bir kategoride geçiş 27.04.2027'ye kadar).",
+     "year": 2026,
+     "src": "ab2026_196"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi.",
+     "year": 2017,
+     "src": "efsa_e412"
+    }
+   ],
+   "sources": [
+    "efsa_e412",
+    "ab2026_196"
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "AB, guar zamkının bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalardaki iznini 2026'da kaldırdı."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "AB, guar zamkının bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalardaki iznini 2026'da kaldırdı."
+    }
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E414": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, emülsiyonu dengeler ve şeker kristalleşmesini yavaşlatır.",
+   "found_in": [
+    "Şekerlemeler ve sakız",
+    "İçecekler",
+    "Aroma emülsiyonları"
+   ],
+   "in_the_body": "Arap zamkı değişmeden emilmez ve kalın bağırsakta bakterilerce az miktarda fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı; yüksek miktarda gaz yapabildiği bildirildi, bu zararlı etki sayılmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e414"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e414",
+    "ab2026_196"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E415": {
+   "evidence_level": "strong",
+   "what_it_does": "Az miktarda bile kıvam verir ve karışımları dengeler.",
+   "found_in": [
+    "Hazır soslar ve salata sosları",
+    "Glutensiz unlu mamuller",
+    "Toz içecekler"
+   ],
+   "in_the_body": "Ksantan zamkı değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı; yüksek dozda karın rahatsızlığı bildirildi, bu zararlı etki sayılmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e415"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e415",
+    "ab2026_196"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E440": {
+   "evidence_level": "strong",
+   "what_it_does": "Jel oluşturur ve kıvam verir.",
+   "found_in": [
+    "Reçel ve marmelat",
+    "Meyveli yoğurt ve tatlılar",
+    "Jöleli şekerlemeler"
+   ],
+   "in_the_body": "Pektinler değişmeden emilmez; kalın bağırsakta bakterilerce büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e440"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e440",
+    "ab2026_196"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E471": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışmasını sağlar, bayatlamayı geciktirir ve dokuyu yumuşatır.",
+   "found_in": [
+    "Ekmek ve kek",
+    "Margarin",
+    "Dondurma",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Mono ve digliseritler sindirimde normal yağlar gibi gliserol ve yağ asitlerine ayrılır. EFSA 2021'de bebek formülü dahil tüm kullanımlarda güvenlik endişesi bulmadı ve sayısal bir günlük alım sınırı belirlemedi; üretimden kalabilecek glisidil esterleri, 3-MCPD ve erusik asit için saflık sınırları önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bebekler dahil yeniden değerlendirildi; güvenlik endişesi yok, saflık sınırları önerildi.",
+     "year": 2021,
+     "src": "efsa_e471"
+    }
+   ],
+   "sources": [
+    "efsa_e471"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E422": {
+   "evidence_level": "strong",
+   "what_it_does": "Nem tutar, yumuşaklık ve hafif tatlılık verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek ve unlu mamuller",
+    "İçecekler"
+   ],
+   "in_the_body": "Gliserol vücutta yağların yapı taşı olarak doğal olarak bulunur ve enerji için kullanılır. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanımda güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e422"
+    }
+   ],
+   "sources": [
+    "efsa_e422"
    ],
    "last_reviewed": "2026-10-04"
   }
