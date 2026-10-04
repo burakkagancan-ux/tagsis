@@ -175,6 +175,300 @@
    "year": 2018,
    "url": "https://www.legislation.gov.uk/eur/2018/98/data.html",
    "official": true
+  },
+  "efsa_aluminium": {
+   "title": "Safety of aluminium from dietary intake",
+   "publisher": "EFSA",
+   "year": 2008,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/754",
+   "official": true
+  },
+  "efsa_polysorbate": {
+   "title": "Re-evaluation of polyoxyethylene sorbitans (E 432–E 436) as food additives",
+   "publisher": "EFSA",
+   "year": 2015,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4152",
+   "official": true
+  },
+  "efsa_sorbitan": {
+   "title": "Re-evaluation of sorbitan esters (E 491–495) as food additives",
+   "publisher": "EFSA",
+   "year": 2017,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4788",
+   "official": true
+  },
+  "efsa_phosphate": {
+   "title": "Re-evaluation of phosphoric acid–phosphates, di-, tri- and polyphosphates (E 338–341, E 343, E 450–452) as food additives",
+   "publisher": "EFSA (EFSA Journal 17(6))",
+   "year": 2019,
+   "url": "https://doaj.org/article/e6ffb193a05440b294b0457f61b68208",
+   "official": true
+  },
+  "efsa_e161g": {
+   "title": "Scientific Opinion on the re-evaluation of canthaxanthin (E 161g) as a food additive",
+   "publisher": "EFSA",
+   "year": 2010,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/1852",
+   "official": true
+  },
+  "efsa_e955": {
+   "title": "Re-evaluation of sucralose (E 955) as a food additive (sade dil özeti)",
+   "publisher": "EFSA",
+   "year": 2026,
+   "url": "https://www.efsa.europa.eu/en/plain-language-summary/re-evaluation-sucralose-e-955-food-additive",
+   "official": true
+  },
+  "efsa_e950": {
+   "title": "Re-evaluation of acesulfame K (E 950) as food additive",
+   "publisher": "EFSA",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/en/node/19722",
+   "official": true
+  },
+  "efsa_e954": {
+   "title": "Re-evaluation of saccharin and its sodium, potassium and calcium salts (E 954) as food additives",
+   "publisher": "EFSA (EFSA Journal)",
+   "year": 2024,
+   "url": "https://doaj.org/article/5f17d270836742eb8dd7632014f17b08",
+   "official": true
+  },
+  "efsa_sorbate": {
+   "title": "Opinion on the follow-up of the re-evaluation of sorbic acid (E200) and potassium sorbate (E202) as food additives",
+   "publisher": "EFSA (EFSA Journal)",
+   "year": 2019,
+   "url": "https://doaj.org/article/0a1c82d8dcc846e5a02ef0c9430d96eb",
+   "official": true
+  },
+  "efsa_starch": {
+   "title": "Re-evaluation of oxidised starch (E 1404), monostarch phosphate (E 1410), distarch phosphate (E 1412), phosphated distarch phosphate (E 1413), acetylated distarch phosphate (E 1414), acetylated starch (E 1420), acetylated distarch adipate (E 1422), hydroxypropyl starch (E 1440), hydroxypropyl distarch phosphate (E 1442), starch sodium octenyl succinate (E 1450), acetylated oxidised starch (E 1451) and starch aluminium octenyl succinate (E 1452) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(10):4911)",
+   "year": 2017,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009865",
+   "official": true
+  },
+  "efsa_cellulose": {
+   "title": "Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives",
+   "publisher": "EFSA (EFSA Journal 16(1))",
+   "year": 2018,
+   "url": "https://doaj.org/article/a2d7be6d96ba4de880758e732520093b",
+   "official": true
+  },
+  "efsa_alginate": {
+   "title": "Re-evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(11):5049)",
+   "year": 2017,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7010146",
+   "official": true
+  },
+  "efsa_tocopherol": {
+   "title": "Scientific Opinion on the re-evaluation of tocopherol-rich extract (E 306), α-tocopherol (E 307), γ-tocopherol (E 308) and δ-tocopherol (E 309) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(9):4247)",
+   "year": 2015,
+   "url": "https://doaj.org/article/c4ddc00f52424fe7926e1ceb443a87c2",
+   "official": true
+  },
+  "efsa_e410": {
+   "title": "Re-evaluation of locust bean gum (E 410) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(1):4646)",
+   "year": 2017,
+   "url": "https://doaj.org/article/e0399038e2024cae9cf36cb88005860f",
+   "official": true
+  },
+  "efsa_e412": {
+   "title": "Re-evaluation of guar gum (E 412) as a food additive",
+   "publisher": "EFSA",
+   "year": 2017,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/4669",
+   "official": true
+  },
+  "efsa_e414": {
+   "title": "Re-evaluation of acacia gum (E 414) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(4):4741)",
+   "year": 2017,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32625453/",
+   "official": true
+  },
+  "efsa_e415": {
+   "title": "Re-evaluation of xanthan gum (E 415) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(7))",
+   "year": 2017,
+   "url": "https://doaj.org/article/661bdc5dc843407a8966f6f2f7d97037",
+   "official": true
+  },
+  "efsa_e440": {
+   "title": "Re-evaluation of pectin (E 440i) and amidated pectin (E 440ii) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(7))",
+   "year": 2017,
+   "url": "https://doaj.org/article/7b24fcb3311843d8a921cbf758cbf73b",
+   "official": true
+  },
+  "efsa_e471": {
+   "title": "Opinion on the re-evaluation of mono- and diglycerides of fatty acids (E 471) as food additive in foods for infants below 16 weeks of age and follow-up of their re-evaluation as food additives for uses in foods for all population groups",
+   "publisher": "EFSA (EFSA Journal 19(11))",
+   "year": 2021,
+   "url": "https://doaj.org/article/7e97e3fcf5284a9c925ea73ed1e45619",
+   "official": true
+  },
+  "efsa_e422": {
+   "title": "Re-evaluation of glycerol (E 422) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(3))",
+   "year": 2017,
+   "url": "https://doaj.org/article/1971368db70e45fd8b612ca1ff0a6d21",
+   "official": true
+  },
+  "ab2026_196": {
+   "title": "Komisyon Tüzüğü (AB) 2026/196: E 407, E 410, E 412, E 414, E 415, E 440 ve E 1450 ile ilgili değişiklikler",
+   "publisher": "Avrupa Komisyonu",
+   "year": 2026,
+   "url": "https://eur-lex.europa.eu/eli/reg/2026/196/oj",
+   "official": true
+  },
+  "efsa_e100": {
+   "title": "Refined exposure assessment for curcumin (E 100)",
+   "publisher": "EFSA (EFSA Journal 12(10):3876)",
+   "year": 2014,
+   "url": "https://doaj.org/article/bc565ef1ab77443bb7caebe4e9663f02",
+   "official": true
+  },
+  "efsa_e131": {
+   "title": "Scientific Opinion on the re-evaluation of Patent Blue V (E 131) as a food additive",
+   "publisher": "EFSA (EFSA Journal 11(3):2818)",
+   "year": 2013,
+   "url": "https://doaj.org/article/e92d1bb3d57b40f78554245b65eaaee4",
+   "official": true
+  },
+  "efsa_e132": {
+   "title": "Scientific Opinion on the re-evaluation of Indigo Carmine (E 132) as a food additive",
+   "publisher": "EFSA (EFSA Journal 12(7):3768)",
+   "year": 2014,
+   "url": "https://doaj.org/article/2a45bf177f5d410bb888f83b9e348be5",
+   "official": true
+  },
+  "efsa_e133": {
+   "title": "Scientific Opinion on the re-evaluation of Brilliant Blue FCF (E 133) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(11):1853)",
+   "year": 2010,
+   "url": "https://doaj.org/article/17da31dd4b1c457d9e2d4caef68f063c",
+   "official": true
+  },
+  "efsa_e140": {
+   "title": "Scientific Opinion on the re-evaluation of chlorophylls (E 140(i)) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(5):4089)",
+   "year": 2015,
+   "url": "https://doaj.org/article/a1af868ec0024a079dda37d2416ed6e1",
+   "official": true
+  },
+  "efsa_e141": {
+   "title": "Scientific Opinion on re-evaluation of copper complexes of chlorophylls (E 141(i)) and chlorophyllins (E 141(ii)) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(6):4151)",
+   "year": 2015,
+   "url": "https://doaj.org/article/88e8be8f77ac4794a72a5d4a31b416eb",
+   "official": true
+  },
+  "efsa_e142": {
+   "title": "Scientific Opinion on the re-evaluation of Green S (E 142) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(11):1851)",
+   "year": 2010,
+   "url": "https://doaj.org/article/6bd158a4369f454ea87d94f10457cf55",
+   "official": true
+  },
+  "efsa_e150": {
+   "title": "Refined exposure assessment for caramel colours (E 150a, c, d)",
+   "publisher": "EFSA (EFSA Journal 10(12):3030)",
+   "year": 2012,
+   "url": "https://doaj.org/article/6b30252c655144a3bcef036c4eea3ea0",
+   "official": true
+  },
+  "efsa_e151": {
+   "title": "Scientific Opinion on the re-evaluation of Brilliant Black BN (E 151) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(4):1540)",
+   "year": 2010,
+   "url": "https://doaj.org/article/74d12c6459d24d0ea88f3c93565f7927",
+   "official": true
+  },
+  "efsa_e153": {
+   "title": "Scientific Opinion on the re-evaluation of vegetable carbon (E 153) as a food additive",
+   "publisher": "EFSA (EFSA Journal 10(4):2592)",
+   "year": 2012,
+   "url": "https://doaj.org/article/2c5bb28fb1194d4ab21c2b6d3298f165",
+   "official": true
+  },
+  "efsa_e155": {
+   "title": "Scientific Opinion on the re-evaluation of Brown HT (E 155) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(4):1536)",
+   "year": 2010,
+   "url": "https://doaj.org/article/7221cbee4ea24261a5cb8b25b25d9347",
+   "official": true
+  },
+  "efsa_e160a": {
+   "title": "Scientific Opinion on the re-evaluation of mixed carotenes (E 160a (i)) and beta-carotene (E 160a (ii)) as a food additive",
+   "publisher": "EFSA (EFSA Journal 10(3):2593)",
+   "year": 2012,
+   "url": "https://doaj.org/article/061009b3ca404764a0069b4f86e82a53",
+   "official": true
+  },
+  "efsa_e160b": {
+   "title": "Safety of annatto E and the exposure to the annatto colouring principles bixin and norbixin (E 160b) when used as a food additive",
+   "publisher": "EFSA (EFSA Journal 17(3):5626)",
+   "year": 2019,
+   "url": "https://doaj.org/article/dbc2d2dc9ba34fec8b4f9ec4560bf256",
+   "official": true
+  },
+  "efsa_e160c": {
+   "title": "Scientific Opinion on the re-evaluation of paprika extract (E 160c) as a food additive",
+   "publisher": "EFSA (EFSA Journal 13(12):4320)",
+   "year": 2015,
+   "url": "https://doi.org/10.2903/j.efsa.2015.4320",
+   "official": true
+  },
+  "efsa_e160e": {
+   "title": "Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of β-apo-8′-carotenal (E 160e)",
+   "publisher": "EFSA (EFSA Journal 12(1):3492)",
+   "year": 2014,
+   "url": "https://doaj.org/article/1818e11108c54fce86849a9c37259995",
+   "official": true
+  },
+  "efsa_e161b": {
+   "title": "Statement on the safety assessment of the exposure to lutein preparations based on new data on the use levels of lutein",
+   "publisher": "EFSA (EFSA Journal 10(3):2589)",
+   "year": 2012,
+   "url": "https://doaj.org/article/f5603144a4c8408abb765c373b58cb3b",
+   "official": true
+  },
+  "efsa_e163": {
+   "title": "Scientific Opinion on the re-evaluation of anthocyanins (E 163) as a food additive",
+   "publisher": "EFSA (EFSA Journal 11(4):3145)",
+   "year": 2013,
+   "url": "https://doaj.org/article/231a74a772e04c7f9c1c90ee57971757",
+   "official": true
+  },
+  "efsa_e170": {
+   "title": "Re-evaluation of calcium carbonate (E 170) as a food additive in foods for infants below 16 weeks of age and follow-up of its re-evaluation as food additive for uses in foods for all population groups",
+   "publisher": "EFSA (EFSA Journal 21(7):8106)",
+   "year": 2023,
+   "url": "https://doaj.org/article/36bd9c7109384dfbbdea89454bc64834",
+   "official": true
+  },
+  "efsa_e174": {
+   "title": "Scientific opinion on the re-evaluation of silver (E 174) as food additive",
+   "publisher": "EFSA (EFSA Journal 14(1):4364)",
+   "year": 2016,
+   "url": "https://doaj.org/article/3d9f07f71df0443ebd62080213d0332c",
+   "official": true
+  },
+  "efsa_e175": {
+   "title": "Scientific Opinion on the re-evaluation of gold (E 175) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14(1):4362)",
+   "year": 2016,
+   "url": "https://doaj.org/article/0fbb84ba735c4f798197bd82d0cb8562",
+   "official": true
+  },
+  "efsa_e180": {
+   "title": "Scientific Opinion on the re-evaluation of Litholrubine BK (E 180) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(5):1586)",
+   "year": 2010,
+   "url": "https://doi.org/10.2903/j.efsa.2010.1586",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -1964,6 +2258,2647 @@
    ],
    "sources": [
     "efsa_erythritol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E338": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitlik verir ve asitliği düzenler.",
+   "found_in": [
+    "Kola türü içecekler"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E339": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler; işlenmiş et ve peynirde su tutmaya ve dokuya yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Eritme peynir"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E340": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler ve su tutmaya yardım eder.",
+   "found_in": [
+    "İşlenmiş gıdalar"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E341": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler; kabartma tozlarında ve topaklanmayı önlemek için kullanılır.",
+   "found_in": [
+    "Kabartma tozu ve unlu mamuller",
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E343": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler ve topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E450": {
+   "evidence_level": "strong",
+   "what_it_does": "Kabartma tozunda kabartıcı asit olarak ve işlenmiş ette su tutmak için kullanılır.",
+   "found_in": [
+    "Kabartma tozu ve unlu mamuller",
+    "İşlenmiş et ürünleri"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E451": {
+   "evidence_level": "strong",
+   "what_it_does": "İşlenmiş et ve deniz ürünlerinde su tutmaya yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Deniz ürünleri"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E452": {
+   "evidence_level": "strong",
+   "what_it_does": "İşlenmiş et, peynir ve deniz ürünlerinde su tutmaya ve dokuya yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Eritme peynir"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E432": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E433": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E434": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E435": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E436": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E491": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E492": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E493": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E494": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E495": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E173": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yüzeye gümüş rengi verir.",
+   "found_in": [
+    "Şekerleme ve pasta süslemeleri"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E520": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E521": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E522": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır (şap).",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E523": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E541": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kabartma tozunda kabartıcı asit olarak kullanılır.",
+   "found_in": [
+    "Kabartma tozu",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E554": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E555": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler; kaplamalarda taşıyıcıdır.",
+   "found_in": [
+    "Toz gıdalar",
+    "Kaplamalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E556": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E559": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1452": {
+   "evidence_level": "moderate",
+   "what_it_does": "Takviye ve vitamin hazırlıklarında kapsül ve taşıyıcı olarak kullanılan modifiye nişastadır.",
+   "found_in": [
+    "Vitamin ve gıda takviyeleri"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E161g": {
+   "evidence_level": "strong",
+   "what_it_does": "Gıdaya turuncu-kırmızı renk verir.",
+   "found_in": [
+    "AB'de yalnızca Strazburg sosisi",
+    "Hayvan yemi (renk pigmenti olarak)"
+   ],
+   "in_the_body": "Sentetik olarak üretilir. EFSA 2010'da, insanlarda ve maymunlarda gözün retinasında kristal birikintileri gözlendiği için günlük kabul edilebilir alımı (ADI) 0,03 mg/kg vücut ağırlığı olarak belirledi. Gıda ve yemden gelen toplam alımın bu sınırı aşmasının beklenmediğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 0,03 mg/kg.",
+     "year": 2010,
+     "src": "efsa_e161g"
+    }
+   ],
+   "sources": [
+    "efsa_e161g"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E950": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekersiz ürünlere tatlılık veren yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Şekersiz ve diyet içecekler",
+    "Şekersiz sakız ve tatlılar"
+   ],
+   "in_the_body": "Vücutta metabolize olmadan idrarla atılır. EFSA 2025'te günlük kabul edilebilir alımı (ADI) 9'dan 15 mg/kg vücut ağırlığına yükseltti ve en yüksek alım tahminlerinin bile genellikle bu sınırın altında kaldığını bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 15 mg/kg'a yükseltildi.",
+     "year": 2025,
+     "src": "efsa_e950"
+    }
+   ],
+   "sources": [
+    "efsa_e950"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E954": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekersiz ürünlere tatlılık veren yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Masa tatlandırıcıları",
+    "Diyet içecekler"
+   ],
+   "in_the_body": "EFSA 2024'te günlük kabul edilebilir alımı (ADI) 5'ten 9 mg/kg vücut ağırlığına yükseltti; yeni çalışmaların genotoksisite endişesi doğurmadığını ve yüksek tüketenlerde bile alımın sınırın altında kaldığını bildirdi. IARC sakarini 1999'da Grup 3'e (insanlarda kanserojenliği sınıflandırılamaz) almıştı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 9 mg/kg'a yükseltildi.",
+     "year": 2024,
+     "src": "efsa_e954"
+    }
+   ],
+   "sources": [
+    "efsa_e954"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E955": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekerden üretilen, kalorisiz yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Diyet içecekler",
+    "Şekersiz tatlılar",
+    "Masa tatlandırıcıları"
+   ],
+   "in_the_body": "EFSA 2026'daki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) 15 mg/kg vücut ağırlığı olarak korudu ve en yüksek alım tahmininin bile bu sınırın altında olduğunu bildirdi. Evde fırınlama ve kızartma gibi yüksek ısıda klorlu bileşik oluşup oluşmadığı konusundaki belirsizlik nedeniyle unlu mamullerde kullanımın genişletilmesini onaylamadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 15 mg/kg korundu.",
+     "year": 2026,
+     "src": "efsa_e955"
+    }
+   ],
+   "sources": [
+    "efsa_e955"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E200": {
+   "evidence_level": "strong",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak raf ömrünü uzatır.",
+   "found_in": [
+    "Peynir",
+    "Unlu mamuller",
+    "İçecekler ve soslar"
+   ],
+   "in_the_body": "EFSA 2019'da sorbik asit ve potasyum sorbat için ortak günlük kabul edilebilir alımı (ADI) sorbik asit olarak 11 mg/kg vücut ağırlığı olarak belirledi; bu değer 2015'teki geçici sınırın (3 mg/kg) yerine geçti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 11 mg/kg (sorbik asit olarak).",
+     "year": 2019,
+     "src": "efsa_sorbate"
+    }
+   ],
+   "sources": [
+    "efsa_sorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E202": {
+   "evidence_level": "strong",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak raf ömrünü uzatır.",
+   "found_in": [
+    "Peynir",
+    "Unlu mamuller",
+    "İçecekler ve soslar"
+   ],
+   "in_the_body": "EFSA 2019'da sorbik asit ve potasyum sorbat için ortak günlük kabul edilebilir alımı (ADI) sorbik asit olarak 11 mg/kg vücut ağırlığı olarak belirledi; bu değer 2015'teki geçici sınırın (3 mg/kg) yerine geçti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 11 mg/kg (sorbik asit olarak).",
+     "year": 2019,
+     "src": "efsa_sorbate"
+    }
+   ],
+   "sources": [
+    "efsa_sorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1404": {
+   "evidence_level": "strong",
+   "what_it_does": "Okside nişasta; kıvam verir ve jelleşmeyi düzenler.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1410": {
+   "evidence_level": "strong",
+   "what_it_does": "Fosfatla değiştirilmiş nişasta; kıvam verir, donma ve çözülmeye dayanıklıdır.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1412": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı nişasta; ısıya, asite ve karıştırmaya dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1413": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı ve fosfatlanmış nişasta; dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1414": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı ve asetillenmiş nişasta; soslarda ve hazır yemeklerde dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1420": {
+   "evidence_level": "strong",
+   "what_it_does": "Asetillenmiş nişasta; kıvam verir ve soğukta bulanıklaşmayı azaltır.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1422": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı ve asetillenmiş nişasta; ısıya ve asite dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1440": {
+   "evidence_level": "strong",
+   "what_it_does": "Hidroksipropil grubu eklenmiş nişasta; dondurulup çözülmeye dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1442": {
+   "evidence_level": "strong",
+   "what_it_does": "Çapraz bağlı hidroksipropil nişasta; ısıya, asite ve dondurmaya dayanıklı kıvam sağlar.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1450": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağı suda dağıtabilen modifiye nişasta; emülgatör ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Bebek mamaları",
+    "Aroma emülsiyonları",
+    "İçecekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı. E 1450'nin bebek formüllerindeki güvenliği mevcut verilerle tam değerlendirilemedi.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bebek formüllerinde ve devam formüllerinde kullanılan E 1450 glutensiz olmalıdır (18.08.2026'dan itibaren).",
+     "year": 2026,
+     "src": "ab2026_196"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch",
+    "ab2026_196"
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, E 1450'nin bebek formüllerindeki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi. AB 2026'da bebek formüllerinde kullanılan E 1450'nin glutensiz olmasını şart koştu."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, E 1450'nin bebek formüllerindeki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi. AB 2026'da bebek formüllerinde kullanılan E 1450'nin glutensiz olmasını şart koştu."
+    }
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1451": {
+   "evidence_level": "strong",
+   "what_it_does": "Okside ve asetillenmiş nişasta; kıvam verir ve jelleşmeyi düzenler.",
+   "found_in": [
+    "Hazır soslar ve çorbalar",
+    "Tatlılar ve dolgular",
+    "Süt ürünleri",
+    "Dondurulmuş hazır yemekler"
+   ],
+   "in_the_body": "Modifiye nişastalar değişmeden emilmez; bağırsakta büyük ölçüde enzimlerle parçalanır, kalan kısmı kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_starch"
+    }
+   ],
+   "sources": [
+    "efsa_starch"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E460": {
+   "evidence_level": "strong",
+   "what_it_does": "Topaklanmayı önler, dolgu ve lif kaynağı olarak kullanılır.",
+   "found_in": [
+    "Rendelenmiş peynir",
+    "Toz gıdalar",
+    "Gıda takviyesi tabletleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E461": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir; ısıtınca jelleşir, soğuyunca akışkanlaşır.",
+   "found_in": [
+    "Glutensiz unlu mamuller",
+    "Hazır soslar",
+    "Bitkisel et ürünleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E462": {
+   "evidence_level": "strong",
+   "what_it_does": "Kaplama ve bağlayıcı olarak kullanılır.",
+   "found_in": [
+    "Gıda takviyesi tabletleri ve kapsülleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E463": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve bağlayıcı olarak kullanılır.",
+   "found_in": [
+    "Hazır soslar",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E464": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, bağlar ve kaplama oluşturur.",
+   "found_in": [
+    "Glutensiz unlu mamuller",
+    "Gıda takviyesi kapsülleri",
+    "Hazır soslar"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E465": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve köpüğü dengeler.",
+   "found_in": [
+    "Tatlılar ve kremalar"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E466": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve su tutar.",
+   "found_in": [
+    "Dondurma",
+    "İçecekler",
+    "Hazır soslar",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E468": {
+   "evidence_level": "strong",
+   "what_it_does": "Tabletlerin suda dağılmasını kolaylaştırır.",
+   "found_in": [
+    "Gıda takviyesi tabletleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E469": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Hazır soslar",
+    "Süt ürünleri"
+   ],
+   "in_the_body": "Selülozlar emilmez ve büyük ölçüde değişmeden dışkıyla atılır; bir kısmı kalın bağırsakta bakterilerce fermente edilebilir. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_cellulose"
+    }
+   ],
+   "sources": [
+    "efsa_cellulose"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E400": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E401": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E402": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E403": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E404": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, jel oluşturur ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "Dondurma ve tatlılar",
+    "Hazır soslar",
+    "Meyve dolguları",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Aljinatlar bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_alginate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "sources": [
+    "efsa_alginate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E306": {
+   "evidence_level": "moderate",
+   "what_it_does": "Tokoferolce zengin ekstre; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E307": {
+   "evidence_level": "moderate",
+   "what_it_does": "Alfa-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E308": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gama-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E309": {
+   "evidence_level": "moderate",
+   "what_it_does": "Delta-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Yağlı atıştırmalıklar",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır. EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; kullanım düzeylerinde güvenlik endişesi yok, ADI belirlenemedi (veri yetersiz).",
+     "year": 2015,
+     "src": "efsa_tocopherol"
+    }
+   ],
+   "sources": [
+    "efsa_tocopherol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E410": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve buz kristallerinin büyümesini yavaşlatır.",
+   "found_in": [
+    "Dondurma",
+    "Krem peynir",
+    "Hazır soslar"
+   ],
+   "in_the_body": "Keçiboynuzu zamkı pratikte sindirilmez ve emilmez; kalın bağırsakta bakterilerce büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bebeklere yönelik özel tıbbi amaçlı gıdalar için veri yetersiz.",
+     "year": 2017,
+     "src": "efsa_e410"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e410",
+    "ab2026_196"
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "EFSA, bu maddenin bebek ve küçük çocuklara yönelik özel tıbbi amaçlı gıdalardaki güvenliğini mevcut verilerle tam değerlendiremediğini bildirdi."
+    }
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E412": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve su tutar.",
+   "found_in": [
+    "Dondurma",
+    "Hazır soslar",
+    "Glutensiz unlu mamuller"
+   ],
+   "in_the_body": "Guar zamkı çözünür bir liftir; emilmez ve kalın bağırsakta bakterilerce fermente edilir. EFSA bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalarda güvenliğini gösterecek verinin yetersiz olduğunu bildirdi; AB bu nedenle 2026'da bu ürünlerdeki iznini kaldırdı. Diğer gıdalarda izinli olmaya devam ediyor.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalarda izni kaldırıldı (18.08.2026'dan itibaren; bir kategoride geçiş 27.04.2027'ye kadar).",
+     "year": 2026,
+     "src": "ab2026_196"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi.",
+     "year": 2017,
+     "src": "efsa_e412"
+    }
+   ],
+   "sources": [
+    "efsa_e412",
+    "ab2026_196"
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "AB, guar zamkının bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalardaki iznini 2026'da kaldırdı."
+    },
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "AB, guar zamkının bebek formüllerinde ve bebeklere yönelik özel tıbbi amaçlı gıdalardaki iznini 2026'da kaldırdı."
+    }
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E414": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, emülsiyonu dengeler ve şeker kristalleşmesini yavaşlatır.",
+   "found_in": [
+    "Şekerlemeler ve sakız",
+    "İçecekler",
+    "Aroma emülsiyonları"
+   ],
+   "in_the_body": "Arap zamkı değişmeden emilmez ve kalın bağırsakta bakterilerce az miktarda fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı; yüksek miktarda gaz yapabildiği bildirildi, bu zararlı etki sayılmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e414"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e414",
+    "ab2026_196"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E415": {
+   "evidence_level": "strong",
+   "what_it_does": "Az miktarda bile kıvam verir ve karışımları dengeler.",
+   "found_in": [
+    "Hazır soslar ve salata sosları",
+    "Glutensiz unlu mamuller",
+    "Toz içecekler"
+   ],
+   "in_the_body": "Ksantan zamkı değişmeden emilmez; kalın bağırsakta bakterilerce kısmen fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı; yüksek dozda karın rahatsızlığı bildirildi, bu zararlı etki sayılmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e415"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e415",
+    "ab2026_196"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E440": {
+   "evidence_level": "strong",
+   "what_it_does": "Jel oluşturur ve kıvam verir.",
+   "found_in": [
+    "Reçel ve marmelat",
+    "Meyveli yoğurt ve tatlılar",
+    "Jöleli şekerlemeler"
+   ],
+   "in_the_body": "Pektinler değişmeden emilmez; kalın bağırsakta bakterilerce büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve genel nüfus için güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e440"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Saflık kriterleri güncellendi (ağır metal sınırları düşürüldü); 18.08.2026'dan itibaren.",
+     "year": 2026,
+     "src": "ab2026_196"
+    }
+   ],
+   "sources": [
+    "efsa_e440",
+    "ab2026_196"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E471": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışmasını sağlar, bayatlamayı geciktirir ve dokuyu yumuşatır.",
+   "found_in": [
+    "Ekmek ve kek",
+    "Margarin",
+    "Dondurma",
+    "Bebek mamaları"
+   ],
+   "in_the_body": "Mono ve digliseritler sindirimde normal yağlar gibi gliserol ve yağ asitlerine ayrılır. EFSA 2021'de bebek formülü dahil tüm kullanımlarda güvenlik endişesi bulmadı ve sayısal bir günlük alım sınırı belirlemedi; üretimden kalabilecek glisidil esterleri, 3-MCPD ve erusik asit için saflık sınırları önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bebekler dahil yeniden değerlendirildi; güvenlik endişesi yok, saflık sınırları önerildi.",
+     "year": 2021,
+     "src": "efsa_e471"
+    }
+   ],
+   "sources": [
+    "efsa_e471"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E422": {
+   "evidence_level": "strong",
+   "what_it_does": "Nem tutar, yumuşaklık ve hafif tatlılık verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek ve unlu mamuller",
+    "İçecekler"
+   ],
+   "in_the_body": "Gliserol vücutta yağların yapı taşı olarak doğal olarak bulunur ve enerji için kullanılır. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanımda güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e422"
+    }
+   ],
+   "sources": [
+    "efsa_e422"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E100": {
+   "evidence_level": "strong",
+   "what_it_does": "Sarı renk verir.",
+   "found_in": [
+    "Hardal ve köri",
+    "Soslar",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2010'da kurkumin için günlük kabul edilebilir alımı (ADI) 3 mg/kg vücut ağırlığı olarak belirledi; uzun süreli çalışmalarda kanser yapıcı bulunmadı. 2014'teki ayrıntılı hesapta çok tüketen küçük çocuklarda alımın bu sınıra yaklaşabildiği görüldü.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 3 mg/kg; çok tüketen küçük çocuklarda sınıra yakın.",
+     "year": 2014,
+     "src": "efsa_e100"
+    }
+   ],
+   "sources": [
+    "efsa_e100"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E131": {
+   "evidence_level": "strong",
+   "what_it_does": "Mavi renk verir; sarıyla birlikte yeşil tonlar oluşturur.",
+   "found_in": [
+    "Şekerlemeler",
+    "Tatlılar"
+   ],
+   "in_the_body": "EFSA 2013'te patent mavisi V için ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi. Bildirilen kullanım düzeylerinde tüm yaş grupları bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg; bildirilen kullanımda tüm gruplar sınırın altında.",
+     "year": 2013,
+     "src": "efsa_e131"
+    }
+   ],
+   "sources": [
+    "efsa_e131"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E132": {
+   "evidence_level": "strong",
+   "what_it_does": "Mavi renk verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "İçecekler",
+    "Tatlılar"
+   ],
+   "in_the_body": "İndigotin bağırsaktan az emilir. EFSA 2014'te ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi ve genotoksisite endişesi bulmadı; bu sınır, çalışmalardaki saflıkta (%93) üretilen madde için geçerlidir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg; bildirilen kullanımda sınırın altında.",
+     "year": 2014,
+     "src": "efsa_e132"
+    }
+   ],
+   "sources": [
+    "efsa_e132"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E133": {
+   "evidence_level": "strong",
+   "what_it_does": "Mavi renk verir; sarıyla birlikte yeşil tonlar oluşturur.",
+   "found_in": [
+    "Şekerlemeler",
+    "İçecekler",
+    "Dondurma"
+   ],
+   "in_the_body": "EFSA 2010'da parlak mavi FCF için ADI'yi 10'dan 6 mg/kg vücut ağırlığına düşürdü. Ayrıntılı hesapta alımlar bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 6 mg/kg'a düşürüldü; ayrıntılı hesapta sınırın altında.",
+     "year": 2010,
+     "src": "efsa_e133"
+    }
+   ],
+   "sources": [
+    "efsa_e133"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E140": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yeşil renk verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "Dondurma",
+    "Soslar"
+   ],
+   "in_the_body": "Klorofiller insanda az emilir. EFSA 2015'te veri yetersiz olduğu için ADI belirlemedi; ancak sebzelerden alınan klorofil katkıdan alınandan çok daha fazla olduğu için mevcut kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenmedi; mevcut kullanımda güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_e140"
+    }
+   ],
+   "sources": [
+    "efsa_e140"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E141": {
+   "evidence_level": "limited",
+   "what_it_does": "Dayanıklı yeşil renk verir.",
+   "found_in": [
+    "Konserve sebzeler",
+    "Şekerlemeler",
+    "Dondurma"
+   ],
+   "in_the_body": "Bakırlı klorofilinlerin bazı bileşenleri bağırsaktan emilir. EFSA 2015'te emilim, uzun süreli etki ve üreme verileri eksik olduğu için güvenlik değerlendirmesini tamamlayamadı ve mevcut ADI'nin geri çekilmesini önerdi; saflık kriterlerinin güncellenmesi gerektiğini bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Değerlendirme veri eksikliği nedeniyle tamamlanamadı; ADI'nin geri çekilmesi önerildi.",
+     "year": 2015,
+     "src": "efsa_e141"
+    }
+   ],
+   "sources": [
+    "efsa_e141"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E142": {
+   "evidence_level": "strong",
+   "what_it_does": "Yeşil renk verir.",
+   "found_in": [
+    "Konserve bezelye",
+    "Şekerlemeler",
+    "Soslar"
+   ],
+   "in_the_body": "EFSA 2010'da yeşil S için ADI'yi 5 mg/kg vücut ağırlığı olarak korudu. Ayrıntılı hesapta alımlar bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg korundu; ayrıntılı hesapta sınırın altında.",
+     "year": 2010,
+     "src": "efsa_e142"
+    }
+   ],
+   "sources": [
+    "efsa_e142"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E150a": {
+   "evidence_level": "strong",
+   "what_it_does": "Kahverengi renk verir.",
+   "found_in": [
+    "Kola ve diğer içecekler",
+    "Bira",
+    "Soslar",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Karamel boyaları (E150a–d) için ortak ADI 300 mg/kg vücut ağırlığıdır. EFSA 2012'deki ayrıntılı hesapta hiçbir yaş grubunda bu sınırın aşılmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Ortak ADI 300 mg/kg (E150a–d); ayrıntılı hesapta aşılmadı.",
+     "year": 2012,
+     "src": "efsa_e150"
+    }
+   ],
+   "sources": [
+    "efsa_e150"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E150b": {
+   "evidence_level": "strong",
+   "what_it_does": "Kahverengi renk verir.",
+   "found_in": [
+    "Şarap ve likörler",
+    "Sirke"
+   ],
+   "in_the_body": "Karamel boyaları (E150a–d) için ortak ADI 300 mg/kg vücut ağırlığıdır. EFSA 2012'de E150b alımının bu sınırın altında olduğunu bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Ortak ADI 300 mg/kg (E150a–d); alım sınırın altında.",
+     "year": 2012,
+     "src": "efsa_e150"
+    }
+   ],
+   "sources": [
+    "efsa_e150"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E151": {
+   "evidence_level": "strong",
+   "what_it_does": "Siyah-mor renk verir.",
+   "found_in": [
+    "Siyah şekerlemeler",
+    "Balık yumurtası taklitleri"
+   ],
+   "in_the_body": "EFSA 2010'da parlak siyah BN için ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi; uzun süreli kanser çalışmaları olumsuz çıktı. 10 yaş altı çocuklarda yüksek alım bu sınırı aşabiliyordu.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg; çok tüketen çocuklarda aşılabilir.",
+     "year": 2010,
+     "src": "efsa_e151"
+    }
+   ],
+   "sources": [
+    "efsa_e151"
+   ],
+   "last_reviewed": "2026-10-04",
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "low",
+     "text": "EFSA'ya göre bu boyayı çok tüketen çocuklarda günlük alım sınırı aşılabilir."
+    }
+   ]
+  },
+  "E153": {
+   "evidence_level": "moderate",
+   "what_it_does": "Siyah renk verir.",
+   "found_in": [
+    "Siyah şekerlemeler",
+    "Peynir kabukları"
+   ],
+   "in_the_body": "Bitkisel karbon bağırsaktan pratikte emilmez. EFSA 2012'de veri sınırlı olduğu için ADI belirlemedi; içindeki kalıntı PAH'lar (benzo[a]piren olarak) 1,0 µg/kg'ın altındaysa bildirilen kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenmedi; PAH kalıntısı sınırın altındaysa güvenlik endişesi yok.",
+     "year": 2012,
+     "src": "efsa_e153"
+    }
+   ],
+   "sources": [
+    "efsa_e153"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E155": {
+   "evidence_level": "strong",
+   "what_it_does": "Kırmızımsı kahverengi renk verir.",
+   "found_in": [
+    "Çikolata aromalı kekler",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2010'da kahverengi HT için ADI'yi 1,5 mg/kg vücut ağırlığı olarak belirledi. Ortalama alımlar sınırın altında kaldı; çok tüketen yetişkin ve çocuklarda aşılabildiği bildirildi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 1,5 mg/kg; çok tüketenlerde aşılabilir.",
+     "year": 2010,
+     "src": "efsa_e155"
+    }
+   ],
+   "sources": [
+    "efsa_e155"
+   ],
+   "last_reviewed": "2026-10-04",
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "low",
+     "text": "EFSA'ya göre bu boyayı çok tüketen çocuklarda günlük alım sınırı aşılabilir."
+    }
+   ]
+  },
+  "E160a": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sarı-turuncu renk verir.",
+   "found_in": [
+    "Margarin",
+    "Meyve suları",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Beta-karoten vücutta A vitaminine dönüşebilir. EFSA 2012'de ADI belirleyemedi; katkı ve takviyelerden alınan miktar normal beslenmeyle alınanı (günde 5–10 mg) aşmadığı sürece güvenlik endişesi görmedi. Günde 15 mg'ın üzerindeki takviye kullanımında, özellikle sigara içenlerde, akciğer kanseri riskine dair bulgular vardır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenemedi; normal beslenme düzeyinde güvenlik endişesi yok.",
+     "year": 2012,
+     "src": "efsa_e160a"
+    }
+   ],
+   "sources": [
+    "efsa_e160a"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E160b": {
+   "evidence_level": "strong",
+   "what_it_does": "Sarı-turuncu renk verir.",
+   "found_in": [
+    "Çedar peyniri",
+    "Tereyağı",
+    "Çerezler"
+   ],
+   "in_the_body": "EFSA 2019'da annattonun renk veren bileşenleri için ayrı ADI'ler kullandı: biksin 6 mg/kg, norbiksin 0,3 mg/kg vücut ağırlığı. Genotoksisite endişesi bulmadı; bir ülkede çok tüketen küçük çocuklarda norbiksin sınırının aşılabildiğini, bunun sağlık endişesi olmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Biksin ADI 6 mg/kg, norbiksin 0,3 mg/kg; sağlık endişesi yok.",
+     "year": 2019,
+     "src": "efsa_e160b"
+    }
+   ],
+   "sources": [
+    "efsa_e160b"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E160c": {
+   "evidence_level": "strong",
+   "what_it_does": "Kırmızı-turuncu renk ve hafif lezzet verir.",
+   "found_in": [
+    "Sucuk ve et ürünleri",
+    "Soslar",
+    "Cipsler"
+   ],
+   "in_the_body": "Paprika ekstresindeki renk maddeleri (kapsantin, kapsorubin) çok az emilir. EFSA 2015'te ADI'yi 24 mg/kg vücut ağırlığı olarak belirledi; alımlar bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 24 mg/kg; alımlar sınırın altında.",
+     "year": 2015,
+     "src": "efsa_e160c"
+    }
+   ],
+   "sources": [
+    "efsa_e160c"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E160e": {
+   "evidence_level": "strong",
+   "what_it_does": "Turuncu-kırmızı renk verir.",
+   "found_in": [
+    "Soslar",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2014'te ADI'yi 0,05'ten 0,3 mg/kg vücut ağırlığına yükseltti ve bildirilen kullanım düzeylerinde güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 0,3 mg/kg'a yükseltildi; güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_e160e"
+    }
+   ],
+   "sources": [
+    "efsa_e160e"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E161b": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sarı renk verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "İçecekler",
+    "Sütlü tatlılar"
+   ],
+   "in_the_body": "Lutein yeşil yapraklı sebzelerle de alınır. EFSA ADI'yi 1 mg/kg vücut ağırlığı olarak belirledi; 2012'de bazı ülkelerde çok tüketen çocuklarda besinler ve katkı birlikte bu sınırın aşılabildiğini, yetişkinlerde aşılmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 1 mg/kg; bazı ülkelerde çok tüketen çocuklarda aşılabilir.",
+     "year": 2012,
+     "src": "efsa_e161b"
+    }
+   ],
+   "sources": [
+    "efsa_e161b"
+   ],
+   "last_reviewed": "2026-10-04",
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "low",
+     "text": "EFSA'ya göre bu boyayı çok tüketen çocuklarda günlük alım sınırı aşılabilir."
+    }
+   ]
+  },
+  "E163": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kırmızı, mor ya da mavi renk verir.",
+   "found_in": [
+    "İçecekler",
+    "Reçeller",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Antosiyaninler meyve ve sebzelerle de alınır. EFSA 2013'te veri yetersiz olduğu için sayısal ADI belirlemedi; yenilebilir meyve ve sebzelerin sulu ekstrelerinin mevcut kullanımda endişe yaratmasının olası olmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sayısal ADI yok; meyve ve sebze ekstreleri için endişe olası değil.",
+     "year": 2013,
+     "src": "efsa_e163"
+    }
+   ],
+   "sources": [
+    "efsa_e163"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E170": {
+   "evidence_level": "strong",
+   "what_it_does": "Beyaz renk verir, kalsiyum sağlar ve topaklanmayı önler.",
+   "found_in": [
+    "Ekmek",
+    "Şekerlemeler",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Kalsiyum karbonat vücutta kalsiyum kaynağıdır; katkının toplam kalsiyum alımına katkısı küçüktür. EFSA 2023'te bebekler dahil tüm yaş gruplarında güvenlik endişesi bulmadı ve sayısal ADI'ye gerek görmedi; içinde kaçınılmaz olarak bulunan alüminyumun sınırlanması için saflık kriterlerinin değiştirilmesini önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bebekler dahil güvenlik endişesi yok; alüminyum kalıntısı için saflık kriteri önerildi.",
+     "year": 2023,
+     "src": "efsa_e170"
+    }
+   ],
+   "sources": [
+    "efsa_e170"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E174": {
+   "evidence_level": "limited",
+   "what_it_does": "Gümüş rengi verir.",
+   "found_in": [
+    "Pasta süslemeleri",
+    "Şekerleme kaplamaları"
+   ],
+   "in_the_body": "Metalik gümüşten gümüş iyonları açığa çıkar, ancak miktarı bilinmiyor. EFSA 2016'da toksisite çalışması ve parçacık boyutu bilgisi olmadığı için güvenliği değerlendiremedi ve ADI belirlemedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Veri yetersiz; ADI belirlenemedi.",
+     "year": 2016,
+     "src": "efsa_e174"
+    }
+   ],
+   "sources": [
+    "efsa_e174"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E175": {
+   "evidence_level": "moderate",
+   "what_it_does": "Altın rengi verir.",
+   "found_in": [
+    "Pasta süslemeleri",
+    "Şekerlemeler",
+    "Bazı likörler"
+   ],
+   "in_the_body": "Altın çok az çözünür; vücuda geçişi ve etkisinin düşük olması beklenir. EFSA 2016'da ADI belirlemedi; saflık kriterlerinde parçacık boyutu ve nano kısmın belirtilmesini önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenmedi; parçacık boyutu kriteri önerildi.",
+     "year": 2016,
+     "src": "efsa_e175"
+    }
+   ],
+   "sources": [
+    "efsa_e175"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E180": {
+   "evidence_level": "limited",
+   "what_it_does": "Kırmızı renk verir.",
+   "found_in": [
+    "Peynir kabukları"
+   ],
+   "in_the_body": "Yalnızca peynir kabuğunda kullanılmasına izin verilir. EFSA 2010'da veri ADI belirlemeye yetmediği için mevcut ADI'nin geri çekilmesini önerdi; alımın etkisiz düzeyden yaklaşık 1700 kat düşük olması nedeniyle izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI'nin geri çekilmesi önerildi; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2010,
+     "src": "efsa_e180"
+    }
+   ],
+   "sources": [
+    "efsa_e180"
    ],
    "last_reviewed": "2026-10-04"
   }
