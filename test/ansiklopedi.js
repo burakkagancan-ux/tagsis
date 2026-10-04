@@ -14,7 +14,7 @@ ok(R.length===E.ingredients.length&&E.ingredients.every(i=>by[i.id]),'her E kodu
 R.forEach(r=>ok(r.slug===ansSlug(r.id+' '+T[r.names.primary]),r.id+' slug JS ile aynı üretilmeli: '+r.slug));
 const cur=R.filter(r=>r.review==='curated');
 ok(cur.length>=5&&by.E322.review==='curated','en az 5 elle incelenmiş kayıt, E322 dahil');
-cur.forEach(r=>{ok(r.sources.some(s=>s.official&&/^https:\/\//.test(s.url)),r.id+' resmi kaynak');ok(r.regulatory.length&&r.profile_warnings.length&&r.related_ids.length,r.id+' tüm alanlar dolu')});
+cur.forEach(r=>{ok(r.sources.some(s=>s.official&&/^https:\/\//.test(s.url)),r.id+' resmi kaynak');ok(r.regulatory.length&&r.related_ids.length&&r.content.found_in.length&&r.content.in_the_body,r.id+' tüm alanlar dolu')});
 // Risk düzeyi tarama verisiyle aynı (iki yerde farklı renk görünmesin)
 const RM={green:'green',yellow:'amber',red:'red'};
 E.ingredients.forEach(i=>ok(by[i.id].risk_level===RM[i.risk_level],i.id+' risk tarama verisiyle farklı'));
