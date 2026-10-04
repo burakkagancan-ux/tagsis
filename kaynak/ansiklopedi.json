@@ -322,6 +322,153 @@
    "year": 2026,
    "url": "https://eur-lex.europa.eu/eli/reg/2026/196/oj",
    "official": true
+  },
+  "efsa_e100": {
+   "title": "Refined exposure assessment for curcumin (E 100)",
+   "publisher": "EFSA (EFSA Journal 12(10):3876)",
+   "year": 2014,
+   "url": "https://doaj.org/article/bc565ef1ab77443bb7caebe4e9663f02",
+   "official": true
+  },
+  "efsa_e131": {
+   "title": "Scientific Opinion on the re-evaluation of Patent Blue V (E 131) as a food additive",
+   "publisher": "EFSA (EFSA Journal 11(3):2818)",
+   "year": 2013,
+   "url": "https://doaj.org/article/e92d1bb3d57b40f78554245b65eaaee4",
+   "official": true
+  },
+  "efsa_e132": {
+   "title": "Scientific Opinion on the re-evaluation of Indigo Carmine (E 132) as a food additive",
+   "publisher": "EFSA (EFSA Journal 12(7):3768)",
+   "year": 2014,
+   "url": "https://doaj.org/article/2a45bf177f5d410bb888f83b9e348be5",
+   "official": true
+  },
+  "efsa_e133": {
+   "title": "Scientific Opinion on the re-evaluation of Brilliant Blue FCF (E 133) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(11):1853)",
+   "year": 2010,
+   "url": "https://doaj.org/article/17da31dd4b1c457d9e2d4caef68f063c",
+   "official": true
+  },
+  "efsa_e140": {
+   "title": "Scientific Opinion on the re-evaluation of chlorophylls (E 140(i)) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(5):4089)",
+   "year": 2015,
+   "url": "https://doaj.org/article/a1af868ec0024a079dda37d2416ed6e1",
+   "official": true
+  },
+  "efsa_e141": {
+   "title": "Scientific Opinion on re-evaluation of copper complexes of chlorophylls (E 141(i)) and chlorophyllins (E 141(ii)) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(6):4151)",
+   "year": 2015,
+   "url": "https://doaj.org/article/88e8be8f77ac4794a72a5d4a31b416eb",
+   "official": true
+  },
+  "efsa_e142": {
+   "title": "Scientific Opinion on the re-evaluation of Green S (E 142) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(11):1851)",
+   "year": 2010,
+   "url": "https://doaj.org/article/6bd158a4369f454ea87d94f10457cf55",
+   "official": true
+  },
+  "efsa_e150": {
+   "title": "Refined exposure assessment for caramel colours (E 150a, c, d)",
+   "publisher": "EFSA (EFSA Journal 10(12):3030)",
+   "year": 2012,
+   "url": "https://doaj.org/article/6b30252c655144a3bcef036c4eea3ea0",
+   "official": true
+  },
+  "efsa_e151": {
+   "title": "Scientific Opinion on the re-evaluation of Brilliant Black BN (E 151) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(4):1540)",
+   "year": 2010,
+   "url": "https://doaj.org/article/74d12c6459d24d0ea88f3c93565f7927",
+   "official": true
+  },
+  "efsa_e153": {
+   "title": "Scientific Opinion on the re-evaluation of vegetable carbon (E 153) as a food additive",
+   "publisher": "EFSA (EFSA Journal 10(4):2592)",
+   "year": 2012,
+   "url": "https://doaj.org/article/2c5bb28fb1194d4ab21c2b6d3298f165",
+   "official": true
+  },
+  "efsa_e155": {
+   "title": "Scientific Opinion on the re-evaluation of Brown HT (E 155) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(4):1536)",
+   "year": 2010,
+   "url": "https://doaj.org/article/7221cbee4ea24261a5cb8b25b25d9347",
+   "official": true
+  },
+  "efsa_e160a": {
+   "title": "Scientific Opinion on the re-evaluation of mixed carotenes (E 160a (i)) and beta-carotene (E 160a (ii)) as a food additive",
+   "publisher": "EFSA (EFSA Journal 10(3):2593)",
+   "year": 2012,
+   "url": "https://doaj.org/article/061009b3ca404764a0069b4f86e82a53",
+   "official": true
+  },
+  "efsa_e160b": {
+   "title": "Safety of annatto E and the exposure to the annatto colouring principles bixin and norbixin (E 160b) when used as a food additive",
+   "publisher": "EFSA (EFSA Journal 17(3):5626)",
+   "year": 2019,
+   "url": "https://doaj.org/article/dbc2d2dc9ba34fec8b4f9ec4560bf256",
+   "official": true
+  },
+  "efsa_e160c": {
+   "title": "Scientific Opinion on the re-evaluation of paprika extract (E 160c) as a food additive",
+   "publisher": "EFSA (EFSA Journal 13(12):4320)",
+   "year": 2015,
+   "url": "https://doi.org/10.2903/j.efsa.2015.4320",
+   "official": true
+  },
+  "efsa_e160e": {
+   "title": "Scientific Opinion on the reconsideration of the ADI and a refined exposure assessment of β-apo-8′-carotenal (E 160e)",
+   "publisher": "EFSA (EFSA Journal 12(1):3492)",
+   "year": 2014,
+   "url": "https://doaj.org/article/1818e11108c54fce86849a9c37259995",
+   "official": true
+  },
+  "efsa_e161b": {
+   "title": "Statement on the safety assessment of the exposure to lutein preparations based on new data on the use levels of lutein",
+   "publisher": "EFSA (EFSA Journal 10(3):2589)",
+   "year": 2012,
+   "url": "https://doaj.org/article/f5603144a4c8408abb765c373b58cb3b",
+   "official": true
+  },
+  "efsa_e163": {
+   "title": "Scientific Opinion on the re-evaluation of anthocyanins (E 163) as a food additive",
+   "publisher": "EFSA (EFSA Journal 11(4):3145)",
+   "year": 2013,
+   "url": "https://doaj.org/article/231a74a772e04c7f9c1c90ee57971757",
+   "official": true
+  },
+  "efsa_e170": {
+   "title": "Re-evaluation of calcium carbonate (E 170) as a food additive in foods for infants below 16 weeks of age and follow-up of its re-evaluation as food additive for uses in foods for all population groups",
+   "publisher": "EFSA (EFSA Journal 21(7):8106)",
+   "year": 2023,
+   "url": "https://doaj.org/article/36bd9c7109384dfbbdea89454bc64834",
+   "official": true
+  },
+  "efsa_e174": {
+   "title": "Scientific opinion on the re-evaluation of silver (E 174) as food additive",
+   "publisher": "EFSA (EFSA Journal 14(1):4364)",
+   "year": 2016,
+   "url": "https://doaj.org/article/3d9f07f71df0443ebd62080213d0332c",
+   "official": true
+  },
+  "efsa_e175": {
+   "title": "Scientific Opinion on the re-evaluation of gold (E 175) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14(1):4362)",
+   "year": 2016,
+   "url": "https://doaj.org/article/0fbb84ba735c4f798197bd82d0cb8562",
+   "official": true
+  },
+  "efsa_e180": {
+   "title": "Scientific Opinion on the re-evaluation of Litholrubine BK (E 180) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(5):1586)",
+   "year": 2010,
+   "url": "https://doi.org/10.2903/j.efsa.2010.1586",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -4211,6 +4358,547 @@
    ],
    "sources": [
     "efsa_e422"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E100": {
+   "evidence_level": "strong",
+   "what_it_does": "Sarı renk verir.",
+   "found_in": [
+    "Hardal ve köri",
+    "Soslar",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2010'da kurkumin için günlük kabul edilebilir alımı (ADI) 3 mg/kg vücut ağırlığı olarak belirledi; uzun süreli çalışmalarda kanser yapıcı bulunmadı. 2014'teki ayrıntılı hesapta çok tüketen küçük çocuklarda alımın bu sınıra yaklaşabildiği görüldü.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 3 mg/kg; çok tüketen küçük çocuklarda sınıra yakın.",
+     "year": 2014,
+     "src": "efsa_e100"
+    }
+   ],
+   "sources": [
+    "efsa_e100"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E131": {
+   "evidence_level": "strong",
+   "what_it_does": "Mavi renk verir; sarıyla birlikte yeşil tonlar oluşturur.",
+   "found_in": [
+    "Şekerlemeler",
+    "Tatlılar"
+   ],
+   "in_the_body": "EFSA 2013'te patent mavisi V için ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi. Bildirilen kullanım düzeylerinde tüm yaş grupları bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg; bildirilen kullanımda tüm gruplar sınırın altında.",
+     "year": 2013,
+     "src": "efsa_e131"
+    }
+   ],
+   "sources": [
+    "efsa_e131"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E132": {
+   "evidence_level": "strong",
+   "what_it_does": "Mavi renk verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "İçecekler",
+    "Tatlılar"
+   ],
+   "in_the_body": "İndigotin bağırsaktan az emilir. EFSA 2014'te ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi ve genotoksisite endişesi bulmadı; bu sınır, çalışmalardaki saflıkta (%93) üretilen madde için geçerlidir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg; bildirilen kullanımda sınırın altında.",
+     "year": 2014,
+     "src": "efsa_e132"
+    }
+   ],
+   "sources": [
+    "efsa_e132"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E133": {
+   "evidence_level": "strong",
+   "what_it_does": "Mavi renk verir; sarıyla birlikte yeşil tonlar oluşturur.",
+   "found_in": [
+    "Şekerlemeler",
+    "İçecekler",
+    "Dondurma"
+   ],
+   "in_the_body": "EFSA 2010'da parlak mavi FCF için ADI'yi 10'dan 6 mg/kg vücut ağırlığına düşürdü. Ayrıntılı hesapta alımlar bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 6 mg/kg'a düşürüldü; ayrıntılı hesapta sınırın altında.",
+     "year": 2010,
+     "src": "efsa_e133"
+    }
+   ],
+   "sources": [
+    "efsa_e133"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E140": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yeşil renk verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "Dondurma",
+    "Soslar"
+   ],
+   "in_the_body": "Klorofiller insanda az emilir. EFSA 2015'te veri yetersiz olduğu için ADI belirlemedi; ancak sebzelerden alınan klorofil katkıdan alınandan çok daha fazla olduğu için mevcut kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenmedi; mevcut kullanımda güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_e140"
+    }
+   ],
+   "sources": [
+    "efsa_e140"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E141": {
+   "evidence_level": "limited",
+   "what_it_does": "Dayanıklı yeşil renk verir.",
+   "found_in": [
+    "Konserve sebzeler",
+    "Şekerlemeler",
+    "Dondurma"
+   ],
+   "in_the_body": "Bakırlı klorofilinlerin bazı bileşenleri bağırsaktan emilir. EFSA 2015'te emilim, uzun süreli etki ve üreme verileri eksik olduğu için güvenlik değerlendirmesini tamamlayamadı ve mevcut ADI'nin geri çekilmesini önerdi; saflık kriterlerinin güncellenmesi gerektiğini bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Değerlendirme veri eksikliği nedeniyle tamamlanamadı; ADI'nin geri çekilmesi önerildi.",
+     "year": 2015,
+     "src": "efsa_e141"
+    }
+   ],
+   "sources": [
+    "efsa_e141"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E142": {
+   "evidence_level": "strong",
+   "what_it_does": "Yeşil renk verir.",
+   "found_in": [
+    "Konserve bezelye",
+    "Şekerlemeler",
+    "Soslar"
+   ],
+   "in_the_body": "EFSA 2010'da yeşil S için ADI'yi 5 mg/kg vücut ağırlığı olarak korudu. Ayrıntılı hesapta alımlar bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg korundu; ayrıntılı hesapta sınırın altında.",
+     "year": 2010,
+     "src": "efsa_e142"
+    }
+   ],
+   "sources": [
+    "efsa_e142"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E150a": {
+   "evidence_level": "strong",
+   "what_it_does": "Kahverengi renk verir.",
+   "found_in": [
+    "Kola ve diğer içecekler",
+    "Bira",
+    "Soslar",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Karamel boyaları (E150a–d) için ortak ADI 300 mg/kg vücut ağırlığıdır. EFSA 2012'deki ayrıntılı hesapta hiçbir yaş grubunda bu sınırın aşılmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Ortak ADI 300 mg/kg (E150a–d); ayrıntılı hesapta aşılmadı.",
+     "year": 2012,
+     "src": "efsa_e150"
+    }
+   ],
+   "sources": [
+    "efsa_e150"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E150b": {
+   "evidence_level": "strong",
+   "what_it_does": "Kahverengi renk verir.",
+   "found_in": [
+    "Şarap ve likörler",
+    "Sirke"
+   ],
+   "in_the_body": "Karamel boyaları (E150a–d) için ortak ADI 300 mg/kg vücut ağırlığıdır. EFSA 2012'de E150b alımının bu sınırın altında olduğunu bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Ortak ADI 300 mg/kg (E150a–d); alım sınırın altında.",
+     "year": 2012,
+     "src": "efsa_e150"
+    }
+   ],
+   "sources": [
+    "efsa_e150"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E151": {
+   "evidence_level": "strong",
+   "what_it_does": "Siyah-mor renk verir.",
+   "found_in": [
+    "Siyah şekerlemeler",
+    "Balık yumurtası taklitleri"
+   ],
+   "in_the_body": "EFSA 2010'da parlak siyah BN için ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi; uzun süreli kanser çalışmaları olumsuz çıktı. 10 yaş altı çocuklarda yüksek alım bu sınırı aşabiliyordu.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 5 mg/kg; çok tüketen çocuklarda aşılabilir.",
+     "year": 2010,
+     "src": "efsa_e151"
+    }
+   ],
+   "sources": [
+    "efsa_e151"
+   ],
+   "last_reviewed": "2026-10-04",
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "low",
+     "text": "EFSA'ya göre bu boyayı çok tüketen çocuklarda günlük alım sınırı aşılabilir."
+    }
+   ]
+  },
+  "E153": {
+   "evidence_level": "moderate",
+   "what_it_does": "Siyah renk verir.",
+   "found_in": [
+    "Siyah şekerlemeler",
+    "Peynir kabukları"
+   ],
+   "in_the_body": "Bitkisel karbon bağırsaktan pratikte emilmez. EFSA 2012'de veri sınırlı olduğu için ADI belirlemedi; içindeki kalıntı PAH'lar (benzo[a]piren olarak) 1,0 µg/kg'ın altındaysa bildirilen kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenmedi; PAH kalıntısı sınırın altındaysa güvenlik endişesi yok.",
+     "year": 2012,
+     "src": "efsa_e153"
+    }
+   ],
+   "sources": [
+    "efsa_e153"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E155": {
+   "evidence_level": "strong",
+   "what_it_does": "Kırmızımsı kahverengi renk verir.",
+   "found_in": [
+    "Çikolata aromalı kekler",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2010'da kahverengi HT için ADI'yi 1,5 mg/kg vücut ağırlığı olarak belirledi. Ortalama alımlar sınırın altında kaldı; çok tüketen yetişkin ve çocuklarda aşılabildiği bildirildi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 1,5 mg/kg; çok tüketenlerde aşılabilir.",
+     "year": 2010,
+     "src": "efsa_e155"
+    }
+   ],
+   "sources": [
+    "efsa_e155"
+   ],
+   "last_reviewed": "2026-10-04",
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "low",
+     "text": "EFSA'ya göre bu boyayı çok tüketen çocuklarda günlük alım sınırı aşılabilir."
+    }
+   ]
+  },
+  "E160a": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sarı-turuncu renk verir.",
+   "found_in": [
+    "Margarin",
+    "Meyve suları",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Beta-karoten vücutta A vitaminine dönüşebilir. EFSA 2012'de ADI belirleyemedi; katkı ve takviyelerden alınan miktar normal beslenmeyle alınanı (günde 5–10 mg) aşmadığı sürece güvenlik endişesi görmedi. Günde 15 mg'ın üzerindeki takviye kullanımında, özellikle sigara içenlerde, akciğer kanseri riskine dair bulgular vardır.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenemedi; normal beslenme düzeyinde güvenlik endişesi yok.",
+     "year": 2012,
+     "src": "efsa_e160a"
+    }
+   ],
+   "sources": [
+    "efsa_e160a"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E160b": {
+   "evidence_level": "strong",
+   "what_it_does": "Sarı-turuncu renk verir.",
+   "found_in": [
+    "Çedar peyniri",
+    "Tereyağı",
+    "Çerezler"
+   ],
+   "in_the_body": "EFSA 2019'da annattonun renk veren bileşenleri için ayrı ADI'ler kullandı: biksin 6 mg/kg, norbiksin 0,3 mg/kg vücut ağırlığı. Genotoksisite endişesi bulmadı; bir ülkede çok tüketen küçük çocuklarda norbiksin sınırının aşılabildiğini, bunun sağlık endişesi olmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Biksin ADI 6 mg/kg, norbiksin 0,3 mg/kg; sağlık endişesi yok.",
+     "year": 2019,
+     "src": "efsa_e160b"
+    }
+   ],
+   "sources": [
+    "efsa_e160b"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E160c": {
+   "evidence_level": "strong",
+   "what_it_does": "Kırmızı-turuncu renk ve hafif lezzet verir.",
+   "found_in": [
+    "Sucuk ve et ürünleri",
+    "Soslar",
+    "Cipsler"
+   ],
+   "in_the_body": "Paprika ekstresindeki renk maddeleri (kapsantin, kapsorubin) çok az emilir. EFSA 2015'te ADI'yi 24 mg/kg vücut ağırlığı olarak belirledi; alımlar bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 24 mg/kg; alımlar sınırın altında.",
+     "year": 2015,
+     "src": "efsa_e160c"
+    }
+   ],
+   "sources": [
+    "efsa_e160c"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E160e": {
+   "evidence_level": "strong",
+   "what_it_does": "Turuncu-kırmızı renk verir.",
+   "found_in": [
+    "Soslar",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2014'te ADI'yi 0,05'ten 0,3 mg/kg vücut ağırlığına yükseltti ve bildirilen kullanım düzeylerinde güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 0,3 mg/kg'a yükseltildi; güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_e160e"
+    }
+   ],
+   "sources": [
+    "efsa_e160e"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E161b": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sarı renk verir.",
+   "found_in": [
+    "Şekerlemeler",
+    "İçecekler",
+    "Sütlü tatlılar"
+   ],
+   "in_the_body": "Lutein yeşil yapraklı sebzelerle de alınır. EFSA ADI'yi 1 mg/kg vücut ağırlığı olarak belirledi; 2012'de bazı ülkelerde çok tüketen çocuklarda besinler ve katkı birlikte bu sınırın aşılabildiğini, yetişkinlerde aşılmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 1 mg/kg; bazı ülkelerde çok tüketen çocuklarda aşılabilir.",
+     "year": 2012,
+     "src": "efsa_e161b"
+    }
+   ],
+   "sources": [
+    "efsa_e161b"
+   ],
+   "last_reviewed": "2026-10-04",
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "low",
+     "text": "EFSA'ya göre bu boyayı çok tüketen çocuklarda günlük alım sınırı aşılabilir."
+    }
+   ]
+  },
+  "E163": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kırmızı, mor ya da mavi renk verir.",
+   "found_in": [
+    "İçecekler",
+    "Reçeller",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Antosiyaninler meyve ve sebzelerle de alınır. EFSA 2013'te veri yetersiz olduğu için sayısal ADI belirlemedi; yenilebilir meyve ve sebzelerin sulu ekstrelerinin mevcut kullanımda endişe yaratmasının olası olmadığını bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sayısal ADI yok; meyve ve sebze ekstreleri için endişe olası değil.",
+     "year": 2013,
+     "src": "efsa_e163"
+    }
+   ],
+   "sources": [
+    "efsa_e163"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E170": {
+   "evidence_level": "strong",
+   "what_it_does": "Beyaz renk verir, kalsiyum sağlar ve topaklanmayı önler.",
+   "found_in": [
+    "Ekmek",
+    "Şekerlemeler",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Kalsiyum karbonat vücutta kalsiyum kaynağıdır; katkının toplam kalsiyum alımına katkısı küçüktür. EFSA 2023'te bebekler dahil tüm yaş gruplarında güvenlik endişesi bulmadı ve sayısal ADI'ye gerek görmedi; içinde kaçınılmaz olarak bulunan alüminyumun sınırlanması için saflık kriterlerinin değiştirilmesini önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bebekler dahil güvenlik endişesi yok; alüminyum kalıntısı için saflık kriteri önerildi.",
+     "year": 2023,
+     "src": "efsa_e170"
+    }
+   ],
+   "sources": [
+    "efsa_e170"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E174": {
+   "evidence_level": "limited",
+   "what_it_does": "Gümüş rengi verir.",
+   "found_in": [
+    "Pasta süslemeleri",
+    "Şekerleme kaplamaları"
+   ],
+   "in_the_body": "Metalik gümüşten gümüş iyonları açığa çıkar, ancak miktarı bilinmiyor. EFSA 2016'da toksisite çalışması ve parçacık boyutu bilgisi olmadığı için güvenliği değerlendiremedi ve ADI belirlemedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Veri yetersiz; ADI belirlenemedi.",
+     "year": 2016,
+     "src": "efsa_e174"
+    }
+   ],
+   "sources": [
+    "efsa_e174"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E175": {
+   "evidence_level": "moderate",
+   "what_it_does": "Altın rengi verir.",
+   "found_in": [
+    "Pasta süslemeleri",
+    "Şekerlemeler",
+    "Bazı likörler"
+   ],
+   "in_the_body": "Altın çok az çözünür; vücuda geçişi ve etkisinin düşük olması beklenir. EFSA 2016'da ADI belirlemedi; saflık kriterlerinde parçacık boyutu ve nano kısmın belirtilmesini önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI belirlenmedi; parçacık boyutu kriteri önerildi.",
+     "year": 2016,
+     "src": "efsa_e175"
+    }
+   ],
+   "sources": [
+    "efsa_e175"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E180": {
+   "evidence_level": "limited",
+   "what_it_does": "Kırmızı renk verir.",
+   "found_in": [
+    "Peynir kabukları"
+   ],
+   "in_the_body": "Yalnızca peynir kabuğunda kullanılmasına izin verilir. EFSA 2010'da veri ADI belirlemeye yetmediği için mevcut ADI'nin geri çekilmesini önerdi; alımın etkisiz düzeyden yaklaşık 1700 kat düşük olması nedeniyle izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI'nin geri çekilmesi önerildi; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2010,
+     "src": "efsa_e180"
+    }
+   ],
+   "sources": [
+    "efsa_e180"
    ],
    "last_reviewed": "2026-10-04"
   }
