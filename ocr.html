@@ -449,7 +449,8 @@ function inciItems(text){
 }
 /* Sık OCR karışmaları: "rn"->"m" ("Parfurn"), harf içindeki rakam ("8enzyl", "50dium", "Pantheh0l").
    Rakam yalnızca en az 3 harf içeren sözcükte ve sözcüğün sonunda değilse harfe çevrilir (PEG-32, C12-15, CI 77891 korunur). */
-var KSHORT=["water","parfum","aroma","silica","butane","kaolin","glycol"];   // 4 harfliler (aqua, mica, talc, urea) bilerek yok: "area", "talk" gibi sözcüklerle karışır
+var KSHORT=["water","parfum","aroma","silica","butane","kaolin","glycol"];
+var KNOFUZZ=["chloride","chlorides","chlorite","silikat"];   // tek başına kalan iyon adı başka maddeye benzetilmez ("CHLORIDE" -> CHLORINE, AB'de yasak olmasın)   // 4 harfliler (aqua, mica, talc, urea) bilerek yok: "area", "talk" gibi sözcüklerle karışır
 var OCRD={"0":"o","1":"l","5":"s","8":"b","6":"g"};
 function ocrFix(k){
   return k.split(" ").map(function(w){
@@ -464,6 +465,7 @@ function kLookup(k,K,noFix){
   var ns=K.nos.get(k.replace(/ /g,""));if(ns)return {s:K.map.get(ns),how:"isim",key:ns};
   var ci=/^c[il1] ?([0-9oils]{5})$/.exec(k);
   if(ci){var d=ci[1].replace(/o/g,"0").replace(/[il]/g,"1").replace(/s/g,"5"),k2="ci "+d;s=K.map.get(k2);if(s)return {s:s,how:d!==ci[1]?"benzer":"isim",key:k2}}
+  if(KNOFUZZ.indexOf(k)>-1)return null;
   if(!noFix){var fx=ocrFix(k);if(fx!==k){var hf=kLookup(fx,K,true);if(hf)return {s:hf.s,how:"benzer",key:hf.key,dist:(hf.dist||0)+1}}}
   if(k.length<7){   // kısa adlarda benzer yazım yalnızca çok sık görülen birkaç ad için (yanlış eşleşmeyi önlemek için)
     if(k.length<5)return null;
@@ -527,10 +529,11 @@ function kResult(raw,h,may,pos,K,opts){
   r.k3.forEach(function(w){var L=K.watchLists[w.list],l=L&&L.level;if(l&&KRANK[l]>KRANK[r.level])r.level=l});
   if(/\bnano\b/i.test(raw))r.nano=true;
   var leaveLike=opts.ptype==="leave"||opts.ptype==="makeup"||opts.ptype==="baby";
+  function note(t){if(r.notes.indexOf(t)<0)r.notes.push(t)}   // aynı madde birden çok AB kaydında olabilir (ör. MIT: V/39 ve V/57); not bir kez yazılır
   r.reg.forEach(function(e){
-    if(e.rinse_only&&leaveLike){r.notes.push("Yalnızca durulanan ürünlerde izinli; seçtiğiniz ürün tipinde (durulanmayan) kullanılmamalı.");if(KRANK[r.level]<2)r.level="orange"}
-    if(e.kids_under&&opts.ptype==="baby"){r.notes.push(e.kids_under+" yaş altı çocuklar için ürünlerde kısıtlı ya da yasak.");if(KRANK[r.level]<2)r.level="orange"}
-    if(e.only_tr&&r.notes.indexOf("o:"+e.only_tr)<0)r.notes.push("o:"+e.only_tr);
+    if(e.rinse_only&&leaveLike){note("Yalnızca durulanan ürünlerde izinli; seçtiğiniz ürün tipinde (durulanmayan) kullanılmamalı.");if(KRANK[r.level]<2)r.level="orange"}
+    if(e.kids_under&&opts.ptype==="baby"){note(e.kids_under+" yaş altı çocuklar için ürünlerde kısıtlı ya da yasak.");if(KRANK[r.level]<2)r.level="orange"}
+    if(e.only_tr)note("o:"+e.only_tr);
   });
   r.rank=KRANK[r.level];
   return r;

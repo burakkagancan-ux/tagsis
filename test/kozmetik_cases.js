@@ -64,8 +64,15 @@ for(const [t,must] of ESA){
 // "may contain" bölümü
 const mi=KL.inciItems("Talc, Mica [+/- CI 77491, CI 77891]");
 if(!(mi.length===4&&mi[2].may&&!mi[1].may)){fail++;console.log('HATA may',JSON.stringify(mi))}
+// Aynı not iki kez yazılmaz (MIT iki AB kaydında: V/39, V/57)
+{const r=KL.analyzeK("Aqua, Methylchloroisothiazolinone, Methylisothiazolinone",K,{ptype:"leave"});
+ r.forEach(x=>{const u=new Set(x.notes);if(u.size!==x.notes.length){fail++;console.log('HATA tekrarlanan not',x.name,x.notes)}});
+ if(!r.filter(x=>/ISOTHIAZOLINONE/.test(x.name)).every(x=>x.notes.length===1)){fail++;console.log('HATA durulanan notu eksik',r.map(x=>x.notes))}}
+// Tek başına kalan "CHLORIDE" / "CHLORITE" CHLORINE (AB'de yasak) sayılmaz
+{const r=KL.analyzeK("Aqua, Benzalkonium, Chloride, Chlorite, Sodium Silikat",K,{});
+ if(r.some(x=>x.name==="CHLORINE")){fail++;console.log('HATA CHLORIDE -> CHLORINE')}}
 // Kozmetik/gıda ayrımı
 if(!KL.looksCosmetic("Ingredients: Aqua, Glycerin, Parfum, Phenoxyethanol")){fail++;console.log('HATA looksCosmetic kozmetik')}
 if(KL.looksCosmetic("İçindekiler: Şeker, buğday unu, bitkisel yağ, süt tozu, tuz, sitrik asit")){fail++;console.log('HATA looksCosmetic gıda')}
-console.log(cases.length+REAL.length+ESA.length+4+' kozmetik durum, '+fail+' hata');
+console.log(cases.length+REAL.length+ESA.length+6+' kozmetik durum, '+fail+' hata');
 process.exit(fail?1:0);
