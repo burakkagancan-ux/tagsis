@@ -38,6 +38,15 @@ function buildProfile(){
   function pbox(t){var d=el("div","pbox");d.appendChild(el("div","pt",t));box.appendChild(d);return d}
   // Her kutudaki seçenekler Türkçe alfabeye göre sıralanır
   function abc(a){return a.slice().sort(function(x,y){return x[1].localeCompare(y[1],"tr")})}
+  // Kişisel bilgiler: kilo günlük sınır hesabında, yaş bebek notunda kullanılır
+  var b0=pbox("Kişisel Bilgiler"),g0=el("div","pg pnum");
+  [["yas","Yaş","yıl",0,120],["kilo","Kilo","kg",2,300]].forEach(function(f){
+    var l=el("label","pn");l.appendChild(el("span",null,f[1]));var i=document.createElement("input");i.type="text";i.inputMode=f[0]==="kilo"?"decimal":"numeric";i.autocomplete="off";
+    if(PROF[f[0]]!=null)i.value=String(PROF[f[0]]).replace(".",",");
+    i.onchange=function(){var v=parseFloat(String(i.value).replace(",","."));if(isNaN(v)||v<f[3]||v>f[4]){delete PROF[f[0]];i.value=""}else{PROF[f[0]]=f[0]==="yas"?Math.floor(v):v;i.value=String(PROF[f[0]]).replace(".",",")}saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};
+    l.appendChild(i);l.appendChild(el("span","mut",f[2]));g0.appendChild(l)});
+  b0.appendChild(g0);
+  b0.appendChild(el("div","mut","Kilonuz, katkı maddesi kartlarındaki günlük sınırı size göre hesaplamak için kullanılır."));
   var b1=pbox("Alerjenler"),g=el("div","pg");
   abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
@@ -53,7 +62,7 @@ function buildProfile(){
 }
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
 function updProfSum(){
-  var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+(PROF.koku?1:0)+(PROF.astim?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
+  var n=(PROF.kilo!=null?1:0)+(PROF.yas!=null?1:0)+PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+(PROF.koku?1:0)+(PROF.astim?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
   $("profsum").textContent=n?("Hassasiyetlerim · "+n+" seçim"):"Hassasiyetlerim";
 }
 
@@ -161,17 +170,33 @@ function brandCard(br){
 }
 // Günlük kabul edilebilir alım (ADI) satırı; değer mg/kg vücut ağırlığı (per=hafta: haftalık)
 function sayi(x){x=Math.round(x*100)/100;return String(x).replace(".",",")}
-function mgTxt(x){return x>=1000?sayi(x/1000)+" g":sayi(x)+" mg"}
-function adiLine(a){
-  var p=el("div","ln"),w=a.per==="hafta",t;
-  p.appendChild(el("b",null,(w?"Haftalık sınır (TWI): ":"Günlük sınır (ADI): ")));
-  if(a.st==="set")t=sayi(a.v)+" mg/kg vücut ağırlığı"+(a.as?" ("+a.as+")":"")+", "+a.src+". 70 kg bir yetişkin için "+(w?"haftada ":"günde ")+"yaklaşık "+mgTxt(a.v*70)+", 20 kg bir çocuk için "+mgTxt(a.v*20)+".";
-  else if(a.st==="ns")t="Sayısal sınır belirlenmedi ("+a.src+"): mevcut kullanımda gerek görülmedi.";
-  else t="Geçerli bir sınır yok ("+a.src+").";
-  p.appendChild(document.createTextNode(t+(a.note?" "+a.note:"")));
-  if(a.url){p.appendChild(document.createTextNode(" "));var l=el("a",null,"Kaynak");l.href=a.url;l.target="_blank";l.rel="noopener";p.appendChild(l)}
-  if(!a.ok)p.appendChild(document.createTextNode(" (Bu değer henüz kaynakla doğrulanmadı.)"));
-  return p;
+function yuv(x){return x>=100?Math.round(x):x>=10?Math.round(x*10)/10:x}
+function mgTxt(x){return x>=1000?sayi(yuv(x/1000))+" g":sayi(yuv(x))+" mg"}
+function adiBlock(a,pre){
+  var w=a.per==="hafta",kg=PROF.kilo,box=el("div","adi"),row=el("div","adr"),t;
+  var lb=(w?"Haftalık sınır":"Günlük sınır")+(a.st==="set"&&kg?"ınız":"");
+  if(a.st==="set")t=kg?"yaklaşık "+mgTxt(a.v*kg)+" ("+sayi(kg)+" kg için"+(a.as?", "+a.as:"")+")":"kilo başına "+sayi(a.v)+" mg"+(a.as?" ("+a.as+")":"")+". Kilonuzu Hassasiyetlerim'e girerseniz size göre hesaplanır.";
+  else t=a.st==="ns"?"sayısal sınır belirlenmedi.":"geçerli bir sınır yok.";
+  var tx=el("div","ln");tx.appendChild(el("b",null,(pre?pre+" · ":"")+lb+": "));tx.appendChild(document.createTextNode(t));row.appendChild(tx);
+  var bt=el("button","info sm","i");bt.type="button";bt.setAttribute("aria-label",lb+" kaynağı");bt.setAttribute("aria-expanded","false");row.appendChild(bt);
+  box.appendChild(row);
+  var pn=el("div","ipanel");pn.hidden=true;
+  var p=el("div","ln");
+  if(a.st==="set")p.appendChild(document.createTextNode((w?"Haftalık kabul edilebilir alım (TWI): ":"Kabul edilebilir günlük alım (ADI): ")+sayi(a.v)+" mg/kg vücut ağırlığı"+(a.as?" ("+a.as+")":"")+", "+a.src+"."+(kg?" Hesap: "+sayi(a.v)+" mg × "+sayi(kg)+" kg = "+mgTxt(a.v*kg)+".":"")));
+  else p.appendChild(document.createTextNode(a.st==="ns"?a.src+": mevcut kullanımda sayısal sınır gerekli görülmedi.":a.src+"."));
+  if(a.note)p.appendChild(document.createTextNode(" "+a.note));
+  pn.appendChild(p);
+  var ps=el("div","how");
+  if(a.url){ps.appendChild(document.createTextNode("Kaynak: "));var l=el("a",null,a.url.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);l.href=a.url;l.target="_blank";l.rel="noopener";ps.appendChild(l)}
+  if(!a.ok)ps.appendChild(document.createTextNode((a.url?" · ":"")+"Bu değer henüz kaynakla doğrulanmadı."));
+  if(ps.childNodes.length)pn.appendChild(ps);
+  if(a.st==="set"){
+    if(PROF.yas===0)pn.appendChild(el("div","how","EFSA'ya göre bu sınırlar 16 haftadan küçük bebekler için geçerli değildir; bebeğinizin beslenmesi için hekiminize danışın."));
+    pn.appendChild(el("div","how","Sınır, bir ömür boyunca her gün alınsa bile sağlık riski beklenmeyen miktardır ve gün içinde bütün kaynaklardan alınan toplam içindir. Etikette miktar yazmadığı için bu üründen ne kadar alındığı hesaplanamaz."));
+  }
+  box.appendChild(pn);
+  bt.onclick=function(){pn.hidden=!pn.hidden;bt.setAttribute("aria-expanded",pn.hidden?"false":"true");bt.classList.toggle("on",!pn.hidden)};
+  return box;
 }
 function additiveCard(r){
   var d=el("div","res "+CLS[r.rank]);
@@ -184,18 +209,18 @@ function additiveCard(r){
   top.appendChild(b);d.appendChild(top);
   d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
   it.flags.forEach(function(f){if((f==="sodium"&&!PROF.salt)||f==="aluminium"||f==="gmo_suspect")return;/* sodyum etiketi yalnızca tuz kısıtlaması seçiliyse */d.appendChild(el("span","chip",FLAGS[f]||f))});
+  var seenA={};items.forEach(function(x){if(!x.adi)return;var k=JSON.stringify(x.adi);if(seenA[k])return;seenA[k]=1});
+  var nA=Object.keys(seenA).length,doneA={};
+  items.forEach(function(x){if(!x.adi)return;var k=JSON.stringify(x.adi);if(doneA[k])return;doneA[k]=1;d.appendChild(adiBlock(x.adi,nA>1||items.length>1&&items.some(function(y){return !y.adi})?x.id:""))});
   var pn=el("div","ipanel");pn.hidden=true;
   var same=items.length>1&&items.every(function(x){return ABOUT[x.id]===ABOUT[items[0].id]&&!x.tgk_note});
-  var adis=items.map(function(x){return JSON.stringify(x.adi||null)});
-  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4);
-    if(items[0].adi&&adis.every(function(a){return a===adis[0]}))pn.appendChild(adiLine(items[0].adi))}
+  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4)}
   else items.forEach(function(x){
     var ab=ABOUT[x.id];
     if(items.length>1)pn.appendChild(el("div","ih",x.id+" · "+x.primary_name));
     if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,"Nedir? "));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
     if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,"Yönetmelikteki adı: "));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
     if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,"Türkiye: "));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
-    if(x.adi)pn.appendChild(adiLine(x.adi));
   });
   var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
   p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
@@ -206,7 +231,6 @@ function additiveCard(r){
     pn.appendChild(ps);
   }
   if(it.needs_review)pn.appendChild(el("div","how",it.sources&&it.verification!=="partially_checked"?"Türkiye'deki izin durumu henüz doğrulanmadı.":it.sources?"Bu değerlendirmenin bir kısmı henüz kaynakla doğrulanmadı.":"Bu değerlendirme henüz kaynakla doğrulanmadı."));
-  if(items.some(function(x){return x.adi&&x.adi.st==="set"}))pn.appendChild(el("div","how","Etikette miktar yazmadığı için bu üründen ne kadar alındığı hesaplanamaz; sınır tüm gün boyunca bütün kaynaklardan alınan toplam içindir."));
   d.appendChild(pn);
   b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
