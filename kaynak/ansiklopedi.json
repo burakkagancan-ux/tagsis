@@ -469,6 +469,167 @@
    "year": 2010,
    "url": "https://doi.org/10.2903/j.efsa.2010.1586",
    "official": true
+  },
+  "efsa_paraben": {
+   "title": "EFSA advises on the safety of paraben usage in food (AFC Paneli görüşü)",
+   "publisher": "EFSA",
+   "year": 2004,
+   "url": "https://www.efsa.europa.eu/en/press/news/040929",
+   "official": true
+  },
+  "efsa_e234": {
+   "title": "Safety of nisin (E 234) as a food additive in the light of new toxicological data and the proposed extension of use",
+   "publisher": "EFSA (EFSA Journal 15(12):5063)",
+   "year": 2017,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/5063",
+   "official": true
+  },
+  "efsa_e235": {
+   "title": "Scientific Opinion on the use of natamycin (E 235) as a food additive",
+   "publisher": "EFSA",
+   "year": 2009,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/1412",
+   "official": true
+  },
+  "efsa_e243": {
+   "title": "Safety of ethyl lauroyl arginate (E 243) as a food additive in the light of the new information provided and the proposed extension of use",
+   "publisher": "EFSA (EFSA Journal 17(3):5621)",
+   "year": 2019,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009305",
+   "official": true
+  },
+  "efsa_propionate": {
+   "title": "Scientific Opinion on the re-evaluation of propionic acid (E 280), sodium propionate (E 281), calcium propionate (E 282) and potassium propionate (E 283) as food additives",
+   "publisher": "EFSA (EFSA Journal 12(7):3779)",
+   "year": 2014,
+   "url": "https://doaj.org/article/e633b6cbb7354c1a8789906e9b0f4972",
+   "official": true
+  },
+  "efsa_e304": {
+   "title": "Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives",
+   "publisher": "EFSA",
+   "year": 2015,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/4289",
+   "official": true
+  },
+  "efsa_e310": {
+   "title": "Scientific Opinion on the re-evaluation of propyl gallate (E 310) as a food additive",
+   "publisher": "EFSA",
+   "year": 2014,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/3642",
+   "official": true
+  },
+  "efsa_e312": {
+   "title": "Scientific Opinion on the re-evaluation of dodecyl gallate (E 312) as a food additive",
+   "publisher": "EFSA (EFSA Journal 13(5))",
+   "year": 2015,
+   "url": "https://doaj.org/article/e24c7524938e46da92e7e9c10c20184e",
+   "official": true
+  },
+  "ab2018_1481": {
+   "title": "Komisyon Tüzüğü (AB) 2018/1481: oktil gallat (E 311) ve dodesil gallat (E 312) ile ilgili değişiklikler",
+   "publisher": "Avrupa Komisyonu",
+   "year": 2018,
+   "url": "https://eur-lex.europa.eu/eli/reg/2018/1481/oj",
+   "official": true
+  },
+  "efsa_e315": {
+   "title": "Scientific Opinion on the re-evaluation of erythorbic acid (E 315) and sodium erythorbate (E 316) as food additives",
+   "publisher": "EFSA",
+   "year": 2016,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/4360",
+   "official": true
+  },
+  "efsa_e319": {
+   "title": "Opinion of the Scientific Panel on Food Additives (AFC) on tertiary-Butylhydroquinone (TBHQ)",
+   "publisher": "EFSA",
+   "year": 2004,
+   "url": "https://www.efsa.europa.eu/fr/efsajournal/pub/84",
+   "official": true
+  },
+  "jecfa_e319": {
+   "title": "tertiary-Butylhydroquinone: JECFA değerlendirme özeti (TRS 884)",
+   "publisher": "JECFA (WHO IPCS INCHEM)",
+   "year": 1997,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2240.htm",
+   "official": true
+  },
+  "efsa_e321": {
+   "title": "Scientific Opinion on the re-evaluation of butylated hydroxytoluene BHT (E 321) as a food additive",
+   "publisher": "EFSA",
+   "year": 2012,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/2588",
+   "official": true
+  },
+  "efsa_tartrate": {
+   "title": "Re-evaluation of L(+)-tartaric acid (E 334), sodium tartrates (E 335), potassium tartrates (E 336), potassium sodium tartrate (E 337) and calcium tartrate (E 354) as food additives",
+   "publisher": "EFSA (EFSA Journal 18(3):6030)",
+   "year": 2020,
+   "url": "https://doaj.org/article/a77a328e4cff4dc5b5b69f2369eb9084",
+   "official": true
+  },
+  "efsa_e353": {
+   "title": "Re-evaluation of metatartaric acid (E 353) as a food additive",
+   "publisher": "EFSA (EFSA Journal 18(3):6031)",
+   "year": 2020,
+   "url": "https://doaj.org/article/26b04906a4484c00b853932196da7c98",
+   "official": true
+  },
+  "efsa_e392": {
+   "title": "Refined exposure assessment of extracts of rosemary (E 392) from its use as food additive",
+   "publisher": "EFSA (EFSA Journal 16(8):5373)",
+   "year": 2018,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/5373",
+   "official": true
+  },
+  "efsa_e405": {
+   "title": "Re-evaluation of propane-1,2-diol alginate (E 405) as a food additive",
+   "publisher": "EFSA (EFSA Journal 16(7):5371)",
+   "year": 2018,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009538",
+   "official": true
+  },
+  "efsa_e413": {
+   "title": "Re-evaluation of tragacanth (E 413) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(6):4789)",
+   "year": 2017,
+   "url": "https://doaj.org/article/13f3d7f577be4d948b9753cfb9b962da",
+   "official": true
+  },
+  "efsa_e417": {
+   "title": "Re-evaluation of tara gum (E 417) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(6):4863)",
+   "year": 2017,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/4863",
+   "official": true
+  },
+  "efsa_e418": {
+   "title": "Re-evaluation of gellan gum (E 418) as food additive",
+   "publisher": "EFSA (EFSA Journal 16(6):5296)",
+   "year": 2018,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/5296",
+   "official": true
+  },
+  "efsa_e425": {
+   "title": "Re-evaluation of konjac gum (E 425 i) and konjac glucomannan (E 425 ii) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(6):4864)",
+   "year": 2017,
+   "url": "https://doaj.org/article/38115d7438ff4733badbf366a38b4495",
+   "official": true
+  },
+  "efsa_e427": {
+   "title": "Opinion of the Scientific Panel AFC related to an application on the use of cassia gum as a food additive",
+   "publisher": "EFSA (EFSA Journal 4(12):389)",
+   "year": 2006,
+   "url": "https://doaj.org/article/d4ed686e962f4862893b0e4c7abdff77",
+   "official": true
+  },
+  "efsa_e445": {
+   "title": "Follow-up of the re-evaluation of glycerol esters of wood rosins (E 445) as a food additive",
+   "publisher": "EFSA (EFSA Journal 21(7):8110)",
+   "year": 2023,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/8110",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -4899,6 +5060,820 @@
    ],
    "sources": [
     "efsa_e180"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E214": {
+   "evidence_level": "moderate",
+   "what_it_does": "Etil paraben; küf ve mayaların üremesini yavaşlatan bir koruyucu.",
+   "found_in": [
+    "Jöle kaplı et ürünleri",
+    "Kurutulmuş et ürünlerinin yüzeyi",
+    "Şekerlemeler ve kaplamalar"
+   ],
+   "in_the_body": "Metil ve etil parabenler bağırsaktan emilir, vücutta p-hidroksibenzoik aside parçalanır ve idrarla atılır. EFSA 2004'te metil ve etil parabenlerle sodyum tuzları için birlikte geçerli bir günlük alım sınırı (grup ADI) belirledi: günde kilo başına 0-10 mg. Propil paraben, sıçanlarda üreme üzerine etkiler gösteren çalışmalar nedeniyle bu gruba alınmadı; gıdada propil paraben (eski E216) artık izinli değildir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil parabenler için grup ADI: günde 0-10 mg/kg; propil paraben gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_paraben"
+    }
+   ],
+   "sources": [
+    "efsa_paraben"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E215": {
+   "evidence_level": "moderate",
+   "what_it_does": "Etil parabenin suda daha iyi çözünen sodyum tuzu; koruyucu.",
+   "found_in": [
+    "Jöle kaplı et ürünleri",
+    "Kurutulmuş et ürünlerinin yüzeyi",
+    "Şekerlemeler ve kaplamalar"
+   ],
+   "in_the_body": "Metil ve etil parabenler bağırsaktan emilir, vücutta p-hidroksibenzoik aside parçalanır ve idrarla atılır. EFSA 2004'te metil ve etil parabenlerle sodyum tuzları için birlikte geçerli bir günlük alım sınırı (grup ADI) belirledi: günde kilo başına 0-10 mg. Propil paraben, sıçanlarda üreme üzerine etkiler gösteren çalışmalar nedeniyle bu gruba alınmadı; gıdada propil paraben (eski E216) artık izinli değildir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil parabenler için grup ADI: günde 0-10 mg/kg; propil paraben gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_paraben"
+    }
+   ],
+   "sources": [
+    "efsa_paraben"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E218": {
+   "evidence_level": "moderate",
+   "what_it_does": "Metil paraben; küf ve mayaların üremesini yavaşlatan bir koruyucu.",
+   "found_in": [
+    "Jöle kaplı et ürünleri",
+    "Kurutulmuş et ürünlerinin yüzeyi",
+    "Şekerlemeler ve kaplamalar"
+   ],
+   "in_the_body": "Metil ve etil parabenler bağırsaktan emilir, vücutta p-hidroksibenzoik aside parçalanır ve idrarla atılır. EFSA 2004'te metil ve etil parabenlerle sodyum tuzları için birlikte geçerli bir günlük alım sınırı (grup ADI) belirledi: günde kilo başına 0-10 mg. Propil paraben, sıçanlarda üreme üzerine etkiler gösteren çalışmalar nedeniyle bu gruba alınmadı; gıdada propil paraben (eski E216) artık izinli değildir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil parabenler için grup ADI: günde 0-10 mg/kg; propil paraben gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_paraben"
+    }
+   ],
+   "sources": [
+    "efsa_paraben"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E219": {
+   "evidence_level": "moderate",
+   "what_it_does": "Metil parabenin suda daha iyi çözünen sodyum tuzu; koruyucu.",
+   "found_in": [
+    "Jöle kaplı et ürünleri",
+    "Kurutulmuş et ürünlerinin yüzeyi",
+    "Şekerlemeler ve kaplamalar"
+   ],
+   "in_the_body": "Metil ve etil parabenler bağırsaktan emilir, vücutta p-hidroksibenzoik aside parçalanır ve idrarla atılır. EFSA 2004'te metil ve etil parabenlerle sodyum tuzları için birlikte geçerli bir günlük alım sınırı (grup ADI) belirledi: günde kilo başına 0-10 mg. Propil paraben, sıçanlarda üreme üzerine etkiler gösteren çalışmalar nedeniyle bu gruba alınmadı; gıdada propil paraben (eski E216) artık izinli değildir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil parabenler için grup ADI: günde 0-10 mg/kg; propil paraben gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_paraben"
+    }
+   ],
+   "sources": [
+    "efsa_paraben"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E234": {
+   "evidence_level": "strong",
+   "what_it_does": "Bakterilerin ürettiği doğal bir peptit; bazı bakterilerin, özellikle sporlu olanların üremesini engeller.",
+   "found_in": [
+    "Olgunlaştırılmış ve eritme peynirler",
+    "Tatlılar ve pudingler",
+    "Kaymak ve krema ürünleri"
+   ],
+   "in_the_body": "Nisin bir protein parçası olduğu için sindirim enzimleriyle parçalanır. EFSA 2017'de günlük alım sınırını (ADI) günde kilo başına 1 mg'a yükseltti ve olgunlaşmamış peynir ile ısıl işlem görmüş et ürünlerinde önerilen yeni kullanımlarda güvenlik endişesi görmedi. Gıdadaki kullanımın bakterilerde nisine direnç oluşturup oluşturmayacağının ayrıca değerlendirilmesini önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 1 mg/kg'a yükseltildi; önerilen yeni kullanımlarda güvenlik endişesi yok, direnç konusu ayrı değerlendirilmeli.",
+     "year": 2017,
+     "src": "efsa_e234"
+    }
+   ],
+   "sources": [
+    "efsa_e234"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E235": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf ve mayaların üremesini engelleyen bir koruyucu; yalnızca yüzeyde kullanılır.",
+   "found_in": [
+    "Peynir kabuğu",
+    "Kuru sosis ve salam kılıfı"
+   ],
+   "in_the_body": "Natamisin bağırsaktan çok az emilir. EFSA 2009'da verileri kendi ADI'sini belirlemeye yetecek kadar güçlü bulmadı; JECFA'nın günde kilo başına 0,3 mg'lık değerini dikkate alarak peynir kabuğu ve sosis yüzeyindeki kullanımda güvenlik endişesi görmedi. Bu kullanımın mikroplarda direnç oluşturması konusunda da endişe bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yalnızca peynir kabuğu ve sosis yüzeyinde kullanımda güvenlik endişesi yok; direnç endişesi yok.",
+     "year": 2009,
+     "src": "efsa_e235"
+    }
+   ],
+   "sources": [
+    "efsa_e235"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E243": {
+   "evidence_level": "moderate",
+   "what_it_does": "Bakterilerin üremesini yavaşlatan bir koruyucu.",
+   "found_in": [
+    "Isıl işlem görmüş et ürünleri"
+   ],
+   "in_the_body": "Vücutta normal metabolizma ürünlerine, özellikle arjinin ve laurik aside parçalanır. EFSA'nın 2007'de belirlediği günlük alım sınırı (ADI) günde kilo başına 0,5 mg'dır. EFSA 2019'da bu sınırın şu anki izinli düzeylerle bile çok tüketen küçük çocuklarda ve çocuklarda aşılabileceğini belirtti ve kullanımın genişletilmesini desteklemedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 0,5 mg/kg; çok tüketen çocuklarda aşılabilir, kullanımın genişletilmesi desteklenmedi.",
+     "year": 2019,
+     "src": "efsa_e243"
+    }
+   ],
+   "sources": [
+    "efsa_e243"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E280": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf oluşumunu geciktiren bir koruyucu.",
+   "found_in": [
+    "Paketli ekmek ve unlu mamuller",
+    "Peynir",
+    "Hazır tatlılar"
+   ],
+   "in_the_body": "Propiyonik asit doğal olarak bazı peynirlerde ve bağırsakta lifler fermente edilirken de oluşur; vücutta normal enerji metabolizmasında kullanılır. EFSA 2014'te veriler sayısal bir günlük alım sınırı (ADI) belirlemeye yetmese de izinli kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionate"
+    }
+   ],
+   "sources": [
+    "efsa_propionate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E281": {
+   "evidence_level": "moderate",
+   "what_it_does": "Propiyonik asidin sodyum tuzu; küf oluşumunu geciktirir.",
+   "found_in": [
+    "Paketli ekmek ve unlu mamuller",
+    "Peynir",
+    "Hazır tatlılar"
+   ],
+   "in_the_body": "Propiyonik asit doğal olarak bazı peynirlerde ve bağırsakta lifler fermente edilirken de oluşur; vücutta normal enerji metabolizmasında kullanılır. EFSA 2014'te veriler sayısal bir günlük alım sınırı (ADI) belirlemeye yetmese de izinli kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionate"
+    }
+   ],
+   "sources": [
+    "efsa_propionate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E282": {
+   "evidence_level": "moderate",
+   "what_it_does": "Propiyonik asidin kalsiyum tuzu; ekmekte küflenmeyi geciktirir.",
+   "found_in": [
+    "Paketli ekmek ve unlu mamuller",
+    "Peynir",
+    "Hazır tatlılar"
+   ],
+   "in_the_body": "Propiyonik asit doğal olarak bazı peynirlerde ve bağırsakta lifler fermente edilirken de oluşur; vücutta normal enerji metabolizmasında kullanılır. EFSA 2014'te veriler sayısal bir günlük alım sınırı (ADI) belirlemeye yetmese de izinli kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionate"
+    }
+   ],
+   "sources": [
+    "efsa_propionate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E283": {
+   "evidence_level": "moderate",
+   "what_it_does": "Propiyonik asidin potasyum tuzu; küf oluşumunu geciktirir.",
+   "found_in": [
+    "Paketli ekmek ve unlu mamuller",
+    "Peynir",
+    "Hazır tatlılar"
+   ],
+   "in_the_body": "Propiyonik asit doğal olarak bazı peynirlerde ve bağırsakta lifler fermente edilirken de oluşur; vücutta normal enerji metabolizmasında kullanılır. EFSA 2014'te veriler sayısal bir günlük alım sınırı (ADI) belirlemeye yetmese de izinli kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionate"
+    }
+   ],
+   "sources": [
+    "efsa_propionate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E304": {
+   "evidence_level": "moderate",
+   "what_it_does": "Askorbil palmitat ve askorbil stearat; yağlarda çözünen C vitamini türevi bir antioksidan, yağların acımasını geciktirir.",
+   "found_in": [
+    "Bitkisel yağlar ve margarin",
+    "Bebek mamaları",
+    "Hazır çorba ve soslar"
+   ],
+   "in_the_body": "Bağırsakta emilmeden önce askorbik aside (C vitamini) ve yağ asitlerine ayrıldığı kabul edilir. EFSA 2015'te veriler bir günlük alım sınırı (ADI) belirlemeye yetmese de bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_e304"
+    }
+   ],
+   "sources": [
+    "efsa_e304"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E310": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağların acımasını geciktiren bir antioksidan.",
+   "found_in": [
+    "Bitkisel yağlar",
+    "Cips ve çerezler",
+    "Hazır çorba ve soslar"
+   ],
+   "in_the_body": "EFSA 2014'te propil gallat için günde kilo başına 0,5 mg'lık bir günlük alım sınırı (ADI) belirledi. Çok tüketen yetişkinlerde bu sınırın aşılabildiğini hesapladı; ancak hesabın temkinli varsayımlara dayandığını belirterek mevcut kullanım düzeylerinde güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 0,5 mg/kg; çok tüketenlerde aşılabilir, mevcut kullanımda güvenlik endişesi görülmedi.",
+     "year": 2014,
+     "src": "efsa_e310"
+    }
+   ],
+   "sources": [
+    "efsa_e310"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E311": {
+   "evidence_level": "limited",
+   "what_it_does": "Yağların acımasını geciktiren bir antioksidan.",
+   "found_in": [
+    "Bitkisel yağlar"
+   ],
+   "in_the_body": "AB, oktil gallatın izinli katkı maddeleri listesinden çıkarılmasını 2018'de 2018/1481 sayılı tüzükle düzenledi.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "İzinli katkı maddeleri listesinden çıkarıldı.",
+     "year": 2018,
+     "src": "ab2018_1481"
+    }
+   ],
+   "sources": [
+    "ab2018_1481"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E312": {
+   "evidence_level": "limited",
+   "what_it_does": "Yağların acımasını geciktiren bir antioksidan.",
+   "found_in": [
+    "Bitkisel yağlar"
+   ],
+   "in_the_body": "EFSA 2015'te mevcut verileri bir günlük alım sınırı (ADI) belirlemeye ya da güvenlik payı hesaplamaya yetersiz buldu; çalışmalarda belirgin bir olumsuz etki görülmediğini, ancak veri eksikliği nedeniyle tam bir değerlendirme yapılamadığını belirtti. AB 2018'de dodesil gallatı izinli katkı maddeleri listesinden çıkardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Veri yetersiz; ADI belirlenemedi.",
+     "year": 2015,
+     "src": "efsa_e312"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "İzinli katkı maddeleri listesinden çıkarıldı.",
+     "year": 2018,
+     "src": "ab2018_1481"
+    }
+   ],
+   "sources": [
+    "efsa_e312",
+    "ab2018_1481"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E315": {
+   "evidence_level": "strong",
+   "what_it_does": "Renk ve tazeliği korumaya yardım eden bir antioksidan.",
+   "found_in": [
+    "Sucuk, salam ve sosis",
+    "Konserve ve dondurulmuş balık"
+   ],
+   "in_the_body": "Eritorbik asit C vitamininin bir benzeridir ama vitamin etkisi yok denecek kadar azdır. Bağırsaktan emilir ve büyük kısmı 24 saat içinde atılır. EFSA 2016'da günde kilo başına 6 mg'lık günlük alım sınırını (ADI) korudu; bu sınır hiçbir yaş grubunda aşılmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 6 mg/kg olarak korundu; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2016,
+     "src": "efsa_e315"
+    }
+   ],
+   "sources": [
+    "efsa_e315"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E316": {
+   "evidence_level": "strong",
+   "what_it_does": "Eritorbik asidin sodyum tuzu; işlenmiş etlerde rengin korunmasına ve kürlemenin hızlanmasına yardım eder.",
+   "found_in": [
+    "Sucuk, salam ve sosis",
+    "Konserve ve dondurulmuş balık"
+   ],
+   "in_the_body": "Eritorbik asit C vitamininin bir benzeridir ama vitamin etkisi yok denecek kadar azdır. Bağırsaktan emilir ve büyük kısmı 24 saat içinde atılır. EFSA 2016'da günde kilo başına 6 mg'lık günlük alım sınırını (ADI) korudu; bu sınır hiçbir yaş grubunda aşılmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 6 mg/kg olarak korundu; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2016,
+     "src": "efsa_e315"
+    }
+   ],
+   "sources": [
+    "efsa_e315"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E319": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağların acımasını geciktiren bir antioksidan.",
+   "found_in": [
+    "Kızartma yağları ve katı yağlar",
+    "Cips ve çerezler",
+    "Hazır çorba ve soslar"
+   ],
+   "in_the_body": "TBHQ için JECFA'nın 1997'de belirlediği günlük alım sınırı (ADI) günde kilo başına 0-0,7 mg'dır. EFSA da 2004'te TBHQ hakkında görüş yayımladı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Değerlendirildi.",
+     "year": 2004,
+     "src": "efsa_e319"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI günde 0-0,7 mg/kg.",
+     "year": 1997,
+     "src": "jecfa_e319"
+    }
+   ],
+   "sources": [
+    "efsa_e319",
+    "jecfa_e319"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E321": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağların acımasını geciktiren bir antioksidan.",
+   "found_in": [
+    "Sakız",
+    "Bitkisel yağlar ve katı yağlar",
+    "Cips ve çerezler"
+   ],
+   "in_the_body": "EFSA 2012'de yeni sıçan çalışmalarına dayanarak günlük alım sınırını (ADI) günde kilo başına 0,05 mg'dan 0,25 mg'a yükseltti. Yetişkinlerde bu sınırın aşılması beklenmez; bazı ülkelerde çok tüketen çocuklarda aşılabileceği hesaplandı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 0,25 mg/kg'a yükseltildi; bazı ülkelerde çok tüketen çocuklarda aşılabilir.",
+     "year": 2012,
+     "src": "efsa_e321"
+    }
+   ],
+   "sources": [
+    "efsa_e321"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E334": {
+   "evidence_level": "strong",
+   "what_it_does": "Ekşilik verir ve asitliği düzenler.",
+   "found_in": [
+    "Şekerlemeler ve jöleler",
+    "Kabartma tozu",
+    "Şarap ve içecekler",
+    "Reçel ve marmelat"
+   ],
+   "in_the_body": "Tartarik asit üzümde doğal olarak bulunur. EFSA 2020'de tartarik asit ve tuzları için günde kilo başına 240 mg'lık bir grup günlük alım sınırı (ADI) belirledi (önceki değer 30 mg idi). Böbrekler dahil olumsuz bir etki, genetik hasar ya da kanser etkisi görülmedi; hesaplanan alımlar bu sınırı aşmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Grup ADI günde 240 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_tartrate"
+    }
+   ],
+   "sources": [
+    "efsa_tartrate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E335": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin sodyum tuzu; asitliği düzenler.",
+   "found_in": [
+    "Şekerlemeler ve jöleler",
+    "Kabartma tozu",
+    "Şarap ve içecekler",
+    "Reçel ve marmelat"
+   ],
+   "in_the_body": "Tartarik asit üzümde doğal olarak bulunur. EFSA 2020'de tartarik asit ve tuzları için günde kilo başına 240 mg'lık bir grup günlük alım sınırı (ADI) belirledi (önceki değer 30 mg idi). Böbrekler dahil olumsuz bir etki, genetik hasar ya da kanser etkisi görülmedi; hesaplanan alımlar bu sınırı aşmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Grup ADI günde 240 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_tartrate"
+    }
+   ],
+   "sources": [
+    "efsa_tartrate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E336": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin potasyum tuzu (krem tartar dahil); asitliği düzenler, kabartma tozunda kullanılır.",
+   "found_in": [
+    "Şekerlemeler ve jöleler",
+    "Kabartma tozu",
+    "Şarap ve içecekler",
+    "Reçel ve marmelat"
+   ],
+   "in_the_body": "Tartarik asit üzümde doğal olarak bulunur. EFSA 2020'de tartarik asit ve tuzları için günde kilo başına 240 mg'lık bir grup günlük alım sınırı (ADI) belirledi (önceki değer 30 mg idi). Böbrekler dahil olumsuz bir etki, genetik hasar ya da kanser etkisi görülmedi; hesaplanan alımlar bu sınırı aşmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Grup ADI günde 240 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_tartrate"
+    }
+   ],
+   "sources": [
+    "efsa_tartrate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E337": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin sodyum potasyum tuzu; asitliği düzenler.",
+   "found_in": [
+    "Şekerlemeler ve jöleler",
+    "Kabartma tozu",
+    "Şarap ve içecekler",
+    "Reçel ve marmelat"
+   ],
+   "in_the_body": "Tartarik asit üzümde doğal olarak bulunur. EFSA 2020'de tartarik asit ve tuzları için günde kilo başına 240 mg'lık bir grup günlük alım sınırı (ADI) belirledi (önceki değer 30 mg idi). Böbrekler dahil olumsuz bir etki, genetik hasar ya da kanser etkisi görülmedi; hesaplanan alımlar bu sınırı aşmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Grup ADI günde 240 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_tartrate"
+    }
+   ],
+   "sources": [
+    "efsa_tartrate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E354": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin kalsiyum tuzu; asitliği düzenler.",
+   "found_in": [
+    "Şekerlemeler ve jöleler",
+    "Kabartma tozu",
+    "Şarap ve içecekler",
+    "Reçel ve marmelat"
+   ],
+   "in_the_body": "Tartarik asit üzümde doğal olarak bulunur. EFSA 2020'de tartarik asit ve tuzları için günde kilo başına 240 mg'lık bir grup günlük alım sınırı (ADI) belirledi (önceki değer 30 mg idi). Böbrekler dahil olumsuz bir etki, genetik hasar ya da kanser etkisi görülmedi; hesaplanan alımlar bu sınırı aşmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Grup ADI günde 240 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_tartrate"
+    }
+   ],
+   "sources": [
+    "efsa_tartrate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E353": {
+   "evidence_level": "strong",
+   "what_it_does": "Şarapta tartarat kristallerinin çökmesini önler.",
+   "found_in": [
+    "Şarap"
+   ],
+   "in_the_body": "Metatartarik asit vücuda girmeden önce tamamen tartarik aside dönüşür. EFSA 2020'de bu nedenle tartarik asit ve tuzlarıyla aynı grup günlük alım sınırına (günde kilo başına 240 mg, tartarik asit cinsinden) dahil etti ve bildirilen kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Tartaratlarla aynı grup ADI (240 mg/kg); güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e353"
+    }
+   ],
+   "sources": [
+    "efsa_e353"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E392": {
+   "evidence_level": "strong",
+   "what_it_does": "Biberiyeden elde edilen, yağların acımasını geciktiren bir antioksidan.",
+   "found_in": [
+    "Bitkisel yağlar",
+    "Et ve tavuk ürünleri",
+    "Cips ve çerezler",
+    "Soslar"
+   ],
+   "in_the_body": "Etkili bileşenleri karnosik asit ve karnosoldür. EFSA 2018'deki ayrıntılı alım hesabında güvenlik payını çocuklarda 100-2.000, yetişkinlerde 200-3.000 kat buldu ve bu hesapların gerçek alımı büyük olasılıkla olduğundan yüksek gösterdiğini belirterek izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Ayrıntılı alım hesabı; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e392"
+    }
+   ],
+   "sources": [
+    "efsa_e392"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E405": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve köpüğü kararlı tutar.",
+   "found_in": [
+    "Bira",
+    "Salata sosları",
+    "Dondurma",
+    "Meyveli içecekler"
+   ],
+   "in_the_body": "Bağırsakta propan-1,2-diol (propilen glikol) ve aljinik aside ayrılır; propilen glikol emilip normal metabolizmaya girer, aljinat emilmeden atılır. EFSA 2018'de günde kilo başına 55 mg'lık bir günlük alım sınırı (ADI) belirledi; hiçbir yaş grubunda aşılmadığı için izinli kullanımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 55 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e405"
+    }
+   ],
+   "sources": [
+    "efsa_e405"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E413": {
+   "evidence_level": "strong",
+   "what_it_does": "Bir ağaç zamkı; kıvam verir ve karışımı kararlı tutar.",
+   "found_in": [
+    "Soslar ve salata sosları",
+    "Şekerlemeler",
+    "Dolgular"
+   ],
+   "in_the_body": "Tragakant bağırsakta değişmeden emilmez; kalın bağırsakta kısmen bakterilerce fermente edilir. İnsanlarda üç hafta boyunca yüksek miktarlarda iyi tolere edildi. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi.",
+     "year": 2017,
+     "src": "efsa_e413"
+    }
+   ],
+   "sources": [
+    "efsa_e413"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E417": {
+   "evidence_level": "strong",
+   "what_it_does": "Tara ağacı tohumundan elde edilen bir zamk; kıvam verir.",
+   "found_in": [
+    "Dondurma",
+    "Süt ürünleri",
+    "Soslar"
+   ],
+   "in_the_body": "Tara zamkı bağırsakta değişmeden emilmez; kalın bağırsakta bakterilerce fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi.",
+     "year": 2017,
+     "src": "efsa_e417"
+    }
+   ],
+   "sources": [
+    "efsa_e417"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E418": {
+   "evidence_level": "strong",
+   "what_it_does": "Bakteri fermantasyonuyla üretilen bir zamk; jel oluşturur ve tanecikleri askıda tutar.",
+   "found_in": [
+    "Bitkisel sütler ve içecekler",
+    "Jöleler ve tatlılar",
+    "Süt ürünleri"
+   ],
+   "in_the_body": "Gellan zamkı bağırsakta değişmeden emilmez; bağırsak bakterilerince de fermente edilmez. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi.",
+     "year": 2018,
+     "src": "efsa_e418"
+    }
+   ],
+   "sources": [
+    "efsa_e418"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E425": {
+   "evidence_level": "strong",
+   "what_it_does": "Konjak bitkisinin yumru kökünden elde edilen bir lif; suyu çekerek jel oluşturur ve kıvam verir.",
+   "found_in": [
+    "Jöleler",
+    "Erişte benzeri ürünler (shirataki)",
+    "Et ürünleri"
+   ],
+   "in_the_body": "Konjak değişmeden emilmez, kalın bağırsakta bakterilerce büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve tüm kaynaklardan alım günde 3 g'ın altında kaldığı sürece güvenlik endişesi bulmadı; günde 3 g alan yetişkinlerin bir kısmında ishal ya da kabızlık gibi karın şikâyetleri görülmüştü. AB'de jöleli mini kap şekerlemelerde kullanılamaz.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sayısal ADI gerekmedi; toplam alım günde 3 g'ın altında kalmalı.",
+     "year": 2017,
+     "src": "efsa_e425"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Jöleli mini kap şekerlemelerde kullanılamaz.",
+     "year": 2008,
+     "src": "ab1333"
+    }
+   ],
+   "sources": [
+    "efsa_e425",
+    "ab1333"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E427": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kasya bitkisinin tohumundan elde edilen bir zamk; kıvam verir ve jel oluşturur.",
+   "found_in": [
+    "Peynir ve süt ürünleri",
+    "Dondurma",
+    "Et ürünleri"
+   ],
+   "in_the_body": "EFSA 2006'da kasya zamkının gıda katkı maddesi olarak önerilen kullanımını değerlendirdi ve güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Önerilen kullanım değerlendirildi; güvenlik endişesi yok.",
+     "year": 2006,
+     "src": "efsa_e427"
+    }
+   ],
+   "sources": [
+    "efsa_e427"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E445": {
+   "evidence_level": "strong",
+   "what_it_does": "Çam reçinesinden elde edilir; meyveli içeceklerde aroma yağlarının yüzeye çıkmasını önler.",
+   "found_in": [
+    "Meyveli ve bulanık gazlı içecekler",
+    "Sakız"
+   ],
+   "in_the_body": "EFSA 2023'te yeni üreme ve gelişim çalışmasına dayanarak günde kilo başına 10 mg'lık bir günlük alım sınırı (ADI) belirledi ve izinli kullanımda güvenlik endişesi görmedi. Bu değerlendirme yalnızca iki çam türünden (Pinus palustris ve Pinus elliottii) elde edilen ürün için geçerlidir.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI günde 10 mg/kg; izinli kullanımda güvenlik endişesi yok.",
+     "year": 2023,
+     "src": "efsa_e445"
+    }
+   ],
+   "sources": [
+    "efsa_e445"
    ],
    "last_reviewed": "2026-10-04"
   }
