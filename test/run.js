@@ -1,5 +1,5 @@
 const fs=require('fs');
-const h=fs.readFileSync(__dirname+'/../ocr.html','utf8');const src=h.slice(h.indexOf('/*LOGIC-START*/'),h.indexOf('/*LOGIC-END*/'));
+const src=require('./yukle.js');
 eval(src+';global.L={buildIndex,analyze,summarize,buildBrands,findBrands,normText}');
 const db=JSON.parse(fs.readFileSync(__dirname+'/../data/e_kodlari.json'));
 const bdb=JSON.parse(fs.readFileSync(__dirname+'/../data/bilesenler.json'));
