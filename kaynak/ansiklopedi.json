@@ -175,6 +175,69 @@
    "year": 2018,
    "url": "https://www.legislation.gov.uk/eur/2018/98/data.html",
    "official": true
+  },
+  "efsa_aluminium": {
+   "title": "Safety of aluminium from dietary intake",
+   "publisher": "EFSA",
+   "year": 2008,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/754",
+   "official": true
+  },
+  "efsa_polysorbate": {
+   "title": "Re-evaluation of polyoxyethylene sorbitans (E 432–E 436) as food additives",
+   "publisher": "EFSA",
+   "year": 2015,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4152",
+   "official": true
+  },
+  "efsa_sorbitan": {
+   "title": "Re-evaluation of sorbitan esters (E 491–495) as food additives",
+   "publisher": "EFSA",
+   "year": 2017,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4788",
+   "official": true
+  },
+  "efsa_phosphate": {
+   "title": "Re-evaluation of phosphoric acid–phosphates, di-, tri- and polyphosphates (E 338–341, E 343, E 450–452) as food additives",
+   "publisher": "EFSA (EFSA Journal 17(6))",
+   "year": 2019,
+   "url": "https://doaj.org/article/e6ffb193a05440b294b0457f61b68208",
+   "official": true
+  },
+  "efsa_e161g": {
+   "title": "Scientific Opinion on the re-evaluation of canthaxanthin (E 161g) as a food additive",
+   "publisher": "EFSA",
+   "year": 2010,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/1852",
+   "official": true
+  },
+  "efsa_e955": {
+   "title": "Re-evaluation of sucralose (E 955) as a food additive (sade dil özeti)",
+   "publisher": "EFSA",
+   "year": 2026,
+   "url": "https://www.efsa.europa.eu/en/plain-language-summary/re-evaluation-sucralose-e-955-food-additive",
+   "official": true
+  },
+  "efsa_e950": {
+   "title": "Re-evaluation of acesulfame K (E 950) as food additive",
+   "publisher": "EFSA",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/en/node/19722",
+   "official": true
+  },
+  "efsa_e954": {
+   "title": "Re-evaluation of saccharin and its sodium, potassium and calcium salts (E 954) as food additives",
+   "publisher": "EFSA (EFSA Journal)",
+   "year": 2024,
+   "url": "https://doaj.org/article/5f17d270836742eb8dd7632014f17b08",
+   "official": true
+  },
+  "efsa_sorbate": {
+   "title": "Opinion on the follow-up of the re-evaluation of sorbic acid (E200) and potassium sorbate (E202) as food additives",
+   "publisher": "EFSA (EFSA Journal)",
+   "year": 2019,
+   "url": "https://doaj.org/article/0a1c82d8dcc846e5a02ef0c9430d96eb",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -1964,6 +2027,1073 @@
    ],
    "sources": [
     "efsa_erythritol"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E338": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitlik verir ve asitliği düzenler.",
+   "found_in": [
+    "Kola türü içecekler"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E339": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler; işlenmiş et ve peynirde su tutmaya ve dokuya yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Eritme peynir"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E340": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler ve su tutmaya yardım eder.",
+   "found_in": [
+    "İşlenmiş gıdalar"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E341": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler; kabartma tozlarında ve topaklanmayı önlemek için kullanılır.",
+   "found_in": [
+    "Kabartma tozu ve unlu mamuller",
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E343": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenler ve topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E450": {
+   "evidence_level": "strong",
+   "what_it_does": "Kabartma tozunda kabartıcı asit olarak ve işlenmiş ette su tutmak için kullanılır.",
+   "found_in": [
+    "Kabartma tozu ve unlu mamuller",
+    "İşlenmiş et ürünleri"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E451": {
+   "evidence_level": "strong",
+   "what_it_does": "İşlenmiş et ve deniz ürünlerinde su tutmaya yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Deniz ürünleri"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E452": {
+   "evidence_level": "strong",
+   "what_it_does": "İşlenmiş et, peynir ve deniz ürünlerinde su tutmaya ve dokuya yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Eritme peynir"
+   ],
+   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur. EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Yeniden değerlendirildi; ortak ADI 40 mg/kg (fosfor olarak); çocuklarda aşılabilir.",
+     "year": 2019,
+     "src": "efsa_phosphate"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çocuklarda tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "EFSA'ya göre bebeklerde tüm kaynaklardan alınan fosfat günlük sınırı aşabilir."
+    }
+   ],
+   "sources": [
+    "efsa_phosphate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E432": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E433": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E434": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E435": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E436": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör).",
+   "found_in": [
+    "Dondurma",
+    "Soslar ve tatlılar"
+   ],
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 25 mg/kg.",
+     "year": 2015,
+     "src": "efsa_polysorbate"
+    }
+   ],
+   "sources": [
+    "efsa_polysorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E491": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E492": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E493": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E494": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E495": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışık kalmasını sağlar (emülgatör); maya ve kaplamalarda da kullanılır.",
+   "found_in": [
+    "Kuru maya",
+    "Şekerleme ve kaplamalar"
+   ],
+   "in_the_body": "Vücutta yağ asitlerine ve sorbitol türevlerine ayrışır; bunlar idrar ve solunumla ya da değişmeden dışkıyla atılır. EFSA 2017'de sorbitan esterleri (E491–E495) için ortak günlük kabul edilebilir alımı (ADI) sorbitan olarak 10 mg/kg vücut ağırlığı olarak belirledi ve hiçbir yaş grubunda alımın bu sınırı aşmadığını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 10 mg/kg (sorbitan olarak).",
+     "year": 2017,
+     "src": "efsa_sorbitan"
+    }
+   ],
+   "sources": [
+    "efsa_sorbitan"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E173": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yüzeye gümüş rengi verir.",
+   "found_in": [
+    "Şekerleme ve pasta süslemeleri"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E520": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E521": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E522": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır (şap).",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E523": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam ve doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şekerli meyve ve sebzeler"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E541": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kabartma tozunda kabartıcı asit olarak kullanılır.",
+   "found_in": [
+    "Kabartma tozu",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E554": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E555": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler; kaplamalarda taşıyıcıdır.",
+   "found_in": [
+    "Toz gıdalar",
+    "Kaplamalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E556": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E559": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdalarda topaklanmayı önler.",
+   "found_in": [
+    "Toz gıdalar"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E1452": {
+   "evidence_level": "moderate",
+   "what_it_does": "Takviye ve vitamin hazırlıklarında kapsül ve taşıyıcı olarak kullanılan modifiye nişastadır.",
+   "found_in": [
+    "Vitamin ve gıda takviyeleri"
+   ],
+   "in_the_body": "Alüminyum gıdalardan çok az emilir (yaklaşık %0,1), ancak emilen kısmı başta kemik olmak üzere dokularda birikebilir. EFSA 2008'de haftalık dayanılabilir alımı (TWI) 1 mg/kg vücut ağırlığı olarak belirledi ve Avrupa nüfusunun önemli bir kısmında bu sınırın aşılabileceğini bildirdi. Ana kaynaklar tahıllar, sebzeler ve içeceklerdir; katkı maddelerinin payı ölçülemedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Tüm diyet için haftalık sınır 1 mg/kg; nüfusun bir kısmında aşılabilir.",
+     "year": 2008,
+     "src": "efsa_aluminium"
+    }
+   ],
+   "sources": [
+    "efsa_aluminium"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E161g": {
+   "evidence_level": "strong",
+   "what_it_does": "Gıdaya turuncu-kırmızı renk verir.",
+   "found_in": [
+    "AB'de yalnızca Strazburg sosisi",
+    "Hayvan yemi (renk pigmenti olarak)"
+   ],
+   "in_the_body": "Sentetik olarak üretilir. EFSA 2010'da, insanlarda ve maymunlarda gözün retinasında kristal birikintileri gözlendiği için günlük kabul edilebilir alımı (ADI) 0,03 mg/kg vücut ağırlığı olarak belirledi. Gıda ve yemden gelen toplam alımın bu sınırı aşmasının beklenmediğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 0,03 mg/kg.",
+     "year": 2010,
+     "src": "efsa_e161g"
+    }
+   ],
+   "sources": [
+    "efsa_e161g"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E950": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekersiz ürünlere tatlılık veren yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Şekersiz ve diyet içecekler",
+    "Şekersiz sakız ve tatlılar"
+   ],
+   "in_the_body": "Vücutta metabolize olmadan idrarla atılır. EFSA 2025'te günlük kabul edilebilir alımı (ADI) 9'dan 15 mg/kg vücut ağırlığına yükseltti ve en yüksek alım tahminlerinin bile genellikle bu sınırın altında kaldığını bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 15 mg/kg'a yükseltildi.",
+     "year": 2025,
+     "src": "efsa_e950"
+    }
+   ],
+   "sources": [
+    "efsa_e950"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E954": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekersiz ürünlere tatlılık veren yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Masa tatlandırıcıları",
+    "Diyet içecekler"
+   ],
+   "in_the_body": "EFSA 2024'te günlük kabul edilebilir alımı (ADI) 5'ten 9 mg/kg vücut ağırlığına yükseltti; yeni çalışmaların genotoksisite endişesi doğurmadığını ve yüksek tüketenlerde bile alımın sınırın altında kaldığını bildirdi. IARC sakarini 1999'da Grup 3'e (insanlarda kanserojenliği sınıflandırılamaz) almıştı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 9 mg/kg'a yükseltildi.",
+     "year": 2024,
+     "src": "efsa_e954"
+    }
+   ],
+   "sources": [
+    "efsa_e954"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E955": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekerden üretilen, kalorisiz yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Diyet içecekler",
+    "Şekersiz tatlılar",
+    "Masa tatlandırıcıları"
+   ],
+   "in_the_body": "EFSA 2026'daki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) 15 mg/kg vücut ağırlığı olarak korudu ve en yüksek alım tahmininin bile bu sınırın altında olduğunu bildirdi. Evde fırınlama ve kızartma gibi yüksek ısıda klorlu bileşik oluşup oluşmadığı konusundaki belirsizlik nedeniyle unlu mamullerde kullanımın genişletilmesini onaylamadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 15 mg/kg korundu.",
+     "year": 2026,
+     "src": "efsa_e955"
+    }
+   ],
+   "sources": [
+    "efsa_e955"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E200": {
+   "evidence_level": "strong",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak raf ömrünü uzatır.",
+   "found_in": [
+    "Peynir",
+    "Unlu mamuller",
+    "İçecekler ve soslar"
+   ],
+   "in_the_body": "EFSA 2019'da sorbik asit ve potasyum sorbat için ortak günlük kabul edilebilir alımı (ADI) sorbik asit olarak 11 mg/kg vücut ağırlığı olarak belirledi; bu değer 2015'teki geçici sınırın (3 mg/kg) yerine geçti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 11 mg/kg (sorbik asit olarak).",
+     "year": 2019,
+     "src": "efsa_sorbate"
+    }
+   ],
+   "sources": [
+    "efsa_sorbate"
+   ],
+   "last_reviewed": "2026-10-04"
+  },
+  "E202": {
+   "evidence_level": "strong",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak raf ömrünü uzatır.",
+   "found_in": [
+    "Peynir",
+    "Unlu mamuller",
+    "İçecekler ve soslar"
+   ],
+   "in_the_body": "EFSA 2019'da sorbik asit ve potasyum sorbat için ortak günlük kabul edilebilir alımı (ADI) sorbik asit olarak 11 mg/kg vücut ağırlığı olarak belirledi; bu değer 2015'teki geçici sınırın (3 mg/kg) yerine geçti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ortak ADI 11 mg/kg (sorbik asit olarak).",
+     "year": 2019,
+     "src": "efsa_sorbate"
+    }
+   ],
+   "sources": [
+    "efsa_sorbate"
    ],
    "last_reviewed": "2026-10-04"
   }
