@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""Ansiklopedi (madde sözlüğü) verisini üretir.
+
+Girdi: kaynak/ansiklopedi.json (elle yazılan tam kayıtlar, kategori tanımları, kurum ve bayrak eşlemeleri),
+data/e_kodlari.json (ad, eş anlamlılar, kategori, risk, bayraklar, kaynaklar), data/e_aciklama.json (tek cümlelik tanım),
+data/bilesenler.json (alerjen adları).
+Çıktı: data/ansiklopedi.json (kayıtlar; metinler yerine çeviri anahtarı) ve data/ansiklopedi_tr.json (Türkçe metinler).
+gen_e_kodlari.py ve gen_e_aciklama.py'den SONRA çalıştırılır. Elle incelenmemiş E kodlarının sayfası otomatik oluşturulur
+(review: "auto"); bunlarda kanıt düzeyi ve son inceleme tarihi boştur.
+"""
+import datetime
+import json
+import os
+import re
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+VERSION = "0.1.0"
+TRMAP = str.maketrans("çğıöşüâîûÇĞİÖŞÜÂÎÛI", "cgiosuaiuCGIOSUAIUI")
+RISK = {"green": "green", "yellow": "amber", "red": "red", "unrated": "amber"}
+
+# Arayüzde kullanılan sabit adlar (ileride başka dil eklenirse ansiklopedi_<dil>.json'a çevrilir)
+UI = {
+    "risk.green": "Özel uyarı yok", "risk.amber": "Dikkat", "risk.red": "Uyarı",
+    "evidence.strong": "Güçlü", "evidence.moderate": "Orta", "evidence.limited": "Sınırlı",
+    "status.approved": "İzinli", "status.label_required": "Etiket uyarısı", "status.restricted": "Sınırlı izin",
+    "status.concern": "Uyarı notu", "status.classified": "Sınıflandırıldı", "status.banned": "Yasak",
+    "status.withdrawn": "İzni kaldırıldı", "status.not_listed": "Listede yok", "status.reviewed": "Değerlendirildi",
+    "region.EU": "AB", "region.TR": "Türkiye", "region.US": "ABD", "region.US-CA": "Kaliforniya", "region.INT": "Uluslararası",
+    "diet.yes": "Evet", "diet.no": "Hayır", "diet.unknown": "Bilinmiyor",
+    "source.plant": "Bitkisel", "source.animal": "Hayvansal", "source.insect": "Böcek", "source.synthetic": "Sentetik",
+    "source.mineral": "Mineral", "source.plant_or_animal": "Bitkisel ya da hayvansal", "source.unknown": "Bilinmiyor",
+    "ptype.food": "Gıda", "ptype.cosmetic": "Kozmetik", "ptype.cleaning": "Temizlik",
+    "profile.vegan": "Vegan", "profile.veg": "Vejetaryen", "profile.lactose": "Laktoz intoleransı",
+    "profile.preg": "Hamilelik / emzirme", "profile.baby": "Bebek (1 yaş altı)", "profile.child": "Çocuk",
+    "profile.pku": "Fenilketonüri (PKU)", "profile.pet": "Evcil hayvan", "profile.salt": "Tansiyon / tuz kısıtlaması",
+    "eval.inventory": "Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor. Bu bir onay değildir.",
+    "reg.tr_listed": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.",
+}
+EU_STATUS = {"banned": ("banned", "AB'de gıda katkısı olarak yasak."), "withdrawn": ("withdrawn", "AB'de izni geri çekildi."),
+             "not_listed": ("not_listed", "AB'nin izinli gıda katkı maddeleri listesinde yer almıyor.")}
+
+
+def fold(s):
+    return s.translate(TRMAP).lower()
+
+
+def slugify(s):
+    return re.sub(r"[^a-z0-9]+", "-", fold(s)).strip("-")
+
+
+def num(i):
+    m = re.match(r"E(\d+)", i)
+    return int(m.group(1)) if m else 0
+
+
+def main():
+    K = json.load(open(os.path.join(HERE, "kaynak", "ansiklopedi.json"), encoding="utf-8"))
+    edb = json.load(open(os.path.join(HERE, "data", "e_kodlari.json"), encoding="utf-8"))
+    about = json.load(open(os.path.join(HERE, "data", "e_aciklama.json"), encoding="utf-8"))["about"]
+    bdb = json.load(open(os.path.join(HERE, "data", "bilesenler.json"), encoding="utf-8"))
+    SRC, CAT, AG, FL, CUR = K["kaynaklar"], K["kategoriler"], K["ajanslar"], K["bayrak_uyarilari"], K["kayitlar"]
+    official = K["resmi_alan_adlari"]
+    titles = {s["url"]: s["name"] for s in edb["meta"].get("sources", []) if s.get("url")}
+    T = dict(UI)
+    for code, name in bdb["meta"]["allergens"]:
+        T["profile." + code] = name + " alerjisi"
+    for c in CAT.values():
+        if isinstance(c, dict):
+            T["cat." + c["code"]] = c["ad"]
+            T["cat." + c["code"] + ".what"] = c["ne"]
+    for k, a in AG.items():
+        if not k.startswith("_"):
+            T["agency." + k] = a["detail"]
+    for f, ws in FL.items():
+        if not f.startswith("_"):
+            for n, w in enumerate(ws):
+                T["flag.%s.%d" % (f, n)] = w["text"]
+
+    def src_obj(key):
+        s = SRC[key]
+        o = {"title": s["title"], "publisher": s["publisher"], "year": s["year"], "url": s["url"], "official": s["official"]}
+        if not s["url"]:
+            o["todo"] = "URL doğrulanamadı"
+        return o
+
+    def url_src(u):
+        dom = re.sub(r"^https?://(www\.)?", "", u).split("/")[0]
+        for s in SRC.values():
+            if s["url"] == u:
+                return {"title": s["title"], "publisher": s["publisher"], "year": s["year"], "url": u, "official": s["official"]}
+        return {"title": titles.get(u, dom), "publisher": dom, "year": None, "url": u,
+                "official": any(dom == d or dom.endswith("." + d) for d in official)}
+
+    items = edb["ingredients"]
+    by = {i["id"]: i for i in items}
+    bycat = {}
+    for i in items:
+        bycat.setdefault(i["category"], []).append(i["id"])
+    recs = []
+    for it in items:
+        rid = it["id"]
+        cat = CAT[it["category"]]
+        cur = CUR.get(rid)
+        T[rid + ".name"] = it["primary_name"]
+        r = {"id": rid, "slug": slugify(rid + " " + it["primary_name"]),
+             "names": {"primary": rid + ".name", "aliases": it["aliases"]},
+             "category": cat["code"], "product_types": ["food"], "risk_level": RISK[it["risk_level"]],
+             "review": "curated" if cur else "auto"}
+        # Genel değerlendirme metni: uygulamanın tarama ekranında da gösterilen gerekçe
+        if it.get("verification") == "inventory_only":
+            ev = "eval.inventory"
+        else:
+            ev = rid + ".eval"
+            T[ev] = it["reason"]
+        if cur:
+            T[rid + ".summary"] = cur["summary"]
+            T[rid + ".what"] = cur["what_it_does"]
+            T[rid + ".body"] = cur["in_the_body"]
+            for n, x in enumerate(cur["found_in"]):
+                T["%s.found.%d" % (rid, n)] = x
+            regs = []
+            for n, g in enumerate(cur["regulatory"]):
+                T["%s.reg.%d" % (rid, n)] = g["detail"]
+                regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"],
+                             "detail": "%s.reg.%d" % (rid, n), "year": g["year"], "source_url": SRC[g["src"]]["url"]})
+            pws = []
+            for n, w in enumerate(cur["profile_warnings"]):
+                T["%s.pw.%d" % (rid, n)] = w["text"]
+                pws.append({"profile": w["profile"], "severity": w["severity"], "text": "%s.pw.%d" % (rid, n)})
+            r.update({"evidence_level": cur["evidence_level"], "summary": rid + ".summary",
+                      "evaluation": ev,
+                      "content": {"what_it_does": rid + ".what",
+                                  "found_in": ["%s.found.%d" % (rid, n) for n in range(len(cur["found_in"]))],
+                                  "in_the_body": rid + ".body"},
+                      "diet_flags": cur["diet_flags"], "regulatory": regs, "profile_warnings": pws,
+                      "related_ids": cur["related_ids"], "sources": [src_obj(s) for s in cur["sources"]],
+                      "last_reviewed": cur["last_reviewed"]})
+        else:
+            fl = it["flags"]
+            if rid in about:
+                T[rid + ".summary"] = about[rid]
+            vegan = "no" if ("non_vegan" in fl or "insect_derived" in fl) else "unknown"
+            source = ("insect" if "insect_derived" in fl else "animal" if ("non_vegan" in fl or "non_vegetarian" in fl)
+                      else "plant_or_animal" if "vegan_suspect" in fl else "unknown")
+            regs = []
+            urls = list(it.get("sources") or [])
+            for a in it["agencies"]:
+                g = AG[a]
+                regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"], "detail": "agency." + a,
+                             "year": g["year"], "source_url": ""})   # dayanağı Kaynaklar sekmesinde
+            st = EU_STATUS.get(it.get("eu_status"))
+            if st and not any(g["region"] == "EU" and g["status"] in ("banned", "withdrawn", "not_listed") for g in regs):
+                T[rid + ".reg.eu"] = st[1]
+                regs.append({"agency": "Avrupa Komisyonu", "region": "EU", "status": st[0], "detail": rid + ".reg.eu",
+                             "year": None, "source_url": ""})
+            if it.get("tgk_name") and "TR_withdrawn_2024" not in it["agencies"]:
+                regs.append({"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved",
+                             "detail": "reg.tr_listed", "year": 2013, "source_url": SRC["tgk2013"]["url"]})
+            pws = []
+            for f in fl:
+                for n, w in enumerate(FL.get(f, [])):
+                    if not any(p["profile"] == w["profile"] for p in pws):
+                        pws.append({"profile": w["profile"], "severity": w["severity"], "text": "flag.%s.%d" % (f, n)})
+            if it.get("adi") and it["adi"].get("url"):
+                urls.append(it["adi"]["url"])
+            srcs, seen = [], set()
+            for u in urls:
+                if u not in seen:
+                    seen.add(u)
+                    srcs.append(url_src(u))
+            if it.get("tgk_name"):
+                srcs.append(src_obj("tgk2013"))
+            same = sorted((x for x in bycat[it["category"]] if x != rid), key=lambda x: (abs(num(x) - num(rid)), x))
+            r.update({"evidence_level": None, "summary": rid + ".summary" if rid in about else None, "evaluation": ev,
+                      "content": {"what_it_does": "cat." + cat["code"] + ".what", "found_in": [], "in_the_body": None},
+                      "diet_flags": {"vegan": vegan, "source": source, "gluten": "unknown"},
+                      "regulatory": regs, "profile_warnings": pws, "related_ids": same[:4], "sources": srcs,
+                      "last_reviewed": None})
+        recs.append(r)
+
+    ids = set(by)
+    for r in recs:
+        missing = [x for x in r["related_ids"] if x not in ids]
+        if missing:
+            raise SystemExit(r["id"] + ": related_ids bulunamadı: " + ", ".join(missing))
+    for k in CUR:
+        if k not in ids:
+            raise SystemExit(k + ": e_kodlari.json'da yok")
+    today = datetime.date.today().isoformat()
+    n_cur = sum(1 for r in recs if r["review"] == "curated")
+    n_noff = sum(1 for r in recs if not any(s["official"] for s in r["sources"]))
+    meta = {"version": VERSION, "generated": today, "lang": ["tr"], "count": len(recs), "curated": n_cur,
+            "without_official_source": n_noff,
+            "description": "Madde sözlüğü. Metin alanları çeviri anahtarıdır; Türkçe metinler ansiklopedi_tr.json'da. review=auto kayıtlar e_kodlari.json'dan otomatik oluşturuldu, elle incelenmedi."}
+    p = os.path.join(HERE, "data", "ansiklopedi.json")
+    with open(p, "w", encoding="utf-8") as f:
+        f.write('{"meta":' + json.dumps(meta, ensure_ascii=False) + ',\n"records":[\n')
+        f.write(",\n".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) for r in recs))
+        f.write("\n]}\n")
+    p2 = os.path.join(HERE, "data", "ansiklopedi_tr.json")
+    with open(p2, "w", encoding="utf-8") as f:
+        f.write('{"meta":' + json.dumps({"lang": "tr", "generated": today, "count": len(T)}, ensure_ascii=False) + ',\n"t":{\n')
+        f.write(",\n".join(json.dumps(k, ensure_ascii=False) + ":" + json.dumps(v, ensure_ascii=False) for k, v in sorted(T.items())))
+        f.write("\n}}\n")
+    print("ansiklopedi: %d kayıt (%d elle incelenmiş, %d resmi kaynaksız), %d metin" % (len(recs), n_cur, n_noff, len(T)))
+
+
+if __name__ == "__main__":
+    main()

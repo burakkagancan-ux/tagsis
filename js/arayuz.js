@@ -231,10 +231,26 @@ function additiveCard(r){
     pn.appendChild(ps);
   }
   if(it.needs_review)pn.appendChild(el("div","how",it.sources&&it.verification!=="partially_checked"?"Türkiye'deki izin durumu henüz doğrulanmadı.":it.sources?"Bu değerlendirmenin bir kısmı henüz kaynakla doğrulanmadı.":"Bu değerlendirme henüz kaynakla doğrulanmadı."));
-  d.appendChild(pn);
-  b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
+  // Ayrıntı alt sayfada açılır: (i) düğmesi ya da kartın kendisine dokunma; her madde için "Ansiklopedide oku"
+  pn.hidden=false;pn.className="";
+  items.forEach(function(x){var a=el("a","ans",(items.length>1?x.id+" · ":"")+"Ansiklopedide oku");a.href="ansiklopedi.html?id="+encodeURIComponent(x.id);pn.appendChild(a)});
+  var ttl=items.length===1?items[0].id+" · "+items[0].primary_name:"Olası: "+items.map(function(i){return i.id}).join(", ");
+  b.removeAttribute("aria-expanded");b.setAttribute("aria-haspopup","dialog");
+  b.onclick=function(e){e.stopPropagation();openSheet(ttl,LBL[r.rank],pn,b)};
+  d.classList.add("tap");
+  d.addEventListener("click",function(e){if(e.target.closest("button,a,.adi"))return;openSheet(ttl,LBL[r.rank],pn,b)});
   return d;
 }
+/* Alt sayfa: başlık, durum satırı ve içerik; kapatınca odak açan düğmeye döner */
+var SHEET_RET=null;
+function openSheet(title,how,body,ret){
+  $("sheet-t").textContent=title;var sb=$("sheet-b");sb.textContent="";
+  if(how)sb.appendChild(el("div","how",how));sb.appendChild(body);
+  SHEET_RET=ret||null;$("sheet").hidden=false;document.body.style.overflow="hidden";$("sheet-x").focus();
+}
+function closeSheet(){if($("sheet").hidden)return;$("sheet").hidden=true;document.body.style.overflow="";if(SHEET_RET)SHEET_RET.focus()}
+$("sheet-x").onclick=closeSheet;$("sheet-bg").onclick=closeSheet;
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSheet()});
 function comboCard(c){
   var R=c.rule,d=el("div","res "+(R.level==="yellow"?"y":"g")),top=el("div","hd");
   top.appendChild(el("div","t",R.title));

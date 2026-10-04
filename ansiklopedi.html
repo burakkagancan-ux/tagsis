@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ansiklopedi</title>
+<meta name="description" content="Katkı maddelerinin ne işe yaradığı, nerede kullanıldığı ve kurumların değerlendirmesi, kaynaklarıyla.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1F4D3A">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="fonts/ansiklopedi.css">
+<style>
+:root{--bg:#F5F1E8;--card:#FFFFFF;--line:#E4DED2;--ok:#1F4D3A;--ink:#1B211E;--mute:#5A615C;
+--amb:#8A5A00;--ambbg:#FFF3D1;--hi:#A4470B;--hibg:#FCE9DA;--red:#B3261E;--redbg:#FBE9E7;--okbg:#E6EFE9;
+--hf:"Bricolage Grotesque",system-ui,sans-serif;--bf:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--bf);padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+a{color:var(--ok);font-weight:600}
+h1,h2,h3{font-family:var(--hf);font-weight:700;line-height:1.2;margin:0}
+button{font:inherit;cursor:pointer}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:4px;background:var(--bg);border-bottom:1px solid var(--line);padding:env(safe-area-inset-top,0px) 4px 0}
+.top h1{flex:1;font-size:20px;text-align:center}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:none;color:var(--ok);padding:0}
+.ib svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ib[aria-pressed="true"] svg{fill:currentColor}
+.ib[hidden]{visibility:hidden;display:flex}
+.ib:focus-visible,.tab:focus-visible,.rel a:focus-visible,.row:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+main{max-width:720px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0}
+.mut{color:var(--mute);font-size:14px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 10px}
+.ecode{font:700 14px/1 var(--hf);background:var(--ok);color:#fff;border-radius:8px;padding:6px 10px}
+.cat{font-size:14px;color:var(--mute);border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px}
+h2.name{font-size:30px;margin:0 0 6px}
+.sum{font-size:17px;margin:0 0 4px}
+.risk{display:flex;gap:12px;align-items:flex-start}
+.risk .ico{flex:0 0 auto;width:40px;height:40px}
+.risk .lbl{font:700 18px/1.2 var(--hf)}
+.risk.green{border-left:6px solid var(--ok)}.risk.green .lbl{color:var(--ok)}
+.risk.amber{border-left:6px solid var(--amb);background:var(--ambbg)}.risk.amber .lbl{color:var(--amb)}
+.risk.red{border-left:6px solid var(--hi);background:var(--hibg)}.risk.red .lbl{color:var(--hi)}
+.risk p{margin:6px 0 0;font-size:15px}
+.pw{border-radius:12px;padding:12px 14px;margin:12px 0;border-left:6px solid var(--red);background:var(--redbg)}
+.pw.medium,.pw.low{border-left-color:var(--amb);background:var(--ambbg)}
+.pw .t{font-weight:700;display:flex;gap:8px;align-items:center}.pw .t svg{width:20px;height:20px;flex:0 0 auto}
+.pw p{margin:4px 0 0;font-size:15px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.quick div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:64px}
+.quick b{display:block;font-size:13px;color:var(--mute);font-weight:600}.quick span{font-weight:700}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-top:20px}
+.tab{min-height:44px;flex:1;border:0;background:none;color:var(--mute);font-weight:600;border-bottom:3px solid transparent;padding:8px 6px}
+.tab[aria-selected="true"]{color:var(--ok);border-bottom-color:var(--ok)}
+.panel{padding:4px 0}.panel h3{font-size:17px;margin:16px 0 6px}.panel p{margin:0}
+.panel ul{margin:0;padding-left:20px}.panel li{margin:3px 0}
+.ag{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}.ag:first-child{border-top:0}
+.ag .who{font-weight:700}.ag .d{font-size:15px;margin-top:2px}
+.st{flex:0 0 auto;font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap;background:#EEE9DD;color:var(--ink)}
+.st.approved{background:var(--okbg);color:var(--ok)}
+.st.label_required,.st.concern,.st.classified{background:var(--ambbg);color:var(--amb)}
+.st.banned,.st.withdrawn,.st.not_listed{background:var(--hibg);color:var(--hi)}
+.src{padding:12px 0;border-top:1px solid var(--line)}.src:first-child{border-top:0}
+.src a,.src .ttl{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--ok);border:1px solid var(--ok);border-radius:6px;padding:0 6px;margin-left:6px}
+.rel{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.rel a{flex:0 0 160px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;color:var(--ink);min-height:88px}
+.rel a b{font-family:var(--hf);color:var(--ok)}.rel a span{display:block;font-size:14px;margin-top:4px}
+.mini{width:18px;height:18px;vertical-align:-3px;margin-right:4px}
+h2.sec{font-size:20px;margin:24px 0 8px}
+.foot{margin:28px 0 8px;font-size:14px;color:var(--mute);text-align:center}
+.foot a{display:inline-flex;align-items:center;min-height:44px}
+.auto{font-size:14px;color:var(--mute);background:#EEE9DD;border-radius:10px;padding:10px 12px;margin:12px 0}
+input[type=search]{width:100%;min-height:48px;font:inherit;font-size:17px;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+input[type=search]:focus{outline:3px solid var(--ok);outline-offset:1px}
+.list{margin:8px 0}
+.row{display:flex;gap:12px;align-items:center;min-height:56px;padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px;margin:6px 0;text-decoration:none;color:var(--ink)}
+.row .rc{font:700 14px/1 var(--hf);color:var(--ok);flex:0 0 54px}.row .rn{flex:1;min-width:0;font-weight:600}.row .rk{font-size:13px;color:var(--mute);font-weight:400;display:block}
+.row svg{width:22px;height:22px;flex:0 0 auto}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabbar a{flex:1;max-width:240px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px 7px;font-size:12px;font-weight:600;color:var(--mute);text-decoration:none}
+.tabbar a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tabbar a[aria-current="page"]{color:var(--ok)}
+@media (max-width:380px){.quick{grid-template-columns:1fr 1fr}h2.name{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="top">
+<button type="button" class="ib" id="geri" aria-label="Geri"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+<h1>Ansiklopedi</h1>
+<button type="button" class="ib" id="kaydet" aria-label="Kaydet" aria-pressed="false" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
+</header>
+<main id="ana"><p class="mut">Yükleniyor…</p></main>
+<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket Oku</a><a href="ansiklopedi.html" data-tab="ansiklopedi" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>Ansiklopedi</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Hassasiyetlerim</a></nav>
+<script src="js/ortak.js"></script>
+<script src="js/ansiklopedi.js"></script>
+<script src="js/arayuz_ansiklopedi.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+{
+"_aciklama": "Ansiklopedi (madde sözlüğü) için elle yazılan veri. gen_ansiklopedi.py bunu data/e_kodlari.json ve data/e_aciklama.json ile birleştirip data/ansiklopedi.json (kayıtlar, metinler yerine çeviri anahtarı) ve data/ansiklopedi_tr.json (Türkçe metinler) üretir. Ad, eş anlamlılar, kategori ve risk düzeyi e_kodlari.json'dan gelir, burada tekrar yazılmaz. 'kayitlar' altındaki maddeler elle incelenmiş tam kayıttır; diğer E kodları için sayfa otomatik oluşturulur. Kaynağı olmayan iddia yazılmaz; URL'si doğrulanamayan kaynakta url boş bırakılır ve todo yazılır.",
+
+"kaynaklar": {
+ "tgk2013": {"title": "Türk Gıda Kodeksi Gıda Katkı Maddeleri Yönetmeliği, Ek II (Resmî Gazete 30.06.2013, 28693 mükerrer)", "publisher": "Gıda, Tarım ve Hayvancılık Bakanlığı (FAOLEX kopyası)", "year": 2013, "url": "https://faolex.fao.org/docs/pdf/tur152534ANNEX.pdf", "official": true},
+ "tgk2023": {"title": "Türk Gıda Kodeksi Gıda Katkı Maddeleri Yönetmeliği (Resmî Gazete 13.10.2023, 32338 mükerrer)", "publisher": "Tarım ve Orman Bakanlığı", "year": 2023, "url": "https://www.resmigazete.gov.tr/eskiler/2023/10/20231013M1-1.htm", "official": true},
+ "ab1333": {"title": "Tüzük (AT) No 1333/2008: Gıda katkı maddeleri", "publisher": "Avrupa Parlamentosu ve Konseyi", "year": 2008, "url": "https://eur-lex.europa.eu/eli/reg/2008/1333/oj", "official": true},
+ "ab1169": {"title": "Tüzük (AB) No 1169/2011: Tüketicilerin gıda hakkında bilgilendirilmesi", "publisher": "Avrupa Parlamentosu ve Konseyi", "year": 2011, "url": "https://eur-lex.europa.eu/eli/reg/2011/1169/oj", "official": true},
+ "efsa_e322": {"title": "Re-evaluation of lecithins (E 322) as a food additive", "publisher": "EFSA (EFSA Journal 15(4))", "year": 2017, "url": "https://doaj.org/article/f6b343f59f47466e81a9153dcf5e5a84", "official": true},
+ "efsa_e120": {"title": "Scientific Opinion on the re-evaluation of cochineal, carminic acid, carmines (E 120) as a food additive", "publisher": "EFSA", "year": 2015, "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4288", "official": true},
+ "efsa_e951": {"title": "Scientific Opinion on the re-evaluation of aspartame (E 951) as a food additive", "publisher": "EFSA", "year": 2013, "url": "https://www.efsa.europa.eu/en/efsajournal/pub/3496", "official": true},
+ "efsa_e102": {"title": "Scientific Opinion on the re-evaluation Tartrazine (E 102)", "publisher": "EFSA", "year": 2009, "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1331", "official": true},
+ "efsa_e211": {"title": "Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives", "publisher": "EFSA", "year": 2016, "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4433", "official": true},
+ "who_aspartame": {"title": "Aspartame hazard and risk assessment results released", "publisher": "Dünya Sağlık Örgütü (IARC ve JECFA)", "year": 2023, "url": "https://www.who.int/news/item/14-07-2023-aspartame-hazard-and-risk-assessment-results-released", "official": true},
+ "fda_benzene": {"title": "Questions and Answers on the Occurrence of Benzene in Soft Drinks and Other Beverages", "publisher": "ABD Gıda ve İlaç Dairesi (FDA)", "year": null, "url": "https://www.fda.gov/food/process-contaminants-food/questions-and-answers-occurrence-benzene-soft-drinks-and-other-beverages", "official": true},
+ "cms_colours": {"title": "Compulsory warnings on colours in food and drink", "publisher": "CMS (hukuk bürosu özeti)", "year": null, "url": "https://cms.law/en/gbr/legal-updates/compulsory-warnings-on-colours-in-food-and-drink", "official": false}
+},
+
+"resmi_alan_adlari": ["efsa.europa.eu", "eur-lex.europa.eu", "who.int", "fda.gov", "resmigazete.gov.tr", "faolex.fao.org", "legislation.gov.uk", "fsai.ie", "food.gov.uk", "cfs.gov.hk", "inchem.org", "ecolex.org"],
+
+"kategoriler": {
+ "_kaynak": "İşlev tanımları AB 1333/2008 Ek I ve TGK Gıda Katkı Maddeleri Yönetmeliği'ndeki işlevsel sınıf tanımlarından sadeleştirildi.",
+ "Renklendirici": {"code": "colour", "ad": "Renklendirici", "ne": "Gıdaya renk verir ya da işlem sırasında kaybolan rengini geri kazandırır."},
+ "Koruyucu": {"code": "preservative", "ad": "Koruyucu", "ne": "Mikroorganizmaların (bakteri, küf, maya) neden olduğu bozulmayı geciktirerek gıdanın raf ömrünü uzatır."},
+ "Antioksidan": {"code": "antioxidant", "ad": "Antioksidan", "ne": "Yağların acılaşması ve renk değişimi gibi oksidasyonun neden olduğu bozulmayı geciktirerek raf ömrünü uzatır."},
+ "Emülgatör": {"code": "emulsifier", "ad": "Emülgatör", "ne": "Yağ ile su gibi normalde karışmayan maddelerin karışık kalmasını sağlar."},
+ "Kıvam artırıcı / jelleştirici": {"code": "thickener", "ad": "Kıvam artırıcı / jelleştirici", "ne": "Gıdanın kıvamını artırır ya da jel oluşturarak ona doku kazandırır."},
+ "Tatlandırıcı": {"code": "sweetener", "ad": "Tatlandırıcı", "ne": "Gıdaya tatlı tat vermek için ya da masa tatlandırıcısı olarak kullanılır."},
+ "Lezzet artırıcı": {"code": "flavour_enhancer", "ad": "Lezzet artırıcı", "ne": "Gıdanın mevcut tadını ya da kokusunu güçlendirir."},
+ "Asitlik düzenleyici / mineral tuz": {"code": "acidity_regulator", "ad": "Asitlik düzenleyici / mineral tuz", "ne": "Gıdanın asitliğini ya da bazlığını değiştirir veya sabit tutar; bu gruptaki mineral tuzlar mayalandırıcı, sertleştirici ya da stabilizatör olarak da kullanılır."},
+ "Topaklanmayı önleyici": {"code": "anticaking", "ad": "Topaklanmayı önleyici", "ne": "Toz gıdalarda parçacıkların birbirine yapışıp topaklanmasını azaltır."},
+ "Modifiye nişasta": {"code": "modified_starch", "ad": "Modifiye nişasta", "ne": "Fiziksel, enzimatik ya da kimyasal işlemle özellikleri değiştirilmiş nişastadır; çoğunlukla kıvam verir ve kıvamı ısıl işlemde korur."},
+ "Gaz / itici gaz": {"code": "gas", "ad": "Gaz / itici gaz", "ne": "Ambalaja hava yerine konan koruyucu gaz ya da gıdayı kabından çıkarmaya yarayan itici gazdır."},
+ "Parlatıcı / kaplama maddesi": {"code": "glazing_agent", "ad": "Parlatıcı / kaplama maddesi", "ne": "Gıdanın dış yüzeyine parlak bir görünüm ya da koruyucu bir kaplama verir."},
+ "Stabilizatör / dolgu": {"code": "stabiliser", "ad": "Stabilizatör / dolgu", "ne": "Gıdanın fiziksel ve kimyasal yapısını korur ya da enerji değerini belirgin artırmadan hacim katar."},
+ "Diğer (taşıyıcı, nem tutucu, çözücü vb.)": {"code": "other", "ad": "Diğer (taşıyıcı, nem tutucu vb.)", "ne": "Başka katkı maddelerini taşımak ya da çözmek, gıdanın kurumasını önlemek gibi yardımcı işlevler görür."}
+},
+
+"ajanslar": {
+ "_aciklama": "e_kodlari.json 'agencies' kodlarının kurum ve durum karşılığı. Dayanağı kaydın kendi 'sources' alanındadır.",
+ "EU_allergen_label": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "label_required", "detail": "Alerjen olarak etikette belirtilmesi zorunlu (1169/2011 Ek II).", "year": 2011},
+ "EU_warning_label": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "label_required", "detail": "İçeren ürünlerde “çocukların aktivite ve dikkati üzerinde olumsuz etkisi olabilir” uyarısı zorunlu (1333/2008 Ek V).", "year": 2008},
+ "EFSA_ADI_2017": {"agency": "EFSA", "region": "EU", "status": "concern", "detail": "Bazı tüketici gruplarında tahmini alımın günlük sınırı aşabileceği belirtildi.", "year": 2017},
+ "IARC_2A_koşullu": {"agency": "IARC", "region": "INT", "status": "classified", "detail": "Madde ya da yan ürünü için Grup 2A (insanlarda muhtemelen kanserojen) sınıflaması; koşula bağlı.", "year": null},
+ "EU_not_listed": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "not_listed", "detail": "AB'nin izinli gıda katkı maddeleri listesinde yer almıyor.", "year": null},
+ "CA_AB418_2027": {"agency": "Kaliforniya eyaleti", "region": "US-CA", "status": "banned", "detail": "AB 418 yasasıyla gıdalarda kullanımı 2027'den itibaren yasak.", "year": 2023},
+ "IARC_2B_4MEI": {"agency": "IARC", "region": "INT", "status": "classified", "detail": "Üretimde oluşabilen 4-MEI yan ürünü Grup 2B (insanlarda kanserojen olabilir).", "year": null},
+ "EU_CLP_Repr1B": {"agency": "Avrupa Kimyasallar Ajansı", "region": "EU", "status": "classified", "detail": "CLP'de üreme toksisitesi kategori 1B olarak sınıflı.", "year": null},
+ "EFSA_2018_reeval": {"agency": "EFSA", "region": "EU", "status": "reviewed", "detail": "2018'de yeniden değerlendirildi.", "year": 2018},
+ "IARC_2B_2023": {"agency": "IARC", "region": "INT", "status": "classified", "detail": "Grup 2B (insanlarda kanserojen olabilir).", "year": 2023},
+ "EU_phenylalanine_label": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "label_required", "detail": "Etikette “fenilalanin kaynağı içerir” uyarısı zorunlu (1169/2011 Ek III).", "year": 2011},
+ "FDA_banned_1976": {"agency": "FDA", "region": "US", "status": "banned", "detail": "ABD'de gıdada kullanımı yasaklandı.", "year": 1976},
+ "FDA_revoked_2025": {"agency": "FDA", "region": "US", "status": "withdrawn", "detail": "Gıda ve ağızdan alınan ilaçlardaki izni iptal edildi.", "year": 2025},
+ "EU_withdrawn_2007": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "withdrawn", "detail": "AB'de kullanımı askıya alındı.", "year": 2007},
+ "EU_banned_2022": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "banned", "detail": "AB'de gıda katkısı olarak izni kaldırıldı.", "year": 2022},
+ "TR_withdrawn_2024": {"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "withdrawn", "detail": "Türkiye'de izinli listeden çıkarıldı.", "year": 2024},
+ "EU_withdrawn_2018": {"agency": "Avrupa Komisyonu", "region": "EU", "status": "withdrawn", "detail": "AB'de izinli listeden çıkarıldı.", "year": 2018},
+ "IARC_2B": {"agency": "IARC", "region": "INT", "status": "classified", "detail": "Grup 2B (insanlarda kanserojen olabilir).", "year": null},
+ "FDA_banned_1970": {"agency": "FDA", "region": "US", "status": "banned", "detail": "ABD'de gıdada kullanımı yasaklandı.", "year": 1970},
+ "IARC_3_1999": {"agency": "IARC", "region": "INT", "status": "classified", "detail": "Grup 3 (insanlarda kanserojenliği sınıflandırılamaz).", "year": 1999}
+},
+
+"bayrak_uyarilari": {
+ "_aciklama": "e_kodlari.json bayraklarından otomatik profil uyarısı. profile: Hassasiyetlerim anahtarı (allergen_* alerjenler, diğerleri PROF alanı).",
+ "allergen_soy_possible": [{"profile": "allergen_soy", "severity": "medium", "text": "Soya kaynaklı olabilir. Soya alerjiniz varsa etikette kaynağın yazıp yazmadığına bakın."}],
+ "allergen_sulphite": [{"profile": "allergen_sulphite", "severity": "high", "text": "Sülfit kaynağıdır. Sülfitler, alerjen olarak etikette belirtilmesi zorunlu maddelerdendir."}],
+ "allergen_egg": [{"profile": "allergen_egg", "severity": "high", "text": "Yumurtadan elde edilir."}],
+ "phenylalanine": [{"profile": "pku", "severity": "high", "text": "Fenilalanin kaynağıdır; etikette “fenilalanin kaynağı içerir” uyarısı bulunur."}],
+ "hyperactivity": [{"profile": "child", "severity": "medium", "text": "Bu renklendiriciyi içeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."}, {"profile": "baby", "severity": "medium", "text": "Bu renklendiriciyi içeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."}],
+ "non_vegan": [{"profile": "vegan", "severity": "high", "text": "Hayvansal kaynaklıdır."}],
+ "insect_derived": [{"profile": "veg", "severity": "high", "text": "Böcek kaynaklıdır."}],
+ "non_vegetarian": [{"profile": "veg", "severity": "high", "text": "Kesim yan ürünüdür."}],
+ "vegan_suspect": [{"profile": "vegan", "severity": "low", "text": "Bitkisel ya da hayvansal kaynaklı olabilir; etiket kaynağı belirtmiyorsa üreticiye sorabilirsiniz."}],
+ "pet_risk": [{"profile": "pet", "severity": "high", "text": "Köpek ve kediler için toksik olduğu bilinen maddelerdendir."}],
+ "sodium": [{"profile": "salt", "severity": "low", "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."}]
+},
+
+"kayitlar": {
+ "E322": {
+  "evidence_level": "strong",
+  "summary": "Soya, ayçiçeği, kolza ya da yumurtadan elde edilen, yağ ile suyun karışık kalmasını sağlayan bir emülgatör.",
+  "what_it_does": "Yağ ile suyun ayrışmadan karışık kalmasını sağlar. Ürünün akışkanlığını ve işlenmesini kolaylaştırır.",
+  "found_in": ["Çikolata", "Gofret ve bisküvi", "Margarin"],
+  "in_the_body": "Besinlerle alınan diğer fosfolipitler gibi sindirilir; parçalanma ürünleri, örneğin kolin, vücudun normal metabolizmasında kullanılır. EFSA 2017'deki yeniden değerlendirmesinde sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde 1 yaşından büyükler için güvenlik endişesi bulunmadığı sonucuna vardı.",
+  "diet_flags": {"vegan": "unknown", "source": "plant_or_animal", "gluten": "no"},
+  "regulatory": [
+   {"agency": "EFSA", "region": "EU", "status": "reviewed", "detail": "Yeniden değerlendirildi; sayısal ADI gerekli görülmedi.", "year": 2017, "src": "efsa_e322"},
+   {"agency": "Avrupa Komisyonu", "region": "EU", "status": "label_required", "detail": "Soya ya da yumurta kaynaklıysa alerjen olarak etikette belirtilmesi zorunlu (1169/2011 Ek II).", "year": 2011, "src": "ab1169"},
+   {"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved", "detail": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.", "year": 2013, "src": "tgk2013"}
+  ],
+  "profile_warnings": [
+   {"profile": "allergen_soy", "severity": "high", "text": "Soya lesitini soya alerjeni sayılır. Etikette “soya lesitini” ya da yalnızca “lesitin” yazıyorsa kaynağı soya olabilir."},
+   {"profile": "allergen_egg", "severity": "medium", "text": "Lesitin yumurtadan da elde edilebilir; bu durumda etikette yumurta belirtilir."},
+   {"profile": "vegan", "severity": "low", "text": "Yumurta lesitini hayvansal kaynaklıdır; kaynak yazmıyorsa üreticiye sorabilirsiniz."}
+  ],
+  "related_ids": ["E471", "E476", "E442"],
+  "sources": ["efsa_e322", "ab1169", "tgk2013"],
+  "last_reviewed": "2026-10-04"
+ },
+ "E120": {
+  "evidence_level": "strong",
+  "summary": "Koşinil böceğinden elde edilen kırmızı renklendirici.",
+  "what_it_does": "Gıdaya kırmızı ile pembe arası bir renk verir.",
+  "found_in": ["Şekerleme", "Meyveli içecek ve yoğurtlar", "Şarküteri ürünleri"],
+  "in_the_body": "EFSA 2015'teki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) karminik asit olarak 2,5 mg/kg vücut ağırlığı (karmin olarak 5 mg/kg) olarak doğruladı ve karminik asidi genotoksik bulmadı. Üretimden kalan böcek proteinleri nadiren alerjik tepkiye yol açabildiği için saflaştırma yöntemlerinin iyileştirilmesini önerdi.",
+  "diet_flags": {"vegan": "no", "source": "insect", "gluten": "no"},
+  "regulatory": [
+   {"agency": "EFSA", "region": "EU", "status": "reviewed", "detail": "Yeniden değerlendirildi; ADI karminik asit olarak 2,5 mg/kg.", "year": 2015, "src": "efsa_e120"},
+   {"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved", "detail": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.", "year": 2013, "src": "tgk2013"}
+  ],
+  "profile_warnings": [
+   {"profile": "vegan", "severity": "high", "text": "Böcekten elde edildiği için vegan değildir."},
+   {"profile": "veg", "severity": "high", "text": "Böcek kaynaklıdır; birçok vejetaryen bu maddeyi tüketmez."}
+  ],
+  "related_ids": ["E124", "E129", "E162", "E163"],
+  "sources": ["efsa_e120", "tgk2013"],
+  "last_reviewed": "2026-10-04"
+ },
+ "E951": {
+  "evidence_level": "strong",
+  "summary": "Şekersiz ve düşük kalorili ürünlerde şekerin yerine kullanılan yoğun bir tatlandırıcı.",
+  "what_it_does": "Çok az miktarda kullanılarak tatlı tat verir; şekersiz ve diyet ürünlerde şekerin yerine geçer.",
+  "found_in": ["Şekersiz ve diyet içecekler", "Şekersiz sakız", "Masa tatlandırıcıları"],
+  "in_the_body": "Sindirim sisteminde hızla fenilalanin, aspartik asit ve metanole ayrışır. EFSA 2013'te günlük kabul edilebilir alımı (ADI) 40 mg/kg vücut ağırlığı olarak korudu; bu sınır fenilketonürisi (PKU) olanlar için geçerli değildir. IARC 2023'te aspartamı “insanlarda kanserojen olabilir” (Grup 2B) sınıfına aldı; JECFA aynı yıl 40 mg/kg sınırını değiştirmedi.",
+  "diet_flags": {"vegan": "yes", "source": "synthetic", "gluten": "no"},
+  "regulatory": [
+   {"agency": "EFSA", "region": "EU", "status": "reviewed", "detail": "Yeniden değerlendirildi; ADI 40 mg/kg olarak korundu.", "year": 2013, "src": "efsa_e951"},
+   {"agency": "Avrupa Komisyonu", "region": "EU", "status": "label_required", "detail": "Etikette “fenilalanin kaynağı içerir” uyarısı zorunlu (1169/2011 Ek III).", "year": 2011, "src": "ab1169"},
+   {"agency": "IARC", "region": "INT", "status": "classified", "detail": "Grup 2B (insanlarda kanserojen olabilir).", "year": 2023, "src": "who_aspartame"},
+   {"agency": "JECFA", "region": "INT", "status": "reviewed", "detail": "ADI 40 mg/kg olarak değiştirilmedi.", "year": 2023, "src": "who_aspartame"},
+   {"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved", "detail": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.", "year": 2013, "src": "tgk2013"}
+  ],
+  "profile_warnings": [
+   {"profile": "pku", "severity": "high", "text": "Fenilalanin kaynağıdır. Fenilketonürisi olanlar için günlük alım sınırı geçerli değildir; diyetinizi düzenleyen uzmana danışın."}
+  ],
+  "related_ids": ["E950", "E955", "E960"],
+  "sources": ["efsa_e951", "who_aspartame", "ab1169", "tgk2013"],
+  "last_reviewed": "2026-10-04"
+ },
+ "E102": {
+  "evidence_level": "moderate",
+  "summary": "Sentetik, sarı renkli bir azo renklendirici.",
+  "what_it_does": "Gıdaya sarı renk verir.",
+  "found_in": ["Şekerleme", "Renkli içecekler", "Tatlı ve pasta süslemeleri"],
+  "in_the_body": "EFSA 2009'daki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) 7,5 mg/kg vücut ağırlığı olarak korudu. Az sayıda kişide, bu sınırın altındaki miktarlarda bile duyarlılık (intolerans) tepkileri görülebileceğini belirtti. AB'de bu renklendiriciyi içeren ürünlerin etiketinde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur.",
+  "diet_flags": {"vegan": "yes", "source": "synthetic", "gluten": "no"},
+  "regulatory": [
+   {"agency": "EFSA", "region": "EU", "status": "reviewed", "detail": "Yeniden değerlendirildi; ADI 7,5 mg/kg olarak korundu.", "year": 2009, "src": "efsa_e102"},
+   {"agency": "Avrupa Komisyonu", "region": "EU", "status": "label_required", "detail": "İçeren ürünlerde “çocukların aktivite ve dikkati üzerinde olumsuz etkisi olabilir” uyarısı zorunlu (1333/2008 Ek V).", "year": 2008, "src": "ab1333"},
+   {"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved", "detail": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.", "year": 2013, "src": "tgk2013"}
+  ],
+  "profile_warnings": [
+   {"profile": "child", "severity": "high", "text": "İçeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."},
+   {"profile": "baby", "severity": "high", "text": "İçeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."}
+  ],
+  "related_ids": ["E104", "E110", "E122", "E124", "E129"],
+  "sources": ["efsa_e102", "ab1333", "cms_colours", "tgk2013"],
+  "last_reviewed": "2026-10-04"
+ },
+ "E211": {
+  "evidence_level": "strong",
+  "summary": "Asitli gıda ve içeceklerde küf ve mayaların üremesini yavaşlatan bir koruyucu.",
+  "what_it_does": "Mikroorganizmaların neden olduğu bozulmayı geciktirerek raf ömrünü uzatır; en iyi asitli ürünlerde etki eder.",
+  "found_in": ["Gazlı ve meyveli içecekler", "Turşu ve soslar", "Ketçap ve mayonez"],
+  "in_the_body": "Hızla emilir. EFSA 2016'da benzoik asit ve tuzları için ortak günlük kabul edilebilir alımı (ADI) benzoik asit olarak 5 mg/kg vücut ağırlığı olarak belirledi; aynı markayı çok tüketen küçük çocuklarda, özellikle aromalı içeceklerden, bu sınırın aşılabileceğini belirtti. C vitamini (askorbik asit) ile birlikte bulunduğunda içeceklerde az miktarda benzen oluşabilir; FDA bu konuyu izledi ve üreticiler formüllerini düzenledi.",
+  "diet_flags": {"vegan": "yes", "source": "synthetic", "gluten": "no"},
+  "regulatory": [
+   {"agency": "EFSA", "region": "EU", "status": "reviewed", "detail": "Yeniden değerlendirildi; benzoatlar için ortak ADI 5 mg/kg (benzoik asit olarak).", "year": 2016, "src": "efsa_e211"},
+   {"agency": "FDA", "region": "US", "status": "reviewed", "detail": "İçeceklerde benzen oluşumu incelendi.", "year": null, "src": "fda_benzene"},
+   {"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved", "detail": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.", "year": 2013, "src": "tgk2013"}
+  ],
+  "profile_warnings": [
+   {"profile": "child", "severity": "medium", "text": "EFSA'ya göre aynı markayı çok tüketen küçük çocuklarda günlük sınır aşılabilir."},
+   {"profile": "salt", "severity": "low", "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."}
+  ],
+  "related_ids": ["E210", "E212", "E213", "E200"],
+  "sources": ["efsa_e211", "fda_benzene", "tgk2013"],
+  "last_reviewed": "2026-10-04"
+ }
+}
+}

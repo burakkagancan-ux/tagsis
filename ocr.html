@@ -80,6 +80,14 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 @media (prefers-color-scheme:dark){.res.o{border-left-color:#ffab70}.sv.o{color:#ffab70}}
 .klist{font-size:14px;margin:6px 0}.klist li{margin:3px 0}.klist .fn{color:var(--mute)}
 .suggest{border-left-color:var(--ok)}.suggest button{margin-top:8px}
+/* Alt sayfa (katkı maddesi özeti) */
+.sheet{position:fixed;inset:0;z-index:40;display:flex;align-items:flex-end;justify-content:center}.sheet[hidden]{display:none}
+.sheet-bg{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.sheet-pn{position:relative;width:100%;max-width:720px;max-height:85vh;overflow-y:auto;background:var(--card);border-radius:16px 16px 0 0;padding:8px 16px calc(16px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 20px rgba(0,0,0,.2)}
+.sheet-hd{display:flex;align-items:center;gap:8px;position:sticky;top:-8px;background:var(--card);padding:8px 0}.sheet-hd .t{flex:1;font-size:17px}
+.sheet-x{width:44px;height:44px;padding:0;border-radius:50%;background:none;color:var(--ink);border:1.5px solid var(--line);font-size:22px;line-height:1}
+a.ans{display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:12px;border-radius:10px;background:var(--ok);color:var(--bg);text-decoration:none}
+.res.tap{cursor:pointer}
 </style>
 </head>
 <body>
@@ -112,7 +120,8 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <h2>Sonuç</h2>
 <div id="sonuc" class="mut">Henüz analiz yapılmadı.</div>
 </div>
-<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket Oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Hassasiyetlerim</a></nav>
+<div id="sheet" class="sheet" hidden><div class="sheet-bg" id="sheet-bg"></div><div class="sheet-pn" role="dialog" aria-modal="true" aria-labelledby="sheet-t"><div class="sheet-hd"><div class="t" id="sheet-t"></div><button type="button" class="sheet-x" id="sheet-x" aria-label="Kapat">×</button></div><div id="sheet-b"></div></div></div>
+<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket Oku</a><a href="ansiklopedi.html" data-tab="ansiklopedi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>Ansiklopedi</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Hassasiyetlerim</a></nav>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" async></script>
 <script src="js/ortak.js"></script>
