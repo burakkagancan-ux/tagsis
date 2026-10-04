@@ -47,6 +47,8 @@ const cases=[
  ["Aqua, Isopropyl Myristate, Cocos Nucifera (Coconut) Oil, Theobroma Cacao Seed Butter, Glycerin",
   {"ISOPROPYL MYRISTATE":["info",["komedo"]],"COCOS NUCIFERA OIL":["info",["komedo"]],"THEOBROMA CACAO SEED BUTTER":["info",["komedo"]],"GLYCERIN":["info",[]]},
   s=>s.comedo.length===3&&s.ed.length===0&&s.yellow.length===0],
+ // 04.10.2026 genişletme: izopropil palmitat ve oleil alkol; 3 alan (sınırda) bütil stearat listede değil
+ ["Aqua, Isopropyl Palmitate, Oleyl Alcohol, Butyl Stearate",{"ISOPROPYL PALMITATE":["info",["komedo"]],"OLEYL ALCOHOL":["info",["komedo"]],"BUTYL STEARATE":["info",[]]},s=>s.comedo.length===2],
  ["Aqua, Laureth-4, Propylparaben",{"LAURETH-4":["info",["komedo"]],"PROPYLPARABEN":["yellow",["ab_ed_a","dk"]]},s=>s.comedo.length===1&&s.ed.length===1],
  // PFAS: Kaliforniya AB 2771 bilgisi bayrak açıklamasında
  ["PTFE, Mica",{"PTFE":["orange",[]]},s=>s.pfas.length===1],
@@ -75,7 +77,7 @@ const mbc=kdb.watch.find(w=>w.list==='ab_ed_a'&&w.inci.includes('4-METHYLBENZYLI
 ok(WL.fr.kind==='ed'&&WL.eu_svhc_ed.kind==='ed'&&WL.dk.kind==='child','liste türleri');
 ok(kdb.meta.known_gaps.some(g=>/Fransa ANSES/.test(g)),'gelişim alanı notu');
 ok(WL.komedo&&WL.komedo.level==='info'&&WL.komedo.kind==='comedo','komedo listesi bilgi düzeyinde');
-ok(kdb.watch.filter(w=>w.list==='komedo').length===9,'komedo 9 madde');
+ok(kdb.watch.filter(w=>w.list==='komedo').length===21,'komedo 21 madde');
 ok(kdb.meta.known_gaps.some(g=>/Komedojenite/.test(g)),'komedojenite gelişim notu');
 // summarizeK eski çağrı biçimi (K olmadan) çalışmaya devam etmeli
 ok(KL.summarizeK(KL.analyzeK("Aqua, Methylparaben",K,{})).ed.length===1,'summarizeK K olmadan');
