@@ -33,7 +33,7 @@ textarea{width:100%;min-height:90px;font:12px/1.3 ui-monospace,monospace;color:v
 .btns{display:flex;gap:8px}.btns button{font:inherit;font-weight:600;padding:9px 14px;border-radius:8px;border:1.5px solid var(--ok);background:var(--ok);color:var(--bg);cursor:pointer}.btns button.alt{background:none;color:var(--ok)}
 #msg{margin-top:8px;color:var(--mute)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}.chip{font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}.chip[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--bg)}
-.count{margin:12px 0 8px;font-size:14px;color:var(--mute)}
+.count{margin:12px 0 8px;font-size:14px;color:var(--mute)}.count .cnt{font-size:15px;font-weight:700;color:var(--ink,inherit)}
 .rec{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--warn);border-radius:10px;padding:12px 14px;margin-bottom:10px;width:100%;text-align:left;font:inherit;color:inherit;display:block;cursor:pointer}
 .brand{font-weight:800;font-size:18px;line-height:1.2}
 .prod{margin:2px 0 8px}
@@ -61,11 +61,6 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <h1>Tağşiş listesi</h1>
 <p class="sub">Tarım ve Orman Bakanlığı'nın kamuoyuna duyurduğu taklit ve tağşiş kayıtları.</p>
 <div class="note" id="note"></div>
-<details id="upd"><summary>Veriyi güncelle</summary>
-<p class="sub">Bakanlık sayfasının DevTools'taki yanıtını (Response → Copy) buraya yapıştırın. Veri yalnızca bu cihazda saklanır.</p>
-<textarea id="paste" placeholder='{"data":[...],"recordsTotal":291}'></textarea>
-<div class="btns"><button type="button" id="save">Kaydet</button><button type="button" class="alt" id="reset">Örnek veriye dön</button></div>
-<div id="msg" role="status"></div></details>
 <input id="q" type="search" placeholder="Firma, marka veya ürün ara" aria-label="Ara">
 <div class="chips" id="chips" role="group" aria-label="Liste"></div>
 <div class="row">
@@ -80,7 +75,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 
 <footer>Kaynak: guvenilirgida.tarimorman.gov.tr. Bilgiler bakanlığın duyurusuyla aynen gösterilir; bu uygulama yorum eklemez. Bakanlık listesinden çıkan kayıtlar “Listeden çıktı” etiketiyle gösterilmeye devam eder. Bu uygulama resmi bir uygulama değildir; Tarım ve Orman Bakanlığı ile bağlantısı yoktur.</footer>
 </div>
-<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profil</a></nav>
+<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket Oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Hassasiyetlerim</a></nav>
 <script>
 var RAW=[
 {"DuyuruTarihi":"/Date(1790788070540)/","FirmaAdi":"TASF.HAL.AYBEY SÜT ÜRÜNLERİ GIDA SANAYİ TİCARET LİMİTED ŞİRKETİ","Marka":"İLAYDA ÇİFTLİĞİ ","UrunAdi":"TAZE KAŞAR PEYNİRİ 2000G","Uygunsuzluk":"Bitkisel Yağ Tespiti</br></br>Eritme Tuzu Tespiti","PartiSeriNo":"180226","FirmaIl":"AYDIN","FirmaIlce":"EFELER","UrunGrupAdi":"Süt ve Süt Ürünleri"},
@@ -104,13 +99,13 @@ function build(raw){return raw.map(function(r){
   o.hay=fold([o.firma,o.marka,o.urun].join(" "));return o;
 }).sort(function(a,b){return b.tarih-a.tarih})}
 var DATA=build(RAW),IMPORTED=false;
-try{var sv=localStorage.getItem("tagsis_raw");if(sv){var pv=JSON.parse(sv);if(pv&&pv.length){DATA=build(pv);IMPORTED=true}}}catch(e){}
+try{localStorage.removeItem("tagsis_raw")}catch(e){}   // eski "Veriyi güncelle" ile kaydedilmiş veri artık kullanılmaz
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 function fill(sel,vals){Array.from(new Set(vals)).filter(Boolean).sort(function(a,b){return a.localeCompare(b,"tr")}).forEach(function(v){var o=el("option",null,v);o.value=v;sel.appendChild(o)})}
 var $q=document.getElementById("q"),$il=document.getElementById("il"),$tur=document.getElementById("tur"),$list=document.getElementById("list"),$count=document.getElementById("count");
 var SON="",KONTROL="";
 var LN={saglik:"Sağlığı tehlikeye düşürecek gıdalar","304":"Aynı değeri taşımayan madde eklenmesi","305":"Temel bileşen eksiltilmesi"};
-var LST="",$ilce=document.getElementById("ilce"),$srt=document.getElementById("srt"),$chips=document.getElementById("chips"),$grup=document.getElementById("grup"),$note=document.getElementById("note"),$msg=document.getElementById("msg");
+var LST="",$ilce=document.getElementById("ilce"),$srt=document.getElementById("srt"),$chips=document.getElementById("chips"),$grup=document.getElementById("grup"),$note=document.getElementById("note");
 function cmp(){return $srt.value==="tarih"?function(a,b){return b.tarih-a.tarih}:function(a,b){return a.firma.localeCompare(b.firma,"tr")||b.tarih-a.tarih}}
 function ilceOpts(){
   $ilce.textContent="";var o=el("option",null,$il.value?"Tüm ilçeler":"Önce il seçin");o.value="";$ilce.appendChild(o);
@@ -135,13 +130,17 @@ function opts(){
   fill($grup,DATA.map(function(d){return d.grup}));
   fill($tur,[].concat.apply([],DATA.map(function(d){return d.tur})));
   chips();ilceOpts();$note.style.display=IMPORTED?"none":"block";
-  $note.textContent="Önizleme: yalnızca "+DATA.length+" örnek kayıt gösteriliyor. Tam listeyi \"Veriyi güncelle\" bölümünden yükleyin.";
+  $note.textContent="Önizleme: yalnızca "+DATA.length+" örnek kayıt gösteriliyor. Güncel liste yüklenemedi; internet bağlantısını kontrol edin.";
 }
 function dt(d){return d.toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"})}
 function render(){
   var q=fold($q.value.trim()),il=$il.value,tur=$tur.value,gr=$grup.value,ls=LST,ic=$ilce.value;
   var rows=DATA.filter(function(d){return (!q||d.hay.indexOf(q)>-1)&&(!il||d.il===il)&&(!gr||d.grup===gr)&&(!ls||inList(d,ls))&&(!ic||d.ilce===ic)&&(!tur||d.tur.indexOf(tur)>-1)});
-  rows.sort(cmp());$count.textContent=rows.length+" kayıt"+(KONTROL?" – son kontrol: "+KONTROL+(SON&&SON!==KONTROL?" (liste en son "+SON+" tarihinde değişti)":""):(SON?" – son güncelleme: "+SON:""));
+  rows.sort(cmp());$count.textContent="";
+  $count.appendChild(el("div","cnt",rows.length+" Firma/Ürün Listelendi."));
+  var nb=function(t){return t.replace(/ /g,"\u00a0")};   // tarih satır sonunda bölünmesin
+  var ds=[KONTROL&&("Son Kontrol: "+nb(KONTROL)),SON&&("Son Liste Güncelleme: "+nb(SON))].filter(Boolean).join(" · ");
+  if(ds)$count.appendChild(el("div",null,ds));
   $list.textContent="";
   if(!rows.length){$list.appendChild(el("div","empty","Sonuç yok. Aramayı kısaltın veya filtreleri temizleyin."));return}
   rows.forEach(function(d){
@@ -161,19 +160,6 @@ function render(){
   });
 }
 $il.addEventListener("input",ilceOpts);[$q,$il,$grup,$tur,$ilce,$srt].forEach(function(e){e.addEventListener("input",render)});
-document.getElementById("save").addEventListener("click",function(){
-  try{
-    var j=JSON.parse(document.getElementById("paste").value.trim());var arr;if(j&&j.listeler){arr=[];Object.keys(j.listeler).forEach(function(k){j.listeler[k].forEach(function(x){x._liste=k;arr.push(x)})})}else{arr=Array.isArray(j)?j:j.data}
-    if(!arr||!arr.length||!arr[0].FirmaAdi)throw new Error("format");
-    DATA=build(arr);IMPORTED=true;opts();render();
-    try{localStorage.setItem("tagsis_raw",JSON.stringify(arr))}catch(e){}
-    $msg.textContent=DATA.length+" kayıt yüklendi.";
-  }catch(e){$msg.textContent="Veri okunamadı. Yanıtın tamamını ('{' ile başlayan metin) yapıştırdığınızdan emin olun."}
-});
-document.getElementById("reset").addEventListener("click",function(){
-  try{localStorage.removeItem("tagsis_raw")}catch(e){}
-  DATA=build(RAW);IMPORTED=false;opts();render();$msg.textContent="Örnek veriye dönüldü.";
-});
 try{var QP=new URLSearchParams(location.search).get("q");if(QP)$q.value=QP}catch(e){}
 opts();render();
 try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}

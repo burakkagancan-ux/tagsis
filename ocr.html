@@ -81,7 +81,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 </head>
 <body>
 <div class="w">
-<h1>Etiket oku</h1>
+<h1>Etiket Oku</h1>
 <details class="gz" id="gizlilik"><summary>Gizlilik: fotoğrafınıza ne oluyor?</summary>
 <ul>
 <li>Fotoğraf, yalnızca üzerindeki yazının okunması için Google Cloud Vision hizmetine gönderilir. Bu uygulama fotoğrafı ve okunan metni kaydetmez. Google tarafındaki işlem Google'ın kendi koşullarına tabidir.</li>
@@ -91,15 +91,15 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 </ul></details>
 <div class="note"><strong>Deneme sürümü.</strong> Katkı maddesi ve bileşen bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</div>
 
-<details id="pd"><summary id="profsum">Profilim (alerjen, vegan, hamile, çocuk…)</summary><div id="profil" class="mut">Yükleniyor…</div></details>
+<details id="pd"><summary id="profsum">Hassasiyetlerim</summary><div id="profil" class="mut">Yükleniyor…</div></details>
 
 <div class="seg" role="radiogroup" aria-label="Ürün türü"><button type="button" role="radio" id="m-gida" aria-checked="true">Gıda</button><button type="button" role="radio" id="m-koz" aria-checked="false">Kozmetik</button><button type="button" role="radio" id="m-tem" aria-checked="false">Temizlik</button></div>
-<div class="ptype" id="ptype" hidden><span class="mut">Ürün tipi (isteğe bağlı):</span><button type="button" data-p="rinse" aria-pressed="false">Durulanan</button><button type="button" data-p="leave" aria-pressed="false">Durulanmayan</button><button type="button" data-p="makeup" aria-pressed="false">Makyaj</button><button type="button" data-p="baby" aria-pressed="false">Bebek/çocuk</button></div>
+<div class="ptype" id="ptype" hidden><span class="mut">Ürün Tipi (isteğe bağlı):</span><button type="button" data-p="rinse" aria-pressed="false">Durulanan</button><button type="button" data-p="leave" aria-pressed="false">Durulanmayan</button><button type="button" data-p="makeup" aria-pressed="false">Makyaj</button><button type="button" data-p="baby" aria-pressed="false">Bebek/çocuk</button></div>
 <label class="camera" for="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span id="camtxt">Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.</span></label>
 <input type="file" id="foto" class="vh" accept="image/*" capture="environment">
 <div id="cropwrap"><img id="pre" alt="Seçilen fotoğraf"><div id="crop" aria-hidden="true"><span class="h" data-h="nw"></span><span class="h" data-h="n"></span><span class="h" data-h="ne"></span><span class="h" data-h="e"></span><span class="h" data-h="se"></span><span class="h" data-h="s"></span><span class="h" data-h="sw"></span><span class="h" data-h="w"></span><span class="mv" data-h="move"></span></div></div>
 <div id="cropbar" class="row"><span>Köşeleri sürükleyerek yalnızca içerik listesini çerçeveye alın.</span><button type="button" class="alt" id="cropreset">Tümünü seç</button></div>
-<div class="row"><button id="oku" disabled>Metni oku</button><button class="alt" id="ornek">Örnek metin dene</button></div>
+<div class="row"><button id="oku" disabled>Analiz Et</button><button class="alt" id="ornek">Örnek metin dene</button></div>
 <div id="st"></div>
 
 <details id="okunan"><summary>Okunan Metin</summary>
@@ -109,7 +109,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <h2>Sonuç</h2>
 <div id="sonuc" class="mut">Henüz analiz yapılmadı.</div>
 </div>
-<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profil</a></nav>
+<nav class="tabbar" aria-label="Uygulama bölümleri"><a href="index.html" data-tab="liste"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Liste</a><a href="ocr.html" data-tab="oku" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 9h10M7 12h10M7 15h6"/></svg>Etiket Oku</a><a href="ocr.html#profil" data-tab="profil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Hassasiyetlerim</a></nav>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" async></script>
 <script>
@@ -449,7 +449,8 @@ function inciItems(text){
 }
 /* Sık OCR karışmaları: "rn"->"m" ("Parfurn"), harf içindeki rakam ("8enzyl", "50dium", "Pantheh0l").
    Rakam yalnızca en az 3 harf içeren sözcükte ve sözcüğün sonunda değilse harfe çevrilir (PEG-32, C12-15, CI 77891 korunur). */
-var KSHORT=["water","parfum","aroma","silica","butane","kaolin","glycol"];   // 4 harfliler (aqua, mica, talc, urea) bilerek yok: "area", "talk" gibi sözcüklerle karışır
+var KSHORT=["water","parfum","aroma","silica","butane","kaolin","glycol"];
+var KNOFUZZ=["chloride","chlorides","chlorite","silikat"];   // tek başına kalan iyon adı başka maddeye benzetilmez ("CHLORIDE" -> CHLORINE, AB'de yasak olmasın)   // 4 harfliler (aqua, mica, talc, urea) bilerek yok: "area", "talk" gibi sözcüklerle karışır
 var OCRD={"0":"o","1":"l","5":"s","8":"b","6":"g"};
 function ocrFix(k){
   return k.split(" ").map(function(w){
@@ -464,6 +465,7 @@ function kLookup(k,K,noFix){
   var ns=K.nos.get(k.replace(/ /g,""));if(ns)return {s:K.map.get(ns),how:"isim",key:ns};
   var ci=/^c[il1] ?([0-9oils]{5})$/.exec(k);
   if(ci){var d=ci[1].replace(/o/g,"0").replace(/[il]/g,"1").replace(/s/g,"5"),k2="ci "+d;s=K.map.get(k2);if(s)return {s:s,how:d!==ci[1]?"benzer":"isim",key:k2}}
+  if(KNOFUZZ.indexOf(k)>-1)return null;
   if(!noFix){var fx=ocrFix(k);if(fx!==k){var hf=kLookup(fx,K,true);if(hf)return {s:hf.s,how:"benzer",key:hf.key,dist:(hf.dist||0)+1}}}
   if(k.length<7){   // kısa adlarda benzer yazım yalnızca çok sık görülen birkaç ad için (yanlış eşleşmeyi önlemek için)
     if(k.length<5)return null;
@@ -527,10 +529,11 @@ function kResult(raw,h,may,pos,K,opts){
   r.k3.forEach(function(w){var L=K.watchLists[w.list],l=L&&L.level;if(l&&KRANK[l]>KRANK[r.level])r.level=l});
   if(/\bnano\b/i.test(raw))r.nano=true;
   var leaveLike=opts.ptype==="leave"||opts.ptype==="makeup"||opts.ptype==="baby";
+  function note(t){if(r.notes.indexOf(t)<0)r.notes.push(t)}   // aynı madde birden çok AB kaydında olabilir (ör. MIT: V/39 ve V/57); not bir kez yazılır
   r.reg.forEach(function(e){
-    if(e.rinse_only&&leaveLike){r.notes.push("Yalnızca durulanan ürünlerde izinli; seçtiğiniz ürün tipinde (durulanmayan) kullanılmamalı.");if(KRANK[r.level]<2)r.level="orange"}
-    if(e.kids_under&&opts.ptype==="baby"){r.notes.push(e.kids_under+" yaş altı çocuklar için ürünlerde kısıtlı ya da yasak.");if(KRANK[r.level]<2)r.level="orange"}
-    if(e.only_tr&&r.notes.indexOf("o:"+e.only_tr)<0)r.notes.push("o:"+e.only_tr);
+    if(e.rinse_only&&leaveLike){note("Yalnızca durulanan ürünlerde izinli; seçtiğiniz ürün tipinde (durulanmayan) kullanılmamalı.");if(KRANK[r.level]<2)r.level="orange"}
+    if(e.kids_under&&opts.ptype==="baby"){note(e.kids_under+" yaş altı çocuklar için ürünlerde kısıtlı ya da yasak.");if(KRANK[r.level]<2)r.level="orange"}
+    if(e.only_tr)note("o:"+e.only_tr);
   });
   r.rank=KRANK[r.level];
   return r;
@@ -821,18 +824,17 @@ function buildProfile(){
   if(!BDB){box.appendChild(el("div","mut","Profil filtreleri için bileşen listesi gerekli."));return}
   function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
   function pbox(t){var d=el("div","pbox");d.appendChild(el("div","pt",t));box.appendChild(d);return d}
+  // Her kutudaki seçenekler Türkçe alfabeye göre sıralanır
+  function abc(a){return a.slice().sort(function(x,y){return x[1].localeCompare(y[1],"tr")})}
   var b1=pbox("Alerjenler"),g=el("div","pg");
-  BDB.meta.allergens.forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
+  abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
   var b2=pbox("Diğer"),g2=el("div","pg");
-  g2.appendChild(cb("Laktoz intoleransı",PROF.lactose,function(v){PROF.lactose=v}));
-  g2.appendChild(cb("Vegan",PROF.vegan,function(v){PROF.vegan=v}));
-  g2.appendChild(cb("Vejetaryen",PROF.veg,function(v){PROF.veg=v}));
-  g2.appendChild(cb("Koku alerjisi (kozmetik, temizlik)",!!PROF.koku,function(v){PROF.koku=v}));
-  g2.appendChild(cb("Astım / solunum hassasiyeti (temizlik)",!!PROF.astim,function(v){PROF.astim=v}));
+  abc([["lactose","Laktoz intoleransı"],["vegan","Vegan"],["veg","Vejetaryen"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"]])
+    .forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b2.appendChild(g2);
   var b3=pbox("Yaşam Evresi ve Diğer"),g3=el("div","pg");
-  LIFE.forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
+  abc(LIFE).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
   updProfSum();
@@ -840,7 +842,7 @@ function buildProfile(){
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
 function updProfSum(){
   var n=PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+(PROF.koku?1:0)+(PROF.astim?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
-  $("profsum").textContent=n?("Profilim ("+n+" seçim)"):"Profilim (alerjen, vegan, hamile, çocuk…)";
+  $("profsum").textContent=n?("Hassasiyetlerim · "+n+" seçim"):"Hassasiyetlerim";
 }
 
 /* ---------- Sonuç ekranı ---------- */
@@ -1417,8 +1419,8 @@ function tabSync(){
   var prof=location.hash==="#profil";
   document.querySelectorAll(".tabbar a").forEach(function(a){if(a.getAttribute("data-tab")===(prof?"profil":"oku"))a.setAttribute("aria-current","page");else if(a.getAttribute("data-tab")!=="liste")a.removeAttribute("aria-current")});
   document.body.classList.toggle("mode-profil",prof);
-  document.querySelector("h1").textContent=prof?"Profilim":"Etiket oku";
-  document.title=prof?"Profilim":"Etiket Oku";
+  document.querySelector("h1").textContent=prof?"Hassasiyetlerim":"Etiket Oku";
+  document.title=prof?"Hassasiyetlerim":"Etiket Oku";
   if(prof){$("pd").open=true;window.scrollTo(0,0)}
 }
 window.addEventListener("hashchange",tabSync);tabSync();
