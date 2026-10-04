@@ -40,3 +40,12 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 ## CosIng verisi depo dışında — KAPANDI (04.10.2026)
 - gen_kozmetik.py artık `../cosing` kopyasına ihtiyaç duymaz; kullanılan kısım `kaynak/cosing/` altında (Ek II–VI aynen, INCI listesinden 3 sütun; ~3 MB, sürüm `surum.txt`, lisans `LICENSE.txt`). Yenilemek için `python3 cosing_al.py`. Verinin eski olması (2024 başı) ayrı sorun, bkz. 4.
 
+
+## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026)
+- Bölüm etikette adı yazan maddeleri gösteriyor (js/arayuz_temizlik.js, renderT): notu olanlar (MIT, BIT, hipoklorit…) kart, diğerleri düz liste. Değerlendirmede bulunan sorunlar ve öneriler (kullanıcı ertelendi):
+  1. Başlık özetteki "Tanınan madde" satırıyla uyuşmuyor; başlık "Tanınan Maddeler" olabilir. (önerilen)
+  2. Madde kartlarında açıklama yalnızca (i) arkasında; tehlike kartlarındaki gibi bir satırlık açıklama görünmeli. (önerilen)
+  3. Kartlar ve düz liste karışık; liste "Diğer maddeler (N)" adıyla kapalı açılır bölüme (secBox) girebilir. (önerilen)
+  4. "İşlevler AB…" notu bölümün başında; listenin altına inebilir.
+  5. Adlar İngilizce ve büyük harf (INCI); yanına Türkçe ad (LIMONENE · limonen). Veri hazırlığı gerekir.
+  6. İşlev adı tekrarı ("PARFUM · Koku, Parfüm"); tekrar kaldırılmalı. (önerilen)
