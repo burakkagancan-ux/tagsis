@@ -29,3 +29,6 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - **Kaynak denetimi:** Kaliforniya listesi HSC §108980 metninin Justia kopyasından (2024 kodu) alındı; resmi leginfo sitesinden karşılaştırılmadı. ASEAN satırı (mikonazol) ikincil kaynaktan (CIRS), needs_review.
 - **Güncelleme:** AB endokrin bozucu listesinin B grubu için ikinci veri çağrısı ve SCCS görüşleri izlenmeli; tarihleri elle güncellenir.
 - **SIN List:** ChemSec'in veri yeniden kullanım koşulları belirsiz; yazılı izin alınmadan eklenmemeli.
+
+## ocr.html tek dosyada — KAPANDI (04.10.2026)
+- ~1.550 satırlık ocr.html gıda, kozmetik, temizlik ve arayüz kodunu birlikte taşıyordu. Kod `js/` klasöründe alana göre 9 dosyaya bölündü (derleme adımı yok, davranış değişmedi; eski ve yeni sayfanın sonuç ekranları tarayıcıda birebir karşılaştırıldı). Kalan: arayüz kodunun sözdizimi dışında otomatik testi yok (tarayıcı testi CI'da çalışmıyor).

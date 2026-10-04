@@ -1,7 +1,9 @@
-const CACHE = "tagsis-v5";
+const CACHE = "tagsis-v6";
 // Uygulamanın çevrimdışı da açılabilmesi için ilk kurulumda önbelleğe alınan dosyalar
 const CORE = [
   "./", "index.html", "ocr.html", "manifest.webmanifest",
+  "js/ortak.js", "js/gida.js", "js/kozmetik.js", "js/eslesme.js", "js/temizlik.js",
+  "js/arayuz.js", "js/arayuz_kozmetik.js", "js/arayuz_temizlik.js", "js/arayuz_sayfa.js",
   "icon-192.png", "icon-512.png", "apple-touch-icon.png",
   "data/tagsis.json", "data/durum.json", "data/arsiv.json", "data/e_kodlari.json", "data/bilesenler.json", "data/e_aciklama.json",
   "fonts/fonts.css", "fonts/schibsted-grotesk-latin-400-normal.woff2", "fonts/schibsted-grotesk-latin-ext-400-normal.woff2",

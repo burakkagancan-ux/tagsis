@@ -1,6 +1,6 @@
 // Kozmetik (INCI) analizi testleri. Çalıştır: node test/kozmetik_cases.js
 const fs=require('fs');
-const h=fs.readFileSync(__dirname+'/../ocr.html','utf8');const src=h.slice(h.indexOf('/*LOGIC-START*/'),h.indexOf('/*LOGIC-END*/'));
+const src=require('./yukle.js');
 eval(src+';global.KL={buildKIndex,analyzeK,summarizeK,inciItems,looksCosmetic}');
 const K=KL.buildKIndex(JSON.parse(fs.readFileSync(__dirname+'/../data/kozmetik.json')),JSON.parse(fs.readFileSync(__dirname+'/../data/kozmetik_inci.json')));
 module.exports={K,KL};
