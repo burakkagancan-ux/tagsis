@@ -134,7 +134,7 @@ function renderT(A){
   }
   var G=A.groups.slice();
   if(G.length){
-    box.appendChild(el("h2",null,"İçerik"));
+    var ib=secBox(box,"İçerik",G.length);
     var ol=el("ul","klist");
     G.forEach(function(x){
       var li=el("li");li.appendChild(el("b",null,x.g.tr));
@@ -142,14 +142,14 @@ function renderT(A){
       else if(x.band)li.appendChild(el("span","chip",M.bands[x.band]));
       li.appendChild(el("div","fn",x.g.about));ol.appendChild(li);
     });
-    box.appendChild(ol);
-    box.appendChild(el("div","how","Yüzde bantları ağırlıkçadır ve yalnızca %0,2'yi aşan gruplar için yazılır. Enzim, dezenfektan, optik parlatıcı ve parfüm her oranda yazılır. Ürünün tam içerik listesi üreticinin internet sitesinde yayımlanır."));
+    ib.appendChild(ol);
+    ib.appendChild(el("div","how it","Yüzde bantları ağırlıkçadır ve yalnızca %0,2'yi aşan gruplar için yazılır. Enzim, dezenfektan, optik parlatıcı ve parfüm her oranda yazılır. Ürünün tam içerik listesi üreticinin internet sitesinde yayımlanır."));
   }
   var notes=A.subs.filter(function(x){return !x.s.mix});
   var named=A.inci.filter(function(x){return !TIDX.subByInci[x.name]}).sort(function(a,b){return (b.fragrance||b.pres?1:0)-(a.fragrance||a.pres?1:0)});
   if(notes.length||named.length){
     box.appendChild(el("h2",null,"Adı Yazılan Maddeler"));
-    if(named.length)box.appendChild(el("div","how","İşlevler AB kozmetik INCI listesinden (CosIng) alınmıştır; kozmetikteki sınırlar ve yasaklar temizlik ürünleri için geçerli değildir."));
+    if(named.length)box.appendChild(el("div","how it","İşlevler AB kozmetik INCI listesinden (CosIng) alınmıştır; kozmetikteki sınırlar ve yasaklar temizlik ürünleri için geçerli değildir."));
     notes.forEach(function(x){var s=x.s;box.appendChild(infoCard(TCLS[s.level],s.inci.length>1?"Enzim: "+s.inci.join(", ").toLowerCase():s.inci[0],TLBL[s.level]+" · "+(s.kind==="koruyucu"?"Koruyucu":s.kind==="enzim"?"Enzim":s.kind),function(pn){pn.appendChild(el("div","ln",s.text));pn.appendChild(srcLinks(s.sources))}))});
     if(named.length){
       var ul=el("ul","klist");
@@ -165,5 +165,5 @@ function renderT(A){
       box.appendChild(ul);
     }
   }
-  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır ve tıbbi tavsiye değildir. Piktogramlar fotoğraftan tanınmaz; etiketteki işaretlere ayrıca bakın. Veri: AB CLP / SEA Yönetmeliği zararlılık ifadeleri, AB 648/2004 ve Deterjanlar Hakkında Yönetmelik içerik kuralları, Sağlık Bakanlığı Sağlıklı Temizlik Rehberi; koku alerjenleri ve koruyucular AB kozmetik INCI listesinden tanınır."));
+  box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır ve tıbbi tavsiye değildir. Piktogramlar fotoğraftan tanınmaz; etiketteki işaretlere ayrıca bakın. Veri: AB CLP / SEA Yönetmeliği zararlılık ifadeleri, AB 648/2004 ve Deterjanlar Hakkında Yönetmelik içerik kuralları, Sağlık Bakanlığı Sağlıklı Temizlik Rehberi; koku alerjenleri ve koruyucular AB kozmetik INCI listesinden tanınır."));
 }

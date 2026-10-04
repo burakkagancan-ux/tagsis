@@ -4,6 +4,7 @@ var DB=null,BDB=null,ABOUT={},IDX=null,FLAGS={},BRANDS=null,ST=document.getEleme
 var CLS=["g","u","y","r"],LBL=["Özel uyarı yok","Durum doğrulanmadı","Dikkat","Uyarı"];
 function $(i){return document.getElementById(i)}
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+function secBox(box,title,n){var d=el("details","sec");d.appendChild(el("summary",null,title+" ("+n+")"));box.appendChild(d);return d}   // varsayılan kapalı açılır bölüm
 /* Durum satırı her mod için ayrı tutulur; mod değişince o modun mesajı gösterilir */
 var STMSG={gida:"",koz:"",tem:""};
 function setSt(mode,msg){STMSG[mode]=msg;if((typeof MODE==="undefined"||!MODE?"gida":MODE)===mode)ST.textContent=msg}
@@ -248,7 +249,7 @@ function render(res,br){
     box.appendChild(el("h2",null,"Notlar"));
     var seen={};notes.forEach(function(it){if(seen[it.id])return;seen[it.id]=1;box.appendChild(el("div","ln nt",it.name+": "+it.note))});
   }
-  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
+  box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
 }
 function run(){
   var t=$("metin").value;
