@@ -1,0 +1,40 @@
+name: Testler
+# Her PR'da ve main'e her gönderimde tüm testleri çalıştırır (dış bağımlılık yok, npm install gerekmez)
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Sözdizimi (sayfalardaki script blokları)
+        run: node test/sozdizimi.js
+      - name: Gıda
+        run: node test/cases.js
+      - name: E kodu kaynakları
+        run: node test/e_dogrulama.js
+      - name: Tuz / sodyum
+        run: node test/sodyum.js
+      - name: Birlikte dikkat
+        run: node test/eslesme.js
+      - name: OCR toleransı
+        run: node test/ocr_tolerans.js
+      - name: Kozmetik veri
+        run: node test/kozmetik_veri.js
+      - name: Kozmetik durumlar
+        run: node test/kozmetik_cases.js
+      - name: Kozmetik K3
+        run: node test/kozmetik_k3.js
+      - name: Temizlik
+        run: node test/temizlik.js
+      - name: OCR Worker
+        run: node worker/test.mjs

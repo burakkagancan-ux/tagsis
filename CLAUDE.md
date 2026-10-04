@@ -33,6 +33,7 @@ Son güncelleme: 04.10.2026.
 - Korumalar: IP başına 6/dk, genel 30/dk (IP_LIMIT/GLOBAL_LIMIT), ALLOWED_ORIGIN (panelde secret, virgülle çoklu), ~4 MB, JPEG/PNG/WebP, 20 sn zaman aşımı, observability kapalı, keep_vars. wrangler.toml'a [vars] ALLOWED_ORIGIN EKLENMEZ (secret ile çakışır).
 
 ## Testler
+- CI: .github/workflows/test.yml her PR'da ve main'e gönderimde tüm testleri çalıştırır ("Testler" kontrolü). Yeni test dosyası eklenirse oraya da bir adım eklenir.
 - `node test/cases.js` (gıda), `node test/kozmetik_veri.js`, `node test/kozmetik_cases.js` (20 durum, 3'ü gerçek OCR çıktısı), `node test/kozmetik_k3.js` (K3 veri bütünlüğü + 12 durum, komedojenite dahil), `node test/ocr_tolerans.js` (OCR karışmaları, yanlış eşleşme ve yeni eş anlamlılar), `node test/e_dogrulama.js` (E kodu kaynakları), `node test/sodyum.js` (tuz/sodyum, besin tablosu satırı, olumsuzluk), `node test/eslesme.js` (birlikte dikkat), `node test/temizlik.js` (veri bütünlüğü + 17 etiket durumu + 5 eş anlamlı/CI durumu + gıda/kozmetik metninde yanlış eşleşme + hız), `node test/sozdizimi.js` (sayfalardaki tüm script bloklarının sözdizimi; arayüz kodu başka testte çalışmaz, her değişiklikten sonra çalıştır), `node worker/test.mjs` (14 durum).
 - test/kozmetik_cases.js'i başka betikten `require` et (node -e içinde çalışmıyor).
 - Tarayıcı: `python3 -m http.server 8765 &` + Playwright; "Okunan Metin" details kapalı, textarea'ya yazmadan önce summary'ye tıkla. OCR isteği `page.route('**/inapp-ocr-3a8f**')` ile taklit edilir.
