@@ -41,6 +41,7 @@ Son güncelleme: 04.10.2026.
 - Uygulama asla "güvenli/uygun" demez; "bulunamadı, bu bir onay değildir" der. "Zararlı" ifadesi her zaman kaynağa (yönetmelik, tarih) bağlanır.
 - Kozmetik, besin tablosu ve helalin önüne geçti. Gıda ve kozmetik JSON'ları ayrı; kozmetik dosyaları yalnızca Kozmetik seçilince yüklenir. Kamera kilitlenmez.
 - Etiket oku'daki "Profilim" kutusu kalıyor. Kırpma kalıyor.
+- Arayüz adları (kullanıcı, 04.10.2026): alt menü "Liste | Etiket Oku | Hassasiyetlerim"; profil kutusu ve sayfası "Hassasiyetlerim"; okuma düğmesi "Analiz Et"; "Ürün Tipi". Hassasiyetlerim kutularındaki seçenekler Türkçe alfabeye göre sıralı. Liste sayfasında "Veriyi güncelle" (elle yapıştırma) kaldırıldı; veri yalnızca data/tagsis.json + arsiv.json'dan gelir. Sayaç: "N Firma/Ürün Listelendi." ve altında "Son Kontrol: … · Son Liste Güncelleme: …".
 - K3 renkleri (03.10.2026, kullanıcı kararı): başka büyük pazarda yasak (Kaliforniya, ASEAN) → turuncu; AB endokrin bozucu öncelik listesi ve SIN List → sarı. AB Ek II'deki madde kırmızı kalır, K3 yalnızca not ekler.
 - CYCLOMETHICONE, D4 kaydından (II/1388) çıkarıldı: kozmetik yönetmeliğinde yasak değil.
 - "Görüntüyü iyileştir" düğmesi kaldırıldı (03.10.2026): Google Vision yolunda etkisi yoktu; yedek OCR'da (Tesseract) gri ton + kontrast hep açık.
