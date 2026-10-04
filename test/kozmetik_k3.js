@@ -41,6 +41,8 @@ const cases=[
  // D5: AB REACH kısıtlaması + Türkiye taslağı + AB endokrin B grubu; özette yalnızca endokrin satırına girer
  ["Cyclopentasiloxane, Cyclohexasiloxane",{"CYCLOPENTASILOXANE":["yellow",["ab_ed_b","ab_reach","tr_taslak"]],"CYCLOHEXASILOXANE":["yellow",["ab_reach"]]},s=>s.ed.length===1&&s.ban.length===0],
  // Endokrin: REACH aday listesi, AB Eylül 2026 taslağı, Danimarka, Fransa (04.10.2026)
+ // 04.10.2026: 4-MBC (SVHC 2022, endokrin) ve ftalatlar (AB 2017/1210); AB'de yasak oldukları için kırmızı kalır
+ ["Aqua, 4-Methylbenzylidene Camphor, Dibutyl Phthalate",{"4-METHYLBENZYLIDENE CAMPHOR":["red",["ab_ed_a","eu_svhc_ed","fr"]],"DIBUTYL PHTHALATE":["red",["ca","eu_svhc_ed","fr"]]},s=>s.ed.length===2],
  ["Aqua, Butylparaben, Benzophenone-1, Resorcinol",{"BUTYLPARABEN":["yellow",["ab_ed_b","ab_taslak","dk","eu_svhc_ed","fr"]],"BENZOPHENONE-1":["yellow",["ab_ed_b","ab_taslak"]],"RESORCINOL":["yellow",["ab_ed_a","eu_svhc_ed"]]},
   s=>s.ed.length===3&&s.child.length===1&&s.ban.length===0],
  // Komedojenite: bilgi notu, renk değiştirmez; ABD yazımıyla da bulunur
