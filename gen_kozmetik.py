@@ -6,13 +6,14 @@ Kozmetik bileşen veri tabanını üretir:
   kozmetik.json "watch"    K3: AB dışı yasaklar ve AB değerlendirme listeleri (kaynak/kozmetik_k3.tsv)
 
 Kullanım:
-  git clone https://github.com/inhouse-work/cosing ../cosing && git -C ../cosing checkout 268e3cd
-  python3 gen_kozmetik.py [--cosing ../cosing/data]
+  python3 gen_kozmetik.py [--cosing kaynak/cosing]
+  CosIng verisi depoda (kaynak/cosing/, sürümü kaynak/cosing/surum.txt). Yenilemek için: python3 cosing_al.py
 
-- JSON dosyalarını elle düzenlemeyin; değişikliği bu betikte ya da kaynak/kozmetik_guncellemeler.tsv'de yapın.
+- JSON dosyalarını elle düzenlemeyin; değişikliği kaynak/kozmetik_*.tsv / kozmetik_listeler.json dosyalarında
+  (güncellemeler, K3, eş anlamlılar, işlev adları, Türkçe sözcükler, ABD renkleri) ya da bu betikte yapın.
 - Ham veri: Avrupa Komisyonu CosIng veritabanı (Komisyon içeriği 2011/833/AB kararıyla kaynak
   gösterilerek yeniden kullanılabilir). CSV biçimine dönüştürülmüş anlık görüntü inhouse-work/cosing
-  deposundan (MIT lisansı) alınır. Anlık görüntü 2024 başına aittir; sonraki AB değişiklikleri
+  deposundan (MIT lisansı) alınır; kullanılan kısmı kaynak/cosing/'de. Anlık görüntü 2024 başına aittir; sonraki AB değişiklikleri
   kaynak/kozmetik_guncellemeler.tsv ile elle eklenir.
 - Türkiye: Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) ekleri AB ekleriyle uyumludur.
   Madde madde karşılaştırma henüz yapılmadı (TEKNIK_BORC.md).
@@ -22,12 +23,29 @@ from collections import defaultdict
 
 VERSION = "0.2.0"
 LAST_UPDATED = "2026-10-03"
-COSING_COMMIT = "268e3cd"
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def kaynak_json(ad):
+    """kaynak/ klasöründeki JSON veri dosyası"""
+    with open(os.path.join(HERE, "kaynak", ad), encoding="utf-8") as f:
+        return json.load(f)
+
+
+def kaynak_tsv(ad):
+    """kaynak/ klasöründeki TSV veri dosyası: boş ve '#' ile başlayan satırlar atlanır, sütunlar sekmeyle ayrılır."""
+    with open(os.path.join(HERE, "kaynak", ad), encoding="utf-8") as f:
+        return [ln.rstrip("\n").split("\t") for ln in f if ln.strip() and not ln.startswith("#")]
+
+
 OUT = os.path.join(HERE, "data", "kozmetik.json")
 OUT_INCI = os.path.join(HERE, "data", "kozmetik_inci.json")
 UPD = os.path.join(HERE, "kaynak", "kozmetik_guncellemeler.tsv")
 K3 = os.path.join(HERE, "kaynak", "kozmetik_k3.tsv")
+COSING_DIR = os.path.join(HERE, "kaynak", "cosing")
+# kaynak/cosing/surum.txt: "<depo> <commit>" (cosing_al.py yazar)
+with open(os.path.join(COSING_DIR, "surum.txt"), encoding="utf-8") as _f:
+    COSING_COMMIT = _f.read().split()[1][:7]
 
 # Türkiye durumu (03.10.2026): Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) en son 05.03.2024'te
 # (RG 32480) değişti; bu değişiklik AB (EU) 2023/1490 ile uyumludur. Ondan sonraki AB değişiklikleri Türkiye'de
@@ -40,38 +58,9 @@ TR_TEXT = {
     "taslak": "Türkiye: Bu AB değişikliği henüz yürürlükte değil; benzer hükümler Ticaret Bakanlığı'nın Eylül 2026 yönetmelik taslağında yer alıyor.",
 }
 
-# K3 listeleri. level: kartın en az alacağı renk (AB Ek II'deki madde kırmızı kalır).
+# K3 listeleri (kaynak/kozmetik_listeler.json). level: kartın en az alacağı renk (AB Ek II'deki madde kırmızı kalır).
 # Karar (03.10.2026, kullanıcı): başka büyük pazarda yasak -> turuncu; AB değerlendirme listeleri ve SIN List -> sarı.
-WATCH_LISTS = {
-    "ab_ed_a": {"label": "AB olası endokrin bozucu öncelik listesi (A grubu)", "chip": "AB olası endokrin bozucu listesi",
-                "level": "yellow", "kind": "ed",
-                "text": "Avrupa Komisyonu'nun kozmetikte olası endokrin bozucu (hormon sistemini etkileyebileceği şüphesi olan) maddeler için 2019'da oluşturduğu 28 maddelik öncelik listesinde, öncelikle değerlendirilen A grubunda. SCCS bu grubun çoğu için görüş verdi; AB'deki güncel kural bu kartta ayrıca yazar. Liste bir hüküm değildir, değerlendirme sırasını gösterir."},
-    "ab_ed_b": {"label": "AB olası endokrin bozucu öncelik listesi (B grubu)", "chip": "AB olası endokrin bozucu listesi",
-                "level": "yellow", "kind": "ed",
-                "text": "Avrupa Komisyonu'nun kozmetikte olası endokrin bozucu (hormon sistemini etkileyebileceği şüphesi olan) maddeler için 2019'da oluşturduğu 28 maddelik öncelik listesinde, B grubunda. Bu grubun bir kısmının değerlendirmesi sürüyor; sonuçlanan maddelerin durumu ayrıca yazar. Liste bir hüküm değildir, değerlendirme sırasını gösterir."},
-    "ca": {"label": "ABD – Kaliforniya", "chip": "Kaliforniya'da yasak", "level": "orange", "kind": "ban",
-           "text": "Kaliforniya'da kozmetik ürünlere kasıtlı olarak eklenmesi yasak (Toxic-Free Cosmetics Act). Eser miktarda, kaçınılmaz kirlilik olarak bulunması yasak kapsamında değildir."},
-    "asean": {"label": "ASEAN", "chip": "ASEAN'da yasak", "level": "orange", "kind": "ban",
-              "text": "ASEAN Kozmetik Direktifi'nin yasaklı maddeler ekinde (Ek II). ASEAN; Endonezya, Malezya, Tayland, Vietnam, Filipinler, Singapur gibi 10 ülkeyi kapsar."},
-    "ab_reach": {"label": "AB REACH kısıtlaması", "chip": "AB'de kısıtlı (REACH)", "level": "yellow", "kind": "eu",
-                 "text": "AB kimyasallar mevzuatı REACH (Ek XVII) ile kozmetikte kısıtlandı. Kozmetik yönetmeliğinin eklerinde görünmediği için ayrıca gösterilir."},
-    "tr_taslak": {"label": "Türkiye – yönetmelik taslağı", "chip": "Türkiye taslağında", "level": "yellow", "kind": "tr",
-                  "text": "Ticaret Bakanlığı'nın Eylül 2026'da görüşe açtığı Kozmetik Ürünler Yönetmeliği değişiklik taslağında yasaklanması öngörülüyor. Taslaktır, henüz yürürlükte değildir."},
-    "eu_svhc_ed": {"label": "AB REACH aday listesi (endokrin bozucu özelliği)", "chip": "REACH aday listesinde (endokrin)",
-                   "level": "yellow", "kind": "ed",
-                   "text": "AB kimyasallar mevzuatı REACH'te, insan sağlığı açısından endokrin bozucu özellikleri gerekçesiyle \"çok yüksek endişe verici madde\" aday listesine alındı. Bu liste kozmetikte kullanımı kendiliğinden yasaklamaz; kozmetikteki sınırlar ayrıca yazar."},
-    "ab_taslak": {"label": "AB – Eylül 2026 taslak tüzüğü", "chip": "AB taslağında", "level": "yellow", "kind": "eu",
-                  "text": "Avrupa Komisyonu'nun Temmuz 2026'da Dünya Ticaret Örgütü'ne bildirdiği ve Eylül 2026'da Konsey'e sunduğu kozmetik tüzüğü taslağında yer alıyor. Henüz yayımlanmadı; kabul edilirse yürürlükten 12 ay sonra yeni ürünlerde, 24 ay sonra raftaki ürünlerde uygulanır."},
-    "dk": {"label": "Danimarka", "chip": "Danimarka'da çocuk ürünlerinde yasak", "level": "yellow", "kind": "child",
-           "text": "Danimarka, endokrin bozucu şüphesi nedeniyle bu maddeyi 3 yaş altı çocuklara yönelik kozmetiklerde AB'den önce ulusal olarak yasakladı."},
-    "fr": {"label": "Fransa – ANSES endokrin bozucu listesi", "chip": "Fransa endokrin listesinde", "level": "yellow", "kind": "ed",
-           "text": "Fransa'nın 12 Ekim 2023'te yayımladığı 128 maddelik resmi endokrin bozucu listesinde. Fransa'da bu listedeki kanıtlanmış ya da varsayılan endokrin bozucuları içeren ürünler için üretici dijital ortamda bilgi vermek zorundadır. Uygulamada listenin yalnızca ikincil kaynaklarda adı geçen maddeleri var; tam liste eklenmedi."},
-    "komedo": {"label": "Gözenek tıkayıcılık (komedojenite) testleri", "chip": "Gözenek tıkayıcı olabilir",
-               "level": "info", "kind": "comedo",
-               "text": "Eski laboratuvar testlerinde (tavşan kulağı, çoğunlukla saf madde) gözenek tıkayıcı bulundu. Ürünlerde genellikle düşük oranda bulunur ve etkisi orana ve formüle göre değişir; bu etiketten anlaşılamaz. Bu bir yasak ya da sağlık uyarısı değildir. Cildiniz akneye eğilimliyse ürünü önce küçük bir alanda deneyin."},
-    "sin": {"label": "ChemSec SIN List", "chip": "SIN List", "level": "yellow", "kind": "ngo",
-            "text": "Sivil toplum kuruluşu ChemSec'in, AB REACH ölçütlerine göre 'çok yüksek endişe verici' aday gördüğü maddeler listesinde. Resmi bir yasak değildir."},
-}
+WATCH_LISTS = kaynak_json("kozmetik_listeler.json")["listeler"]
 
 # CSV başlıklarında "regulated_by" sütunu var ama satırlarda yok; satırlar bir sütun eksik.
 H2 = ["ref", "inn", "cas", "ec", "regulation", "other_regulations", "sccs", "chemical_name",
@@ -129,41 +118,8 @@ ANIMAL_EXCEPT = re.compile(r"HONEYSUCKLE|GELATINUM|COCONUT MILK|ALMOND MILK|OAT 
 PFAS_RE = re.compile(r"PERFLUOR|POLYPERFLUOR|\bPTFE\b|TETRAFLUOROETHYLENE|TRIFLUORO|NONAFLUORO|"
                      r"TRIDECAFLUORO|HEPTADECAFLUORO|CHLOROTRIFLUOROETHYLENE|FLUOROALKYL")
 
-# CosIng işlev adlarının Türkçesi
-FUNC_TR = {
-    "ABRASIVE": "Aşındırıcı", "ABSORBENT": "Emici", "ADHESIVE": "Yapıştırıcı",
-    "ANTI-SEBORRHEIC": "Seboreye karşı", "ANTISEBORRHOEIC": "Seboreye karşı", "ANTI-SEBUM": "Yağlanmaya karşı",
-    "ANTICAKING": "Topaklanma önleyici", "ANTICORROSIVE": "Korozyon önleyici", "ANTIDANDRUFF": "Kepeğe karşı",
-    "ANTIFOAMING": "Köpük önleyici", "ANTIMICROBIAL": "Antimikrobiyal", "ANTIOXIDANT": "Antioksidan",
-    "ANTIPERSPIRANT": "Ter önleyici", "ANTIPLAQUE": "Diş plağına karşı", "ANTISTATIC": "Antistatik",
-    "ASTRINGENT": "Büzücü", "BINDING": "Bağlayıcı", "BLEACHING": "Ağartıcı", "BUFFERING": "Tampon (pH)",
-    "BULKING": "Dolgu", "CHELATING": "Şelatlayıcı", "CLEANSING": "Temizleyici", "COLORANT": "Renklendirici",
-    "COSMETIC COLORANT": "Renklendirici", "DENATURANT": "Denatüre edici", "DEODORANT": "Deodorant",
-    "DEPILATORY": "Tüy dökücü", "DETANGLING": "Kolay tarama", "DISPERSING NON-SURFACTANT": "Dağıtıcı",
-    "EMOLLIENT": "Yumuşatıcı", "EMULSIFYING": "Emülgatör", "EMULSION STABILISING": "Emülsiyon dengeleyici",
-    "EPILATING": "Ağda", "EXFOLIATING": "Peeling", "EYELASH CONDITIONING": "Kirpik bakımı",
-    "FILM FORMING": "Film oluşturucu", "FLAVOURING": "Aroma verici", "FOAMING": "Köpürtücü",
-    "FRAGRANCE": "Koku", "GEL FORMING": "Jel yapıcı", "HAIR CONDITIONING": "Saç bakımı",
-    "HAIR DYEING": "Saç boyası", "HAIR FIXING": "Saç sabitleyici",
-    "HAIR WAVING OR STRAIGHTENING": "Saç kıvırma/düzleştirme", "HUMECTANT": "Nem tutucu",
-    "KERATOLYTIC": "Keratolitik", "LIGHT STABILIZER": "Işık dengeleyici", "LYTIC": "Çözücü (litik)",
-    "MASKING": "Koku maskeleyici", "MOISTURISING": "Nemlendirici", "NAIL CONDITIONING": "Tırnak bakımı",
-    "NAIL SCULPTING": "Tırnak şekillendirme", "OPACIFYING": "Matlaştırıcı", "ORAL CARE": "Ağız bakımı",
-    "OXIDISING": "Oksitleyici", "PEARLESCENT": "Sedef parlaklığı", "PERFUMING": "Parfüm",
-    "PLASTICISER": "Plastikleştirici", "PRESERVATIVE": "Koruyucu", "PROPELLANT": "İtici gaz",
-    "REDUCING": "İndirgeyici", "REFATTING": "Yağ kazandırıcı", "REFRESHING": "Ferahlatıcı",
-    "SKIN CONDITIONING": "Cilt bakımı", "SKIN CONDITIONING - EMOLLIENT": "Cilt bakımı (yumuşatıcı)",
-    "SKIN CONDITIONING - HUMECTANT": "Cilt bakımı (nem tutucu)",
-    "SKIN CONDITIONING - MISCELLANEOUS": "Cilt bakımı", "SKIN CONDITIONING - OCCLUSIVE": "Cilt bakımı (örtücü)",
-    "SKIN PROTECTING": "Cilt koruyucu", "SLIP MODIFIER": "Kayganlık verici", "SMOOTHING": "Pürüzsüzleştirici",
-    "SOLVENT": "Çözücü", "SOOTHING": "Yatıştırıcı", "STABILISING": "Dengeleyici",
-    "SURFACE MODIFIER": "Yüzey düzenleyici", "SURFACTANT": "Yüzey aktif madde",
-    "SURFACTANT - CLEANSING": "Yüzey aktif (temizleyici)", "SURFACTANT - DISPERSING": "Yüzey aktif (dağıtıcı)",
-    "SURFACTANT - EMULSIFYING": "Yüzey aktif (emülgatör)", "SURFACTANT - FOAM BOOSTING": "Köpük artırıcı",
-    "SURFACTANT - HYDROTROPE": "Hidrotrop", "SURFACTANT - SOLUBILIZING": "Çözündürücü",
-    "TANNING": "Bronzlaştırıcı", "TONIC": "Tonik", "UV ABSORBER": "UV emici", "UV FILTER": "UV filtresi",
-    "VISCOSITY CONTROLLING": "Kıvam düzenleyici", "pH ADJUSTERS": "pH düzenleyici", "NOT REPORTED": None,
-}
+# CosIng işlev adlarının Türkçesi (kaynak/kozmetik_islevler.tsv; boş = gösterilmez)
+FUNC_TR = {r[0]: r[1] or None for r in kaynak_tsv("kozmetik_islevler.tsv")}
 
 
 def clean(s):
@@ -562,18 +518,8 @@ def inci_file(ing):
 # ---------------- Eş anlamlılar ----------------
 ESA = os.path.join(HERE, "kaynak", "kozmetik_esanlamlilar.tsv")
 
-# ABD sertifikalı renklendiricileri (FD&C / D&C adları) -> CI numarası
-US_COLORS = {
-    ("BLUE", 1): "CI 42090", ("BLUE", 4): "CI 42090", ("GREEN", 3): "CI 42053", ("GREEN", 5): "CI 61570",
-    ("GREEN", 6): "CI 61565", ("GREEN", 8): "CI 59040", ("ORANGE", 4): "CI 15510", ("ORANGE", 5): "CI 45370",
-    ("ORANGE", 10): "CI 45425", ("ORANGE", 11): "CI 45425", ("RED", 3): "CI 45430", ("RED", 4): "CI 14700",
-    ("RED", 6): "CI 15850", ("RED", 7): "CI 15850", ("RED", 17): "CI 26100", ("RED", 21): "CI 45380",
-    ("RED", 22): "CI 45380", ("RED", 27): "CI 45410", ("RED", 28): "CI 45410", ("RED", 30): "CI 73360",
-    ("RED", 31): "CI 15800", ("RED", 33): "CI 17200", ("RED", 34): "CI 15880", ("RED", 36): "CI 12085",
-    ("RED", 40): "CI 16035", ("VIOLET", 2): "CI 60725", ("YELLOW", 5): "CI 19140", ("YELLOW", 6): "CI 15985",
-    ("YELLOW", 7): "CI 45350", ("YELLOW", 8): "CI 45350", ("YELLOW", 10): "CI 47005", ("YELLOW", 11): "CI 47000",
-    ("BROWN", 1): "CI 20170",
-}
+# ABD sertifikalı renklendiricileri (FD&C / D&C adları) -> CI numarası (kaynak/kozmetik_abd_renkler.tsv)
+US_COLORS = {(r[0], int(r[1])): r[2] for r in kaynak_tsv("kozmetik_abd_renkler.tsv")}
 
 
 def us_color_aliases():
@@ -587,52 +533,8 @@ def us_color_aliases():
     return out
 
 
-# Türkçe kimyasal ad kuralları: INCI'deki her sözcük bu sözlükte (ya da sayı) ise Türkçe biçim üretilir.
-TR_WORD = {
-    "SODIUM": ["sodyum"], "POTASSIUM": ["potasyum"], "CALCIUM": ["kalsiyum"], "MAGNESIUM": ["magnezyum"],
-    "ZINC": ["çinko"], "ALUMINUM": ["alüminyum"], "AMMONIUM": ["amonyum"], "IRON": ["demir"], "COPPER": ["bakır"],
-    "SILVER": ["gümüş"], "TITANIUM": ["titanyum"], "BARIUM": ["baryum"], "LITHIUM": ["lityum"], "STRONTIUM": ["stronsiyum"],
-    "DISODIUM": ["disodyum"], "TRISODIUM": ["trisodyum"], "TETRASODIUM": ["tetrasodyum"], "DIPOTASSIUM": ["dipotasyum"],
-    "CHLORIDE": ["klorür"], "FLUORIDE": ["florür"], "MONOFLUOROPHOSPHATE": ["monoflorofosfat"], "SULFATE": ["sülfat"],
-    "SULFITE": ["sülfit"], "PHOSPHATE": ["fosfat"], "PYROPHOSPHATE": ["pirofosfat"], "CARBONATE": ["karbonat"],
-    "BICARBONATE": ["bikarbonat"], "HYDROXIDE": ["hidroksit"], "OXIDE": ["oksit"], "DIOXIDE": ["dioksit"],
-    "PEROXIDE": ["peroksit"], "CITRATE": ["sitrat"], "BENZOATE": ["benzoat"], "SORBATE": ["sorbat"], "LACTATE": ["laktat"],
-    "GLUCONATE": ["glukonat"], "SALICYLATE": ["salisilat"], "STEARATE": ["stearat"], "PALMITATE": ["palmitat"],
-    "ACETATE": ["asetat"], "NITRATE": ["nitrat"], "SILICATE": ["silikat"], "HYALURONATE": ["hyalüronat", "hiyalüronat"],
-    "ASCORBATE": ["askorbat"], "GLUTAMATE": ["glutamat"], "THIOGLYCOLATE": ["tiyoglikolat"], "LAURATE": ["laurat"],
-    "MYRISTATE": ["miristat"], "OLEATE": ["oleat"], "COCOATE": ["kokoat"], "ISETHIONATE": ["izetiyonat"],
-    "SACCHARIN": ["sakarin"], "EDTA": ["edta"], "PCA": ["pca"],
-    "ACID": ["asit", "asidi"], "CITRIC": ["sitrik"], "LACTIC": ["laktik"], "GLYCOLIC": ["glikolik"], "SALICYLIC": ["salisilik"],
-    "ASCORBIC": ["askorbik"], "HYALURONIC": ["hyalüronik", "hiyalüronik"], "STEARIC": ["stearik"], "BENZOIC": ["benzoik"],
-    "SORBIC": ["sorbik"], "MALIC": ["malik"], "TARTARIC": ["tartarik"], "KOJIC": ["kojik"], "AZELAIC": ["azelaik"],
-    "MANDELIC": ["mandelik"], "FERULIC": ["ferulik"], "PHYTIC": ["fitik"], "LINOLEIC": ["linoleik"], "OLEIC": ["oleik"],
-    "PALMITIC": ["palmitik"], "MYRISTIC": ["miristik"], "LAURIC": ["laurik"], "THIOGLYCOLIC": ["tiyoglikolik"],
-    "FORMIC": ["formik"], "ACETIC": ["asetik"], "BORIC": ["borik"], "PHOSPHORIC": ["fosforik"], "GLUTAMIC": ["glutamik"],
-    "DEHYDROACETIC": ["dehidroasetik"], "UNDECYLENIC": ["undesilenik"],
-    "ALCOHOL": ["alkol"], "CETYL": ["setil"], "CETEARYL": ["setearil"], "STEARYL": ["stearil"], "BENZYL": ["benzil"],
-    "LAURYL": ["lauril"], "MYRISTYL": ["miristil"], "BEHENYL": ["behenil"], "ISOPROPYL": ["izopropil"],
-    "ETHYLHEXYL": ["etilheksil"], "OCTYLDODECANOL": ["oktildodekanol"], "GLYCERIN": ["gliserin"], "GLYCERYL": ["gliseril"],
-    "GLYCOL": ["glikol"], "PROPYLENE": ["propilen"], "BUTYLENE": ["bütilen"], "PENTYLENE": ["pentilen"],
-    "HEXYLENE": ["heksilen"], "CAPRYLYL": ["kaprilil"], "LAURETH": ["lauret", "laureth"], "COCAMIDOPROPYL": ["kokamidopropil"],
-    "BETAINE": ["betain"], "GLUCOSIDE": ["glukozit", "glikozit"], "DECYL": ["desil"], "HYDRATED": ["hidratlı"],
-    "SILICA": ["silika"], "DIMETHICONE": ["dimetikon"], "DIMETHICONOL": ["dimetikonol"],
-    "CYCLOPENTASILOXANE": ["siklopentasiloksan"], "CYCLOHEXASILOXANE": ["siklohekzasiloksan", "siklohegzasiloksan"],
-    "PHENOXYETHANOL": ["fenoksietanol"], "METHYLPARABEN": ["metilparaben"], "ETHYLPARABEN": ["etilparaben"],
-    "PROPYLPARABEN": ["propilparaben"], "BUTYLPARABEN": ["bütilparaben"], "PARAFFIN": ["parafin"],
-    "TALC": ["talk"], "UREA": ["üre"], "CAFFEINE": ["kafein"], "MENTHOL": ["mentol"], "CAMPHOR": ["kafur", "kâfur"],
-    "ALLANTOIN": ["alantoin"], "PANTHENOL": ["pantenol"], "NIACINAMIDE": ["niasinamid", "niyasinamid"],
-    "TOCOPHEROL": ["tokoferol"], "TOCOPHERYL": ["tokoferil"], "RETINYL": ["retinil"], "SQUALANE": ["skualan"],
-    "CARBOMER": ["karbomer"], "TRIETHANOLAMINE": ["trietanolamin"], "XANTHAN": ["ksantan"], "GUM": ["gam", "sakızı"],
-    "POLYSORBATE": ["polisorbat"], "SORBITAN": ["sorbitan"], "LIMONENE": ["limonen"], "LINALOOL": ["linalol"],
-    "CITRONELLOL": ["sitronellol"], "CITRAL": ["sitral"], "EUGENOL": ["öjenol"], "COUMARIN": ["kumarin"],
-    "HYDROGENATED": ["hidrojene"], "STEARETH": ["stearet"], "CETEARETH": ["setearet"], "CHLORHEXIDINE": ["klorheksidin"],
-    "TRICLOSAN": ["triklosan"], "HYDROQUINONE": ["hidrokinon"], "FORMALDEHYDE": ["formaldehit"],
-    "METHYLISOTHIAZOLINONE": ["metilizotiyazolinon"], "METHYLCHLOROISOTHIAZOLINONE": ["metilkloroizotiyazolinon"],
-    "HYDANTOIN": ["hidantoin"], "IMIDAZOLIDINYL": ["imidazolidinil"], "DIAZOLIDINYL": ["diazolidinil"],
-    "SORBITOL": ["sorbitol"], "KAOLIN": ["kaolin"], "MICA": ["mika"], "LANOLIN": ["lanolin"], "RETINOL": ["retinol"],
-    "PEG": ["peg"], "PPG": ["ppg"], "DMDM": ["dmdm"], "BENTONITE": ["bentonit"], "ZEOLITE": ["zeolit"],
-    "SALT": ["tuzu"], "CHLORHYDRATE": ["klorhidrat"], "CHLOROHYDRATE": ["klorohidrat"], "TRIGLYCERIDE": ["trigliserit"],
-}
+# Türkçe kimyasal ad kuralları (kaynak/kozmetik_tr_sozcukler.tsv): INCI'deki her sözcük bu sözlükte (ya da sayı) ise Türkçe biçim üretilir.
+TR_WORD = {r[0]: r[1].split(";") for r in kaynak_tsv("kozmetik_tr_sozcukler.tsv")}
 
 
 def tr_rule_aliases(names):
@@ -697,7 +599,7 @@ def build_aliases(inci_names, reg_names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cosing", default=os.environ.get("COSING_DIR", os.path.join(HERE, "..", "cosing", "data")))
+    ap.add_argument("--cosing", default=os.environ.get("COSING_DIR", COSING_DIR))
     a = ap.parse_args()
     if not os.path.exists(os.path.join(a.cosing, "annex.II.csv")):
         sys.exit("CosIng verisi bulunamadı: %s (betiğin başındaki kullanım notuna bakın)" % a.cosing)

@@ -1,0 +1,13 @@
+# Birleşik zararlılık ifadeleri (etikette tek cümle). Sütunlar: kodlar (; ile)<TAB>TR<TAB>EN
+H300;H310	Yutulması halinde veya ciltle teması halinde öldürücüdür.	Fatal if swallowed or in contact with skin.
+H300;H330	Yutulduğunda veya solunduğunda öldürücüdür.	Fatal if swallowed or if inhaled.
+H310;H330	Ciltle temas ettiğinde veya solunduğunda öldürücüdür.	Fatal in contact with skin or if inhaled.
+H300;H310;H330	Yutulduğunda, ciltle temas ettiğinde veya solunduğunda öldürücüdür.	Fatal if swallowed, in contact with skin or if inhaled.
+H301;H311	Yutulması halinde veya ciltle teması halinde toksiktir.	Toxic if swallowed or in contact with skin.
+H301;H331	Yutulduğunda veya solunduğunda toksiktir.	Toxic if swallowed or if inhaled.
+H311;H331	Cilt ile teması halinde veya solunduğunda toksiktir.	Toxic in contact with skin or if inhaled.
+H301;H311;H331	Yutulduğunda, ciltle temas ettiğinde veya solunduğunda toksiktir.	Toxic if swallowed, in contact with skin or if inhaled.
+H302;H312	Yutulması halinde veya ciltle teması halinde zararlıdır.	Harmful if swallowed or in contact with skin.
+H302;H332	Yutulduğunda veya solunduğunda zararlıdır.	Harmful if swallowed or if inhaled.
+H312;H332	Ciltle temas ettiğinde veya solunduğunda zararlıdır.	Harmful in contact with skin or if inhaled.
+H302;H312;H332	Yutulduğunda, ciltle temas ettiğinde veya solunduğunda zararlıdır.	Harmful if swallowed, in contact with skin or if inhaled.
