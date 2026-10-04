@@ -148,7 +148,7 @@ EUH = [
  ["EUH208", Y, "alerji", "içerir. Alerjik reaksiyona yol açabilir.", "May produce an allergic reaction.", "Ürün, alerjisi olan kişilerde reaksiyon başlatabilecek bir madde içeriyor. Maddenin adı ifadenin içinde yazılır."],
  ["EUH209", I, "diger", "Kullanım sırasında kolay alevlenir hale gelebilir.", "Can become highly flammable in use.", ""],
  ["EUH209A", I, "diger", "Kullanım sırasında alevlenir hale gelebilir.", "Can become flammable in use.", ""],
- ["EUH210", I, "diger", "Talep halinde güvenlik bilgi formu temin edilebilir.", "Safety data sheet available on request.", "Ürünün ayrıntılı güvenlik bilgi formu üreticiden istenebilir."],
+ ["EUH210", I, "diger", "Talep halinde güvenlik bilgi formu sağlanabilir.", "Safety data sheet available on request.", "Ürünün ayrıntılı güvenlik bilgi formu üreticiden istenebilir."],
  ["EUH211", Y, "solunum", "Uyarı! Püskürtüldüğünde tehlikeli solunabilir damlacıklar oluşabilir. Spreyi veya buharı solumayın.", "Warning! Hazardous respirable droplets may be formed when sprayed. Do not breathe spray or mist.", ""],
  ["EUH212", Y, "solunum", "Uyarı! Kullanıldığında tehlikeli solunabilir toz oluşabilir. Tozu solumayın.", "Warning! Hazardous respirable dust may be formed when used. Do not breathe dust.", ""],
  ["EUH380", R, "endokrin", "İnsanlarda endokrin bozulmaya yol açabilir.", "May cause endocrine disruption in humans.", "AB'nin 2023'te eklediği endokrin bozucu tehlike sınıfı (kategori 1)."],
@@ -161,6 +161,69 @@ EUH = [
  ["EUH451", Y, "cevre", "Su kaynaklarında çok uzun süreli ve yaygın kirlenmeye yol açabilir.", "Can cause very long-lasting and diffuse contamination of water resources.", ""],
  ["EUH401", I, "diger", "İnsan sağlığı ve çevre için risklerden kaçınmak için kullanım talimatlarına uyun.", "To avoid risks to human health and the environment, comply with the instructions for use.", ""],
 ]
+
+# Türkçe metni güvenlik bilgi formlarında (Bosch, EDQM SDS TR) ya da SEA'ya dayalı etiketleme kılavuzunda (CRAD) görülerek doğrulanan EUH ifadeleri
+EUH_VERIFIED = {"EUH208", "EUH210", "EUH066", "EUH206"}
+SDS_TR = ["https://www.bosch-pt.com/msds/_res/media/tr/1605430014_TR-tr_00635-0052_1,0.pdf",
+          "https://sds.edqm.eu/pdf/SDS/EDQM_202300230_1.0_SDS_TR.pdf",
+          "https://www.crad.com.tr/UPLOAD/URUN/FILES/ZararliKimyasallarinMevzuataUygunEtiketlenmesi-221724484.pdf"]
+# Eski ya da farklı firma çevirileri: aynı ifadeye bağlanır
+TR_ALT = {"EUH210": ["Talep halinde güvenlik bilgi formu temin edilebilir."],
+          "H361fd": ["Doğurganlığı muhtemelen kısıtlayabilir. Çocuğa anne karnında muhtemelen zarar verebilir."]}
+
+# Önlem ifadeleri (P). Tüketici ürünlerinde sık görülenler. [kod, TR, EN, ilk_yardim?]
+# TR: EDQM SDS TR'de görülenler birebir; diğerleri çeviri (needs_review).
+P_SEEN = {"P201", "P202", "P260", "P263", "P264", "P270", "P271", "P280", "P301+P312", "P304+P340", "P308+P313", "P312", "P330", "P403+P233", "P405", "P501"}
+PREC = [
+ ["P101", "Tıbbi tavsiye gerekirse ürün kabını veya etiketini yanınızda bulundurun.", "If medical advice is needed, have product container or label at hand.", 1],
+ ["P102", "Çocukların erişemeyeceği yerde saklayın.", "Keep out of reach of children.", 0],
+ ["P103", "Kullanmadan önce etiketi okuyun.", "Read label before use.", 0],
+ ["P201", "Kullanmadan önce özel talimatları okuyun.", "Obtain special instructions before use.", 0],
+ ["P202", "Bütün önlem ifadeleri okunup anlaşılmadan elleçlemeyin.", "Do not handle until all safety precautions have been read and understood.", 0],
+ ["P210", "Isıdan, sıcak yüzeylerden, kıvılcımdan, açık alevden ve diğer tutuşturucu kaynaklardan uzak tutun. Sigara içilmez.", "Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No smoking.", 0],
+ ["P211", "Açık aleve veya diğer tutuşturucu kaynaklara püskürtmeyin.", "Do not spray on an open flame or other ignition source.", 0],
+ ["P251", "Delmeyin veya yakmayın, kullandıktan sonra bile.", "Do not pierce or burn, even after use.", 0],
+ ["P260", "Tozunu/dumanını/gazını/sisini/buharını/spreyini solumayın.", "Do not breathe dust/fume/gas/mist/vapours/spray.", 0],
+ ["P261", "Tozunu/dumanını/gazını/sisini/buharını/spreyini solumaktan kaçının.", "Avoid breathing dust/fume/gas/mist/vapours/spray.", 0],
+ ["P262", "Gözlerle, ciltle veya giysilerle temasından kaçının.", "Do not get in eyes, on skin, or on clothing.", 0],
+ ["P263", "Gebelik sırasında ve emzirirken temastan kaçının.", "Avoid contact during pregnancy and while nursing.", 0],
+ ["P264", "Elleçlemeden sonra elleri, kolları ve yüzü iyice yıkayın.", "Wash hands thoroughly after handling.", 0],
+ ["P270", "Bu ürünü kullanırken hiçbir şey yemeyin, içmeyin veya sigara içmeyin.", "Do not eat, drink or smoke when using this product.", 0],
+ ["P271", "Sadece dışarıda veya iyi havalandırılan bir alanda kullanın.", "Use only outdoors or in a well-ventilated area.", 0],
+ ["P273", "Çevreye verilmesinden kaçının.", "Avoid release to the environment.", 0],
+ ["P280", "Koruyucu eldiven/koruyucu kıyafet/göz koruyucu/yüz koruyucu kullanın.", "Wear protective gloves/protective clothing/eye protection/face protection.", 0],
+ ["P301+P310", "YUTULDUĞUNDA: Hemen ZEHİR DANIŞMA MERKEZİNİ veya doktoru arayın.", "IF SWALLOWED: Immediately call a POISON CENTER/doctor.", 1],
+ ["P301+P312", "YUTULDUĞUNDA: Kendinizi iyi hissetmezseniz ZEHİR MERKEZİNİ veya doktoru arayın.", "IF SWALLOWED: Call a POISON CENTER/doctor if you feel unwell.", 1],
+ ["P301+P330+P331", "YUTULDUĞUNDA: Ağzınızı çalkalayın. KUSTURMAYIN.", "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting.", 1],
+ ["P302+P352", "CİLT İLE TEMAS HALİNDE: Bol su ile yıkayın.", "IF ON SKIN: Wash with plenty of water.", 1],
+ ["P303+P361+P353", "CİLT (veya saç) İLE TEMAS HALİNDE: Kirlenmiş giysilerin hepsini hemen çıkarın. Cildi su ile durulayın.", "IF ON SKIN (or hair): Take off immediately all contaminated clothing. Rinse skin with water.", 1],
+ ["P304+P340", "SOLUNMASI HALİNDE: Kişiyi temiz havaya çıkarın ve rahat nefes alabileceği bir pozisyonda tutun.", "IF INHALED: Remove person to fresh air and keep comfortable for breathing.", 1],
+ ["P305+P351+P338", "GÖZLE TEMASI HALİNDE: Su ile birkaç dakika dikkatlice durulayın. Varsa ve yapması kolaysa kontakt lensleri çıkarın. Durulamaya devam edin.", "IF IN EYES: Rinse cautiously with water for several minutes. Remove contact lenses, if present and easy to do. Continue rinsing.", 1],
+ ["P308+P313", "Maruz kalma veya etkilenme halinde: Tıbbi yardım/bakım alın.", "IF exposed or concerned: Get medical advice/attention.", 1],
+ ["P310", "Hemen ZEHİR DANIŞMA MERKEZİNİ veya doktoru arayın.", "Immediately call a POISON CENTER/doctor.", 1],
+ ["P312", "Kendinizi iyi hissetmezseniz ZEHİR MERKEZİNİ veya doktoru arayın.", "Call a POISON CENTER/doctor if you feel unwell.", 1],
+ ["P313", "Tıbbi yardım/bakım alın.", "Get medical advice/attention.", 1],
+ ["P330", "Ağzınızı çalkalayın.", "Rinse mouth.", 1],
+ ["P331", "KUSTURMAYIN.", "Do NOT induce vomiting.", 1],
+ ["P332+P313", "Ciltte tahriş oluşursa: Tıbbi yardım/bakım alın.", "If skin irritation occurs: Get medical advice/attention.", 1],
+ ["P333+P313", "Ciltte tahriş veya kızarıklık oluşursa: Tıbbi yardım/bakım alın.", "If skin irritation or rash occurs: Get medical advice/attention.", 1],
+ ["P337+P313", "Göz tahrişi devam ederse: Tıbbi yardım/bakım alın.", "If eye irritation persists: Get medical advice/attention.", 1],
+ ["P391", "Döküntüyü toplayın.", "Collect spillage.", 0],
+ ["P403+P233", "İyi havalandırılmış bir alanda depolayın. Kabı sıkıca kapalı tutun.", "Store in a well-ventilated place. Keep container tightly closed.", 0],
+ ["P405", "Kilit altında saklayın.", "Store locked up.", 0],
+ ["P410", "Güneş ışığından koruyun.", "Protect from sunlight.", 0],
+ ["P410+P412", "Güneş ışığından koruyun. 50 °C üzerindeki sıcaklıklara maruz bırakmayın.", "Protect from sunlight. Do not expose to temperatures exceeding 50 °C/122 °F.", 0],
+ ["P501", "İçeriği/kabı yerel, bölgesel, ulusal ve/veya uluslararası düzenlemelere uygun olarak bertaraf edin.", "Dispose of contents/container in accordance with local/regional/national/international regulations.", 0],
+]
+
+# Sıvı çamaşır deterjanı kapsülleri: CLP Ek II 3.3 (AB 1297/2014 ile eklendi)
+CAPSULE = {
+ "pat": [r"kaps[uü]l", r"(?:^|[^a-z])capsules?(?![a-z])", r"(?:^|[^a-z])pods?(?![a-z])", r"suda" + r"[^a-z0-9%]+" + r"(?:cozunen|eriyen)" + r"[^a-z0-9%]+" + r"(?:film|ambalaj|paket)", r"water" + r"[^a-z0-9%]+" + r"soluble" + r"[^a-z0-9%]+" + r"(?:film|pouch|packaging)"],
+ "title": "Deterjan kapsülü: çocuklar için ayrı dikkat",
+ "text": "Sıvı çamaşır deterjanı kapsülleri AB'de özel kurallara bağlıdır (CLP Ek II 3.3): dış ambalaj içini göstermeyen, çocuğun açmakta zorlanacağı kilitli kapaklı olmalı ve üzerinde “Çocukların erişemeyeceği yerde saklayın” (P102) yazmalıdır. Kapsülün filminde ağza alınınca 6 saniye içinde tükürtecek acı bir madde bulunmalı, film 30 saniye suya ve 300 N basınca dayanmalıdır. Bu kurallar, kapsülleri şekere benzeten küçük çocuklarda yutma ve göze kaçma kazaları yüzünden getirildi.",
+ "sources": ["https://reachonline.eu/clp/en/annex-ii-3-3.3.html", "https://www.legislation.gov.uk/eur/2014/1297/introduction"],
+}
+UZEM = "Türkiye'de Ulusal Zehir Danışma Merkezi (UZEM): 114."
 
 GROUP_LABEL = {"cilt_goz": "Cilt ve göz", "solunum": "Solunum", "yutma": "Yutma", "zehir": "Zehirlilik",
                "cmr": "Kanser, genetik hasar, üreme (CMR)", "organ": "Organ hasarı", "cevre": "Çevre",
@@ -313,9 +376,19 @@ def main():
         e = {"code": code, "level": lvl, "group": grp, "tr": tr, "en": en}
         if note:
             e["note"] = note
-        if code.startswith("EUH"):
+        if code.startswith("EUH") and code not in EUH_VERIFIED:
             e["needs_review"] = True   # Türkçe metin SEA Ek-2 ile birebir karşılaştırılmadı
+        if code in TR_ALT:
+            e["alt"] = TR_ALT[code]
         hz.append(e)
+    prec = []
+    for code, tr, en, aid in PREC:
+        e = {"code": code, "tr": tr, "en": en}
+        if aid:
+            e["aid"] = True
+        if code not in P_SEEN:
+            e["needs_review"] = True
+        prec.append(e)
     for c in HCOMB:
         for x in c[0]:
             assert x in seen, x
@@ -334,12 +407,13 @@ def main():
         },
         "hazards": hz,
         "combos": [{"codes": c[0], "tr": c[1], "en": c[2]} for c in HCOMB],
-        "groups": GROUPS, "subs": SUBS, "aliases": aliases, "mix_rule": MIX_RULE,
+        "groups": GROUPS, "subs": SUBS, "aliases": aliases,
+        "precautions": prec, "capsule": CAPSULE, "uzem": UZEM, "sds_tr": SDS_TR, "mix_rule": MIX_RULE,
     }
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
-    print("temizlik.json: %d ifade (%d EUH), %d birleşik, %d grup, %d madde notu, %d eş anlamlı" % (
-        len(hz), len(EUH), len(HCOMB), len(GROUPS), len(SUBS), len(aliases)))
+    print("temizlik.json: %d ifade (%d EUH), %d birleşik, %d önlem, %d grup, %d madde notu, %d eş anlamlı" % (
+        len(hz), len(EUH), len(HCOMB), len(prec), len(GROUPS), len(SUBS), len(aliases)))
 
 
 if __name__ == "__main__":

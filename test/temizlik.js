@@ -81,6 +81,23 @@ AL.forEach(([t,yes,no,chk],i)=>{
   if(chk)ok(chk(A,S),'eş '+i+': ek denetim '+JSON.stringify({color:S.color,pres:S.pres,groups:A.groups.map(g=>g.id),subs:A.subs.map(x=>x.s.id)}));
 });
 
+// Önlem ifadeleri, kapsül, EUH208 içindeki ad, "yol açar" biçimi (H371 metni H370'e kaymamalı)
+{
+ const t="Sıvı çamaşır deterjanı kapsülü. 1,2-benzisotiyazol-3(2H)-on içerir. Alerjik reaksiyona yol açabilir. P102 Çocukların erişemeyeceği yerde saklayın. P305+P351+P338 GÖZLE TEMASI HALİNDE: Su ile birkaç dakika dikkatlice durulayın. YUTULDUĞUNDA: Hemen ZEHİR DANIŞMA MERKEZİNİ veya doktoru arayın. Talep halinde güvenlik bilgi formu temin edilebilir.";
+ const A=TL.analyzeT(t,T,K);
+ ok(A.capsule,'kapsül bulunmadı');
+ ok(same(A.prec.map(x=>x.code),['P102','P305+P351+P338','P301+P310']),'önlem '+JSON.stringify(A.prec.map(x=>x.code)));
+ ok(JSON.stringify(A.euh208)===JSON.stringify(['1,2-benzisotiyazol-3(2H)-on']),'EUH208 adı '+JSON.stringify(A.euh208));
+ ok(A.hazards.some(x=>x.code==='EUH210'),'EUH210 eski çeviri');
+ ok(!TL.analyzeT("Bulaşık makinesi kapsülü. Ciddi göz hasarına yol açar.",T,K).capsule,'bulaşık kapsülü çamaşır kuralına girmemeli');
+ ok(same(TL.analyzeT("Organlarda hasara yol açabilir.",T,K).hazards.map(x=>x.code),['H371']),'H371');
+ ok(same(TL.analyzeT("Organlarda hasara yol açar.",T,K).hazards.map(x=>x.code),['H370']),'H370');
+ ok(same(TL.analyzeT("Alerjik cilt reaksiyonlarına yol açar.",T,K).hazards.map(x=>x.code),['H317']),'H317 yol açar');
+ ok(same(TL.analyzeT("EUH208: Contains Linalool, Limonene. May produce an allergic reaction.",T,K).euh208,['Linalool, Limonene']),'EUH208 İngilizce');
+ ok(tdb.precautions.length>=35&&tdb.precautions.every(p=>p.tr&&p.en),'önlem verisi');
+ ok(!T.byCode.EUH208.needs_review&&!T.byCode.EUH210.needs_review&&T.byCode.EUH071.needs_review,'EUH doğrulama bayrakları');
+}
+
 // Yanlış eşleşme olmamalı: gıda ve kozmetik etiketleri
 const FOOD="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, koruyucu (E 202), aroma verici. Enerji 450 kcal. Fındık içerebilir.";
 const COS="Ingredients: Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Parfum, Citric Acid, Sodium Benzoate, Linalool.";
