@@ -188,7 +188,7 @@ function renderK(res){
   comboSection(box,findCombos(COMBO,"koz",comboItemsK(res)));
   var W=res.filter(function(r){return r.found&&r.rank>0}).sort(function(a,b){return b.rank-a.rank||a.pos-b.pos});
   if(W.length){box.appendChild(el("h2",null,"Dikkat Gerektiren Bileşenler"));W.forEach(function(r){box.appendChild(kCard(r))})}
-  box.appendChild(el("h2",null,"Tüm Bileşenler"));
+  var tb=secBox(box,"Tüm Bileşenler",res.length);
   var ol=el("ol","klist");
   res.forEach(function(r){
     var li=el("li");
@@ -201,13 +201,13 @@ function renderK(res){
     kChips(r).forEach(function(c){li.appendChild(el("span","chip",c))});
     ol.appendChild(li);
   });
-  box.appendChild(ol);
+  tb.appendChild(ol);
   if(res.extra&&res.extra.length){
     var dx=el("details","gz");dx.appendChild(el("summary",null,"Bileşen listesi dışında kalan metin ("+res.extra.length+")"));
     var ul=el("ul");res.extra.forEach(function(x){ul.appendChild(el("li",null,x))});dx.appendChild(ul);
     dx.appendChild(el("div","how","Kullanım talimatı, adres gibi bölümler analiz edilmez. Burada bir bileşen adı görürseniz “Okunan Metin” bölümünde önüne virgül ekleyin."));
-    box.appendChild(dx);
+    tb.appendChild(dx);
   }
   if(S.parfum)box.appendChild(el("div","ln nt","“Parfum” tek bir ad altında çok sayıda koku maddesini kapsar. Yalnızca etiketlenmesi zorunlu koku alerjenleri, belirli bir oranı aşınca ayrıca yazılır."));
-  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle 2023 sonuna kadar uyumludur; sonraki AB değişikliklerinin Türkiye durumu kartlarda yazar. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları, gözenek tıkayıcılık testleri (Fulton 1989)."));
+  box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle 2023 sonuna kadar uyumludur; sonraki AB değişikliklerinin Türkiye durumu kartlarda yazar. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları, gözenek tıkayıcılık testleri (Fulton 1989)."));
 }
