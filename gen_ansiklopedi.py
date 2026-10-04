@@ -112,70 +112,83 @@ def main():
         else:
             ev = rid + ".eval"
             T[ev] = it["reason"]
+        fl = it["flags"]
+        if rid in about:
+            T[rid + ".summary"] = about[rid]
+        vegan = "no" if ("non_vegan" in fl or "insect_derived" in fl) else "unknown"
+        source = ("insect" if "insect_derived" in fl else "animal" if ("non_vegan" in fl or "non_vegetarian" in fl)
+                  else "plant_or_animal" if "vegan_suspect" in fl else "unknown")
+        regs = []
+        urls = list(it.get("sources") or [])
+        for a in it["agencies"]:
+            g = AG[a]
+            regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"], "detail": "agency." + a,
+                         "year": g["year"], "source_url": ""})   # dayanağı Kaynaklar sekmesinde
+        st = EU_STATUS.get(it.get("eu_status"))
+        if st and not any(g["region"] == "EU" and g["status"] in ("banned", "withdrawn", "not_listed") for g in regs):
+            T[rid + ".reg.eu"] = st[1]
+            regs.append({"agency": "Avrupa Komisyonu", "region": "EU", "status": st[0], "detail": rid + ".reg.eu",
+                         "year": None, "source_url": ""})
+        if it.get("tgk_name") and "TR_withdrawn_2024" not in it["agencies"]:
+            regs.append({"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved",
+                         "detail": "reg.tr_listed", "year": 2013, "source_url": SRC["tgk2013"]["url"]})
+        pws = []
+        for f in fl:
+            for n, w in enumerate(FL.get(f, [])):
+                if not any(p["profile"] == w["profile"] for p in pws):
+                    pws.append({"profile": w["profile"], "severity": w["severity"], "text": "flag.%s.%d" % (f, n)})
+        if it.get("adi") and it["adi"].get("url"):
+            urls.append(it["adi"]["url"])
+        srcs, seen = [], set()
+        for u in urls:
+            if u not in seen:
+                seen.add(u)
+                srcs.append(url_src(u))
+        if it.get("tgk_name"):
+            srcs.append(src_obj("tgk2013"))
+        same = sorted((x for x in bycat[it["category"]] if x != rid), key=lambda x: (abs(num(x) - num(rid)), x))
+        r.update({"evidence_level": None, "summary": rid + ".summary" if rid in about else None, "evaluation": ev,
+                  "content": {"what_it_does": "cat." + cat["code"] + ".what", "found_in": [], "in_the_body": None},
+                  "diet_flags": {"vegan": vegan, "source": source, "gluten": "unknown"},
+                  "regulatory": regs, "profile_warnings": pws, "related_ids": same[:4], "sources": srcs,
+                  "last_reviewed": None})
+        # Elle incelenen kayıt: yazılan alanlar otomatik olanların yerine geçer; yazılmayanlar (kurumlar,
+        # profil uyarıları, benzer maddeler, diyet) otomatik kalır. Kaynaklar birleştirilir (önce elle yazılanlar).
         if cur:
-            T[rid + ".summary"] = cur["summary"]
+            r["review"] = "curated"
+            if cur.get("summary"):
+                T[rid + ".summary"] = cur["summary"]
+                r["summary"] = rid + ".summary"
             T[rid + ".what"] = cur["what_it_does"]
             T[rid + ".body"] = cur["in_the_body"]
             for n, x in enumerate(cur["found_in"]):
                 T["%s.found.%d" % (rid, n)] = x
-            regs = []
-            for n, g in enumerate(cur["regulatory"]):
-                T["%s.reg.%d" % (rid, n)] = g["detail"]
-                regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"],
-                             "detail": "%s.reg.%d" % (rid, n), "year": g["year"], "source_url": SRC[g["src"]]["url"]})
-            pws = []
-            for n, w in enumerate(cur["profile_warnings"]):
-                T["%s.pw.%d" % (rid, n)] = w["text"]
-                pws.append({"profile": w["profile"], "severity": w["severity"], "text": "%s.pw.%d" % (rid, n)})
-            r.update({"evidence_level": cur["evidence_level"], "summary": rid + ".summary",
-                      "evaluation": ev,
-                      "content": {"what_it_does": rid + ".what",
-                                  "found_in": ["%s.found.%d" % (rid, n) for n in range(len(cur["found_in"]))],
-                                  "in_the_body": rid + ".body"},
-                      "diet_flags": cur["diet_flags"], "regulatory": regs, "profile_warnings": pws,
-                      "related_ids": cur["related_ids"], "sources": [src_obj(s) for s in cur["sources"]],
-                      "last_reviewed": cur["last_reviewed"]})
-        else:
-            fl = it["flags"]
-            if rid in about:
-                T[rid + ".summary"] = about[rid]
-            vegan = "no" if ("non_vegan" in fl or "insect_derived" in fl) else "unknown"
-            source = ("insect" if "insect_derived" in fl else "animal" if ("non_vegan" in fl or "non_vegetarian" in fl)
-                      else "plant_or_animal" if "vegan_suspect" in fl else "unknown")
-            regs = []
-            urls = list(it.get("sources") or [])
-            for a in it["agencies"]:
-                g = AG[a]
-                regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"], "detail": "agency." + a,
-                             "year": g["year"], "source_url": ""})   # dayanağı Kaynaklar sekmesinde
-            st = EU_STATUS.get(it.get("eu_status"))
-            if st and not any(g["region"] == "EU" and g["status"] in ("banned", "withdrawn", "not_listed") for g in regs):
-                T[rid + ".reg.eu"] = st[1]
-                regs.append({"agency": "Avrupa Komisyonu", "region": "EU", "status": st[0], "detail": rid + ".reg.eu",
-                             "year": None, "source_url": ""})
-            if it.get("tgk_name") and "TR_withdrawn_2024" not in it["agencies"]:
-                regs.append({"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved",
-                             "detail": "reg.tr_listed", "year": 2013, "source_url": SRC["tgk2013"]["url"]})
-            pws = []
-            for f in fl:
-                for n, w in enumerate(FL.get(f, [])):
-                    if not any(p["profile"] == w["profile"] for p in pws):
-                        pws.append({"profile": w["profile"], "severity": w["severity"], "text": "flag.%s.%d" % (f, n)})
-            if it.get("adi") and it["adi"].get("url"):
-                urls.append(it["adi"]["url"])
-            srcs, seen = [], set()
-            for u in urls:
-                if u not in seen:
-                    seen.add(u)
-                    srcs.append(url_src(u))
-            if it.get("tgk_name"):
-                srcs.append(src_obj("tgk2013"))
-            same = sorted((x for x in bycat[it["category"]] if x != rid), key=lambda x: (abs(num(x) - num(rid)), x))
-            r.update({"evidence_level": None, "summary": rid + ".summary" if rid in about else None, "evaluation": ev,
-                      "content": {"what_it_does": "cat." + cat["code"] + ".what", "found_in": [], "in_the_body": None},
-                      "diet_flags": {"vegan": vegan, "source": source, "gluten": "unknown"},
-                      "regulatory": regs, "profile_warnings": pws, "related_ids": same[:4], "sources": srcs,
-                      "last_reviewed": None})
+            r["content"] = {"what_it_does": rid + ".what",
+                            "found_in": ["%s.found.%d" % (rid, n) for n in range(len(cur["found_in"]))],
+                            "in_the_body": rid + ".body"}
+            if "regulatory" in cur:
+                regs = []
+                for n, g in enumerate(cur["regulatory"]):
+                    T["%s.reg.%d" % (rid, n)] = g["detail"]
+                    regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"],
+                                 "detail": "%s.reg.%d" % (rid, n), "year": g["year"], "source_url": SRC[g["src"]]["url"]})
+                r["regulatory"] = regs
+            for n, g in enumerate(cur.get("regulatory_extra", [])):   # otomatik kurum satırlarına ek
+                T["%s.regx.%d" % (rid, n)] = g["detail"]
+                r["regulatory"].insert(n, {"agency": g["agency"], "region": g["region"], "status": g["status"],
+                                           "detail": "%s.regx.%d" % (rid, n), "year": g["year"], "source_url": SRC[g["src"]]["url"]})
+            if "profile_warnings" in cur:
+                pws = []
+                for n, w in enumerate(cur["profile_warnings"]):
+                    T["%s.pw.%d" % (rid, n)] = w["text"]
+                    pws.append({"profile": w["profile"], "severity": w["severity"], "text": "%s.pw.%d" % (rid, n)})
+                r["profile_warnings"] = pws
+            for k in ("diet_flags", "related_ids", "evidence_level", "last_reviewed"):
+                if k in cur:
+                    r[k] = cur[k]
+            mine = [src_obj(x) for x in cur["sources"]]
+            have = set(x["url"] for x in mine)
+            r["sources"] = mine + [x for x in r["sources"] if x["url"] not in have]
         recs.append(r)
 
     ids = set(by)
