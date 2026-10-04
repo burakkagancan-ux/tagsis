@@ -509,7 +509,10 @@
    "level": "red",
    "group": "cmr",
    "tr": "Üremeye zarar verme şüphesi var. Doğmamış çocukta hasara yol açma şüphesi var.",
-   "en": "Suspected of damaging fertility. Suspected of damaging the unborn child."
+   "en": "Suspected of damaging fertility. Suspected of damaging the unborn child.",
+   "alt": [
+    "Doğurganlığı muhtemelen kısıtlayabilir. Çocuğa anne karnında muhtemelen zarar verebilir."
+   ]
   },
   {
    "code": "H362",
@@ -658,8 +661,7 @@
    "group": "cilt_goz",
    "tr": "Tekrarlı maruz kalmalarda ciltte kuruluğa ve çatlaklara neden olabilir.",
    "en": "Repeated exposure may cause skin dryness or cracking.",
-   "note": "Sık temasta cildi kurutup çatlatabilir.",
-   "needs_review": true
+   "note": "Sık temasta cildi kurutup çatlatabilir."
   },
   {
    "code": "EUH070",
@@ -732,8 +734,7 @@
    "group": "karistirma",
    "tr": "Dikkat! Diğer ürünlerle birlikte kullanmayın. Tehlikeli gazlar açığa çıkarabilir (klor).",
    "en": "Warning! Do not use together with other products. May release dangerous gases (chlorine).",
-   "note": "Aktif klor içeren ürünlerde (çamaşır suyu, klorlu temizleyiciler) zorunlu uyarı. Asitli ürünlerle karışırsa klor gazı çıkar.",
-   "needs_review": true
+   "note": "Aktif klor içeren ürünlerde (çamaşır suyu, klorlu temizleyiciler) zorunlu uyarı. Asitli ürünlerle karışırsa klor gazı çıkar."
   },
   {
    "code": "EUH207",
@@ -749,8 +750,7 @@
    "group": "alerji",
    "tr": "içerir. Alerjik reaksiyona yol açabilir.",
    "en": "May produce an allergic reaction.",
-   "note": "Ürün, alerjisi olan kişilerde reaksiyon başlatabilecek bir madde içeriyor. Maddenin adı ifadenin içinde yazılır.",
-   "needs_review": true
+   "note": "Ürün, alerjisi olan kişilerde reaksiyon başlatabilecek bir madde içeriyor. Maddenin adı ifadenin içinde yazılır."
   },
   {
    "code": "EUH209",
@@ -772,10 +772,12 @@
    "code": "EUH210",
    "level": "info",
    "group": "diger",
-   "tr": "Talep halinde güvenlik bilgi formu temin edilebilir.",
+   "tr": "Talep halinde güvenlik bilgi formu sağlanabilir.",
    "en": "Safety data sheet available on request.",
    "note": "Ürünün ayrıntılı güvenlik bilgi formu üreticiden istenebilir.",
-   "needs_review": true
+   "alt": [
+    "Talep halinde güvenlik bilgi formu temin edilebilir."
+   ]
   },
   {
    "code": "EUH211",
@@ -2046,6 +2048,264 @@
    ],
    "tr"
   ]
+ ],
+ "precautions": [
+  {
+   "code": "P101",
+   "tr": "Tıbbi tavsiye gerekirse ürün kabını veya etiketini yanınızda bulundurun.",
+   "en": "If medical advice is needed, have product container or label at hand.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P102",
+   "tr": "Çocukların erişemeyeceği yerde saklayın.",
+   "en": "Keep out of reach of children.",
+   "needs_review": true
+  },
+  {
+   "code": "P103",
+   "tr": "Kullanmadan önce etiketi okuyun.",
+   "en": "Read label before use.",
+   "needs_review": true
+  },
+  {
+   "code": "P201",
+   "tr": "Kullanmadan önce özel talimatları okuyun.",
+   "en": "Obtain special instructions before use."
+  },
+  {
+   "code": "P202",
+   "tr": "Bütün önlem ifadeleri okunup anlaşılmadan elleçlemeyin.",
+   "en": "Do not handle until all safety precautions have been read and understood."
+  },
+  {
+   "code": "P210",
+   "tr": "Isıdan, sıcak yüzeylerden, kıvılcımdan, açık alevden ve diğer tutuşturucu kaynaklardan uzak tutun. Sigara içilmez.",
+   "en": "Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No smoking.",
+   "needs_review": true
+  },
+  {
+   "code": "P211",
+   "tr": "Açık aleve veya diğer tutuşturucu kaynaklara püskürtmeyin.",
+   "en": "Do not spray on an open flame or other ignition source.",
+   "needs_review": true
+  },
+  {
+   "code": "P251",
+   "tr": "Delmeyin veya yakmayın, kullandıktan sonra bile.",
+   "en": "Do not pierce or burn, even after use.",
+   "needs_review": true
+  },
+  {
+   "code": "P260",
+   "tr": "Tozunu/dumanını/gazını/sisini/buharını/spreyini solumayın.",
+   "en": "Do not breathe dust/fume/gas/mist/vapours/spray."
+  },
+  {
+   "code": "P261",
+   "tr": "Tozunu/dumanını/gazını/sisini/buharını/spreyini solumaktan kaçının.",
+   "en": "Avoid breathing dust/fume/gas/mist/vapours/spray.",
+   "needs_review": true
+  },
+  {
+   "code": "P262",
+   "tr": "Gözlerle, ciltle veya giysilerle temasından kaçının.",
+   "en": "Do not get in eyes, on skin, or on clothing.",
+   "needs_review": true
+  },
+  {
+   "code": "P263",
+   "tr": "Gebelik sırasında ve emzirirken temastan kaçının.",
+   "en": "Avoid contact during pregnancy and while nursing."
+  },
+  {
+   "code": "P264",
+   "tr": "Elleçlemeden sonra elleri, kolları ve yüzü iyice yıkayın.",
+   "en": "Wash hands thoroughly after handling."
+  },
+  {
+   "code": "P270",
+   "tr": "Bu ürünü kullanırken hiçbir şey yemeyin, içmeyin veya sigara içmeyin.",
+   "en": "Do not eat, drink or smoke when using this product."
+  },
+  {
+   "code": "P271",
+   "tr": "Sadece dışarıda veya iyi havalandırılan bir alanda kullanın.",
+   "en": "Use only outdoors or in a well-ventilated area."
+  },
+  {
+   "code": "P273",
+   "tr": "Çevreye verilmesinden kaçının.",
+   "en": "Avoid release to the environment.",
+   "needs_review": true
+  },
+  {
+   "code": "P280",
+   "tr": "Koruyucu eldiven/koruyucu kıyafet/göz koruyucu/yüz koruyucu kullanın.",
+   "en": "Wear protective gloves/protective clothing/eye protection/face protection."
+  },
+  {
+   "code": "P301+P310",
+   "tr": "YUTULDUĞUNDA: Hemen ZEHİR DANIŞMA MERKEZİNİ veya doktoru arayın.",
+   "en": "IF SWALLOWED: Immediately call a POISON CENTER/doctor.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P301+P312",
+   "tr": "YUTULDUĞUNDA: Kendinizi iyi hissetmezseniz ZEHİR MERKEZİNİ veya doktoru arayın.",
+   "en": "IF SWALLOWED: Call a POISON CENTER/doctor if you feel unwell.",
+   "aid": true
+  },
+  {
+   "code": "P301+P330+P331",
+   "tr": "YUTULDUĞUNDA: Ağzınızı çalkalayın. KUSTURMAYIN.",
+   "en": "IF SWALLOWED: Rinse mouth. Do NOT induce vomiting.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P302+P352",
+   "tr": "CİLT İLE TEMAS HALİNDE: Bol su ile yıkayın.",
+   "en": "IF ON SKIN: Wash with plenty of water.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P303+P361+P353",
+   "tr": "CİLT (veya saç) İLE TEMAS HALİNDE: Kirlenmiş giysilerin hepsini hemen çıkarın. Cildi su ile durulayın.",
+   "en": "IF ON SKIN (or hair): Take off immediately all contaminated clothing. Rinse skin with water.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P304+P340",
+   "tr": "SOLUNMASI HALİNDE: Kişiyi temiz havaya çıkarın ve rahat nefes alabileceği bir pozisyonda tutun.",
+   "en": "IF INHALED: Remove person to fresh air and keep comfortable for breathing.",
+   "aid": true
+  },
+  {
+   "code": "P305+P351+P338",
+   "tr": "GÖZLE TEMASI HALİNDE: Su ile birkaç dakika dikkatlice durulayın. Varsa ve yapması kolaysa kontakt lensleri çıkarın. Durulamaya devam edin.",
+   "en": "IF IN EYES: Rinse cautiously with water for several minutes. Remove contact lenses, if present and easy to do. Continue rinsing.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P308+P313",
+   "tr": "Maruz kalma veya etkilenme halinde: Tıbbi yardım/bakım alın.",
+   "en": "IF exposed or concerned: Get medical advice/attention.",
+   "aid": true
+  },
+  {
+   "code": "P310",
+   "tr": "Hemen ZEHİR DANIŞMA MERKEZİNİ veya doktoru arayın.",
+   "en": "Immediately call a POISON CENTER/doctor.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P312",
+   "tr": "Kendinizi iyi hissetmezseniz ZEHİR MERKEZİNİ veya doktoru arayın.",
+   "en": "Call a POISON CENTER/doctor if you feel unwell.",
+   "aid": true
+  },
+  {
+   "code": "P313",
+   "tr": "Tıbbi yardım/bakım alın.",
+   "en": "Get medical advice/attention.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P330",
+   "tr": "Ağzınızı çalkalayın.",
+   "en": "Rinse mouth.",
+   "aid": true
+  },
+  {
+   "code": "P331",
+   "tr": "KUSTURMAYIN.",
+   "en": "Do NOT induce vomiting.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P332+P313",
+   "tr": "Ciltte tahriş oluşursa: Tıbbi yardım/bakım alın.",
+   "en": "If skin irritation occurs: Get medical advice/attention.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P333+P313",
+   "tr": "Ciltte tahriş veya kızarıklık oluşursa: Tıbbi yardım/bakım alın.",
+   "en": "If skin irritation or rash occurs: Get medical advice/attention.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P337+P313",
+   "tr": "Göz tahrişi devam ederse: Tıbbi yardım/bakım alın.",
+   "en": "If eye irritation persists: Get medical advice/attention.",
+   "aid": true,
+   "needs_review": true
+  },
+  {
+   "code": "P391",
+   "tr": "Döküntüyü toplayın.",
+   "en": "Collect spillage.",
+   "needs_review": true
+  },
+  {
+   "code": "P403+P233",
+   "tr": "İyi havalandırılmış bir alanda depolayın. Kabı sıkıca kapalı tutun.",
+   "en": "Store in a well-ventilated place. Keep container tightly closed."
+  },
+  {
+   "code": "P405",
+   "tr": "Kilit altında saklayın.",
+   "en": "Store locked up."
+  },
+  {
+   "code": "P410",
+   "tr": "Güneş ışığından koruyun.",
+   "en": "Protect from sunlight.",
+   "needs_review": true
+  },
+  {
+   "code": "P410+P412",
+   "tr": "Güneş ışığından koruyun. 50 °C üzerindeki sıcaklıklara maruz bırakmayın.",
+   "en": "Protect from sunlight. Do not expose to temperatures exceeding 50 °C/122 °F.",
+   "needs_review": true
+  },
+  {
+   "code": "P501",
+   "tr": "İçeriği/kabı yerel, bölgesel, ulusal ve/veya uluslararası düzenlemelere uygun olarak bertaraf edin.",
+   "en": "Dispose of contents/container in accordance with local/regional/national/international regulations."
+  }
+ ],
+ "capsule": {
+  "pat": [
+   "kaps[uü]l",
+   "(?:^|[^a-z])capsules?(?![a-z])",
+   "(?:^|[^a-z])pods?(?![a-z])",
+   "suda[^a-z0-9%]+(?:cozunen|eriyen)[^a-z0-9%]+(?:film|ambalaj|paket)",
+   "water[^a-z0-9%]+soluble[^a-z0-9%]+(?:film|pouch|packaging)"
+  ],
+  "title": "Deterjan kapsülü: çocuklar için ayrı dikkat",
+  "text": "Sıvı çamaşır deterjanı kapsülleri AB'de özel kurallara bağlıdır (CLP Ek II 3.3): dış ambalaj içini göstermeyen, çocuğun açmakta zorlanacağı kilitli kapaklı olmalı ve üzerinde “Çocukların erişemeyeceği yerde saklayın” (P102) yazmalıdır. Kapsülün filminde ağza alınınca 6 saniye içinde tükürtecek acı bir madde bulunmalı, film 30 saniye suya ve 300 N basınca dayanmalıdır. Bu kurallar, kapsülleri şekere benzeten küçük çocuklarda yutma ve göze kaçma kazaları yüzünden getirildi.",
+  "sources": [
+   "https://reachonline.eu/clp/en/annex-ii-3-3.3.html",
+   "https://www.legislation.gov.uk/eur/2014/1297/introduction"
+  ]
+ },
+ "uzem": "Türkiye'de Ulusal Zehir Danışma Merkezi (UZEM): 114.",
+ "sds_tr": [
+  "https://www.bosch-pt.com/msds/_res/media/tr/1605430014_TR-tr_00635-0052_1,0.pdf",
+  "https://sds.edqm.eu/pdf/SDS/EDQM_202300230_1.0_SDS_TR.pdf",
+  "https://www.crad.com.tr/UPLOAD/URUN/FILES/ZararliKimyasallarinMevzuataUygunEtiketlenmesi-221724484.pdf"
  ],
  "mix_rule": {
   "title": "Başka ürünlerle karıştırmayın",

@@ -738,7 +738,7 @@ def main():
                 "K3: Kanada Hotlist, Çin, Japonya, Kore, Brezilya ve ABD'nin diğer eyalet yasakları (ör. Washington) eklenmedi.",
                 "Endokrin: Fransa ANSES listesinin tam metni (Légifrance) ve edlists.org listeleri eklenmedi; yalnızca ikincil kaynaklarda adı geçen Fransa maddeleri var.",
                 "Endokrin: AB CLP ED HH 1/2 sınıflandırması almış maddeler henüz taranmadı.",
-                "Komedojenite: liste Fulton 1989'da en yüksek bulunan 9 maddeyle başladı; kaynakla genişletilecek (ör. izopropil palmitat, izopropil izostearat, bütil stearat, desil oleat).",
+                "Komedojenite: Fulton 1989'da 4–5 bulunan 20 madde + metinde anılan 1 (izostearil neopentanoat, tabloda 3). Tek kaynak; tablo metni taranmış sayfadan okunduğu için yeni 12 satır inceleme=1. 3 alan sınırdakiler (bütil stearat, desil oleat, miristik asit, sorbitan oleat, gliseril stearat SE) eklenmedi; PEG-16 lanolin (Solulan 16) INCI karşılığı belirsiz.",
             ],
             "watch_lists": WATCH_LISTS,
             "watch_match": "watch kayıtları yalnızca inci alanındaki adlarla eşleşir; level, kartın en az alacağı renktir.",

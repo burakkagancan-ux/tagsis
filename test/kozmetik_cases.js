@@ -48,6 +48,9 @@ for(const [t,must,minExtra,maxUnknown] of REAL){
 }
 // Eş anlamlılar: Türkçe etiket, ABD etiketi, kısaltmalar
 const ESA=[
+ // 04.10.2026 eklenen yaygın Türkçe adlar (papaya, papatyaya benzetilmemeli)
+ ["İçindekiler: Su, Seramid NP, Centella özü, Nar çekirdeği yağı, Çörek otu yağı, Mango yağı, Papaya özü, Aktif kömür, Beyaz kil, Koenzim Q10, Avobenzon, Oktokrilen, Heksil sinnamal, Askorbil glukozit",
+  ["AQUA","CERAMIDE NP","CENTELLA ASIATICA EXTRACT","PUNICA GRANATUM SEED OIL","NIGELLA SATIVA SEED OIL","MANGIFERA INDICA SEED BUTTER","CARICA PAPAYA FRUIT EXTRACT","CHARCOAL POWDER","KAOLIN","UBIQUINONE","BUTYL METHOXYDIBENZOYLMETHANE","OCTOCRYLENE","HEXYL CINNAMAL","ASCORBYL GLUCOSIDE"]],
  ["İçindekiler: Su, Gliserin, Shea yağı, Hindistan cevizi yağı, E vitamini, Parfüm, Sodyum benzoat, Potasyum sorbat, Sitrik asit, Setearil alkol, Ksantan gam, Pantenol",
   ["AQUA","GLYCERIN","BUTYROSPERMUM PARKII BUTTER","COCOS NUCIFERA OIL","TOCOPHEROL","PARFUM","SODIUM BENZOATE","POTASSIUM SORBATE","CITRIC ACID","CETEARYL ALCOHOL","XANTHAN GUM","PANTHENOL"]],
  ["Ingredients: Water, Glycerin, Butyrospermum Parkii (Shea) Butter, Mineral Oil, Fragrance, FD&C Yellow No. 5, Red 40 Lake, D&C Red No. 7 Calcium Lake, Iron Oxides, Mica, Titanium Dioxide (CI 77891)",

@@ -16,7 +16,7 @@ import json, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data", "eslesmeler.json")
 VERSION = "0.1.0"
-LAST_UPDATED = "2026-10-03"
+LAST_UPDATED = "2026-10-04"
 
 FDA_BENZ = "https://www.fda.gov/food/process-contaminants-food/questions-and-answers-occurrence-benzene-soft-drinks-and-other-beverages"
 HC_BENZ = "https://www.canada.ca/en/health-canada/services/food-nutrition/food-safety/chemical-contaminants/food-processing-induced-chemicals/benzene.html"
@@ -27,6 +27,12 @@ ALU = "https://www.nutraingredients.com/Article/2008/07/16/efsa-sets-new-intake-
 SULF = "https://www.denib.gov.tr/files/downloads/sirku_ekleri/2016-02-ek1-1.pdf"
 COSING = "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en"
 FORM = "https://cosmetic.chemlinked.com/news/cosmetic-news/eu-lowers-the-labelling-threshold-for-formaldehyde-releasers-in-cosmetics-regulation"
+GLU = "https://www.efsa.europa.eu/en/press/news/170712"
+NIT = "https://www.efsa.europa.eu/en/press/news/170615"
+NIT_OP = "https://efsa.europa.eu/en/efsajournal/pub/4786"
+PS = "https://www.legislation.gov.uk/eur/2020/356"
+GAL = "https://eur-lex.europa.eu/eli/reg/2018/1481/oj"
+VITA = "https://eur-lex.europa.eu/eli/reg/2024/996/oj"
 
 
 def food_rules(edb):
@@ -64,6 +70,27 @@ def food_rules(edb):
          "groups": [{"label": "Sülfit", "ids": ["E220", "E221", "E222", "E223", "E224", "E226", "E227", "E228"]}],
          "text": "Sülfit alerjeni için eşik tek tek maddelere değil toplama bakar: toplam kükürt dioksit 10 mg/kg (ya da 10 mg/L) üzerindeyse alerjen olarak etikette belirtilmesi zorunludur.",
          "sources": [SULF]},
+        # 04.10.2026 genişletme
+        {"id": "glutamatlar", "mode": "gida", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla glutamat",
+         "groups": [{"label": "Glutamat", "ids": ["E620", "E621", "E622", "E623", "E624", "E625"]}],
+         "text": "EFSA 2017'de glutamik asit ve tuzları (E 620–625) için altısına ortak bir günlük alım sınırı belirledi: 30 mg/kg vücut ağırlığı. Bazı grupların, özellikle küçük çocukların, bu sınırı aşabileceğini bildirdi. Sınır tüm glutamat katkılarının toplamı içindir.",
+         "sources": [GLU]},
+        {"id": "nitrit_nitrat", "mode": "gida", "type": "cift", "level": "yellow",
+         "title": "Birlikte dikkat: nitrit + nitrat",
+         "groups": [{"label": "Nitrit", "ids": ["E249", "E250"]}, {"label": "Nitrat", "ids": ["E251", "E252"]}],
+         "text": "Nitrat vücutta kısmen nitrite dönüşür. EFSA 2017'de yalnızca katkılardan gelen alımın güvenli sınırlar içinde kaldığını, ama sebze ve su gibi tüm kaynaklar birlikte hesaplandığında sınırın her yaş grubunda aşılabileceğini bildirdi. Onaylı miktarlarda kullanılan nitritin nitrozamin oluşumuna katkısını düşük endişe olarak değerlendirdi.",
+         "sources": [NIT, NIT_OP]},
+        {"id": "polisorbatlar", "mode": "gida", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla polisorbat",
+         "groups": [{"label": "Polisorbat", "ids": ["E432", "E433", "E434", "E435", "E436"]}],
+         "text": "EFSA 2015'te polisorbatlar (E 432–436) için ortak bir günlük alım sınırı belirledi: 25 mg/kg vücut ağırlığı. Sınır tüm polisorbatların toplamı içindir.",
+         "sources": [PS]},
+        {"id": "gallat_tbhq_bha", "mode": "gida", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla sentetik antioksidan",
+         "groups": [{"label": "Propil gallat, TBHQ, BHA", "ids": ["E310", "E319", "E320"]}],
+         "text": "AB katkı tüzüğüne göre propil gallat, TBHQ ve BHA birlikte kullanılırsa her birinin miktarı orantılı olarak azaltılmalıdır; üst sınır toplama uygulanır.",
+         "sources": [GAL]},
     ]
 
 
@@ -80,7 +107,51 @@ def cos_rules(kdb):
     fr = sorted({a for e in kdb["entries"] if "formaldehyde_releaser" in e["flags"] for a in e["inci"]})
     par = sorted({a for e in kdb["entries"] if e["id"] in ("V/12", "V/12a") for a in e["inci"]
                   if re.search(r"PARABEN$", a) and "/" not in a})
-    return [
+    def grp(*ids):
+        return sorted({a for e in kdb["entries"] if e["id"] in ids for a in e["inci"] if "/" not in a and "(" not in a})
+    extra = [
+        {"id": "tiyoglikolat", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla tiyoglikolat",
+         "groups": [{"label": "Tiyoglikolat", "inci": grp("III/2a", "III/2b")}],
+         "text": "Perma, düzleştirici ve tüy dökücülerde kullanılan tiyoglikolatların AB sınırı tiyoglikolik asit cinsinden hesaplanır; aynı üründeki tüm tiyoglikolatlar bu sınıra birlikte sayılır.",
+         "sources": [COSING]},
+        {"id": "peroksit", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla hidrojen peroksit kaynağı",
+         "groups": [{"label": "Hidrojen peroksit ya da salan madde", "inci": grp("III/12")}],
+         "text": "AB'de hidrojen peroksit sınırı ürünün “içerdiği ya da saldığı” toplam miktara uygulanır (ör. diş beyazlatıcıda tüketiciye satılanlarda en fazla %0,1). Karbamid peroksit gibi salan maddeler de bu toplama girer.",
+         "sources": [COSING]},
+        {"id": "kozmetik_sulfit", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla sülfit",
+         "groups": [{"label": "Sülfit", "inci": grp("III/99", "V/9")}],
+         "text": "Kozmetikte inorganik sülfit ve bisülfitlerin AB sınırı serbest kükürt dioksit cinsinden hesaplanır; aynı üründeki tüm sülfitler bu sınıra birlikte sayılır. Sülfit hassasiyeti olanlar için ayrıca önemlidir.",
+         "sources": [COSING]},
+        {"id": "salisilat", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: salisilik asit ve tuzları",
+         "groups": [{"label": "Salisilik asit / salisilat", "inci": grp("III/98", "V/3")}],
+         "text": "Salisilik asit ve tuzlarının AB sınırı asit cinsinden hesaplanır ve birlikte değerlendirilir. 3 yaş altı çocuklara yönelik ürünlerde (şampuan hariç) kullanılmaz.",
+         "sources": [COSING]},
+        {"id": "benzoat_koz", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: benzoik asit ve sodyum benzoat",
+         "groups": [{"label": "Benzoik asit / benzoat", "inci": grp("V/1")}],
+         "text": "Koruyucu olarak benzoik asit ve sodyum benzoatın AB sınırı asit cinsinden hesaplanır; ikisi birlikte bu sınıra sayılır.",
+         "sources": [COSING]},
+        {"id": "sorbat_koz", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: sorbik asit ve sorbatlar",
+         "groups": [{"label": "Sorbik asit / sorbat", "inci": grp("V/4")}],
+         "text": "Koruyucu olarak sorbik asit ve tuzlarının AB sınırı asit cinsinden %0,6'dır; aynı üründekiler bu sınıra birlikte sayılır.",
+         "sources": [COSING]},
+        {"id": "kuaterner", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla kuaterner amonyum yumuşatıcı",
+         "groups": [{"label": "Setrimonyum / steartrimonyum / behentrimonyum klorür", "inci": ["BEHENTRIMONIUM CHLORIDE", "CETRIMONIUM CHLORIDE", "STEARTRIMONIUM CHLORIDE"]}],
+         "text": "Saç kremi gibi ürünlerde bu maddelerin AB sınırı tek tek değil, birlikte kullanıldığında toplamları üzerinden belirlenir (durulanan saç ürünlerinde toplam %2,5 ya da behentrimonyum ile %5).",
+         "sources": [COSING]},
+        {"id": "a_vitamini", "mode": "koz", "type": "toplam", "level": "yellow", "min": 2,
+         "title": "Birlikte dikkat: birden fazla A vitamini türevi",
+         "groups": [{"label": "Retinol ve esterleri", "inci": grp("III/376")}],
+         "text": "AB 2024/996 ile retinol, retinil asetat ve retinil palmitat için toplam sınır getirildi: vücut losyonlarında %0,05, diğer ürünlerde %0,3 retinol eşdeğeri. Sınır üçünün toplamına uygulanır; günlük A vitamini alımının bir kısmının kozmetikten gelebileceği gerekçesiyle.",
+         "sources": [VITA, COSING]},
+    ]
+    return extra + [
         {"id": "nitrozamin", "mode": "koz", "type": "cift", "level": "yellow",
          "title": "Birlikte dikkat: nitrozamin oluşturabilecek ikili",
          "groups": [{"label": "Nitrozamin oluşturan maddelerle birlikte kullanılmaması gereken madde", "inci": sorted(amines - nitros)},
