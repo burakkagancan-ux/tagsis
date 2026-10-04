@@ -559,7 +559,7 @@ function analyzeK(text,K,opts){
   return out;
 }
 function summarizeK(res,K){
-  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],child:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
+  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],child:[],comedo:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   res.forEach(function(r){
     if(!r.found){o.unknown.push(r.raw);if(/^(parfum|fragrance|aroma|perfume|parfüm)$/i.test(r.raw.trim()))o.parfum=true;return}
@@ -570,7 +570,7 @@ function summarizeK(res,K){
     var fl={};r.reg.forEach(function(e){e.flags.forEach(function(f){fl[f]=1});if(e.kids_under)push(o.kids,r.name);if(/^III\/376$/.test(e.id))push(o.vitA,r.name)});
     r.iflags.forEach(function(f){fl[f]=1});
     (r.k3||[]).forEach(function(w){var L=K&&K.watchLists[w.list],kind=L?L.kind:(w.list==="ca"||w.list==="asean"?"ban":"ed");
-      if(kind==="ban")push(o.ban,r.name);else if(kind==="ed")push(o.ed,r.name);else if(kind==="child")push(o.child,r.name)});
+      if(kind==="ban")push(o.ban,r.name);else if(kind==="ed")push(o.ed,r.name);else if(kind==="child")push(o.child,r.name);else if(kind==="comedo")push(o.comedo,r.name)});
     if(fl.allergen_fragrance)push(o.fragrance,r.name);
     if(fl.formaldehyde_releaser)push(o.formaldehyde,r.name);
     if(fl.allergen_hairdye)push(o.hairdye,r.name);
@@ -907,7 +907,7 @@ function kChips(r){
   r.reg.forEach(function(e){e.flags.forEach(function(f){if(!seen[f]&&f!=="cmr_ban"){seen[f]=1;out.push(F[f]||f)}})});
   r.iflags.forEach(function(f){if(!seen[f]){seen[f]=1;out.push(F[f]||f)}});
   if(r.nano&&!seen.nano)out.push("Nano biçim");
-  (r.k3||[]).forEach(function(w){var L=KIDX.watchLists[w.list],c=L?L.chip:w.list;if(!seen["k3:"+c]){seen["k3:"+c]=1;out.push(c)}});
+  (r.k3||[]).forEach(function(w){var L=KIDX.watchLists[w.list],c=L?L.chip:w.list;if(L&&L.kind==="comedo"&&PTYPE==="rinse")return;if(!seen["k3:"+c]){seen["k3:"+c]=1;out.push(c)}});
   return out;
 }
 /* K3 tarih ifadesi: "2027-01-01" -> "1 Ocak 2027'den itibaren" / "...'den beri"; "2019" -> "listeye giriş: 2019" */
@@ -948,7 +948,7 @@ function kCard(r){
   });
   r.iflags.forEach(function(f){line("Değerlendirme:",KIDX.flagReasons[f])});
   if(r.k3&&r.k3.length){
-    pn.appendChild(el("div","ih","Diğer resmi listeler"));
+    pn.appendChild(el("div","ih","Diğer listeler"));
     r.k3.forEach(function(w){
       var L=KIDX.watchLists[w.list]||{label:w.list,text:""};
       line(L.label+":",L.text+(w.note_tr?" "+w.note_tr:""));
@@ -977,6 +977,7 @@ function kSummaryCard(S){
   if(S.pfas.length)row("PFAS",lst(S.pfas),"o");
   if(S.ban.length)row("Başka ülkede yasak",lst(S.ban),"o");
   if(S.ed.length)row("Endokrin bozucu şüphesi",lst(S.ed),"y");
+  if(S.comedo.length&&PTYPE!=="rinse")row("Gözenek tıkayıcı olabilir",lst(S.comedo),"");
   if(S.fuzzy.length)d.appendChild(el("div","how","Benzer yazımla eşleşen bileşenler var; “Okunan Metin” bölümünden kontrol edin."));
   return d;
 }
@@ -1016,12 +1017,33 @@ function kProfileCards(S,res){
   }
   return out;
 }
+/* Gözenek tıkayıcılık (komedojenite) bilgi notu: skor yok, renk yok; ayrıntı (i) düğmesinde. Durulanan üründe gösterilmez. */
+function comedoCard(res){
+  var L=KIDX.watchLists.komedo||{text:""},hits=[];
+  res.forEach(function(r){if(!r.found||r.may)return;(r.k3||[]).forEach(function(w){if(w.list==="komedo")hits.push({r:r,w:w})})});
+  var d=el("div","res u"),top=el("div","hd");
+  top.appendChild(el("div","t","Gözenek tıkayıcı olabilecek madde"));
+  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label","Gözenek tıkayıcılık hakkında bilgi");b.setAttribute("aria-expanded","false");
+  top.appendChild(b);d.appendChild(top);
+  d.appendChild(el("div","ln",hits.map(function(h){return h.r.name}).filter(function(x,i,a){return a.indexOf(x)===i}).join(", ")));
+  d.appendChild(el("div","how","Bilgi notudur; yasak ya da sağlık uyarısı değildir. Ayrıntı için (i) düğmesine basın."));
+  var pn=el("div","ipanel");pn.hidden=true;
+  pn.appendChild(el("div","ln",L.text));
+  hits.forEach(function(h){var p=el("div","ln");p.appendChild(el("b",null,h.r.name+": "));p.appendChild(document.createTextNode(h.w.note_tr||""));pn.appendChild(p)});
+  pn.appendChild(el("div","how","Aynı madde başka bir taşıyıcıda ya da düşük oranda test edildiğinde sonuç değişebiliyor. İnsan cildinde bitmiş ürünle yapılan testlerde (Draelos ve DiNardo 2006) bu maddeleri içeren ürünlerin mutlaka gözenek tıkamadığı görüldü. Ürünün kendisinde “non-comedogenic” yazısı olması daha anlamlıdır, ama bu ifadenin yasal bir test zorunluluğu yoktur."));
+  var src=el("div","how","Kaynak: Fulton 1989, J Soc Cosmet Chem 40:321–333 · ");
+  var a=el("a",null,"makale");a.href="https://library.scconline.org/v040n06/13";a.target="_blank";a.rel="noopener";src.appendChild(a);pn.appendChild(src);
+  d.appendChild(pn);
+  b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
+  return d;
+}
 function renderK(res){
   var box=$("sonuc");box.textContent="";
   if(!res.length){box.textContent="Bileşen listesi bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
   var S=summarizeK(res,KIDX);
   kProfileCards(S,res).forEach(function(c){box.appendChild(c)});
   box.appendChild(kSummaryCard(S));
+  if(S.comedo.length&&PTYPE!=="rinse")box.appendChild(comedoCard(res));
   comboSection(box,findCombos(COMBO,"koz",comboItemsK(res)));
   var W=res.filter(function(r){return r.found&&r.rank>0}).sort(function(a,b){return b.rank-a.rank||a.pos-b.pos});
   if(W.length){box.appendChild(el("h2",null,"Dikkat Gerektiren Bileşenler"));W.forEach(function(r){box.appendChild(kCard(r))})}
@@ -1046,7 +1068,7 @@ function renderK(res){
     box.appendChild(dx);
   }
   if(S.parfum)box.appendChild(el("div","ln nt","“Parfum” tek bir ad altında çok sayıda koku maddesini kapsar. Yalnızca etiketlenmesi zorunlu koku alerjenleri, belirli bir oranı aşınca ayrıca yazılır."));
-  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle 2023 sonuna kadar uyumludur; sonraki AB değişikliklerinin Türkiye durumu kartlarda yazar. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları."));
+  box.appendChild(el("div","how","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle 2023 sonuna kadar uyumludur; sonraki AB değişikliklerinin Türkiye durumu kartlarda yazar. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları, gözenek tıkayıcılık testleri (Fulton 1989)."));
 }
 setMode(MODE,false);
 
