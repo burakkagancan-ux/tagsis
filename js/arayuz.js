@@ -158,6 +158,20 @@ function brandCard(br){
   d.appendChild(el("div","how","Liste ürün ve parti bazındadır. Aynı adın geçmesi bu ürünün listede olduğu anlamına gelmez; ürün adını ve parti numarasını karşılaştırın."));
   return d;
 }
+// Günlük kabul edilebilir alım (ADI) satırı; değer mg/kg vücut ağırlığı (per=hafta: haftalık)
+function sayi(x){x=Math.round(x*100)/100;return String(x).replace(".",",")}
+function mgTxt(x){return x>=1000?sayi(x/1000)+" g":sayi(x)+" mg"}
+function adiLine(a){
+  var p=el("div","ln"),w=a.per==="hafta",t;
+  p.appendChild(el("b",null,(w?"Haftalık sınır (TWI): ":"Günlük sınır (ADI): ")));
+  if(a.st==="set")t=sayi(a.v)+" mg/kg vücut ağırlığı"+(a.as?" ("+a.as+")":"")+", "+a.src+". 70 kg bir yetişkin için "+(w?"haftada ":"günde ")+"yaklaşık "+mgTxt(a.v*70)+", 20 kg bir çocuk için "+mgTxt(a.v*20)+".";
+  else if(a.st==="ns")t="Sayısal sınır belirlenmedi ("+a.src+"): mevcut kullanımda gerek görülmedi.";
+  else t="Geçerli bir sınır yok ("+a.src+").";
+  p.appendChild(document.createTextNode(t+(a.note?" "+a.note:"")));
+  if(a.url){p.appendChild(document.createTextNode(" "));var l=el("a",null,"Kaynak");l.href=a.url;l.target="_blank";l.rel="noopener";p.appendChild(l)}
+  if(!a.ok)p.appendChild(document.createTextNode(" (Bu değer henüz kaynakla doğrulanmadı.)"));
+  return p;
+}
 function additiveCard(r){
   var d=el("div","res "+CLS[r.rank]);
   var items=r.ids.map(function(id){return IDX.byId[id]});
@@ -171,13 +185,16 @@ function additiveCard(r){
   it.flags.forEach(function(f){if((f==="sodium"&&!PROF.salt)||f==="aluminium"||f==="gmo_suspect")return;/* sodyum etiketi yalnızca tuz kısıtlaması seçiliyse */d.appendChild(el("span","chip",FLAGS[f]||f))});
   var pn=el("div","ipanel");pn.hidden=true;
   var same=items.length>1&&items.every(function(x){return ABOUT[x.id]===ABOUT[items[0].id]&&!x.tgk_note});
-  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4)}
+  var adis=items.map(function(x){return JSON.stringify(x.adi||null)});
+  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4);
+    if(items[0].adi&&adis.every(function(a){return a===adis[0]}))pn.appendChild(adiLine(items[0].adi))}
   else items.forEach(function(x){
     var ab=ABOUT[x.id];
     if(items.length>1)pn.appendChild(el("div","ih",x.id+" · "+x.primary_name));
     if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,"Nedir? "));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
     if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,"Yönetmelikteki adı: "));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
     if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,"Türkiye: "));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
+    if(x.adi)pn.appendChild(adiLine(x.adi));
   });
   var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
   p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
@@ -188,6 +205,7 @@ function additiveCard(r){
     pn.appendChild(ps);
   }
   if(it.needs_review)pn.appendChild(el("div","how",it.sources&&it.verification!=="partially_checked"?"Türkiye'deki izin durumu henüz doğrulanmadı.":it.sources?"Bu değerlendirmenin bir kısmı henüz kaynakla doğrulanmadı.":"Bu değerlendirme henüz kaynakla doğrulanmadı."));
+  if(items.some(function(x){return x.adi&&x.adi.st==="set"}))pn.appendChild(el("div","how","Etikette miktar yazmadığı için bu üründen ne kadar alındığı hesaplanamaz; sınır tüm gün boyunca bütün kaynaklardan alınan toplam içindir."));
   d.appendChild(pn);
   b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;

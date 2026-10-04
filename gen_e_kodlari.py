@@ -19,8 +19,8 @@ eksik 4 madde (E420, E421, E907, E964) eklendi.
 """
 import json, os, re
 
-VERSION = '0.3.0'
-LAST_UPDATED = '2026-10-03'
+VERSION = '0.3.1'
+LAST_UPDATED = '2026-10-04'
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -113,6 +113,41 @@ ITEMS = [tuple(x[k] for k in ITEM_KEYS) for x in kaynak_json("e_kodlari_maddeler
 VERIFY = EK["dogrulama"]
 
 
+# Günlük kabul edilebilir alım (ADI): kaynak/e_adi.tsv (04.10.2026). E kodu -> adi alanı.
+ADI_TSV = os.path.join(HERE, "kaynak", "e_adi.tsv")
+
+
+def load_adi(path=ADI_TSV):
+    out = {}
+    head = None
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            cols = line.split("\t")
+            if head is None:
+                head = cols
+                continue
+            r = dict(zip(head, cols))
+            v = r["deger"]
+            assert r["birim"] in ("gun", "hafta"), line
+            a = {"st": v if v in ("ns", "yok") else "set", "per": r["birim"], "src": r["kurum"]}
+            if a["st"] == "set":
+                a["v"] = float(v)
+            for k, key in (("ifade", "as"), ("not", "note"), ("kaynak", "url")):
+                if r[k]:
+                    a[key] = r[k]
+            a["ok"] = r["dogrulandi"] == "1"
+            for eid in r["kodlar"].split(","):
+                assert eid not in out, eid
+                out[eid] = a
+    return out
+
+
+ADI = load_adi()
+
+
 def apply_verify(rec, review):
     v = VERIFY.get(rec["id"])
     if not v:
@@ -175,13 +210,20 @@ def build():
             rec["tgk_note"] = TGK_NOTES.get(eid, TGK_MISSING)
         if ctx:
             rec["context_aliases"] = CONTEXT[ctx]
+        if eid in ADI:
+            rec["adi"] = ADI[eid]
         items.append(rec)
+    for eid in ADI:
+        assert eid in seen, ("e_adi.tsv: bilinmeyen kod", eid)
     meta = dict(META)
     cnt = {"total": len(items)}
     for lv in ("green", "red", "yellow", "unrated"):
         cnt[lv] = sum(1 for i in items if i["risk_level"] == lv)
     cnt["needs_review"] = sum(1 for i in items if i["needs_review"])
+    cnt["adi"] = sum(1 for i in items if "adi" in i)
     meta["counts"] = cnt
+    meta["adi"] = ("adi: günlük kabul edilebilir alım, mg/kg vücut ağırlığı (per=hafta ise haftalık). st: set (v sayı), "
+                   "ns (belirlenmedi), yok (geri çekildi / konamadı). ok=false: değer kaynak bağlantısıyla doğrulanmadı.")
     return {"version": VERSION, "last_updated": LAST_UPDATED, "meta": meta, "ingredients": items}
 
 
