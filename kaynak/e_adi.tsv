@@ -1,0 +1,49 @@
+# Günlük kabul edilebilir alım (ADI), mg/kg vücut ağırlığı. gen_e_kodlari.py -> e_kodlari.json 'adi' alanı.
+# deger: sayı (nokta ile), ns = belirlenmedi (gerek görülmedi), yok = sınır geri çekildi / konamadı. birim: gun ya da hafta (TWI).
+# dogrulandi=1: değer kaynak bağlantısında 04.10.2026'da okundu. 0: bilgiye dayalı, bağlantı eklenmedi (uygulamada 'doğrulanmadı' notu çıkar).
+kodlar	deger	birim	ifade	kurum	not	kaynak	dogrulandi
+E249,E250	0.07	gun	nitrit iyonu olarak	EFSA 2017	Küçük çocuklarda yüksek tüketimde aşılabildiği bildirildi.	https://www.efsa.europa.eu/en/efsajournal/pub/4786	1
+E251,E252	3.7	gun	nitrat iyonu olarak	EFSA 2017 (SCF 1997 değeri korundu)	Sınır sebzelerden gelen doğal nitratı da kapsar; katkı maddesinden gelen pay küçüktür.	https://www.efsa.europa.eu/en/efsajournal/pub/4787	1
+E210,E211,E212,E213	5	gun	benzoik asit olarak, grup	EFSA 2016		https://www.efsa.europa.eu/en/efsajournal/pub/4433	1
+E220,E221,E222,E223,E224,E226,E227,E228	yok	gun		EFSA 2022	Eski geçici sınır (0,7 mg/kg, SO2 olarak) yetersiz veri nedeniyle geri çekildi; yeni sınır konmadı. EFSA çok tüketen kişiler için güvenlik endişesi bildirdi.	https://www.efsa.europa.eu/en/efsajournal/pub/7594	1
+E338,E339,E340,E341,E343,E450,E451,E452	40	gun	fosfor olarak, grup	EFSA 2019	Sınır gıdalardaki doğal fosfor dahil tüm kaynakları kapsar.	https://www.foodingredientsfirst.com/news/EFSA-issues-new-EU-phosphates-limits-advice-warns-that-safe-levels-may-be-being-exceeded.html	1
+E620,E621,E622,E623,E624,E625	30	gun	glutamik asit olarak, grup	EFSA 2017	Bazı yüksek tüketim senaryolarında aşılabildiği bildirildi.	https://www.efsa.europa.eu/en/efsajournal/pub/4910	1
+E407,E407a	75	gun	grup, geçici	EFSA 2018	Geçici değerdir; EFSA veri eksiklerinin giderilmesini istedi. 16 haftadan küçük bebekler için geçerli değildir.	https://www.efsa.europa.eu/en/efsajournal/pub/5238	1
+E432,E433,E434,E435,E436	25	gun	grup	EFSA 2015		https://www.efsa.europa.eu/en/efsajournal/pub/4152	1
+E491,E492,E493,E494,E495	10	gun	sorbitan olarak, grup	EFSA 2017		https://www.efsa.europa.eu/en/efsajournal/pub/4788	1
+E173,E520,E521,E522,E523,E541,E554,E555,E556,E559,E1452	1	hafta	alüminyum olarak, tüm diyet	EFSA 2008	Günlük değil haftalık sınırdır. EFSA, Avrupa'da nüfusun önemli bir kısmında aşılabileceğini belirtti.	https://www.efsa.europa.eu/en/efsajournal/pub/754	1
+E950	15	gun		EFSA 2025	Önceki sınır 9 mg/kg idi (SCF 2000).	https://www.food-safety.com/articles/10526-efsa-reevaluates-safety-of-artificial-sweetener-acesulfame-k-raises-acceptable-daily-intake	1
+E951	40	gun		EFSA 2013, JECFA 2023	JECFA 2023'te 40 mg/kg değerini değiştirmedi.	https://www.who.int/news/item/14-07-2023-aspartame-hazard-and-risk-assessment-results-released	1
+E954	9	gun		EFSA 2024	Önceki sınır 5 mg/kg idi (SCF 1995).	https://tox.dhi.dk/en/news/news/article/new-and-higher-adi-for-saccharin	1
+E955	15	gun		EFSA 2026	EFSA, uzun süreli yüksek ısıda (fırın, kızartma) klorlu bileşik oluşumunu dışlayamadı.	https://www.efsa.europa.eu/en/plain-language-summary/re-evaluation-sucralose-e-955-food-additive	1
+E961	10	gun		EFSA 2025	Önceki sınır 2 mg/kg idi (2007).	https://pmc.ncbi.nlm.nih.gov/articles/PMC12231243/	0
+E968	500	gun		EFSA 2023	0,5 g/kg; sınır ishal (müshil) etkisine dayanır.	https://www.efsa.europa.eu/en/efsajournal/pub/8430	1
+E171	yok	gun		EFSA 2021	EFSA artık güvenli kabul etmiyor (genotoksisite dışlanamadı); AB'de 2022'den beri yasak.	https://www.fsai.ie/news-and-alerts/latest-news/titanium-dioxide-is-no-longer-authorised-as-a-food	1
+E200,E202,E203	11	gun	sorbik asit olarak, grup	EFSA 2019	2015'teki geçici 3 mg/kg değerinin yerine.		0
+E280,E281,E282,E283	ns	gun		EFSA 2014			0
+E300,E301,E302	ns	gun		EFSA 2015			0
+E310	0.5	gun		EFSA 2014			0
+E319	0.7	gun		EFSA 2004			0
+E320	1	gun		EFSA 2011			0
+E321	0.25	gun		EFSA 2012			0
+E952	7	gun	siklamik asit olarak	SCF 2000			0
+E960	4	gun	steviol eşdeğeri olarak	EFSA 2010			0
+E969	5	gun		EFSA 2013			0
+E420,E421,E953,E965,E966,E967	ns	gun		SCF / EFSA	Çok tüketilirse müshil etkisi yapabilir.		0
+E100	3	gun		EFSA 2010			0
+E102	7.5	gun		EFSA 2009			0
+E104	0.5	gun		EFSA 2009			0
+E110	4	gun		EFSA 2014			0
+E120	5	gun		EFSA 2015			0
+E122	4	gun		EFSA 2009			0
+E124	0.7	gun		EFSA 2009			0
+E127	0.1	gun		EFSA 2011			0
+E129	7	gun		EFSA 2009			0
+E131	5	gun		EFSA 2013			0
+E132	5	gun		EFSA 2014			0
+E133	6	gun		EFSA 2010			0
+E142	5	gun		EFSA 2010			0
+E151	5	gun		EFSA 2010			0
+E155	1.5	gun		EFSA 2010			0
+E150a,E150b,E150d	300	gun	karameller için grup	EFSA 2011			0
+E150c	100	gun		EFSA 2011	Karameller için grup sınırı 300 mg/kg.		0
