@@ -11,16 +11,11 @@
 <meta name="theme-color" content="#1F4D3A">
 <meta name="color-scheme" content="light">
 <link rel="stylesheet" href="fonts/ansiklopedi.css">
+<link rel="stylesheet" href="tema.css">
 <style>
-:root{--bg:#F5F1E8;--card:#FFFFFF;--line:#E4DED2;--ok:#1F4D3A;--ink:#1B211E;--mute:#5A615C;
---amb:#8A5A00;--ambbg:#FFF3D1;--hi:#A4470B;--hibg:#FCE9DA;--red:#B3261E;--redbg:#FBE9E7;--okbg:#E6EFE9;
---hf:"Bricolage Grotesque",system-ui,sans-serif;--bf:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--bf);padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
-a{color:var(--ok);font-weight:600}
-h1,h2,h3{font-family:var(--hf);font-weight:700;line-height:1.2;margin:0}
+body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3{margin:0}
 button{font:inherit;cursor:pointer}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:4px;background:var(--bg);border-bottom:1px solid var(--line);padding:env(safe-area-inset-top,0px) 4px 0}
 .top h1{flex:1;font-size:20px;text-align:center}
 .ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:none;color:var(--ok);padding:0}
@@ -78,10 +73,6 @@ input[type=search]:focus{outline:3px solid var(--ok);outline-offset:1px}
 .row{display:flex;gap:12px;align-items:center;min-height:56px;padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px;margin:6px 0;text-decoration:none;color:var(--ink)}
 .row .rc{font:700 14px/1 var(--hf);color:var(--ok);flex:0 0 54px}.row .rn{flex:1;min-width:0;font-weight:600}.row .rk{font-size:13px;color:var(--mute);font-weight:400;display:block}
 .row svg{width:22px;height:22px;flex:0 0 auto}
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-.tabbar a{flex:1;max-width:240px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px 7px;font-size:12px;font-weight:600;color:var(--mute);text-decoration:none}
-.tabbar a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.tabbar a[aria-current="page"]{color:var(--ok)}
 @media (max-width:380px){.quick{grid-template-columns:1fr 1fr}h2.name{font-size:26px}}
 </style>
 </head>

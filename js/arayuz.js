@@ -68,7 +68,7 @@ function updProfSum(){
 
 /* ---------- Sonuç ekranı ---------- */
 function card(cls,title,lines){
-  var d=el("div","res "+cls);d.appendChild(el("div","t",title));
+  var d=el("div","res prof "+cls);d.appendChild(el("div","t",title));
   (lines||[]).forEach(function(l){if(l)d.appendChild(typeof l==="string"?el("div","ln",l):l)});
   return d;
 }
