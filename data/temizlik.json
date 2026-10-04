@@ -1,0 +1,1350 @@
+{
+ "version": "0.1.0",
+ "last_updated": "2026-10-04",
+ "meta": {
+  "description": "Temizlik ürünü etiketi: zararlılık ifadeleri (CLP/SEA), deterjan içerik grupları (AB 648/2004 Ek VII, TR Deterjanlar Hakkında Yönetmelik Ek-7) ve ayrıca not gerektiren maddeler.",
+  "sources": {
+   "clp": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj",
+   "h_tr": "https://www.crad.com.tr/UPLOAD/URUN/FILES/Hcode-17140911685.pdf",
+   "euh": "https://www.comunidad.madrid/sites/default/files/doc/sanidad/samb/frases_euh_2024.pdf",
+   "det": "https://www.legislation.gov.uk/eur/2004/648/annex/VII",
+   "det_tr": "https://www.lexpera.com.tr/mevzuat/yonetmelikler/deterjanlar-hakkinda-yonetmelik-1",
+   "sb": "https://hsgm.saglik.gov.tr/depo/birimler/kronik-hastaliklar-ve-yasli-sagligi-db/Dokumanlar/Kitaplar/Saglikli_Temizlik_Rehberi_18.04.2022.pdf"
+  },
+  "hazard_source": "SEA Yönetmeliği (RG 11.12.2013, 28848) / AB CLP (EC) 1272/2008 Ek III. H ifadelerinin Türkçe metni SEA'ya dayalı listeden; EUH ifadelerinin Türkçesi çeviri, resmi metinle birebir karşılaştırılmadı.",
+  "group_source": "AB 648/2004 Ek VII A ve TR Deterjanlar Hakkında Yönetmelik (RG 27.01.2018, 30314) Ek-7: %0,2'yi aşan gruplar bant halinde; enzim, dezenfektan, optik parlatıcı, parfüm her oranda; koruyucular INCI adıyla; %0,01'i aşan koku alerjenleri adıyla yazılır. AB 2026/405 sayılı yeni tüzük 2029'da uygulanmaya başlar.",
+  "levels": {
+   "red": "Ürünün resmi tehlike sınıfı ciddi: yanık, ciddi göz hasarı, zehirlilik, kanser/genetik/üreme (CMR), solunum hassaslaşması.",
+   "yellow": "Uyarı düzeyinde tehlike, alerji, karıştırma ya da çevre uyarısı.",
+   "info": "Bilgi."
+  },
+  "group_labels": {
+   "cilt_goz": "Cilt ve göz",
+   "solunum": "Solunum",
+   "yutma": "Yutma",
+   "zehir": "Zehirlilik",
+   "cmr": "Kanser, genetik hasar, üreme (CMR)",
+   "organ": "Organ hasarı",
+   "cevre": "Çevre",
+   "fiziksel": "Yangın, patlama, basınç",
+   "karistirma": "Karıştırma",
+   "alerji": "Alerji",
+   "endokrin": "Endokrin bozucu",
+   "diger": "Diğer"
+  },
+  "bands": {
+   "b5": "%5'ten az",
+   "b5_15": "%5-15",
+   "b15_30": "%15-30",
+   "b30": "%30 ve üzeri"
+  },
+  "word_sep": "[^a-z0-9%]+"
+ },
+ "hazards": [
+  {
+   "code": "H200",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Kararsız patlayıcı.",
+   "en": "Unstable explosive."
+  },
+  {
+   "code": "H201",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Patlayıcı; kütlesel patlama zararı.",
+   "en": "Explosive; mass explosion hazard."
+  },
+  {
+   "code": "H202",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Patlayıcı; ciddi yansıtım zararı.",
+   "en": "Explosive; severe projection hazard."
+  },
+  {
+   "code": "H203",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Patlayıcı; yangın, patlama veya yansıtım zararı.",
+   "en": "Explosive; fire, blast or projection hazard."
+  },
+  {
+   "code": "H204",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Yangın veya yansıtım zararı.",
+   "en": "Fire or projection hazard."
+  },
+  {
+   "code": "H205",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Yangında kütlesel patlamaya yol açabilir.",
+   "en": "May mass explode in fire."
+  },
+  {
+   "code": "H220",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Çok kolay alevlenir gaz.",
+   "en": "Extremely flammable gas."
+  },
+  {
+   "code": "H221",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Alevlenir gaz.",
+   "en": "Flammable gas."
+  },
+  {
+   "code": "H222",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Çok kolay alevlenir aerosol.",
+   "en": "Extremely flammable aerosol.",
+   "note": "Sprey kolayca alev alır; ateş ve sıcak yüzeylerden uzak tutulmalı."
+  },
+  {
+   "code": "H223",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Alevlenir aerosol.",
+   "en": "Flammable aerosol.",
+   "note": "Sprey alev alabilir."
+  },
+  {
+   "code": "H224",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Çok kolay alevlenir sıvı ve buhar.",
+   "en": "Extremely flammable liquid and vapour.",
+   "note": "Sıvı ve buharı çok kolay alev alır."
+  },
+  {
+   "code": "H225",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Kolay alevlenir sıvı ve buhar.",
+   "en": "Highly flammable liquid and vapour.",
+   "note": "Sıvı ve buharı kolay alev alır (ör. alkollü temizleyiciler)."
+  },
+  {
+   "code": "H226",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Alevlenir sıvı ve buhar.",
+   "en": "Flammable liquid and vapour.",
+   "note": "Sıvı ve buharı alev alabilir."
+  },
+  {
+   "code": "H228",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Alevlenir katı.",
+   "en": "Flammable solid."
+  },
+  {
+   "code": "H229",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Basınçlı kap. Isıtma patlamaya yol açabilir.",
+   "en": "Pressurised container: may burst if heated.",
+   "note": "Basınçlı kutu; ısınırsa patlayabilir."
+  },
+  {
+   "code": "H230",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Hava olmadığında bile patlayabilir.",
+   "en": "May react explosively even in the absence of air."
+  },
+  {
+   "code": "H231",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Yüksek basınçta ve/veya sıcaklıkta, hava olmadığında bile, patlayabilir.",
+   "en": "May react explosively even in the absence of air at elevated pressure and/or temperature."
+  },
+  {
+   "code": "H240",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Isıtma patlamaya yol açabilir.",
+   "en": "Heating may cause an explosion."
+  },
+  {
+   "code": "H241",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Isıtma yangına veya patlamaya yol açabilir.",
+   "en": "Heating may cause a fire or explosion."
+  },
+  {
+   "code": "H242",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Isıtma yangına yol açabilir.",
+   "en": "Heating may cause a fire."
+  },
+  {
+   "code": "H250",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Hava ile temas ettiğinde ani yangınlara yol açabilir.",
+   "en": "Catches fire spontaneously if exposed to air."
+  },
+  {
+   "code": "H251",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Kendiliğinden ısınır; alev alabilir.",
+   "en": "Self-heating: may catch fire."
+  },
+  {
+   "code": "H252",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Büyük miktarlarda kendiliğinden ısınır; yangına yol açabilir.",
+   "en": "Self-heating in large quantities; may catch fire."
+  },
+  {
+   "code": "H260",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Su ile temas ettiğinde kendiliğinden tutuşabilen alevlenir gazlar yayar.",
+   "en": "In contact with water releases flammable gases which may ignite spontaneously."
+  },
+  {
+   "code": "H261",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Su ile temas ettiğinde alevlenir gazlar yayar.",
+   "en": "In contact with water releases flammable gas."
+  },
+  {
+   "code": "H270",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Yangına yol açabilir veya yangını şiddetlendirebilir; oksitleyici.",
+   "en": "May cause or intensify fire; oxidiser."
+  },
+  {
+   "code": "H271",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Yangına veya patlamaya yol açabilir; güçlü oksitleyici.",
+   "en": "May cause fire or explosion; strong oxidiser.",
+   "note": "Güçlü oksitleyici; yanıcı maddelerle temas ederse yangın çıkarabilir."
+  },
+  {
+   "code": "H272",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Yangını güçlendirebilir; oksitleyici.",
+   "en": "May intensify fire; oxidiser.",
+   "note": "Oksitleyici (ör. oksijenli ağartıcı tozlar); yangını büyütebilir."
+  },
+  {
+   "code": "H280",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Basınçlı gaz içerir; ısıtıldığında patlayabilir.",
+   "en": "Contains gas under pressure; may explode if heated."
+  },
+  {
+   "code": "H281",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Soğutulmuş gaz içerir; soğuktan yanma veya yaralanmalara yol açabilir.",
+   "en": "Contains refrigerated gas; may cause cryogenic burns or injury."
+  },
+  {
+   "code": "H290",
+   "level": "info",
+   "group": "fiziksel",
+   "tr": "Metalleri aşındırabilir.",
+   "en": "May be corrosive to metals.",
+   "note": "Metal yüzeyleri ve ambalajı aşındırabilir; insan sağlığına ilişkin bir sınıf değildir."
+  },
+  {
+   "code": "H300",
+   "level": "red",
+   "group": "zehir",
+   "tr": "Yutulması halinde öldürücüdür.",
+   "en": "Fatal if swallowed.",
+   "note": "Yutulursa öldürücü olabilir."
+  },
+  {
+   "code": "H301",
+   "level": "red",
+   "group": "zehir",
+   "tr": "Yutulması halinde toksiktir.",
+   "en": "Toxic if swallowed.",
+   "note": "Yutulursa ciddi zehirlenme yapabilir."
+  },
+  {
+   "code": "H302",
+   "level": "yellow",
+   "group": "yutma",
+   "tr": "Yutulması halinde zararlıdır.",
+   "en": "Harmful if swallowed.",
+   "note": "Yutulursa zehirlenme belirtileri yapabilir; çocukların erişiminden uzak tutulması bu yüzden önemlidir."
+  },
+  {
+   "code": "H304",
+   "level": "red",
+   "group": "yutma",
+   "tr": "Solunum yoluna nüfuzu ve yutulması halinde öldürücü olabilir.",
+   "en": "May be fatal if swallowed and enters airways.",
+   "note": "Yutulduktan sonra akciğere kaçarsa (ör. kusarken) öldürücü olabilir. Bu tür ürünlerde kusturmaya çalışılmaz."
+  },
+  {
+   "code": "H310",
+   "level": "red",
+   "group": "zehir",
+   "tr": "Cilt ile teması halinde öldürücüdür.",
+   "en": "Fatal in contact with skin."
+  },
+  {
+   "code": "H311",
+   "level": "red",
+   "group": "zehir",
+   "tr": "Cilt ile teması halinde toksiktir.",
+   "en": "Toxic in contact with skin."
+  },
+  {
+   "code": "H312",
+   "level": "yellow",
+   "group": "cilt_goz",
+   "tr": "Cilt ile teması halinde zararlıdır.",
+   "en": "Harmful in contact with skin."
+  },
+  {
+   "code": "H314",
+   "level": "red",
+   "group": "cilt_goz",
+   "tr": "Ciddi cilt yanıklarına ve göz hasarına yol açar.",
+   "en": "Causes severe skin burns and eye damage.",
+   "note": "Aşındırıcı: cilde ve göze temas ederse yanık ve kalıcı hasar oluşturabilir (ör. lavabo açıcı, bazı kireç çözücüler)."
+  },
+  {
+   "code": "H315",
+   "level": "yellow",
+   "group": "cilt_goz",
+   "tr": "Cilt tahrişine yol açar.",
+   "en": "Causes skin irritation.",
+   "note": "Ciltte kızarıklık ve tahriş yapabilir."
+  },
+  {
+   "code": "H317",
+   "level": "yellow",
+   "group": "cilt_goz",
+   "tr": "Alerjik cilt reaksiyonlarına yol açabilir.",
+   "en": "May cause an allergic skin reaction.",
+   "note": "Bazı kişilerde ciltte alerji (temas egzaması) başlatabilir."
+  },
+  {
+   "code": "H318",
+   "level": "red",
+   "group": "cilt_goz",
+   "tr": "Ciddi göz hasarına yol açar.",
+   "en": "Causes serious eye damage.",
+   "note": "Göze kaçarsa kalıcı hasar oluşturabilir (çamaşır ve bulaşık deterjanlarında, kapsüllerde sık görülür)."
+  },
+  {
+   "code": "H319",
+   "level": "yellow",
+   "group": "cilt_goz",
+   "tr": "Ciddi göz tahrişine yol açar.",
+   "en": "Causes serious eye irritation.",
+   "note": "Göze kaçarsa tahriş eder; genellikle geçicidir."
+  },
+  {
+   "code": "H330",
+   "level": "red",
+   "group": "zehir",
+   "tr": "Solunması halinde öldürücüdür.",
+   "en": "Fatal if inhaled."
+  },
+  {
+   "code": "H331",
+   "level": "red",
+   "group": "zehir",
+   "tr": "Solunması halinde toksiktir.",
+   "en": "Toxic if inhaled."
+  },
+  {
+   "code": "H332",
+   "level": "yellow",
+   "group": "solunum",
+   "tr": "Solunması halinde zararlıdır.",
+   "en": "Harmful if inhaled.",
+   "note": "Buharı ya da spreyi solunursa zararlıdır."
+  },
+  {
+   "code": "H334",
+   "level": "red",
+   "group": "solunum",
+   "tr": "Solunması halinde nefes alma zorlukları, astım nöbetleri veya alerjiye yol açabilir.",
+   "en": "May cause allergy or asthma symptoms or breathing difficulties if inhaled.",
+   "note": "Solunum yolu hassaslaştırıcı: solunduğunda alerji ve astım benzeri nefes darlığı başlatabilir."
+  },
+  {
+   "code": "H335",
+   "level": "yellow",
+   "group": "solunum",
+   "tr": "Solunum yolu tahrişine yol açabilir.",
+   "en": "May cause respiratory irritation.",
+   "note": "Buharı ya da tozu burnu ve boğazı tahriş edebilir."
+  },
+  {
+   "code": "H336",
+   "level": "yellow",
+   "group": "solunum",
+   "tr": "Rehavete veya baş dönmesine yol açabilir.",
+   "en": "May cause drowsiness or dizziness.",
+   "note": "Buharı solunduğunda uyuşukluk ve baş dönmesi yapabilir."
+  },
+  {
+   "code": "H340",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Genetik hasara yol açabilir.",
+   "en": "May cause genetic defects."
+  },
+  {
+   "code": "H341",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Genetik hasara yol açma şüphesi var.",
+   "en": "Suspected of causing genetic defects."
+  },
+  {
+   "code": "H350",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Kansere yol açabilir.",
+   "en": "May cause cancer."
+  },
+  {
+   "code": "H350i",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Solunması halinde kansere yol açabilir.",
+   "en": "May cause cancer by inhalation."
+  },
+  {
+   "code": "H351",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Kansere yol açma şüphesi var.",
+   "en": "Suspected of causing cancer."
+  },
+  {
+   "code": "H360",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Doğmamış çocukta hasara yol açabilir veya üremeye zarar verebilir.",
+   "en": "May damage fertility or the unborn child."
+  },
+  {
+   "code": "H360F",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Üremeye zarar verebilir.",
+   "en": "May damage fertility."
+  },
+  {
+   "code": "H360D",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Doğmamış çocukta hasara yol açabilir.",
+   "en": "May damage the unborn child."
+  },
+  {
+   "code": "H360FD",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Üremeye zarar verebilir. Doğmamış çocukta hasara yol açabilir.",
+   "en": "May damage fertility. May damage the unborn child."
+  },
+  {
+   "code": "H360Fd",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Üremeye zarar verebilir. Doğmamış çocukta hasara yol açma şüphesi var.",
+   "en": "May damage fertility. Suspected of damaging the unborn child."
+  },
+  {
+   "code": "H360Df",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Doğmamış çocukta hasara yol açabilir. Üremeye zarar verme şüphesi var.",
+   "en": "May damage the unborn child. Suspected of damaging fertility."
+  },
+  {
+   "code": "H361",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Doğmamış çocukta hasara yol açma veya üremeye zarar verme şüphesi var.",
+   "en": "Suspected of damaging fertility or the unborn child."
+  },
+  {
+   "code": "H361f",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Üremeye zarar verme şüphesi var.",
+   "en": "Suspected of damaging fertility."
+  },
+  {
+   "code": "H361d",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Doğmamış çocukta hasara yol açma şüphesi var.",
+   "en": "Suspected of damaging the unborn child."
+  },
+  {
+   "code": "H361fd",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Üremeye zarar verme şüphesi var. Doğmamış çocukta hasara yol açma şüphesi var.",
+   "en": "Suspected of damaging fertility. Suspected of damaging the unborn child."
+  },
+  {
+   "code": "H362",
+   "level": "red",
+   "group": "cmr",
+   "tr": "Emzirilen çocuğa zarar verebilir.",
+   "en": "May cause harm to breast-fed children."
+  },
+  {
+   "code": "H370",
+   "level": "red",
+   "group": "organ",
+   "tr": "Organlarda hasara yol açar.",
+   "en": "Causes damage to organs."
+  },
+  {
+   "code": "H371",
+   "level": "yellow",
+   "group": "organ",
+   "tr": "Organlarda hasara yol açabilir.",
+   "en": "May cause damage to organs."
+  },
+  {
+   "code": "H372",
+   "level": "red",
+   "group": "organ",
+   "tr": "Uzun süreli veya tekrarlı maruz kalma sonucu organlarda hasara yol açar.",
+   "en": "Causes damage to organs through prolonged or repeated exposure."
+  },
+  {
+   "code": "H373",
+   "level": "yellow",
+   "group": "organ",
+   "tr": "Uzun süreli veya tekrarlı maruz kalma sonucu organlarda hasara yol açabilir.",
+   "en": "May cause damage to organs through prolonged or repeated exposure."
+  },
+  {
+   "code": "H400",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Sucul ortamda çok toksiktir.",
+   "en": "Very toxic to aquatic life.",
+   "note": "Suda yaşayan canlılar için çok zehirli olarak sınıflandırılmış."
+  },
+  {
+   "code": "H410",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Sucul ortamda uzun süre kalıcı, çok toksik etki.",
+   "en": "Very toxic to aquatic life with long lasting effects.",
+   "note": "Suda yaşayan canlılar için çok zehirli ve etkisi uzun süreli."
+  },
+  {
+   "code": "H411",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Sucul ortamda uzun süre kalıcı, toksik etki.",
+   "en": "Toxic to aquatic life with long lasting effects.",
+   "note": "Suda yaşayan canlılar için zehirli ve etkisi uzun süreli."
+  },
+  {
+   "code": "H412",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Sucul ortamda uzun süre kalıcı, zararlı etki.",
+   "en": "Harmful to aquatic life with long lasting effects.",
+   "note": "Suda yaşayan canlılar için zararlı ve etkisi uzun süreli."
+  },
+  {
+   "code": "H413",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Sucul ortamda uzun süre kalıcı, zararlı etki yapabilir.",
+   "en": "May cause long lasting harmful effects to aquatic life.",
+   "note": "Suda yaşayan canlılarda uzun süreli zararlı etki yapabilir."
+  },
+  {
+   "code": "H420",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Atmosferin üst katmanındaki ozon tabakasını tahrip ederek kamu sağlığına ve çevreye zarar verir.",
+   "en": "Harms public health and the environment by destroying ozone in the upper atmosphere."
+  },
+  {
+   "code": "EUH014",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Su ile şiddetli reaksiyona girer.",
+   "en": "Reacts violently with water.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH018",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Kullanım sırasında alevlenir/patlayıcı buhar-hava karışımı oluşturabilir.",
+   "en": "In use may form flammable/explosive vapour-air mixture.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH019",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Patlayıcı peroksitler oluşturabilir.",
+   "en": "May form explosive peroxides.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH044",
+   "level": "yellow",
+   "group": "fiziksel",
+   "tr": "Kapalı ortamda ısıtılırsa patlama riski vardır.",
+   "en": "Risk of explosion if heated under confinement.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH029",
+   "level": "yellow",
+   "group": "karistirma",
+   "tr": "Su ile temas ettiğinde toksik gaz açığa çıkarır.",
+   "en": "Contact with water liberates toxic gas.",
+   "note": "Su ile temas ederse zehirli gaz açığa çıkar.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH031",
+   "level": "yellow",
+   "group": "karistirma",
+   "tr": "Asitlerle temas ettiğinde toksik gaz açığa çıkarır.",
+   "en": "Contact with acids liberates toxic gas.",
+   "note": "Asitli bir ürünle (ör. tuz ruhu, kireç çözücü) temas ederse zehirli gaz açığa çıkar. Çamaşır suyunda sık görülür.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH032",
+   "level": "yellow",
+   "group": "karistirma",
+   "tr": "Asitlerle temas ettiğinde çok toksik gaz açığa çıkarır.",
+   "en": "Contact with acids liberates very toxic gas.",
+   "note": "Asitli bir ürünle temas ederse çok zehirli gaz açığa çıkar.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH066",
+   "level": "yellow",
+   "group": "cilt_goz",
+   "tr": "Tekrarlı maruz kalmalarda ciltte kuruluğa ve çatlaklara neden olabilir.",
+   "en": "Repeated exposure may cause skin dryness or cracking.",
+   "note": "Sık temasta cildi kurutup çatlatabilir.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH070",
+   "level": "red",
+   "group": "cilt_goz",
+   "tr": "Gözle temas ettiğinde toksiktir.",
+   "en": "Toxic by eye contact.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH071",
+   "level": "red",
+   "group": "solunum",
+   "tr": "Solunum yolu için aşındırıcıdır.",
+   "en": "Corrosive to the respiratory tract.",
+   "note": "Solunduğunda solunum yolunda aşındırıcı hasar yapabilir.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH201",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "Kurşun içerir. Çocukların çiğneyebileceği veya emebileceği yüzeylerde kullanılmamalıdır.",
+   "en": "Contains lead. Should not be used on surfaces liable to be chewed or sucked by children.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH201A",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "Uyarı! Kurşun içerir.",
+   "en": "Warning! Contains lead.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH202",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "Siyanoakrilat. Tehlike. Saniyeler içinde cildi ve gözleri yapıştırır. Çocukların erişemeyeceği yerde saklayın.",
+   "en": "Cyanoacrylate. Danger. Bonds skin and eyes in seconds. Keep out of the reach of children.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH203",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "Krom (VI) içerir. Alerjik reaksiyona yol açabilir.",
+   "en": "Contains chromium (VI). May produce an allergic reaction.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH204",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "İzosiyanatlar içerir. Alerjik reaksiyona yol açabilir.",
+   "en": "Contains isocyanates. May produce an allergic reaction.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH205",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "Epoksi bileşenler içerir. Alerjik reaksiyona yol açabilir.",
+   "en": "Contains epoxy constituents. May produce an allergic reaction.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH206",
+   "level": "yellow",
+   "group": "karistirma",
+   "tr": "Dikkat! Diğer ürünlerle birlikte kullanmayın. Tehlikeli gazlar açığa çıkarabilir (klor).",
+   "en": "Warning! Do not use together with other products. May release dangerous gases (chlorine).",
+   "note": "Aktif klor içeren ürünlerde (çamaşır suyu, klorlu temizleyiciler) zorunlu uyarı. Asitli ürünlerle karışırsa klor gazı çıkar.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH207",
+   "level": "yellow",
+   "group": "diger",
+   "tr": "Uyarı! Kadmiyum içerir. Kullanım sırasında tehlikeli dumanlar oluşur.",
+   "en": "Warning! Contains cadmium. Dangerous fumes are formed during use.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH208",
+   "level": "yellow",
+   "group": "alerji",
+   "tr": "içerir. Alerjik reaksiyona yol açabilir.",
+   "en": "May produce an allergic reaction.",
+   "note": "Ürün, alerjisi olan kişilerde reaksiyon başlatabilecek bir madde içeriyor. Maddenin adı ifadenin içinde yazılır.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH209",
+   "level": "info",
+   "group": "diger",
+   "tr": "Kullanım sırasında kolay alevlenir hale gelebilir.",
+   "en": "Can become highly flammable in use.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH209A",
+   "level": "info",
+   "group": "diger",
+   "tr": "Kullanım sırasında alevlenir hale gelebilir.",
+   "en": "Can become flammable in use.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH210",
+   "level": "info",
+   "group": "diger",
+   "tr": "Talep halinde güvenlik bilgi formu temin edilebilir.",
+   "en": "Safety data sheet available on request.",
+   "note": "Ürünün ayrıntılı güvenlik bilgi formu üreticiden istenebilir.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH211",
+   "level": "yellow",
+   "group": "solunum",
+   "tr": "Uyarı! Püskürtüldüğünde tehlikeli solunabilir damlacıklar oluşabilir. Spreyi veya buharı solumayın.",
+   "en": "Warning! Hazardous respirable droplets may be formed when sprayed. Do not breathe spray or mist.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH212",
+   "level": "yellow",
+   "group": "solunum",
+   "tr": "Uyarı! Kullanıldığında tehlikeli solunabilir toz oluşabilir. Tozu solumayın.",
+   "en": "Warning! Hazardous respirable dust may be formed when used. Do not breathe dust.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH380",
+   "level": "red",
+   "group": "endokrin",
+   "tr": "İnsanlarda endokrin bozulmaya yol açabilir.",
+   "en": "May cause endocrine disruption in humans.",
+   "note": "AB'nin 2023'te eklediği endokrin bozucu tehlike sınıfı (kategori 1).",
+   "needs_review": true
+  },
+  {
+   "code": "EUH381",
+   "level": "red",
+   "group": "endokrin",
+   "tr": "İnsanlarda endokrin bozulmaya yol açma şüphesi var.",
+   "en": "Suspected of causing endocrine disruption in humans.",
+   "note": "AB'nin 2023'te eklediği endokrin bozucu tehlike sınıfı (kategori 2).",
+   "needs_review": true
+  },
+  {
+   "code": "EUH430",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Çevrede endokrin bozulmaya yol açabilir.",
+   "en": "May cause endocrine disruption in the environment.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH431",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Çevrede endokrin bozulmaya yol açma şüphesi var.",
+   "en": "Suspected of causing endocrine disruption in the environment.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH440",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Çevrede birikir; canlı organizmalarda, insanlar dahil, birikir.",
+   "en": "Accumulates in the environment and living organisms including in humans.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH441",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Çevrede ve canlı organizmalarda, insanlar dahil, güçlü biçimde birikir.",
+   "en": "Strongly accumulates in the environment and living organisms including in humans.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH450",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Su kaynaklarında uzun süreli ve yaygın kirlenmeye yol açabilir.",
+   "en": "Can cause long-lasting and diffuse contamination of water resources.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH451",
+   "level": "yellow",
+   "group": "cevre",
+   "tr": "Su kaynaklarında çok uzun süreli ve yaygın kirlenmeye yol açabilir.",
+   "en": "Can cause very long-lasting and diffuse contamination of water resources.",
+   "needs_review": true
+  },
+  {
+   "code": "EUH401",
+   "level": "info",
+   "group": "diger",
+   "tr": "İnsan sağlığı ve çevre için risklerden kaçınmak için kullanım talimatlarına uyun.",
+   "en": "To avoid risks to human health and the environment, comply with the instructions for use.",
+   "needs_review": true
+  }
+ ],
+ "combos": [
+  {
+   "codes": [
+    "H300",
+    "H310"
+   ],
+   "tr": "Yutulması halinde veya ciltle teması halinde öldürücüdür.",
+   "en": "Fatal if swallowed or in contact with skin."
+  },
+  {
+   "codes": [
+    "H300",
+    "H330"
+   ],
+   "tr": "Yutulduğunda veya solunduğunda öldürücüdür.",
+   "en": "Fatal if swallowed or if inhaled."
+  },
+  {
+   "codes": [
+    "H310",
+    "H330"
+   ],
+   "tr": "Ciltle temas ettiğinde veya solunduğunda öldürücüdür.",
+   "en": "Fatal in contact with skin or if inhaled."
+  },
+  {
+   "codes": [
+    "H300",
+    "H310",
+    "H330"
+   ],
+   "tr": "Yutulduğunda, ciltle temas ettiğinde veya solunduğunda öldürücüdür.",
+   "en": "Fatal if swallowed, in contact with skin or if inhaled."
+  },
+  {
+   "codes": [
+    "H301",
+    "H311"
+   ],
+   "tr": "Yutulması halinde veya ciltle teması halinde toksiktir.",
+   "en": "Toxic if swallowed or in contact with skin."
+  },
+  {
+   "codes": [
+    "H301",
+    "H331"
+   ],
+   "tr": "Yutulduğunda veya solunduğunda toksiktir.",
+   "en": "Toxic if swallowed or if inhaled."
+  },
+  {
+   "codes": [
+    "H311",
+    "H331"
+   ],
+   "tr": "Cilt ile teması halinde veya solunduğunda toksiktir.",
+   "en": "Toxic in contact with skin or if inhaled."
+  },
+  {
+   "codes": [
+    "H301",
+    "H311",
+    "H331"
+   ],
+   "tr": "Yutulduğunda, ciltle temas ettiğinde veya solunduğunda toksiktir.",
+   "en": "Toxic if swallowed, in contact with skin or if inhaled."
+  },
+  {
+   "codes": [
+    "H302",
+    "H312"
+   ],
+   "tr": "Yutulması halinde veya ciltle teması halinde zararlıdır.",
+   "en": "Harmful if swallowed or in contact with skin."
+  },
+  {
+   "codes": [
+    "H302",
+    "H332"
+   ],
+   "tr": "Yutulduğunda veya solunduğunda zararlıdır.",
+   "en": "Harmful if swallowed or if inhaled."
+  },
+  {
+   "codes": [
+    "H312",
+    "H332"
+   ],
+   "tr": "Ciltle temas ettiğinde veya solunduğunda zararlıdır.",
+   "en": "Harmful in contact with skin or if inhaled."
+  },
+  {
+   "codes": [
+    "H302",
+    "H312",
+    "H332"
+   ],
+   "tr": "Yutulduğunda, ciltle temas ettiğinde veya solunduğunda zararlıdır.",
+   "en": "Harmful if swallowed, in contact with skin or if inhaled."
+  }
+ ],
+ "groups": [
+  {
+   "id": "fosfat",
+   "tr": "Fosfatlar",
+   "level": "info",
+   "pat": [
+    "fosfat(?:lar|i)?(?![a-z])",
+    "phosphates?(?![a-z])"
+   ],
+   "about": "Su yumuşatıcı. Atıksuyla göl ve denizlere ulaşınca aşırı yosunlanmaya (ötrofikasyon) katkı yapar; AB, ev tipi çamaşır ve bulaşık makinesi deterjanlarında fosfor miktarını 259/2012 sayılı tüzükle sınırladı."
+  },
+  {
+   "id": "fosfonat",
+   "tr": "Fosfonatlar",
+   "level": "info",
+   "pat": [
+    "fosfonat(?:lar)?(?![a-z])",
+    "phosphonates?(?![a-z])"
+   ],
+   "about": "Su yumuşatıcı ve kireç önleyici; fosfattan çok daha düşük oranlarda kullanılır."
+  },
+  {
+   "id": "anyonik",
+   "tr": "Anyonik yüzey aktif maddeler",
+   "level": "info",
+   "pat": [
+    "anyonik[^a-z0-9%]+(?:yuzey[^a-z0-9%]+(?:aktif|etken)|tensid)",
+    "anionic[^a-z0-9%]+surfactants?"
+   ],
+   "about": "Kir ve yağı çözen asıl temizleyici madde (ör. sodyum lauril eter sülfat)."
+  },
+  {
+   "id": "katyonik",
+   "tr": "Katyonik yüzey aktif maddeler",
+   "level": "info",
+   "pat": [
+    "katyonik[^a-z0-9%]+(?:yuzey[^a-z0-9%]+(?:aktif|etken)|tensid)",
+    "cationic[^a-z0-9%]+surfactants?"
+   ],
+   "about": "Çoğunlukla yumuşatıcılarda ve bazı dezenfektanlarda (kuaterner amonyum bileşikleri) bulunur."
+  },
+  {
+   "id": "amfoterik",
+   "tr": "Amfoterik yüzey aktif maddeler",
+   "level": "info",
+   "pat": [
+    "amfoterik[^a-z0-9%]+(?:yuzey[^a-z0-9%]+(?:aktif|etken)|tensid)",
+    "amphoteric[^a-z0-9%]+surfactants?"
+   ],
+   "about": "Köpük ve yumuşaklık sağlayan, cilde görece nazik temizleyici madde."
+  },
+  {
+   "id": "noniyonik",
+   "tr": "Noniyonik yüzey aktif maddeler",
+   "level": "info",
+   "pat": [
+    "(?:non(?:[^a-z0-9%]+)?iyonik|iyonik[^a-z0-9%]+olmayan)[^a-z0-9%]+(?:yuzey[^a-z0-9%]+(?:aktif|etken)|tensid)",
+    "non(?:[^a-z0-9%]+)?ionic[^a-z0-9%]+surfactants?"
+   ],
+   "about": "Yağlı kirlerde etkili temizleyici madde; düşük köpüklüdür."
+  },
+  {
+   "id": "oksijen",
+   "tr": "Oksijen bazlı ağartıcılar",
+   "level": "info",
+   "pat": [
+    "oksijen[^a-z0-9%]+(?:bazli|esasli|kaynakli)[^a-z0-9%]+agartici",
+    "oxygen[^a-z0-9%]+based[^a-z0-9%]+bleaching"
+   ],
+   "about": "Lekeyi oksijenle ağartır (ör. sodyum perkarbonat). Klorlu ağartıcıdan farklıdır."
+  },
+  {
+   "id": "klor",
+   "tr": "Klor bazlı ağartıcılar",
+   "level": "yellow",
+   "mix": true,
+   "pat": [
+    "klor[^a-z0-9%]+(?:bazli|esasli|kaynakli)[^a-z0-9%]+agartici",
+    "chlorine[^a-z0-9%]+based[^a-z0-9%]+bleaching",
+    "aktif[^a-z0-9%]+klor"
+   ],
+   "about": "Çamaşır suyundaki etken madde (sodyum hipoklorit). Asitli ürünlerle ya da amonyakla karıştırılırsa zehirli gaz açığa çıkar."
+  },
+  {
+   "id": "edta",
+   "tr": "EDTA ve tuzları",
+   "level": "info",
+   "pat": [
+    "(?:^|[^a-z])edta(?![a-z])"
+   ],
+   "about": "Metal iyonlarını bağlayarak suyun sertliğini etkisizleştirir; doğada yavaş parçalanır."
+  },
+  {
+   "id": "nta",
+   "tr": "NTA ve tuzları",
+   "level": "yellow",
+   "pat": [
+    "(?:^|[^a-z])nta(?![a-z])"
+   ],
+   "about": "Metal bağlayıcı. Trisodyum NTA, AB'de 'kansere yol açma şüphesi' (Carc. 2) sınıfındadır; üründeki tehlike ifadesi orana göre değişir."
+  },
+  {
+   "id": "fenol",
+   "tr": "Fenoller ve halojenli fenoller",
+   "level": "info",
+   "pat": [
+    "fenol(?:ler)?(?![a-z])",
+    "phenols?(?![a-z])"
+   ],
+   "about": "Dezenfektan ve koruyucu olarak kullanılan madde grubu."
+  },
+  {
+   "id": "pdcb",
+   "tr": "Paradiklorobenzen",
+   "level": "yellow",
+   "pat": [
+    "paradiklorobenzen",
+    "para[^a-z0-9%]+?dichlorobenzene",
+    "paradichlorobenzene"
+   ],
+   "about": "Naftalin benzeri koku gidericilerde kullanılır; AB'de 'kansere yol açma şüphesi' (Carc. 2) sınıfındadır."
+  },
+  {
+   "id": "hidrokarbon",
+   "tr": "Hidrokarbonlar (aromatik, alifatik, halojenli)",
+   "level": "info",
+   "pat": [
+    "hidrokarbon(?:lar)?(?![a-z])",
+    "hydrocarbons?(?![a-z])"
+   ],
+   "about": "Yağ çözücü. Bazıları solunduğunda baş dönmesi, yutulup akciğere kaçarsa ciddi hasar yapabilir; etiketteki tehlike ifadelerine bakın."
+  },
+  {
+   "id": "sabun",
+   "tr": "Sabun",
+   "level": "info",
+   "pat": [
+    "(?:^|[^a-z])sabun(?:lar)?(?![a-z])",
+    "(?:^|[^a-z])soap(?![a-z])"
+   ],
+   "about": "Yağ asidi tuzları; doğada kolay parçalanan temizleyici."
+  },
+  {
+   "id": "zeolit",
+   "tr": "Zeolitler",
+   "level": "info",
+   "pat": [
+    "zeolit(?:ler)?(?![a-z])",
+    "zeolites?(?![a-z])"
+   ],
+   "about": "Fosfat yerine kullanılan su yumuşatıcı mineral."
+  },
+  {
+   "id": "polikarboksilat",
+   "tr": "Polikarboksilatlar",
+   "level": "info",
+   "pat": [
+    "polikarboksilat(?:lar)?(?![a-z])",
+    "polycarboxylates?(?![a-z])"
+   ],
+   "about": "Kirin kumaşa geri yapışmasını önleyen polimer; su yumuşatmaya yardımcı olur."
+  },
+  {
+   "id": "enzim",
+   "noband": true,
+   "tr": "Enzimler",
+   "level": "info",
+   "resp": true,
+   "pat": [
+    "enzim(?:ler|i)?(?![a-z])",
+    "enzymes?(?![a-z])"
+   ],
+   "about": "Protein, nişasta ve yağ lekelerini parçalar (proteaz, amilaz, lipaz). Ham madde olarak solunum yolu hassaslaştırıcıdır; bitmiş üründe bu tehlike varsa etikette ayrıca yazılır."
+  },
+  {
+   "id": "dezenfektan",
+   "noband": true,
+   "tr": "Dezenfektanlar",
+   "level": "info",
+   "pat": [
+    "dezenfektan(?:lar)?(?![a-z])",
+    "disinfectants?(?![a-z])"
+   ],
+   "about": "Mikrop öldürücü madde. Türkiye'de dezenfektan ürünler ayrıca biyosidal ürün izni gerektirir."
+  },
+  {
+   "id": "optik",
+   "noband": true,
+   "tr": "Optik parlatıcılar",
+   "level": "info",
+   "pat": [
+    "optik[^a-z0-9%]+(?:parlatici|agartici|beyazlatici)",
+    "optical[^a-z0-9%]+brighteners?"
+   ],
+   "about": "Kumaşa yapışıp morötesi ışığı mavi ışığa çevirerek beyazı daha parlak gösterir."
+  },
+  {
+   "id": "parfum",
+   "noband": true,
+   "tr": "Parfüm",
+   "level": "info",
+   "pat": [
+    "(?:^|[^a-z])parfum(?![a-z])",
+    "(?:^|[^a-z])perfumes?(?![a-z])",
+    "(?:^|[^a-z])fragrances?(?![a-z])"
+   ],
+   "about": "Koku maddelerinin toplu adı. İçindeki koku alerjenleri %0,01'i aşarsa adıyla ayrıca yazılır."
+  },
+  {
+   "id": "koruyucu",
+   "noband": true,
+   "tr": "Koruyucular",
+   "level": "info",
+   "pat": [
+    "(?:^|[^a-z])koruyucu(?:lar)?(?![a-z])(?![^a-z0-9%]+(?:eldiven|giysi|gozluk|kiyafet|ekipman|maske|kullan|tak))",
+    "preservatives?(?![a-z])",
+    "preservation[^a-z0-9%]+agents?"
+   ],
+   "about": "Ürünün bozulmasını önler. Adı INCI ile yazılır; bazıları (izotiyazolinonlar) cilt alerjisi yapabilir."
+  }
+ ],
+ "subs": [
+  {
+   "id": "mit",
+   "inci": [
+    "METHYLISOTHIAZOLINONE"
+   ],
+   "pat": [
+    "methylisothiazolinone",
+    "metilizotiyazolinon",
+    "(?:^|[^-a-z0-9])2-?\\s?methyl-?\\s?2h-?\\s?isothiazol",
+    "(?:^|[^-a-z0-9])2-?\\s?metil-?\\s?2h-?\\s?izotiyazol"
+   ],
+   "kind": "koruyucu",
+   "level": "yellow",
+   "text": "İzotiyazolinon grubu koruyucu. AB'de uyumlaştırılmış sınıflandırması cilt hassaslaştırıcıdır (Skin Sens. 1A); düşük oranlarda bile temas alerjisi yapabilir. Durulanmayan kozmetiklerde AB'de yasaktır, temizlik ürünlerinde kullanılabilir.",
+   "sources": [
+    "https://echa.europa.eu/information-on-chemicals/cl-inventory-database",
+    "https://ec.europa.eu/growth/tools-databases/cosing/"
+   ]
+  },
+  {
+   "id": "cmit",
+   "inci": [
+    "METHYLCHLOROISOTHIAZOLINONE"
+   ],
+   "pat": [
+    "methylchloroisothiazolinone",
+    "metilkloroizotiyazolinon",
+    "chloro-?\\s?2-?\\s?methyl-?\\s?2h-?\\s?isothiazol",
+    "kloro-?\\s?2-?\\s?metil-?\\s?2h-?\\s?izotiyazol"
+   ],
+   "kind": "koruyucu",
+   "level": "yellow",
+   "text": "İzotiyazolinon grubu koruyucu (genellikle MIT ile karışım halinde). AB'de cilt hassaslaştırıcı (Skin Sens. 1A) olarak sınıflandırılmıştır; kozmetikte yalnızca durulanan ürünlerde izinlidir.",
+   "sources": [
+    "https://echa.europa.eu/information-on-chemicals/cl-inventory-database",
+    "https://ec.europa.eu/growth/tools-databases/cosing/"
+   ]
+  },
+  {
+   "id": "bit",
+   "inci": [
+    "BENZISOTHIAZOLINONE"
+   ],
+   "pat": [
+    "benzisothiazol",
+    "benzizotiyazol",
+    "benzisotiyazol"
+   ],
+   "kind": "koruyucu",
+   "level": "yellow",
+   "text": "İzotiyazolinon grubu koruyucu (BIT). AB'de cilt hassaslaştırıcı olarak sınıflandırılmıştır. Kozmetik koruyucular listesinde (Ek V) yer almaz; deterjan ve boyalarda kullanılır.",
+   "sources": [
+    "https://echa.europa.eu/information-on-chemicals/cl-inventory-database"
+   ]
+  },
+  {
+   "id": "oit",
+   "inci": [
+    "OCTYLISOTHIAZOLINONE"
+   ],
+   "pat": [
+    "octylisothiazol",
+    "oktilizotiyazol",
+    "octhilinone",
+    "octyl-?\\s?2h-?\\s?isothiazol",
+    "oktil-?\\s?2h-?\\s?izotiyazol"
+   ],
+   "kind": "koruyucu",
+   "level": "yellow",
+   "text": "İzotiyazolinon grubu koruyucu (OIT). AB'de cilt hassaslaştırıcı olarak sınıflandırılmıştır.",
+   "sources": [
+    "https://echa.europa.eu/information-on-chemicals/cl-inventory-database"
+   ]
+  },
+  {
+   "id": "hipoklorit",
+   "inci": [
+    "SODIUM HYPOCHLORITE"
+   ],
+   "pat": [
+    "sodyum\\s?hipoklorit",
+    "sodium\\s?hypochlorite"
+   ],
+   "kind": "klor",
+   "level": "yellow",
+   "mix": true,
+   "text": "Çamaşır suyunun etken maddesi. Sağlık Bakanlığı'na göre tuz ruhu gibi asitli ürünlerle karışınca klor gazı, amonyakla karışınca zehirli gaz oluşur.",
+   "sources": [
+    "https://hsgm.saglik.gov.tr/depo/birimler/kronik-hastaliklar-ve-yasli-sagligi-db/Dokumanlar/Kitaplar/Saglikli_Temizlik_Rehberi_18.04.2022.pdf"
+   ]
+  },
+  {
+   "id": "enzim",
+   "inci": [
+    "SUBTILISIN",
+    "PROTEASE",
+    "AMYLASE",
+    "LIPASE",
+    "CELLULASE"
+   ],
+   "pat": [
+    "(?:^|[^a-z])(?:subtilisin|protease|proteaz|amylase|amilaz|lipase|lipaz|cellulase|selulaz|mannanase|mannanaz)(?![a-z])"
+   ],
+   "kind": "enzim",
+   "level": "info",
+   "resp": true,
+   "text": "Enzim. Ham madde olarak solunum yolu hassaslaştırıcıdır (H334); bitmiş üründe bu tehlike varsa etikette tehlike ifadesi olarak yazılır.",
+   "sources": [
+    "https://echa.europa.eu/information-on-chemicals/cl-inventory-database"
+   ]
+  },
+  {
+   "id": "hcl",
+   "inci": [
+    "HYDROCHLORIC ACID"
+   ],
+   "pat": [
+    "hydrochloric\\s?acid",
+    "hidroklorik\\s?asit"
+   ],
+   "kind": "asit",
+   "level": "info",
+   "mix": true,
+   "text": "Tuz ruhu. Çamaşır suyuyla karışırsa klor gazı açığa çıkar.",
+   "sources": [
+    "https://hsgm.saglik.gov.tr/depo/birimler/kronik-hastaliklar-ve-yasli-sagligi-db/Dokumanlar/Kitaplar/Saglikli_Temizlik_Rehberi_18.04.2022.pdf"
+   ]
+  },
+  {
+   "id": "amonyak",
+   "inci": [
+    "AMMONIA",
+    "AMMONIUM HYDROXIDE"
+   ],
+   "pat": [
+    "(?:^|[^a-z])amonya[kg]",
+    "(?:^|[^a-z])ammonia(?![a-z])",
+    "ammonium\\s?hydroxide"
+   ],
+   "kind": "amonyak",
+   "level": "info",
+   "mix": true,
+   "text": "Amonyak. Çamaşır suyuyla karışırsa zehirli gaz açığa çıkar.",
+   "sources": [
+    "https://hsgm.saglik.gov.tr/depo/birimler/kronik-hastaliklar-ve-yasli-sagligi-db/Dokumanlar/Kitaplar/Saglikli_Temizlik_Rehberi_18.04.2022.pdf"
+   ]
+  }
+ ],
+ "mix_rule": {
+  "title": "Başka ürünlerle karıştırmayın",
+  "text": "Klorlu ürünler (çamaşır suyu) asitli ürünlerle (tuz ruhu, kireç çözücü) karışınca klor gazı, amonyakla karışınca zehirli gaz açığa çıkarır. Sağlık Bakanlığı bu ürünlerin karıştırılmamasını öneriyor; aktif klor içeren ürünlerin etiketinde EUH206 uyarısı zorunludur.",
+  "sources": [
+   "https://hsgm.saglik.gov.tr/depo/birimler/kronik-hastaliklar-ve-yasli-sagligi-db/Dokumanlar/Kitaplar/Saglikli_Temizlik_Rehberi_18.04.2022.pdf",
+   "https://eur-lex.europa.eu/eli/reg/2008/1272/oj"
+  ]
+ }
+}
