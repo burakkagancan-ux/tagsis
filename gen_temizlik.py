@@ -233,6 +233,9 @@ GROUPS = [
  {"id": "parfum", "noband": True, "tr": "Parfüm", "level": I,
   "pat": [r"(?:^|[^a-z])parfum(?![a-z])", r"(?:^|[^a-z])perfumes?(?![a-z])", r"(?:^|[^a-z])fragrances?(?![a-z])"],
   "about": "Koku maddelerinin toplu adı. İçindeki koku alerjenleri %0,01'i aşarsa adıyla ayrıca yazılır."},
+ {"id": "renklendirici", "noband": True, "tr": "Renklendiriciler", "level": I,
+  "pat": [r"renklendirici(?:ler)?(?![a-z])", r"(?:^|[^a-z])colou?rants?(?![a-z])"],
+  "about": "Ürüne renk verir. Deterjan etiketinde yazılması zorunlu değildir; CI ile başlayan kodla (Colour Index) yazılır."},
  {"id": "koruyucu", "noband": True, "tr": "Koruyucular", "level": I,
   "pat": [r"(?:^|[^a-z])koruyucu(?:lar)?(?![a-z])(?!" + W + r"(?:eldiven|giysi|gozluk|kiyafet|ekipman|maske|kullan|tak))", r"preservatives?(?![a-z])", r"preservation" + W + r"agents?"],
   "about": "Ürünün bozulmasını önler. Adı INCI ile yazılır; bazıları (izotiyazolinonlar) cilt alerjisi yapabilir."},
@@ -275,9 +278,29 @@ MIX_RULE = {"title": "Başka ürünlerle karıştırmayın",
             "sources": [SB_REHBER, CLP]}
 
 
+ALIAS_TSV = os.path.join(HERE, "kaynak", "temizlik_esanlamlilar.tsv")
+
+
+def read_aliases(known):
+    out, seen = [], set()
+    for ln in open(ALIAS_TSV, encoding="utf-8"):
+        if not ln.strip() or ln.startswith("#"):
+            continue
+        ad, hedef, tur = [x.strip() for x in ln.rstrip("\n").split("\t")]
+        ts = [t.strip() for t in hedef.split(";")]
+        for t in ts:
+            assert t in known, "INCI listesinde yok: %s (%s)" % (t, ad)
+        assert tur in ("tr", "en", "kisa", "halk"), tur
+        assert ad.lower() not in seen, "tekrar: " + ad
+        seen.add(ad.lower())
+        out.append([ad, ts, tur])
+    return out
+
+
 def main():
     ki = json.load(open(os.path.join(HERE, "data", "kozmetik_inci.json"), encoding="utf-8"))
     known = {x[0] for x in ki["items"]}
+    aliases = read_aliases(known)
     for s in SUBS:
         for a in s["inci"]:
             assert a in known, a
@@ -311,12 +334,12 @@ def main():
         },
         "hazards": hz,
         "combos": [{"codes": c[0], "tr": c[1], "en": c[2]} for c in HCOMB],
-        "groups": GROUPS, "subs": SUBS, "mix_rule": MIX_RULE,
+        "groups": GROUPS, "subs": SUBS, "aliases": aliases, "mix_rule": MIX_RULE,
     }
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
-    print("temizlik.json: %d ifade (%d EUH), %d birleşik, %d grup, %d madde notu" % (
-        len(hz), len(EUH), len(HCOMB), len(GROUPS), len(SUBS)))
+    print("temizlik.json: %d ifade (%d EUH), %d birleşik, %d grup, %d madde notu, %d eş anlamlı" % (
+        len(hz), len(EUH), len(HCOMB), len(GROUPS), len(SUBS), len(aliases)))
 
 
 if __name__ == "__main__":

@@ -1178,6 +1178,17 @@
    "about": "Koku maddelerinin toplu adı. İçindeki koku alerjenleri %0,01'i aşarsa adıyla ayrıca yazılır."
   },
   {
+   "id": "renklendirici",
+   "noband": true,
+   "tr": "Renklendiriciler",
+   "level": "info",
+   "pat": [
+    "renklendirici(?:ler)?(?![a-z])",
+    "(?:^|[^a-z])colou?rants?(?![a-z])"
+   ],
+   "about": "Ürüne renk verir. Deterjan etiketinde yazılması zorunlu değildir; CI ile başlayan kodla (Colour Index) yazılır."
+  },
+  {
    "id": "koruyucu",
    "noband": true,
    "tr": "Koruyucular",
@@ -1338,6 +1349,703 @@
     "https://hsgm.saglik.gov.tr/depo/birimler/kronik-hastaliklar-ve-yasli-sagligi-db/Dokumanlar/Kitaplar/Saglikli_Temizlik_Rehberi_18.04.2022.pdf"
    ]
   }
+ ],
+ "aliases": [
+  [
+   "sodyum lauril eter sülfat",
+   [
+    "SODIUM LAURETH SULFATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum lauril eter sulfat",
+   [
+    "SODIUM LAURETH SULFATE"
+   ],
+   "tr"
+  ],
+  [
+   "SLES",
+   [
+    "SODIUM LAURETH SULFATE"
+   ],
+   "kisa"
+  ],
+  [
+   "SLS",
+   [
+    "SODIUM LAURYL SULFATE"
+   ],
+   "kisa"
+  ],
+  [
+   "sodium lauryl ether sulfate",
+   [
+    "SODIUM LAURETH SULFATE"
+   ],
+   "en"
+  ],
+  [
+   "sodium lauryl ether sulphate",
+   [
+    "SODIUM LAURETH SULFATE"
+   ],
+   "en"
+  ],
+  [
+   "lineer alkil benzen sülfonat",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "lineer alkilbenzen sülfonat",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "linear alkylbenzene sulfonate",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "en"
+  ],
+  [
+   "linear alkylbenzene sulphonate",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "en"
+  ],
+  [
+   "sodyum dodesilbenzen sülfonat",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum dodesil benzen sülfonat",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "LAS",
+   [
+    "SODIUM DODECYLBENZENESULFONATE"
+   ],
+   "kisa"
+  ],
+  [
+   "dodesilbenzen sülfonik asit",
+   [
+    "DODECYLBENZENE SULFONIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "dodesil benzen sülfonik asit",
+   [
+    "DODECYLBENZENE SULFONIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "alkil benzen sülfonik asit",
+   [
+    "DODECYLBENZENE SULFONIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "LABSA",
+   [
+    "DODECYLBENZENE SULFONIC ACID"
+   ],
+   "kisa"
+  ],
+  [
+   "sodyum olefin sülfonat",
+   [
+    "SODIUM C14-16 OLEFIN SULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "alkil poliglukozit",
+   [
+    "DECYL GLUCOSIDE",
+    "LAURYL GLUCOSIDE",
+    "COCO-GLUCOSIDE"
+   ],
+   "tr"
+  ],
+  [
+   "alkil poliglikozit",
+   [
+    "DECYL GLUCOSIDE",
+    "LAURYL GLUCOSIDE",
+    "COCO-GLUCOSIDE"
+   ],
+   "tr"
+  ],
+  [
+   "alkyl polyglucoside",
+   [
+    "DECYL GLUCOSIDE",
+    "LAURYL GLUCOSIDE",
+    "COCO-GLUCOSIDE"
+   ],
+   "en"
+  ],
+  [
+   "APG",
+   [
+    "DECYL GLUCOSIDE",
+    "LAURYL GLUCOSIDE",
+    "COCO-GLUCOSIDE"
+   ],
+   "kisa"
+  ],
+  [
+   "lauril dimetil amin oksit",
+   [
+    "LAURAMINE OXIDE"
+   ],
+   "tr"
+  ],
+  [
+   "lauril amin oksit",
+   [
+    "LAURAMINE OXIDE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum kümen sülfonat",
+   [
+    "SODIUM CUMENESULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum ksilen sülfonat",
+   [
+    "SODIUM XYLENESULFONATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum perkarbonat",
+   [
+    "SODIUM CARBONATE PEROXIDE"
+   ],
+   "tr"
+  ],
+  [
+   "sodium percarbonate",
+   [
+    "SODIUM CARBONATE PEROXIDE"
+   ],
+   "en"
+  ],
+  [
+   "sodyum perborat",
+   [
+    "SODIUM PERBORATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum hipoklorit",
+   [
+    "SODIUM HYPOCHLORITE"
+   ],
+   "tr"
+  ],
+  [
+   "kalsiyum hipoklorit",
+   [
+    "CALCIUM HYPOCHLORITE"
+   ],
+   "tr"
+  ],
+  [
+   "hidrojen peroksit",
+   [
+    "HYDROGEN PEROXIDE"
+   ],
+   "tr"
+  ],
+  [
+   "oksijenli su",
+   [
+    "HYDROGEN PEROXIDE"
+   ],
+   "halk"
+  ],
+  [
+   "sodyum tripolifosfat",
+   [
+    "PENTASODIUM TRIPHOSPHATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodium tripolyphosphate",
+   [
+    "PENTASODIUM TRIPHOSPHATE"
+   ],
+   "en"
+  ],
+  [
+   "STPP",
+   [
+    "PENTASODIUM TRIPHOSPHATE"
+   ],
+   "kisa"
+  ],
+  [
+   "pentasodyum trifosfat",
+   [
+    "PENTASODIUM TRIPHOSPHATE"
+   ],
+   "tr"
+  ],
+  [
+   "çamaşır sodası",
+   [
+    "SODIUM CARBONATE"
+   ],
+   "halk"
+  ],
+  [
+   "sodyum karbonat",
+   [
+    "SODIUM CARBONATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum bikarbonat",
+   [
+    "SODIUM BICARBONATE"
+   ],
+   "tr"
+  ],
+  [
+   "karbonat",
+   [
+    "SODIUM BICARBONATE"
+   ],
+   "halk"
+  ],
+  [
+   "sodyum silikat",
+   [
+    "SODIUM SILICATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum metasilikat",
+   [
+    "SODIUM METASILICATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum sitrat",
+   [
+    "SODIUM CITRATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum glukonat",
+   [
+    "SODIUM GLUCONATE"
+   ],
+   "tr"
+  ],
+  [
+   "tetrasodyum EDTA",
+   [
+    "TETRASODIUM EDTA"
+   ],
+   "tr"
+  ],
+  [
+   "GLDA",
+   [
+    "TETRASODIUM GLUTAMATE DIACETATE"
+   ],
+   "kisa"
+  ],
+  [
+   "tetrasodyum glutamat diasetat",
+   [
+    "TETRASODIUM GLUTAMATE DIACETATE"
+   ],
+   "tr"
+  ],
+  [
+   "trisodyum NTA",
+   [
+    "TRISODIUM NTA"
+   ],
+   "tr"
+  ],
+  [
+   "HEDP",
+   [
+    "ETIDRONIC ACID"
+   ],
+   "kisa"
+  ],
+  [
+   "etidronik asit",
+   [
+    "ETIDRONIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "DTPMP",
+   [
+    "DIETHYLENETRIAMINE PENTAMETHYLENE PHOSPHONIC ACID"
+   ],
+   "kisa"
+  ],
+  [
+   "ATMP",
+   [
+    "PENTASODIUM AMINOTRIMETHYLENE PHOSPHONATE"
+   ],
+   "kisa"
+  ],
+  [
+   "sodyum poliakrilat",
+   [
+    "SODIUM POLYACRYLATE"
+   ],
+   "tr"
+  ],
+  [
+   "sodyum aluminosilikat",
+   [
+    "SODIUM POTASSIUM ALUMINUM SILICATE",
+    "ZEOLITE"
+   ],
+   "tr"
+  ],
+  [
+   "kostik",
+   [
+    "SODIUM HYDROXIDE"
+   ],
+   "halk"
+  ],
+  [
+   "sud kostik",
+   [
+    "SODIUM HYDROXIDE"
+   ],
+   "halk"
+  ],
+  [
+   "kostik soda",
+   [
+    "SODIUM HYDROXIDE"
+   ],
+   "halk"
+  ],
+  [
+   "potas kostik",
+   [
+    "POTASSIUM HYDROXIDE"
+   ],
+   "halk"
+  ],
+  [
+   "tuz ruhu",
+   [
+    "HYDROCHLORIC ACID"
+   ],
+   "halk"
+  ],
+  [
+   "hidroklorik asit",
+   [
+    "HYDROCHLORIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "limon tuzu",
+   [
+    "CITRIC ACID"
+   ],
+   "halk"
+  ],
+  [
+   "fosforik asit",
+   [
+    "PHOSPHORIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "asetik asit",
+   [
+    "ACETIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "formik asit",
+   [
+    "FORMIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "glikolik asit",
+   [
+    "GLYCOLIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "laktik asit",
+   [
+    "LACTIC ACID"
+   ],
+   "tr"
+  ],
+  [
+   "amonyak",
+   [
+    "AMMONIA"
+   ],
+   "tr"
+  ],
+  [
+   "amonyum hidroksit",
+   [
+    "AMMONIUM HYDROXIDE"
+   ],
+   "tr"
+  ],
+  [
+   "etil alkol",
+   [
+    "ALCOHOL"
+   ],
+   "tr"
+  ],
+  [
+   "izopropil alkol",
+   [
+    "ISOPROPYL ALCOHOL"
+   ],
+   "tr"
+  ],
+  [
+   "izopropanol",
+   [
+    "ISOPROPYL ALCOHOL"
+   ],
+   "tr"
+  ],
+  [
+   "isopropanol",
+   [
+    "ISOPROPYL ALCOHOL"
+   ],
+   "en"
+  ],
+  [
+   "IPA",
+   [
+    "ISOPROPYL ALCOHOL"
+   ],
+   "kisa"
+  ],
+  [
+   "butil glikol",
+   [
+    "BUTOXYETHANOL"
+   ],
+   "tr"
+  ],
+  [
+   "butil glikol eter",
+   [
+    "BUTOXYETHANOL"
+   ],
+   "tr"
+  ],
+  [
+   "2-bütoksietanol",
+   [
+    "BUTOXYETHANOL"
+   ],
+   "tr"
+  ],
+  [
+   "butyl glycol",
+   [
+    "BUTOXYETHANOL"
+   ],
+   "en"
+  ],
+  [
+   "propilen glikol",
+   [
+    "PROPYLENE GLYCOL"
+   ],
+   "tr"
+  ],
+  [
+   "dipropilen glikol",
+   [
+    "DIPROPYLENE GLYCOL"
+   ],
+   "tr"
+  ],
+  [
+   "benzalkonyum klorür",
+   [
+    "BENZALKONIUM CHLORIDE"
+   ],
+   "tr"
+  ],
+  [
+   "didesil dimetil amonyum klorür",
+   [
+    "DIDECYLDIMONIUM CHLORIDE"
+   ],
+   "tr"
+  ],
+  [
+   "didesildimetilamonyum klorür",
+   [
+    "DIDECYLDIMONIUM CHLORIDE"
+   ],
+   "tr"
+  ],
+  [
+   "didecyldimethylammonium chloride",
+   [
+    "DIDECYLDIMONIUM CHLORIDE"
+   ],
+   "en"
+  ],
+  [
+   "DDAC",
+   [
+    "DIDECYLDIMONIUM CHLORIDE"
+   ],
+   "kisa"
+  ],
+  [
+   "MIT",
+   [
+    "METHYLISOTHIAZOLINONE"
+   ],
+   "kisa"
+  ],
+  [
+   "CMIT",
+   [
+    "METHYLCHLOROISOTHIAZOLINONE"
+   ],
+   "kisa"
+  ],
+  [
+   "BIT",
+   [
+    "BENZISOTHIAZOLINONE"
+   ],
+   "kisa"
+  ],
+  [
+   "OIT",
+   [
+    "OCTYLISOTHIAZOLINONE"
+   ],
+   "kisa"
+  ],
+  [
+   "benzizotiyazolinon",
+   [
+    "BENZISOTHIAZOLINONE"
+   ],
+   "tr"
+  ],
+  [
+   "benzisotiyazolinon",
+   [
+    "BENZISOTHIAZOLINONE"
+   ],
+   "tr"
+  ],
+  [
+   "metilkloroizotiyazolinon",
+   [
+    "METHYLCHLOROISOTHIAZOLINONE"
+   ],
+   "tr"
+  ],
+  [
+   "oktilizotiyazolinon",
+   [
+    "OCTYLISOTHIAZOLINONE"
+   ],
+   "tr"
+  ],
+  [
+   "proteaz",
+   [
+    "PROTEASE"
+   ],
+   "tr"
+  ],
+  [
+   "amilaz",
+   [
+    "AMYLASE"
+   ],
+   "tr"
+  ],
+  [
+   "lipaz",
+   [
+    "LIPASE"
+   ],
+   "tr"
+  ],
+  [
+   "selülaz",
+   [
+    "CELLULASE"
+   ],
+   "tr"
+  ],
+  [
+   "disodyum distirilbifenil disülfonat",
+   [
+    "DISODIUM DISTYRYLBIPHENYL DISULFONATE"
+   ],
+   "tr"
+  ]
  ],
  "mix_rule": {
   "title": "Başka ürünlerle karıştırmayın",

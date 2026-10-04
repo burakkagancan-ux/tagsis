@@ -58,6 +58,29 @@ cases.forEach(([t,hz,gr,chk],i)=>{
   if(chk)ok(chk(A,S),i+': ek denetim '+JSON.stringify({sig:A.signal,mix:S.mix,fr:S.fragrance,pres:S.pres,lvl:S.level,subs:A.subs.map(x=>x.s.id)}));
 });
 
+// Eş anlamlılar ve CI renklendiriciler: [metin, tanınması gereken INCI, tanınmaması gereken INCI, ek denetim]
+ok(tdb.aliases.length>=90,'eş anlamlı sayısı');
+const AL=[
+ ["Bileşenler: LAS, SLES, sodyum perkarbonat, STPP, kostik soda, renklendirici: CI 42090, Cl 19140. Koruyucu: BIT, MIT.",
+  ['SODIUM DODECYLBENZENESULFONATE','SODIUM LAURETH SULFATE','SODIUM CARBONATE PEROXIDE','PENTASODIUM TRIPHOSPHATE','SODIUM HYDROXIDE','CI 42090','CI 19140','BENZISOTHIAZOLINONE','METHYLISOTHIAZOLINONE'],[],
+  (A,S)=>same(S.color,['CI 42090','CI 19140'])&&S.pres.includes('BENZISOTHIAZOLINONE')&&A.groups.some(g=>g.id==='renklendirici')&&A.subs.some(x=>x.s.id==='bit')],
+ // Kısaltma küçük harfle düz yazıda eşleşmez ("bit", "las")
+ ["Bir bit bile kalmaz, las vegas.",[],['BENZISOTHIAZOLINONE','SODIUM DODECYLBENZENESULFONATE']],
+ ["Ingredients: Sodium Dodecylbenzene Sulphonate, Sodium Lauryl Ether Sulphate, Colorant (CI42090).",
+  ['SODIUM DODECYLBENZENESULFONATE','SODIUM LAURETH SULFATE','CI 42090'],[],(A,S)=>A.groups.some(g=>g.id==='renklendirici')],
+ ["İçerik: lineer alkil benzen sülfonat, alkil poliglukozit, sodyum sitrat, tuz ruhu, butil glikol, izopropil alkol, benzalkonyum klorür, proteaz, amilaz.",
+  ['SODIUM DODECYLBENZENESULFONATE','DECYL GLUCOSIDE / LAURYL GLUCOSIDE / COCO-GLUCOSIDE','SODIUM CITRATE','HYDROCHLORIC ACID','BUTOXYETHANOL','ISOPROPYL ALCOHOL','BENZALKONIUM CHLORIDE','PROTEASE','AMYLASE'],[],
+  (A,S)=>S.mix&&S.enzyme&&S.pres.includes('BENZALKONIUM CHLORIDE')],
+ // Uzun cümle içindeki ad
+ ["Ürün 1,2-benzisotiyazol içerir; ayrıca renklendirici CI 42090 ve sodyum perkarbonat vardır.",['CI 42090','SODIUM CARBONATE PEROXIDE'],[]],
+];
+AL.forEach(([t,yes,no,chk],i)=>{
+  const A=TL.analyzeT(t,T,K),S=TL.summarizeT(A),got=A.inci.map(x=>x.name);
+  yes.forEach(y=>ok(got.includes(y),'eş '+i+': '+y+' yok; bulunan '+JSON.stringify(got)));
+  no.forEach(y=>ok(!got.includes(y),'eş '+i+': '+y+' olmamalı'));
+  if(chk)ok(chk(A,S),'eş '+i+': ek denetim '+JSON.stringify({color:S.color,pres:S.pres,groups:A.groups.map(g=>g.id),subs:A.subs.map(x=>x.s.id)}));
+});
+
 // Yanlış eşleşme olmamalı: gıda ve kozmetik etiketleri
 const FOOD="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, koruyucu (E 202), aroma verici. Enerji 450 kcal. Fındık içerebilir.";
 const COS="Ingredients: Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Parfum, Citric Acid, Sodium Benzoate, Linalool.";
@@ -70,5 +93,5 @@ ok(TL.looksCleaning(cases[1][0]),'looksCleaning çamaşır suyu');
 // Hız: uzun metin
 const long=cases.map(c=>c[0]).join(' ').repeat(3);const t0=Date.now();TL.analyzeT(long,T,K);const ms=Date.now()-t0;
 ok(ms<1500,'yavaş: '+ms+' ms');
-console.log(n+' denetim ('+cases.length+' temizlik durumu, '+ms+' ms), '+fail+' hata');
+console.log(n+' denetim ('+cases.length+' temizlik durumu, '+AL.length+' eş anlamlı durumu, '+ms+' ms), '+fail+' hata');
 process.exit(fail?1:0);
