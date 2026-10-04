@@ -615,7 +615,29 @@ function buildTIndex(tdb){
   var groups=tdb.groups.map(function(g){return {g:g,rx:rx(g.pat)}});
   var subs=tdb.subs.map(function(s){return {s:s,rx:rx(s.pat||[])}});
   var subByInci={};tdb.subs.forEach(function(s){s.inci.forEach(function(a){subByInci[a]=s})});
-  return {byCode:byCode,phrases:phrases,groups:groups,subs:subs,subByInci:subByInci,meta:tdb.meta,mix:tdb.mix_rule};
+  return {byCode:byCode,phrases:phrases,groups:groups,subs:subs,subByInci:subByInci,meta:tdb.meta,mix:tdb.mix_rule,aliases:tdb.aliases||[],am:null};
+}
+/* Temizlik eş anlamlıları (kaynak/temizlik_esanlamlilar.tsv) kozmetik dizinindeki INCI kayıtlarına bağlanır; ilk kullanımda kurulur */
+function tAliasMap(T,K){
+  if(T.am)return T.am;
+  var am=new Map();
+  function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i})}
+  T.aliases.forEach(function(a){
+    var ts=a[1].map(function(t){return K.map.get(norm(t))}).filter(Boolean);if(!ts.length)return;
+    var s=ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(t){return t.funcs}))),flags:uniq([].concat.apply([],ts.map(function(t){return t.flags}))),reg:[],k3:[]};
+    am.set(norm(a[0]),{s:s,kisa:a[2]==="kisa",ad:a[0]});
+  });
+  return T.am=am;
+}
+/* Birebir arama: temizlik eş anlamlısı, kozmetik dizini, boşluksuz yazım, "sulph" -> "sulf". Kısaltmalar (LAS, BIT) yalnızca büyük harfle yazılmışsa. */
+function tLook(key,raw,K,T){
+  if(!key)return null;
+  var a=tAliasMap(T,K).get(key);
+  if(a){if(!a.kisa||new RegExp("(^|[^A-Za-z])"+key.toUpperCase()+"([^A-Za-z]|$)").test(raw))return {s:a.s,how:"isim",key:key,alias:true};return null}
+  var s=K.map.get(key);if(s)return {s:s,how:"isim",key:key};
+  var ns=K.nos.get(key.replace(/ /g,""));if(ns)return {s:K.map.get(ns),how:"isim",key:ns};
+  if(key.indexOf("sulph")>-1)return tLook(key.replace(/sulph/g,"sulf"),raw,K,T);
+  return null;
 }
 /* Kodlar: "H318", "EUH 208", "H301+H311", "H360FD". Geçersiz son ek atılır (OCR "H302Yutulması"). */
 function tCodes(text,T){
@@ -690,23 +712,29 @@ function tGroups(N,T){
   return Object.keys(out).map(function(k){return out[k]});
 }
 /* INCI ile yazılmış maddeler (parfüm alerjenleri, koruyucular): parantez, virgül, iki nokta ile bölünen kısa parçalar kozmetik dizininde aranır */
-function tInci(text,K){
+function tInci(text,K,T){
   var out=[],seen={};
   function take(h,raw){
     var s=h.s;if(seen[s.name])return;
-    var fl={};s.reg.forEach(function(e){e.flags.forEach(function(f){fl[f]=1})});(s.flags||[]).forEach(function(f){fl[f]=1});
-    var pres=s.funcs.indexOf("Koruyucu")>-1||s.reg.some(function(e){return e.annex==="V"});
-    seen[s.name]=1;out.push({name:s.name,raw:raw,how:h.how,fragrance:!!fl.allergen_fragrance,pres:pres,fl:fl,funcs:s.funcs});
+    var fl={};(s.reg||[]).forEach(function(e){e.flags.forEach(function(f){fl[f]=1})});(s.flags||[]).forEach(function(f){fl[f]=1});
+    var pres=s.funcs.indexOf("Koruyucu")>-1||(s.reg||[]).some(function(e){return e.annex==="V"});
+    var color=/^CI \d{5}/.test(s.name)||s.funcs.indexOf("Renklendirici")>-1&&(s.reg||[]).some(function(e){return e.annex==="IV"});
+    seen[s.name]=1;out.push({name:s.name,raw:raw,how:h.how,alias:!!h.alias,fragrance:!!fl.allergen_fragrance,pres:pres,color:color,fl:fl,funcs:s.funcs});
   }
   String(text||"").split(/[,;:()\[\]\n•·]|\.(?=\s|$)/).forEach(function(p){
-    p=p.replace(/\s+/g," ").trim();if(p.length<4)return;
+    p=p.replace(/\s+/g," ").trim();if(p.length<3)return;
     var w=p.split(" ").length,h;
-    if(w<=4){h=kMatch(p,K);if(h&&(h.how==="isim"||norm(p).length>=8)){take(h,p);return}}
-    // Uzun parçada (ör. "Benzisothiazolinone içerir") yalnızca birebir ad aranır: en uzun eşleşme önce
+    if(w<=4){
+      h=tLook(norm(p),p,K,T);
+      // Benzer yazım (OCR hatası) yalnızca düz yazı olmayan, en az 8 harfli kısa parçada
+      if(!h&&p.length>=4){h=kMatch(p,K);if(h&&h.how!=="isim"&&(norm(p).length<8||isProse(p)))h=null}
+      if(h){take(h,p);return}
+    }
+    // Uzun parçada (ör. "Benzisothiazolinone içerir", "renklendirici CI 42090") yalnızca birebir ad aranır: en uzun eşleşme önce
     var tk=norm(p).split(" ").filter(Boolean);
     for(var i=0;i<tk.length;i++)for(var L=Math.min(6,tk.length-i);L>=1;L--){
-      var key=tk.slice(i,i+L).join(" "),s=key.length>=6&&K.map.get(key);
-      if(s){take({s:s,how:"isim",key:key},key.toUpperCase());i+=L-1;break}
+      var key=tk.slice(i,i+L).join(" "),hh=tLook(key,p,K,T);
+      if(hh&&(key.length>=6||hh.alias)){take(hh,hh.alias&&tAliasMap(T,K).get(key).kisa||!hh.alias?key.toUpperCase():key);i+=L-1;break}
     }
   });
   return out;
@@ -721,14 +749,14 @@ function analyzeT(text,T,K){
   var subs=[],seenS={};
   function addSub(s,how){if(seenS[s.id])return;seenS[s.id]=1;subs.push({s:s,how:how})}
   T.subs.forEach(function(S){S.rx.some(function(r){r.lastIndex=0;return r.test(N)})&&addSub(S.s,"isim")});
-  var inci=K?tInci(text,K):[];
+  var inci=K?tInci(text,K,T):[];
   inci.forEach(function(x){var s=T.subByInci[x.name];if(s)addSub(s,"isim")});
   var sig=/(^|[^A-Za-zÇĞİÖŞÜçğıöşü])(TEHL[İI]KE|DANGER)(?![A-Za-zÇĞİÖŞÜçğıöşü])/.test(text)?"tehlike":/(^|[^A-Za-zÇĞİÖŞÜçğıöşü])(D[İI]KKAT|WARNING)(?![A-Za-zÇĞİÖŞÜçğıöşü])/.test(text)?"dikkat":"";
   return {hazards:hazards,groups:groups,subs:subs,inci:inci,signal:sig};
 }
 var TRANK={info:0,yellow:1,red:2};
 function summarizeT(A){
-  var o={red:[],yellow:[],info:[],byGroup:{},cmr:[],ed:[],resp:[],swallow:[],eye:[],mix:false,mixWhy:[],fragrance:[],pres:[],parfum:false,enzyme:false,level:"info"};
+  var o={red:[],yellow:[],info:[],byGroup:{},cmr:[],ed:[],resp:[],swallow:[],eye:[],mix:false,mixWhy:[],fragrance:[],pres:[],color:[],parfum:false,enzyme:false,level:"info"};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   A.hazards.forEach(function(x){
     var h=x.h;push(o[h.level],h.code);(o.byGroup[h.group]=o.byGroup[h.group]||[]).push(h.code);
@@ -742,7 +770,7 @@ function summarizeT(A){
   });
   A.groups.forEach(function(g){if(g.neg)return;if(g.g.mix){o.mix=true;push(o.mixWhy,g.g.tr)}if(g.id==="parfum")o.parfum=true;if(g.g.resp)o.enzyme=true});
   A.subs.forEach(function(x){if(x.s.mix){o.mix=true;push(o.mixWhy,x.s.inci[0])}if(x.s.resp)o.enzyme=true});
-  A.inci.forEach(function(x){if(x.fragrance)push(o.fragrance,x.name);if(x.pres)push(o.pres,x.name)});
+  A.inci.forEach(function(x){if(x.fragrance)push(o.fragrance,x.name);if(x.pres)push(o.pres,x.name);if(x.color)push(o.color,x.name)});
   A.subs.forEach(function(x){if(x.s.kind==="koruyucu")push(o.pres,x.s.inci[0])});
   return o;
 }
@@ -1251,6 +1279,7 @@ function suggestCardT(){
   var b=el("button",null,"Temizlik ürünü olarak analiz et");b.type="button";b.onclick=function(){setMode("tem",true);window.scrollTo(0,0)};d.appendChild(b);
   return d;
 }
+var TFUNC_SKIP=["Saç boyası","Deodorant","Saç bakımı","Cilt bakımı","Ağız bakımı","Tırnak bakımı","Keratolitik","Bronzlaştırıcı","Cilt koruyucu","Kepek önleyici"];
 var TCLS={red:"r",yellow:"y",info:"u"},TLBL={red:"Ciddi tehlike",yellow:"Uyarı",info:"Bilgi"};
 function srcLinks(urls){
   var ps=el("div","how","Kaynak: ");
@@ -1289,7 +1318,9 @@ function tSummaryCard(S,A){
   row("İçerik grubu",g.length?g.length+": "+g.map(function(x){return x.g.tr}).join(", "):"Bulunamadı");
   row("Koku alerjeni",lst(S.fragrance));
   row("Koruyucu",lst(S.pres));
+  if(S.color.length)row("Renklendirici",lst(S.color));
   row("Parfüm",S.parfum?"Var":"Yazmıyor");
+  if(A.inci.length)row("Tanınan madde",A.inci.length+" adet (aşağıda)");
   if(S.mix)row("Karıştırma","Başka ürünlerle karıştırılmamalı","y");
   if(!n)d.appendChild(el("div","how","Tehlike ifadesi bulunamaması bir onay değildir; okuma hatası olabilir ya da ifade fotoğrafın dışında kalmış olabilir."));
   if(A.hazards.some(function(x){return x.how.indexOf("benzer")>-1&&x.how.indexOf("kod")<0}))d.appendChild(el("div","how","Benzer yazımla eşleşen ifadeler var; “Okunan Metin” bölümünden kontrol edin."));
@@ -1358,13 +1389,22 @@ function renderT(A){
     box.appendChild(el("div","how","Yüzde bantları ağırlıkçadır ve yalnızca %0,2'yi aşan gruplar için yazılır. Enzim, dezenfektan, optik parlatıcı ve parfüm her oranda yazılır. Ürünün tam içerik listesi üreticinin internet sitesinde yayımlanır."));
   }
   var notes=A.subs.filter(function(x){return !x.s.mix});
-  var named=A.inci.filter(function(x){return (x.fragrance||x.pres)&&!TIDX.subByInci[x.name]});
+  var named=A.inci.filter(function(x){return !TIDX.subByInci[x.name]}).sort(function(a,b){return (b.fragrance||b.pres?1:0)-(a.fragrance||a.pres?1:0)});
   if(notes.length||named.length){
     box.appendChild(el("h2",null,"Adı Yazılan Maddeler"));
+    if(named.length)box.appendChild(el("div","how","İşlevler AB kozmetik INCI listesinden (CosIng) alınmıştır; kozmetikteki sınırlar ve yasaklar temizlik ürünleri için geçerli değildir."));
     notes.forEach(function(x){var s=x.s;box.appendChild(infoCard(TCLS[s.level],s.inci.length>1?"Enzim: "+s.inci.join(", ").toLowerCase():s.inci[0],TLBL[s.level]+" · "+(s.kind==="koruyucu"?"Koruyucu":s.kind==="enzim"?"Enzim":s.kind),function(pn){pn.appendChild(el("div","ln",s.text));pn.appendChild(srcLinks(s.sources))}))});
     if(named.length){
       var ul=el("ul","klist");
-      named.forEach(function(x){var li=el("li");li.appendChild(el("b",null,x.name));if(x.fragrance)li.appendChild(el("span","chip","Koku alerjeni"));if(x.pres)li.appendChild(el("span","chip","Koruyucu"));if(x.how==="benzer")li.appendChild(el("span","fn"," · okunan: “"+x.raw+"”"));ul.appendChild(li)});
+      named.forEach(function(x){
+        var li=el("li");li.appendChild(el("b",null,x.name));
+        var fs=x.funcs.filter(function(f){return TFUNC_SKIP.indexOf(f)<0});   // kozmetiğe özgü işlevler temizlikte gösterilmez
+        if(fs.length)li.appendChild(el("span","fn"," · "+fs.join(", ")));
+        if(x.how==="benzer")li.appendChild(el("span","fn"," · okunan: “"+x.raw+"”"));
+        else if(norm(x.raw)!==norm(x.name))li.appendChild(el("span","fn"," · etikette: “"+x.raw+"”"));
+        if(x.fragrance)li.appendChild(el("span","chip","Koku alerjeni"));if(x.pres)li.appendChild(el("span","chip","Koruyucu"));if(x.color)li.appendChild(el("span","chip","Renklendirici"));
+        ul.appendChild(li);
+      });
       box.appendChild(ul);
     }
   }
