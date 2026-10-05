@@ -12,6 +12,7 @@ function tabSync(){
   document.body.classList.toggle("mode-profil",prof);
   document.querySelector("h1").textContent=prof?"Profilim":"Etiket Oku";
   document.title=prof?"Profilim":"Etiket Oku";
+  if(prof&&CMP_IDS)closeCompare();
   if(prof){$("pd").open=true;window.scrollTo(0,0)}
 }
 window.addEventListener("hashchange",tabSync);tabSync();
@@ -80,13 +81,13 @@ $("oku").onclick=function(){
     ST.textContent="Google Vision ile okunuyor…";
     fetch(OCR_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({image:cv.toDataURL("image/jpeg",0.85).split(",")[1]})})
     .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||j.error){var er=new Error(j.error||("HTTP "+r.status));er.srv=true;throw er}return j})})
-    .then(function(j){$("metin").value=j.text||"";ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn, Google Vision).";run()})
+    .then(function(j){$("metin").value=j.text||"";HSCAN=HOCR=true;ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn, Google Vision).";run()})
     .catch(function(e){ST.textContent="Okuma hatası: "+e.message+(e.srv?"":" (internet bağlantısını kontrol edin)")}).then(function(){btn.disabled=false});
     return;
   }
   Tesseract.createWorker("tur+eng",1,{logger:function(m){if(m.status)ST.textContent=m.status+(m.progress?" %"+Math.round(m.progress*100):"")}}).then(function(w){
     return w.recognize(cv).then(function(r){
-      $("metin").value=r.data.text;ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn).";
+      $("metin").value=r.data.text;HSCAN=HOCR=true;ST.textContent="Okuma tamamlandı ("+((Date.now()-t0)/1000).toFixed(1)+" sn).";
       run();return w.terminate();
     });
   }).catch(function(e){ST.textContent="Okuma hatası: "+(e&&e.message?e.message:e)}).then(function(){btn.disabled=false});
