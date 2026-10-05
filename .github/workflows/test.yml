@@ -38,6 +38,8 @@ jobs:
         run: node test/kozmetik_k3.js
       - name: Temizlik
         run: node test/temizlik.js
+      - name: Karşılaştırma
+        run: node test/karsilastir.js
       - name: Ansiklopedi
         run: node test/ansiklopedi.js
       - name: OCR Worker
