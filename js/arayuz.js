@@ -302,8 +302,8 @@ function render(res,br){
     hd.appendChild(el("div","t","Kanserojen olabilecek madde"));hd.appendChild(b);cd.appendChild(hd);
     cd.appendChild(el("div","how","IARC sınıflandırmasına göre (Grup 2A muhtemelen, 2B olası kanserojen). Miktar etikette yazmadığı için risk hesaplanamaz."));
     var ipan=el("div","ipanel");ipan.hidden=true;
-    if(canc.yes.length){ipan.appendChild(el("div","ln",el("b",null,"İçerir:")));ipan.appendChild(el("div","ln",canc.yes.join(", ")))}
-    if(canc.may.length){ipan.appendChild(el("div","ln",el("b",null,"İçerebilir:")));ipan.appendChild(el("div","ln",canc.may.join(", ")))}
+    if(canc.yes.length){var d=el("div","ln");d.appendChild(el("b",null,"İçerir:"));ipan.appendChild(d);ipan.appendChild(el("div","ln",canc.yes.join(", ")))}
+    if(canc.may.length){var d=el("div","ln");d.appendChild(el("b",null,"İçerebilir:"));ipan.appendChild(d);ipan.appendChild(el("div","ln",canc.may.join(", ")))}
     cd.appendChild(ipan);b.onclick=function(){ipan.hidden=!ipan.hidden;b.setAttribute("aria-expanded",ipan.hidden?"false":"true");b.classList.toggle("on",!ipan.hidden)};
     box.appendChild(cd);
   }
