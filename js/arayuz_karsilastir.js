@@ -13,7 +13,7 @@ function histSave(text){
   var same=a.filter(function(x){return x.mode==="gida"&&x.text===t})[0],cur=!scan&&HCUR?a.filter(function(x){return x.id===HCUR})[0]:null,e;
   if(same)e=same;
   else if(cur){e=cur;e.text=t}
-  else e={id:"h"+Date.now(),t:Date.now(),mode:"gida",name:histName(new Date()),text:t};
+  else e={id:"h"+Date.now(),t:Date.now(),mode:"gida",name:histName(a),text:t};
   a=histAdd(a.filter(function(x){return x.id!==e.id}),e,KARS_AYAR.gecmisBoyut);
   histStore(a);HCUR=e.id;
 }
@@ -66,7 +66,7 @@ function showCompare(ida,idb){
     var cn=el("div","kcnt");
     [[0,"özel uyarı yok"],[2,"dikkat"],[3,"uyarı"],[1,"doğrulanmadı"]].forEach(function(x){
       if(x[0]===1&&!P.counts[1])return;
-      var s=el("span","kc");s.appendChild(cmpIcon(x[0]));s.appendChild(document.createTextNode(P.counts[x[0]]+" "+x[1]));cn.appendChild(s);
+      var s=el("span","kc"+(P.counts[x[0]]&&x[0]>=2?" kc"+CMP_ICON[x[0]]:""));s.appendChild(cmpIcon(x[0]));s.appendChild(el("b","kcn",String(P.counts[x[0]])));s.appendChild(el("span",null,x[1]));cn.appendChild(s);
     });
     c.appendChild(cn);hd.appendChild(c);
   });
@@ -80,18 +80,22 @@ function showCompare(ida,idb){
   var tb=el("div","ktab");
   function tr(label,fa,fb){
     tb.appendChild(el("div","kl",label));
-    [fa(A),fb?fb(B):fa(B)].forEach(function(v){var c=el("div","kv");if(typeof v==="string")c.textContent=v;else c.appendChild(v);tb.appendChild(c)});
+    [fa(A),fb?fb(B):fa(B)].forEach(function(v){
+      var lv=v&&v.lv,c=el("div","kv"+(lv?" kv"+lv:""));if(v&&v.v!==undefined)v=v.v;
+      if(typeof v==="string")c.textContent=v;else c.appendChild(v);tb.appendChild(c);
+    });
   }
   tr("En riskli madde",function(P){
     if(!P.top.length)return "Özel uyarı yok";
-    var f=document.createDocumentFragment();f.appendChild(cmpIcon(P.maxRank));f.appendChild(document.createTextNode(P.top.map(function(x){return x.name}).join(", ")));return f});
-  tr("Dikkat gerektiren madde",function(P){return String(P.yellow)});
-  tr("Alerjenler",function(P){var a=P.allergen;return a.yes.length||a.may.length?(a.yes.length?"İçerir: "+a.yes.join(", "):"")+(a.yes.length&&a.may.length?" · ":"")+(a.may.length?"İçerebilir: "+a.may.join(", "):""):"Bulunamadı"});
-  tr("Glüten",function(P){return {var:"İçerir",icerebilir:"İçerebilir",yok:"Bulunamadı"}[P.gluten]});
-  tr("Vegan",function(P){return {degil:"Vegan değil",belirsiz:"Kaynağı belirsiz madde var",yok:"Hayvansal içerik bulunamadı"}[P.vegan]});
-  tr("Palm yağı",function(P){return P.palm.length?"Var":"Bulunamadı"});
-  tr("Şeker kaynağı",function(P){return P.sugar.length?P.sugar.length+": "+P.sugar.join(", "):"Bulunamadı"});
-  tr("Tanınan içerik",function(P){return P.unknown.total?P.unknown.found+"/"+P.unknown.total:"—"});
+    var f=document.createDocumentFragment();f.appendChild(cmpIcon(P.maxRank));f.appendChild(document.createTextNode(P.top.map(function(x){return x.name}).join(", ")));return {v:f,lv:P.maxRank===3?"r":P.maxRank===2?"y":""}});
+  // Dikkat çekmesi gereken hücreler: koyu turuncu (uyarı) ya da sarı (dikkat); kırmızı yalnızca profil kartında
+  tr("Dikkat gerektiren madde",function(P){return {v:String(P.yellow),lv:P.yellow?"y":""}});
+  tr("Alerjenler",function(P){var a=P.allergen;return {v:a.yes.length||a.may.length?(a.yes.length?"İçerir: "+a.yes.join(", "):"")+(a.yes.length&&a.may.length?" · ":"")+(a.may.length?"İçerebilir: "+a.may.join(", "):""):"Bulunamadı",lv:a.yes.length||a.may.length?"y":""}});
+  tr("Glüten",function(P){return {v:{var:"İçerir",icerebilir:"İçerebilir",yok:"Bulunamadı"}[P.gluten],lv:P.gluten==="yok"?"":"y"}});
+  tr("Vegan",function(P){return {v:{degil:"Vegan değil",belirsiz:"Kaynağı belirsiz madde var",yok:"Hayvansal içerik bulunamadı"}[P.vegan],lv:P.vegan==="yok"?"":"y"}});
+  tr("Palm yağı",function(P){return {v:P.palm.length?"Var":"Bulunamadı",lv:P.palm.length?"y":""}});
+  tr("Şeker kaynağı",function(P){return {v:P.sugar.length?P.sugar.length+": "+P.sugar.join(", "):"Bulunamadı",lv:P.sugar.length?"y":""}});
+  tr("Tanınan içerik",function(P){var u=P.unknown;return {v:u.total?u.found+"/"+u.total:"—",lv:u.total&&(u.total-u.found)/u.total>KARS_AYAR.taninmayanOran?"y":""}});
   box.appendChild(tb);
   // 4) Madde farkları
   box.appendChild(el("h2",null,"Madde Farkları"));
@@ -113,7 +117,7 @@ function showCompare(ida,idb){
   document.body.classList.add("mode-kars");box.hidden=false;window.scrollTo(0,0);bk.focus();
 }
 function diffList(title,items,P){
-  var d=el("div","kgrp");d.appendChild(el("h3",null,title+" ("+items.length+")"));
+  var d=document.createElement("details");d.className="kgrp";d.appendChild(el("summary",null,title+" ("+items.length+")"));
   if(!items.length){d.appendChild(el("div","mut","Yok"));return d}
   items.forEach(function(it){
     var b=el("button","kitem kmad");b.type="button";b.appendChild(cmpIcon(it.rank));b.appendChild(el("span","kin",it.name));
