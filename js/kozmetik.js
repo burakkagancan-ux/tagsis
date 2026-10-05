@@ -167,7 +167,7 @@ function analyzeK(text,K,opts){
   return out;
 }
 function summarizeK(res,K){
-  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],child:[],comedo:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
+  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],child:[],comedo:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],cancer:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   res.forEach(function(r){
     if(!r.found){o.unknown.push(r.raw);if(/^(parfum|fragrance|aroma|perfume|parfüm)$/i.test(r.raw.trim()))o.parfum=true;return}
@@ -179,6 +179,8 @@ function summarizeK(res,K){
     r.iflags.forEach(function(f){fl[f]=1});
     (r.k3||[]).forEach(function(w){var L=K&&K.watchLists[w.list],kind=L?L.kind:(w.list==="ca"||w.list==="asean"?"ban":"ed");
       if(kind==="ban")push(o.ban,r.name);else if(kind==="ed")push(o.ed,r.name);else if(kind==="child")push(o.child,r.name);else if(kind==="comedo")push(o.comedo,r.name)});
+    // AB CMR sınıfı ya da açıklamasında "kanserojen" geçen kayıt (formaldehit salıcılar dahil)
+    if(fl.cmr_ban||fl.cmr2||r.reg.some(function(e){return /kanserojen/i.test((e.reason||"")+" "+(e.note_tr||""))})||r.k3.some(function(w){return /kanserojen/i.test(w.note_tr||"")}))push(o.cancer,r.name);
     if(fl.allergen_fragrance)push(o.fragrance,r.name);
     if(fl.formaldehyde_releaser)push(o.formaldehyde,r.name);
     if(fl.allergen_hairdye)push(o.hairdye,r.name);

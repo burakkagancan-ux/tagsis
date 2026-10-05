@@ -182,6 +182,7 @@ function renderK(res){
   var box=$("sonuc");box.textContent="";
   if(!res.length){box.textContent="Bileşen listesi bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
   var S=summarizeK(res,KIDX);
+  if(S.cancer.length)box.appendChild(card("r","Kanserojen olabilecek madde",[S.cancer.join(", "),el("div","how","AB'de kanserojen, mutajen ya da üreme için toksik (CMR) sınıfında olan ya da kanserojen formaldehit salabilen madde. Ayrıntı aşağıdaki bileşen kartında.")]));
   kProfileCards(S,res).forEach(function(c){box.appendChild(c)});
   box.appendChild(kSummaryCard(S));
   if(S.comedo.length&&PTYPE!=="rinse")box.appendChild(comedoCard(res));
