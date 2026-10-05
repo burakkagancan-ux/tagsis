@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: veri-guncelle
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -14,9 +17,12 @@ jobs:
         with:
           python-version: "3.12"
       - run: python fetch_data_arsivli.py   # fetch_data.py + kaldırılan kayıtları data/arsiv.json'a yazar
+      - name: Veriyi doğrula
+        # Geçersizse iş burada durur; aşağıdaki adım çalışmaz, hiçbir şey gönderilmez.
+        run: python dogrula_veri.py
       - name: Değişiklik varsa kaydet
         run: |
           git config user.name "tagsis-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data
+          git add data/tagsis.json data/arsiv.json data/durum.json
           git diff --cached --quiet || (git commit -m "Veri güncellendi" && git push)

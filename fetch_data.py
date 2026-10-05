@@ -2,6 +2,8 @@
 import json, os, sys, time, datetime
 import urllib.parse, urllib.request
 
+from dogrula_veri import dogrula_listeler, Gecersiz
+
 URL = os.environ.get("TAGSIS_URL", "https://guvenilirgida.tarimorman.gov.tr/GuvenilirGida/GKD/DataTablesList")
 REFERER = "https://guvenilirgida.tarimorman.gov.tr/GuvenilirGida/gkd/TaklitVeyaTagsisListe1?siteYayinDurumu=True"
 OUT = "data/tagsis.json"
@@ -61,9 +63,10 @@ def main():
             print(f"{NAMES.get(lid, lid)}: {len(data)} kayıt")
         time.sleep(0.5)
 
-    for zorunlu in ("saglik", "304", "305"):
-        if zorunlu not in listeler:
-            sys.exit(f"HATA: beklenen liste boş geldi: {zorunlu}")
+    try:
+        dogrula_listeler(listeler)       # zorunlu listeler, alanlar, tarih biçimi
+    except Gecersiz as e:
+        sys.exit(f"HATA: gelen veri geçersiz, dosya değiştirilmedi: {e}")
 
     yeni = sum(len(v) for v in listeler.values())
     if os.path.exists(OUT):
@@ -76,18 +79,24 @@ def main():
             durum_yaz(onceki.get("guncelleme"), listeler)
             return
     simdi = datetime.datetime.now(datetime.timezone.utc).isoformat()
-    with open(OUT, "w", encoding="utf-8") as f:
-        json.dump({"guncelleme": simdi, "listeler": listeler}, f, ensure_ascii=False)
+    yaz_json(OUT, {"guncelleme": simdi, "listeler": listeler})
     print(f"Yazıldı: toplam {yeni} kayıt")
     durum_yaz(simdi, listeler)
 
 
 def durum_yaz(son_degisiklik, listeler):
     """Liste değişmese de 'son kontrol' zamanını kaydeder; ekranda 'son kontrol' olarak gösterilir."""
-    with open(DURUM, "w", encoding="utf-8") as f:
-        json.dump({"son_kontrol": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                   "son_degisiklik": son_degisiklik,
-                   "kayit": {k: len(v) for k, v in listeler.items()}}, f, ensure_ascii=False, indent=1)
+    yaz_json(DURUM, {"son_kontrol": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                     "son_degisiklik": son_degisiklik,
+                     "kayit": {k: len(v) for k, v in listeler.items()}}, indent=1)
+
+
+def yaz_json(yol, veri, indent=None):
+    """Önce geçici dosyaya yazar, sonra yerine koyar: yarıda kalan yazma bozuk dosya bırakmaz."""
+    gecici = yol + ".tmp"
+    with open(gecici, "w", encoding="utf-8") as f:
+        json.dump(veri, f, ensure_ascii=False, indent=indent)
+    os.replace(gecici, yol)
 
 
 if __name__ == "__main__":
