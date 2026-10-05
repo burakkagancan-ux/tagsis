@@ -257,6 +257,7 @@ function additiveCard(r){
   b.onclick=function(e){e.stopPropagation();openSheet(ttl,LBL[r.rank],pn,b)};
   d.classList.add("tap");
   d.addEventListener("click",function(e){if(e.target.closest("button,a,.adi"))return;openSheet(ttl,LBL[r.rank],pn,b)});
+  d._open=function(ret){openSheet(ttl,LBL[r.rank],pn,ret||b)};   // karşılaştırma ekranından açmak için
   return d;
 }
 /* Alt sayfa: başlık, durum satırı ve içerik; kapatınca odak açan düğmeye döner */
@@ -308,6 +309,7 @@ function render(res,br){
     box.appendChild(cd);
   }
   profileCards(S).forEach(function(c){box.appendChild(c)});
+  var kb=karsButton();if(kb)box.appendChild(kb);
   box.appendChild(summaryCard(S,res));
   if(LASTBR.length)box.appendChild(brandCard(LASTBR));
   comboSection(box,findCombos(COMBO,"gida",comboItemsFood(res,IDX)));
@@ -337,7 +339,7 @@ function run(){
   }
   if(!IDX){$("sonuc").textContent="Listeler henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
   if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
-  try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[])}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+  try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[]);histSave(t)}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
   if(looksCleaning(t))$("sonuc").insertBefore(suggestCardT(),$("sonuc").firstChild);
   else if(looksCosmetic(t))$("sonuc").insertBefore(suggestCard(),$("sonuc").firstChild);
 }
@@ -346,4 +348,4 @@ var RUN_T=null;$("metin").addEventListener("input",function(){clearTimeout(RUN_T
 var ORNEK_GIDA="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";
 var ORNEK_KOZ="Ingredients: Aqua, Glycerin, Cetearyl Alcohol, Paraffinum Liquidum, Parfum, Methylparaben, DMDM Hydantoin, Linalool, Limonene, Hexyl Cinnamal, Butylphenyl Methylpropional, Retinyl Palmitate, Lanolin, Glycerln Stearate, Cl 77891 [+/- CI 77491]";
 var ORNEK_TEM="İçindekiler: %5-15 anyonik yüzey aktif maddeler, %5'ten az noniyonik yüzey aktif maddeler, sabun, fosfonatlar, enzimler, optik parlatıcılar, parfüm (Hexyl Cinnamal, Limonene, Linalool), koruyucu (Benzisothiazolinone, Methylisothiazolinone). TEHLİKE. Ciddi göz hasarına yol açar. Cilt tahrişine yol açar. Sucul ortamda uzun süre kalıcı, zararlı etki. Çocukların ulaşamayacağı yerde saklayın.";
-$("ornek").onclick=function(){$("metin").value=MODE==="koz"?ORNEK_KOZ:MODE==="tem"?ORNEK_TEM:ORNEK_GIDA;run()};
+$("ornek").onclick=function(){HSCAN=HOCR=true;$("metin").value=MODE==="koz"?ORNEK_KOZ:MODE==="tem"?ORNEK_TEM:ORNEK_GIDA;run()};
