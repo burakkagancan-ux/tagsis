@@ -50,3 +50,37 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
   4. "İşlevler AB…" notu bölümün başında; listenin altına inebilir.
   5. Adlar İngilizce ve büyük harf (INCI); yanına Türkçe ad (LIMONENE · limonen). Veri hazırlığı gerekir.
   6. İşlev adı tekrarı ("PARFUM · Koku, Parfüm"); tekrar kaldırılmalı. (önerilen)
+
+
+## Ansiklopedi: eksik bilgiler (05.10.2026)
+Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikte ansiklopedi sayfası yok. Aşağıdakiler bilerek sonraya bırakıldı; sayılar `data/ansiklopedi.json`, `data/e_kodlari.json`, `data/kozmetik.json`, `data/temizlik.json`'dan 05.10.2026'da sayıldı.
+
+### Gıda (E kodları)
+- 141 sayfa elle incelenmiş (`review=curated`), **192 sayfa otomatik** (`review=auto`). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`, 171 farklı metin), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. 192'sinde de eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet. 188'inde vegan durumu `unknown`; 139'unda profil uyarısı yok (değerlendirilmedi; "yok" demek değil).
+- Öncelik 1, renkli (resmi kaynağı olduğu hâlde otomatik kalan, kaynak bulununca elle yazılacak, 11): E123, E154, E160f, E216, E217, E230, E284, E285, E320, E924a, E952.
+- Öncelik 2, yeşil (181), kategoriye göre:
+  - Asitlik düzenleyiciler (53): E260, E270, E296, E297, E325, E326, E327, E330, E331, E332, E333, E334, E335, E336, E337, E350, E351, E352, E353, E354, E355, E356, E357, E363, E380, E500, E501, E503, E504, E507, E508, E509, E511, E512, E513, E514, E515, E516, E517, E524, E525, E526, E527, E528, E529, E530, E574, E575, E576, E577, E578, E579, E585
+  - Emülgatörler (20): E431, E442, E470a, E470b, E472a, E472b, E472c, E472d, E472e, E472f, E473, E474, E475, E476, E477, E479b, E481, E482, E483, E570
+  - Koruyucular (17): E214, E215, E218, E219, E234, E235, E239, E242, E243, E261, E262, E263, E280, E281, E282, E283, E1105
+  - Antioksidanlar (14): E300, E301, E302, E304, E310, E311, E312, E315, E316, E319, E321, E385, E392, E586
+  - Lezzet artırıcılar (12): E626, E627, E628, E629, E630, E631, E632, E633, E634, E635, E640, E650
+  - Kıvam artırıcılar (11): E405, E406, E413, E416, E417, E418, E425, E426, E427, E441, E1204
+  - Diğer (11): E900, E920, E927b, E1103, E1200, E1505, E1517, E1518, E1519, E1520, E1521
+  - Gazlar (10): E290, E938, E939, E941, E942, E943a, E943b, E944, E948, E949
+  - Parlatıcılar (10): E901, E902, E903, E904, E905, E907, E912, E914, E1203, E1205
+  - Topaklanmayı önleyiciler (8): E535, E536, E538, E551, E552, E553a, E553b, E558
+  - Dengeleyiciler (6): E444, E445, E459, E999, E1201, E1202
+  - Tatlandırıcılar (5): E957, E959, E960, E961, E969
+  - Renklendiriciler (4): E101, E160d, E162, E172
+- Yapılacak: her madde için EFSA/AB 1333/2008 kaynaklı elle kayıt (`kaynak/ansiklopedi.json` `kayitlar`), aynı biçim ve `test/ansiklopedi.js` doğrulamasıyla. Kaynağı güvenilir okunamayanlar (E101, E160d, E162, E172 gibi) otomatik kalabilir, nedeni kayda yazılır.
+
+### Kozmetik
+- Ansiklopedi sayfası yok. Veride 1.972 AB kaydı (`kozmetik.json`) ve 30.609 INCI adı (`kozmetik_inci.json`) var; yalnızca durum/gerekçe cümlesi ve CosIng işlevi var, "ne işe yarar / nerelerde bulunur / vücutta" açıklaması yok.
+- `tr` (Türkiye ek durumu) 1.942 kayıtta boş (Resmî Gazete satır satır karşılaştırılamadı, bkz. 4).
+- 225 kaydın bayrağı var; 302'si bilgi (komedojenite vb.) düzeyinde. En çok aranan ~200–300 yaygın madde (UV filtreleri, koruyucular, parabenler, yağlar, asitler, koku alerjenleri) için elle kayıt öncelikli; tamamı gerekmez.
+- Yapılacak: ansiklopedi modeline `product_types: cosmetic` kayıtları (model ve doğrulama bunu zaten kabul ediyor), kayıt anahtarı INCI.
+
+### Temizlik
+- Ansiklopedi sayfası yok. `temizlik.json`: 8 madde notu (`subs`: MIT/CMIT/BIT/OIT, sodyum hipoklorit, asit, amonyak, enzimler), 22 içerik grubu, 98 temizliğe özgü eş anlamlı. Notu olmayan yaygın maddeler (LAS, SLES, STPP, perkarbonat, kostik soda, butil glikol, DDAC, zeolit, EDTA, sitrik asit…) yalnızca "tanınan madde" olarak CosIng işleviyle listeleniyor; açıklama yok.
+- H/EUH/P ifadelerinin Türkçesi: EUH ve 23 P ifadesi çeviri (needs_review), SEA Yönetmeliği resmi metni okunamadı.
+- Yapılacak: önce bu ~30 yaygın madde için kısa kayıt (ne işe yarar, nerede kullanılır, hangi H ifadesi), sonra ansiklopedi sayfası.

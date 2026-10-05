@@ -86,6 +86,8 @@ Son güncelleme: 04.10.2026.
 
 - Temizlik: çamaşır kapsülü/çocuk uyarıları, mikroorganizmalı temizleyiciler, P (önlem) ifadeleri, EUH208 içindeki madde adını ayrıca gösterme, AB 2026/405 Ek V (2029 öncesi mevzuat izlemesine).
 
+- Teknik borç: TEKNIK_BORC.md; ansiklopedi eksikleri (192 otomatik gıda sayfası, kozmetik ve temizlik sayfası yok) "Ansiklopedi: eksik bilgiler" bölümünde (05.10.2026).
+
 ## Belgeler (Claude Docs)
 - Kozmetik araştırması: https://claude.ai/code/artifact/690f07f0-5bc7-4600-bd75-aa9d38fbfb21
 - Endokrin bozucu araştırması: https://claude.ai/code/artifact/f3487ffa-3ac4-4f20-910f-1980191e91af
