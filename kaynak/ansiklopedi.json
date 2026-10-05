@@ -469,6 +469,230 @@
    "year": 2010,
    "url": "https://doi.org/10.2903/j.efsa.2010.1586",
    "official": true
+  },
+  "efsa_ascorbate": {
+   "title": "Scientific Opinion on the re-evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(5):4087)",
+   "year": 2015,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4087",
+   "official": true
+  },
+  "efsa_e304": {
+   "title": "Scientific Opinion on the re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives",
+   "publisher": "EFSA (EFSA Journal 13(11):4289)",
+   "year": 2015,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4289",
+   "official": true
+  },
+  "efsa_e310": {
+   "title": "Scientific Opinion on the re-evaluation of propyl gallate (E 310) as a food additive",
+   "publisher": "EFSA (EFSA Journal 12(4):3642)",
+   "year": 2014,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/3642",
+   "official": true
+  },
+  "efsa_e311": {
+   "title": "Re-evaluation of octyl gallate (E 311) as a food additive",
+   "publisher": "EFSA (EFSA Journal 13(10):4248)",
+   "year": 2015,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4248",
+   "official": true
+  },
+  "efsa_e312": {
+   "title": "Scientific Opinion on the re-evaluation of dodecyl gallate (E 312) as a food additive",
+   "publisher": "EFSA (EFSA Journal 13(5):4086)",
+   "year": 2015,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4086",
+   "official": true
+  },
+  "efsa_erythorbate": {
+   "title": "Scientific Opinion on the re-evaluation of erythorbic acid (E 315) and sodium erythorbate (E 316) as food additives",
+   "publisher": "EFSA (EFSA Journal 14(1):4360)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4360",
+   "official": true
+  },
+  "efsa_e319": {
+   "title": "Statement on the refined exposure assessment of tertiary-butyl hydroquinone (E 319)",
+   "publisher": "EFSA (EFSA Journal 14(1):4363)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4363",
+   "official": true
+  },
+  "eu_2018_1481": {
+   "title": "Commission Regulation (EU) 2018/1481 of 4 October 2018 amending Annexes II and III to Regulation (EC) No 1333/2008 of the European Parliament and of the Council and the Annex to Commission Regulation (EU) No 231/2012 as regards octyl gallate (E 311) and dodecyl gallate (E 312)",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2018,
+   "url": "https://eur-lex.europa.eu/eli/reg/2018/1481/oj/eng",
+   "official": true
+  },
+  "efsa_e321": {
+   "title": "Scientific Opinion on the re-evaluation of butylated hydroxytoluene BHT (E 321) as a food additive",
+   "publisher": "EFSA (EFSA Journal 10(3):2588)",
+   "year": 2012,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/2588",
+   "official": true
+  },
+  "efsa_e392": {
+   "title": "Refined exposure assessment of extracts of rosemary (E 392) from its use as food additive",
+   "publisher": "EFSA (EFSA Journal 16(8):5373)",
+   "year": 2018,
+   "url": "https://doi.org/10.2903/j.efsa.2018.5373",
+   "official": true
+  },
+  "efsa_e586": {
+   "title": "Scientific Opinion on the re-evaluation of 4-hexylresorcinol (E 586) as a food additive",
+   "publisher": "EFSA (EFSA Journal 12(4):3643)",
+   "year": 2014,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/3643",
+   "official": true
+  },
+  "efsa_e234": {
+   "title": "Safety of nisin (E 234) as a food additive in the light of new toxicological data and the proposed extension of use",
+   "publisher": "EFSA (EFSA Journal 15(12):5063)",
+   "year": 2017,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/5063",
+   "official": true
+  },
+  "efsa_e235": {
+   "title": "Scientific Opinion on the use of natamycin (E 235) as a food additive",
+   "publisher": "EFSA (EFSA Journal 7(12):1412)",
+   "year": 2009,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1412",
+   "official": true
+  },
+  "efsa_propionates": {
+   "title": "Scientific Opinion on the re-evaluation of propionic acid (E 280), sodium propionate (E 281), calcium propionate (E 282) and potassium propionate (E 283) as food additives",
+   "publisher": "EFSA (EFSA Journal 12(7):3779)",
+   "year": 2014,
+   "url": "https://doaj.org/article/e633b6cbb7354c1a8789906e9b0f4972",
+   "official": true
+  },
+  "efsa_e442": {
+   "title": "Re-evaluation of ammonium phosphatides (E 442) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14:4597)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4597",
+   "official": true
+  },
+  "efsa_e470": {
+   "title": "Re-evaluation of sodium, potassium and calcium salts of fatty acids (E 470a) and magnesium salts of fatty acids (E 470b) as food additives",
+   "publisher": "EFSA (EFSA Journal 16(3):5180)",
+   "year": 2018,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/5180",
+   "official": true
+  },
+  "efsa_e472": {
+   "title": "Re-evaluation of acetic acid, lactic acid, citric acid, tartaric acid, mono- and diacetyltartaric acid, mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f) as food additives",
+   "publisher": "EFSA (EFSA Journal 18(3):6032)",
+   "year": 2020,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/6032",
+   "official": true
+  },
+  "efsa_e472c_infant": {
+   "title": "Re-evaluation of citric acid esters of mono- and diglycerides of fatty acids (E 472c) as a food additive in foods for infants below 16 weeks of age and follow-up of its re-evaluation",
+   "publisher": "EFSA (EFSA Journal 23(1):9202)",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/9202",
+   "official": true
+  },
+  "efsa_e472_spec": {
+   "title": "Scientific opinion as regards the specifications of the food additives acetic, lactic, tartaric, mono- and diacetyltartaric, mixed acetic and tartaric acids esters of mono- and diglycerides of fatty acids (E 472a,b,d,e,f)",
+   "publisher": "EFSA (EFSA Journal 23(8):9602)",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/9602",
+   "official": true
+  },
+  "efsa_e473": {
+   "title": "Re-evaluation of sucrose esters of fatty acids (E 473) as a food additive in foods for infants below 16 weeks of age and follow-up of its previous evaluations as food additive for uses in foods for all population groups",
+   "publisher": "EFSA (EFSA Journal 21(4):7961)",
+   "year": 2023,
+   "url": "https://doi.org/10.2903/j.efsa.2023.7961",
+   "official": true
+  },
+  "efsa_e475": {
+   "title": "Re-evaluation of polyglycerol esters of fatty acids (E 475) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(12):5089)",
+   "year": 2017,
+   "url": "https://doi.org/10.2903/j.efsa.2017.5089",
+   "official": true
+  },
+  "efsa_e475_followup": {
+   "title": "Follow-up of the re-evaluation of polyglycerol esters of fatty acids (E 475) as a food additive",
+   "publisher": "EFSA (EFSA Journal 20(5):7308)",
+   "year": 2022,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/7308",
+   "official": true
+  },
+  "efsa_e476": {
+   "title": "Re-evaluation of polyglycerol polyricinoleate (E 476) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(3):4743)",
+   "year": 2017,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4743",
+   "official": true
+  },
+  "efsa_e476_followup": {
+   "title": "Follow-up of the re-evaluation of polyglycerol polyricinoleate (E 476) as a food additive",
+   "publisher": "EFSA (EFSA Journal 20(5):7294)",
+   "year": 2022,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/7294",
+   "official": true
+  },
+  "efsa_e477": {
+   "title": "Re-evaluation of propane-1,2-diol esters of fatty acids (E 477) as a food additive",
+   "publisher": "EFSA (EFSA Journal 16(12):5497)",
+   "year": 2018,
+   "url": "https://doaj.org/article/e60a648ae908460a842363ed5d083d44",
+   "official": true
+  },
+  "efsa_e479b": {
+   "title": "Re-evaluation of oxidised soya bean oil interacted with mono- and diglycerides of fatty acids (E 479b) as a food additive",
+   "publisher": "EFSA (EFSA Journal 16(10):5420)",
+   "year": 2018,
+   "url": "https://doaj.org/article/d08dbbe989f840e4933fc17b496d09b4",
+   "official": true
+  },
+  "efsa_e481_e482": {
+   "title": "Scientific Opinion on the re-evaluation of sodium stearoyl-2-lactylate (E 481) and calcium stearoyl-2-lactylate (E 482) as food additives",
+   "publisher": "EFSA (EFSA Journal 11(5):3144)",
+   "year": 2013,
+   "url": "https://doi.org/10.2903/j.efsa.2013.3144",
+   "official": true
+  },
+  "efsa_e483": {
+   "title": "Re-evaluation of stearyl tartrate (E 483) as a food additive",
+   "publisher": "EFSA (EFSA Journal 18(3):6033)",
+   "year": 2020,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/6033",
+   "official": true
+  },
+  "ec_reg_2023_2379": {
+   "title": "Commission Regulation (EU) 2023/2379 of 29 September 2023 amending Annex II to Regulation (EC) No 1333/2008 of the European Parliament and of the Council and the Annex to Commission Regulation (EU) No 231/2012 as regards the food additive stearyl tartrate (E 483)",
+   "publisher": "Avrupa Komisyonu (Official Journal of the EU)",
+   "year": 2023,
+   "url": "https://eur-lex.europa.eu/eli/reg/2023/2379/oj",
+   "official": true
+  },
+  "efsa_e570": {
+   "title": "Re-evaluation of fatty acids (E 570) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(5):4785)",
+   "year": 2017,
+   "url": "https://doaj.org/article/d8fe18380c0c4283801b3bf25d61a72e",
+   "official": true
+  },
+  "efsa_e900": {
+   "title": "Re-evaluation of dimethyl polysiloxane (E 900) as a food additive",
+   "publisher": "EFSA (EFSA Journal 18(5):6107)",
+   "year": 2020,
+   "url": "https://doaj.org/article/8ebca850eefb481d9b8568e77fc50434",
+   "official": true
+  },
+  "efsa_e1520": {
+   "title": "Re-evaluation of propane-1,2-diol (E 1520) as a food additive",
+   "publisher": "EFSA (EFSA Journal 16(4):5235)",
+   "year": 2018,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/5235",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -4901,6 +5125,1249 @@
     "efsa_e180"
    ],
    "last_reviewed": "2026-10-04"
+  },
+  "E300": {
+   "evidence_level": "strong",
+   "what_it_does": "C vitamininin kendisidir; oksidasyonu yavaşlatarak renk ve tat bozulmasını önler, una katıldığında hamuru güçlendirir.",
+   "found_in": [
+    "Meyve suları ve nektarlar",
+    "İşlenmiş et ürünleri",
+    "Meyve ve sebze konserveleri"
+   ],
+   "in_the_body": "Askorbik asit C vitaminidir; vücutta antioksidan olarak görev yapar, fazlası idrarla atılır. EFSA 2015'te sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_ascorbate"
+    }
+   ],
+   "sources": [
+    "efsa_ascorbate"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E301": {
+   "evidence_level": "strong",
+   "what_it_does": "C vitamininin sodyum tuzudur; oksidasyonu yavaşlatır ve işlenmiş etlerde rengin korunmasına yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Meyve ve sebze konserveleri",
+    "İçecekler"
+   ],
+   "in_the_body": "Vücutta askorbik asit (C vitamini) olarak davranır; fazlası idrarla atılır. EFSA 2015'te sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_ascorbate"
+    }
+   ],
+   "sources": [
+    "efsa_ascorbate"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E302": {
+   "evidence_level": "strong",
+   "what_it_does": "C vitamininin kalsiyum tuzudur; oksidasyonu yavaşlatarak renk ve tat bozulmasını önler.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Meyve ve sebze ürünleri",
+    "Unlu mamuller"
+   ],
+   "in_the_body": "Vücutta askorbik asit (C vitamini) ve kalsiyuma ayrışır; fazla C vitamini idrarla atılır. EFSA 2015'te sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_ascorbate"
+    }
+   ],
+   "sources": [
+    "efsa_ascorbate"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E304": {
+   "evidence_level": "moderate",
+   "what_it_does": "C vitamininin yağda çözünen esteridir; yağların acılaşmasını geciktiren antioksidandır.",
+   "found_in": [
+    "Bitkisel yağlar ve margarinler",
+    "Bebek ve küçük çocuk mamaları",
+    "Sos ve çorbalar"
+   ],
+   "in_the_body": "Sindirimde askorbik asit (C vitamini) ve yağ asidine (palmitik veya stearik asit) ayrıştığı kabul edilir. EFSA 2015'te toksikolojik veriler sınırlı olduğu için bir günlük alım sınırı (ADI) belirleyemedi; ancak bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veriler ADI belirlemek için yetersiz, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_e304"
+    }
+   ],
+   "sources": [
+    "efsa_e304"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E310": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağların oksidasyonunu ve acılaşmasını geciktiren antioksidandır.",
+   "found_in": [
+    "Yağlar ve margarinler",
+    "Çerezler ve atıştırmalıklar",
+    "Sakız"
+   ],
+   "in_the_body": "EFSA 2014'te propil gallat için 0,5 mg/kg vücut ağırlığı günlük alım sınırı (ADI) belirledi ve mevcut kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 0,5 mg/kg vücut ağırlığı/gün, mevcut kullanımda güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_e310"
+    }
+   ],
+   "sources": [
+    "efsa_e310"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E311": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağların oksidasyonunu ve acılaşmasını geciktiren antioksidandı; AB'de artık izinli değildir.",
+   "found_in": [
+    "AB'de 2018'den beri izinli değil"
+   ],
+   "in_the_body": "EFSA 2015'te mevcut verilerin bir günlük alım sınırı (ADI) belirlemek için çok sınırlı olduğunu ve güvenilir bir değerlendirme için yeterli toksikolojik veri gerektiğini belirtti. Bu veriler sağlanmadığı için madde 2018'de AB izinli listesinden çıkarıldı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veriler ADI belirlemek için yetersiz, tam değerlendirme için ek toksikolojik veri gerekli.",
+     "year": 2015,
+     "src": "efsa_e311"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "Komisyon Tüzüğü (AB) 2018/1481 ile AB izinli katkı maddeleri listesinden çıkarıldı; gerekli toksikolojik verileri sağlamayı hiçbir işletmeci taahhüt etmedi. Önceden piyasaya sürülmüş ürünler için geçiş süresi tanındı.",
+     "year": 2018,
+     "src": "eu_2018_1481"
+    }
+   ],
+   "sources": [
+    "efsa_e311",
+    "eu_2018_1481"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E312": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağların oksidasyonunu ve acılaşmasını geciktiren antioksidandı; AB'de artık izinli değildir.",
+   "found_in": [
+    "AB'de 2018'den beri izinli değil"
+   ],
+   "in_the_body": "EFSA 2015'te mevcut verilerin bir günlük alım sınırı (ADI) belirlemek için çok sınırlı olduğunu belirtti; verisi sunulan tek kullanım için güvenlik endişesinin olası görünmediğini, ancak tam değerlendirme için yeterli toksikolojik veri gerektiğini ekledi. Bu veriler sağlanmadığı için madde 2018'de AB izinli listesinden çıkarıldı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veriler ADI belirlemek için yetersiz, tam değerlendirme için ek toksikolojik veri gerekli.",
+     "year": 2015,
+     "src": "efsa_e312"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "Komisyon Tüzüğü (AB) 2018/1481 ile AB izinli katkı maddeleri listesinden çıkarıldı; gerekli toksikolojik verileri sağlamayı hiçbir işletmeci taahhüt etmedi. Önceden piyasaya sürülmüş ürünler için geçiş süresi tanındı.",
+     "year": 2018,
+     "src": "eu_2018_1481"
+    }
+   ],
+   "sources": [
+    "efsa_e312",
+    "eu_2018_1481"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E315": {
+   "evidence_level": "strong",
+   "what_it_does": "Askorbik asidin yapısal benzeridir; işlenmiş etlerde renk korunmasına ve oksidasyonun yavaşlamasına yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Balık ürünleri",
+    "Meyve ve sebze ürünleri"
+   ],
+   "in_the_body": "Askorbik aside benzer yapıdadır ancak vücutta C vitamini etkisi çok zayıftır. EFSA 2016'da mevcut 6 mg/kg vücut ağırlığı günlük alım sınırını (ADI) değiştirmek için neden görmedi ve izin verilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; mevcut ADI (6 mg/kg vücut ağırlığı/gün) korundu, güvenlik endişesi yok.",
+     "year": 2016,
+     "src": "efsa_erythorbate"
+    }
+   ],
+   "sources": [
+    "efsa_erythorbate"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E316": {
+   "evidence_level": "strong",
+   "what_it_does": "Eritorbik asidin sodyum tuzudur; işlenmiş etlerde renk korunmasına ve oksidasyonun yavaşlamasına yardım eder.",
+   "found_in": [
+    "İşlenmiş et ürünleri",
+    "Balık ürünleri",
+    "Meyve ve sebze ürünleri"
+   ],
+   "in_the_body": "Vücutta eritorbik asit gibi davranır; C vitamini etkisi çok zayıftır. EFSA 2016'da mevcut 6 mg/kg vücut ağırlığı günlük alım sınırını (ADI) değiştirmek için neden görmedi ve izin verilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; mevcut ADI (6 mg/kg vücut ağırlığı/gün) korundu, güvenlik endişesi yok.",
+     "year": 2016,
+     "src": "efsa_erythorbate"
+    }
+   ],
+   "sources": [
+    "efsa_erythorbate"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E319": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağların oksidasyonunu ve acılaşmasını geciktiren antioksidandır.",
+   "found_in": [
+    "Yağlar ve margarinler",
+    "Çerezler ve atıştırmalıklar",
+    "Hazır çorba ve soslar"
+   ],
+   "in_the_body": "TBHQ AB'de 0,7 mg/kg vücut ağırlığı günlük alım sınırıyla (ADI) izinlidir. EFSA 2016'daki ayrıntılı maruziyet değerlendirmesinde, en yüksek izinli düzeylerle yapılan hesapta küçük ve büyük çocuklarda ADI'nin aşılabildiğini, ancak gerçekçi (rafine) senaryolarda hiçbir grupta aşılmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Rafine maruziyet değerlendirmesi; ADI 0,7 mg/kg vücut ağırlığı/gün, rafine senaryolarda ADI aşılmadı.",
+     "year": 2016,
+     "src": "efsa_e319"
+    }
+   ],
+   "sources": [
+    "efsa_e319"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E321": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağların oksijenle bozulup acımasını geciktiren bir antioksidandır.",
+   "found_in": [
+    "Gıda sanayisinde kullanılan yağlar",
+    "Sakızlar",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "BHT bağırsaktan emilir, karaciğerde dönüştürülerek vücuttan atılır. EFSA 2012'de yeniden değerlendirmede günlük alım sınırını (ADI) 0,25 mg/kg vücut ağırlığı olarak belirledi; yetişkinlerde bu sınırın aşılmasının olası olmadığını, bazı ülkelerde yüksek tüketimli çocuklarda (95. yüzdelik) aşılabildiğini not etti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 0,25 mg/kg vücut ağırlığı/gün (önceki 0,05'ten yükseltildi). Bazı ülkelerde yüksek tüketimli çocuklarda ADI aşılabiliyor.",
+     "year": 2012,
+     "src": "efsa_e321"
+    }
+   ],
+   "sources": [
+    "efsa_e321"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E392": {
+   "evidence_level": "moderate",
+   "what_it_does": "Biberiyeden elde edilen, yağların acımasını geciktiren doğal kaynaklı bir antioksidandır.",
+   "found_in": [
+    "Yağlar ve yağ bazlı ürünler",
+    "Et ürünleri",
+    "Soslar ve atıştırmalıklar"
+   ],
+   "in_the_body": "Etkin bileşenleri karnosik asit ve karnosoldür. EFSA 2018'de maruziyeti yeniden hesapladı ve JECFA'nın geçici günlük alım sınırına (0,3 mg/kg vücut ağırlığı, karnosik asit + karnosol olarak) göre çocuklarda 100–2.000, yetişkinlerde 200–3.000 kat güvenlik payı hesapladı; tahminlerin gerçek maruziyeti büyük olasılıkla abarttığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Maruziyet yeniden hesaplandı; JECFA'nın geçici ADI'sine (0,3 mg/kg, karnosik asit + karnosol) göre geniş güvenlik payı bulundu.",
+     "year": 2018,
+     "src": "efsa_e392"
+    }
+   ],
+   "sources": [
+    "efsa_e392"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E586": {
+   "evidence_level": "moderate",
+   "what_it_does": "Karideslerde kabuğun kararmasını (melanoz) önler.",
+   "found_in": [
+    "Taze ve dondurulmuş karides ve kabuklu deniz ürünleri"
+   ],
+   "in_the_body": "EFSA 2014'teki yeniden değerlendirmede, verilerin bir günlük alım sınırı (ADI) belirlemeye yetmediği konusunda önceki SCF görüşüne katıldı. Karideslerde kararmayı önlemek için, kabuklu eti kalıntısı 2 mg/kg'ı aşmadığı sürece toksikolojik olarak kabul edilebilir buldu; kullanımın genişletilmesi için üreme toksisitesi verisi gerektiğini belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenemedi. Karides etinde kalıntı 2 mg/kg'ı aşmadıkça kabul edilebilir; kullanım genişletmesi için ek veri gerekli.",
+     "year": 2014,
+     "src": "efsa_e586"
+    }
+   ],
+   "sources": [
+    "efsa_e586"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E234": {
+   "evidence_level": "strong",
+   "what_it_does": "Bazı bakterilerin üremesini engelleyen, fermantasyonla üretilen bir koruyucudur.",
+   "found_in": [
+    "Olgunlaştırılmış ve eritme peynirler",
+    "İrmik ve tapyoka pudingleri",
+    "Pastörize sıvı yumurta"
+   ],
+   "in_the_body": "Nisin küçük bir proteindir (peptit) ve sindirim enzimleriyle parçalanır. EFSA 2017'de yeni toksikoloji verileriyle günlük alım sınırını (ADI) 1 mg nisin A/kg vücut ağırlığı olarak belirledi ve olgunlaşmamış peynir ile ısıl işlem görmüş et ürünlerinde önerilen kullanım genişletmesinin güvenlik endişesi oluşturmayacağı sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 1 mg nisin A/kg vücut ağırlığı/gün (2006'daki 0,13 mg/kg'dan yükseltildi); önerilen kullanım genişletmesi için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e234"
+    }
+   ],
+   "sources": [
+    "efsa_e234"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E235": {
+   "evidence_level": "moderate",
+   "what_it_does": "Peynir kabuğu ve sucuk kılıfı yüzeyinde küf ve maya oluşumunu engeller.",
+   "found_in": [
+    "Sert ve yarı sert peynirlerin kabuğu",
+    "Kurutulmuş sucuk ve salamların dış yüzeyi"
+   ],
+   "in_the_body": "EFSA 2009'da verilerin kendi ADI'sini belirlemeye yeterince sağlam olmadığını belirtti (JECFA'nın ADI'si 0,3 mg/kg vücut ağırlığı). Yalnızca yarı sert ve yarı yumuşak peynir kabuğu ile bazı sucuk kılıflarının yüzey işleminde kullanıldığında önerilen düzeylerin güvenlik endişesi oluşturmadığı ve antimikrobiyal direnç açısından endişe olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "EFSA ADI belirleyemedi (JECFA ADI 0,3 mg/kg); yalnızca peynir kabuğu ve sucuk kılıfı yüzey kullanımında güvenlik endişesi yok, antimikrobiyal direnç endişesi yok.",
+     "year": 2009,
+     "src": "efsa_e235"
+    }
+   ],
+   "sources": [
+    "efsa_e235"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E280": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ekmek ve unlu mamullerde küf oluşumunu geciktiren bir koruyucudur.",
+   "found_in": [
+    "Paketli dilimlenmiş ekmek",
+    "Paketli unlu mamuller",
+    "Ön pişirilmiş unlu ürünler"
+   ],
+   "in_the_body": "Propiyonik asit, bağırsak bakterilerinin lifleri sindirirken de ürettiği bir yağ asididir ve vücutta enerji metabolizmasında kullanılır. EFSA 2014'te verilerin bir günlük alım sınırı (ADI) belirlemeye izin vermediğini, ancak izinli kullanım ve azami düzeylerde güvenlik endişesi olmayacağını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenemedi, izinli kullanım düzeylerinde güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionates"
+    }
+   ],
+   "sources": [
+    "efsa_propionates"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E281": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ekmek ve unlu mamullerde küf oluşumunu geciktiren bir koruyucudur.",
+   "found_in": [
+    "Paketli dilimlenmiş ekmek",
+    "Paketli unlu mamuller",
+    "Ön pişirilmiş unlu ürünler"
+   ],
+   "in_the_body": "Vücutta propiyonik aside dönüşür; bu yağ asidi bağırsak bakterilerince de üretilir ve enerji metabolizmasında kullanılır. EFSA 2014'te verilerin bir günlük alım sınırı (ADI) belirlemeye izin vermediğini, ancak izinli kullanım ve azami düzeylerde güvenlik endişesi olmayacağını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenemedi, izinli kullanım düzeylerinde güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionates"
+    }
+   ],
+   "sources": [
+    "efsa_propionates"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E282": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ekmek ve unlu mamullerde küf oluşumunu geciktiren bir koruyucudur.",
+   "found_in": [
+    "Paketli dilimlenmiş ekmek",
+    "Paketli unlu mamuller",
+    "Ön pişirilmiş unlu ürünler"
+   ],
+   "in_the_body": "Vücutta propiyonik aside dönüşür; bu yağ asidi bağırsak bakterilerince de üretilir ve enerji metabolizmasında kullanılır. EFSA 2014'te verilerin bir günlük alım sınırı (ADI) belirlemeye izin vermediğini, ancak izinli kullanım ve azami düzeylerde güvenlik endişesi olmayacağını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenemedi, izinli kullanım düzeylerinde güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionates"
+    }
+   ],
+   "sources": [
+    "efsa_propionates"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E283": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ekmek ve unlu mamullerde küf oluşumunu geciktiren bir koruyucudur.",
+   "found_in": [
+    "Paketli dilimlenmiş ekmek",
+    "Paketli unlu mamuller",
+    "Ön pişirilmiş unlu ürünler"
+   ],
+   "in_the_body": "Vücutta propiyonik aside dönüşür; bu yağ asidi bağırsak bakterilerince de üretilir ve enerji metabolizmasında kullanılır. EFSA 2014'te verilerin bir günlük alım sınırı (ADI) belirlemeye izin vermediğini, ancak izinli kullanım ve azami düzeylerde güvenlik endişesi olmayacağını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenemedi, izinli kullanım düzeylerinde güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_propionates"
+    }
+   ],
+   "sources": [
+    "efsa_propionates"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E442": {
+   "evidence_level": "strong",
+   "what_it_does": "Çikolatada akışkanlığı (viskoziteyi) düzenleyen bir emülgatördür.",
+   "found_in": [
+    "Çikolata",
+    "Kakao ürünleri",
+    "Çikolata kaplamalı şekerlemeler"
+   ],
+   "in_the_body": "EFSA 2016'da yeniden değerlendirmesinde mevcut 30 mg/kg vücut ağırlığı günlük alım sınırını (ADI) değiştirmeye gerek görmedi ve gıda katkı maddesi olarak kullanımında güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 30 mg/kg vücut ağırlığı/gün olarak korundu, güvenlik endişesi yok.",
+     "year": 2016,
+     "src": "efsa_e442"
+    }
+   ],
+   "sources": [
+    "efsa_e442"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E470a": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatör, topaklanmayı önleyici ve kalıp ayırıcı olarak kullanılır.",
+   "found_in": [
+    "Takviye edici gıdalar (tablet)",
+    "Kek ve unlu mamuller",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Vücutta yağ asidi ve ilgili mineraline ayrışır; yağ asitleri besinlerdeki yağlar gibi kullanılır. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım ve kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e470"
+    }
+   ],
+   "sources": [
+    "efsa_e470"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E470b": {
+   "evidence_level": "strong",
+   "what_it_does": "Topaklanmayı önleyici ve kalıp ayırıcı olarak, ayrıca emülgatör olarak kullanılır.",
+   "found_in": [
+    "Takviye edici gıdalar (tablet)",
+    "Toz gıdalar",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Vücutta yağ asidi ve ilgili mineraline ayrışır; yağ asitleri besinlerdeki yağlar gibi kullanılır. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım ve kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e470"
+    }
+   ],
+   "sources": [
+    "efsa_e470"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E472a": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatör ve kaplama maddesi olarak yapı ve kıvamı iyileştirir.",
+   "found_in": [
+    "Kek ve unlu mamuller",
+    "Krem şanti ve tepeleme kremaları",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Vücutta sindirim sırasında büyük ölçüde gliserol, yağ asitleri ve ilgili organik aside (asetik asit) ayrışır; bunlar besinlerdeki yağlar gibi kullanılır. EFSA 2020'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e472"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Spesifikasyon izlem görüşü: E472a için AB spesifikasyonlarında değişiklik önerildi.",
+     "year": 2025,
+     "src": "efsa_e472_spec"
+    }
+   ],
+   "sources": [
+    "efsa_e472",
+    "efsa_e472_spec"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E472b": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatör olarak köpük ve kıvamı iyileştirir.",
+   "found_in": [
+    "Kek ve unlu mamuller",
+    "Krema ikameleri",
+    "Tatlılar"
+   ],
+   "in_the_body": "Vücutta sindirim sırasında büyük ölçüde gliserol, yağ asitleri ve ilgili organik aside (laktik asit) ayrışır; bunlar besinlerdeki yağlar gibi kullanılır. EFSA 2020'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e472"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Spesifikasyon izlem görüşü: E472b için AB spesifikasyonlarında değişiklik önerildi.",
+     "year": 2025,
+     "src": "efsa_e472_spec"
+    }
+   ],
+   "sources": [
+    "efsa_e472",
+    "efsa_e472_spec"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E472c": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatör olarak yağ ve suyun karışmasına yardım eder, sıçramayı önler.",
+   "found_in": [
+    "Margarin ve yağ ürünleri",
+    "Et ürünleri",
+    "Bebek formülleri"
+   ],
+   "in_the_body": "Vücutta sindirim sırasında büyük ölçüde gliserol, yağ asitleri ve ilgili organik aside (sitrik asit) ayrışır; bunlar besinlerdeki yağlar gibi kullanılır. EFSA 2020'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı. EFSA 2025'teki izlem görüşünde 16 haftadan küçük bebeklere yönelik formüllerde bildirilen ve izin verilen en yüksek düzeylerde de güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e472"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzlem görüşü: 16 haftadan küçük bebek gıdalarında kullanımda güvenlik endişesi yok; spesifikasyon güncellemesi önerildi.",
+     "year": 2025,
+     "src": "efsa_e472c_infant"
+    }
+   ],
+   "sources": [
+    "efsa_e472",
+    "efsa_e472c_infant"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E472d": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatör olarak hamurun yapısını güçlendirir.",
+   "found_in": [
+    "Ekmek ve unlu mamuller",
+    "Kek ve hamur işleri",
+    "Tatlılar"
+   ],
+   "in_the_body": "Vücutta sindirim sırasında büyük ölçüde gliserol, yağ asitleri ve ilgili organik aside (tartarik asit) ayrışır; bunlar besinlerdeki yağlar gibi kullanılır. EFSA 2020'de tartarik asit olarak ifade edilen 240 mg/kg vücut ağırlığı grup ADI'sine dayanan bir ADI belirledi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı. EFSA 2025'teki izlem görüşünde bu katkı için ADI'yi 480 mg/kg vücut ağırlığı olarak andı ve tahmini alımın bu değerin altında kaldığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; tartarik asit grup ADI'sine (240 mg/kg vücut ağırlığı/gün) dayalı ADI belirlendi, güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e472"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzlem görüşü: ADI 480 mg/kg vücut ağırlığı/gün; tahmini alım ADI'nin altında. Spesifikasyon değişikliği için yeterli teknik veri sunulmadı.",
+     "year": 2025,
+     "src": "efsa_e472_spec"
+    }
+   ],
+   "sources": [
+    "efsa_e472",
+    "efsa_e472_spec"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E472e": {
+   "evidence_level": "strong",
+   "what_it_does": "Hamuru güçlendirir, ekmekte hacmi artırır; emülgatör olarak kullanılır.",
+   "found_in": [
+    "Ekmek ve unlu mamuller",
+    "Kahve kreması ve krema ikameleri",
+    "Margarin ve yağ ürünleri"
+   ],
+   "in_the_body": "Vücutta sindirim sırasında büyük ölçüde gliserol, yağ asitleri ve ilgili organik aside (asetik ve/veya tartarik asit) ayrışır; bunlar besinlerdeki yağlar gibi kullanılır. EFSA 2020'de tartarik asit olarak ifade edilen 240 mg/kg vücut ağırlığı grup ADI'sine dayanan bir ADI belirledi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı. EFSA 2025'teki izlem görüşünde bu katkı için ADI'yi 600 mg/kg vücut ağırlığı olarak andı ve tahmini alımın bu değerin altında kaldığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; tartarik asit grup ADI'sine (240 mg/kg vücut ağırlığı/gün) dayalı ADI belirlendi, güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e472"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzlem görüşü: ADI 600 mg/kg vücut ağırlığı/gün; tahmini alım ADI'nin altında. Spesifikasyon değişikliği önerildi.",
+     "year": 2025,
+     "src": "efsa_e472_spec"
+    }
+   ],
+   "sources": [
+    "efsa_e472",
+    "efsa_e472_spec"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E472f": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatör olarak hamurun yapısını ve kıvamı iyileştirir.",
+   "found_in": [
+    "Ekmek ve unlu mamuller",
+    "Kek ve hamur işleri",
+    "Tatlılar"
+   ],
+   "in_the_body": "Vücutta sindirim sırasında büyük ölçüde gliserol, yağ asitleri ve ilgili organik aside (asetik ve tartarik asit) ayrışır; bunlar besinlerdeki yağlar gibi kullanılır. EFSA 2020'de tartarik asit olarak ifade edilen 240 mg/kg vücut ağırlığı grup ADI'sine dayanan bir ADI belirledi ve bildirilen kullanım düzeylerinde güvenlik endişesi bulmadı. EFSA 2025'teki izlem görüşünde bu katkı için ADI'yi 600 mg/kg vücut ağırlığı olarak andı ve tahmini alımın bu değerin altında kaldığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; tartarik asit grup ADI'sine (240 mg/kg vücut ağırlığı/gün) dayalı ADI belirlendi, güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e472"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzlem görüşü: ADI 600 mg/kg vücut ağırlığı/gün; tahmini alım ADI'nin altında. Spesifikasyon değişikliği için yeterli teknik veri sunulmadı.",
+     "year": 2025,
+     "src": "efsa_e472_spec"
+    }
+   ],
+   "sources": [
+    "efsa_e472",
+    "efsa_e472_spec"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E473": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağ ile suyun karışmasını sağlayan bir emülgatördür; dokuyu ve kıvamı düzenler.",
+   "found_in": [
+    "İnce unlu mamuller (kek, bisküvi)",
+    "Şekerlemeler ve sakız",
+    "İçecek beyazlatıcılar ve tatlılar"
+   ],
+   "in_the_body": "Sükroz esterleri sindirim sırasında büyük ölçüde şeker (sükroz) ve yağ asitlerine ayrılır. EFSA 2023'te E473 ve E474 için grup ADI'yi 40 mg/kg vücut ağırlığı olarak andı; güncel kullanım düzeyleriyle yapılan tahminlerde maruziyetin birçok yaş grubunda bu değeri aştığını bildirdi. E473 16 haftalıktan küçük bebek mamalarında kullanılmadığı için bu grup için ayrıca değerlendirme yapılmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi (izlem görüşü); grup ADI 40 mg/kg vücut ağırlığı, tahmini maruziyet birçok yaş grubunda ADI'yi aşıyor.",
+     "year": 2023,
+     "src": "efsa_e473"
+    }
+   ],
+   "sources": [
+    "efsa_e473"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E474": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sükroz ve yağ asidi esterleriyle mono/digliserit karışımından oluşan bir emülgatördür; yağ ile suyun karışmasını sağlar.",
+   "found_in": [
+    "İnce unlu mamuller",
+    "Şekerlemeler",
+    "Tatlılar ve içecek beyazlatıcılar"
+   ],
+   "in_the_body": "E474'ün ayrı bir EFSA yeniden değerlendirme görüşü bulunamadı. EFSA 2023'teki E473 görüşünde, E473 ve E474 için 2004'te belirlenen grup ADI'yi 40 mg/kg vücut ağırlığı olarak andı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "E473 ile ortak grup ADI 40 mg/kg vücut ağırlığı (2004); E474 için ayrı yeniden değerlendirme görüşü bulunamadı.",
+     "year": 2023,
+     "src": "efsa_e473"
+    }
+   ],
+   "sources": [
+    "efsa_e473"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E475": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatördür; hamurda hava tutmayı ve yağın dağılmasını kolaylaştırır.",
+   "found_in": [
+    "Kek ve ince unlu mamuller",
+    "Şekerlemeler",
+    "Yağ emülsiyonları (margarin vb.)"
+   ],
+   "in_the_body": "Poligliserol esterleri bağırsakta hemen hemen tamamen poligliserol ve yağ asitlerine ayrılır; bozulmamış hâlde emilimi çok düşüktür. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanımda güvenlik endişesi bulmadı. 2022 izlem görüşünde ise safsızlık sınırlarının (ör. toksik elementler, 3-MCPD, glisidil esterleri) sıkılaştırılmasını önerdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e475"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzlem görüşü: spesifikasyonlarda toksik element sınırlarının düşürülmesi, erusik asit, 3-MCPD ve glisidil esterleri için sınır eklenmesi önerildi.",
+     "year": 2022,
+     "src": "efsa_e475_followup"
+    }
+   ],
+   "sources": [
+    "efsa_e475",
+    "efsa_e475_followup"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E476": {
+   "evidence_level": "strong",
+   "what_it_does": "Çikolatanın akışkanlığını artıran ve yağ içinde su emülsiyonlarını kararlı tutan bir emülgatördür.",
+   "found_in": [
+    "Çikolata ve kakao ürünleri",
+    "Sürülebilir yağlar (az yağlı margarin)",
+    "Emülsiyon soslar"
+   ],
+   "in_the_body": "PGPR bağırsakta serbest poligliserollere, polirisinoleik asit ve risinoleik aside ayrılır; küçük poligliseroller emilip idrarla, büyük olanlar daha çok dışkıyla atılır. EFSA 2017'de ADI'yi 7,5'ten 25 mg/kg vücut ağırlığına yükseltti ve maruziyet tahminlerinin bu değeri aşmadığını belirtti. 2022 izlem görüşünde dondurmaya önerilen kullanım genişlemesinin güvenlik endişesi doğurmayacağı sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 25 mg/kg vücut ağırlığı olarak revize edildi, maruziyet ADI'nin altında.",
+     "year": 2017,
+     "src": "efsa_e476"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzlem görüşü: dondurmada kullanım genişlemesi güvenlik endişesi doğurmaz; safsızlık sınırlarının sıkılaştırılması önerildi.",
+     "year": 2022,
+     "src": "efsa_e476_followup"
+    }
+   ],
+   "sources": [
+    "efsa_e476",
+    "efsa_e476_followup"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E477": {
+   "evidence_level": "strong",
+   "what_it_does": "Emülgatördür; özellikle kek hamurlarında ve çırpılmış kremalarda hava tutmayı ve köpük yapısını destekler.",
+   "found_in": [
+    "İnce unlu mamuller",
+    "Tatlılar ve çırpılmış kremalar",
+    "Yağ emülsiyonları"
+   ],
+   "in_the_body": "EFSA 2018'de propan-1,2-diol cinsinden 25 mg/kg vücut ağırlığı ADI'yi (E477 olarak yaklaşık 80 mg/kg vücut ağırlığı) yeniden teyit etti. Bildirilen kullanım düzeylerinde maruziyet tahminleri ADI'yi aşmadığı için güvenlik endişesi bulmadı; propan-1,2-diol kaynaklı katkılar (E477, E1520, E405) için ortak bir değerlendirme yapılmasını planladığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 25 mg/kg vücut ağırlığı (propan-1,2-diol cinsinden), bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e477"
+    }
+   ],
+   "sources": [
+    "efsa_e477"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E479b": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kızartma yağı emülsiyonlarında sıçramayı azaltan bir emülgatördür.",
+   "found_in": [
+    "Kızartma amaçlı yağ emülsiyonları"
+   ],
+   "in_the_body": "EFSA 2018'de sayısal bir ADI belirlemedi; sıçanlarda uzun süreli çalışmalardan 5.400 mg/kg vücut ağırlığı NOAEL'i ve küçük çocuklarda en yüksek tahmini 10,1 mg/kg vücut ağırlığı maruziyeti karşılaştırarak 540 güvenlik payı hesapladı. Mevcut kullanımın sınırlı olduğunu da dikkate alarak güvenlik endişesi bulmadı; emilim/metabolizma ve gelişimsel toksisite verilerinin yetersiz olduğunu not etti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, güvenlik payı yaklaşımıyla sınırlı mevcut kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e479b"
+    }
+   ],
+   "sources": [
+    "efsa_e479b"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E481": {
+   "evidence_level": "strong",
+   "what_it_does": "Hamuru güçlendiren ve yumuşaklığı koruyan bir emülgatördür; ekmeğin hacmini ve raf ömrünü iyileştirir.",
+   "found_in": [
+    "Ekmek ve ince unlu mamuller",
+    "Aromalı fermente süt ürünleri",
+    "İçecek beyazlatıcılar"
+   ],
+   "in_the_body": "Sindirimde stearik asit ve laktik aside ayrılır; ikisi de besinlerde doğal olarak bulunur ve vücudun normal metabolizmasının parçasıdır. EFSA 2013'te E481 ve E482 için tek başına ya da birlikte 22 mg/kg vücut ağırlığı ADI belirledi. Tahmini maruziyet yaşlılar dahil yetişkinlerde ADI'nin altında, diğer yaş gruplarında ortalama düzeyde ve tüm gruplarda yüksek tüketimde ADI'nin üzerinde bulundu.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E481/E482 için grup ADI 22 mg/kg vücut ağırlığı; bazı yaş gruplarında tahmini maruziyet ADI'yi aşıyor.",
+     "year": 2013,
+     "src": "efsa_e481_e482"
+    }
+   ],
+   "sources": [
+    "efsa_e481_e482"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E482": {
+   "evidence_level": "strong",
+   "what_it_does": "Hamuru güçlendiren ve yumuşaklığı koruyan bir emülgatördür; unlu mamullerin dokusunu iyileştirir.",
+   "found_in": [
+    "Ekmek ve ince unlu mamuller",
+    "Aromalı fermente süt ürünleri",
+    "İçecek beyazlatıcılar"
+   ],
+   "in_the_body": "Sindirimde stearik asit ve laktik aside ayrılır; ikisi de besinlerde doğal olarak bulunur ve vücudun normal metabolizmasının parçasıdır. EFSA 2013'te E481 ve E482 için tek başına ya da birlikte 22 mg/kg vücut ağırlığı ADI belirledi. Tahmini maruziyet yaşlılar dahil yetişkinlerde ADI'nin altında, diğer yaş gruplarında ortalama düzeyde ve tüm gruplarda yüksek tüketimde ADI'nin üzerinde bulundu.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E481/E482 için grup ADI 22 mg/kg vücut ağırlığı; bazı yaş gruplarında tahmini maruziyet ADI'yi aşıyor.",
+     "year": 2013,
+     "src": "efsa_e481_e482"
+    }
+   ],
+   "sources": [
+    "efsa_e481_e482"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E483": {
+   "evidence_level": "limited",
+   "what_it_does": "Unlu mamullerde hamur iyileştirici ve emülgatör olarak kullanılmıştır.",
+   "found_in": [
+    "AB'de 2024'ten beri izinli değil"
+   ],
+   "in_the_body": "EFSA 2020'de yeterli toksisite ve genotoksisite verisi bulunmadığını, sindirim kanalında tamamen parçalandığını gösteren verilerin de eksik olduğunu belirtti. Bu nedenle güvenliğinin değerlendirilemediğini ve 1978'de SCF'nin belirlediği kabul edilebilir alımın teyit edilemediğini bildirdi. AB, Komisyon Tüzüğü (AB) 2023/2379 ile E483'ü izinli katkılar listesinden çıkardı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veri yetersizliği nedeniyle güvenlik değerlendirilemedi, önceki kabul edilebilir alım teyit edilemedi.",
+     "year": 2020,
+     "src": "efsa_e483"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "Tüzük (AB) 2023/2379 ile AB izinli katkı listesinden çıkarıldı; 23 Nisan 2024'ten sonra E483 içeren gıdalar piyasaya sürülemez, öncesinde piyasaya sürülenler raf ömrü sonuna kadar satılabilir.",
+     "year": 2023,
+     "src": "ec_reg_2023_2379"
+    }
+   ],
+   "sources": [
+    "efsa_e483",
+    "ec_reg_2023_2379"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E570": {
+   "evidence_level": "strong",
+   "what_it_does": "Parlatıcı, topaklanmayı önleyici ve emülgatör olarak kullanılan yağ asitleridir (stearik, palmitik, miristik, oleik asit).",
+   "found_in": [
+    "Şekerlemeler ve sakız",
+    "Takviye edici gıdalar (tablet/kapsül)",
+    "Kaplanmış gıdalar"
+   ],
+   "in_the_body": "Bu yağ asitleri besin yağlarında doğal olarak bulunur ve vücutta diğer yağ asitleri gibi enerji için kullanılır. EFSA 2017'de SCF'nin 1991'de belirlediği 'belirtilmemiş' grup ADI'yi andı ve bildirilen kullanım ve kullanım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "plant_or_animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi ('belirtilmemiş'), bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e570"
+    }
+   ],
+   "sources": [
+    "efsa_e570"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E900": {
+   "evidence_level": "strong",
+   "what_it_does": "Köpük oluşumunu önler veya azaltır (köpük kesici).",
+   "found_in": [
+    "Kızartma yağları",
+    "Çorba ve et suları",
+    "Meyve suları ve alkolsüz içecekler"
+   ],
+   "in_the_body": "Dimetil polisiloksan sindirim kanalından çok sınırlı ölçüde emilir; büyük kısmı değişmeden dışkıyla atılır. EFSA 2020'de günlük alım sınırını (ADI) 17 mg/kg vücut ağırlığı olarak belirledi ve bildirilen kullanım ve düzeylerde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 17 mg/kg vücut ağırlığı/gün olarak belirlendi (önceki 1,5 mg/kg kaldırıldı), bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e900"
+    }
+   ],
+   "sources": [
+    "efsa_e900"
+   ],
+   "last_reviewed": "2026-10-05"
+  },
+  "E1520": {
+   "evidence_level": "strong",
+   "what_it_does": "Aroma, renklendirici ve diğer katkıların çözülüp gıdaya taşınmasını sağlayan bir taşıyıcı ve çözücüdür.",
+   "found_in": [
+    "Aroma vericiler ve aromalı ürünler",
+    "Renklendirici ve katkı preparatları",
+    "Unlu mamuller ve tatlılar (taşıyıcı kalıntısı olarak)"
+   ],
+   "in_the_body": "Propilen glikol vücutta büyük ölçüde laktik asit ve pirüvik aside dönüştürülerek normal metabolizmaya katılır; bir kısmı değişmeden idrarla atılır. EFSA 2018'de mevcut 25 mg/kg vücut ağırlığı günlük alım sınırının (ADI) değiştirilmesine gerek görmedi ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; mevcut ADI (25 mg/kg vücut ağırlığı/gün) korundu, maruziyet ADI'yi aşmıyor.",
+     "year": 2018,
+     "src": "efsa_e1520"
+    }
+   ],
+   "sources": [
+    "efsa_e1520"
+   ],
+   "last_reviewed": "2026-10-05"
   }
  }
 }
