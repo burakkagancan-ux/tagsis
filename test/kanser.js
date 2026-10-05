@@ -5,7 +5,7 @@ const {K,KL}=require('./kozmetik_cases.js');
 eval(require('./yukle.js')+';global.TL={buildTIndex,analyzeT,summarizeT}');
 const T=TL.buildTIndex(JSON.parse(fs.readFileSync(__dirname+'/../data/temizlik.json')));
 let fail=0,n=0;const ok=(c,m)=>{n++;if(!c){fail++;console.log('HATA',m)}};
-const g=t=>L.summarize(L.analyze(t,idx),idx).cancer.join();
+const g=t=>L.summarize(L.analyze(t,idx),idx).cancer.map(c=>typeof c==='string'?c:c.name).join();
 const k=t=>KL.summarizeK(KL.analyzeK(t,K,{}),K).cancer.join();
 const tm=t=>TL.summarizeT(TL.analyzeT(t,T,K)).cancer.join();
 // Gıda: maddenin kendisi IARC 1/2A/2B
