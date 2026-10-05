@@ -172,6 +172,8 @@ function summaryCard(S,res){
   row("Ultra işlenmiş gıda",u.length?(u.length+" işaret: "+u.join(", ")):"İşaret bulunamadı",u.length>=2?"y":"");
   var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
   row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
+  var UO=uretimOzet(res,IDX),um=uretimMetin(UO);
+  if(um)row("Üretim yolu",um+" katkı maddesi");
   if(S.claims.length)row("Etiket beyanı",S.claims.join(", "));
   if(S.cancer.length)row("Kanserojen olabilir",S.cancer.map(function(c){return typeof c==="string"?c:c.name}).join(", "),"r");
   if(u.length)d.appendChild(el("div","how upfnote","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
@@ -227,6 +229,8 @@ function additiveCard(r){
   top.appendChild(b);d.appendChild(top);
   d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
   it.flags.forEach(function(f){if((f==="sodium"&&!PROF.salt)||f==="aluminium"||f==="gmo_suspect")return;/* sodyum etiketi yalnızca tuz kısıtlaması seçiliyse */d.appendChild(el("span","chip",FLAGS[f]||f))});
+  var us=uretimSinif(r.ids,IDX);   // üretim yolu: gri bilgi etiketi, risk rengini değiştirmez
+  if(us){var uc=el("span","chip uret");var ui=el("span","uic");ui.setAttribute("aria-hidden","true");uc.appendChild(ui);uc.appendChild(document.createTextNode(URETIM_AD[us]));d.appendChild(uc)}
   var seenA={};items.forEach(function(x){if(!x.adi)return;var k=JSON.stringify(x.adi);if(seenA[k])return;seenA[k]=1});
   var nA=Object.keys(seenA).length,doneA={};
   items.forEach(function(x){if(!x.adi)return;var k=JSON.stringify(x.adi);if(doneA[k])return;doneA[k]=1;d.appendChild(adiBlock(x.adi,nA>1||items.length>1&&items.some(function(y){return !y.adi})?x.id:""))});
@@ -240,6 +244,14 @@ function additiveCard(r){
     if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,"Yönetmelikteki adı: "));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
     if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,"Türkiye: "));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
   });
+  items.forEach(function(x){   // üretim yolu notu
+    var u=x.uretim;if(!u)return;
+    var pu=el("div","ln");pu.appendChild(el("b",null,(items.length>1?x.id+" · ":"")+"Nasıl üretilir? "));pu.appendChild(document.createTextNode(u.n));
+    if(u.u){pu.appendChild(document.createTextNode(" Kaynak: "));var a=el("a",null,u.u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u.u;a.target="_blank";a.rel="noopener";pu.appendChild(a)}
+    if(!u.ok)pu.appendChild(document.createTextNode(" (Genel bilgiye dayanır, kaynakla doğrulanmadı.)"));
+    pn.appendChild(pu);
+  });
+  if(uretimSinif(r.ids,IDX))pn.appendChild(el("div","how","Üretim yolu bir risk değerlendirmesi değildir; maddenin rengini değiştirmez."));
   var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
   p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
   pn.appendChild(p2);

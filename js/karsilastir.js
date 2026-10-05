@@ -77,7 +77,7 @@ function cmpProduct(text,idx,prof,name){
     misfit:cmpMisfit(S,prof,idx),allergen:al,
     gluten:gl&&gl.yes.length?"var":gl&&gl.may.length?"icerebilir":"yok",
     vegan:S.vegan.no.length?"degil":S.vegan.unsure.length?"belirsiz":"yok",
-    palm:S.palm.slice(),sugar:sugar};
+    palm:S.palm.slice(),sugar:sugar,uretim:uretimOzet(res,idx)};
 }
 
 /* Madde farkları: anahtar madde kimliğidir (E322 ile "soya lesitini" aynı madde) */

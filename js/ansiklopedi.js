@@ -2,7 +2,7 @@
 var ANS={
   risk:["green","amber","red"],evidence:["strong","moderate","limited"],diet:["yes","no","unknown"],
   source:["plant","animal","insect","synthetic","mineral","plant_or_animal","unknown"],ptype:["food","cosmetic","cleaning"],
-  severity:["high","medium","low"],review:["curated","auto"],
+  severity:["high","medium","low"],review:["curated","auto"],production:["dogal","fermente","islenmis","sentetik","belirsiz"],
   status:["approved","label_required","restricted","concern","classified","banned","withdrawn","not_listed","reviewed"]
 };
 /* Arama anahtarı: ı/i, ş/s vb. eşlenir, büyük/küçük harf, boşluk ve tire yok sayılır ("E-322" = "e322") */
@@ -36,6 +36,7 @@ function ansValidate(r,T,ids){
   }
   need(r.diet_flags&&typeof r.diet_flags==="object","diet_flags eksik");
   if(r.diet_flags){inn(r.diet_flags.vegan,ANS.diet,"diet_flags.vegan");inn(r.diet_flags.gluten,ANS.diet,"diet_flags.gluten");inn(r.diet_flags.source,ANS.source,"diet_flags.source")}
+  if(r.production!=null){inn(r.production.class,ANS.production,"production.class");txt(r.production.note,"production.note eksik")}
   need(Array.isArray(r.regulatory),"regulatory eksik");
   (r.regulatory||[]).forEach(function(g){need(g.agency,"regulatory.agency eksik");need(g.region,"regulatory.region eksik");inn(g.status,ANS.status,"regulatory.status");txt(g.detail,"regulatory.detail eksik")});
   need(Array.isArray(r.profile_warnings),"profile_warnings eksik");

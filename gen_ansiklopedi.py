@@ -139,6 +139,8 @@ def main():
                     pws.append({"profile": w["profile"], "severity": w["severity"], "text": "flag.%s.%d" % (f, n)})
         if it.get("adi") and it["adi"].get("url"):
             urls.append(it["adi"]["url"])
+        if it["uretim"].get("u"):
+            urls.append(it["uretim"]["u"])
         srcs, seen = [], set()
         for u in urls:
             if u not in seen:
@@ -151,7 +153,9 @@ def main():
                   "content": {"what_it_does": "cat." + cat["code"] + ".what", "found_in": [], "in_the_body": None},
                   "diet_flags": {"vegan": vegan, "source": source, "gluten": "unknown"},
                   "regulatory": regs, "profile_warnings": pws, "related_ids": same[:4], "sources": srcs,
-                  "last_reviewed": None})
+                  "last_reviewed": None,
+                  "production": {"class": it["uretim"]["s"], "note": rid + ".prod", "verified": it["uretim"]["ok"]}})
+        T[rid + ".prod"] = it["uretim"]["n"]
         # Elle incelenen kayıt: yazılan alanlar otomatik olanların yerine geçer; yazılmayanlar (kurumlar,
         # profil uyarıları, benzer maddeler, diyet) otomatik kalır. Kaynaklar birleştirilir (önce elle yazılanlar).
         if cur:
