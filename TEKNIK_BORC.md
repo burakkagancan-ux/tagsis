@@ -74,6 +74,11 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
   - Tatlandırıcılar (5): E957, E959, E960, E961, E969
   - Renklendiriciler (4): E101, E160d, E162, E172
 - Yapılacak: her madde için EFSA/AB 1333/2008 kaynaklı elle kayıt (`kaynak/ansiklopedi.json` `kayitlar`), aynı biçim ve `test/ansiklopedi.js` doğrulamasıyla. Kaynağı güvenilir okunamayanlar (E101, E160d, E162, E172 gibi) otomatik kalabilir, nedeni kayda yazılır.
+- **"Vücutta ne olur?" alanı kullanıcı beklentisini karşılamıyor (05.10.2026, kullanıcı geri bildirimi).** Kullanıcı belirti bekliyor (baş ağrısı, ishal gibi). Alan ise metabolizma ve kurum kararını anlatıyor. 181 elle kayıttan 172'sinde EFSA/ADI/IARC cümlesi var ve bu, "Kurumlar" bölümünü tekrar ediyor. Yalnızca 28 kayıtta belirti ya da hassasiyet geçiyor. Örnek: E440 "değişmeden emilmez… EFSA 2017 ADI gerekmedi". 152 otomatik sayfada alan hiç yok.
+  - Önerilen çözüm (seçilmedi, önce kısa plan): `in_the_body` yerine yapılandırılmış "Olası etkiler" listesi. Her satırda belirti, kimde, hangi miktarda, kanıt düzeyi ve kaynak olur. Belirti yoksa "Normal kullanımda bilinen bir yan etki yok (kaynak, yıl)" yazılır. EFSA/ADI cümleleri Kurumlar bölümüne taşınır. Kısa bir "vücutta nasıl işlenir" satırı kalabilir.
+  - Kurallar: Kaynak zorunlu (EFSA, JECFA, AB etiket zorunluluğu, hakemli derleme). Kanıt düzeyi üç seviyedir: "Resmi uyarı", "Duyarlı kişilerde bildirildi", "Kanıt tutarsız" (örneğin MSG ve baş ağrısı). Anekdot yazılmaz. Dil "yapar" değil "yol açabilir / bildirilmiştir" olur, miktar ve kişi belirtilir, teşhis ya da tedavi önerisi verilmez. Sabit bir "Şikâyetiniz varsa hekime danışın" notu eklenir. Belirtiler renk almaz, kırmızı yine yalnızca kişisel uyarıda kalır. Dil hukuki görüş maddesine de girer.
+  - Alternatifler: Mevcut serbest metni belirti odaklı yeniden yazmak daha hızlıdır ama kaynak ve kanıt satır satır görünmez. Yalnızca başlığı "Güvenlik değerlendirmesi" yapmak en ucuz yoldur ama beklentiyi karşılamaz.
+  - İlk parti önerisi: belirti zaten geçen 28 kayıt, polioller (E420, E421, E953, E965–E968), Southampton renkleri, sülfitler (E220–E228).
 
 ### Kozmetik
 - Ansiklopedi sayfası yok. Veride 1.972 AB kaydı (`kozmetik.json`) ve 30.609 INCI adı (`kozmetik_inci.json`) var; yalnızca durum/gerekçe cümlesi ve CosIng işlevi var, "ne işe yarar / nerelerde bulunur / vücutta" açıklaması yok.
