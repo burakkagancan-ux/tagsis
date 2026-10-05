@@ -41,15 +41,16 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - gen_kozmetik.py artık `../cosing` kopyasına ihtiyaç duymaz; kullanılan kısım `kaynak/cosing/` altında (Ek II–VI aynen, INCI listesinden 3 sütun; ~3 MB, sürüm `surum.txt`, lisans `LICENSE.txt`). Yenilemek için `python3 cosing_al.py`. Verinin eski olması (2024 başı) ayrı sorun, bkz. 4.
 
 
-## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026) — 1, 2, 3, 4, 6 KAPANDI (05.10.2026)
-- 05.10.2026: sonuç ekranı gıda/kozmetik düzenine getirildi: tek "Dikkat Gerektirenler" başlığı (karıştırma, kapsül, tehlike ifadeleri, madde notları kart olarak; madde notunun ilk iki cümlesi görünür), listeler kapalı açılır bölümlerde ("Önlem İfadeleri", "İçerik Grupları", "Tanınan Maddeler"; tüm tanınan maddeler, CosIng notu altta, ad ve "Koruyucu" çipi tekrarı yok). Açık kalan: 5 (Türkçe ad).
-- Bölüm etikette adı yazan maddeleri gösteriyor (js/arayuz_temizlik.js, renderT): notu olanlar (MIT, BIT, hipoklorit…) kart, diğerleri düz liste. Değerlendirmede bulunan sorunlar ve öneriler (kullanıcı ertelendi):
-  1. Başlık özetteki "Tanınan madde" satırıyla uyuşmuyor; başlık "Tanınan Maddeler" olabilir. (önerilen)
-  2. Madde kartlarında açıklama yalnızca (i) arkasında; tehlike kartlarındaki gibi bir satırlık açıklama görünmeli. (önerilen)
-  3. Kartlar ve düz liste karışık; liste "Diğer maddeler (N)" adıyla kapalı açılır bölüme (secBox) girebilir. (önerilen)
-  4. "İşlevler AB…" notu bölümün başında; listenin altına inebilir.
-  5. Adlar İngilizce ve büyük harf (INCI); yanına Türkçe ad (LIMONENE · limonen). Veri hazırlığı gerekir.
-  6. İşlev adı tekrarı ("PARFUM · Koku, Parfüm"); tekrar kaldırılmalı. (önerilen)
+## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026) — 1, 2, 3, 4, 6 KAPANDI (05.10.2026), 5 AÇIK
+Bölüm etikette adı yazan maddeleri gösteriyor (js/arayuz_temizlik.js, renderT): notu olanlar (MIT, BIT, hipoklorit…) kart, diğerleri düz liste. 05.10.2026: sonuç ekranı gıda/kozmetik düzenine getirildi: tek "Dikkat Gerektirenler" başlığı (karıştırma, kapsül, tehlike ifadeleri, madde notları kart olarak; madde notunun ilk iki cümlesi görünür), listeler kapalı açılır bölümlerde ("Önlem İfadeleri", "İçerik Grupları", "Tanınan Maddeler"; tüm tanınan maddeler, CosIng notu altta, ad ve "Koruyucu" çipi tekrarı yok).
+
+Alt maddeler:
+1. Başlık özetteki "Tanınan madde" satırıyla uyuşmuyor; "Tanınan Maddeler" olmalı. — KAPANDI
+2. Madde kartlarında açıklama yalnızca (i) arkasında; tehlike kartlarındaki gibi bir satırlık açıklama görünmeli. — KAPANDI
+3. Kartlar ve düz liste karışık; liste "Diğer maddeler (N)" adıyla kapalı açılır bölüme (secBox) girmeli. — KAPANDI
+4. "İşlevler AB…" notu bölümün başında; listenin altına inmeli. — KAPANDI
+5. Adlar İngilizce ve büyük harf (INCI); yanına Türkçe ad eklenmeli (LIMONENE · limonen). Veri hazırlığı gerekir. — AÇIK
+6. İşlev adı tekrarı ("PARFUM · Koku, Parfüm") kaldırılmalı. — KAPANDI
 
 
 ## Ansiklopedi: eksik bilgiler (05.10.2026)
