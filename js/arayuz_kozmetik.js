@@ -17,7 +17,7 @@ function setMode(m,save){
   MODE=m;
   ["gida","koz","tem"].forEach(function(x){$("m-"+x).setAttribute("aria-checked",String(m===x))});
   $("ptype").hidden=m!=="koz";
-  $("camtxt").textContent=m==="koz"?"Ürünün “Ingredients / İçindekiler” listesinin fotoğrafını çekin.":m==="tem"?"Ürünün arka etiketindeki içerik ve uyarı yazılarının fotoğrafını çekin.":"Bir ürünün “İçindekiler” yazısının fotoğrafını çekin.";
+  $("camtxt").textContent=m==="koz"?"Ürünün “Ingredients / İçindekiler” listesinin fotoğrafını çekin.":m==="tem"?"Ürünün arka etiketindeki içerik ve uyarı yazılarının fotoğrafını çekin.":"Ürünün “İçindekiler” yazısının fotoğrafını çekin.";
   if(save)try{localStorage.setItem("tur",m)}catch(e){}
   ST.textContent=STMSG[m]||(m==="koz"?"Kozmetik listeleri yükleniyor…":m==="tem"?"Temizlik listeleri yükleniyor…":"Gıda listeleri yükleniyor…");
   if(m==="koz")loadK().then(function(){if($("metin").value.trim())run()},function(){});

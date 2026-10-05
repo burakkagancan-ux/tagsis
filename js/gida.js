@@ -177,7 +177,7 @@ function summarize(res,idx){
   res.forEach(function(r){
     r.ids.forEach(function(id){
       var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
-      if(!it.isB&&(fl.indexOf("iarc_listed")>-1||(it.reason&&(it.reason.indexOf("kansero")>-1||it.reason.indexOf("cancer")>-1))))push(o.cancer,name);
+      if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,name);   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
       if(r.neg){push(o.claims,(it.isB?it.name:it.primary_name)+" içermez");return}
       if(it.isB){
         if(r.aroma){
