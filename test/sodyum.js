@@ -27,4 +27,7 @@ ok(na("Deniz tuzu, kaya tuzu, iyotlu tuz").salt.length===1,"tuz türleri tek kay
 // Tuz yok
 s=na("İçindekiler: Yulaf, kuru üzüm, fındık");
 ok(!s.salt.length&&!s.hidden.length,'tuzsuz ürün');
+// Genel ad + E kodu aynı madde: tek kart (E1422 çift kart olmaz); kod yoksa genel ad kalır
+ok(JSON.stringify(ids('Su, modifiye mısır nişastası (E1422), tuz'))===JSON.stringify(['E1422','B:tuz']),'modifiye nişasta + E1422 tek kart '+ids('Su, modifiye mısır nişastası (E1422), tuz'));
+ok(ids('modifiye mısır nişastası, tuz')[0].split('+').length>1,'kodsuz genel ad korunmalı');
 console.log(n+' sodyum denetimi, '+fail+' hata');process.exit(fail?1:0);
