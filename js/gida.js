@@ -1,6 +1,6 @@
 /* Gıda: E kodu ve bileşen dizini, içerik listesi analizi, özet, marka eşleşmesi. Saf mantık; testler de yükler. */
 /* db: e_kodlari.json; bdb: bilesenler.json (isteğe bağlı). Bileşen kimlikleri "B:" ile başlar. */
-function capFirst(s){return s&&s.length?s[0].toUpperCase()+s.slice(1).toLowerCase():s}
+function capFirst(s){return s&&s.length?s[0].toLocaleUpperCase('tr')+s.slice(1).toLocaleLowerCase('tr'):s}
 function buildIndex(db,bdb){
   var exact=new Map(),nos=new Map(),byK={},ks={1:1,2:1,3:1,4:1},byId={},ctx={};
   function add(m,k,id){if(!m.has(k))m.set(k,new Set());m.get(k).add(id)}

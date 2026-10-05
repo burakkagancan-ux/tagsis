@@ -168,7 +168,7 @@ function summaryCard(S,res){
     row("Şeker",f,S.sugar.some(function(s){return s.hidden})?"y":"");
   }else row("Şeker","Kaynak bulunamadı");
   row("Palm yağı",S.palm.length?"Var ("+S.palm.join(", ")+")":"Bulunamadı",S.palm.length?"y":"");
-  var u=Object.keys(S.upf);
+  var u=Object.keys(S.upf).map(capFirst);
   row("Ultra işlenmiş gıda",u.length?(u.length+" işaret: "+u.join(", ")):"İşaret bulunamadı",u.length>=2?"y":"");
   var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
   row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
