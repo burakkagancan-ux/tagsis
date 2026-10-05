@@ -30,5 +30,16 @@ await t("Vision hatası mesajı iletilir", req(JSON.stringify({ image: img })), 
 { const e = env(); e.ALLOWED_ORIGIN = "http://localhost:8765, " + ORIGIN; visionReply = () => ({ status: 200, body: { responses: [{ fullTextAnnotation: { text: "x" } }] } });
   await t("birden çok köken", req(JSON.stringify({ image: img }), { origin: "http://localhost:8765" }), e, 200, (j, r) => r.headers.get("Access-Control-Allow-Origin") === "http://localhost:8765"); }
 { const e = env(); delete e.VISION_KEY; visionReply = () => ({ status: 200, body: {} }); await t("anahtar yok", req(JSON.stringify({ image: img })), e, 500); }
+// Paylaşım sayacı
+const kv = () => { const m = new Map(); return { m, get: async (k) => m.get(k) ?? null, put: async (k, v) => { m.set(k, v); }, list: async ({ prefix }) => ({ keys: [...m.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })) }) }; };
+const sreq = (q, o = {}) => new Request("https://x.workers.dev/sayac" + q, { method: o.method || "POST", headers: { "Origin": o.origin ?? ORIGIN, "CF-Connecting-IP": "1.2.3.4" } });
+{ const e = env(); const before = calls; await t("sayaç bağlı değil: 204", sreq("?t=s"), e, 204); if (calls !== before) { fail++; console.log("HATA sayaç Vision'a gitti"); } }
+{ const e = env(); e.SAYAC = kv(); await w.fetch(sreq("?t=s"), e); await w.fetch(sreq("?t=s"), e); await w.fetch(sreq("?t=d"), e);
+  const gun = new Date().toISOString().slice(0, 10);
+  await t("sayaç artar (2 paylaşım, 1 indirme)", sreq("", { method: "GET" }), e, 200, (j) => j.gunler[gun].s === 2 && j.gunler[gun].d === 1);
+  if ([...e.SAYAC.m.keys()].some((k) => !/^g:\d{4}-\d{2}-\d{2}:[sd]$/.test(k))) { fail++; console.log("HATA sayaç anahtarı yalnızca gün + tür olmalı"); }
+  await t("sayaç: yabancı köken sayılmaz", sreq("?t=s", { origin: "https://evil.example" }), e, 403);
+  await t("sayaç: bilinmeyen tür s sayılır", sreq("?t=<x>"), e, 204, () => e.SAYAC.m.get("g:" + gun + ":s") === "3"); }
+{ const e = env(); e.SAYAC = kv(); e.SAYAC_LIMIT = lim(10); for (let i = 0; i < 10; i++) await w.fetch(sreq("?t=s"), e); await t("sayaç IP sınırı (11. istek)", sreq("?t=s"), e, 429); }
 console.log(fail ? fail + " hata" : "tüm testler geçti");
 process.exit(fail ? 1 : 0);

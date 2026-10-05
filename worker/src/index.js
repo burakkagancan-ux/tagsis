@@ -11,6 +11,11 @@
 //   ALLOWED_ORIGIN  değişken/gizli  https://burakkagancan-ux.github.io (virgülle birden çok adres verilebilir)
 //   IP_LIMIT        rate limit      IP başına dakikada en fazla istek (wrangler.toml)
 //   GLOBAL_LIMIT    rate limit      tüm kullanıcılar için dakikada en fazla istek (Cloudflare konumu başına)
+//   SAYAC           KV (isteğe bağlı) anonim paylaşım sayacı; bağlı değilse /sayac istekleri sayılmadan 204 döner
+//   SAYAC_LIMIT     rate limit      paylaşım sayacı için IP başına sınır
+//
+// Paylaşım sayacı: POST /sayac?t=s|d (gövdesiz) günlük toplamı bir artırır (s: paylaşım menüsü, d: indirme).
+//   Ürün, metin, IP ya da kişisel bilgi saklanmaz; anahtar yalnızca "g:YYYY-AA-GG:t". GET /sayac son 60 günün toplamlarını döndürür.
 
 const MAX_BODY = 4_000_000;          // ~4 MB (eski Worker'la aynı); uygulama 1800 px JPEG gönderir (genelde 0,3-1 MB)
 const VISION_TIMEOUT_MS = 20_000;
@@ -37,11 +42,39 @@ function reply(env, origin, status, obj, extra) {
   });
 }
 
+async function sayac(request, env, allowed, R) {
+  if (request.method === "GET") {
+    if (!env.SAYAC) return R(200, { gunler: {}, not: "Sayaç bağlı değil." });
+    const list = await env.SAYAC.list({ prefix: "g:" });
+    const keys = list.keys.map((k) => k.name).sort().slice(-120);
+    const gunler = {};
+    for (const k of keys) {
+      const [, gun, t] = k.split(":");
+      (gunler[gun] = gunler[gun] || {})[t] = Number(await env.SAYAC.get(k)) || 0;
+    }
+    return R(200, { gunler });
+  }
+  if (request.method !== "POST") return R(405, { error: "Yalnızca POST isteği kabul edilir." });
+  if (!allowed) return R(403, { error: "Bu adresten istek kabul edilmiyor." });
+  if (env.SAYAC_LIMIT) {
+    const ip = request.headers.get("CF-Connecting-IP") || "bilinmiyor";
+    const { success } = await env.SAYAC_LIMIT.limit({ key: "sayac:" + ip });
+    if (!success) return new Response(null, { status: 429 });
+  }
+  if (!env.SAYAC) return new Response(null, { status: 204 });
+  const t = new URL(request.url).searchParams.get("t") === "d" ? "d" : "s";
+  const key = "g:" + new Date().toISOString().slice(0, 10) + ":" + t;
+  const n = Number(await env.SAYAC.get(key)) || 0;   // yaklaşık sayım: aynı anda gelen iki istek tek sayılabilir
+  await env.SAYAC.put(key, String(n + 1));
+  return new Response(null, { status: 204 });
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
     const allowed = origins(env).includes(origin);
     const R = (status, obj, extra) => reply(env, origin, status, obj, extra);
+    if (new URL(request.url).pathname === "/sayac") return sayac(request, env, allowed, R);
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: allowed ? 204 : 403, headers: cors(env, origin) });

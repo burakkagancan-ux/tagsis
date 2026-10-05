@@ -173,4 +173,5 @@ function renderT(A){
     nb.appendChild(el("div","how it","İşlevler AB kozmetik INCI listesinden (CosIng) alınmıştır; kozmetikteki sınırlar ve yasaklar temizlik ürünleri için geçerli değildir."));
   }
   box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır ve tıbbi tavsiye değildir. Piktogramlar fotoğraftan tanınmaz; etiketteki işaretlere ayrıca bakın. Veri: AB CLP / SEA Yönetmeliği zararlılık ifadeleri, AB 648/2004 ve Deterjanlar Hakkında Yönetmelik içerik kuralları, Sağlık Bakanlığı Sağlıklı Temizlik Rehberi; koku alerjenleri ve koruyucular AB kozmetik INCI listesinden tanınır."));
+  payBar(box,{mode:"tem",A:A,S:S});
 }
