@@ -27,7 +27,7 @@ function loadDb(i){
 }
 
 /* ---------- Profil ---------- */
-var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,astim:false,preg:false,emziriyorum:false,baby:false,child:false,pku:false,pet:false,salt:false,cinsiyet:""};
+var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,astim:false,preg:false,emziriyorum:false,baby:false,child:false,pku:false,pet:false,salt:false,cinsiyet:"",yas:null,boy:null,kilo:null};
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
 var LIFE=[["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["preg","Hamileyim"],["emziriyorum","Emziriyorum"],["pet","Evcil hayvanıma vereceğim"]];
 var OTHER=[["lactose","Laktoz intoleransı"],["vegan","Vegan"],["veg","Vejetaryen"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"],["salt","Tansiyon / tuz kısıtlaması"],["pku","Fenilketonüri (PKU)"]];
@@ -53,10 +53,10 @@ function buildProfile(){
   var b1=pbox("Alerjenler"),g=el("div","pg");
   abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
-  var b2=pbox("Yasam Evresi"),g2=el("div","pg");
+  var b2=pbox("Yaşam Evresi ("+LIFE.length+")"),g2=el("div","pg");
   abc(LIFE).forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b2.appendChild(g2);
-  var b3=pbox("Diger"),g3=el("div","pg");
+  var b3=pbox("Diğer ("+OTHER.length+")"),g3=el("div","pg");
   abc(OTHER).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
