@@ -10,8 +10,8 @@ function tabSync(){
   var prof=location.hash==="#profil";
   document.querySelectorAll(".tabbar a").forEach(function(a){if(a.getAttribute("data-tab")===(prof?"profil":"oku"))a.setAttribute("aria-current","page");else if(a.getAttribute("data-tab")!=="liste")a.removeAttribute("aria-current")});
   document.body.classList.toggle("mode-profil",prof);
-  document.querySelector("h1").textContent=prof?"Hassasiyetlerim":"Etiket Oku";
-  document.title=prof?"Hassasiyetlerim":"Etiket Oku";
+  document.querySelector("h1").textContent=prof?"Profilim":"Etiket Oku";
+  document.title=prof?"Profilim":"Etiket Oku";
   if(prof){$("pd").open=true;window.scrollTo(0,0)}
 }
 window.addEventListener("hashchange",tabSync);tabSync();
