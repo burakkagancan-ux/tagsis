@@ -119,6 +119,9 @@ function mayZones(tok,idx){
   }
   return z;
 }
+// Olumsuzluk: madde ile "içermez" arasında geçebilecek sözcükler ve maddeleri bağlayan sözcükler
+var NEGFILL={kaynakli:1,madde:1,maddesi:1,maddeler:1,urun:1,urunu:1,urunleri:1,eti:1,turevi:1,turevleri:1,katki:1,katkisi:1,bilesen:1,bileseni:1,hicbir:1,kesinlikle:1,iz:1,miktarda:1};
+var NEGJOIN={ve:1,veya:1,ile:1,ya:1,da:1,de:1,hem:1,ne:1,"|":1};
 function analyze(text,idx){
   var tok=normText(text).split(" ").filter(Boolean);
   var all=findCodes(tok,idx).concat(findNames(tok,idx),findContext(tok,idx));
@@ -149,8 +152,21 @@ function analyze(text,idx){
     m.may=zones.some(function(z){return m.a>=z[0]&&m.a<z[1]});
     var n1=tok[m.b]||"",n2=tok[m.b+1]||"";
     m.neg=!!(negs[n1]||negs[n1+" "+n2]||(negs[n2]&&!SEP[n1]&&n1!=="ve"));   // iki sözcüklü olumsuzluk: "ilave edilmemiştir"
+    if(!m.neg){var q=m.b;while(q<m.b+5&&(NEGFILL[tok[q]]||(NEGJOIN[tok[q]]&&tok[q]!=="|")))q++;m.neg=q>m.b&&!!(negs[tok[q]]||negs[tok[q]+" "+(tok[q+1]||"")])}   // "domuz kaynaklı madde içermez"
     m.aroma=!!(arn[n1]&&m.ids.every(function(id){var it=idx.byId[id];return it.isB&&!it.upf_class}));
   });
+  // Sıralı olumsuzluk: "alkol ve domuz içermez", "koruyucu, renklendirici içermez" -> öndeki maddeler de olumsuz.
+  // Virgülle bağlı zincir yalnızca içerik listesi dışında ve en çok 4 maddeyse (noktası okunmamış liste sonu yanlışlıkla olumsuz sayılmasın).
+  var byPos=kept.slice().sort(function(x,y){return x.a-y.a}),inList=function(a){for(var q=a-1;q>=0&&tok[q]!==SENT;q--)if(tok[q]===":"||tok[q]==="icindekiler"||tok[q]==="bilesenler"||tok[q]==="ingredients")return true;return false};
+  for(var k=byPos.length-2;k>=0;k--){
+    var m=byPos[k],nx=byPos[k+1];
+    if(m.neg||!nx.neg||nx.a<m.b)continue;
+    var ok=true,comma=false;
+    for(var q=m.b;q<nx.a;q++){if(tok[q]==="|")comma=true;else if(!NEGJOIN[tok[q]]){ok=false;break}}
+    if(!ok)continue;
+    if(comma){if(inList(m.a))continue;var c=1;for(var j=k+1;j<byPos.length&&byPos[j].neg&&j-k<5;j++)c++;if(c>4)continue}
+    m.neg=true;
+  }
   var merged={};
   kept.forEach(function(m){
     var key=m.ids.slice().sort().join("+")+"/"+(m.neg?"n":"")+(m.may?"m":"")+(m.aroma?"a":"");
@@ -178,8 +194,8 @@ function summarize(res,idx){
   res.forEach(function(r){
     r.ids.forEach(function(id){
       var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
-      if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,{name:name,may:r.may});   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
       if(r.neg){push(o.claims,(it.isB?it.name:it.primary_name)+" içermez");return}
+      if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,{name:name,may:r.may});   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
       if(it.isB){
         if(r.aroma){
           fl.forEach(function(f){if(f.indexOf("allergen_")===0)al(f,"may",name+" (aroma)")});
