@@ -148,6 +148,39 @@ def load_adi(path=ADI_TSV):
 ADI = load_adi()
 
 
+# Üretim yolu: kaynak/e_uretim.tsv (05.10.2026). E kodu -> uretim alanı {s: sınıf, n: not, u: kaynak, ok}.
+URETIM_TSV = os.path.join(HERE, "kaynak", "e_uretim.tsv")
+URETIM_SINIF = ("dogal", "fermente", "islenmis", "sentetik", "belirsiz")
+
+
+def load_uretim(path=URETIM_TSV):
+    out = {}
+    head = None
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            cols = line.split("\t")
+            if head is None:
+                head = cols
+                continue
+            r = dict(zip(head, cols))
+            assert r["sinif"] in URETIM_SINIF, line
+            assert r["not"], line
+            assert r["dogrulandi"] in ("0", "1") and (r["dogrulandi"] == "0" or r["kaynak"]), line
+            u = {"s": r["sinif"], "n": r["not"], "ok": r["dogrulandi"] == "1"}
+            if r["kaynak"]:
+                u["u"] = r["kaynak"]
+            for eid in r["kodlar"].split(","):
+                assert eid not in out, eid
+                out[eid] = u
+    return out
+
+
+URETIM = load_uretim()
+
+
 def apply_verify(rec, review):
     v = VERIFY.get(rec["id"])
     if not v:
@@ -212,18 +245,27 @@ def build():
             rec["context_aliases"] = CONTEXT[ctx]
         if eid in ADI:
             rec["adi"] = ADI[eid]
+        assert eid in URETIM, ("e_uretim.tsv: eksik kod", eid)
+        rec["uretim"] = URETIM[eid]
         items.append(rec)
     for eid in ADI:
         assert eid in seen, ("e_adi.tsv: bilinmeyen kod", eid)
+    for eid in URETIM:
+        assert eid in seen, ("e_uretim.tsv: bilinmeyen kod", eid)
     meta = dict(META)
     cnt = {"total": len(items)}
     for lv in ("green", "red", "yellow", "unrated"):
         cnt[lv] = sum(1 for i in items if i["risk_level"] == lv)
     cnt["needs_review"] = sum(1 for i in items if i["needs_review"])
     cnt["adi"] = sum(1 for i in items if "adi" in i)
+    for k in URETIM_SINIF:
+        cnt["uretim_" + k] = sum(1 for i in items if i["uretim"]["s"] == k)
     meta["counts"] = cnt
     meta["adi"] = ("adi: günlük kabul edilebilir alım, mg/kg vücut ağırlığı (per=hafta ise haftalık). st: set (v sayı), "
                    "ns (belirlenmedi), yok (geri çekildi / konamadı). ok=false: değer kaynak bağlantısıyla doğrulanmadı.")
+    meta["uretim"] = ("uretim: üretim yolu, risk rengini değiştirmez. s: dogal (fiziksel yolla), fermente, islenmis (doğal hammadde "
+                      "kimyasal/ısıl/enzimatik işlemle değiştirilmiş), sentetik, belirsiz (birden çok yol). n: açıklama. "
+                      "ok=false: genel bilgiye dayalı, kaynakla doğrulanmadı.")
     return {"version": VERSION, "last_updated": LAST_UPDATED, "meta": meta, "ingredients": items}
 
 

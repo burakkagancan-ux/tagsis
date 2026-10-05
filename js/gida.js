@@ -269,3 +269,25 @@ function findBrands(text,brands){
   Object.keys(brands).forEach(function(p){if(s.indexOf(" "+p+" ")>-1)out.push(brands[p])});
   return out;
 }
+
+/* Üretim yolu (05.10.2026): risk rengini değiştirmez, gri bilgi etiketi. dogal ve belirsiz için etiket yok. */
+var URETIM_AD={sentetik:"Sentetik",islenmis:"İşlenmiş",fermente:"Fermentasyonla üretilir"};
+function uretimSinif(ids,idx){   // birden çok olası kod varsa hepsi aynı sınıftaysa
+  var s=null;
+  for(var i=0;i<ids.length;i++){var it=idx.byId[ids[i]];if(!it||it.isB||!it.uretim)return null;if(s&&s!==it.uretim.s)return null;s=it.uretim.s}
+  return URETIM_AD[s]?s:null;
+}
+function uretimOzet(res,idx){
+  var o={sentetik:[],islenmis:[],fermente:[]},seen={};
+  res.forEach(function(r){
+    if(r.neg||r.may)return;
+    var s=uretimSinif(r.ids,idx),k=r.ids.slice().sort().join("+");
+    if(!s||seen[k])return;seen[k]=1;
+    o[s].push(r.ids.map(function(id){return idx.byId[id].id}).join("/"));
+  });
+  return o;
+}
+function uretimMetin(o){
+  var p=[];["sentetik","islenmis","fermente"].forEach(function(s){if(o[s].length)p.push(o[s].length+" "+{sentetik:"sentetik",islenmis:"işlenmiş",fermente:"fermentasyonla üretilmiş"}[s])});
+  return p.join(", ");
+}

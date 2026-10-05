@@ -1,0 +1,133 @@
+# Katkı maddelerinin üretim yolu (05.10.2026). gen_e_kodlari.py -> e_kodlari.json 'uretim' alanı.
+# Risk rengini DEĞİŞTİRMEZ; sonuç kartında gri bilgi etiketi olarak görünür (kullanıcı kararı, 05.10.2026).
+# sinif: dogal = doğal kaynaktan fiziksel yolla (öğütme, sıkma, çözücüyle ekstraksiyon, damıtma, saflaştırma) elde edilir, etiket gösterilmez.
+#        fermente = mikroorganizmalarla (fermentasyonla) üretilir.
+#        islenmis = doğal bir hammadde kimyasal tepkime, ısıl ya da enzimatik işlemle değiştirilir (modifiye nişasta, emülgatörler, tuzlar).
+#        sentetik = kimyasal sentezle üretilir (doğada da bulunan bir molekül olabilir; notta belirtilir).
+#        belirsiz = birden çok üretim yolu var ya da hangisinin kullanıldığı etiketten anlaşılmaz; etiket gösterilmez.
+# dogrulandi=1: üretim yolu kaynaktaki AB spesifikasyon tanımında okundu (05.10.2026). 0: genel bilgiye dayalı (uygulamada 'doğrulanmadı').
+# AB 231/2012 metni bu ortamda yalnızca E172'ye kadar, 2008/84/AT metni E343'e kadar okunabildi.
+kodlar	sinif	not	kaynak	dogrulandi
+E100	dogal	Zerdeçal kökünden çözücüyle ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E101	belirsiz	Riboflavin fermentasyonla ya da kimyasal sentezle üretilebilir; fosfatlı biçimi kimyasal işlemle elde edilir.		0
+E102,E110,E123,E124,E129	sentetik	Kimyasal sentezle üretilen azo boyadır.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E104	sentetik	Kimyasal sentezle üretilen boyadır.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E127	sentetik	Floresein iyotlanarak kimyasal sentezle üretilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E122,E128,E151,E154,E155,E180	sentetik	Kimyasal sentezle üretilen azo boyadır.		0
+E131,E133,E142	sentetik	Kimyasal sentezle üretilen boyadır.		0
+E132	sentetik	İndigonun sülfonlanmasıyla kimyasal yolla üretilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E120	dogal	Koşnil böceğinden su ya da alkolle ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E140	belirsiz	Klorofil bitkilerden çözücüyle ekstraksiyonla elde edilir; klorofilin ise bu ekstraktın kimyasal işlemle (sabunlaştırma) değiştirilmesiyle üretilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E141	islenmis	Bitki ekstraktına bakır tuzu eklenerek kimyasal işlemle elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E150a	islenmis	Şeker gibi karbonhidratların kontrollü ısıl işlemiyle elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E150b	islenmis	Karbonhidratların sülfit bileşikleriyle birlikte ısıl işlemiyle elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E150c	islenmis	Karbonhidratların amonyum bileşikleriyle birlikte ısıl işlemiyle elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E150d	islenmis	Karbonhidratların sülfit ve amonyum bileşikleriyle birlikte ısıl işlemiyle elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E153	islenmis	Odun gibi bitkisel maddelerin karbonlaştırılmasıyla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E160a	belirsiz	Beta-karoten kimyasal sentezle, bitkilerden ekstraksiyonla, mantar fermentasyonuyla ya da algden elde edilebilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E160b	dogal	Annatto ağacının tohum kabuğundan çözücü, alkali ya da yağla ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E160c	dogal	Kırmızı biberden çözücüyle ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E160d	belirsiz	Likopen kimyasal sentezle, domatesten ekstraksiyonla ya da mantar biyokütlesinden elde edilebilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E160e,E160f	sentetik	Kimyasal sentezle üretilen karotenoittir.		0
+E161b	dogal	Kadife çiçeği gibi bitkilerden çözücüyle ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E161g	sentetik	Kimyasal sentezle üretilir; doğada da bulunan bir karotenoittir.		0
+E162	dogal	Kırmızı pancarın sıkılması ya da suyla ekstraksiyonuyla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E163	dogal	Meyve ve sebzelerden ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E170	belirsiz	Kalker öğütülerek ya da kimyasal çöktürmeyle elde edilebilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E171	sentetik	Titanyum cevherinden kimyasal işlemlerle üretilen saf titanyum dioksittir.		0
+E172	sentetik	Sentetik olarak üretilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
+E173	islenmis	Boksitten elektrolizle elde edilen metalin tozudur.		0
+E174,E175	dogal	Metalin kendisidir (saflaştırılmış).		0
+E200,E202,E203	sentetik	Sorbik asit ve tuzları kimyasal sentezle üretilir; sorbik asit üvez meyvesinde de doğal olarak bulunur.		0
+E210,E211,E212,E213	sentetik	Kimyasal sentezle üretilir; benzoik asit bazı meyvelerde doğal olarak da bulunur.		0
+E214,E215,E216,E217,E218,E219	sentetik	Kimyasal sentezle üretilen paraben türüdür.		0
+E220,E221,E222,E223,E224,E226,E227,E228	sentetik	Kükürt bileşiklerinden kimyasal yolla üretilir.		0
+E230,E239,E242,E243	sentetik	Kimyasal sentezle üretilir.		0
+E234	fermente	Laktik asit bakterileriyle (Streptococcus lactis) fermentasyonla üretilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
+E235	fermente	Streptomyces natalensis ile fermentasyonla üretilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
+E249,E250	sentetik	Kimyasal yolla üretilir.		0
+E251,E252	belirsiz	Çoğunlukla kimyasal yolla üretilir; doğal mineral yataklarından da elde edilebilir.		0
+E260,E261,E262,E263	belirsiz	Asetik asit fermentasyonla ya da kimyasal sentezle üretilebilir; tuzları asidin nötrleştirilmesiyle elde edilir.		0
+E270	belirsiz	Şekerlerin laktik fermentasyonuyla ya da kimyasal sentezle üretilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
+E325,E326,E327,E585	belirsiz	Laktik asidin nötrleştirilmesiyle elde edilir; laktik asit fermentasyonla ya da kimyasal sentezle üretilebilir.		0
+E280,E281,E282,E283	sentetik	Çoğunlukla petrokimyasal hammaddelerden kimyasal sentezle üretilir; tuzları asidin nötrleştirilmesiyle elde edilir.		0
+E284	islenmis	Boraks mineralinin asitle işlenmesiyle elde edilir.		0
+E285	dogal	Doğal bor mineralidir (saflaştırılmış).		0
+E290	belirsiz	Fermentasyon, doğal kaynaklar ya da sanayi süreçlerinin yan ürünü olarak toplanır.		0
+E296,E350,E351,E352	sentetik	DL-malik asit petrokimyasal hammaddeden kimyasal sentezle üretilir; tuzları nötrleştirmeyle elde edilir.		0
+E297	sentetik	Kimyasal sentezle üretilir; doğada da bulunan bir moleküldür.		0
+E300,E301,E302	islenmis	Glikozdan fermentasyon ve kimyasal adımlarla üretilir; doğadaki C vitaminiyle aynı moleküldür.		0
+E304	islenmis	Askorbik asidin yağ asidiyle esterleştirilmesiyle elde edilir.		0
+E306	dogal	Bitkisel yağların vakumla buhar damıtılmasıyla elde edilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
+E307,E308,E309	sentetik	Kimyasal sentezle üretilen tokoferoldür (E vitamini türü).		0
+E310,E311,E312	sentetik	Gallik asidin alkollerle kimyasal tepkimesiyle üretilir.		0
+E315,E316	islenmis	Şekerden fermentasyon ve kimyasal adımlarla üretilir.		0
+E319,E320,E321	sentetik	Petrokimyasal hammaddeden kimyasal sentezle üretilir.		0
+E322	dogal	Soya, ayçiçeği ya da yumurta gibi gıdalardan fiziksel yöntemlerle elde edilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
+E330	fermente	Şekerlerin Aspergillus niger küfüyle fermentasyonuyla üretilir.		0
+E331,E332,E333,E380	islenmis	Sitrik asidin nötrleştirilmesiyle elde edilir.		0
+E334,E335,E336,E337,E354	islenmis	Şarap üretimi artıklarından kimyasal işlemle elde edilir; tuzları nötrleştirmeyle üretilir.		0
+E353	islenmis	Tartarik asidin ısıl işlemiyle elde edilir.		0
+E338,E339,E340,E341,E343,E450,E451,E452,E541	sentetik	Fosfat kayasından üretilen fosforik asitten kimyasal yolla elde edilir.		0
+E355,E356,E357	sentetik	Petrokimyasal hammaddeden kimyasal sentezle üretilir.		0
+E363	belirsiz	Kimyasal sentezle ya da fermentasyonla üretilebilir.		0
+E385	sentetik	Kimyasal sentezle üretilir.		0
+E392	dogal	Biberiye yaprağından ekstraksiyonla elde edilir.		0
+E400,E401,E402,E403,E404	dogal	Kahverengi deniz yosunlarından ekstraksiyonla elde edilir.		0
+E405	islenmis	Aljinik asidin propilen oksitle kimyasal tepkimesiyle elde edilir.		0
+E406	dogal	Kırmızı deniz yosunlarından sıcak suyla ekstraksiyonla elde edilir.		0
+E407,E407a	islenmis	Kırmızı deniz yosunlarının alkaliyle işlenmesiyle elde edilir.		0
+E410,E412,E413,E414,E416,E417,E427	dogal	Bitki tohumu ya da ağaç özsuyundan (zamk) fiziksel yolla elde edilir.		0
+E415	fermente	Xanthomonas campestris bakterisiyle fermentasyonla üretilir.		0
+E418	fermente	Sphingomonas elodea bakterisiyle fermentasyonla üretilir.		0
+E420,E421,E953,E964,E965,E966,E967	islenmis	Şeker ya da nişastadan hidrojenasyonla (kimyasal işlemle) elde edilir.		0
+E968	fermente	Glikozun maya ile fermentasyonuyla üretilir.		0
+E422	islenmis	Yağların parçalanmasıyla yan ürün olarak elde edilir; kimyasal sentezle de üretilebilir.		0
+E425	dogal	Konjak bitkisinin yumrusundan elde edilir.		0
+E426	dogal	Soya lifinden sıcak suyla ekstraksiyonla elde edilir.		0
+E431,E432,E433,E434,E435,E436	islenmis	Yağ asitleri ve sorbitolün etilen oksitle kimyasal tepkimesiyle üretilir.		0
+E440	belirsiz	Pektin meyve kabuğundan asitle ekstraksiyonla elde edilir; amide pektin ise kimyasal işlemle değiştirilir.		0
+E441	islenmis	Hayvan kolajeninin kısmi hidroliziyle elde edilir.		0
+E442,E444,E445	islenmis	Bitkisel hammaddenin kimyasal tepkimeyle değiştirilmesiyle üretilir.		0
+E459	islenmis	Nişastadan enzimle dönüştürülerek üretilir.		0
+E460	belirsiz	Bitki lifinden mekanik yolla (toz selüloz) ya da asitle işlenerek (mikrokristal selüloz) elde edilir.		0
+E461,E462,E463,E464,E465,E466,E468,E469	islenmis	Selülozun kimyasal tepkimeyle değiştirilmesiyle üretilir.		0
+E470a,E470b,E570	islenmis	Bitkisel ya da hayvansal yağların kimyasal işlemle parçalanmasıyla elde edilir.		0
+E471,E472a,E472b,E472c,E472d,E472e,E472f,E473,E474,E475,E476,E477,E479b,E481,E482,E483	islenmis	Bitkisel ya da hayvansal yağlardan kimyasal tepkimeyle (esterleştirme) üretilen emülgatördür.		0
+E491,E492,E493,E494,E495	islenmis	Sorbitol ve yağ asitlerinin kimyasal tepkimesiyle üretilir.		0
+E500,E504,E509,E514,E515,E516	belirsiz	Doğal mineral yataklarından ya da kimyasal üretimle elde edilebilir.		0
+E501,E503,E507,E512,E513,E517,E520,E521,E522,E523,E524,E525,E527	sentetik	Kimyasal yolla üretilen inorganik maddedir.		0
+E508	dogal	Doğal potasyum tuzu yataklarından saflaştırılarak elde edilir.		0
+E511	dogal	Deniz suyu ya da tuzlu su kaynaklarından elde edilir.		0
+E526,E529,E530	islenmis	Kireç taşı ya da magnezyum minerallerinin yakılması (kalsinasyon) ile elde edilir.		0
+E528	islenmis	Deniz suyundan kimyasal çöktürmeyle elde edilir.		0
+E535,E536,E538	sentetik	Kimyasal sentezle üretilir.		0
+E551,E552,E553a,E554,E555,E556	sentetik	Kimyasal yolla üretilen silikattır.		0
+E553b,E558,E559	dogal	Doğal kil ya da mineraldir (saflaştırılmış).		0
+E574,E575	fermente	Glikozun fermentasyonuyla üretilir.		0
+E576,E577,E578,E579	islenmis	Glukonik asidin nötrleştirilmesiyle elde edilir.		0
+E586,E640,E650	sentetik	Kimyasal sentezle üretilir.		0
+E620,E621,E622,E623,E624,E625	fermente	Glutamik asit bakterilerle fermentasyonla üretilir; tuzları nötrleştirmeyle elde edilir.		0
+E626,E627,E628,E629,E630,E631,E632,E633,E634,E635	fermente	Fermentasyonla ya da maya ekstraktının enzimle parçalanmasıyla üretilir.		0
+E900,E907,E914	sentetik	Kimyasal sentezle üretilen polimerdir.		0
+E901	dogal	Bal arısı peteğinden elde edilen balmumudur.		0
+E902,E903	dogal	Bitki yapraklarından elde edilen mumdur.		0
+E904	dogal	Lak böceğinin salgısından elde edilir.		0
+E905,E943a,E943b,E944	islenmis	Petrol ya da doğal gazdan rafinasyonla elde edilir.		0
+E912	islenmis	Linyit mumunun kimyasal işlemle değiştirilmesiyle üretilir.		0
+E920	belirsiz	Kıl ve tüy gibi proteinlerin hidroliziyle ya da fermentasyonla üretilebilir.		0
+E924a,E927b,E942,E949	sentetik	Kimyasal yolla üretilir.		0
+E938,E939,E941,E948	dogal	Havadan ya da doğal gazdan fiziksel ayırmayla elde edilen gazdır.		0
+E950,E951,E952,E954,E955,E961,E962,E969	sentetik	Kimyasal sentezle üretilen tatlandırıcıdır.		0
+E957	dogal	Katemfe meyvesinden ekstraksiyonla elde edilen proteindir.		0
+E959	islenmis	Turunçgillerdeki naringinin hidrojenasyonuyla elde edilir.		0
+E960	belirsiz	Stevia yapraklarından ekstraksiyonla, enzimle dönüştürülerek ya da fermentasyonla üretilebilir.		0
+E999	dogal	Kilaya ağacının kabuğundan ekstraksiyonla elde edilir.		0
+E1103	fermente	Mayadan elde edilen enzimdir.		0
+E1105	dogal	Yumurta akından elde edilen enzimdir.		0
+E1200	sentetik	Glikoz, sorbitol ve sitrik asitten kimyasal polimerleşmeyle üretilir.		0
+E1201,E1202,E1203,E1205,E1521	sentetik	Kimyasal sentezle üretilen polimerdir.		0
+E1204	fermente	Aureobasidium pullulans mantarıyla fermentasyonla üretilir.		0
+E1404,E1410,E1412,E1413,E1414,E1420,E1422,E1440,E1442,E1450,E1451,E1452	islenmis	Nişastanın kimyasal tepkimeyle değiştirilmesiyle üretilir (modifiye nişasta).		0
+E1505,E1517,E1518	islenmis	Sitrik asit ya da gliserolün kimyasal tepkimeyle esterleştirilmesiyle üretilir.		0
+E1519,E1520	sentetik	Petrokimyasal hammaddeden kimyasal sentezle üretilir.		0

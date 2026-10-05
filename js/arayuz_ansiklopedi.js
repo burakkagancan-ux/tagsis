@@ -44,7 +44,7 @@ function showRecord(r){
   if(r.review!=="curated")box.appendChild(h("div","auto","Bu sayfa uygulamanın katkı maddesi listesinden otomatik oluşturuldu ve henüz elle incelenmedi. Ayrıntılı bilgiler eklendikçe güncellenecek."));
   // Hızlı bilgi kartları (otomatik kayıtta bilinmeyenler gösterilmez)
   var q=h("div","quick"),df=r.diet_flags,cur=r.review==="curated";
-  [["Vegan",df.vegan==="unknown"&&!cur?null:t("diet."+df.vegan)],["Kaynak",df.source==="unknown"&&!cur?null:t("source."+df.source)],["Glüten",df.gluten==="unknown"&&!cur?null:(df.gluten==="no"?"İçermez":df.gluten==="yes"?"İçerir":t("diet.unknown"))]]
+  [["Vegan",df.vegan==="unknown"&&!cur?null:t("diet."+df.vegan)],["Kaynak",(df.source==="unknown"&&!cur)||(r.production&&(df.source==="synthetic"||df.source==="mineral"))?null:t("source."+df.source)],["Üretim",r.production?PROD_AD[r.production.class]:null],["Glüten",df.gluten==="unknown"&&!cur?null:(df.gluten==="no"?"İçermez":df.gluten==="yes"?"İçerir":t("diet.unknown"))]]
     .forEach(function(x){if(x[1]==null)return;var c=h("div");c.appendChild(h("b",null,x[0]));c.appendChild(h("span",null,x[1]));q.appendChild(c)});
   if(q.childNodes.length)box.appendChild(q);
   // Sekmeler
@@ -69,9 +69,14 @@ function showRecord(r){
   }
   footer(box,r);
 }
+var PROD_AD={dogal:"Doğal kaynaktan",fermente:"Fermentasyonla",islenmis:"İşlenmiş",sentetik:"Sentetik",belirsiz:"Birden çok yol"};
 function panelGenel(r){
   var p=h("div"),c=r.content;
   p.appendChild(h("h3",null,"Ne işe yarar?"));p.appendChild(h("p",null,t(c.what_it_does)));
+  if(r.production){
+    p.appendChild(h("h3",null,"Nasıl üretilir?"));p.appendChild(h("p",null,t(r.production.note)));
+    p.appendChild(h("p","mut","Üretim yolu bir risk değerlendirmesi değildir."+(r.production.verified?"":" Bu bilgi genel bilgiye dayanır, kaynakla doğrulanmadı.")));
+  }
   if(c.found_in.length){p.appendChild(h("h3",null,"Nerede bulunur?"));var ul=h("ul");c.found_in.forEach(function(k){ul.appendChild(h("li",null,t(k)))});p.appendChild(ul)}
   if(c.in_the_body){p.appendChild(h("h3",null,"Vücutta ne olur?"));p.appendChild(h("p",null,t(c.in_the_body)))}
   if(r.review!=="curated")p.appendChild(h("p","mut","“Nerede bulunur?” ve “Vücutta ne olur?” bölümleri bu madde için henüz yazılmadı."));

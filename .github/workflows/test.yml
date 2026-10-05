@@ -28,6 +28,8 @@ jobs:
         run: node test/kanser.js
       - name: Birlikte dikkat
         run: node test/eslesme.js
+      - name: Üretim yolu
+        run: node test/uretim.js
       - name: OCR toleransı
         run: node test/ocr_tolerans.js
       - name: Kozmetik veri

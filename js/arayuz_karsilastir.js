@@ -93,6 +93,7 @@ function showCompare(ida,idb){
   tr("Vegan",function(P){return {degil:"Vegan değil",belirsiz:"Kaynağı belirsiz madde var",yok:"Hayvansal içerik bulunamadı"}[P.vegan]});
   tr("Palm yağı",function(P){return P.palm.length?"Var":"Bulunamadı"});
   tr("Şeker kaynağı",function(P){return P.sugar.length?P.sugar.length+": "+P.sugar.join(", "):"Bulunamadı"});
+  tr("Üretim yolu",function(P){return uretimMetin(P.uretim)||"Sentetik ya da işlenmiş katkı bulunamadı"});
   tr("Tanınan içerik",function(P){return P.unknown.total?P.unknown.found+"/"+P.unknown.total:"—"});
   box.appendChild(tb);
   // 4) Madde farkları

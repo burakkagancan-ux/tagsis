@@ -2243,7 +2243,7 @@
    "in_the_body": "Mayalandırma ile üretilir. Vücutta kolayca emilir ve büyük kısmı değişmeden idrarla atılır. EFSA 2023'te günlük kabul edilebilir alımı (ADI) laksatif (ishal yapıcı) etkiye dayanarak 0,5 g/kg vücut ağırlığı olarak belirledi ve çocuk ve ergenlerde tahmini alımın bu değerin üzerinde olduğunu bildirdi.",
    "diet_flags": {
     "vegan": "yes",
-    "source": "synthetic",
+    "source": "plant",
     "gluten": "no"
    },
    "regulatory_extra": [
