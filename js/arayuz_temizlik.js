@@ -104,6 +104,7 @@ function renderT(A){
   var box=$("sonuc");box.textContent="";
   if(!A.hazards.length&&!A.groups.length&&!A.inci.length&&!A.subs.length){box.textContent="Tehlike ifadesi ya da içerik bilgisi bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin; içerik ve uyarılar çoğunlukla arka etikettedir.";return}
   var S=summarizeT(A),M=TIDX.meta;
+  if(S.cancer.length)box.appendChild(card("r","Kanser tehlikesi ifadesi var",[S.cancer.map(function(c){return c+" "+TIDX.byCode[c].tr}).join(" "),el("div","how","Üreticinin etikete yazmak zorunda olduğu resmi tehlike sınıfıdır (CLP). Eldiven kullanın, buharını solumayın, çocuklardan uzak tutun.")]));
   tProfileCards(S,A).forEach(function(c){box.appendChild(c)});
   box.appendChild(tSummaryCard(S,A));
   if(S.mix){

@@ -182,12 +182,13 @@ function analyzeT(text,T,K){
 }
 var TRANK={info:0,yellow:1,red:2};
 function summarizeT(A){
-  var o={red:[],yellow:[],info:[],byGroup:{},cmr:[],ed:[],resp:[],swallow:[],eye:[],mix:false,mixWhy:[],fragrance:[],pres:[],color:[],parfum:false,enzyme:false,level:"info"};
+  var o={red:[],yellow:[],info:[],byGroup:{},cmr:[],cancer:[],ed:[],resp:[],swallow:[],eye:[],mix:false,mixWhy:[],fragrance:[],pres:[],color:[],parfum:false,enzyme:false,level:"info"};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   A.hazards.forEach(function(x){
     var h=x.h;push(o[h.level],h.code);(o.byGroup[h.group]=o.byGroup[h.group]||[]).push(h.code);
     if(TRANK[h.level]>TRANK[o.level])o.level=h.level;
     if(h.group==="cmr")push(o.cmr,h.code);
+    if(/^H35[01]/.test(h.code))push(o.cancer,h.code);
     if(h.group==="endokrin")push(o.ed,h.code);
     if(/^(H33[0-6]|EUH071|EUH211|EUH212)$/.test(h.code))push(o.resp,h.code);
     if(/^(H30[0-4])$/.test(h.code))push(o.swallow,h.code);
