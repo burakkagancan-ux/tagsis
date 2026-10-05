@@ -38,7 +38,7 @@ function infoCard(cls,title,how,body){
 }
 function hzCard(x){
   var h=x.h,M=TIDX.meta,how=x.how.indexOf("benzer")>-1&&x.how.indexOf("kod")<0?"benzer yazım, kontrol edin":x.how.indexOf("kod")>-1&&x.how.indexOf("metin")>-1?"kod ve metinle bulundu":x.how.indexOf("kod")>-1?"kodla bulundu":"metinle bulundu";
-  return infoCard(TCLS[h.level],h.code+" · "+h.tr.replace(/^içerir\. /,""),TLBL[h.level]+" · "+(M.group_labels[h.group]||h.group)+" · "+how,function(pn,d){
+  return infoCard(TCLS[h.level],h.code+" · "+h.tr.replace(/^içerir\. /,"").replace(/\.$/,""),TLBL[h.level]+" · "+(M.group_labels[h.group]||h.group)+" · "+how,function(pn,d){
     if(h.note)d.appendChild(el("div","ln",h.note));
     if(h.code==="EUH208"&&x.names&&x.names.length)d.appendChild(el("div","ln","Adı geçen: "+x.names.join("; ")));
     pn.appendChild(el("div","ln","Bu ifade, üreticinin ürünü resmi tehlike sınıflandırmasına göre etikete yazmak zorunda olduğu bilgidir; uygulamanın kendi yorumu değildir."));
@@ -115,8 +115,10 @@ function renderT(A){
   }
   tProfileCards(S,A).forEach(function(c){box.appendChild(c)});
   box.appendChild(tSummaryCard(S,A));
+  // Kozmetik ve gıda ekranlarındaki düzen: dikkat gerektirenler kart olarak, listeler kapalı açılır bölümlerde
+  var notes=A.subs.filter(function(x){return !x.s.mix});
+  if(S.mix||(A.capsule&&TIDX.cap)||A.hazards.length||notes.length)box.appendChild(el("h2",null,"Dikkat Gerektirenler"));
   if(S.mix){
-    box.appendChild(el("h2",null,"Karıştırma"));
     var R=TIDX.mix;
     box.appendChild(infoCard("y",R.title,null,function(pn,d){
       var p=el("div","ln");p.appendChild(el("b",null,"Bu üründe: "));p.appendChild(document.createTextNode(S.mixWhy.join(", ")));d.appendChild(p);
@@ -125,25 +127,26 @@ function renderT(A){
   }
   if(A.capsule&&TIDX.cap){
     var C=TIDX.cap.d;
-    box.appendChild(el("h2",null,"Çocuk Güvenliği"));
-    box.appendChild(infoCard("y",C.title,null,function(pn){pn.appendChild(el("div","ln",C.text));pn.appendChild(srcLinks(C.sources))}));
+    box.appendChild(infoCard("y",C.title,"Çocuk güvenliği",function(pn){pn.appendChild(el("div","ln",C.text));pn.appendChild(srcLinks(C.sources))}));
   }
-  if(A.hazards.length){
-    box.appendChild(el("h2",null,"Tehlike İfadeleri"));
-    A.hazards.slice().sort(function(a,b){return TRANK[b.h.level]-TRANK[a.h.level]}).forEach(function(x){box.appendChild(hzCard(x))});
-  }
+  A.hazards.slice().sort(function(a,b){return TRANK[b.h.level]-TRANK[a.h.level]}).forEach(function(x){box.appendChild(hzCard(x))});
+  notes.forEach(function(x){
+    var s=x.s,m=/^(.+?\.\s.+?\.)(\s[A-ZÇĞİÖŞÜ].*)?$/.exec(s.text),vis=m?m[1]:s.text,rest=m&&m[2]?m[2].trim():"";   // ilk iki cümle görünür, kalanı (i) arkasında
+    box.appendChild(infoCard(TCLS[s.level],s.inci.length>1?"Enzim: "+s.inci.join(", ").toLowerCase():s.inci[0],TLBL[s.level]+" · "+(s.kind==="koruyucu"?"Koruyucu":s.kind==="enzim"?"Enzim":s.kind),function(pn,d){
+      d.appendChild(el("div","ln",vis));if(rest)pn.appendChild(el("div","ln",rest));pn.appendChild(srcLinks(s.sources));
+    }));
+  });
   if(A.prec&&A.prec.length){
-    box.appendChild(el("h2",null,"Önlem İfadeleri"));
     var P=A.prec.slice().sort(function(a,b){return (b.p.aid?1:0)-(a.p.aid?1:0)});
-    var pu=el("ul","klist");
+    var pb=secBox(box,"Önlem İfadeleri",P.length),pu=el("ul","klist");
     P.forEach(function(x){var li=el("li");li.appendChild(el("b",null,x.code+" "));li.appendChild(document.createTextNode(x.p.tr));if(x.p.aid)li.appendChild(el("span","chip","İlk yardım"));if(x.how.indexOf("benzer")>-1&&x.how.indexOf("kod")<0)li.appendChild(el("span","fn"," · benzer yazım, kontrol edin"));pu.appendChild(li)});
-    box.appendChild(pu);
-    if(P.some(function(x){return x.p.aid})&&TIDX.uzem)box.appendChild(el("div","ln",TIDX.uzem));
-    if(P.some(function(x){return x.p.needs_review}))box.appendChild(el("div","how","Bazı önlem ifadelerinin Türkçesi resmi metinle birebir karşılaştırılmadı; etiketteki yazı esastır."));
+    pb.appendChild(pu);
+    if(P.some(function(x){return x.p.aid})&&TIDX.uzem)pb.appendChild(el("div","ln",TIDX.uzem));
+    if(P.some(function(x){return x.p.needs_review}))pb.appendChild(el("div","how","Bazı önlem ifadelerinin Türkçesi resmi metinle birebir karşılaştırılmadı; etiketteki yazı esastır."));
   }
   var G=A.groups.slice();
   if(G.length){
-    var ib=secBox(box,"İçerik",G.length);
+    var ib=secBox(box,"İçerik Grupları",G.length);
     var ol=el("ul","klist");
     G.forEach(function(x){
       var li=el("li");li.appendChild(el("b",null,x.g.tr));
@@ -154,25 +157,20 @@ function renderT(A){
     ib.appendChild(ol);
     ib.appendChild(el("div","how it","Yüzde bantları ağırlıkçadır ve yalnızca %0,2'yi aşan gruplar için yazılır. Enzim, dezenfektan, optik parlatıcı ve parfüm her oranda yazılır. Ürünün tam içerik listesi üreticinin internet sitesinde yayımlanır."));
   }
-  var notes=A.subs.filter(function(x){return !x.s.mix});
-  var named=A.inci.filter(function(x){return !TIDX.subByInci[x.name]}).sort(function(a,b){return (b.fragrance||b.pres?1:0)-(a.fragrance||a.pres?1:0)});
-  if(notes.length||named.length){
-    box.appendChild(el("h2",null,"Adı Yazılan Maddeler"));
-    if(named.length)box.appendChild(el("div","how it","İşlevler AB kozmetik INCI listesinden (CosIng) alınmıştır; kozmetikteki sınırlar ve yasaklar temizlik ürünleri için geçerli değildir."));
-    notes.forEach(function(x){var s=x.s;box.appendChild(infoCard(TCLS[s.level],s.inci.length>1?"Enzim: "+s.inci.join(", ").toLowerCase():s.inci[0],TLBL[s.level]+" · "+(s.kind==="koruyucu"?"Koruyucu":s.kind==="enzim"?"Enzim":s.kind),function(pn){pn.appendChild(el("div","ln",s.text));pn.appendChild(srcLinks(s.sources))}))});
-    if(named.length){
-      var ul=el("ul","klist");
-      named.forEach(function(x){
-        var li=el("li");li.appendChild(el("b",null,x.name));
-        var fs=x.funcs.filter(function(f){return TFUNC_SKIP.indexOf(f)<0});   // kozmetiğe özgü işlevler temizlikte gösterilmez
-        if(fs.length)li.appendChild(el("span","fn"," · "+fs.join(", ")));
-        if(x.how==="benzer")li.appendChild(el("span","fn"," · okunan: “"+x.raw+"”"));
-        else if(norm(x.raw)!==norm(x.name))li.appendChild(el("span","fn"," · etikette: “"+x.raw+"”"));
-        if(x.fragrance)li.appendChild(el("span","chip","Koku alerjeni"));if(x.pres)li.appendChild(el("span","chip","Koruyucu"));if(x.color)li.appendChild(el("span","chip","Renklendirici"));
-        ul.appendChild(li);
-      });
-      box.appendChild(ul);
-    }
+  var named=A.inci.slice().sort(function(a,b){return (b.fragrance||b.pres?1:0)-(a.fragrance||a.pres?1:0)});
+  if(named.length){
+    var nb=secBox(box,"Tanınan Maddeler",named.length),ul=el("ul","klist");
+    named.forEach(function(x){
+      var li=el("li");li.appendChild(el("b",null,x.name));
+      var fs=x.funcs.filter(function(f){return TFUNC_SKIP.indexOf(f)<0&&norm(f)!==norm(x.name)&&!(x.pres&&f==="Koruyucu")});   // kozmetiğe özgü işlevler ve adın tekrarı gösterilmez
+      if(fs.length)li.appendChild(el("span","fn"," · "+fs.join(", ")));
+      if(x.how==="benzer")li.appendChild(el("span","fn"," · okunan: “"+x.raw+"”"));
+      else if(norm(x.raw)!==norm(x.name))li.appendChild(el("span","fn"," · etikette: “"+x.raw+"”"));
+      if(x.fragrance)li.appendChild(el("span","chip","Koku alerjeni"));if(x.pres)li.appendChild(el("span","chip","Koruyucu"));if(x.color)li.appendChild(el("span","chip","Renklendirici"));
+      ul.appendChild(li);
+    });
+    nb.appendChild(ul);
+    nb.appendChild(el("div","how it","İşlevler AB kozmetik INCI listesinden (CosIng) alınmıştır; kozmetikteki sınırlar ve yasaklar temizlik ürünleri için geçerli değildir."));
   }
   box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır ve tıbbi tavsiye değildir. Piktogramlar fotoğraftan tanınmaz; etiketteki işaretlere ayrıca bakın. Veri: AB CLP / SEA Yönetmeliği zararlılık ifadeleri, AB 648/2004 ve Deterjanlar Hakkında Yönetmelik içerik kuralları, Sağlık Bakanlığı Sağlıklı Temizlik Rehberi; koku alerjenleri ve koruyucular AB kozmetik INCI listesinden tanınır."));
 }

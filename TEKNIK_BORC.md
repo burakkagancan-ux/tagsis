@@ -41,7 +41,8 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - gen_kozmetik.py artık `../cosing` kopyasına ihtiyaç duymaz; kullanılan kısım `kaynak/cosing/` altında (Ek II–VI aynen, INCI listesinden 3 sütun; ~3 MB, sürüm `surum.txt`, lisans `LICENSE.txt`). Yenilemek için `python3 cosing_al.py`. Verinin eski olması (2024 başı) ayrı sorun, bkz. 4.
 
 
-## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026)
+## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026) — 1, 2, 3, 4, 6 KAPANDI (05.10.2026)
+- 05.10.2026: sonuç ekranı gıda/kozmetik düzenine getirildi: tek "Dikkat Gerektirenler" başlığı (karıştırma, kapsül, tehlike ifadeleri, madde notları kart olarak; madde notunun ilk iki cümlesi görünür), listeler kapalı açılır bölümlerde ("Önlem İfadeleri", "İçerik Grupları", "Tanınan Maddeler"; tüm tanınan maddeler, CosIng notu altta, ad ve "Koruyucu" çipi tekrarı yok). Açık kalan: 5 (Türkçe ad).
 - Bölüm etikette adı yazan maddeleri gösteriyor (js/arayuz_temizlik.js, renderT): notu olanlar (MIT, BIT, hipoklorit…) kart, diğerleri düz liste. Değerlendirmede bulunan sorunlar ve öneriler (kullanıcı ertelendi):
   1. Başlık özetteki "Tanınan madde" satırıyla uyuşmuyor; başlık "Tanınan Maddeler" olabilir. (önerilen)
   2. Madde kartlarında açıklama yalnızca (i) arkasında; tehlike kartlarındaki gibi bir satırlık açıklama görünmeli. (önerilen)
