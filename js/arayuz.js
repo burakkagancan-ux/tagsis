@@ -300,10 +300,10 @@ function render(res,br){
     var canc={yes:[],may:[]};S.cancer.forEach(function(c){(c.may?canc.may:canc.yes).push(typeof c==="string"?c:c.name)});
     var cd=el("div","res prof r"),hd=el("div","hd"),b=el("button","info sm","i");b.type="button";b.setAttribute("aria-label","Kanserojen madde hakkında bilgi");
     hd.appendChild(el("div","t","Kanserojen olabilecek madde"));hd.appendChild(b);cd.appendChild(hd);
-    cd.appendChild(el("div","how","IARC sınıflandırmasına göre (Grup 2A muhtemelen, 2B olası kanserojen). Miktar etikette yazmadığı için risk hesaplanamaz."));
+    if(canc.yes.length)cd.appendChild(el("div","ln",canc.yes.join(", ")));
+    if(canc.may.length){var d=el("div","ln");d.appendChild(el("b",null,"İçerebilir: "));d.appendChild(document.createTextNode(canc.may.join(", ")));cd.appendChild(d)}
     var ipan=el("div","ipanel");ipan.hidden=true;
-    if(canc.yes.length){var d=el("div","ln");d.appendChild(el("b",null,"İçerir:"));ipan.appendChild(d);ipan.appendChild(el("div","ln",canc.yes.join(", ")))}
-    if(canc.may.length){var d=el("div","ln");d.appendChild(el("b",null,"İçerebilir:"));ipan.appendChild(d);ipan.appendChild(el("div","ln",canc.may.join(", ")))}
+    ipan.appendChild(el("div","how","IARC sınıflandırmasına göre (Grup 2A muhtemelen, 2B olası kanserojen). Miktar etikette yazmadığı için risk hesaplanamaz."));
     cd.appendChild(ipan);b.onclick=function(){ipan.hidden=!ipan.hidden;b.setAttribute("aria-expanded",ipan.hidden?"false":"true");b.classList.toggle("on",!ipan.hidden)};
     box.appendChild(cd);
   }
