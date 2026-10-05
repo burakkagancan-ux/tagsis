@@ -27,43 +27,45 @@ function loadDb(i){
 }
 
 /* ---------- Profil ---------- */
-var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,astim:false,preg:false,baby:false,child:false,pku:false,pet:false,salt:false};
+var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,astim:false,preg:false,emziriyorum:false,baby:false,child:false,pku:false,pet:false,salt:false,cinsiyet:""};
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
-var LIFE=[["preg","Hamileyim / emziriyorum"],["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["pku","Fenilketonüri (PKU)"],["pet","Evcil hayvanıma vereceğim"],["salt","Tansiyon / tuz kısıtlaması"]];
+var LIFE=[["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["preg","Hamileyim"],["emziriyorum","Emziriyorum"],["pet","Evcil hayvanıma vereceğim"]];
+var OTHER=[["lactose","Laktoz intoleransı"],["vegan","Vegan"],["veg","Vejetaryen"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"],["salt","Tansiyon / tuz kısıtlaması"],["pku","Fenilketonüri (PKU)"]];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
 function buildProfile(){
   var box=$("profil");box.textContent="";
   if(!BDB){box.appendChild(el("div","mut","Profil filtreleri için bileşen listesi gerekli."));return}
   function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
   function pbox(t){var d=el("div","pbox");d.appendChild(el("div","pt",t));box.appendChild(d);return d}
-  // Her kutudaki seçenekler Türkçe alfabeye göre sıralanır
   function abc(a){return a.slice().sort(function(x,y){return x[1].localeCompare(y[1],"tr")})}
-  // Kişisel bilgiler: kilo günlük sınır hesabında, yaş bebek notunda kullanılır
   var b0=pbox("Kişisel Bilgiler"),g0=el("div","pg pnum");
-  [["yas","Yaş","yıl",0,120],["kilo","Kilo","kg",2,300]].forEach(function(f){
-    var l=el("label","pn");l.appendChild(el("span",null,f[1]));var i=document.createElement("input");i.type="text";i.inputMode=f[0]==="kilo"?"decimal":"numeric";i.autocomplete="off";
+  [["yas","Yaş","yıl",0,120],["boy","Boy","cm",80,220],["kilo","Kilo","kg",2,300]].forEach(function(f){
+    var l=el("label","pn");l.appendChild(el("span",null,f[1]));var i=document.createElement("input");i.type="text";i.inputMode="decimal";i.autocomplete="off";
     if(PROF[f[0]]!=null)i.value=String(PROF[f[0]]).replace(".",",");
-    i.onchange=function(){var v=parseFloat(String(i.value).replace(",","."));if(isNaN(v)||v<f[3]||v>f[4]){delete PROF[f[0]];i.value=""}else{PROF[f[0]]=f[0]==="yas"?Math.floor(v):v;i.value=String(PROF[f[0]]).replace(".",",")}saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};
+    i.onchange=function(){var v=parseFloat(String(i.value).replace(",","."));if(isNaN(v)||v<f[3]||v>f[4]){delete PROF[f[0]];i.value=""}else{PROF[f[0]]=v;i.value=String(PROF[f[0]]).replace(".",",")}saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};
     l.appendChild(i);l.appendChild(el("span","mut",f[2]));g0.appendChild(l)});
+  g0.appendChild(el("div","pn"));
+  var bmiBtn=el("button","info sm","i");bmiBtn.type="button";bmiBtn.setAttribute("aria-label","BKİ nedir");bmiBtn.style.cssText="width:44px;height:44px;align-self:flex-end";bmiBtn.onclick=function(){alert("Boy Kilo İndeksi (BKİ) = kilo (kg) / (boy (m))^2\nZayıf: <18,5 | Normal: 18,5-24,9 | Fazla kilolu: 25-29,9 | Obez: ≥30\nKaynak: WHO")};g0.appendChild(bmiBtn);
   b0.appendChild(g0);
-  b0.appendChild(el("div","mut","Kilonuz, katkı maddesi kartlarındaki günlük sınırı size göre hesaplamak için kullanılır."));
+  function getBmiColor(){if(!PROF.boy||!PROF.kilo)return"";var bmi=PROF.kilo/((PROF.boy/100)*(PROF.boy/100));return bmi<18.5?"#4A90E2":bmi<=24.9?"#22C55E":bmi<=29.9?"#F59E0B":"#EF4444"}
+  var bmiColor=getBmiColor();
+  var b0Note=el("div","mut");b0Note.textContent="Kilonuz ve boyunuz, katkı maddesi kartlarındaki günlük sınırı size göre hesaplamak için kullanılır. Boy+kilo girildiğinde BKİ gösterilir.";if(bmiColor){var bmiSpan=el("span");bmiSpan.style.cssText="display:inline-block;width:8px;height:8px;border-radius:50%;background:"+bmiColor+";margin:0 4px";b0Note.appendChild(document.createTextNode(" BKİ: "));b0Note.appendChild(bmiSpan);var bmiVal=PROF.kilo/((PROF.boy/100)*(PROF.boy/100));b0Note.appendChild(document.createTextNode(sayi(bmiVal)))}b0.appendChild(b0Note);
   var b1=pbox("Alerjenler"),g=el("div","pg");
   abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
-  var b2=pbox("Diğer"),g2=el("div","pg");
-  abc([["lactose","Laktoz intoleransı"],["vegan","Vegan"],["veg","Vejetaryen"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"]])
-    .forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
+  var b2=pbox("Yaşam Evresi"),g2=el("div","pg");
+  abc(LIFE).forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b2.appendChild(g2);
-  var b3=pbox("Yaşam Evresi ve Diğer"),g3=el("div","pg");
-  abc(LIFE).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
+  var b3=pbox("Diğer"),g3=el("div","pg");
+  abc(OTHER).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
   updProfSum();
 }
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
 function updProfSum(){
-  var n=(PROF.kilo!=null?1:0)+(PROF.yas!=null?1:0)+PROF.al.length+(PROF.lactose?1:0)+(PROF.vegan?1:0)+(PROF.veg?1:0)+(PROF.koku?1:0)+(PROF.astim?1:0)+LIFE.filter(function(x){return PROF[x[0]]}).length;
-  $("profsum").textContent=n?("Hassasiyetlerim · "+n+" seçim"):"Hassasiyetlerim";
+  var n=(PROF.kilo!=null?1:0)+(PROF.yas!=null?1:0)+(PROF.boy!=null?1:0)+PROF.al.length+LIFE.filter(function(x){return PROF[x[0]]}).length+OTHER.filter(function(x){return PROF[x[0]]}).length;
+  $("profsum").textContent=n?("Profilim · "+n+" seçim"):"Profilim";
 }
 
 /* ---------- Sonuç ekranı ---------- */
@@ -73,7 +75,7 @@ function card(cls,title,lines){
   return d;
 }
 function profileCards(S){
-  var out=[],any=PROF.al.length||PROF.lactose||PROF.vegan||PROF.veg||LIFE.some(function(x){return PROF[x[0]]});
+  var out=[],any=PROF.al.length||LIFE.some(function(x){return PROF[x[0]]})||OTHER.some(function(x){return PROF[x[0]]});
   if(!any)return out;
   if(PROF.al.length){
     var yes=[],may=[];
@@ -100,6 +102,7 @@ function profileCards(S){
     else if(G.unsure.length)out.push(card("y","Vejetaryen uygunluğu belirsiz",["Kaynağı belirsiz: "+G.unsure.join(", ")]));
     else out.push(card("g","Et, balık ve kesim yan ürünü bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
   }
+  if(S.cancer.length)out.push(card("r","Kanserojen olasılığı taşıyan madde",S.cancer));
   return out.concat(lifeCards(S.life,S.sodium));
 }
 /* Yaşam evresi, PKU ve evcil hayvan kartları. Satır: [seviye "r"/"y", metin]. Hiçbir zaman "uygun" denmez. */
@@ -110,14 +113,16 @@ function lifeCard(title,rows,okTitle,okNote,extra){
   return card(red?"r":"y",title,rows.map(function(r){return r[1]}).concat(extra?[extra]:[]));
 }
 function lifeCards(L,NA){
-  var out=[],j=function(a){return a.join(", ")};
-  var raw=L.raw.length?["r","Çiğ (pastörize edilmemiş) süt ürünü: "+j(L.raw)+". Listeria gibi bakteriler taşıyabilir."]:null;
-  var alc=L.alcohol.length?["r","Alkol: "+j(L.alcohol)+". Pişirmeyle tamamen uçmayabilir."]:null;
-  var trace=L.alcoholTrace.length?["y","“Alkolsüz” ürün: hacmen %0,5'e kadar alkol içerebilir."]:null;
-  var hyp=L.hyper.length?["y","Renklendirici: "+j(L.hyper)+". Bu boyaları içeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."]:null;
-  if(PROF.preg)out.push(lifeCard("Hamilelik / emzirme: dikkat",[alc,raw,
-    L.caffeine.length?["y","Kafein kaynağı: "+j(L.caffeine)+". EFSA hamilelikte günde en fazla 200 mg öneriyor; miktar için etiketteki kafein bilgisine bakın."]:null,trace],
-    "Hamilelik için işaretli madde bulunamadı","Bu bir onay değildir; etiketi kendiniz kontrol edin, beslenmeniz için doktorunuza danışın."));
+  var out=[],j=function(a){return a.join(“, “)};
+  var raw=L.raw.length?[“r”,”Çiğ (pastörize edilmemiş) süt ürünü: “+j(L.raw)+”. Listeria gibi bakteriler taşıyabilir.”]:null;
+  var alc=L.alcohol.length?[“r”,”Alkol: “+j(L.alcohol)+”. Pişirmeyle tamamen uçmayabilir.”]:null;
+  var trace=L.alcoholTrace.length?[“y”,””Alkolsüz” ürün: hacmen %0,5'e kadar alkol içerebilir.”]:null;
+  var hyp=L.hyper.length?[“y”,”Renklendirici: “+j(L.hyper)+”. Bu boyaları içeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur.”]:null;
+  if(PROF.preg)out.push(lifeCard(“Hamilelik: dikkat”,[alc,raw,
+    L.caffeine.length?[“y”,”Kafein kaynağı: “+j(L.caffeine)+”. EFSA hamilelikte günde en fazla 200 mg öneriyor; miktar için etiketteki kafein bilgisine bakın.”]:null,trace],
+    “Hamilelik için işaretli madde bulunamadı”,”Bu bir onay değildir; etiketi kendiniz kontrol edin, beslenmeniz için doktorunuza danışın.”));
+  if(PROF.emziriyorum)out.push(lifeCard(“Emzirme: dikkat”,[alc,raw,trace],
+    “Emzirme için işaretli madde bulunamadı”,”Bu bir onay değildir; etiketi kendiniz kontrol edin, beslenmeniz için doktorunuza danışın.”));
   if(PROF.baby)out.push(lifeCard("Bebek (1 yaş altı): dikkat",[
     L.honey.length?["r","Bal: 1 yaşından küçük bebeklere verilmez (bebek botulizmi riski)."]:null,alc,
     L.caffeine.length?["r","Kafein kaynağı: "+j(L.caffeine)+"."]:null,raw,
@@ -156,6 +161,7 @@ function summaryCard(S,res){
   var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
   row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
   if(S.claims.length)row("Etiket beyanı",S.claims.join(", "));
+  if(S.cancer.length)row("Kanserojen olasılığı taşıyan madde",S.cancer.join(", "));
   if(u.length)d.appendChild(el("div","how upfnote","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
   return d;
 }

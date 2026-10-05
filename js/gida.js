@@ -167,7 +167,7 @@ function analyze(text,idx){
 /* Analiz sonucunu özet bilgiye çevirir: şeker, palm, UPF, alerjen, laktoz, vegan, vejetaryen */
 function summarize(res,idx){
   var bm=idx.bmeta,upfE=bm.upf_e_categories||{};
-  var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[],
+  var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[],cancer:[],
     life:{caffeine:[],alcohol:[],alcoholTrace:[],raw:[],honey:[],sweet:[],hyper:[],phe:[],pet:[]},
     sodium:{salt:[],hidden:[],saltOrd:null}};
   var LF=o.life;
@@ -177,6 +177,7 @@ function summarize(res,idx){
   res.forEach(function(r){
     r.ids.forEach(function(id){
       var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
+      if(!it.isB&&(fl.indexOf("iarc_listed")>-1||(it.reason&&(it.reason.indexOf("kansero")>-1||it.reason.indexOf("cancer")>-1))))push(o.cancer,name);
       if(r.neg){push(o.claims,(it.isB?it.name:it.primary_name)+" içermez");return}
       if(it.isB){
         if(r.aroma){
