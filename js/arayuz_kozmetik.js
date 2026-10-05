@@ -182,7 +182,15 @@ function renderK(res){
   var box=$("sonuc");box.textContent="";
   if(!res.length){box.textContent="Bileşen listesi bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
   var S=summarizeK(res,KIDX);
-  if(S.cancer.length)box.appendChild(card("r","Kanserojen olabilecek madde",[S.cancer.join(", "),el("div","how","AB'de kanserojen, mutajen ya da üreme için toksik (CMR) sınıfında olan ya da kanserojen formaldehit salabilen madde. Ayrıntı aşağıdaki bileşen kartında.")]));
+  if(S.cancer.length){
+    var cd=el("div","res prof r"),hd=el("div","hd"),b=el("button","info sm","i");b.type="button";b.setAttribute("aria-label","Kanserojen madde hakkında bilgi");
+    hd.appendChild(el("div","t","Kanserojen olabilecek madde"));hd.appendChild(b);cd.appendChild(hd);
+    cd.appendChild(el("div","ln",S.cancer.join(", ")));
+    var ipan=el("div","ipanel");ipan.hidden=true;
+    ipan.appendChild(el("div","how","AB'de kanserojen, mutajen ya da üreme için toksik (CMR) sınıfında olan ya da kanserojen formaldehit salabilen madde. Ayrıntı aşağıdaki bileşen kartında."));
+    cd.appendChild(ipan);b.onclick=function(){ipan.hidden=!ipan.hidden;b.setAttribute("aria-expanded",ipan.hidden?"false":"true");b.classList.toggle("on",!ipan.hidden)};
+    box.appendChild(cd);
+  }
   kProfileCards(S,res).forEach(function(c){box.appendChild(c)});
   box.appendChild(kSummaryCard(S));
   if(S.comedo.length&&PTYPE!=="rinse")box.appendChild(comedoCard(res));
