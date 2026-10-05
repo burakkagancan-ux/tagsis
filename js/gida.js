@@ -1,5 +1,6 @@
 /* Gıda: E kodu ve bileşen dizini, içerik listesi analizi, özet, marka eşleşmesi. Saf mantık; testler de yükler. */
 /* db: e_kodlari.json; bdb: bilesenler.json (isteğe bağlı). Bileşen kimlikleri "B:" ile başlar. */
+function capFirst(s){return s&&s.length?s[0].toUpperCase()+s.slice(1).toLowerCase():s}
 function buildIndex(db,bdb){
   var exact=new Map(),nos=new Map(),byK={},ks={1:1,2:1,3:1,4:1},byId={},ctx={};
   function add(m,k,id){if(!m.has(k))m.set(k,new Set());m.get(k).add(id)}
@@ -177,7 +178,7 @@ function summarize(res,idx){
   res.forEach(function(r){
     r.ids.forEach(function(id){
       var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
-      if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,name);   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
+      if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,{name:name,may:r.may});   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
       if(r.neg){push(o.claims,(it.isB?it.name:it.primary_name)+" içermez");return}
       if(it.isB){
         if(r.aroma){
@@ -191,7 +192,7 @@ function summarize(res,idx){
         if(r.may){if(fl.indexOf("lactose")>-1)push(o.lactose.may,it.name);return}
         if(fl.indexOf("sugar")>-1)o.sugar.push({name:it.name,hidden:fl.indexOf("sugar_hidden")>-1,text:r.text});
         if(fl.indexOf("palm")>-1)push(o.palm,it.name);
-        if(it.upf_class)(o.upf[it.upf_class]=o.upf[it.upf_class]||[]).push(r.text);
+        if(it.upf_class)(o.upf[it.upf_class]=o.upf[it.upf_class]||[]).push(capFirst(r.text));
         if(fl.indexOf("lactose")>-1)push(o.lactose.yes,it.name);
         if(fl.indexOf("lactose_low")>-1)push(o.lactose.low,it.name);
         if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,it.name);
@@ -213,7 +214,7 @@ function summarize(res,idx){
         if(fl.indexOf("allergen_egg")>-1)al("allergen_egg",kind,name);
         if(fl.indexOf("allergen_soy_possible")>-1)al("allergen_soy",txt.indexOf(" soya")>-1?kind:"may",name+(txt.indexOf(" soya")>-1?"":" (kaynağı soya olabilir)"));
         if(r.may)return;
-        var cl=upfE[it.category];if(cl)(o.upf[cl]=o.upf[cl]||[]).push(it.id);
+        var cl=upfE[it.category];if(cl)(o.upf[cl]=o.upf[cl]||[]).push(capFirst(it.id));
         if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,name);
         if(fl.indexOf("vegan_suspect")>-1){push(o.vegan.unsure,name);push(o.veg.unsure,name)}
         if(fl.indexOf("insect_derived")>-1)push(o.veg.insect,name);

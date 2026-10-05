@@ -173,7 +173,7 @@ function summaryCard(S,res){
   var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
   row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
   if(S.claims.length)row("Etiket beyanı",S.claims.join(", "));
-  if(S.cancer.length)row("Kanserojen olabilir",S.cancer.join(", "),"r");
+  if(S.cancer.length)row("Kanserojen olabilir",S.cancer.map(function(c){return typeof c==="string"?c:c.name}).join(", "),"r");
   if(u.length)d.appendChild(el("div","how upfnote","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
   return d;
 }
@@ -296,7 +296,17 @@ function render(res,br){
   var box=$("sonuc");box.textContent="";LAST=res;LASTBR=br||[];
   var S=summarize(res,IDX);LASTSUM=S;
   if(!res.length&&!LASTBR.length){box.textContent="Eşleşen bir şey bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
-  if(S.cancer.length)box.appendChild(card("r","Kanserojen olabilecek madde",[S.cancer.join(", "),el("div","how","IARC sınıflandırmasına göre (Grup 2A muhtemelen, 2B olası kanserojen). Miktar etikette yazmadığı için risk hesaplanamaz; ayrıntı katkı kartında.")]));
+  if(S.cancer.length){
+    var canc={yes:[],may:[]};S.cancer.forEach(function(c){(c.may?canc.may:canc.yes).push(typeof c==="string"?c:c.name)});
+    var cd=el("div","res prof r"),hd=el("div","hd"),b=el("button","info sm","i");b.type="button";b.setAttribute("aria-label","Kanserojen madde hakkında bilgi");
+    hd.appendChild(el("div","t","Kanserojen olabilecek madde"));hd.appendChild(b);cd.appendChild(hd);
+    cd.appendChild(el("div","how","IARC sınıflandırmasına göre (Grup 2A muhtemelen, 2B olası kanserojen). Miktar etikette yazmadığı için risk hesaplanamaz."));
+    var ipan=el("div","ipanel");ipan.hidden=true;
+    if(canc.yes.length){ipan.appendChild(el("div","ln",el("b",null,"İçerir:")));ipan.appendChild(el("div","ln",canc.yes.join(", ")))}
+    if(canc.may.length){ipan.appendChild(el("div","ln",el("b",null,"İçerebilir:")));ipan.appendChild(el("div","ln",canc.may.join(", ")))}
+    cd.appendChild(ipan);b.onclick=function(){ipan.hidden=!ipan.hidden;b.setAttribute("aria-expanded",ipan.hidden?"false":"true");b.classList.toggle("on",!ipan.hidden)};
+    box.appendChild(cd);
+  }
   profileCards(S).forEach(function(c){box.appendChild(c)});
   box.appendChild(summaryCard(S,res));
   if(LASTBR.length)box.appendChild(brandCard(LASTBR));
