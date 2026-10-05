@@ -132,6 +132,11 @@ function analyze(text,idx){
     for(var i=m.a;i<m.b;i++)if(used[i])return;
     for(i=m.a;i<m.b;i++)used[i]=1;kept.push(m);
   });
+  // Genel ad ("modifiye mısır nişastası") hemen ardından parantezli/yanında E kodu gelirse (E1422) ad, kodun kendisi olur: çift kart olmaz
+  kept=kept.filter(function(m){
+    if(m.how==="kod"||m.ids.length<2)return true;
+    return !kept.some(function(c){return c.how==="kod"&&m.ids.indexOf(c.ids[0])>-1&&(c.a===m.b||(c.a===m.b+1&&tok[m.b]==="("))});
+  });
   // Besin değerleri tablosu satırı ("Tuz 1,2 g", "Şeker 30 g"): ad + sayı + birim -> bileşen sayılmaz
   kept=kept.filter(function(m){
     if(!/^\d/.test(tok[m.b]||""))return true;
