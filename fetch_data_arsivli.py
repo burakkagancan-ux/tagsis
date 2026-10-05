@@ -12,6 +12,7 @@ Arşiv yalnızca betik çalışmaya başladığı günden itibaren dolar; daha �
 import json, os, sys, hashlib, datetime
 
 import fetch_data
+from dogrula_veri import dogrula_arsiv, Gecersiz
 
 OUT = fetch_data.OUT
 ARSIV = "data/arsiv.json"
@@ -68,8 +69,11 @@ def main():
     if ozet["eklenen"] == 0 and ozet["geri_donen"] == 0 and os.path.exists(ARSIV):
         print("Arşivde değişiklik yok.")
         return
-    with open(ARSIV, "w", encoding="utf-8") as f:
-        json.dump(yeni_arsiv, f, ensure_ascii=False)
+    try:
+        dogrula_arsiv(yeni_arsiv)
+    except Gecersiz as e:
+        sys.exit(f"HATA: arşiv geçersiz, dosya değiştirilmedi: {e}")
+    fetch_data.yaz_json(ARSIV, yeni_arsiv)
     print(f"Arşiv: {ozet['eklenen']} eklendi, {ozet['geri_donen']} listeye geri döndü, toplam {ozet['toplam']}")
 
 
