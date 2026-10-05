@@ -57,16 +57,16 @@ Alt maddeler:
 Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikte ansiklopedi sayfası yok. Aşağıdakiler bilerek sonraya bırakıldı; sayılar `data/ansiklopedi.json`, `data/e_kodlari.json`, `data/kozmetik.json`, `data/temizlik.json`'dan 05.10.2026'da sayıldı.
 
 ### Gıda (E kodları)
-- 141 sayfa elle incelenmiş (`review=curated`), **192 sayfa otomatik** (`review=auto`). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`, 171 farklı metin), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. 192'sinde de eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet. 188'inde vegan durumu `unknown`; 139'unda profil uyarısı yok (değerlendirilmedi; "yok" demek değil).
+- 181 sayfa elle incelenmiş (`review=curated`), **152 sayfa otomatik** (`review=auto`; 05.10.2026'da 5. parti ile 40 madde eklendi). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`, 171 farklı metin), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. Bunların hepsinde eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet. (192 sayfa döneminde sayılmıştı: 188'inde vegan durumu `unknown`, 139'unda profil uyarısı yok.)
 - Öncelik 1, renkli (resmi kaynağı olduğu hâlde otomatik kalan, kaynak bulununca elle yazılacak, 11): E123, E154, E160f, E216, E217, E230, E284, E285, E320, E924a, E952.
-- Öncelik 2, yeşil (181), kategoriye göre:
+- Öncelik 2, yeşil (141), kategoriye göre:
   - Asitlik düzenleyiciler (53): E260, E270, E296, E297, E325, E326, E327, E330, E331, E332, E333, E334, E335, E336, E337, E350, E351, E352, E353, E354, E355, E356, E357, E363, E380, E500, E501, E503, E504, E507, E508, E509, E511, E512, E513, E514, E515, E516, E517, E524, E525, E526, E527, E528, E529, E530, E574, E575, E576, E577, E578, E579, E585
-  - Emülgatörler (20): E431, E442, E470a, E470b, E472a, E472b, E472c, E472d, E472e, E472f, E473, E474, E475, E476, E477, E479b, E481, E482, E483, E570
-  - Koruyucular (17): E214, E215, E218, E219, E234, E235, E239, E242, E243, E261, E262, E263, E280, E281, E282, E283, E1105
-  - Antioksidanlar (14): E300, E301, E302, E304, E310, E311, E312, E315, E316, E319, E321, E385, E392, E586
+  - Emülgatörler (1): E431 (EFSA yeniden değerlendirmesi bulunamadı)
+  - Koruyucular (11): E214, E215, E218, E219, E239, E242, E243, E261, E262, E263, E1105
+  - Antioksidanlar (1): E385 (EFSA görüşü yok; 2024 veri çağrısı açık)
   - Lezzet artırıcılar (12): E626, E627, E628, E629, E630, E631, E632, E633, E634, E635, E640, E650
   - Kıvam artırıcılar (11): E405, E406, E413, E416, E417, E418, E425, E426, E427, E441, E1204
-  - Diğer (11): E900, E920, E927b, E1103, E1200, E1505, E1517, E1518, E1519, E1520, E1521
+  - Diğer (9): E920, E927b, E1103, E1200, E1505, E1517, E1518, E1519, E1521
   - Gazlar (10): E290, E938, E939, E941, E942, E943a, E943b, E944, E948, E949
   - Parlatıcılar (10): E901, E902, E903, E904, E905, E907, E912, E914, E1203, E1205
   - Topaklanmayı önleyiciler (8): E535, E536, E538, E551, E552, E553a, E553b, E558
