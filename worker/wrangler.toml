@@ -31,3 +31,17 @@ namespace_id = "1002"
 
 # VISION_KEY gizli değişkeni panelde zaten tanımlı; dağıtım onu silmez. Yeniden tanımlamak gerekirse:
 #   Settings > Variables and Secrets > Add > Type: Secret, Name: VISION_KEY
+
+# Paylaşım sayacı için IP başına dakikada en fazla 10 istek
+[[ratelimits]]
+name = "SAYAC_LIMIT"
+namespace_id = "1003"
+  [ratelimits.simple]
+  limit = 10
+  period = 60
+
+# Anonim paylaşım sayacı (KV). Panelde Storage & Databases > KV > Create: "paylasim-sayac".
+# Oluşan Namespace ID aşağıya yazılıp baştaki # işaretleri kaldırılınca sayaç çalışır; o zamana kadar /sayac sayım yapmadan 204 döner.
+# [[kv_namespaces]]
+# binding = "SAYAC"
+# id = "BURAYA_NAMESPACE_ID"

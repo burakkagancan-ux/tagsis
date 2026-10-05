@@ -4,16 +4,17 @@ function histLoad(){try{var a=JSON.parse(localStorage.getItem("taramalar")||"[]"
 function histStore(a){try{localStorage.setItem("taramalar",JSON.stringify(a))}catch(e){}}
 function histGet(id){return histLoad().filter(function(x){return x.id===id})[0]||null}
 function histRename(id,name){var a=histLoad();a.forEach(function(x){if(x.id===id)x.name=name});histStore(a)}
-/* Gıda analizinden sonra çağrılır. Fotoğraf/örnek yeni kayıt açar; elle düzeltme aynı kaydı günceller. */
-function histSave(text){
+/* Analizden sonra çağrılır (mode: gida/koz/tem; karşılaştırma yalnızca gıda kayıtlarını kullanır, paylaşım kartı adı ve sırayı buradan alır). Fotoğraf/örnek yeni kayıt açar; elle düzeltme aynı kaydı günceller. */
+function histSave(text,mode){
   if(!KARS_AYAR.acik)return;
+  mode=mode||"gida";
   var t=(text||"").trim(),a=histLoad(),scan=HSCAN;
   if(!t)return;
   HSCAN=false;HOCR=false;
-  var same=a.filter(function(x){return x.mode==="gida"&&x.text===t})[0],cur=!scan&&HCUR?a.filter(function(x){return x.id===HCUR})[0]:null,e;
+  var same=a.filter(function(x){return x.mode===mode&&x.text===t})[0],cur=!scan&&HCUR?a.filter(function(x){return x.id===HCUR&&x.mode===mode})[0]:null,e;
   if(same)e=same;
   else if(cur){e=cur;e.text=t}
-  else e={id:"h"+Date.now(),t:Date.now(),mode:"gida",name:histName(a),text:t};
+  else e={id:"h"+Date.now(),t:Date.now(),mode:mode,name:histName(a),text:t};
   a=histAdd(a.filter(function(x){return x.id!==e.id}),e,KARS_AYAR.gecmisBoyut);
   histStore(a);HCUR=e.id;
 }

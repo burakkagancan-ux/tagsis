@@ -42,6 +42,8 @@ jobs:
         run: node test/karsilastir.js
       - name: Ansiklopedi
         run: node test/ansiklopedi.js
+      - name: Paylaşım kartı
+        run: node test/paylas.js
       - name: OCR Worker
         run: node worker/test.mjs
       - name: Veri üreteçleri (data/ ile kaynak/ uyumlu mu)

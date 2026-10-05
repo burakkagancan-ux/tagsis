@@ -320,27 +320,28 @@ function render(res,br){
     var seen={};B.forEach(function(r){var it=IDX.byId[r.ids[0]];if(seen[it.id])return;seen[it.id]=1;var l=el("div","ln");l.appendChild(el("b",null,it.name));if(it.note){l.appendChild(document.createTextNode(": "+it.note))}bd.appendChild(l)});
   }
   box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
+  payBar(box,{mode:"gida",text:$("metin").value});
 }
 function run(){
   var t=$("metin").value;
   if(MODE==="koz"){
     if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
     if(!KIDX){$("sonuc").textContent="Kozmetik listeleri yükleniyor…";loadK().then(run,function(){$("sonuc").textContent="Kozmetik listesi yüklenemedi; internet bağlantısını kontrol edin."});return}
-    try{renderK(analyzeK(t,KIDX,{ptype:PTYPE}))}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
-    if(looksCleaning(t))$("sonuc").insertBefore(suggestCardT(),$("sonuc").firstChild);
+    try{renderK(analyzeK(t,KIDX,{ptype:PTYPE}));histSave(t,"koz")}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+    if(looksCleaning(t))sonucUst(suggestCardT());
     return;
   }
   if(MODE==="tem"){
     if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
     if(!TIDX){$("sonuc").textContent="Temizlik listeleri yükleniyor…";loadT().then(run,function(){$("sonuc").textContent="Temizlik listesi yüklenemedi; internet bağlantısını kontrol edin."});return}
-    try{renderT(analyzeT(t,TIDX,KIDX))}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+    try{renderT(analyzeT(t,TIDX,KIDX));histSave(t,"tem")}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
     return;
   }
   if(!IDX){$("sonuc").textContent="Listeler henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
   if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
   try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[]);histSave(t)}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
-  if(looksCleaning(t))$("sonuc").insertBefore(suggestCardT(),$("sonuc").firstChild);
-  else if(looksCosmetic(t))$("sonuc").insertBefore(suggestCard(),$("sonuc").firstChild);
+  if(looksCleaning(t))sonucUst(suggestCardT());
+  else if(looksCosmetic(t))sonucUst(suggestCard());
 }
 // Metin elle düzeltildiğinde sonuç kendiliğinden güncellenir (yazmayı bitirmesi beklenir)
 var RUN_T=null;$("metin").addEventListener("input",function(){clearTimeout(RUN_T);RUN_T=setTimeout(run,600)});

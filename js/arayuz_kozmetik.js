@@ -220,4 +220,5 @@ function renderK(res){
   }
   if(S.parfum)box.appendChild(el("div","ln nt","“Parfum” tek bir ad altında çok sayıda koku maddesini kapsar. Yalnızca etiketlenmesi zorunlu koku alerjenleri, belirli bir oranı aşınca ayrıca yazılır."));
   box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir. Veri: AB kozmetik yönetmeliği ekleri (CosIng); Türkiye'deki Kozmetik Ürünler Yönetmeliği bu eklerle 2023 sonuna kadar uyumludur; sonraki AB değişikliklerinin Türkiye durumu kartlarda yazar. Ek bilgi: AB olası endokrin bozucu öncelik listesi, Kaliforniya ve ASEAN yasakları, gözenek tıkayıcılık testleri (Fulton 1989)."));
+  payBar(box,{mode:"koz",res:res,S:S});
 }
