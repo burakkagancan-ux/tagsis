@@ -1,5 +1,5 @@
 /* Arayüz: iki gıda ürününü karşılaştırma ve tarama geçmişi (localStorage "taramalar"). Saf mantık js/karsilastir.js, ayarlar js/karsilastir_ayar.js. */
-var HCUR=null,HSCAN=true,HOCR=false,CMP_PEND=null,CMP_IDS=null;   // HCUR: ekrandaki taramanın kaydı; HSCAN: sonraki analiz yeni kayıt açar; HOCR: metin fotoğraftan/örnekten geldi; CMP_PEND: ikinci ürünü bekleyen tarama
+var HCUR=null,HSCAN=true,HOCR=false,CMP_IDS=null;   // HCUR: ekrandaki taramanın kaydı; HSCAN: sonraki analiz yeni kayıt açar; HOCR: metin fotoğraftan/örnekten geldi
 function histLoad(){try{var a=JSON.parse(localStorage.getItem("taramalar")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}}
 function histStore(a){try{localStorage.setItem("taramalar",JSON.stringify(a))}catch(e){}}
 function histGet(id){return histLoad().filter(function(x){return x.id===id})[0]||null}
@@ -7,7 +7,7 @@ function histRename(id,name){var a=histLoad();a.forEach(function(x){if(x.id===id
 /* Gıda analizinden sonra çağrılır. Fotoğraf/örnek yeni kayıt açar; elle düzeltme aynı kaydı günceller. */
 function histSave(text){
   if(!KARS_AYAR.acik)return;
-  var t=(text||"").trim(),a=histLoad(),scan=HSCAN,ocr=HOCR;
+  var t=(text||"").trim(),a=histLoad(),scan=HSCAN;
   if(!t)return;
   HSCAN=false;HOCR=false;
   var same=a.filter(function(x){return x.mode==="gida"&&x.text===t})[0],cur=!scan&&HCUR?a.filter(function(x){return x.id===HCUR})[0]:null,e;
@@ -16,47 +16,35 @@ function histSave(text){
   else e={id:"h"+Date.now(),t:Date.now(),mode:"gida",name:histName(new Date()),text:t};
   a=histAdd(a.filter(function(x){return x.id!==e.id}),e,KARS_AYAR.gecmisBoyut);
   histStore(a);HCUR=e.id;
-  if(ocr&&CMP_PEND&&CMP_PEND!==e.id&&histGet(CMP_PEND)){var p=CMP_PEND;CMP_PEND=null;showCompare(p,e.id)}
 }
-/* Sonuç ekranındaki düğme */
-function karsButton(){
-  if(!KARS_AYAR.acik)return null;
-  var d=el("div","row kbtn"),b=el("button","alt","Karşılaştır");b.type="button";
-  b.onclick=function(){pickSecond(b)};d.appendChild(b);
-  return d;
-}
-/* İkinci ürünü seçme: yeni tarama ya da son taramalar */
-function pickSecond(ret){
-  var cur=histGet(HCUR);
-  if(!cur){ST.textContent="Bu tarama kaydedilemedi; tarayıcınız yerel kaydı engelliyor olabilir.";return}
-  var body=el("div","kpick");
-  var lb=el("label","kname");lb.appendChild(el("span",null,"Bu ürünün adı"));
-  var inp=document.createElement("input");inp.type="text";inp.value=cur.name;inp.maxLength=40;inp.onchange=function(){var v=inp.value.trim();if(v)histRename(cur.id,v);else inp.value=cur.name};
-  lb.appendChild(inp);body.appendChild(lb);
-  var nb=el("button",null,"Yeni ürün tara");nb.type="button";
-  nb.onclick=function(){
-    CMP_PEND=cur.id;HSCAN=true;closeSheet();
-    $("metin").value="";$("sonuc").textContent="İkinci ürünün içindekiler yazısının fotoğrafını çekin; okuma bitince karşılaştırma açılır.";
-    ST.textContent="Karşılaştırma için ikinci ürün bekleniyor.";$("foto").value="";
-    document.querySelector("label.camera").scrollIntoView({block:"center"});
-  };
-  body.appendChild(nb);
-  var others=histLoad().filter(function(x){return x.mode==="gida"&&x.id!==cur.id});
+/* Analiz Et'in yanındaki düğme: son taramalardan iki ürün seçtirir */
+function karsOpen(pre,ret){
+  if(!KARS_AYAR.acik)return;
+  var list=histLoad().filter(function(x){return x.mode==="gida"});
+  if(list.length<2){ST.textContent="Karşılaştırmak için en az iki ürün taratmalısınız.";return}
+  if(!IDX){ST.textContent="Gıda listeleri yükleniyor, biraz sonra yeniden deneyin.";return}
+  var sel=pre&&list.some(function(x){return x.id===pre})?[pre]:[],body=el("div","kpick"),btns={};
+  var cnt=el("div","how"),go=el("button",null,"Karşılaştır");go.type="button";
+  function upd(){
+    list.forEach(function(x){btns[x.id].setAttribute("aria-pressed",String(sel.indexOf(x.id)>=0))});
+    cnt.textContent=sel.length+"/2 ürün seçildi.";go.disabled=sel.length!==2;
+  }
   body.appendChild(el("h3",null,"Son taramalar"));
-  if(!others.length)body.appendChild(el("div","mut","Henüz başka tarama yok. Yeni bir ürün tarayın."));
-  others.forEach(function(x){
-    var b=el("button","kitem");b.type="button";
+  list.forEach(function(x){
+    var b=el("button","kitem");b.type="button";btns[x.id]=b;
     b.appendChild(el("span","kin",x.name));b.appendChild(el("span","kis",x.text.replace(/\s+/g," ").slice(0,70)));
-    b.onclick=function(){closeSheet();showCompare(cur.id,x.id)};
+    b.onclick=function(){var i=sel.indexOf(x.id);if(i>=0)sel.splice(i,1);else{sel.push(x.id);if(sel.length>2)sel.shift()}upd()};
     body.appendChild(b);
   });
-  if(others.length){
-    var cl=el("button","alt kclr","Geçmişi temizle");cl.type="button";
-    cl.onclick=function(){histStore(histLoad().filter(function(x){return x.id===cur.id}));closeSheet()};
-    body.appendChild(cl);
-  }
+  body.appendChild(cnt);
+  go.onclick=function(){if(sel.length!==2)return;var p=sel.slice();closeSheet();showCompare(p[0],p[1])};
+  body.appendChild(go);
+  var cl=el("button","alt kclr","Geçmişi temizle");cl.type="button";
+  cl.onclick=function(){histStore([]);HCUR=null;closeSheet();ST.textContent="Tarama geçmişi silindi."};
+  body.appendChild(cl);
   body.appendChild(el("div","how","Son "+KARS_AYAR.gecmisBoyut+" tarama yalnızca bu cihazda saklanır."));
-  openSheet("Karşılaştır","Hangi ürünle karşılaştırılsın?",body,ret);
+  upd();
+  openSheet("Karşılaştır","İki ürün seçin.",body,ret);
 }
 /* Karşılaştırma ekranı */
 var CMP_ICON=["g","u","y","r"];
@@ -121,7 +109,7 @@ function showCompare(ida,idb){
   });
   box.appendChild(g3);
   var ch=el("button","alt","Başka ürünle karşılaştır");ch.type="button";
-  ch.onclick=function(){HCUR=ida;pickSecond(ch)};box.appendChild(el("div","row")).appendChild(ch);
+  ch.onclick=function(){karsOpen(ida,ch)};box.appendChild(el("div","row")).appendChild(ch);
   document.body.classList.add("mode-kars");box.hidden=false;window.scrollTo(0,0);bk.focus();
 }
 function diffList(title,items,P){
@@ -146,3 +134,4 @@ function closeCompare(){
   document.body.classList.remove("mode-kars");$("kars").hidden=true;CMP_IDS=null;
   var s=$("sonuc");if(s)s.scrollIntoView({block:"start"});
 }
+$("karsla").onclick=function(){karsOpen(HCUR,$("karsla"))};

@@ -309,7 +309,6 @@ function render(res,br){
     box.appendChild(cd);
   }
   profileCards(S).forEach(function(c){box.appendChild(c)});
-  var kb=karsButton();if(kb)box.appendChild(kb);
   box.appendChild(summaryCard(S,res));
   if(LASTBR.length)box.appendChild(brandCard(LASTBR));
   comboSection(box,findCombos(COMBO,"gida",comboItemsFood(res,IDX)));
