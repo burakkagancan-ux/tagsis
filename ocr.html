@@ -51,13 +51,14 @@ details#pd summary{font-family:var(--hf);font-weight:700;cursor:pointer;display:
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}.pc{font-size:14px;display:flex;gap:8px;align-items:center;min-height:44px}.pc input{width:20px;height:20px;margin:0;flex:0 0 auto;accent-color:var(--ok)}
 .pbox{border:1px solid var(--line);border-radius:12px;padding:4px 12px 10px;margin:10px 0;background:var(--bg)}.pbox .pt{font-size:15px;margin:8px 0 6px}
 /* Profil sekmesi: sayfada yalnızca başlık ve profil görünür */
+body:not(.mode-profil) details#pd{display:none}
 body.mode-profil .w>:not(h1):not(#pd){display:none!important}
 body.mode-profil details#pd{border:0;background:none;padding:0}body.mode-profil details#pd>summary{display:none}
 a{color:var(--ok);font-weight:600}
 .hd{display:flex;align-items:flex-start;gap:8px}.hd .t{flex:1;min-width:0}
-button.info{flex:0 0 auto;width:44px;height:44px;margin:-8px -6px -8px 0;padding:0;border-radius:50%;font:italic 700 16px/1 Georgia,serif;background:none;color:var(--ok);border:1.5px solid var(--ok)}
+button.info{flex:0 0 auto;width:36px;height:36px;margin:0;padding:0;border-radius:50%;font:italic 600 14px/1 Georgia,serif;background:none;color:var(--ok);border:1.5px solid var(--ok)}
 button.info.on{background:var(--ok);color:var(--bg)}
-button.info.sm{width:44px;height:44px;font-size:13px;margin:-12px -10px -12px 0}
+button.info.sm{width:36px;height:36px;font-size:12px;margin:0}
 .adi{margin:6px 0 2px}.adr{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
 .pnum{display:flex;flex-wrap:wrap;gap:8px 16px}.pn{display:flex;align-items:center;gap:6px;font-size:14px}.pn input{width:5.5em;font-size:16px;padding:4px 6px}
 details.gz{font-size:13px;color:var(--mute);margin:0 0 10px}details.gz summary{cursor:pointer;color:var(--ok);font-weight:600;min-height:44px;display:flex;align-items:center}details.gz ul{margin:6px 0 0;padding-left:20px}details.gz li{margin:3px 0}

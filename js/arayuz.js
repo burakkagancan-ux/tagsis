@@ -27,10 +27,10 @@ function loadDb(i){
 }
 
 /* ---------- Profil ---------- */
-var PROF={al:[],lactose:false,vegan:false,veg:false,koku:false,astim:false,preg:false,emziriyorum:false,baby:false,child:false,pku:false,pet:false,salt:false,cinsiyet:"",yas:null,boy:null,kilo:null};
+var PROF={al:[],lactose:false,koku:false,astim:false,preg:false,emziriyorum:false,baby:false,child:false,vegan:false,veg:false,pku:false,pet:false,salt:false,cinsiyet:"",yas:null,boy:null,kilo:null};
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
-var LIFE=[["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["preg","Hamileyim"],["emziriyorum","Emziriyorum"],["pet","Evcil hayvanıma vereceğim"]];
-var OTHER=[["lactose","Laktoz intoleransı"],["vegan","Vegan"],["veg","Vejetaryen"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"],["salt","Tansiyon / tuz kısıtlaması"],["pku","Fenilketonüri (PKU)"]];
+var LIFE=[["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["preg","Hamileyim"],["emziriyorum","Emziriyorum"],["vegan","Vegan"],["veg","Vejetaryen"],["pet","Evcil hayvanıma vereceğim"]];
+var OTHER=[["lactose","Laktoz intoleransı"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"],["salt","Tansiyon / tuz kısıtlaması"],["pku","Fenilketonüri (PKU)"]];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
 function buildProfile(){
   var box=$("profil");box.textContent="";
@@ -53,10 +53,10 @@ function buildProfile(){
   var b1=pbox("Alerjenler"),g=el("div","pg");
   abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
-  var b2=pbox("Yaşam Evresi ("+LIFE.length+")"),g2=el("div","pg");
+  var b2=pbox("Yaşam Evresi"),g2=el("div","pg");
   abc(LIFE).forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b2.appendChild(g2);
-  var b3=pbox("Diğer ("+OTHER.length+")"),g3=el("div","pg");
+  var b3=pbox("Diğer"),g3=el("div","pg");
   abc(OTHER).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
@@ -290,10 +290,10 @@ function render(res,br){
   comboSection(box,findCombos(COMBO,"gida",comboItemsFood(res,IDX)));
   var E=res.filter(function(r){return !r.isB&&!r.neg});
   if(E.length){box.appendChild(el("h2",null,"Katkı Maddeleri"));E.forEach(function(r){box.appendChild(additiveCard(r))})}
-  var notes=res.filter(function(r){return r.isB&&!r.neg}).map(function(r){return IDX.byId[r.ids[0]]}).filter(function(it){return it.note});
-  if(notes.length){
-    box.appendChild(el("h2",null,"Notlar"));
-    var seen={};notes.forEach(function(it){if(seen[it.id])return;seen[it.id]=1;box.appendChild(el("div","ln nt",it.name+": "+it.note))});
+  var B=res.filter(function(r){return r.isB&&!r.neg}),notes=B.map(function(r){return IDX.byId[r.ids[0]]}).filter(function(it){return it.note});
+  if(B.length){
+    var bd=secBox(box,"Okunan diğer içerik",B.length);
+    var seen={};B.forEach(function(r){var it=IDX.byId[r.ids[0]];if(seen[it.id])return;seen[it.id]=1;var l=el("div","ln");l.appendChild(el("b",null,it.name));if(it.note){l.appendChild(document.createTextNode(": "+it.note))}bd.appendChild(l)});
   }
   box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
 }
