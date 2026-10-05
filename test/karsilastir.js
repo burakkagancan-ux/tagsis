@@ -83,5 +83,6 @@ ok(h.length===20&&h[0].text==='metin 24','geçmiş 20 kayıt, en yeni başta');
 h=K.histAdd(h,{mode:'gida',text:' metin 10 ',t:99},20);
 ok(h.length===20&&h[0].t===99&&h.filter(x=>x.text.trim()==='metin 10').length===1,'aynı metin tekrar eklenmez');
 ok(K.histAdd(h,{mode:'gida',text:'  '},20).length===20,'boş metin eklenmez');
-ok(K.histName(new Date(2026,9,5,9,7))==='Tarama · 5 Eki 09:07','varsayılan ad');
+ok(K.histName([])==='Tarama 1','ilk ad');
+ok(K.histName([{name:'Tarama 2'},{name:'Süt'},{name:'Tarama 7'}])==='Tarama 8','sıra numarası');
 console.log(n+' karşılaştırma denetimi, '+fail+' hata');process.exit(fail?1:0);

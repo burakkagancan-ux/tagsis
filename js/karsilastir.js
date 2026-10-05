@@ -127,8 +127,8 @@ function cmpExtra(r,W,L){
 }
 
 /* Tarama geçmişi: en yeni başta, aynı tür + aynı metin tekrar eklenmez, en fazla max kayıt */
-var CMP_AY=["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
-function histName(d){var p=function(n){return (n<10?"0":"")+n};return "Tarama · "+d.getDate()+" "+CMP_AY[d.getMonth()]+" "+p(d.getHours())+":"+p(d.getMinutes())}
+/* Varsayılan ad: "Tarama N"; N, geçmişteki en büyük sıra numarasının bir fazlası */
+function histName(list){var n=0;(list||[]).forEach(function(x){var m=/^Tarama (\d+)$/.exec(x.name||"");if(m&&+m[1]>n)n=+m[1]});return "Tarama "+(n+1)}
 function histAdd(list,e,max){
   var t=(e.text||"").trim();if(!t)return list.slice(0,max);
   var out=(list||[]).filter(function(x){return !(x.mode===e.mode&&(x.text||"").trim()===t)});
