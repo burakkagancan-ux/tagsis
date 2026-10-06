@@ -693,6 +693,510 @@
    "year": 2018,
    "url": "https://www.efsa.europa.eu/en/efsajournal/pub/5235",
    "official": true
+  },
+  "efsa_e123": {
+   "title": "Re-evaluation of Amaranth (E 123) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(7):1649)",
+   "year": 2010,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1649",
+   "official": true
+  },
+  "efsa_amaranth_news_2010": {
+   "title": "EFSA lowers ADI on amaranth, completing its re-evaluation of azo dye food colours",
+   "publisher": "EFSA",
+   "year": 2010,
+   "url": "https://www.efsa.europa.eu/en/press/news/100726",
+   "official": true
+  },
+  "fda_red2_cpg": {
+   "title": "CPG Sec 587.200 Uncertified or Delisted Colors in Foods for Export - (e.g., FD&C Red #2)",
+   "publisher": "ABD Gıda ve İlaç Dairesi (FDA)",
+   "year": null,
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cpg-sec-587200-uncertified-or-delisted-colors-foods-export-eg-fdc-red-2",
+   "official": true
+  },
+  "ecfr_81_10": {
+   "title": "21 CFR § 81.10 Termination of provisional listings of color additives",
+   "publisher": "ABD Federal Düzenlemeler Kodu (eCFR)",
+   "year": 1977,
+   "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-81/section-81.10",
+   "official": false
+  },
+  "efsa_e154": {
+   "title": "Scientific Opinion on the re-evaluation of Brown FK (E 154) as a food additive",
+   "publisher": "EFSA (EFSA Journal 8(4):1535)",
+   "year": 2010,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1535",
+   "official": true
+  },
+  "jecfa_e160f": {
+   "title": "Beta-apo-8'-carotenoic acid, methyl and ethyl esters (JECFA evaluation summary)",
+   "publisher": "JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_375.htm",
+   "official": true
+  },
+  "efsa_feed_e160f": {
+   "title": "Safety and efficacy of ethyl ester of β-apo-8'-carotenoic acid as a feed additive for poultry for fattening and poultry for laying",
+   "publisher": "EFSA (EFSA Journal 14(4):4439)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4439",
+   "official": true
+  },
+  "eu_dir_2003_114": {
+   "title": "Directive 2003/114/EC of the European Parliament and of the Council of 22 December 2003 amending Directive 95/2/EC on food additives other than colours and sweeteners",
+   "publisher": "Avrupa Parlamentosu ve Konseyi (legislation.gov.uk kopyası)",
+   "year": 2003,
+   "url": "https://www.legislation.gov.uk/eudr/2003/114/pdfs/eudr_20030114_adopted_en.pdf",
+   "official": true
+  },
+  "jmpr_diphenyl_1967": {
+   "title": "Diphenyl (1967 Evaluations of Some Pesticide Residues in Food)",
+   "publisher": "FAO/WHO JMPR (IPCS INCHEM)",
+   "year": 1968,
+   "url": "https://inchem.org/documents/jmpr/jmpmono/v067pr13.htm",
+   "official": true
+  },
+  "iarc_bromate": {
+   "title": "Potassium bromate (IARC Summaries & Evaluations, Volume 73)",
+   "publisher": "IARC (IPCS INCHEM)",
+   "year": 1999,
+   "url": "https://inchem.org/documents/iarc/vol73/73-17.html",
+   "official": true
+  },
+  "jecfa_bromate_fas30": {
+   "title": "Potassium bromate (WHO Food Additives Series 30)",
+   "publisher": "JECFA 39. toplantı (IPCS INCHEM)",
+   "year": 1992,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v30je17.htm",
+   "official": true
+  },
+  "jecfa_bromate_eval": {
+   "title": "Potassium bromate (JECFA evaluation summary, INS 924a)",
+   "publisher": "JECFA (IPCS INCHEM)",
+   "year": 1995,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1969.htm",
+   "official": true
+  },
+  "cfs_bromate": {
+   "title": "Bromate in Food (Food Safety Focus, 18th Issue)",
+   "publisher": "Hong Kong Gıda Güvenliği Merkezi (CFS)",
+   "year": 2008,
+   "url": "https://www.cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_18_03.html",
+   "official": true
+  },
+  "scf_cyclamate_2000": {
+   "title": "Revised opinion on cyclamic acid and its sodium and calcium salts",
+   "publisher": "Avrupa Komisyonu Gıda Bilimsel Komitesi (SCF)",
+   "year": 2000,
+   "url": "https://food.ec.europa.eu/system/files/2020-12/sci-com_scf_out53_en.pdf",
+   "official": false
+  },
+  "eu_dir_2003_115": {
+   "title": "Directive 2003/115/EC of the European Parliament and of the Council of 22 December 2003 amending Directive 94/35/EC on sweeteners for use in foodstuffs",
+   "publisher": "Avrupa Parlamentosu ve Konseyi (legislation.gov.uk kopyası)",
+   "year": 2003,
+   "url": "https://www.legislation.gov.uk/eudr/2003/115/pdfs/eudr_20030115_adopted_en.pdf",
+   "official": true
+  },
+  "efsa_sweeteners_2026": {
+   "title": "Update on the re-evaluation of sweeteners (67th FAF Plenary, 1-2 July 2026, Annex II)",
+   "publisher": "EFSA FAF Paneli",
+   "year": 2026,
+   "url": "https://www.efsa.europa.eu/sites/default/files/2026-07/Annex%20II_10.1%20Update%20on%20the%20re-evaluation%20of%20sweeteners_%201-2%20July%202026.pdf",
+   "official": true
+  },
+  "ecfr_189_135": {
+   "title": "21 CFR § 189.135 Cyclamate and its derivatives",
+   "publisher": "ABD Federal Düzenlemeler Kodu (eCFR)",
+   "year": 1977,
+   "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-189/subpart-C/section-189.135",
+   "official": false
+  },
+  "efsa_parabens_2004": {
+   "title": "Opinion of the Scientific Panel on food additives, flavourings, processing aids and materials in contact with food (AFC) related to para hydroxybenzoates (E 214-219)",
+   "publisher": "EFSA (EFSA Journal, pub/83; EFSA-Q-2004-063)",
+   "year": 2004,
+   "url": "https://www.efsa.europa.eu/es/efsajournal/pub/83",
+   "official": true
+  },
+  "eu_dir_2006_52": {
+   "title": "Directive 2006/52/EC of the European Parliament and of the Council of 5 July 2006 amending Directive 95/2/EC on food additives other than colours and sweeteners and Directive 94/35/EC on sweeteners for use in foodstuffs",
+   "publisher": "Avrupa Parlamentosu ve Konseyi (Official Journal of the European Union)",
+   "year": 2006,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32006L0052",
+   "official": true
+  },
+  "eu_1333_annex2_e": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E (as it stood on 31.12.2020), rows 1751-2000 and 2001-2250",
+   "publisher": "legislation.gov.uk (AB metni, 31.12.2020 sürümü)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/8/2020-12-31",
+   "official": true
+  },
+  "efsa_e284": {
+   "title": "Scientific Opinion on the re-evaluation of boric acid (E 284) and sodium tetraborate (borax) (E 285) as food additives",
+   "publisher": "EFSA (EFSA Journal 11(10):3407)",
+   "year": 2013,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/3407",
+   "official": true
+  },
+  "echa_boric_clh": {
+   "title": "CLH Report for Boric Acid (Proposal for Harmonised Classification and Labelling, Version 2)",
+   "publisher": "ECHA",
+   "year": 2013,
+   "url": "https://echa.europa.eu/documents/10162/ee39f026-9d2d-28f7-5d90-63a424112162",
+   "official": false
+  },
+  "efsa_e320": {
+   "title": "Scientific Opinion on the re-evaluation of butylated hydroxyanisole – BHA (E 320) as a food additive",
+   "publisher": "EFSA (EFSA Journal 9(10):2392)",
+   "year": 2011,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/2392",
+   "official": true
+  },
+  "iarc_bha": {
+   "title": "Butylated Hydroxyanisole (BHA) (IARC Summary & Evaluation, Volume 40, 1986)",
+   "publisher": "IARC (IPCS INCHEM)",
+   "year": 1986,
+   "url": "https://inchem.org/documents/iarc/vol40/butylatedhydroxyanisole.html",
+   "official": true
+  },
+  "ca_ab418": {
+   "title": "California AB 418 (2023-2024), California Food Safety Act, Chapter 328, Statutes of 2023 (chaptered text)",
+   "publisher": "California Legislature (LegiScan kopyası)",
+   "year": 2023,
+   "url": "https://legiscan.com/CA/text/AB418/2023",
+   "official": false
+  },
+  "efsa_parabens": {
+   "title": "Opinion of the Scientific Panel on food additives, flavourings, processing aids and materials in contact with food (AFC) related to para hydroxybenzoates (E 214-219) — EFSA advises on the safety of paraben usage in food",
+   "publisher": "EFSA (basın duyurusu, 29.09.2004; EFSA Journal 2004, 83)",
+   "year": 2004,
+   "url": "https://www.efsa.europa.eu/en/news/efsa-advises-safety-paraben-usage-food",
+   "official": true
+  },
+  "efsa_e239": {
+   "title": "Scientific Opinion on the re-evaluation of hexamethylene tetramine (E 239) as a food additive",
+   "publisher": "EFSA (EFSA Journal 12(6):3696)",
+   "year": 2014,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/3696",
+   "official": true
+  },
+  "jecfa_e239": {
+   "title": "Hexamethylenetetramine (JECFA evaluation summary)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/17)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_993.htm",
+   "official": true
+  },
+  "jecfa_e242": {
+   "title": "Dimethyl dicarbonate (JECFA evaluation summary)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 806-JECFA 37/23)",
+   "year": 1990,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_606.htm",
+   "official": true
+  },
+  "jecfa_e242_mono": {
+   "title": "Dimethyldicarbonate (DMDC) — WHO Food Additives Series 28",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1990,
+   "url": "https://www.inchem.org/documents/jecfa/jecmono/v28je15.htm",
+   "official": true
+  },
+  "eu_2012_1166": {
+   "title": "Commission Regulation (EU) No 1166/2012 of 7 December 2012 amending Annex II to Regulation (EC) No 1333/2008 of the European Parliament and of the Council as regards the use of dimethyl dicarbonate (E 242) in certain alcoholic drinks",
+   "publisher": "Avrupa Komisyonu (legislation.gov.uk kopyası)",
+   "year": 2012,
+   "url": "https://www.legislation.gov.uk/eur/2012/1166/introduction/data.xht",
+   "official": true
+  },
+  "efsa_e243": {
+   "title": "Safety of ethyl lauroyl arginate (E 243) as a food additive in the light of the new information provided and the proposed extension of use",
+   "publisher": "EFSA FAF Panel (EFSA Journal 17(3):5621)",
+   "year": 2019,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009305",
+   "official": true
+  },
+  "jecfa_e261": {
+   "title": "Potassium acetate (JECFA evaluation summary)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/35)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1963.htm",
+   "official": true
+  },
+  "jecfa_e262": {
+   "title": "Sodium acetate (JECFA evaluation summary)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/35)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2127.htm",
+   "official": true
+  },
+  "jecfa_e262ii": {
+   "title": "Sodium diacetate — toxicological monograph (FAS 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je17.htm",
+   "official": true
+  },
+  "jecfa_e263": {
+   "title": "Calcium acetate (JECFA evaluation summary)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/37)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_298.htm",
+   "official": true
+  },
+  "ab1129_2011": {
+   "title": "Commission Regulation (EU) No 1129/2011 of 11 November 2011 amending Annex II to Regulation (EC) No 1333/2008",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2011,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32011R1129",
+   "official": true
+  },
+  "efsa_lysozyme_wine": {
+   "title": "Lysozyme in wine",
+   "publisher": "EFSA NDA Panel (EFSA Journal 9(10):2386)",
+   "year": 2011,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/2386",
+   "official": true
+  },
+  "efsa_lysozyme_enzyme": {
+   "title": "Safety evaluation of the food enzyme lysozyme from hens' eggs",
+   "publisher": "EFSA CEP Panel (EFSA Journal 21(4):7918)",
+   "year": 2023,
+   "url": "https://www.efsa.europa.eu/el/efsajournal/pub/7918",
+   "official": true
+  },
+  "jecfa_ribonuc_1974": {
+   "title": "355. Calcium and sodium-5'-ribonucleotides (WHO Food Additives Series 6)",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://www.inchem.org/documents/jecfa/jecmono/v06je02.htm",
+   "official": true
+  },
+  "jecfa_guanylic_1974": {
+   "title": "358. Guanylic acid, calcium and disodium salts (WHO Food Additives Series 6)",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://www.inchem.org/documents/jecfa/jecmono/v06je05.htm",
+   "official": true
+  },
+  "jecfa_inosinic_1974": {
+   "title": "359. Inosinic acid, calcium and disodium salts (WHO Food Additives Series 6)",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v06je06.htm",
+   "official": true
+  },
+  "jecfa_gmp_imp_1993": {
+   "title": "Disodium 5'-guanylate and disodium 5'-inosinate (WHO Food Additives Series 32)",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v32je06.htm",
+   "official": true
+  },
+  "jecfa_e626": {
+   "title": "JECFA Evaluations: 5'-Guanylic acid",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1985,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_945.htm",
+   "official": true
+  },
+  "jecfa_e627": {
+   "title": "JECFA Evaluations: Disodium 5'-guanylate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_668.htm",
+   "official": true
+  },
+  "jecfa_e628": {
+   "title": "JECFA Evaluations: Dipotassium 5'-guanylate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1985,
+   "url": "https://www.inchem.org/documents/jecfa/jeceval/jec_662.htm",
+   "official": true
+  },
+  "jecfa_e629": {
+   "title": "JECFA Evaluations: Calcium 5'-guanylate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1985,
+   "url": "https://www.inchem.org/documents/jecfa/jeceval/jec_316.htm",
+   "official": true
+  },
+  "jecfa_e630": {
+   "title": "JECFA Evaluations: 5'-Inosinic acid",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1985,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1120.htm",
+   "official": true
+  },
+  "jecfa_e631": {
+   "title": "JECFA Evaluations: Disodium 5'-inosinate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_670.htm",
+   "official": true
+  },
+  "jecfa_e632": {
+   "title": "JECFA Evaluations: Dipotassium 5'-inosinate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1985,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_664.htm",
+   "official": true
+  },
+  "jecfa_e633": {
+   "title": "JECFA Evaluations: Calcium 5'-inosinate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1985,
+   "url": "https://www.inchem.org/documents/jecfa/jeceval/jec_321.htm",
+   "official": true
+  },
+  "jecfa_e634": {
+   "title": "JECFA Evaluations: Calcium 5'-ribonucleotides",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_331.htm",
+   "official": true
+  },
+  "jecfa_e635": {
+   "title": "JECFA Evaluations: Disodium 5'-ribonucleotides",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://www.inchem.org/documents/jecfa/jeceval/jec_672.htm",
+   "official": true
+  },
+  "efsa_ribonuc_call": {
+   "title": "Call for data for the re-evaluation of ribonucleotides (E 626-635) as food additives",
+   "publisher": "EFSA",
+   "year": 2023,
+   "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-ribonucleotides-e-626-635-food-additives",
+   "official": true
+  },
+  "ab1333_annex2_c": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part C – definitions of groups of food additives (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/part/C/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g9": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 9 (categories 11.3–12.5; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/9/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g5": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 5 (categories 05.2–05.4; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/5/2020-12-31",
+   "official": true
+  },
+  "jecfa_glycine": {
+   "title": "JECFA Evaluations: Glycine",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 2004,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_935.htm",
+   "official": true
+  },
+  "jecfa_zinc": {
+   "title": "JECFA Evaluations: Zinc",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2411.htm",
+   "official": true
+  },
+  "efsa_ul_overview": {
+   "title": "Overview on Tolerable Upper Intake Levels as derived by the Scientific Committee on Food (SCF) and the EFSA Panel on Dietetic Products, Nutrition and Allergies (NDA)",
+   "publisher": "EFSA (Version 11)",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf",
+   "official": true
+  },
+  "efsa_e957": {
+   "title": "Re‐evaluation of thaumatin (E 957) as food additive",
+   "publisher": "EFSA (EFSA Journal 19(11):6884)",
+   "year": 2021,
+   "url": "https://doaj.org/article/60f4cb5f019a46a69ee5c457faf7216b",
+   "official": true
+  },
+  "efsa_e957_full": {
+   "title": "Re-evaluation of thaumatin (E 957) as food additive (tam metin kopyası)",
+   "publisher": "EFSA (EFSA Journal 19(11):6884), Opin Vísindi deposu",
+   "year": 2021,
+   "url": "https://opinvisindi.is/bitstreams/a2c4cd2d-b3cf-4b78-8bd0-2f35834897fc/download",
+   "official": false
+  },
+  "efsa_e959": {
+   "title": "Re-evaluation of neohesperidine dihydrochalcone (E 959) as a food additive",
+   "publisher": "EFSA (EFSA Journal 20(11):e07595)",
+   "year": 2022,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9669802",
+   "official": true
+  },
+  "efsa_e960": {
+   "title": "Scientific Opinion on the safety of steviol glycosides for the proposed uses as a food additive",
+   "publisher": "EFSA (EFSA Journal)",
+   "year": 2010,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1537",
+   "official": true
+  },
+  "efsa_e960_2024": {
+   "title": "Scientific opinion on the extension of the authorisation of use of the food additive steviol glycosides (E 960a–d) and the modification of the acceptable daily intake (ADI) for steviol",
+   "publisher": "EFSA (EFSA Journal 22(11):9045)",
+   "year": 2024,
+   "url": "https://doaj.org/article/d055e3f4d41e4010b8317ae63c6c6416",
+   "official": true
+  },
+  "eu_2011_1131": {
+   "title": "Commission Regulation (EU) No 1131/2011 of 11 November 2011 amending Annex II to Regulation (EC) No 1333/2008 with regard to steviol glycosides",
+   "publisher": "Avrupa Komisyonu (Official Journal of the EU)",
+   "year": 2011,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32011R1131",
+   "official": true
+  },
+  "eu_2021_1156": {
+   "title": "Commission Regulation (EU) 2021/1156 of 13 July 2021 amending Annex II to Regulation (EC) No 1333/2008 and the Annex to Commission Regulation (EU) No 231/2012 as regards steviol glycosides (E 960) and rebaudioside M produced via enzyme modification of steviol glycosides from Stevia",
+   "publisher": "Avrupa Komisyonu (Official Journal of the EU)",
+   "year": 2021,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021R1156",
+   "official": true
+  },
+  "eu_2023_447": {
+   "title": "Commission Regulation (EU) 2023/447 of 1 March 2023 amending Annex II to Regulation (EC) No 1333/2008 and the Annex to Commission Regulation (EU) No 231/2012 as regards glucosylated steviol glycosides (E 960d)",
+   "publisher": "Avrupa Komisyonu (Official Journal of the EU)",
+   "year": 2023,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0447",
+   "official": true
+  },
+  "eu_2025_652": {
+   "title": "Commission Regulation (EU) 2025/652 of 2 April 2025 amending Regulation (EC) No 1333/2008 and Commission Regulation (EU) No 231/2012 as regards the use of Steviol glycosides produced by fermentation using Yarrowia lipolytica",
+   "publisher": "Avrupa Komisyonu (Official Journal of the EU)",
+   "year": 2025,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R0652",
+   "official": true
+  },
+  "efsa_e961": {
+   "title": "Re‐evaluation of neotame (E 961) as food additive",
+   "publisher": "EFSA (EFSA Journal 23(7):e9480)",
+   "year": 2025,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12231243/",
+   "official": true
+  },
+  "efsa_e969": {
+   "title": "Scientific Opinion on the safety of advantame for the proposed uses as a food additive",
+   "publisher": "EFSA (EFSA Journal)",
+   "year": 2013,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/3301",
+   "official": true
+  },
+  "eu_2014_497": {
+   "title": "Commission Regulation (EU) No 497/2014 of 14 May 2014 amending Annex II to Regulation (EC) No 1333/2008 and the Annex to Commission Regulation (EU) No 231/2012 as regards the use of Advantame as a sweetener",
+   "publisher": "Avrupa Komisyonu (Official Journal of the EU)",
+   "year": 2014,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0497",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -6368,6 +6872,1702 @@
     "efsa_e1520"
    ],
    "last_reviewed": "2026-10-05"
+  },
+  "E1105": {
+   "evidence_level": "strong",
+   "what_it_does": "Tavuk yumurtası akından elde edilen, bazı bakterilerin hücre duvarını parçalayan ve peynirde koruyucu olarak kullanılan bir enzimdir.",
+   "found_in": [
+    "Olgunlaştırılmış peynirler",
+    "Olgunlaştırılmış peynir ürünleri"
+   ],
+   "in_the_body": "EFSA 2023'te yumurtadan elde edilen lizozimin kullanım koşullarında güvenlik endişesi oluşturmadığını, ancak işlem görmüş bira, peynir ve şaraptaki kalıntı miktarlarının duyarlı kişilerde alerjik reaksiyonlara yol açabileceğini belirtti. EFSA 2011'de de lizozimle işlenmiş şarapların yumurta alerjisi olan duyarlı kişilerde alerjik reaksiyon tetikleyebileceği sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "no",
+    "source": "animal",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Kullanım koşullarında güvenlik endişesi yok; duyarlı kişilerde alerjik reaksiyon olasılığı dışında.",
+     "year": 2023,
+     "src": "efsa_lysozyme_enzyme"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "concern",
+     "detail": "Lizozimle işlenmiş şaraplar duyarlı kişilerde alerjik reaksiyon tetikleyebilir.",
+     "year": 2011,
+     "src": "efsa_lysozyme_wine"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Olgunlaştırılmış peynirde ve olgunlaştırılmış peynir ürünlerinde quantum satis.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "label_required",
+     "detail": "Yumurtadan elde edilen ve son üründe bulunan bileşenler içindekiler listesinde vurgulanarak belirtilmelidir.",
+     "year": 2011,
+     "src": "ab1169"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "allergen_egg",
+     "severity": "high",
+     "text": "Yumurta akından elde edilir; EFSA'ya göre kalıntıları yumurtaya duyarlı kişilerde alerjik reaksiyona yol açabilir."
+    },
+    {
+     "profile": "vegan",
+     "severity": "high",
+     "text": "Hayvansal (yumurta) kaynaklıdır."
+    }
+   ],
+   "sources": [
+    "efsa_lysozyme_enzyme",
+    "efsa_lysozyme_wine",
+    "ab1129_2011",
+    "ab1169",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E123": {
+   "evidence_level": "strong",
+   "what_it_does": "Gıdaya kırmızı renk veren sentetik bir azo renklendiricidir.",
+   "found_in": [
+    "Aperatif içkiler",
+    "Balık yumurtası ürünleri"
+   ],
+   "in_the_body": "EFSA 2010'daki yeniden değerlendirmesinde amarantın genotoksik ya da kanserojen olmadığı sonucuna vardı, ancak günlük kabul edilebilir alımı (ADI) 0,15 mg/kg vücut ağırlığına düşürdü (SCF'nin 1984'teki değeri 0,8 mg/kg idi). Çocuklarda tahmini maruziyetin bu sınırın yaklaşık 30 kat altında olduğunu, düzenli olarak çok yüksek miktarda Americano tüketen yetişkinlerde ise sınırın 6 katına kadar aşılabileceğini bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 0,15 mg/kg vücut ağırlığına düşürüldü. AB'de yalnızca aperatif içkiler ve balık yumurtasında izinli.",
+     "year": 2010,
+     "src": "efsa_e123"
+    }
+   ],
+   "sources": [
+    "efsa_e123",
+    "efsa_amaranth_news_2010",
+    "fda_red2_cpg",
+    "ecfr_81_10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E154": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya kahverengi renk veren sentetik bir azo renklendiriciydi; AB'de artık izinli değildir.",
+   "found_in": [
+    "AB'de 2011'den beri izinli değil (önceden yalnızca tütsülenmiş ringa balığında)"
+   ],
+   "in_the_body": "EFSA 2010'da, uzun süreli toksisite ve kanserojenlik çalışmalarındaki eksiklikler nedeniyle güvenliği hakkında bir sonuca varamadığını bildirdi. SCF daha önce 0,15 mg/kg vücut ağırlığı ADI belirlemişti; JECFA ise 1987'de veri yetersizliği nedeniyle geçici ADI'yi geri çekmişti. AB'de yalnızca tütsülenmiş ringa balığında (kipper) 20 mg/kg'a kadar izinliydi ve 2011'de kullanılmadığı gerekçesiyle izinli listeye alınmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; toksisite verilerindeki eksiklikler nedeniyle güvenlik hakkında sonuca varılamadı.",
+     "year": 2010,
+     "src": "efsa_e154"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "Komisyon Tüzüğü (AB) No 1129/2011 ile oluşturulan AB izinli listesine alınmadı; artık kullanılmıyor ve EFSA güvenlik konusunda sonuca varamadı.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_e154",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E160f": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya sarı-turuncu renk veren sentetik bir karotenoid renklendiriciydi; AB'de gıda katkısı olarak artık izinli değildir.",
+   "found_in": [
+    "AB'de 2011'den beri gıda katkısı olarak izinli değil"
+   ],
+   "in_the_body": "JECFA 1974'te bu maddeyi beta-karoten, beta-apo-8'-karotenal ve beta-apo-8'-karotenoik asidin metil esteriyle birlikte 0–5 mg/kg vücut ağırlığı grup ADI'si içinde değerlendirdi. AB'de üretici maddeyi artık sunmadığı ve yeniden değerlendirme desteklenmediği için 2011'de izinli listeye alınmadı. EFSA 2016'da aynı maddeyi kanatlı yemlerinde yumurta sarısı ve deri renklendiricisi olarak ayrıca değerlendirdi ve tüketiciler için 0,015 mg/kg vücut ağırlığı ADI belirledi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "Komisyon Tüzüğü (AB) No 1129/2011 ile AB izinli listesine alınmadı; üretici artık sunmuyor ve yeniden değerlendirme desteklenmedi.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Beta-karoten ve ilgili karotenoidlerle birlikte grup ADI 0–5 mg/kg vücut ağırlığı.",
+     "year": 1974,
+     "src": "jecfa_e160f"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Kanatlı yem katkısı olarak değerlendirildi; tüketiciler için ADI 0,015 mg/kg vücut ağırlığı, genotoksik potansiyel gösterilmedi.",
+     "year": 2016,
+     "src": "efsa_feed_e160f"
+    }
+   ],
+   "sources": [
+    "ab1129_2011",
+    "jecfa_e160f",
+    "efsa_feed_e160f"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E214": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak bazı et ürünlerinin bozulmasını geciktiren paraben grubu bir koruyucudur.",
+   "found_in": [
+    "Jöle kaplamalı et ürünleri (ör. pate)",
+    "Kurutulmuş et ürünleri (yüzey uygulaması)"
+   ],
+   "in_the_body": "Etil paraben metil/etil paraben grubundandır. EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil paraben ile sodyum tuzları için grup ADI 0–10 mg/kg vücut ağırlığı/gün; propil paraben bu gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_parabens"
+    }
+   ],
+   "sources": [
+    "efsa_parabens",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E215": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak bazı et ürünlerinin bozulmasını geciktiren paraben grubu bir koruyucudur.",
+   "found_in": [
+    "Jöle kaplamalı et ürünleri (ör. pate)",
+    "Kurutulmuş et ürünleri (yüzey uygulaması)"
+   ],
+   "in_the_body": "Etil parabenin sodyum tuzu olan bu madde metil/etil paraben grubundandır. EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil paraben ile sodyum tuzları için grup ADI 0–10 mg/kg vücut ağırlığı/gün; propil paraben bu gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_parabens"
+    }
+   ],
+   "sources": [
+    "efsa_parabens",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06",
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum tuzudur; kullanım düzeyleri düşük olduğundan sodyum katkısı genellikle sınırlıdır."
+    }
+   ]
+  },
+  "E216": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatan bir paraben türü koruyucudur; AB'de gıda katkı maddesi olarak artık izinli değildir.",
+   "found_in": [
+    "AB'de 2006'dan beri gıdada izinli değil"
+   ],
+   "in_the_body": "EFSA 13 Temmuz 2004 tarihli görüşünde metil ve etil paraben için toplam 0–10 mg/kg vücut ağırlığı grup ADI belirledi, ancak propil parabeni bu gruba dahil etmedi. Gerekçe, propil parabenin genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler göstermiş olması ve net bir etkisiz doz (NOAEL) belirlenememesiydi; bu nedenle propil paraben için ADI önerilemedi. Bunun üzerine E 216, 2006/52/AT Direktifi ile AB katkı listesinden çıkarıldı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Propil paraben grup ADI'ye alınmadı; genç sıçanlarda hormon ve erkek üreme organı etkileri nedeniyle ADI önerilemedi.",
+     "year": 2004,
+     "src": "efsa_parabens_2004"
+    },
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "2006/52/AT Direktifi ile 95/2/AT katkı listesinden çıkarıldı; 1333/2008 Ek II Kısım B listesinde yer almıyor.",
+     "year": 2006,
+     "src": "eu_dir_2006_52"
+    },
+    {
+     "agency": "California Eyalet Meclisi",
+     "region": "US-CA",
+     "status": "banned",
+     "detail": "AB 418 (California Gıda Güvenliği Yasası) ile 1 Ocak 2027'den itibaren gıdada kullanımı yasak.",
+     "year": 2023,
+     "src": "ca_ab418"
+    }
+   ],
+   "sources": [
+    "efsa_parabens_2004",
+    "eu_dir_2006_52",
+    "ab1129_2011",
+    "ca_ab418"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E217": {
+   "evidence_level": "moderate",
+   "what_it_does": "Propil parabenin sodyum tuzudur; küf ve mayalara karşı koruyucu olarak kullanılmıştır, AB'de artık izinli değildir.",
+   "found_in": [
+    "AB'de 2006'dan beri gıdada izinli değil"
+   ],
+   "in_the_body": "Vücutta propil paraben (E 216) ile aynı şekilde değerlendirilir. EFSA 2004'te propil parabeni metil ve etil paraben grup ADI'sine (0–10 mg/kg vücut ağırlığı) dahil etmedi; genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler bildirildiği ve net bir etkisiz doz belirlenemediği için ADI önerilemedi. E 217 de 2006/52/AT Direktifi ile AB katkı listesinden çıkarıldı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Propil paraben ve sodyum tuzu için ADI önerilemedi.",
+     "year": 2004,
+     "src": "efsa_parabens_2004"
+    },
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "2006/52/AT Direktifi ile 95/2/AT katkı listesinden çıkarıldı; 1333/2008 Ek II Kısım B listesinde yer almıyor.",
+     "year": 2006,
+     "src": "eu_dir_2006_52"
+    },
+    {
+     "agency": "California Eyalet Meclisi",
+     "region": "US-CA",
+     "status": "banned",
+     "detail": "AB 418 propil parabeni (CAS 94-13-3) 1 Ocak 2027'den itibaren gıdada yasaklıyor; yasa metni sodyum tuzunu ayrıca adıyla saymıyor.",
+     "year": 2023,
+     "src": "ca_ab418"
+    }
+   ],
+   "sources": [
+    "efsa_parabens_2004",
+    "eu_dir_2006_52",
+    "ab1129_2011",
+    "ca_ab418"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E218": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak bazı et ürünlerinin bozulmasını geciktiren paraben grubu bir koruyucudur.",
+   "found_in": [
+    "Jöle kaplamalı et ürünleri (ör. pate)",
+    "Kurutulmuş et ürünleri (yüzey uygulaması)"
+   ],
+   "in_the_body": "Metil paraben metil/etil paraben grubundandır. EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil paraben ile sodyum tuzları için grup ADI 0–10 mg/kg vücut ağırlığı/gün; propil paraben bu gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_parabens"
+    }
+   ],
+   "sources": [
+    "efsa_parabens",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E219": {
+   "evidence_level": "moderate",
+   "what_it_does": "Küf ve mayaların üremesini yavaşlatarak bazı et ürünlerinin bozulmasını geciktiren paraben grubu bir koruyucudur.",
+   "found_in": [
+    "Jöle kaplamalı et ürünleri (ör. pate)",
+    "Kurutulmuş et ürünleri (yüzey uygulaması)"
+   ],
+   "in_the_body": "Metil parabenin sodyum tuzu olan bu madde metil/etil paraben grubundandır. EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Metil ve etil paraben ile sodyum tuzları için grup ADI 0–10 mg/kg vücut ağırlığı/gün; propil paraben bu gruba alınmadı.",
+     "year": 2004,
+     "src": "efsa_parabens"
+    }
+   ],
+   "sources": [
+    "efsa_parabens",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06",
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum tuzudur; kullanım düzeyleri düşük olduğundan sodyum katkısı genellikle sınırlıdır."
+    }
+   ]
+  },
+  "E230": {
+   "evidence_level": "limited",
+   "what_it_does": "Turunçgil meyvelerinin yüzeyinde küf oluşumunu önlemek için kullanılan bir koruyucuydu; AB'de artık gıda katkısı olarak izinli değildir.",
+   "found_in": [
+    "AB'de 2003/114/AT Direktifi'nden beri gıda katkısı olarak izinli değil (önceden turunçgil yüzey işlemi)"
+   ],
+   "in_the_body": "AB'de daha önce turunçgillerin yüzey işleminde 70 mg/kg'a kadar izinliydi. 2003/114/AT Direktifi, bifenilin bitki koruma ürünü tanımına girdiğini ve gıda katkı mevzuatının kapsamında kalmaması gerektiğini belirterek bu kaydı katkı listesinden çıkardı. FAO/WHO pestisit kalıntıları toplantısı (JMPR) 1966–1967 değerlendirmesinde difenil için 0–0,125 mg/kg vücut ağırlığı ADI belirlemişti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "2003/114/AT Direktifi ile 95/2/AT katkı listesinden (turunçgil yüzey işlemi, 70 mg/kg) çıkarıldı; bitki koruma ürünleri mevzuatına bırakıldı. 1129/2011 AB izinli listesinde yer almıyor.",
+     "year": 2003,
+     "src": "eu_dir_2003_114"
+    },
+    {
+     "agency": "JMPR (FAO/WHO)",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Pestisit kalıntısı olarak değerlendirildi; ADI 0–0,125 mg/kg vücut ağırlığı.",
+     "year": 1967,
+     "src": "jmpr_diphenyl_1967"
+    }
+   ],
+   "sources": [
+    "eu_dir_2003_114",
+    "ab1129_2011",
+    "jmpr_diphenyl_1967"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E239": {
+   "evidence_level": "moderate",
+   "what_it_does": "AB'de yalnızca Provolone peynirinde izin verilen, mikrobiyal bozulmayı önleyen bir koruyucudur.",
+   "found_in": [
+    "Provolone peyniri"
+   ],
+   "in_the_body": "Asidik koşullarda formaldehite ayrışır. EFSA 2014'te veriler yetersiz olduğundan kendi ADI değerini belirleyemedi; Provolone peynirindeki izinli azami düzeyde (25 mg/kg, formaldehit olarak) kullanımın güvenlik endişesi oluşturmayacağını, ancak kullanım alanının genişletilmesi için yeni toksisite verisi gerekebileceğini belirtti. JECFA 1973'te ADI'yi 0–0,15 mg/kg vücut ağırlığı olarak belirlemişti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenemedi, Provolone'deki mevcut kullanımda güvenlik endişesi yok.",
+     "year": 2014,
+     "src": "efsa_e239"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–0,15 mg/kg vücut ağırlığı.",
+     "year": 1973,
+     "src": "jecfa_e239"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Yalnızca olgunlaştırılmış Provolone peynirinde, formaldehit olarak 25 mg/kg kalıntı.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_e239",
+    "jecfa_e239",
+    "ab1129_2011",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E242": {
+   "evidence_level": "moderate",
+   "what_it_does": "İçeceklere eklendikten sonra kısa sürede ayrışan, maya ve küflere karşı soğuk sterilizasyon sağlayan bir koruyucudur.",
+   "found_in": [
+    "Alkolsüz içecekler",
+    "%15'in altında alkol içeren karışım alkollü içecekler"
+   ],
+   "in_the_body": "İçeceğe eklendikten hemen sonra ayrışır; JECFA'ya göre başlıca ayrışma ürünleri metanol ve karbondioksittir. JECFA 1990'da iyi üretim uygulamalarına uygun olarak içeceklerde litrede 250 mg'a kadar soğuk sterilizasyon amacıyla kullanımını kabul edilebilir buldu. AB Komisyonu 2012 düzenlemesinde, son olarak 2001'de Gıda Bilimsel Komitesi'nce (SCF) değerlendirildiğini ve kalıntılarının zararsız kabul edildiğini belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "İçeceklerde 250 mg/l'ye kadar soğuk sterilizasyon ajanı olarak kabul edilebilir.",
+     "year": 1990,
+     "src": "jecfa_e242"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Kullanımı %15'in altında alkol içeren karışım alkollü içeceklere (14.2.8) genişletildi.",
+     "year": 2012,
+     "src": "eu_2012_1166"
+    }
+   ],
+   "sources": [
+    "jecfa_e242",
+    "jecfa_e242_mono",
+    "eu_2012_1166",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E243": {
+   "evidence_level": "moderate",
+   "what_it_does": "Isıl işlem görmüş et ürünlerinde bakteri üremesini sınırlayan bir koruyucudur.",
+   "found_in": [
+    "Isıl işlem görmüş et ürünleri (emülsifiye ve tütsülenmiş sosis ile karaciğer ezmesi hariç)"
+   ],
+   "in_the_body": "Yutulduktan sonra tamamen parçalanarak normal metabolizma ürünleri olan L-arjinin ve laurik aside dönüşür. EFSA 2019'da mevcut ADI'yi 0,5 mg/kg vücut ağırlığı olarak korudu ve artırılması önerisini kabul etmedi. Mevcut izinli düzeyde (160 mg/kg) yüksek tüketici küçük çocuk ve çocuklarda bu sınıra ulaşılabileceğini, önerilen yeni kullanımlarda ise tüm yaş gruplarında ortalama tüketimde aşılacağını bildirdi.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 0,5 mg/kg vücut ağırlığı/gün korundu; kullanım genişletme önerisi ADI'nin aşılmasına yol açacağı için desteklenmedi.",
+     "year": 2019,
+     "src": "efsa_e243"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre mevcut izinli düzeyde yüksek tüketici küçük çocuk ve çocuklarda günlük sınıra ulaşılabilir."
+    }
+   ],
+   "sources": [
+    "efsa_e243"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E261": {
+   "evidence_level": "limited",
+   "what_it_does": "Asetik asidin potasyum tuzu olup koruyucu ve asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Asetat, vücudun normal metabolizmasında yer alan bir bileşiktir; JECFA, sirkeden gelen asetik asidin insanlarca düzenli tüketildiğini belirtmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi ve bu karar 1997'de korundu.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'.",
+     "year": 1973,
+     "src": "jecfa_e261"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e261",
+    "ab1129_2011",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E262": {
+   "evidence_level": "limited",
+   "what_it_does": "Asetik asidin sodyum tuzu olup koruyucu ve asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Asetat, vücudun normal metabolizmasında yer alan bir bileşiktir; JECFA, sirkeden gelen asetik asidin insanlarca düzenli tüketildiğini belirtmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi ve bu karar 1997'de korundu. Sodyum diasetat için JECFA 1973'te ayrıca 0–15 mg/kg vücut ağırlığı ADI belirlemiş, diğer asetat tuzları gibi metabolize edilmesinin beklendiğini belirtmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'.",
+     "year": 1973,
+     "src": "jecfa_e262"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e262",
+    "jecfa_e262ii",
+    "ab1129_2011",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06",
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    }
+   ]
+  },
+  "E263": {
+   "evidence_level": "limited",
+   "what_it_does": "Asetik asidin kalsiyum tuzu olup koruyucu ve asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Asetat, vücudun normal metabolizmasında yer alan bir bileşiktir. JECFA 1973'te kalsiyum asetat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'.",
+     "year": 1973,
+     "src": "jecfa_e263"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e263",
+    "ab1129_2011",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E284": {
+   "evidence_level": "strong",
+   "what_it_does": "Mersin balığı yumurtasında (havyar) koruyucu olarak kullanılan bir bor bileşiğidir.",
+   "found_in": [
+    "Havyar (mersin balığı yumurtası)"
+   ],
+   "in_the_body": "Bor bileşiği olarak emilir ve değerlendirmesi bor üzerinden yapılır. EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; bu değer sıçanlarda yapılan bir gelişimsel toksisite çalışmasındaki etkisiz doza dayanır. Hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir; EFSA yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; grup ADI 0,16 mg bor/kg vücut ağırlığı/gün.",
+     "year": 2013,
+     "src": "efsa_e284"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca mersin balığı yumurtasında (havyar), borik asit olarak en fazla 4 000 mg/kg.",
+     "year": 2011,
+     "src": "eu_1333_annex2_e"
+    },
+    {
+     "agency": "ECHA / Avrupa Komisyonu",
+     "region": "EU",
+     "status": "classified",
+     "detail": "CLP'ye göre üreme toksisitesi Kategori 1B (H360FD); Tüzük (AT) 790/2009 ile.",
+     "year": 2009,
+     "src": "echa_boric_clh"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "preg",
+     "severity": "low",
+     "text": "Borik asit AB'de üreme toksisitesi Kategori 1B olarak sınıflandırılmıştır ve EFSA'nın günlük sınırı bir gelişimsel toksisite çalışmasına dayanır; gıdada yalnızca havyarda izinlidir."
+    }
+   ],
+   "sources": [
+    "efsa_e284",
+    "eu_1333_annex2_e",
+    "echa_boric_clh",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E285": {
+   "evidence_level": "strong",
+   "what_it_does": "Sodyum tetraborat (boraks); borik asitle birlikte havyarda koruyucu olarak kullanılır.",
+   "found_in": [
+    "Havyar (mersin balığı yumurtası)"
+   ],
+   "in_the_body": "Vücutta borik asitle aynı şekilde bor olarak değerlendirilir. EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir. EFSA, yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Borik asitle birlikte yeniden değerlendirildi; grup ADI 0,16 mg bor/kg vücut ağırlığı/gün.",
+     "year": 2013,
+     "src": "efsa_e284"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca mersin balığı yumurtasında (havyar), borik asit olarak en fazla 4 000 mg/kg.",
+     "year": 2011,
+     "src": "eu_1333_annex2_e"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum içerir; havyarda izinli düzeyde katkıdan gelen sodyum genellikle tuzdan azdır."
+    }
+   ],
+   "sources": [
+    "efsa_e284",
+    "eu_1333_annex2_e",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E320": {
+   "evidence_level": "strong",
+   "what_it_does": "Yağların oksijenle bozulup acımasını geciktiren sentetik bir antioksidandır.",
+   "found_in": [
+    "Kızartmalık yağlar ve sanayi tipi pişirme yağları",
+    "Toz (kurutulmuş) çorba ve bulyonlar",
+    "Çeşniler ve baharat karışımları"
+   ],
+   "in_the_body": "EFSA 2011'de yeniden değerlendirmede BHA'nın genotoksisite açısından endişe oluşturmadığını belirtti; sıçanlarda ön mide (insanda karşılığı olmayan organ) tümörlerinin insan risk değerlendirmesi için artık geçerli olmayabileceğini değerlendirdi. Yavru sıçanlarda büyüme geriliği ve davranış etkilerine dayanarak ADI'yi 1,0 mg/kg vücut ağırlığına yükseltti (1989'da 0,5) ve mevcut kullanım düzeylerinde tahmini alımın genellikle bu sınırın altında olduğunu belirtti. IARC ise 1986'da hayvanlarda ön mide tümörleri için yeterli kanıt bulunduğunu, insanlarda veri olmadığını belirterek BHA'yı 1987'de Grup 2B (insanlar için olası kanserojen) olarak sınıflandırdı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 1,0 mg/kg vücut ağırlığı/gün (önceki 0,5'ten yükseltildi). Mevcut kullanımda alım genellikle ADI'nin altında.",
+     "year": 2011,
+     "src": "efsa_e320"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Belirli kategorilerde azami düzeylerle izinli (ör. toz çorbalar ve çeşnilerde yağ üzerinden 200 mg/kg).",
+     "year": 2011,
+     "src": "eu_1333_annex2_e"
+    }
+   ],
+   "sources": [
+    "efsa_e320",
+    "iarc_bha",
+    "eu_1333_annex2_e",
+    "ab1129_2011",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E626": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; guanozin-5'-monofosfat (GMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "Guanilatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; vücutta guanozin, guanin ve ksantin üzerinden ürik aside parçalanır. JECFA guanilik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (guanilik asit ve tuzları için grup ADI).",
+     "year": 1985,
+     "src": "jecfa_e626"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e626",
+    "jecfa_guanylic_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_gmp_imp_1993"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E627": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; guanozin-5'-monofosfat (GMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "Guanilatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; vücutta guanozin, guanin ve ksantin üzerinden ürik aside parçalanır. JECFA guanilik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (guanilik asit ve tuzları için grup ADI).",
+     "year": 1993,
+     "src": "jecfa_e627"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e627",
+    "jecfa_gmp_imp_1993",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_guanylic_1974"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E628": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; guanozin-5'-monofosfat (GMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "Guanilatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; vücutta guanozin, guanin ve ksantin üzerinden ürik aside parçalanır. JECFA guanilik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (guanilik asit ve tuzları için grup ADI).",
+     "year": 1985,
+     "src": "jecfa_e628"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e628",
+    "jecfa_guanylic_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_gmp_imp_1993"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E629": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; guanozin-5'-monofosfat (GMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "Guanilatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; vücutta guanozin, guanin ve ksantin üzerinden ürik aside parçalanır. JECFA guanilik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (guanilik asit ve tuzları için grup ADI).",
+     "year": 1985,
+     "src": "jecfa_e629"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e629",
+    "jecfa_guanylic_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_gmp_imp_1993"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E630": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; inozin-5'-monofosfat (IMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "İnosinatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; insanda son ürün olarak ürik aside dönüşür. JECFA inosinik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (inosinik asit ve tuzları için grup ADI).",
+     "year": 1985,
+     "src": "jecfa_e630"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e630",
+    "jecfa_inosinic_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_gmp_imp_1993"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E631": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; inozin-5'-monofosfat (IMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "İnosinatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; insanda son ürün olarak ürik aside dönüşür. JECFA inosinik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (inosinik asit ve tuzları için grup ADI).",
+     "year": 1993,
+     "src": "jecfa_e631"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e631",
+    "jecfa_gmp_imp_1993",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_inosinic_1974"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E632": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; inozin-5'-monofosfat (IMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "İnosinatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; insanda son ürün olarak ürik aside dönüşür. JECFA inosinik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (inosinik asit ve tuzları için grup ADI).",
+     "year": 1985,
+     "src": "jecfa_e632"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e632",
+    "jecfa_inosinic_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_gmp_imp_1993"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E633": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdada et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır; inozin-5'-monofosfat (IMP) türevidir.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "İnosinatlar tüm hayvan ve bitki dokularında doğal olarak bulunur; insanda son ürün olarak ürik aside dönüşür. JECFA inosinik asit ve kalsiyum, disodyum, dipotasyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi (son değerlendirme 1993) ve katkı olarak alımın besinlerle gelen doğal nükleotitlerin çok altında kaldığını belirtti. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (inosinik asit ve tuzları için grup ADI).",
+     "year": 1985,
+     "src": "jecfa_e633"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e633",
+    "jecfa_inosinic_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call",
+    "jecfa_gmp_imp_1993"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E634": {
+   "evidence_level": "moderate",
+   "what_it_does": "İnosinat ve guanilat karışımı olarak et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "İnozin ve guanozin-5'-monofosfat karışımıdır; bu nükleotitler tüm dokularda doğal olarak bulunur ve insanda ürik aside parçalanır. JECFA 1974'te bu karışım için ADI'yi 'belirtilmemiş' olarak belirledi. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş.",
+     "year": 1974,
+     "src": "jecfa_e634"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e634",
+    "jecfa_ribonuc_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E635": {
+   "evidence_level": "moderate",
+   "what_it_does": "İnosinat ve guanilat karışımı olarak et suyu (umami) tadını güçlendiren bir lezzet artırıcıdır.",
+   "found_in": [
+    "Tuz ikameleri",
+    "Çeşni ve baharat karışımları"
+   ],
+   "in_the_body": "İnozin ve guanozin-5'-monofosfat karışımıdır; bu nükleotitler tüm dokularda doğal olarak bulunur ve insanda ürik aside parçalanır. JECFA 1974'te bu karışım için ADI'yi 'belirtilmemiş' olarak belirledi. JECFA 1974 değerlendirmesinde, bu bileşiklerin insanda büyük miktarlarda alınmasının kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabileceği; bunun gut yatkınlığı olan kişiler ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar açısından dikkate alınması gerektiği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş.",
+     "year": 1974,
+     "src": "jecfa_e635"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 626–635 ribonükleotitler grubunda; tuz ikameleri ve çeşni/baharat karışımlarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yayımlandı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_ribonuc_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e635",
+    "jecfa_gmp_imp_1993",
+    "jecfa_ribonuc_1974",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "efsa_ribonuc_call"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E640": {
+   "evidence_level": "moderate",
+   "what_it_does": "Lezzeti düzenleyen ve tatlandırıcı preparatlarında kullanılan bir amino asittir (glisin) ve sodyum tuzudur.",
+   "found_in": [
+    "Sıvı masa tatlandırıcıları",
+    "Grup I katkılarına genel olarak izin verilen işlenmiş gıdalar"
+   ],
+   "in_the_body": "Glisin proteinlerin doğal yapı taşı olan bir amino asittir; besinlerle alınan miktar, katkı olarak alınandan çok daha fazladır. JECFA 2004'te glisini aroma maddesi olarak değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Aroma maddesi olarak: mevcut alım düzeylerinde güvenlik endişesi yok.",
+     "year": 2004,
+     "src": "jecfa_glycine"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (quantum satis); sıvı masa tatlandırıcılarında da quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "jecfa_glycine",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g9"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E650": {
+   "evidence_level": "limited",
+   "what_it_does": "Sakızda lezzet artırıcı olarak kullanılan bir çinko tuzudur.",
+   "found_in": [
+    "Sakız"
+   ],
+   "in_the_body": "Çinko vücut için gerekli bir mineraldir. JECFA 1982'de çinko için geçici en yüksek tolere edilebilir günlük alımı 0,3–1 mg/kg vücut ağırlığı olarak belirledi; SCF 2002'de yetişkinler için tolere edilebilir üst alım düzeyini günde 25 mg olarak belirledi. AB'de yalnızca sakızda en fazla 1 000 mg/kg düzeyinde kullanımına izin verilir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca sakızda (kategori 05.3) en fazla 1 000 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g5"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Çinko: geçici en yüksek tolere edilebilir günlük alım 0,3–1 mg/kg vücut ağırlığı.",
+     "year": 1982,
+     "src": "jecfa_zinc"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "SCF (2002): yetişkinler için tolere edilebilir üst alım düzeyi 25 mg/gün (EFSA özet tablosu).",
+     "year": 2002,
+     "src": "efsa_ul_overview"
+    }
+   ],
+   "sources": [
+    "ab1333_annex2_e_g5",
+    "jecfa_zinc",
+    "efsa_ul_overview"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E924a": {
+   "evidence_level": "strong",
+   "what_it_does": "Hamurun özelliklerini iyileştirmek için una eklenen bir un işlem maddesi olarak kullanılmıştır.",
+   "found_in": [
+    "AB'de izinli katkı listesinde yer almıyor"
+   ],
+   "in_the_body": "JECFA 1992'de, önceki kabul edilebilir düzeylerde işlem görmüş undan yapılan ekmekte bile bromat kalıntısı bulunduğunu gösteren yeni veriler üzerine potasyum bromatın un işlem maddesi olarak kullanımının uygun olmadığı sonucuna vardı ve maddeyi genotoksik bir kanserojen olarak değerlendirdi; bu görüşünü 1995'te yineledi. IARC 1999'da hayvan deneylerinde yeterli, insanlarda ise yetersiz kanıta dayanarak potasyum bromatı Grup 2B'de (insanlar için olası kanserojen) sınıflandırdı; hayvanlarda böbrek ve tiroit tümörleri bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "concern",
+     "detail": "Un işlem maddesi olarak kullanımı kabul edilemez (1992, 1995'te yinelendi); ekmekte kalıntı kalabildiği belirtildi.",
+     "year": 1995,
+     "src": "jecfa_bromate_eval"
+    },
+    {
+     "agency": "IARC",
+     "region": "INT",
+     "status": "classified",
+     "detail": "Grup 2B: insanlar için olası kanserojen (Monografi Cilt 73).",
+     "year": 1999,
+     "src": "iarc_bromate"
+    },
+    {
+     "agency": "CFS (Hong Kong)",
+     "region": "INT",
+     "status": "concern",
+     "detail": "Bromatın una eklenmemesi gerektiği belirtildi.",
+     "year": 2008,
+     "src": "cfs_bromate"
+    }
+   ],
+   "sources": [
+    "jecfa_bromate_fas30",
+    "jecfa_bromate_eval",
+    "iarc_bromate",
+    "ab1129_2011",
+    "cfs_bromate"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E952": {
+   "evidence_level": "moderate",
+   "what_it_does": "Şekerden yaklaşık 30–40 kat tatlı, kalori sağlamayan sentetik bir tatlandırıcıdır.",
+   "found_in": [
+    "Masa tatlandırıcıları",
+    "Enerjisi azaltılmış veya şeker ilavesiz aromalı fermente süt ürünleri",
+    "Enerjisi azaltılmış veya şeker ilavesiz dondurmalar"
+   ],
+   "in_the_body": "Siklamat tam olarak emilmez; emilmeyen kısım bazı kişilerde kalın bağırsak bakterileri tarafından değişken oranlarda sikloheksilamine dönüştürülür. AB Gıda Bilimsel Komitesi (SCF) 2000'de, sıçanlarda sikloheksilaminin testis üzerindeki etkisine ve insanlarda gözlenen en yüksek dönüşüm oranına dayanarak ADI'yi siklamik asit olarak 7 mg/kg vücut ağırlığı belirledi (önceki geçici değer 11 mg/kg idi). EFSA'nın yeniden değerlendirmesi 2026'da başladı ve Haziran 2027'de tamamlanması öngörülüyor.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "SCF",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Revize görüş; ADI 0–7 mg/kg vücut ağırlığı (siklamik asit olarak). Bu görüş üzerine AB'de azami kullanım düzeyleri düşürüldü (2003/115/AT).",
+     "year": 2000,
+     "src": "scf_cyclamate_2000"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; Haziran 2027'de tamamlanması öngörülüyor.",
+     "year": 2026,
+     "src": "efsa_sweeteners_2026"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "AB izinli listesinde; çoğu gıda kategorisinde yalnızca enerjisi azaltılmış veya şeker ilavesiz ürünlerde izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "scf_cyclamate_2000",
+    "eu_dir_2003_115",
+    "efsa_sweeteners_2026",
+    "ab1129_2011",
+    "ecfr_189_135",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E957": {
+   "evidence_level": "moderate",
+   "what_it_does": "Bir tropik meyveden elde edilen, tatlandırıcı ve aroma artırıcı olarak kullanılan tatlı bir proteindir.",
+   "found_in": [
+    "Masa tatlandırıcıları",
+    "Şekersiz şekerleme ve sakız",
+    "Gıda takviyeleri"
+   ],
+   "in_the_body": "Taumatin sindirim sisteminde diğer proteinler gibi kolayca sindirilir. EFSA 2021'deki yeniden değerlendirmesinde sayısal bir günlük kabul edilebilir alım (ADI) belirlemeye gerek görmedi ve izin verilen en yüksek kullanım düzeylerinde güvenlik endişesi olmadığını bildirdi. Ağız yoluyla alerji olasılığı hayvan çalışmalarına göre düşük bulunmuş, insan verilerinden sonuç çıkarılamamıştır; iş yerinde tozunun solunmasıyla alerji bildirilmiş ancak bu durum beslenme yoluyla alım için geçerli sayılmamıştır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI'ye gerek görülmedi, güvenlik endişesi yok.",
+     "year": 2021,
+     "src": "efsa_e957"
+    }
+   ],
+   "sources": [
+    "efsa_e957",
+    "efsa_e957_full",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E959": {
+   "evidence_level": "strong",
+   "what_it_does": "Acı portakaldan elde edilen bir maddenin işlenmesiyle üretilen yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Gazlı ve şekersiz içecekler",
+    "Enerjisi azaltılmış ve şeker ilavesiz ürünler",
+    "Şekerlemeler"
+   ],
+   "in_the_body": "Hayvan çalışmalarına göre vücuda emilir ve kendisi ile yıkım ürünleri çoğunlukla idrarla atılır. EFSA 2022'deki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI), SCF'nin 1989'da belirlediği 5 mg/kg'dan 20 mg/kg vücut ağırlığına yükseltti. Tahmini alım tüm yaş gruplarında bu sınırın çok altında kaldı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 5'ten 20 mg/kg'a yükseltildi.",
+     "year": 2022,
+     "src": "efsa_e959"
+    }
+   ],
+   "sources": [
+    "efsa_e959",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E960": {
+   "evidence_level": "strong",
+   "what_it_does": "Stevia bitkisinin yapraklarından elde edilen (ya da enzim veya fermentasyonla üretilen) yoğun tatlandırıcılardır; AB'de E 960a–E 960d alt numaralarıyla listelenir.",
+   "found_in": [
+    "Şekersiz ve enerjisi azaltılmış içecekler",
+    "Masa tatlandırıcıları",
+    "Şekersiz sakız ve şekerlemeler"
+   ],
+   "in_the_body": "Steviol glikozitleri vücutta aynı yollarla yıkılır ve ortak yıkım ürünü steviol olur. EFSA 2010'da günlük kabul edilebilir alımı (ADI) steviol olarak 4 mg/kg vücut ağırlığı olarak belirledi; 2024'te bu sınırı yükseltmek için yeterli gerekçe bulmadı. EFSA, yüksek tüketen yetişkin ve çocuklarda bu sınırın aşılabileceğini, başlıca kaynağın alkolsüz içecekler olduğunu bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Güvenlik değerlendirmesi; ADI 4 mg/kg (steviol olarak) belirlendi.",
+     "year": 2010,
+     "src": "efsa_e960"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Tatlandırıcı olarak AB listesine eklendi (Tüzük 1131/2011).",
+     "year": 2011,
+     "src": "eu_2011_1131"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "E 960 adı E 960a (Stevia'dan) olarak değişti; enzimle üretilen E 960c eklendi (Tüzük 2021/1156).",
+     "year": 2021,
+     "src": "eu_2021_1156"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Glukozillenmiş steviol glikozitleri E 960d olarak eklendi (Tüzük 2023/447).",
+     "year": 2023,
+     "src": "eu_2023_447"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Fermentasyonla üretilen E 960b eklendi (Tüzük 2025/652).",
+     "year": 2025,
+     "src": "eu_2025_652"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI'nin yükseltilmesi için yeterli gerekçe bulunmadı; 4 mg/kg korundu.",
+     "year": 2024,
+     "src": "efsa_e960_2024"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "EFSA'ya göre çok tüketen çocuklarda, özellikle küçük çocuklarda, günlük alım sınırı aşılabilir; başlıca kaynak içeceklerdir."
+    }
+   ],
+   "sources": [
+    "efsa_e960",
+    "efsa_e960_2024",
+    "eu_2011_1131",
+    "eu_2021_1156",
+    "eu_2023_447",
+    "eu_2025_652",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E961": {
+   "evidence_level": "strong",
+   "what_it_does": "Aspartamdan kimyasal olarak üretilen, çok az miktarda kullanılan yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Masa tatlandırıcıları",
+    "Sakız ve şekerlemeler",
+    "Aromalı içecekler"
+   ],
+   "in_the_body": "Hızla emilir ve büyük ölçüde vücuda geçmeden yıkılır; yıkım ürünleri idrarla atılır. EFSA 2025'te günlük kabul edilebilir alımı (ADI) 2'den 10 mg/kg vücut ağırlığına yükseltti ve tahmini alımın bu sınırı aşmadığını bildirdi. Yıkımı sırasında oluşabilecek fenilalanin miktarının, bu sınırda bile kandaki fenilalanin düzeyini %1'den az artıracağını ve taşıyıcılar dahil genel nüfus için güvenli olduğunu belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 2'den 10 mg/kg'a yükseltildi.",
+     "year": 2025,
+     "src": "efsa_e961"
+    }
+   ],
+   "sources": [
+    "efsa_e961",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E969": {
+   "evidence_level": "strong",
+   "what_it_does": "Şekerden binlerce kat tatlı olan, çok düşük miktarda kullanılan yoğun bir tatlandırıcıdır.",
+   "found_in": [
+    "Masa tatlandırıcıları",
+    "Şekersiz sakız",
+    "Enerjisi azaltılmış süt ürünleri ve tatlılar"
+   ],
+   "in_the_body": "Hızlı ama az miktarda emilir ve çoğunlukla dışkıyla atılır. EFSA 2013'te günlük kabul edilebilir alımı (ADI) 5 mg/kg vücut ağırlığı olarak belirledi ve yüksek tüketen yetişkin ve çocuklarda bile tahmini alımın bu sınırın altında kaldığını bildirdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Güvenlik değerlendirmesi; ADI 5 mg/kg.",
+     "year": 2013,
+     "src": "efsa_e969"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Tatlandırıcı olarak AB listesine eklendi (Tüzük 497/2014).",
+     "year": 2014,
+     "src": "eu_2014_497"
+    }
+   ],
+   "sources": [
+    "efsa_e969",
+    "eu_2014_497"
+   ],
+   "last_reviewed": "2026-10-06"
   }
  }
 }

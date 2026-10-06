@@ -60,24 +60,28 @@ Alt maddeler:
 Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikte ansiklopedi sayfası yok. Aşağıdakiler bilerek sonraya bırakıldı; sayılar `data/ansiklopedi.json`, `data/e_kodlari.json`, `data/kozmetik.json`, `data/temizlik.json`'dan 05.10.2026'da sayıldı.
 
 ### Gıda (E kodları)
-- 181 sayfa elle incelenmiş (`review=curated`), **152 sayfa otomatik** (`review=auto`; 05.10.2026'da 5. parti ile 40 madde eklendi). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`, 171 farklı metin), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. Bunların hepsinde eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet. (192 sayfa döneminde sayılmıştı: 188'inde vegan durumu `unknown`, 139'unda profil uyarısı yok.)
-- Öncelik 1, renkli (resmi kaynağı olduğu hâlde otomatik kalan, kaynak bulununca elle yazılacak, 11): E123, E154, E160f, E216, E217, E230, E284, E285, E320, E924a, E952.
-- Öncelik 2, yeşil (141), kategoriye göre:
+- 220 sayfa elle incelenmiş (`review=curated`), **113 sayfa otomatik** (`review=auto`; 06.10.2026'da 6. parti ile 39 madde eklendi). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. Bunların hepsinde eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet.
+- ÇÖZÜLDÜ (06.10.2026, 6. parti): 11 renkli madde (E123, E154, E160f, E216, E217, E230, E284, E285, E320, E924a, E952) resmi kaynakla elle yazıldı; e_kodlari kaynakları Wikipedia/ikincil siteler yerine EFSA, EUR-Lex, JECFA/IARC (inchem), FDA. Gerekçe düzeltmeleri: E154 (EFSA 2010, 1129/2011), E230 (2003/114/AT), E924a (IARC 1999), E952 ("1996" ve "1970" kaldırıldı; SCF 2000), E216/E217 (2006/52/AT; "doğrulanmalı" kalktı). Aynı partide koruyucular (E214, E215, E218, E219, E239, E242, E243, E261–E263, E1105), lezzet artırıcılar (E626–E635, E640, E650), tatlandırıcılar (E957, E959, E960, E961, E969).
+- 6. partiden açık kalanlar:
+  - E920 (L-sistein) atlandı: AB kullanım koşulları ve kaynak (kıl/hayvansal/mikrobiyal) şartnamesi okunamadı, EFSA katkı değerlendirmesi yok.
+  - E285: boraksın CLP Repr. 1B sınıflandırması resmi kaynakta doğrulanamadı (yalnızca borik asit için, Tüzük 790/2009); gerekçe metni değiştirilmedi.
+  - California AB 418 kaynağı LegiScan kopyası (leginfo 403); eCFR ve SCF (food.ec.europa.eu) kaynakları resmi alan listesinde olmadığı için `official:false`.
+  - Yeşil maddelerin e_kodlari gerekçesi ("ayrıntılı değerlendirme yapılmamıştır") E239, E242, E243, E261–E263, E626–E629, E640 için yanlış (EFSA/JECFA değerlendirmesi var); E214/E215/E218/E219 gerekçesindeki "endokrin etkileri tartışmalı" ifadesi metil/etil paraben için desteklenmiyor; E650 yalnızca sakızda izinli. Ansiklopedi sayfası doğru bilgiyi veriyor, tarama ekranı gerekçesi ayrı PR'da düzeltilmeli.
+  - E626–E635 `uretim` kaynağı (CELEX:32018R0238) yem tüzüğü; gıda için doğru değil. Hayvansal/bitkisel kaynak resmi metinde bulunamadı (`vegan: unknown`).
+  - AB kullanım koşulları çoğunlukla legislation.gov.uk'nin 31.12.2020 anlık görüntüsünden; güncel konsolide EUR-Lex metni okunamadı. TGK 2023 (Resmî Gazete) okunamadı, TR durumu 2013 listesine göre.
+- Kalan otomatik sayfalar, hepsi yeşil (113), kategoriye göre:
   - Asitlik düzenleyiciler (53): E260, E270, E296, E297, E325, E326, E327, E330, E331, E332, E333, E334, E335, E336, E337, E350, E351, E352, E353, E354, E355, E356, E357, E363, E380, E500, E501, E503, E504, E507, E508, E509, E511, E512, E513, E514, E515, E516, E517, E524, E525, E526, E527, E528, E529, E530, E574, E575, E576, E577, E578, E579, E585
   - Emülgatörler (1): E431 (EFSA yeniden değerlendirmesi bulunamadı)
-  - Koruyucular (11): E214, E215, E218, E219, E239, E242, E243, E261, E262, E263, E1105
   - Antioksidanlar (1): E385 (EFSA görüşü yok; 2024 veri çağrısı açık)
-  - Lezzet artırıcılar (12): E626, E627, E628, E629, E630, E631, E632, E633, E634, E635, E640, E650
   - Kıvam artırıcılar (11): E405, E406, E413, E416, E417, E418, E425, E426, E427, E441, E1204
   - Diğer (9): E920, E927b, E1103, E1200, E1505, E1517, E1518, E1519, E1521
   - Gazlar (10): E290, E938, E939, E941, E942, E943a, E943b, E944, E948, E949
   - Parlatıcılar (10): E901, E902, E903, E904, E905, E907, E912, E914, E1203, E1205
   - Topaklanmayı önleyiciler (8): E535, E536, E538, E551, E552, E553a, E553b, E558
   - Dengeleyiciler (6): E444, E445, E459, E999, E1201, E1202
-  - Tatlandırıcılar (5): E957, E959, E960, E961, E969
   - Renklendiriciler (4): E101, E160d, E162, E172
 - Yapılacak: her madde için EFSA/AB 1333/2008 kaynaklı elle kayıt (`kaynak/ansiklopedi.json` `kayitlar`), aynı biçim ve `test/ansiklopedi.js` doğrulamasıyla. Kaynağı güvenilir okunamayanlar (E101, E160d, E162, E172 gibi) otomatik kalabilir, nedeni kayda yazılır.
-- **"Vücutta ne olur?" alanı kullanıcı beklentisini karşılamıyor (05.10.2026, kullanıcı geri bildirimi).** Kullanıcı belirti bekliyor (baş ağrısı, ishal gibi). Alan ise metabolizma ve kurum kararını anlatıyor. 181 elle kayıttan 172'sinde EFSA/ADI/IARC cümlesi var ve bu, "Kurumlar" bölümünü tekrar ediyor. Yalnızca 28 kayıtta belirti ya da hassasiyet geçiyor. Örnek: E440 "değişmeden emilmez… EFSA 2017 ADI gerekmedi". 152 otomatik sayfada alan hiç yok.
+- **"Vücutta ne olur?" alanı kullanıcı beklentisini karşılamıyor (05.10.2026, kullanıcı geri bildirimi).** Kullanıcı belirti bekliyor (baş ağrısı, ishal gibi). Alan ise metabolizma ve kurum kararını anlatıyor. 181 elle kayıttan 172'sinde EFSA/ADI/IARC cümlesi var ve bu, "Kurumlar" bölümünü tekrar ediyor. Yalnızca 28 kayıtta belirti ya da hassasiyet geçiyor. Örnek: E440 "değişmeden emilmez… EFSA 2017 ADI gerekmedi". 113 otomatik sayfada alan hiç yok.
   - Önerilen çözüm (seçilmedi, önce kısa plan): `in_the_body` yerine yapılandırılmış "Olası etkiler" listesi. Her satırda belirti, kimde, hangi miktarda, kanıt düzeyi ve kaynak olur. Belirti yoksa "Normal kullanımda bilinen bir yan etki yok (kaynak, yıl)" yazılır. EFSA/ADI cümleleri Kurumlar bölümüne taşınır. Kısa bir "vücutta nasıl işlenir" satırı kalabilir.
   - Kurallar: Kaynak zorunlu (EFSA, JECFA, AB etiket zorunluluğu, hakemli derleme). Kanıt düzeyi üç seviyedir: "Resmi uyarı", "Duyarlı kişilerde bildirildi", "Kanıt tutarsız" (örneğin MSG ve baş ağrısı). Anekdot yazılmaz. Dil "yapar" değil "yol açabilir / bildirilmiştir" olur, miktar ve kişi belirtilir, teşhis ya da tedavi önerisi verilmez. Sabit bir "Şikâyetiniz varsa hekime danışın" notu eklenir. Belirtiler renk almaz, kırmızı yine yalnızca kişisel uyarıda kalır. Dil hukuki görüş maddesine de girer.
   - Alternatifler: Mevcut serbest metni belirti odaklı yeniden yazmak daha hızlıdır ama kaynak ve kanıt satır satır görünmez. Yalnızca başlığı "Güvenlik değerlendirmesi" yapmak en ucuz yoldur ama beklentiyi karşılamaz.
