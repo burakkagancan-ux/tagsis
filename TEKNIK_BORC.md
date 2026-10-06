@@ -53,6 +53,9 @@ Alt maddeler:
 6. İşlev adı tekrarı ("PARFUM · Koku, Parfüm") kaldırılmalı. — KAPANDI
 
 
+## Paylaşım sayacı KV bağlaması — KAPANDI (06.10.2026)
+- `paylasim-sayac` KV namespace'i Cloudflare panelinde oluşturuldu, ID `worker/wrangler.toml` içinde `SAYAC` olarak bağlandı. Dağıtımdan sonra /sayac sayım yapar (ürün, metin, IP saklanmaz).
+
 ## Ansiklopedi: eksik bilgiler (05.10.2026)
 Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikte ansiklopedi sayfası yok. Aşağıdakiler bilerek sonraya bırakıldı; sayılar `data/ansiklopedi.json`, `data/e_kodlari.json`, `data/kozmetik.json`, `data/temizlik.json`'dan 05.10.2026'da sayıldı.
 
