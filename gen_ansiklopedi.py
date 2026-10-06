@@ -125,7 +125,8 @@ def main():
             regs.append({"agency": g["agency"], "region": g["region"], "status": g["status"], "detail": "agency." + a,
                          "year": g["year"], "source_url": ""})   # dayanağı Kaynaklar sekmesinde
         st = EU_STATUS.get(it.get("eu_status"))
-        if st and not any(g["region"] == "EU" and g["status"] in ("banned", "withdrawn", "not_listed") for g in regs):
+        extra = (cur or {}).get("regulatory_extra", [])   # elle yazılan AB satırı varsa genel satır eklenmez
+        if st and not any(g["region"] == "EU" and g["status"] in ("banned", "withdrawn", "not_listed") for g in regs + extra):
             T[rid + ".reg.eu"] = st[1]
             regs.append({"agency": "Avrupa Komisyonu", "region": "EU", "status": st[0], "detail": rid + ".reg.eu",
                          "year": None, "source_url": ""})
