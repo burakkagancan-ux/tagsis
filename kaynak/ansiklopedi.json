@@ -1197,6 +1197,405 @@
    "year": 2014,
    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0497",
    "official": true
+  },
+  "jecfa_e260": {
+   "title": "JECFA Evaluations: Acetic acid",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 928-JECFA 63/26)",
+   "year": 2004,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_10.htm",
+   "official": true
+  },
+  "jecfa_acetic_fas5": {
+   "title": "261. Acetic acid and its potassium and sodium salts (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je05.htm",
+   "official": true
+  },
+  "jecfa_e270": {
+   "title": "JECFA Evaluations: Lactic acid",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 909-JECFA 57/98)",
+   "year": 2001,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1252.htm",
+   "official": true
+  },
+  "jecfa_lactic_fas5": {
+   "title": "Lactic acid and its ammonium, calcium, potassium and sodium salts (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je86.htm",
+   "official": true
+  },
+  "jecfa_e325": {
+   "title": "JECFA Evaluations: Sodium lactate (solution)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 54/TRS 557-JECFA 18/25)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2156.htm",
+   "official": true
+  },
+  "jecfa_e326": {
+   "title": "JECFA Evaluations: Potassium lactate (solution)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 54/TRS 557-JECFA 18/25)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1984.htm",
+   "official": true
+  },
+  "jecfa_e327": {
+   "title": "JECFA Evaluations: Calcium lactate",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 54/TRS 557-JECFA 18/25)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_323.htm",
+   "official": true
+  },
+  "jecfa_e296": {
+   "title": "JECFA Evaluations: DL-Malic acid",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 46/TRS 445-JECFA 13/16)",
+   "year": 1969,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1313.htm",
+   "official": true
+  },
+  "jecfa_malic_1967": {
+   "title": "073. Malic, dl- acid (FAO Nutrition Meetings Report Series 40abc)",
+   "publisher": "JECFA / FAO-WHO (IPCS INCHEM)",
+   "year": 1967,
+   "url": "https://inchem.org/documents/jecfa/jecmono/40abcj45.htm",
+   "official": true
+  },
+  "efsa_e296_call": {
+   "title": "Call for data for the re-evaluation of malic acid and malates (E 296; E 350-352) as food additives",
+   "publisher": "EFSA",
+   "year": 2024,
+   "url": "https://efsa.europa.eu/sites/default/files/2024-07/call-for-data-malic-acid-malates_0.pdf",
+   "official": true
+  },
+  "jecfa_e297": {
+   "title": "JECFA Evaluations: Fumaric acid",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 896-JECFA 53/67)",
+   "year": 1999,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_869.htm",
+   "official": true
+  },
+  "jecfa_fumaric_fas6": {
+   "title": "357. Fumaric acid (WHO Food Additives Series 6)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v06je04.htm",
+   "official": true
+  },
+  "efsa_e297_call": {
+   "title": "Call for data for the re-evaluation of fumaric acid (E 297) and succinic acid (E 363) as food additives",
+   "publisher": "EFSA",
+   "year": 2024,
+   "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-fumaric-acid-e-297-and-succinic-acid-e-363-food-additives",
+   "official": true
+  },
+  "jecfa_e330": {
+   "title": "JECFA Evaluations: Citric acid",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/35)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_436.htm",
+   "official": true
+  },
+  "jecfa_citric_fas5": {
+   "title": "Citric acid and its calcium, potassium and sodium salts (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je24.htm",
+   "official": true
+  },
+  "jecfa_e331": {
+   "title": "JECFA Evaluations: Trisodium citrate",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/35)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2346.htm",
+   "official": true
+  },
+  "jecfa_e331i": {
+   "title": "JECFA Evaluations: Sodium dihydrogen citrate",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 648-JECFA 23/31)",
+   "year": 1986,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2145.htm",
+   "official": true
+  },
+  "jecfa_e332": {
+   "title": "JECFA Evaluations: Tripotassium citrate",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; NMRS 53/TRS 539-JECFA 17/35)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2342.htm",
+   "official": true
+  },
+  "jecfa_e332i": {
+   "title": "JECFA Evaluations: Potassium dihydrogen citrate",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 648-JECFA 23/31)",
+   "year": 1987,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1973.htm",
+   "official": true
+  },
+  "ab1333_annex2_e_g10": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 10 (categories 12.5–13.1.3; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/10/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g12": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 12 (categories 14.1.4–14.2.7; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/12/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g13": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 13 (kategori 16 Tatlılar dahil; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/13/2020-12-31",
+   "official": true
+  },
+  "efsa_tartrates": {
+   "title": "Re‐evaluation of l(+)‐tartaric acid (E 334), sodium tartrates (E 335), potassium tartrates (E 336), potassium sodium tartrate (E 337) and calcium tartrate (E 354) as food additives",
+   "publisher": "EFSA (EFSA Journal 18(3):6030)",
+   "year": 2020,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/6030",
+   "official": true
+  },
+  "efsa_e353": {
+   "title": "Re‐evaluation of metatartaric acid (E 353) as a food additive",
+   "publisher": "EFSA (EFSA Journal 18(3):6031)",
+   "year": 2020,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/6031",
+   "official": true
+  },
+  "eu_2024_1451": {
+   "title": "Commission Regulation (EU) 2024/1451 of 24 May 2024 amending Annex II and Annex III to Regulation (EC) No 1333/2008",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2024,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1451",
+   "official": true
+  },
+  "eu_2013_509": {
+   "title": "Commission Regulation (EU) No 509/2013 of 3 June 2013 amending Annex II to Regulation (EC) No 1333/2008",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2013,
+   "url": "https://www.legislation.gov.uk/eur/2013/509/data.html",
+   "official": true
+  },
+  "eu_2019_934": {
+   "title": "Commission Delegated Regulation (EU) 2019/934 (authorised oenological practices, Annex I)",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2019,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019R0934",
+   "official": true
+  },
+  "efsa_malates_call": {
+   "title": "Call for data for the re-evaluation of malic acid and malates (E 296; E 350-352) as food additives",
+   "publisher": "EFSA",
+   "year": 2024,
+   "url": "https://efsa.europa.eu/en/call/call-data-re-evaluation-malic-acid-and-malates-e-296-e-350-352-food-additives",
+   "official": true
+  },
+  "ecfr_184_1099": {
+   "title": "21 CFR 184.1099 Tartaric acid",
+   "publisher": "eCFR (U.S. National Archives / FDA)",
+   "year": 2026,
+   "url": "https://www.ecfr.gov/current/title-21/section-184.1099",
+   "official": true
+  },
+  "jecfa_e333": {
+   "title": "JECFA Evaluations: Calcium citrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_306.htm",
+   "official": true
+  },
+  "jecfa_e334": {
+   "title": "JECFA Evaluations: L(+)-Tartaric acid",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1977,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2226.htm",
+   "official": true
+  },
+  "jecfa_e335": {
+   "title": "JECFA Evaluations: Monosodium L(+)-tartrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1977,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1672.htm",
+   "official": true
+  },
+  "jecfa_e336": {
+   "title": "JECFA Evaluations: Potassium L(+)-tartrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1998.htm",
+   "official": true
+  },
+  "jecfa_e337": {
+   "title": "JECFA Evaluations: Potassium sodium L(+)-tartrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1993.htm",
+   "official": true
+  },
+  "jecfa_e350i": {
+   "title": "JECFA Evaluations: Sodium hydrogen DL-malate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2152.htm",
+   "official": true
+  },
+  "jecfa_e350ii": {
+   "title": "JECFA Evaluations: Sodium DL-malate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1979,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2157.htm",
+   "official": true
+  },
+  "jecfa_e351i": {
+   "title": "JECFA Evaluations: Potassium hydrogen DL-malate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1980.htm",
+   "official": true
+  },
+  "jecfa_e351ii": {
+   "title": "JECFA Evaluations: Potassium DL-malate solution",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1979,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1985.htm",
+   "official": true
+  },
+  "jecfa_e352": {
+   "title": "JECFA Evaluations: Calcium DL-malate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1979,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_324.htm",
+   "official": true
+  },
+  "efsa_chlorides": {
+   "title": "Re‐evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives",
+   "publisher": "EFSA (EFSA Journal 17(7):5751)",
+   "year": 2019,
+   "url": "https://doaj.org/article/f1167f08c710489bb789509e8292b828",
+   "official": true
+  },
+  "efsa_e363_call": {
+   "title": "Call for data for the re-evaluation of fumaric acid (E 297) and succinic acid (E 363) as food additives (background document)",
+   "publisher": "EFSA",
+   "year": 2024,
+   "url": "https://efsa.europa.eu/sites/default/files/2024-07/call-for-data-fumaric-e297-succinic-e363-background-document.pdf",
+   "official": true
+  },
+  "jecfa_e355": {
+   "title": "JECFA Evaluations: Adipic acid",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 617-JECFA 21/13)",
+   "year": 1977,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_44.htm",
+   "official": true
+  },
+  "jecfa_e380": {
+   "title": "JECFA Evaluations: Triammonium citrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 648-JECFA 23/31)",
+   "year": 1979,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2303.htm",
+   "official": true
+  },
+  "jecfa_e500i": {
+   "title": "JECFA Evaluations: Sodium carbonate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://www.inchem.org/documents/jecfa/jeceval/jec_2137.htm",
+   "official": true
+  },
+  "jecfa_e500ii": {
+   "title": "JECFA Evaluations: Sodium hydrogen carbonate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2151.htm",
+   "official": true
+  },
+  "jecfa_e501ii": {
+   "title": "JECFA Evaluations: Potassium hydrogen carbonate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1979.htm",
+   "official": true
+  },
+  "jecfa_e503ii": {
+   "title": "JECFA Evaluations: Ammonium hydrogen carbonate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 683-JECFA 26/26)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_105.htm",
+   "official": true
+  },
+  "jecfa_e504i": {
+   "title": "JECFA Evaluations: Magnesium carbonate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1295.htm",
+   "official": true
+  },
+  "jecfa_e504ii": {
+   "title": "JECFA Evaluations: Magnesium carbonate hydroxide hydrated",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 648-JECFA 23/31)",
+   "year": 1979,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1303.htm",
+   "official": true
+  },
+  "jecfa_e507": {
+   "title": "JECFA Evaluations: Hydrochloric acid",
+   "publisher": "JECFA / WHO (IPCS INCHEM; FAS 67.29/NMRS 40A,B,C-JECFA 9/141)",
+   "year": 1965,
+   "url": "https://www.inchem.org/documents/jecfa/jeceval/jec_1065.htm",
+   "official": true
+  },
+  "efsa_sulphates": {
+   "title": "Re‐evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514 (i), 514 (ii), 515 (i), 515 (ii), 516 and 517) as food additive",
+   "publisher": "EFSA (EFSA Journal 17(10):5868)",
+   "year": 2019,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/5868",
+   "official": true
+  },
+  "efsa_e512": {
+   "title": "Re‐evaluation of stannous chloride (E 512) as food additive",
+   "publisher": "EFSA (EFSA Journal 16(6):5295)",
+   "year": 2018,
+   "url": "https://doaj.org/article/4d89513940294160a0990361b6c60404",
+   "official": true
+  },
+  "jecfa_e512": {
+   "title": "JECFA Evaluations: Stannous chloride",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1988,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2193.htm",
+   "official": true
+  },
+  "jecfa_e524": {
+   "title": "JECFA Evaluations: Sodium hydroxide",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2154.htm",
+   "official": true
+  },
+  "efsa_call_batch5": {
+   "title": "Call for food additives usage level and/or concentration data in food and beverages intended for human consumption (Batch 5)",
+   "publisher": "EFSA",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/data/call/160524",
+   "official": true
+  },
+  "ab1333_annex2_e_g3": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 3 (categories 04.2.1–04.2.5; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/3/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex3_p1": {
+   "title": "Regulation (EC) No 1333/2008, Annex III Part 1 – carriers in food additives (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/1/2020-12-31",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -8566,6 +8965,1843 @@
    "sources": [
     "efsa_e969",
     "eu_2014_497"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E260": {
+   "evidence_level": "limited",
+   "what_it_does": "Sirkenin ana asidi olup gıdada ekşilik veren asitlik düzenleyici ve koruyucu olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA'ya göre asetat vücudun normal metabolizmasına katılır; bağırsaktan emilir ve enerji üretiminde ya da yağ asidi, glikojen gibi bileşiklerin yapımında tamamen kullanılır. İnsanların sirke ve gıdalarla günde yaklaşık 1 g asetik asidi yüzyıllardır tükettiği belirtilmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi, 1997'de bu kararı korudu; 2004'te antimikrobiyal yıkama çözeltilerinden gıdada kalan küçük kalıntıların güvenlik sorunu oluşturmayacağını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (1973, 1997'de korundu); 2004'te 'kabul edilebilir'.",
+     "year": 2004,
+     "src": "jecfa_e260"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e260",
+    "jecfa_acetic_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E270": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya ekşilik veren ve pH'ı ayarlayan bir asitlik düzenleyicidir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
+   ],
+   "in_the_body": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1973'te laktik asit ve tuzları için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; 2001'de aroma maddesi olarak mevcut alım düzeylerinde güvenlik sorunu görmedi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; D(-) ve DL formları bebek gıdalarında kullanılmamalı.",
+     "year": 1973,
+     "src": "jecfa_e270"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek mamalarında ve bebek ek gıdalarında yalnızca L(+) formu izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-) ve DL-laktik asidin bebek gıdalarında kullanılmamasını önermiştir; AB'de bebek mamalarında ve bebek ek gıdalarında yalnızca L(+) formuna izin verilir."
+    }
+   ],
+   "sources": [
+    "jecfa_e270",
+    "jecfa_lactic_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E296": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya meyvemsi bir ekşilik veren ve pH'ı ayarlayan bir asitlik düzenleyicidir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "L(+)-malik asit vücutta Krebs döngüsünün bir ara ürünüdür ve kolayca yükseltgenir; D(-) formunun vücuttaki akıbeti daha az bilinmektedir. JECFA, sebze, meyve ve meyve sularından günlük malik asit alımını 1,5–3 g olarak hesaplamıştır. AB Gıda Bilimsel Komitesi (SCF) 1991'de malik asit ve malatlar için grup ADI'yi 'belirtilmemiş' olarak belirledi; JECFA da ADI'yi 'belirtilmemiş' olarak verdi, ancak D(-)-malik asit ve tuzları için bu değerin çok küçük bebeklere uygulanmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş'; D(-)-malik asit için çok küçük bebeklere uygulanmaz.",
+     "year": 1969,
+     "src": "jecfa_e296"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2024'te veri çağrısı yayımlandı (SCF 1991: grup ADI 'belirtilmemiş').",
+     "year": 2024,
+     "src": "efsa_e296_call"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-) ve DL-malik asidin tedavi amaçlı durumlar dışında çok küçük bebeklerin gıdalarına eklenmemesini önermiştir."
+    }
+   ],
+   "sources": [
+    "jecfa_e296",
+    "jecfa_malic_1967",
+    "efsa_e296_call",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E297": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya ekşilik veren bir asitlik düzenleyicidir; özellikle toz ürünlerde kullanılır.",
+   "found_in": [
+    "Meyve aromalı, jöle tipi ve toz tatlı karışımları",
+    "Sakız ve unlu mamul dolguları",
+    "Hazır toz meyve içecekleri ve aromalı çay karışımları"
+   ],
+   "in_the_body": "Fumarik asit, vücut dokularında Krebs döngüsünün bir parçası olarak doğal olarak bulunur. JECFA 1974'te ADI'yi 0–6 mg/kg vücut ağırlığı olarak belirlemiş, 1989'da fumarik asit ve tuzları için grup ADI'yi 'belirtilmemiş' olarak güncellemiş ve bunu 1999'da korumuştur. JECFA değerlendirmesinde fumaratların yüksek dozda müshil etkisi olduğu; kabız hastalara verilen 5–30 g sodyum fumaratta 15 g üzerindeki dozların istenmeyen yan etkilere yol açtığı bildirilmiştir; günde 500 mg fumarik asidin bir yıl boyunca verildiği yetişkinlerde ise olumsuz bulgu görülmemiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Grup ADI 'belirtilmemiş' (1989; 1999'da korundu).",
+     "year": 1999,
+     "src": "jecfa_e297"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I'de değil; tatlılar, sakız, dolgular ve toz içecekler gibi belirli kategorilerde azami limitlerle izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g13"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2024'te yeni veri çağrısı yayımlandı (2010 ve 2012 çağrılarına veri gelmemişti).",
+     "year": 2024,
+     "src": "efsa_e297_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e297",
+    "jecfa_fumaric_fas6",
+    "efsa_e297_call",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g13",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E325": {
+   "evidence_level": "limited",
+   "what_it_does": "Laktik asidin sodyum tuzu olup asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için, L(+) formu)"
+   ],
+   "in_the_body": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te sodyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; D(-) ve DL formları bebek gıdalarında kullanılmamalı.",
+     "year": 1974,
+     "src": "jecfa_e325"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek ek gıdalarında yalnızca pH ayarı için ve yalnızca L(+) formu izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-) ve DL-laktik asidin bebek gıdalarında kullanılmamasını önermiştir; AB'de bebek mamalarında ve bebek ek gıdalarında yalnızca L(+) formuna izin verilir."
+    },
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    }
+   ],
+   "sources": [
+    "jecfa_e325",
+    "jecfa_lactic_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E326": {
+   "evidence_level": "limited",
+   "what_it_does": "Laktik asidin potasyum tuzu olup asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için, L(+) formu)"
+   ],
+   "in_the_body": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te potasyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; D(-) ve DL formları bebek gıdalarında kullanılmamalı.",
+     "year": 1974,
+     "src": "jecfa_e326"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek ek gıdalarında yalnızca pH ayarı için ve yalnızca L(+) formu izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-) ve DL-laktik asidin bebek gıdalarında kullanılmamasını önermiştir; AB'de bebek mamalarında ve bebek ek gıdalarında yalnızca L(+) formuna izin verilir."
+    }
+   ],
+   "sources": [
+    "jecfa_e326",
+    "jecfa_lactic_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E327": {
+   "evidence_level": "limited",
+   "what_it_does": "Laktik asidin kalsiyum tuzu olup asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için, L(+) formu)"
+   ],
+   "in_the_body": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te kalsiyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; D(-) ve DL formları bebek gıdalarında kullanılmamalı.",
+     "year": 1974,
+     "src": "jecfa_e327"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek ek gıdalarında yalnızca pH ayarı için ve yalnızca L(+) formu izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-) ve DL-laktik asidin bebek gıdalarında kullanılmamasını önermiştir; AB'de bebek mamalarında ve bebek ek gıdalarında yalnızca L(+) formuna izin verilir."
+    }
+   ],
+   "sources": [
+    "jecfa_e327",
+    "jecfa_lactic_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E330": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya ekşilik veren, pH'ı ayarlayan ve antioksidanların etkisini destekleyen bir asitlik düzenleyicidir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
+   ],
+   "in_the_body": "JECFA'ya göre sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür. JECFA 1973'te sitrik asit ve kalsiyum, potasyum, sodyum ve amonyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, sitrik asidin sık ya da yüksek miktarda alınmasının düşük pH nedeniyle diş erozyonuna ve yerel tahrişe yol açabileceğini bildirmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Grup ADI 'sınırlandırılmamış' (sitrik asit ve tuzları).",
+     "year": 1973,
+     "src": "jecfa_e330"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e330",
+    "jecfa_citric_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E331": {
+   "evidence_level": "limited",
+   "what_it_does": "Sitrik asidin sodyum tuzları olup asitlik düzenleyici, tampon ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
+   ],
+   "in_the_body": "JECFA'ya göre sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür. JECFA sodyum sitratları sitrik asit grup ADI'sine ('sınırlandırılmamış') dahil etmiştir; sodyum sitratın tıpta günde 10 g'a varan dozlarda uzun yıllar kullanıldığını belirtmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; sitrik asit grup ADI'sine dahil.",
+     "year": 1973,
+     "src": "jecfa_e331"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek mamalarında ve bebek ek gıdalarında sınırlı koşullarla izinli (bebek mamalarında azami 2000 mg/kg).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "sources": [
+    "jecfa_e331",
+    "jecfa_e331i",
+    "jecfa_citric_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06",
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    }
+   ]
+  },
+  "E332": {
+   "evidence_level": "limited",
+   "what_it_does": "Sitrik asidin potasyum tuzları olup asitlik düzenleyici, tampon ve stabilizatör olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
+   ],
+   "in_the_body": "JECFA'ya göre sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür. JECFA potasyum sitratları sitrik asit grup ADI'sine ('sınırlandırılmamış') dahil etmiştir; potasyum sitratın tıpta günde 10 g'a varan dozlarda uzun yıllar kullanıldığını belirtmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; sitrik asit grup ADI'sine dahil.",
+     "year": 1973,
+     "src": "jecfa_e332"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek mamalarında ve bebek ek gıdalarında sınırlı koşullarla izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "sources": [
+    "jecfa_e332",
+    "jecfa_e332i",
+    "jecfa_citric_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E333": {
+   "evidence_level": "moderate",
+   "what_it_does": "Gıdanın asitliğini düzenleyen, metal iyonlarını bağlayan ve dokuyu sıkılaştırmaya yardımcı olan bir kalsiyum tuzudur.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta normal metabolizma ürünleridir; sitrik asit hücrelerin enerji döngüsünde (trikarboksilik asit döngüsü) yer alır. JECFA 1973'te sitrik asit ile kalsiyum, potasyum ve sodyum tuzları için ADI'yi 'sınırlandırılmamış' olarak belirledi ve bu maddelerin insan için önemli bir toksikolojik risk oluşturmadığını belirtti. JECFA, sitrik asidin sık ya da yüksek miktarda alınmasının düşük pH nedeniyle diş aşınmasına ve lokal tahrişe yol açabileceğini bildirmiştir.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI sınırlandırılmamış (sitrik asit ve kalsiyum, potasyum, sodyum tuzları).",
+     "year": 1973,
+     "src": "jecfa_e333"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı; birçok gıdada quantum satis izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e333",
+    "jecfa_citric_fas5",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E334": {
+   "evidence_level": "strong",
+   "what_it_does": "Gıdaya ekşi tat veren ve asitliği düzenleyen bir asittir; şarap üretiminin yan ürünü olarak elde edilir.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek, bisküvi gibi ince unlu mamuller",
+    "Aromalı içecekler ve soslar"
+   ],
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E 334–337 ve E 354 için grup ADI 240 mg/kg vücut ağırlığı/gün (tartarik asit olarak); maruziyet ADI'yi aşmıyor.",
+     "year": 2020,
+     "src": "efsa_tartrates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "2024/1451 ile Grup I'den çıkarıldı; 'tartarik asit–tartaratlar' grubunda gıda kategorisine göre azami düzeyler (ör. şekerlemeler 25 000 mg/kg, ince unlu mamuller 18 000 mg/kg); 16.12.2024'ten itibaren uygulanıyor.",
+     "year": 2024,
+     "src": "eu_2024_1451"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–30 mg/kg vücut ağırlığı (tartarik asit ve sodyum, potasyum, potasyum sodyum tuzları için grup ADI).",
+     "year": 1977,
+     "src": "jecfa_e334"
+    }
+   ],
+   "sources": [
+    "efsa_tartrates",
+    "eu_2024_1451",
+    "jecfa_e334",
+    "ecfr_184_1099"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E335": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin sodyum tuzu olup gıdanın asitliğini düzenler.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek, bisküvi gibi ince unlu mamuller",
+    "Aromalı içecekler ve soslar"
+   ],
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E 334–337 ve E 354 için grup ADI 240 mg/kg vücut ağırlığı/gün (tartarik asit olarak); maruziyet ADI'yi aşmıyor.",
+     "year": 2020,
+     "src": "efsa_tartrates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "2024/1451 ile Grup I'den çıkarıldı; 'tartarik asit–tartaratlar' grubunda gıda kategorisine göre azami düzeyler (ör. şekerlemeler 25 000 mg/kg, ince unlu mamuller 18 000 mg/kg); 16.12.2024'ten itibaren uygulanıyor.",
+     "year": 2024,
+     "src": "eu_2024_1451"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–30 mg/kg vücut ağırlığı (L(+)-tartarik asit olarak).",
+     "year": 1977,
+     "src": "jecfa_e335"
+    }
+   ],
+   "sources": [
+    "efsa_tartrates",
+    "eu_2024_1451",
+    "jecfa_e335"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E336": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin potasyum tuzu olup gıdanın asitliğini düzenler.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek, bisküvi gibi ince unlu mamuller",
+    "Aromalı içecekler ve soslar"
+   ],
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E 334–337 ve E 354 için grup ADI 240 mg/kg vücut ağırlığı/gün (tartarik asit olarak); maruziyet ADI'yi aşmıyor.",
+     "year": 2020,
+     "src": "efsa_tartrates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "2024/1451 ile Grup I'den çıkarıldı; 'tartarik asit–tartaratlar' grubunda gıda kategorisine göre azami düzeyler (ör. şekerlemeler 25 000 mg/kg, ince unlu mamuller 18 000 mg/kg); 16.12.2024'ten itibaren uygulanıyor.",
+     "year": 2024,
+     "src": "eu_2024_1451"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–30 mg/kg vücut ağırlığı (L(+)-tartarik asit olarak).",
+     "year": 1973,
+     "src": "jecfa_e336"
+    }
+   ],
+   "sources": [
+    "efsa_tartrates",
+    "eu_2024_1451",
+    "jecfa_e336"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E337": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin sodyum potasyum tuzu olup gıdanın asitliğini düzenler.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek, bisküvi gibi ince unlu mamuller",
+    "Aromalı içecekler ve soslar"
+   ],
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E 334–337 ve E 354 için grup ADI 240 mg/kg vücut ağırlığı/gün (tartarik asit olarak); maruziyet ADI'yi aşmıyor.",
+     "year": 2020,
+     "src": "efsa_tartrates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "2024/1451 ile Grup I'den çıkarıldı; 'tartarik asit–tartaratlar' grubunda gıda kategorisine göre azami düzeyler (ör. şekerlemeler 25 000 mg/kg, ince unlu mamuller 18 000 mg/kg); 16.12.2024'ten itibaren uygulanıyor.",
+     "year": 2024,
+     "src": "eu_2024_1451"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–30 mg/kg vücut ağırlığı (L(+)-tartarik asit olarak).",
+     "year": 1973,
+     "src": "jecfa_e337"
+    }
+   ],
+   "sources": [
+    "efsa_tartrates",
+    "eu_2024_1451",
+    "jecfa_e337"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E350": {
+   "evidence_level": "moderate",
+   "what_it_does": "Malik asidin sodyum tuzlarıdır; gıdanın asitliğini düzenler.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; JECFA L(+)-formun metabolizmasının iyi bilindiğini, D(-)-formun akıbeti hakkında ise daha az bilgi olduğunu belirtmiştir. JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2024'te veri çağrısı yayımlandı (son başvuru 31.12.2024).",
+     "year": 2024,
+     "src": "efsa_malates_call"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı; birçok gıdada quantum satis izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (sodyum hidrojen DL-malat; malik asit ve tuzları için grup ADI).",
+     "year": 1982,
+     "src": "jecfa_e350i"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (sodyum DL-malat; malik asit ve tuzları için grup ADI).",
+     "year": 1979,
+     "src": "jecfa_e350ii"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-)- ve DL-malik asidin tedavi amacı dışında çok küçük bebeklerin gıdalarına eklenmemesini önermiştir."
+    }
+   ],
+   "sources": [
+    "efsa_malates_call",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "jecfa_e350i",
+    "jecfa_e350ii",
+    "jecfa_e296",
+    "jecfa_malic_1967"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E351": {
+   "evidence_level": "moderate",
+   "what_it_does": "Malik asidin potasyum tuzudur; gıdanın asitliğini düzenler.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; JECFA L(+)-formun metabolizmasının iyi bilindiğini, D(-)-formun akıbeti hakkında ise daha az bilgi olduğunu belirtmiştir. JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2024'te veri çağrısı yayımlandı (son başvuru 31.12.2024).",
+     "year": 2024,
+     "src": "efsa_malates_call"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı; birçok gıdada quantum satis izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (potasyum hidrojen DL-malat; malik asit ve tuzları için grup ADI).",
+     "year": 1982,
+     "src": "jecfa_e351i"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (potasyum DL-malat çözeltisi; malik asit ve tuzları için grup ADI).",
+     "year": 1979,
+     "src": "jecfa_e351ii"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-)- ve DL-malik asidin tedavi amacı dışında çok küçük bebeklerin gıdalarına eklenmemesini önermiştir."
+    }
+   ],
+   "sources": [
+    "efsa_malates_call",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "jecfa_e351i",
+    "jecfa_e351ii",
+    "jecfa_e296",
+    "jecfa_malic_1967"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E352": {
+   "evidence_level": "moderate",
+   "what_it_does": "Malik asidin kalsiyum tuzlarıdır; gıdanın asitliğini düzenler.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; JECFA L(+)-formun metabolizmasının iyi bilindiğini, D(-)-formun akıbeti hakkında ise daha az bilgi olduğunu belirtmiştir. JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2024'te veri çağrısı yayımlandı (son başvuru 31.12.2024).",
+     "year": 2024,
+     "src": "efsa_malates_call"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı; birçok gıdada quantum satis izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI belirtilmemiş (kalsiyum DL-malat; malik asit ve tuzları için grup ADI).",
+     "year": 1979,
+     "src": "jecfa_e352"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "baby",
+     "severity": "low",
+     "text": "JECFA, D(-)- ve DL-malik asidin tedavi amacı dışında çok küçük bebeklerin gıdalarına eklenmemesini önermiştir."
+    }
+   ],
+   "sources": [
+    "efsa_malates_call",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "jecfa_e352",
+    "jecfa_e296",
+    "jecfa_malic_1967"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E353": {
+   "evidence_level": "moderate",
+   "what_it_does": "Şarapta tartarat kristallerinin çökmesini önleyerek tartarik stabilizasyon sağlar.",
+   "found_in": [
+    "Şarap ve kısmen fermente üzüm şırası (yalnızca tartarik stabilizasyon için)",
+    "Meyve şarapları ve bazı şarap bazlı alkollü içecekler (AB'de 100 mg/l'ye kadar, belirli ürünlerle sınırlı)"
+   ],
+   "in_the_body": "EFSA'ya göre metatartarik asit vücuda emilmeden önce tamamen L(+)-tartarik aside parçalanır. EFSA 2020'de bu nedenle maddenin tartarik asit–tartaratlar için belirlenen 240 mg/kg vücut ağırlığı/gün grup ADI'sine dahil edilmesini önerdi ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; tartarik asit–tartaratlar grup ADI'sine (240 mg/kg vücut ağırlığı/gün) dahil edilmesi önerildi; bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e353"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Şarapçılık uygulamalarında yalnızca tartarik stabilizasyon amacıyla izinli.",
+     "year": 2019,
+     "src": "eu_2019_934"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Meyve şarapları (14.2.4) ve diğer alkollü içeceklerde (14.2.8) belirli ürünlerle sınırlı olarak 100 mg/l.",
+     "year": 2013,
+     "src": "eu_2013_509"
+    }
+   ],
+   "sources": [
+    "efsa_e353",
+    "eu_2019_934",
+    "eu_2013_509"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E354": {
+   "evidence_level": "strong",
+   "what_it_does": "Tartarik asidin kalsiyum tuzu olup gıdanın asitliğini düzenler.",
+   "found_in": [
+    "Şekerlemeler",
+    "Kek, bisküvi gibi ince unlu mamuller",
+    "Aromalı içecekler ve soslar"
+   ],
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "diet_flags": {
+    "vegan": "unknown",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; E 334–337 ve E 354 için grup ADI 240 mg/kg vücut ağırlığı/gün (tartarik asit olarak); maruziyet ADI'yi aşmıyor.",
+     "year": 2020,
+     "src": "efsa_tartrates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "2024/1451 ile Grup I'den çıkarıldı; 'tartarik asit–tartaratlar' grubunda azami düzeylerle izinli; bebek mamaları kategorisinden (13.1.3) çıkarıldı. 16.12.2024'ten itibaren uygulanıyor.",
+     "year": 2024,
+     "src": "eu_2024_1451"
+    }
+   ],
+   "sources": [
+    "efsa_tartrates",
+    "eu_2024_1451"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E355": {
+   "evidence_level": "limited",
+   "what_it_does": "Tatlılarda ekşilik veren ve asitliği düzenleyen bir asittir.",
+   "found_in": [
+    "Toz tatlı karışımları",
+    "Jel kıvamlı tatlılar",
+    "Meyve aromalı tatlılar"
+   ],
+   "in_the_body": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Adipik asit ve potasyum, sodyum, amonyum tuzları için ADI 0–5 mg/kg vücut ağırlığı.",
+     "year": 1977,
+     "src": "jecfa_e355"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca belirli tatlılarda izinli (toz tatlı karışımları ve meyve aromalı tatlılarda 1000 mg/kg, jel kıvamlı tatlılarda 6000 mg/kg; E 355–357 birlikte).",
+     "year": 2011,
+     "src": "ab1333_annex2_e_g13"
+    }
+   ],
+   "sources": [
+    "jecfa_e355",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E356": {
+   "evidence_level": "limited",
+   "what_it_does": "Adipik asidin sodyum tuzu olup tatlılarda asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Toz tatlı karışımları",
+    "Jel kıvamlı tatlılar",
+    "Meyve aromalı tatlılar"
+   ],
+   "in_the_body": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı. AB'de adipik asit ve tuzları için izin verilen en yüksek miktarlar birlikte (adipik asit olarak) uygulanır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Adipik asit ve potasyum, sodyum, amonyum tuzları için ADI 0–5 mg/kg vücut ağırlığı.",
+     "year": 1977,
+     "src": "jecfa_e355"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca belirli tatlılarda izinli (toz tatlı karışımları ve meyve aromalı tatlılarda 1000 mg/kg, jel kıvamlı tatlılarda 6000 mg/kg; E 355–357 birlikte).",
+     "year": 2011,
+     "src": "ab1333_annex2_e_g13"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    }
+   ],
+   "sources": [
+    "jecfa_e355",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E357": {
+   "evidence_level": "limited",
+   "what_it_does": "Adipik asidin potasyum tuzu olup tatlılarda asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Toz tatlı karışımları",
+    "Jel kıvamlı tatlılar",
+    "Meyve aromalı tatlılar"
+   ],
+   "in_the_body": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı. AB'de adipik asit ve tuzları için izin verilen en yüksek miktarlar birlikte (adipik asit olarak) uygulanır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Adipik asit ve potasyum, sodyum, amonyum tuzları için ADI 0–5 mg/kg vücut ağırlığı.",
+     "year": 1977,
+     "src": "jecfa_e355"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca belirli tatlılarda izinli (toz tatlı karışımları ve meyve aromalı tatlılarda 1000 mg/kg, jel kıvamlı tatlılarda 6000 mg/kg; E 355–357 birlikte).",
+     "year": 2011,
+     "src": "ab1333_annex2_e_g13"
+    }
+   ],
+   "sources": [
+    "jecfa_e355",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E363": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ekşilik veren ve asitliği düzenleyen bir organik asittir.",
+   "found_in": [
+    "Hazır çorba ve et suları",
+    "Aromalı fermente süt ürünleri",
+    "Evde hazırlanan toz içecek karışımları"
+   ],
+   "in_the_body": "Süksinik asit, vücutta sitrik asit döngüsünün (enerji üretimi) normal bir ara ürünüdür ve bitki ile hayvanlarda doğal olarak bulunur. SCF 1991'de, JECFA ise 1986'da süksinik asit için sayısal bir ADI gerekmediğine ('belirtilmemiş') karar verdi. EFSA, AB'deki yeniden değerlendirme için 2024'te yeniden veri çağrısı yaptı; daha önceki 2010 ve 2012 çağrılarına veri gelmediğini belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2024'te veri çağrısı yapıldı. SCF 1991'de ADI 'belirtilmemiş' olarak belirlemişti.",
+     "year": 2024,
+     "src": "efsa_e363_call"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş'.",
+     "year": 1986,
+     "src": "efsa_e363_call"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca belirli kategorilerde izinli (ör. tatlılar ve aromalı fermente süt ürünlerinde 6000 mg/kg, çorbalarda 5000 mg/kg, toz içeceklerde 3000 mg/kg).",
+     "year": 2011,
+     "src": "ab1333_annex2_e_g13"
+    }
+   ],
+   "sources": [
+    "efsa_e363_call",
+    "ab1333_annex2_e_g13",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E380": {
+   "evidence_level": "limited",
+   "what_it_does": "Sitrik asidin amonyum tuzu olup asitliği tamponlayan (dengeleyen) bir maddedir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA 1979'da triamonyum sitratı, sitrik asit ve tuzları için belirlenen 'sınırlandırılmamış' (not limited) ADI kapsamında değerlendirdi. Bu madde için ayrı bir toksikoloji monografı hazırlanmadı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'; sitrik asit ve tuzlarının ADI'sine dahil.",
+     "year": 1979,
+     "src": "jecfa_e380"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e380",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E500": {
+   "evidence_level": "limited",
+   "what_it_does": "Sodyum karbonat ve sodyum bikarbonat (yemek sodası); kabartıcı, asitlik düzenleyici ve tampon olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Ekşi kremadan yapılan tereyağı"
+   ],
+   "in_the_body": "JECFA 1965'te sodyum karbonat ve sodyum hidrojen karbonat (bikarbonat) için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. AB'de Grup I katkı maddesi olarak gerektiği kadar kullanılabilir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Sodyum karbonat ve sodyum hidrojen karbonat için ADI 'sınırlandırılmamış'.",
+     "year": 1965,
+     "src": "jecfa_e500i"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    }
+   ],
+   "sources": [
+    "jecfa_e500i",
+    "jecfa_e500ii",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E501": {
+   "evidence_level": "limited",
+   "what_it_does": "Potasyum karbonat ve potasyum bikarbonat; asitlik düzenleyici, kabartıcı ve tampon olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA 1965'te potasyum hidrojen karbonat için ADI'yi, hidrojen karbonatların grup ADI'si kapsamında 'sınırlandırılmamış' (not limited) olarak belirledi. AB'de Grup I katkı maddesi olarak gerektiği kadar kullanılabilir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Potasyum hidrojen karbonat için ADI 'sınırlandırılmamış'.",
+     "year": 1965,
+     "src": "jecfa_e501ii"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e501ii",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E503": {
+   "evidence_level": "limited",
+   "what_it_does": "Amonyum karbonat ve amonyum bikarbonat; kabartıcı ve asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA amonyum hidrojen karbonat için 1965'te 'sınırlandırılmamış' ADI belirlemiş, 1982'deki son değerlendirmesinde sayısal bir ADI gerekmediğine ('belirtilmemiş') karar vermiştir. AB'de Grup I katkı maddesi olarak gerektiği kadar kullanılabilir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Amonyum hidrojen karbonat için ADI 'belirtilmemiş'.",
+     "year": 1982,
+     "src": "jecfa_e503ii"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e503ii",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E504": {
+   "evidence_level": "limited",
+   "what_it_does": "Magnezyum karbonat ve magnezyum hidroksit karbonat; topaklanmayı önleyici, asitlik düzenleyici ve taşıyıcı olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Olgunlaştırılmış peynirler"
+   ],
+   "in_the_body": "JECFA 1965'te magnezyum karbonat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; magnezyum hidroksit karbonat için 1979'da sayısal ADI gerekmediğine ('belirtilmemiş') karar verdi. AB'de Grup I katkı maddesi olarak gerektiği kadar kullanılabilir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Magnezyum karbonat için ADI 'sınırlandırılmamış'.",
+     "year": 1965,
+     "src": "jecfa_e504i"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Magnezyum hidroksit karbonat için ADI 'belirtilmemiş'.",
+     "year": 1979,
+     "src": "jecfa_e504ii"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "jecfa_e504i",
+    "jecfa_e504ii",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E507": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenlemek için kullanılan güçlü bir mineral asittir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "EFSA 2019'da hidroklorik asit ve potasyum, kalsiyum, magnezyum klorürleri birlikte yeniden değerlendirdi; değerlendirme için insan verisine dayanan 40 mg klorür/kg vücut ağırlığı/gün referans değeri kullandı ve genotoksisite ile kanserojenite açısından endişe bulmadı. Ortalama maruziyet tüm yaş gruplarında bu değerin altında ya da eşitinde kaldı; bazı küçük yaş gruplarında yüksek tüketicilerde (95. yüzdelik) hafifçe aşılabildiği bildirilmiştir. EFSA, bildirilen kullanım ve düzeylerde güvenlik endişesi bulmadı. JECFA 1965'te ADI'yi 'sınırlandırılmamış' olarak belirlemişti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; 40 mg klorür/kg vücut ağırlığı/gün referans değeri kullanıldı, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2019,
+     "src": "efsa_chlorides"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış'.",
+     "year": 1965,
+     "src": "jecfa_e507"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_chlorides",
+    "jecfa_e507",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E508": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam artırıcı, stabilizör ve aroma/tuz tadı düzenleyici olarak kullanılan bir mineral tuzdur.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Klorür ve potasyum vücutta besinlerle de alınan doğal minerallerdir. EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "E 507–E 511 klorürleri birlikte yeniden değerlendirildi; bildirilen kullanım düzeylerinde güvenlik endişesi yok (klorür için referans 40 mg/kg vA/gün).",
+     "year": 2019,
+     "src": "efsa_chlorides"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (potasyum klorür); quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_chlorides",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E509": {
+   "evidence_level": "strong",
+   "what_it_does": "Meyve ve sebzelerde dokunun sertliğini korumaya yardımcı olan kıvam ve doku düzenleyici bir mineral tuzdur.",
+   "found_in": [
+    "Konserve ve kavanoz meyve ve sebzeler",
+    "Elma dışı meyve kompostoları",
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Klorür ve kalsiyum vücutta besinlerle de alınan doğal minerallerdir. EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "E 507–E 511 klorürleri birlikte yeniden değerlendirildi; bildirilen kullanım düzeylerinde güvenlik endişesi yok (klorür için referans 40 mg/kg vA/gün).",
+     "year": 2019,
+     "src": "efsa_chlorides"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı; ayrıca konserve/kavanoz meyve-sebzelerde ve elma dışı meyve kompostolarında quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g3"
+    }
+   ],
+   "sources": [
+    "efsa_chlorides",
+    "ab1333_annex2_e_g3",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E511": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam düzenleyici ve stabilizör olarak kullanılan bir mineral tuzdur; deniz tuzunda da izinlidir.",
+   "found_in": [
+    "Deniz tuzu",
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Klorür ve magnezyum vücutta besinlerle de alınan doğal minerallerdir. EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "E 507–E 511 klorürleri birlikte yeniden değerlendirildi; bildirilen kullanım düzeylerinde güvenlik endişesi yok (klorür için referans 40 mg/kg vA/gün).",
+     "year": 2019,
+     "src": "efsa_chlorides"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı; tuz kategorisinde yalnızca deniz tuzunda quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    }
+   ],
+   "sources": [
+    "efsa_chlorides",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E512": {
+   "evidence_level": "moderate",
+   "what_it_does": "Renk korumaya yardımcı olan ve antioksidan işlevi gören bir kalay tuzudur; AB'de yalnızca konserve beyaz kuşkonmazda izinlidir.",
+   "found_in": [
+    "Konserve ve kavanoz beyaz kuşkonmaz"
+   ],
+   "in_the_body": "Kalay(II) klorürün sindirim kanalından emilimi düşüktür. EFSA 2018'de yeniden değerlendirmesinde kanserojenlik ve genotoksisite açısından endişe bulmadı ve tek izinli kullanımda (en fazla 25 mg kalay/kg) güvenlik endişesi olmadığı sonucuna vardı; AB'de etiketinde bu katkıyı taşıyan ürün tespit edilmedi. İnsanlarda tek seferde 40 mg kalay alımından sonra mide-bağırsak tahrişi bildirilmiştir; JECFA da kalay için 14 mg/kg vücut ağırlığı geçici haftalık dayanılabilir alım (PTWI, 1988) belirlemiş ve konserve içeceklerde 150 mg/kg, diğer konserve gıdalarda 250 mg/kg kadar düşük kalay düzeylerinin mide tahrişine yol açabileceğini not etmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; mevcut izinli kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e512"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca konserve/kavanoz beyaz kuşkonmazda, en fazla 25 mg/kg (kalay olarak).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g3"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Kalay için PTWI 14 mg/kg vA (gıda katkısı kullanımı dahil).",
+     "year": 1988,
+     "src": "jecfa_e512"
+    }
+   ],
+   "sources": [
+    "efsa_e512",
+    "ab1333_annex2_e_g3",
+    "jecfa_e512"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E513": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitliği düzenlemek için kullanılan güçlü bir inorganik asittir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Sülfat sindirim kanalından emilir, kanda serbestçe dağılır, dokularda birikmez ve çoğunlukla böbreklerle atılır; yüksek dozlarda dışkıyla da atılır. EFSA 2019'da sülfürik asit ve sodyum, potasyum, kalsiyum ve amonyum tuzlarını birlikte yeniden değerlendirdi; sayısal ADI gerekmediğine ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığına karar verdi (SCF 1991'de grup ADI'yi 'belirtilmemiş' olarak belirlemişti). İnsanlarda 300 mg/kg vücut ağırlığı ve üzeri sodyum sülfat dozlarının müshil (ishal yapıcı) etkiye yol açtığı bildirilmiştir; gıda katkısından tahmin edilen alım bu dozun çok altındadır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sülfürik asit ve sülfatları (E 513–E 517) birlikte yeniden değerlendirildi; güvenlik endişesi yok, sayısal ADI gerekmedi.",
+     "year": 2019,
+     "src": "efsa_sulphates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (sülfürik asit); quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_sulphates",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E514": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitlik düzenleyici olarak kullanılan sodyum sülfat ve sodyum hidrojen sülfattır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Sülfat sindirim kanalından emilir, kanda serbestçe dağılır, dokularda birikmez ve çoğunlukla böbreklerle atılır; yüksek dozlarda dışkıyla da atılır. EFSA 2019'da sülfürik asit ve sodyum, potasyum, kalsiyum ve amonyum tuzlarını birlikte yeniden değerlendirdi; sayısal ADI gerekmediğine ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığına karar verdi (SCF 1991'de grup ADI'yi 'belirtilmemiş' olarak belirlemişti). İnsanlarda 300 mg/kg vücut ağırlığı ve üzeri sodyum sülfat dozlarının müshil (ishal yapıcı) etkiye yol açtığı bildirilmiştir; gıda katkısından tahmin edilen alım bu dozun çok altındadır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sülfürik asit ve sülfatları (E 513–E 517) birlikte yeniden değerlendirildi; güvenlik endişesi yok, sayısal ADI gerekmedi.",
+     "year": 2019,
+     "src": "efsa_sulphates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (sodyum sülfatlar); quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_sulphates",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E515": {
+   "evidence_level": "strong",
+   "what_it_does": "Asitlik düzenleyici olarak kullanılan potasyum sülfat ve potasyum hidrojen sülfattır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Sülfat sindirim kanalından emilir, kanda serbestçe dağılır, dokularda birikmez ve çoğunlukla böbreklerle atılır; yüksek dozlarda dışkıyla da atılır. EFSA 2019'da sülfürik asit ve sodyum, potasyum, kalsiyum ve amonyum tuzlarını birlikte yeniden değerlendirdi; sayısal ADI gerekmediğine ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığına karar verdi (SCF 1991'de grup ADI'yi 'belirtilmemiş' olarak belirlemişti). İnsanlarda 300 mg/kg vücut ağırlığı ve üzeri sodyum sülfat dozlarının müshil (ishal yapıcı) etkiye yol açtığı bildirilmiştir; gıda katkısından tahmin edilen alım bu dozun çok altındadır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sülfürik asit ve sülfatları (E 513–E 517) birlikte yeniden değerlendirildi; güvenlik endişesi yok, sayısal ADI gerekmedi.",
+     "year": 2019,
+     "src": "efsa_sulphates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (potasyum sülfatlar); quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_sulphates",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E516": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam düzenleyici, stabilizör ve asitlik düzenleyici olarak kullanılan bir kalsiyum tuzudur (alçı taşı).",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Sülfat sindirim kanalından emilir, kanda serbestçe dağılır, dokularda birikmez ve çoğunlukla böbreklerle atılır; yüksek dozlarda dışkıyla da atılır. EFSA 2019'da sülfürik asit ve sodyum, potasyum, kalsiyum ve amonyum tuzlarını birlikte yeniden değerlendirdi; sayısal ADI gerekmediğine ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığına karar verdi (SCF 1991'de grup ADI'yi 'belirtilmemiş' olarak belirlemişti). İnsanlarda 300 mg/kg vücut ağırlığı ve üzeri sodyum sülfat dozlarının müshil (ishal yapıcı) etkiye yol açtığı bildirilmiştir; gıda katkısından tahmin edilen alım bu dozun çok altındadır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sülfürik asit ve sülfatları (E 513–E 517) birlikte yeniden değerlendirildi; güvenlik endişesi yok, sayısal ADI gerekmedi.",
+     "year": 2019,
+     "src": "efsa_sulphates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (kalsiyum sülfat); quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_sulphates",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E517": {
+   "evidence_level": "strong",
+   "what_it_does": "Başka katkı maddelerinde taşıyıcı olarak kullanılan bir amonyum tuzudur.",
+   "found_in": [
+    "Diğer gıda katkı maddelerinde taşıyıcı olarak (AB'de quantum satis)"
+   ],
+   "in_the_body": "Sülfat sindirim kanalından emilir, kanda serbestçe dağılır, dokularda birikmez ve çoğunlukla böbreklerle atılır; yüksek dozlarda dışkıyla da atılır. EFSA 2019'da sülfürik asit ve sodyum, potasyum, kalsiyum ve amonyum tuzlarını birlikte yeniden değerlendirdi; sayısal ADI gerekmediğine ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığına karar verdi (SCF 1991'de grup ADI'yi 'belirtilmemiş' olarak belirlemişti). İnsanlarda 300 mg/kg vücut ağırlığı ve üzeri sodyum sülfat dozlarının müshil (ishal yapıcı) etkiye yol açtığı bildirilmiştir; gıda katkısından tahmin edilen alım bu dozun çok altındadır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Sülfürik asit ve sülfatları (E 513–E 517) birlikte yeniden değerlendirildi; güvenlik endişesi yok, sayısal ADI gerekmedi.",
+     "year": 2019,
+     "src": "efsa_sulphates"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I'de yer almaz; gıda katkı maddelerinde taşıyıcı olarak quantum satis izinli (Ek III).",
+     "year": 2008,
+     "src": "ab1333_annex3_p1"
+    }
+   ],
+   "sources": [
+    "efsa_sulphates",
+    "ab1333_annex3_p1"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E524": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek ve ortamı nötrleştirmek için kullanılan güçlü bir bazdır (kostik soda).",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Gıdada kullanıldığında asitlerle tepkimeye girerek nötrleşir. JECFA 1965'te sodyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. AB'de Grup I katkısıdır; EFSA'nın 2016'da yayımladığı yeniden değerlendirme veri çağrısına dahil edilmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI sınırlandırılmamış (not limited).",
+     "year": 1965,
+     "src": "jecfa_e524"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkısı (sodyum hidroksit); quantum satis izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_c"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    }
+   ],
+   "sources": [
+    "jecfa_e524",
+    "ab1333_annex2_c",
+    "ab1129_2011",
+    "efsa_call_batch5"
    ],
    "last_reviewed": "2026-10-06"
   }
