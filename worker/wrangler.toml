@@ -41,7 +41,7 @@ namespace_id = "1003"
   period = 60
 
 # Anonim paylaşım sayacı (KV). Panelde Storage & Databases > KV > Create: "paylasim-sayac".
-# Oluşan Namespace ID aşağıya yazılıp baştaki # işaretleri kaldırılınca sayaç çalışır; o zamana kadar /sayac sayım yapmadan 204 döner.
-# [[kv_namespaces]]
-# binding = "SAYAC"
-# id = "BURAYA_NAMESPACE_ID"
+# Namespace ID yazıldı; sayaç bu bağlamayla çalışır (bağlı değilse /sayac sayım yapmadan 204 döner).
+[[kv_namespaces]]
+binding = "SAYAC"
+id = "44f2c5a4b1ae41908edbb776a10e54a1"
