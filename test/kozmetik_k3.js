@@ -24,9 +24,10 @@ const cases=[
  ["Aqua, Methylparaben, Propylparaben, Salicylic Acid, Glycerin",
   {"METHYLPARABEN":["yellow",["ab_ed_b"]],"PROPYLPARABEN":["yellow",["ab_ed_a","dk"]],"SALICYLIC ACID":["orange",["ab_ed_b"]],"GLYCERIN":["info",[]]},
   s=>s.ed.length===3&&s.ban.length===0],
- // AB'de kısıtlı (Ek III) ama Kaliforniya'da 2027'den itibaren yasak -> turuncu
+ // Çinko borat, MEA-borat: AB'de kısıtlı ama Kaliforniya'da 2027'den itibaren yasak -> turuncu.
+ // Sodyum perborat AB Ek II/1397'de yasak (CMR 1B) -> kırmızı; Kaliforniya notu yine eklenir.
  ["Aqua, Sodium Perborate, Zinc Borate, MEA-Borate",
-  {"SODIUM PERBORATE":["orange",["ca"]],"ZINC BORATE":["orange",["ca"]],"MEA-BORATE":["orange",["ca"]]},s=>s.ban.length===3],
+  {"SODIUM PERBORATE":["red",["ca"]],"ZINC BORATE":["orange",["ca"]],"MEA-BORATE":["orange",["ca"]]},s=>s.ban.length===3],
  // AB'de zaten yasak: kırmızı kalır, K3 bilgisi eklenir
  ["Aqua, Isobutylparaben, Cyclotetrasiloxane, Butylphenyl Methylpropional",
   {"ISOBUTYLPARABEN":["red",["ca","fr"]],"CYCLOTETRASILOXANE":["red",["ab_reach","ca"]],"BUTYLPHENYL METHYLPROPIONAL":["red",["ab_ed_b","ca"]]},s=>s.red.length===3&&s.ban.length===3],

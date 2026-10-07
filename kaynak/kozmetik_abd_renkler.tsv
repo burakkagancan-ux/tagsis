@@ -1,6 +1,12 @@
 # ABD sertifikalı renklendiricileri (FD&C / D&C adları) -> CI numarası. Sütunlar: renk<TAB>numara<TAB>CI
+# 07.10.2026: her satır 21 CFR 74/82'deki kimyasal tanım (eCFR) ve AB Ek IV'teki CAS ile karşılaştırıldı; 33 satırın hepsi tutarlı.
+# ORANGE 10/11 (CI 45425) ve BROWN 1 (CI 20170) AB Ek IV'te yok; etikette görülürlerse yalnızca INCI listesinden tanınır.
+BLACK	2	CI 77266
+BLACK	3	CI 77267
 BLUE	1	CI 42090
+BLUE	2	CI 73015
 BLUE	4	CI 42090
+BROWN	1	CI 20170
 GREEN	3	CI 42053
 GREEN	5	CI 61570
 GREEN	6	CI 61565
@@ -31,4 +37,3 @@ YELLOW	7	CI 45350
 YELLOW	8	CI 45350
 YELLOW	10	CI 47005
 YELLOW	11	CI 47000
-BROWN	1	CI 20170
