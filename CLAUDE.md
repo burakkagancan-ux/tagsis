@@ -1,7 +1,7 @@
 # Proje notları (Claude için)
 
 Bu dosya her yeni Claude oturumunda okunur. Güncel durum, kararlar ve çalışma kuralları burada.
-Son güncelleme: 06.10.2026.
+Son güncelleme: 07.10.2026.
 
 ## Roller ve dil
 - Kullanıcı (BKC) iş mimarı, kod yazmıyor. Claude yazılımcı. Dil: Türkçe.
@@ -71,7 +71,7 @@ Son güncelleme: 06.10.2026.
 - Temizlik ürünleri ayrı mod (kozmetiğe karıştırılmaz; AB deterjan ve CLP mevzuatı). Renkler (kullanıcı kararı, 04.10.2026): ciddi tehlike kırmızı (H314, H318, H304, H300-H301/H310-H311/H330-H331, H334, CMR H340-H362, H370, H372, EUH070, EUH071, EUH380/381); diğer sağlık, karıştırma, alerji ve çevre uyarıları sarı; H290, EUH210 vb. bilgi (gri). Kırmızı burada "yasak" değil, ürünün resmi tehlike sınıfı; kartta "üreticinin etikete yazmak zorunda olduğu bilgi" denir. Kozmetik Ek II "yasak" renkleri temizlikte kullanılmaz. Profil: "Koku alerjisi (kozmetik, temizlik)", yeni "Astım / solunum hassasiyeti (temizlik)" (PROF.astim; H33x, EUH071, EUH211/212, enzim, sprey, parfüm); hamile/bebek/çocuk için CMR, endokrin ve yutma/göz tehlikesi kartı.
 - Barkod en sona; belki hiç kapsama alınmaz.
 - İş sırası (kullanıcı, 03.10.2026): telefon testleri (kullanıcı) → besin değeri tablosu → aylık mevzuat izleme → hukuki görüş en son. Google Fonts ön yüz işiyle birlikte. CI bekleyebilir. Google Cloud Vision dakikalık kotası düşürüldü.
-- E kodu renk ölçütleri değişmedi; kaynak taramasında E407/E407a ve E968 EFSA ADI aşımı nedeniyle (K6) sarıya, E154/E160f/E230 AB listesinde olmadığı için (K1) kırmızıya geçti.
+- E kodu renk ölçütleri değişmedi; kaynak taramasında E407/E407a, E968 ve E459 (07.10.2026) EFSA ADI aşımı nedeniyle (K6) sarıya, E154/E160f/E230 AB listesinde olmadığı için (K1) kırmızıya geçti.
 
 ## Bilinen sınırlamalar
 - E kodları: 57 kayıt needs_review (çoğu vegan/helal kaynak bayrakları ve Türkiye izin durumu); renkli (sarı/kırmızı) kayıtların hepsi kaynaklı (`sources`). Kozmetik CosIng verisi resmi servisten (28.04.2026'ya kadar güncel); TR kozmetik ekleri satır satır karşılaştırıldı, tek fark bor bileşikleri (AB Ek II 1394–1397 Türkiye'de yasak değil; kaynak/TR_KOZMETIK_KARSILASTIRMA.md); ABD renk tablosu (US_COLORS) ve eş anlamlılar bilgiye dayalı.

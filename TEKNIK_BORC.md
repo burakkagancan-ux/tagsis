@@ -62,18 +62,18 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
   - E920 (L-sistein) atlandı: AB kullanım koşulları ve kaynak (kıl/hayvansal/mikrobiyal) şartnamesi okunamadı, EFSA katkı değerlendirmesi yok.
   - E285: boraksın CLP Repr. 1B sınıflandırması resmi kaynakta doğrulanamadı (yalnızca borik asit için, Tüzük 790/2009); gerekçe metni değiştirilmedi.
   - California AB 418 kaynağı LegiScan kopyası (leginfo 403); eCFR ve SCF (food.ec.europa.eu) kaynakları resmi alan listesinde olmadığı için `official:false`.
-  - Yeşil maddelerin e_kodlari gerekçesi ("ayrıntılı değerlendirme yapılmamıştır") E239, E242, E243, E261–E263, E626–E629, E640 için yanlış (EFSA/JECFA değerlendirmesi var); E214/E215/E218/E219 gerekçesindeki "endokrin etkileri tartışmalı" ifadesi metil/etil paraben için desteklenmiyor; E650 yalnızca sakızda izinli. Ansiklopedi sayfası doğru bilgiyi veriyor, tarama ekranı gerekçesi ayrı PR'da düzeltilmeli.
-  - E626–E635 `uretim` kaynağı (CELEX:32018R0238) yem tüzüğü; gıda için doğru değil. Hayvansal/bitkisel kaynak resmi metinde bulunamadı (`vegan: unknown`).
+  - KAPANDI (07.10.2026): Yeşil maddelerin tarama ekranı gerekçeleri (E239, E242, E243, E261–E263, E626–E629, E640, E650) ansiklopedideki EFSA/JECFA kaynaklarıyla yeniden yazıldı (`kaynak/e_kodlari_ek.json` `dogrulama`). Paraben grubundaki (E214, E215, E218, E219) desteklenmeyen "endokrin etkileri tartışmalı" ifadesi ve `debated` bayrağı kaldırıldı; gerekçe EFSA 2004 grup ADI'sine dayanıyor.
+  - E626–E635 `uretim` kaynağı: yem tüzüğü (CELEX:32018R0238) kaynak olarak kaldırıldı, kayıt "doğrulanmadı" (`dogrulandi=0`) oldu (07.10.2026). Gıda katkısı için resmi üretim kaynağı hâlâ bulunmadı (`vegan: unknown`).
   - AB kullanım koşulları çoğunlukla legislation.gov.uk'nin 31.12.2020 anlık görüntüsünden; güncel konsolide EUR-Lex metni okunamadı. TGK 2023 (Resmî Gazete) okunamadı, TR durumu 2013 listesine göre.
 - ÇÖZÜLDÜ (06.10.2026, 7. parti): 40 asitlik düzenleyici (E260–E524 arası). EFSA yeniden değerlendirmesi olanlar: tartaratlar E334–E337, E353, E354 (2020), klorürler E507–E509, E511 (2019), sülfatlar E513–E517 (2019), E512 (2018). Diğerleri JECFA + AB Ek II (çoğu Grup I, quantum satis) kaynaklı, kanıt düzeyi "sınırlı". AB 2024/1451 ile tartaratlar Grup I'den çıkıp üst sınırlı yeni gruba alındı (16.12.2024).
 - 7. partiden açık kalanlar:
-  - Tarama ekranındaki ortak gerekçe ("…ayrıntılı bir değerlendirme yapılmamıştır", gen_e_kodlari.py DEFAULT_REASON) EFSA/JECFA değerlendirmesi olan maddelerde kurum değerlendirmesi yokmuş gibi okunuyor. Öneri: "bu uygulamada" ifadesi eklenmeli ya da kurum değerlendirmesi olanlara ayrı gerekçe yazılmalı (kullanıcı kararı).
+  - KAPANDI (07.10.2026, kullanıcı kararı): Ortak gerekçe (`DEFAULT_REASON`) "…bu uygulamada ayrıntılı bir değerlendirme yapılmadı." oldu; kurum değerlendirmesi yokmuş gibi okunmuyor.
   - E270 üretim kaynağı 2008/84/AT direktifi; yürürlükten kalkmış olabilir, doğrulanmadı. E353 üretim kaynağı oiv.int (resmi değil); resmi karşılığı AB 2019/934.
   - legislation.gov.uk Ek II tabloları 31.12.2020 anlık görüntüsü; E355–E357 için dolgu ve içecek tozu kullanımları okunamadı (429).
 - ÇÖZÜLDÜ (06.10.2026, 8. parti): asitlik düzenleyiciler E525–E530, E574–E579, E585; kıvam artırıcılar E405, E406, E413, E416–E418, E425–E427, E441, E1204; gazlar E290, E938, E939, E941–E944, E948, E949; dengeleyiciler E444, E445, E459, E999, E1201, E1202.
 - 8. partiden açık kalanlar:
-  - E459 (beta-siklodekstrin): EFSA 2016'da markaya bağlı tüketicilerde ADI aşımı bildirdi; E407/E968 ile aynı ölçüte (K6) göre sarıya geçmesi gerekebilir. Risk rengi değiştirilmedi (kullanıcı kararı).
-  - E425 (konjak) gerekçesi "özel uyarı ölçütüne girmiyor" diyor; AB 2003/52/AT jöleli şekerleme yasağı ve EFSA 3 g/gün koşulu var. Ansiklopedide çocuk/bebek uyarısı eklendi, tarama gerekçesi değişmedi.
+  - KAPANDI (07.10.2026, kullanıcı kararı): E459 (beta-siklodekstrin) K6 ölçütüyle sarıya geçti (EFSA 2016: markaya bağlı tüketim senaryosunda ADI aşımı), E407/E968 ile aynı.
+  - KAPANDI (07.10.2026): E425 (konjak) tarama gerekçesine EFSA 2017 günde 3 g koşulu ve AB 2003/52/AT jöleli şekerleme yasağı yazıldı. Risk rengi yeşil kaldı (K1–K7 ölçütlerinden hiçbirine girmiyor).
   - E579/E585 kategorisi "asitlik düzenleyici"; JECFA'ya göre renk stabilizatörü, AB'de yalnızca zeytinde (150 mg/kg demir olarak).
   - E441 (jelatin) AB 1333/2008 Madde 3'e göre katkı maddesi sayılmıyor; e_kodlari.json'da kaynağı yok.
 - Kalan otomatik sayfalar, hepsi yeşil (33), kategoriye göre:
