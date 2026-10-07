@@ -78,7 +78,7 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
 - Bu partide bulunan veri hataları: E912 (AB 957/2014 ile listeden çıkarıldı) ve E558 (AB 380/2012 ile izni 31.05.2013'te bitti) `ab: listed` görünüyordu; ikisi de K1 ile kırmızı oldu.
 - 9. partiden açık kalanlar:
   - KAPANDI (08.10.2026): E1203 sayfası AB konsolide metni (18.08.2026; yalnızca takviye kapsül/tabletleri, 18.000 mg/kg) ve JECFA şartnamesiyle yazıldı. EFSA 2006 görüşünün yalnızca varlığı belirtildi, sonucu okunamadığı için aktarılmadı.
-  - E553b (talk): IARC 2025'te Grup 2A (Monografi 136). K4 ölçütüne göre sarı olması gerekebilir; risk rengi değiştirilmedi (kullanıcı kararı). Ansiklopedide IARC satırı var.
+  - KAPANDI (08.10.2026, kullanıcı kararı): E553b (talk) IARC 2025 Grup 2A (Monografi 136) nedeniyle K4 ile sarı.
   - E160d (likopen): EFSA 2026 maruziyet değerlendirmesinde doğal besin + katkı + yeni gıda toplamı bebeklerde yüksek tüketimde 0,97 mg/kg/gün (EFSA ADI 0,5); aşımın ana kaynağı doğal besin olduğu için K6 uygulanmadı.
   - KAPANDI (08.10.2026): E431 güncel konsolide metinde (18.08.2026) de Bölüm B'de var, hiçbir gıda kategorisinde kullanım koşulu yok; sayfaya yazıldı.
   - KAPANDI (08.10.2026): E101, E162, E172 sayfalarına Grup II (quantum satis) kullanımları konsolide metinden eklendi.
