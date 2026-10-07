@@ -52,7 +52,7 @@ E235	fermente	Streptomyces natalensis ile fermentasyonla üretilir.	https://eur-
 E249,E250	sentetik	Kimyasal yolla üretilir.		0
 E251,E252	belirsiz	Çoğunlukla kimyasal yolla üretilir; doğal mineral yataklarından da elde edilebilir.		0
 E260,E261,E262,E263	belirsiz	Asetik asit fermentasyonla ya da kimyasal sentezle üretilebilir; tuzları asidin nötrleştirilmesiyle elde edilir.		0
-E270	belirsiz	Şekerlerin laktik fermentasyonuyla ya da kimyasal sentezle üretilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
+E270	belirsiz	Şekerlerin laktik fermentasyonuyla ya da kimyasal sentezle üretilir.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0231	1
 E325,E326,E327	belirsiz	Laktik asidin nötrleştirilmesiyle elde edilir; laktik asit fermentasyonla ya da kimyasal sentezle üretilebilir.	https://www.ams.usda.gov/sites/default/files/media/Lactic%20Acid%20TR%202015.pdf	1
 E585	belirsiz	Laktik asidin nötrleştirilmesiyle elde edilir; laktik asit fermentasyonla ya da kimyasal sentezle üretilebilir.		0
 E280,E281,E282,E283	sentetik	Çoğunlukla petrokimyasal hammaddelerden kimyasal sentezle üretilir; tuzları asidin nötrleştirilmesiyle elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Calcium%20Propionate%20TR.pdf	1
@@ -77,7 +77,7 @@ E330	fermente	Çoğunlukla şekerlerin Aspergillus niger küfüyle (bazen Candid
 E331,E332,E333,E380	islenmis	Sitrik asidin nötrleştirilmesiyle elde edilir.		0
 E334	islenmis	Şarap üretimi artıklarından kimyasal işlemle elde edilir; tuzları nötrleştirmeyle üretilir.	https://www.ecfr.gov/current/title-21/section-184.1099	1
 E335,E336,E337,E354	islenmis	Şarap üretimi artıklarından kimyasal işlemle elde edilir; tuzları nötrleştirmeyle üretilir.		0
-E353	islenmis	Tartarik asidin ısıl işlemiyle elde edilir.	https://www.oiv.int/node/1748	1
+E353	islenmis	Doğal L(+)-tartarik asidin 150 °C'nin üzerinde ısıtılmasıyla (su kaybı ve esterleşme) elde edilir.	https://www.efsa.europa.eu/en/efsajournal/pub/6031	1
 E338,E339,E340,E341,E450	sentetik	Fosfat kayasından üretilen fosforik asitten kimyasal yolla elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Phosphates%20TR%202_10_2016%20Final.pdf	1
 E343,E451,E452,E541	sentetik	Fosfat kayasından üretilen fosforik asitten kimyasal yolla elde edilir.		0
 E355	sentetik	Petrokimyasal hammaddeden kimyasal sentezle üretilir.	https://www.ecfr.gov/current/title-21/section-184.1009	1
@@ -164,7 +164,7 @@ E904	dogal	Lak böceğinin salgısından elde edilir.	https://www.fao.org/filead
 E905	islenmis	Petrol ya da doğal gazdan rafinasyonla elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-281-rev.pdf	1
 E943a,E943b,E944	islenmis	Petrol ya da doğal gazdan rafinasyonla elde edilir.		0
 E912	islenmis	Linyit mumunun kimyasal işlemle değiştirilmesiyle üretilir.		0
-E920	belirsiz	Kıl ve tüy gibi proteinlerin hidroliziyle ya da fermentasyonla üretilebilir.		0
+E920	belirsiz	AB şartnamesi insan saçının kaynak olarak kullanılmasını yasaklar, başka bir hammadde belirtmez; hayvansal proteinlerin hidroliziyle ya da fermentasyonla üretilebilir.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0231	0
 E924a,E927b,E942,E949	sentetik	Kimyasal yolla üretilir.		0
 E938,E939,E941,E948	dogal	Havadan ya da doğal gazdan fiziksel ayırmayla elde edilen gazdır.		0
 E950,E951,E952,E954,E955	sentetik	Kimyasal sentezle üretilen tatlandırıcıdır.		0

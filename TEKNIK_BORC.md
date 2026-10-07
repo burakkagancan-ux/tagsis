@@ -15,15 +15,14 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - **Doğrulama — KAPANDI:** `kaynak/kozmetik_guncellemeler.tsv`'de `inceleme=1` satır kalmadı (2025/877 N,N-dimethyl-p-toluidine resmi metinle doğrulandı).
 - **Otomatik güncelleme — KAPANDI:** `.github/workflows/cosing.yml` ayda bir (her ayın 1'i) CosIng'den indirir; değişiklik varsa testleri çalıştırıp PR açar. Yeni AB değişikliği gelirse güncelleme tablosuna Türkçe not ve Türkiye durumu elle eklenir.
 - **Eş anlamlılar — KAPANDI (ABD renkleri):** `kaynak/kozmetik_abd_renkler.tsv`'deki 33 satırın hepsi 21 CFR 74/82'deki (eCFR) kimyasal tanımla ve AB Ek IV CAS'ıyla tutarlı; eksik 3 ABD rengi eklendi (FD&C Blue No. 2, D&C Black No. 2 ve 3). Eş anlamlıların hepsi yeni INCI listesinde geçerli hedefe bağlı.
-  - Kalan: Kurala göre üretilen Türkçe kimyasal adlar (992 ad) gerçek Türk etiketlerinde görülen yazımlarla denetlenmeli; bunun için etiket fotoğrafı gerekiyor (telefon testleriyle birlikte).
+  - Kalan: Kurala göre üretilen Türkçe kimyasal adlar (992 ad) gerçek Türk etiketlerinde görülen yazımlarla denetlenmeli; bunun için etiket fotoğrafı gerekiyor.
 
-## 5. Kozmetik K3 (kaynak/kozmetik_k3.tsv) — KAPANDI (07.10.2026), 1 madde AÇIK
+## 5. Kozmetik K3 (kaynak/kozmetik_k3.tsv) — KAPANDI (07.10.2026)
 - **Kaliforniya — KAPANDI:** Satırlar HSC §108980'in resmi metniyle (AB 60 ile değişik hali, yürürlük 01.01.2026; Kaliforniya Yasama Meclisi toplu veri dosyası) karşılaştırıldı. Eksikler eklendi: perborat ve boratların ek CAS'ları, musk ketone (yasak değil üst sınır; yeni sarı liste `ca_sinir`).
 - **ASEAN — KAPANDI:** Mikonazol, Singapur HSA'nın yayımladığı resmi ASEAN ekleriyle (sürüm 2026-1, 22.06.2026) doğrulandı; aynı sürümde eklenen 4 mantar ilacı (bifonazol, klotrimazol, tiyabendazol, tiyokonazol) eklendi.
 - **AB taslağı — KAPANDI:** `ab_taslak` satırları Komisyon'un Konsey'e 21.09.2026'da ilettiği resmi taslakla (D117774) doğrulandı; taslaktaki diğer maddeler (Basic Brown 16, Basic Blue 99, prostaglandin benzeri kirpik serumu maddeleri, cıvalı koruyucular, CBD sınırı) eklendi. Kabul edilince güncelleme tablosuna taşınmalı.
 - **REACH D4/D5/D6 — KAPANDI:** (EU) 2024/1328 resmi metniyle doğrulandı; D6 tarihi düzeltildi (durulanan üründe de 6 Haziran 2027).
 - **AB endokrin listesi:** Komisyon sayfasında (07.10.2026) B grubu için yeni veri çağrısı yok; 28 madde değişmedi. Taslak tüzük B grubundan 4 maddeyi kapsıyor.
-- **SIN List — AÇIK (kullanıcı işi):** ChemSec'ten yazılı izin gerekiyor (info@chemsec.org). Kod tarafında yapılacak bir şey yok; izin gelince liste eklenir.
 - Kalan `inceleme=1` satırlar ikincil kaynaklı listeler: Danimarka (resmi duyuru bulunamadı), Fransa ANSES (Légifrance metni okunmadı), komedojenite (Fulton 1989 taranmış tablo), Türkiye taslağı (resmi metin yok).
 
 ## ocr.html tek dosyada — KAPANDI (04.10.2026)
@@ -37,7 +36,7 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - gen_kozmetik.py artık `../cosing` kopyasına ihtiyaç duymaz; kullanılan kısım `kaynak/cosing/` altında (Ek II–VI aynen, INCI listesinden 3 sütun; ~3 MB, sürüm `surum.txt`, lisans `LICENSE.txt`). Yenilemek için `python3 cosing_al.py`. Verinin eski olması (2024 başı) ayrı sorun, bkz. 4.
 
 
-## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026) — 1, 2, 3, 4, 6 KAPANDI (05.10.2026), 5 AÇIK
+## Temizlik: "Adı Yazılan Maddeler" bölümü (UX, 04.10.2026) — KAPANDI (05.10.2026; 5. madde 07.10.2026'da kullanıcı kararıyla listeden çıkarıldı)
 Bölüm etikette adı yazan maddeleri gösteriyor (js/arayuz_temizlik.js, renderT): notu olanlar (MIT, BIT, hipoklorit…) kart, diğerleri düz liste. 05.10.2026: sonuç ekranı gıda/kozmetik düzenine getirildi: tek "Dikkat Gerektirenler" başlığı (karıştırma, kapsül, tehlike ifadeleri, madde notları kart olarak; madde notunun ilk iki cümlesi görünür), listeler kapalı açılır bölümlerde ("Önlem İfadeleri", "İçerik Grupları", "Tanınan Maddeler"; tüm tanınan maddeler, CosIng notu altta, ad ve "Koruyucu" çipi tekrarı yok).
 
 Alt maddeler:
@@ -45,7 +44,6 @@ Alt maddeler:
 2. Madde kartlarında açıklama yalnızca (i) arkasında; tehlike kartlarındaki gibi bir satırlık açıklama görünmeli. — KAPANDI
 3. Kartlar ve düz liste karışık; liste "Diğer maddeler (N)" adıyla kapalı açılır bölüme (secBox) girmeli. — KAPANDI
 4. "İşlevler AB…" notu bölümün başında; listenin altına inmeli. — KAPANDI
-5. Adlar İngilizce ve büyük harf (INCI); yanına Türkçe ad eklenmeli (LIMONENE · limonen). Veri hazırlığı gerekir. — AÇIK
 6. İşlev adı tekrarı ("PARFUM · Koku, Parfüm") kaldırılmalı. — KAPANDI
 
 
@@ -59,23 +57,23 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
 - 300 sayfa elle incelenmiş (`review=curated`), **33 sayfa otomatik** (`review=auto`; 06.10.2026'da 6. parti ile 39, 7. ve 8. partilerle 40'ar madde eklendi). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. Bunların hepsinde eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet.
 - ÇÖZÜLDÜ (06.10.2026, 6. parti): 11 renkli madde (E123, E154, E160f, E216, E217, E230, E284, E285, E320, E924a, E952) resmi kaynakla elle yazıldı; e_kodlari kaynakları Wikipedia/ikincil siteler yerine EFSA, EUR-Lex, JECFA/IARC (inchem), FDA. Gerekçe düzeltmeleri: E154 (EFSA 2010, 1129/2011), E230 (2003/114/AT), E924a (IARC 1999), E952 ("1996" ve "1970" kaldırıldı; SCF 2000), E216/E217 (2006/52/AT; "doğrulanmalı" kalktı). Aynı partide koruyucular (E214, E215, E218, E219, E239, E242, E243, E261–E263, E1105), lezzet artırıcılar (E626–E635, E640, E650), tatlandırıcılar (E957, E959, E960, E961, E969).
 - 6. partiden açık kalanlar:
-  - E920 (L-sistein) atlandı: AB kullanım koşulları ve kaynak (kıl/hayvansal/mikrobiyal) şartnamesi okunamadı, EFSA katkı değerlendirmesi yok.
-  - E285: boraksın CLP Repr. 1B sınıflandırması resmi kaynakta doğrulanamadı (yalnızca borik asit için, Tüzük 790/2009); gerekçe metni değiştirilmedi.
-  - California AB 418 kaynağı LegiScan kopyası (leginfo 403); eCFR ve SCF (food.ec.europa.eu) kaynakları resmi alan listesinde olmadığı için `official:false`.
+  - KAPANDI (07.10.2026): E920 (L-sistein) AB kullanım koşulları (Ek II: unda quantum satis, bebek bisküvilerinde 1.000 mg/kg) ve şartnamesi (231/2012: insan saçı kaynak olarak kullanılamaz, başka hammadde belirtilmez) okundu; tarama gerekçesi kaynaklandı. Ansiklopedi sayfası "son 33 madde" işinde yazılacak.
+  - KAPANDI (07.10.2026): E285 boraks (disodyum tetraborat susuz, dekahidrat, pentahidrat) CLP Repr. 1B H360FD sınıfı Tüzük 790/2009 Ek VI'da doğrulandı; kaynak eklendi.
+  - California AB 418 kaynağı hâlâ LegiScan kopyası (leginfo 07.10.2026'da da 403). KAPANDI: eCFR, SCF (food.ec.europa.eu), ECHA ve FAO kaynakları resmi sayıldı (`resmi_alan_adlari`).
   - KAPANDI (07.10.2026): Yeşil maddelerin tarama ekranı gerekçeleri (E239, E242, E243, E261–E263, E626–E629, E640, E650) ansiklopedideki EFSA/JECFA kaynaklarıyla yeniden yazıldı (`kaynak/e_kodlari_ek.json` `dogrulama`). Paraben grubundaki (E214, E215, E218, E219) desteklenmeyen "endokrin etkileri tartışmalı" ifadesi ve `debated` bayrağı kaldırıldı; gerekçe EFSA 2004 grup ADI'sine dayanıyor.
   - E626–E635 `uretim` kaynağı: yem tüzüğü (CELEX:32018R0238) kaynak olarak kaldırıldı, kayıt "doğrulanmadı" (`dogrulandi=0`) oldu (07.10.2026). Gıda katkısı için resmi üretim kaynağı hâlâ bulunmadı (`vegan: unknown`).
   - AB kullanım koşulları çoğunlukla legislation.gov.uk'nin 31.12.2020 anlık görüntüsünden; güncel konsolide EUR-Lex metni okunamadı. TGK 2023 (Resmî Gazete) okunamadı, TR durumu 2013 listesine göre.
 - ÇÖZÜLDÜ (06.10.2026, 7. parti): 40 asitlik düzenleyici (E260–E524 arası). EFSA yeniden değerlendirmesi olanlar: tartaratlar E334–E337, E353, E354 (2020), klorürler E507–E509, E511 (2019), sülfatlar E513–E517 (2019), E512 (2018). Diğerleri JECFA + AB Ek II (çoğu Grup I, quantum satis) kaynaklı, kanıt düzeyi "sınırlı". AB 2024/1451 ile tartaratlar Grup I'den çıkıp üst sınırlı yeni gruba alındı (16.12.2024).
 - 7. partiden açık kalanlar:
   - KAPANDI (07.10.2026, kullanıcı kararı): Ortak gerekçe (`DEFAULT_REASON`) "…bu uygulamada ayrıntılı bir değerlendirme yapılmadı." oldu; kurum değerlendirmesi yokmuş gibi okunmuyor.
-  - E270 üretim kaynağı 2008/84/AT direktifi; yürürlükten kalkmış olabilir, doğrulanmadı. E353 üretim kaynağı oiv.int (resmi değil); resmi karşılığı AB 2019/934.
-  - legislation.gov.uk Ek II tabloları 31.12.2020 anlık görüntüsü; E355–E357 için dolgu ve içecek tozu kullanımları okunamadı (429).
+  - KAPANDI (07.10.2026): E270 üretim kaynağı yürürlükten kalkan 2008/84/AT yerine AB 231/2012 şartnamesi; E353 üretim kaynağı EFSA 2020 görüşü (L(+)-tartarik asidin 150 °C üzerinde ısıtılması).
+  - KAPANDI (07.10.2026): E355–E357 dolgu/kaplama (2.000 mg/kg) ve içecek tozu (10.000 mg/kg) kullanımları Ek II'den okunup ansiklopediye eklendi.
 - ÇÖZÜLDÜ (06.10.2026, 8. parti): asitlik düzenleyiciler E525–E530, E574–E579, E585; kıvam artırıcılar E405, E406, E413, E416–E418, E425–E427, E441, E1204; gazlar E290, E938, E939, E941–E944, E948, E949; dengeleyiciler E444, E445, E459, E999, E1201, E1202.
 - 8. partiden açık kalanlar:
   - KAPANDI (07.10.2026, kullanıcı kararı): E459 (beta-siklodekstrin) K6 ölçütüyle sarıya geçti (EFSA 2016: markaya bağlı tüketim senaryosunda ADI aşımı), E407/E968 ile aynı.
   - KAPANDI (07.10.2026): E425 (konjak) tarama gerekçesine EFSA 2017 günde 3 g koşulu ve AB 2003/52/AT jöleli şekerleme yasağı yazıldı. Risk rengi yeşil kaldı (K1–K7 ölçütlerinden hiçbirine girmiyor).
-  - E579/E585 kategorisi "asitlik düzenleyici"; JECFA'ya göre renk stabilizatörü, AB'de yalnızca zeytinde (150 mg/kg demir olarak).
-  - E441 (jelatin) AB 1333/2008 Madde 3'e göre katkı maddesi sayılmıyor; e_kodlari.json'da kaynağı yok.
+  - KAPANDI (07.10.2026): E579/E585 kategorisi "Stabilizatör / dolgu" oldu (AB 1333/2008 Ek I: rengi koruyan maddeler stabilizatör sayılır).
+  - KAPANDI (07.10.2026): E441 (jelatin) için AB 1333/2008 Madde 3 ve 853/2004 Ek III kaynakları e_kodlari.json'a eklendi.
 - Kalan otomatik sayfalar, hepsi yeşil (33), kategoriye göre:
   - Emülgatörler (1): E431 (EFSA yeniden değerlendirmesi bulunamadı)
   - Antioksidanlar (1): E385 (EFSA görüşü yok; 2024 veri çağrısı açık)
