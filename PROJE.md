@@ -85,7 +85,7 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 **Açık: Ansiklopedi kaynaklandırma**
 
 - **PR #69** (8. parti, 40 madde): CI yeşil, merge bekliyor. Merge sonrası otomatik sayfa 73 → 33.
-- Bekleyen 2 karar (önerilen: ikisine de evet):
+- 2 karar verildi (07.10.2026, ikisine de evet; uygulandı):
   1. Yeşil maddelerdeki "ayrıntılı bir değerlendirme yapılmamıştır" cümlesi "bu uygulamada ayrıntılı değerlendirme yapılmadı" olsun mu? (`gen_e_kodlari.py` `DEFAULT_REASON`)
   2. E459 (beta-siklodekstrin) EFSA 2016'ya göre ADI aşılabildiği için sarıya geçsin mi? (E407 ve E968 aynı ölçütle sarı.)
 - Kalan **33 madde** (4. ve son grup): #69 birleşince başlanır. E101, E160d, E162, E172, E920 gibi kaynağı okunamayanlar otomatik kalabilir, nedeni kayda yazılır.
@@ -115,8 +115,8 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 
 ## 8. Sıradaki adımlar
 
-1. BKC: PR #69'u merge et, iki karara yanıt ver.
-2. Ansiklopedi son 33 madde (+ kararlar evet ise `DEFAULT_REASON` metni ve E459 sarı).
+1. BKC: telefon testi; ChemSec izni (SIN List).
+2. Ansiklopedi son 33 madde.
 3. Kozmetik verisi güncellemesi (2026/78, 2026/909) — veri doğruluğu, en güçlü model.
 4. Tesseract CDN sürüm sabitleme + SRI (küçük iş).
 5. "Olası etkiler" için kısa plan → onay → kod.

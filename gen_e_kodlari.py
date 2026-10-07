@@ -95,7 +95,7 @@ def tgk_aliases(eid, name):
     return out
 
 
-DEFAULT_REASON = "{K}. Bu listedeki özel uyarı ölçütlerinden hiçbirine girmiyor; ayrıntılı bir değerlendirme yapılmamıştır."
+DEFAULT_REASON = "{K}. Bu listedeki özel uyarı ölçütlerinden hiçbirine girmiyor; bu uygulamada ayrıntılı bir değerlendirme yapılmadı."
 
 # Bağlam gerektiren eş anlamlılar (ör. "karamel" yalnızca "renklendirici (karamel)" gibi kullanımlarda E150 sayılır)
 CONTEXT = EK["baglam"]
