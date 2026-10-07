@@ -9,8 +9,12 @@ function svg(path,cls){var s=document.createElementNS("http://www.w3.org/2000/sv
 var RICON={
   green:'<circle cx="12" cy="12" r="10" fill="#1F4D3A"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
   amber:'<path d="M12 2.5L23 21.5H1z" fill="#8A5A00"/><path d="M12 9v6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="18.2" r="1.4" fill="#fff"/>',
-  red:'<circle cx="12" cy="12" r="10" fill="#A4470B"/><path d="M12 6.5v7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.5" fill="#fff"/>'
+  red:'<circle cx="12" cy="12" r="10" fill="#A4470B"/><path d="M12 6.5v7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.5" fill="#fff"/>',
+  notr:'<circle cx="12" cy="12" r="10" fill="#8A8F8B"/><path d="M7.5 12h9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>'
 };
+/* Sonuç ekranıyla aynı kural: yeşil onay yalnızca "doğal" üretim yolunda; diğer uyarısız maddeler nötr (gri) */
+function notr(r){return r.risk_level==="green"&&!(r.production&&r.production.class==="dogal")}
+function rico(r){return RICON[notr(r)?"notr":r.risk_level]}
 var PWICON='<circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 6.5v7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.5" fill="#fff"/>';
 function tarih(s){var m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(s||"");return m?m[3]+"."+m[2]+"."+m[1]:""}
 function prof(){try{return JSON.parse(localStorage.getItem("profil")||"null")}catch(e){return null}}
@@ -28,8 +32,8 @@ function showRecord(r){
   box.appendChild(h("h2","name",name));
   if(r.summary)box.appendChild(h("p","sum",t(r.summary)));
   // Genel değerlendirme
-  var rk=h("section","card risk "+r.risk_level);rk.setAttribute("aria-label","Genel değerlendirme");
-  rk.appendChild(svg(RICON[r.risk_level],"ico"));
+  var rk=h("section","card risk "+r.risk_level+(notr(r)?" n":""));rk.setAttribute("aria-label","Genel değerlendirme");
+  rk.appendChild(svg(rico(r),"ico"));
   var rt=h("div");rt.appendChild(h("div","lbl",t("risk."+r.risk_level)));
   rt.appendChild(h("div","mut",r.review==="curated"?"Kanıt düzeyi: "+t("evidence."+r.evidence_level)+" · Son inceleme: "+tarih(r.last_reviewed):"Kanıt düzeyi henüz değerlendirilmedi"));
   if(r.evaluation)rt.appendChild(h("p",null,t(r.evaluation)));
@@ -64,7 +68,7 @@ function showRecord(r){
   if(rel.length){
     box.appendChild(h("h2","sec","Benzer maddeler"));
     var rw=h("div","rel");
-    rel.forEach(function(x){var a=h("a");a.href=link(x);var b=h("b");b.appendChild(svg(RICON[x.risk_level],"mini"));b.appendChild(document.createTextNode(x.id));a.appendChild(b);a.appendChild(h("span",null,t(x.names.primary)));a.setAttribute("aria-label",x.id+" "+t(x.names.primary)+", "+t("risk."+x.risk_level));rw.appendChild(a)});
+    rel.forEach(function(x){var a=h("a");a.href=link(x);var b=h("b");b.appendChild(svg(rico(x),"mini"));b.appendChild(document.createTextNode(x.id));a.appendChild(b);a.appendChild(h("span",null,t(x.names.primary)));a.setAttribute("aria-label",x.id+" "+t(x.names.primary)+", "+t("risk."+x.risk_level));rw.appendChild(a)});
     box.appendChild(rw);
   }
   footer(box,r);
@@ -121,7 +125,7 @@ a$("geri").onclick=function(){
 
 /* ---------- Arama ve kayıtlı maddeler ---------- */
 function rowFor(r){
-  var a=h("a","row");a.href=link(r);a.appendChild(svg(RICON[r.risk_level]));a.appendChild(h("span","rc",r.id));
+  var a=h("a","row");a.href=link(r);a.appendChild(svg(rico(r)));a.appendChild(h("span","rc",r.id));
   var n=h("span","rn",t(r.names.primary));n.appendChild(h("span","rk",t("cat."+r.category)+" · "+t("risk."+r.risk_level)));a.appendChild(n);return a;
 }
 function showSearch(){

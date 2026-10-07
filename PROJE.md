@@ -101,7 +101,7 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 
 **Orta**
 4. Paylaşım kartı ve karşılaştırma revizesi: BKC'nin ayrıntısını bekliyor.
-5. Ansiklopedi: kalan 33 madde (yukarıda) + 6./7. partiden kalan kaynak notları.
+5. Ansiklopedi: E1203 ve 6.–9. partilerden kalan kaynak notları (TEKNIK_BORC.md).
 6. Üretim yolu: 157 E kodu kaynakla doğrulanmadı.
 7. Kozmetik (~200–300 madde) ve temizlik (~30 madde) ansiklopedisi yok.
 8. Arayüzün otomatik testi yok (CI'da tarayıcı testi çalışmıyor).
@@ -115,7 +115,7 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 ## 8. Sıradaki adımlar
 
 1. BKC: —
-2. Ansiklopedi son 33 madde.
+2. ~~Ansiklopedi son 33 madde~~ (07.10.2026: 32 madde yazıldı, E1203 otomatik kaldı).
 3. Kozmetik verisi güncellemesi (2026/78, 2026/909) — veri doğruluğu, en güçlü model.
 4. ~~Tesseract CDN sürüm sabitleme + SRI~~ (yapıldı).
 5. "Olası etkiler" için kısa plan → onay → kod.
