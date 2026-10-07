@@ -1,4 +1,4 @@
-{"meta":{"lang": "tr", "generated": "2026-10-07", "count": 3303},
+{"meta":{"lang": "tr", "generated": "2026-10-07", "count": 3304},
 "t":{
 "E100.body":"EFSA 2010'da kurkumin için günlük kabul edilebilir alımı (ADI) 3 mg/kg vücut ağırlığı olarak belirledi; uzun süreli çalışmalarda kanser yapıcı bulunmadı. 2014'teki ayrıntılı hesapta çok tüketen küçük çocuklarda alımın bu sınıra yaklaşabildiği görüldü.",
 "E100.found.0":"Hardal ve köri",
@@ -2497,6 +2497,7 @@
 "E553a.summary":"Magnezyum silikat. Toz ürünlerde topaklanmayı önler.",
 "E553a.what":"Toz gıdaların topaklanmasını önleyen magnezyum silikat ve magnezyum trisilikattır.",
 "E553b.body":"Silikatlar çok az emilir. EFSA 2018'de kalsiyum ve magnezyum silikat ile talk için genotoksisite ya da gelişimsel toksisite belirtisi görmedi; ancak sıçanlarda kalsiyum silikattan gelen silisyumun böbrek ve karaciğerde biriktiğinin bildirildiğini ve güvenilir uzun süreli toksisite, kanserojenlik ve üreme verisi bulunmadığını belirterek katkı olarak güvenliklerinin değerlendirilemeyeceği sonucuna vardı. SCF'nin silikon dioksit ve silikatlar için 1991'de verdiği grup ADI'nin geçerliliğini yitirdiğini belirtti. JECFA 1986'da ADI'yi 'belirtilmemiş' olarak belirlemişti. IARC 2025'te (Monografi 136) talkı Grup 2A (insanlarda muhtemelen kanserojen) olarak sınıflandırdı.",
+"E553b.eval":"IARC 2025'te talkı Grup 2A (insanlarda muhtemelen kanserojen) olarak sınıflandırdı (Monografi 136). EFSA 2018'de uzun süreli toksisite verisi eksik olduğundan katkı olarak güvenliğini değerlendiremedi. AB'de pirinç, sosis ve haşlanmış yumurta yüzeyinde, sakızda ve toz gıdalarda topaklanmayı önleyici olarak izinlidir.",
 "E553b.found.0":"Pirinç (yüzey işlemi)",
 "E553b.found.1":"Sosis yüzeyi",
 "E553b.found.2":"Kabuğu soyulmamış boyalı haşlanmış yumurta yüzeyi (en çok 5.400 mg/kg)",
