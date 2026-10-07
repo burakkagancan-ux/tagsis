@@ -2338,6 +2338,27 @@
    "year": 2020,
    "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/5/2020-12-31",
    "official": true
+  },
+  "ab1333_kons_2026": {
+   "title": "Regulation (EC) No 1333/2008 on food additives – konsolide metin (18.08.2026)",
+   "publisher": "Avrupa Komisyonu (EUR-Lex, konsolide metin)",
+   "year": 2026,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02008R1333-20260818",
+   "official": true
+  },
+  "efsa_e1203": {
+   "title": "Opinion of the AFC Panel related to the use of polyvinyl alcohol as a coating agent for food supplements",
+   "publisher": "EFSA (EFSA Journal 2006, 294)",
+   "year": 2006,
+   "url": "https://doi.org/10.2903/j.efsa.2006.294",
+   "official": true
+  },
+  "jecfa_e1203_spec": {
+   "title": "Polyvinyl alcohol – JECFA specifications (FAO JECFA Monographs 4)",
+   "publisher": "FAO / JECFA",
+   "year": 2007,
+   "url": "https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph4/additive-327-m4.pdf",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -13297,6 +13318,7 @@
    "evidence_level": "moderate",
    "what_it_does": "Sarı-turuncu renk veren bir renklendiricidir; B2 vitamini (riboflavin) ve onun fosfatlı biçiminden oluşur.",
    "found_in": [
+    "AB'de Grup II renklendiricisi olarak birçok gıdada gerektiği kadar (quantum satis): aromalı fermente süt ürünleri ve peynirler, şekerleme ve sakız, kahvaltılık gevrekler, ince unlu mamuller, soslar, hardal ve çeşniler, aromalı içecekler, elma ve meyve şarapları, atıştırmalıklar",
     "Kırmızı meyve konserveleri ve sebze konserveleri (zeytin hariç)",
     "Kurutulmuş patates granülleri ve pulları",
     "Balık ve kabuklu ezmeleri, tütsülenmiş balık",
@@ -13320,10 +13342,19 @@
      "detail": "Riboflavin ve riboflavin-5'-fosfat için grup ADI 0–0,5 mg/kg vücut ağırlığı.",
      "year": 1981,
      "src": "jecfa_e101"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup II renklendiricisi: izin verilen gıda kategorilerinde gerektiği kadar (quantum satis).",
+     "year": 2026,
+     "src": "ab1333_kons_2026"
     }
    ],
    "sources": [
     "efsa_e101",
+    "ab1333_kons_2026",
     "jecfa_e101",
     "ab1333_annex2_e_g2",
     "ab1333_annex2_e_g3",
@@ -13332,7 +13363,7 @@
     "eu_1333_annex2_e",
     "ab1333_annex2_e_g12"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E160d": {
    "evidence_level": "moderate",
@@ -13379,6 +13410,7 @@
    "evidence_level": "limited",
    "what_it_does": "Kırmızı pancardan elde edilen, başlıca betanin içeren kırmızı-mor bir renklendiricidir.",
    "found_in": [
+    "AB'de Grup II renklendiricisi olarak birçok gıdada gerektiği kadar (quantum satis): aromalı fermente süt ürünleri ve peynirler, şekerleme ve sakız, kahvaltılık gevrekler, ince unlu mamuller, soslar, hardal ve çeşniler, aromalı içecekler, elma ve meyve şarapları, atıştırmalıklar",
     "Kırmızı meyve konserveleri ve sebze konserveleri",
     "Meyve aromalı kahvaltılık gevrekler (en çok 200 mg/kg)",
     "Sosis, pate ve terrinler",
@@ -13401,10 +13433,19 @@
      "detail": "ADI 'belirtilmemiş'.",
      "year": 1987,
      "src": "jecfa_e162"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup II renklendiricisi: izin verilen gıda kategorilerinde gerektiği kadar (quantum satis).",
+     "year": 2026,
+     "src": "ab1333_kons_2026"
     }
    ],
    "sources": [
     "efsa_e162",
+    "ab1333_kons_2026",
     "jecfa_e162",
     "ab1333_annex2_e_g2",
     "ab1333_annex2_e_g3",
@@ -13412,12 +13453,13 @@
     "ab1333_annex2_e_g7",
     "eu_1333_annex2_e"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E172": {
    "evidence_level": "limited",
    "what_it_does": "Sarı, kırmızı ve siyah demir oksit ve hidroksitlerden oluşan, toprak tonlarında renk veren bir renklendiricidir.",
    "found_in": [
+    "AB'de Grup II renklendiricisi olarak birçok gıdada gerektiği kadar (quantum satis): aromalı fermente süt ürünleri ve peynirler, şekerleme ve sakız, kahvaltılık gevrekler, ince unlu mamuller, soslar, hardal ve çeşniler, aromalı içecekler, elma ve meyve şarapları, atıştırmalıklar",
     "Turunçgil, kavun ve nar kabuğundaki işaretlemelerde (kontrast için)",
     "Balık ve kabuklu ezmeleri, tütsülenmiş balık",
     "Deniz yosunu bazlı balık yumurtası taklitleri"
@@ -13431,15 +13473,24 @@
      "detail": "Yeniden değerlendirildi; veri yetersizliği nedeniyle güvenlik değerlendirilemedi.",
      "year": 2015,
      "src": "efsa_e172"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup II renklendiricisi: izin verilen gıda kategorilerinde gerektiği kadar (quantum satis).",
+     "year": 2026,
+     "src": "ab1333_kons_2026"
     }
    ],
    "sources": [
     "efsa_e172",
+    "ab1333_kons_2026",
     "ab1333_annex2_e_g2",
     "ab1333_annex2_e_g3",
     "eu_1333_annex2_e"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E385": {
    "evidence_level": "limited",
@@ -13483,7 +13534,7 @@
    "evidence_level": "limited",
    "what_it_does": "Yağ ile suyun karışmasını sağlayan, polioksietilen içeren bir emülgatördür.",
    "found_in": [
-    "AB'nin katkı listesinde (Ek II Bölüm B) yer alır; Ek II kullanım tablolarında (31.12.2020 metni) bu madde için kullanım satırı yoktur"
+    "AB'nin katkı listesinde (Ek II Bölüm B) yer alır, ancak güncel konsolide metinde (18.08.2026) hiçbir gıda kategorisi için kullanım izni yoktur"
    ],
    "in_the_body": "JECFA 1973'te polioksietilen (8) ve (40) stearatların toplamı için ADI'yi 0–25 mg/kg vücut ağırlığı/gün olarak belirledi.",
    "regulatory_extra": [
@@ -13494,13 +13545,21 @@
      "detail": "Polioksietilen (8) ve (40) stearatların toplamı için ADI 0–25 mg/kg vücut ağırlığı.",
      "year": 1973,
      "src": "jecfa_e431"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "not_listed",
+     "detail": "Katkı listesinde adı var, ancak hiçbir gıda kategorisinde kullanım koşulu tanımlanmamış (konsolide metin 18.08.2026).",
+     "year": 2026,
+     "src": "ab1333_kons_2026"
     }
    ],
    "sources": [
     "jecfa_e431",
-    "ab1333_annex2_b"
+    "ab1333_kons_2026"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E535": {
    "evidence_level": "strong",
@@ -14303,6 +14362,38 @@
     "ab1333_annex3_p1"
    ],
    "last_reviewed": "2026-10-07"
+  },
+  "E1203": {
+   "evidence_level": "limited",
+   "what_it_does": "Takviye edici gıda tablet ve kapsüllerinde kaplama maddesi olarak kullanılan sentetik bir polimerdir.",
+   "found_in": [
+    "Takviye edici gıda kapsül ve tabletleri (AB'de yalnızca bunlarda, en çok 18.000 mg/kg)"
+   ],
+   "in_the_body": "EFSA 2006'da polivinil alkolün takviye edici gıdalarda kaplama maddesi olarak kullanımını değerlendirdi; görüşün tam metni bu çalışmada okunamadığı için sonucu burada aktarılmıyor. AB'de yalnızca takviye edici gıda kapsül ve tabletlerinde izinlidir; saflık şartları JECFA şartnamesinde tanımlıdır.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca takviye edici gıda kapsül ve tabletlerinde, en çok 18.000 mg/kg.",
+     "year": 2026,
+     "src": "ab1333_kons_2026"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Takviye edici gıdalarda kaplama maddesi olarak kullanımı değerlendirildi (görüş metni okunamadı).",
+     "year": 2006,
+     "src": "efsa_e1203"
+    }
+   ],
+   "sources": [
+    "ab1333_kons_2026",
+    "efsa_e1203",
+    "jecfa_e1203_spec"
+   ],
+   "last_reviewed": "2026-10-08"
   }
  }
 }

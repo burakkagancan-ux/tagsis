@@ -1,6 +1,6 @@
 // İki ürünü karşılaştırma: karar mantığı, madde farkları, tanınmayan oran, geçmiş. Çalıştır: node test/karsilastir.js
 const src=require('./yukle.js');
-eval(src+';global.K={cmpProduct,cmpDecide,cmpDiff,cmpMisfit,histAdd,histName,KARS_AYAR}');
+eval(src+';global.K={cmpProduct,cmpProductK,cmpProductT,cmpDecide,cmpDiff,cmpMisfit,histAdd,histName,KARS_AYAR,buildTIndex}');
 const {idx}=require('./run.js');
 let fail=0,n=0;const ok=(c,m)=>{n++;if(!c){fail++;console.log('HATA',m)}};
 const cfg=K.KARS_AYAR;
@@ -77,6 +77,22 @@ ok(pr('Süt tozu, şeker',{lactose:true}).length===1,'laktoz');
 ok(pr('Jelatin, şeker',{vegan:true}).length===1,'vegan');
 ok(pr('Bal, yulaf',{baby:true}).length===1,'bebek + bal');
 ok(pr('Bal, yulaf',{}).length===0,'profil yoksa uyumsuzluk yok');
+// Kozmetik: AB'de yasak bileşen uyarı (3), koku alerjeni profil uyumsuzluğu, tanınmayan oran
+const KX=require('./kozmetik_cases.js').K,TX=K.buildTIndex(JSON.parse(require('fs').readFileSync(__dirname+'/../data/temizlik.json')));
+const ka=K.cmpProductK('Ingredients: Aqua, Glycerin, Parfum, Linalool, Phenoxyethanol.',KX,{},'KA');
+const kb=K.cmpProductK('Ingredients: Aqua, Glycerin, Butylphenyl Methylpropional, Phenoxyethanol.',KX,{},'KB');
+ok(ka.mode==='koz'&&ka.items.some(x=>x.name==='LINALOOL'),'kozmetik maddeler');
+ok(kb.maxRank===3&&kb.top.some(x=>/BUTYLPHENYL|LILIAL/.test(x.name)),'kozmetik AB yasağı uyarı: '+JSON.stringify(kb.top));
+d=K.cmpDecide(ka,kb,cfg);ok(d.winner==='A'&&d.kind==='en_riskli','kozmetik karar '+JSON.stringify(d));
+ok(K.cmpDecide(K.cmpProductK('Ingredients: Aqua, Glycerin, Parfum, Linalool.',KX,{koku:true},'X'),K.cmpProductK('Ingredients: Aqua, Glycerin.',KX,{koku:true},'Y'),cfg).kind==='profil','koku alerjisi profili');
+ok(!K.cmpDiff(ka,ka).onlyA.length&&K.cmpDiff(ka,kb).onlyA.some(x=>x.name==='LINALOOL'),'kozmetik madde farkı');
+// Temizlik: ciddi tehlike ifadesi (H318) uyarı, palm/şeker ek nedeni yok
+const ta=K.cmpProductT('İçindekiler: %5-15 anyonik yüzey aktif maddeler, parfüm. DİKKAT. Cilt tahrişine yol açar.',TX,KX,{},'TA');
+const tb=K.cmpProductT('İçindekiler: %5-15 anyonik yüzey aktif maddeler. TEHLİKE. Ciddi göz hasarına yol açar.',TX,KX,{},'TB');
+ok(tb.items.some(x=>x.key==='H318'&&x.rank===3)&&ta.items.some(x=>x.key==='H315'&&x.rank===2),'temizlik ifadeleri: '+JSON.stringify(ta.items.concat(tb.items).map(x=>x.key+x.rank)));
+d=K.cmpDecide(ta,tb,cfg);ok(d.winner==='A'&&/ifade ya da madde/.test(d.reason),'temizlik karar '+JSON.stringify(d));
+ok(K.cmpProductT('Benzisothiazolinone. Methylisothiazolinone. Cilt tahrişine yol açar.',TX,KX,{baby:true},'x').misfit.length===0,'sarı ifade bebek uyumsuzluğu değil');
+ok(K.cmpProductT('TEHLİKE. H304 Yutulması ve solunum yollarına girmesi halinde öldürücü olabilir.',TX,KX,{child:true},'x').misfit.length>0,'çocuk + yutma ciddi tehlike');
 // Geçmiş
 let h=[];for(let i=0;i<25;i++)h=K.histAdd(h,{mode:'gida',text:'metin '+i,t:i},20);
 ok(h.length===20&&h[0].text==='metin 24','geçmiş 20 kayıt, en yeni başta');

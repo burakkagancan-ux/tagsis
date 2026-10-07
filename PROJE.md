@@ -100,8 +100,8 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 3. **"Vücutta ne olur?" → "Olası etkiler":** yapılandırılmış belirti listesi önerisi hazır (TEKNIK_BORC.md); önce kısa plan.
 
 **Orta**
-4. Paylaşım kartı ve karşılaştırma revizesi: BKC'nin ayrıntısını bekliyor.
-5. Ansiklopedi: E1203 ve 6.–9. partilerden kalan kaynak notları (TEKNIK_BORC.md).
+4. Paylaşım kartı ve karşılaştırma revizesi: BKC'nin ayrıntısını bekliyor (karşılaştırma 08.10.2026'da kozmetik ve temizliğe genişletildi).
+5. Ansiklopedi: 333 sayfanın hepsi elle yazıldı (08.10.2026). Kalan: eski kayıtların güncel AB konsolide metniyle karşılaştırılması, TGK 2023.
 6. Üretim yolu: 157 E kodu kaynakla doğrulanmadı.
 7. Kozmetik (~200–300 madde) ve temizlik (~30 madde) ansiklopedisi yok.
 8. Arayüzün otomatik testi yok (CI'da tarayıcı testi çalışmıyor).

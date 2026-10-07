@@ -1,4 +1,4 @@
-/* İki gıda ürününü karşılaştırma: saf mantık (DOM yok); testler de yükler. Skor yok: karar madde seviyelerine, profile ve alerjenlere dayanır.
+/* İki ürünü (gıda, kozmetik ya da temizlik) karşılaştırma: saf mantık (DOM yok); testler de yükler. Skor yok: karar madde seviyelerine, profile ve alerjenlere dayanır.
    Seviye (rank): 0 özel uyarı yok, 1 doğrulanmadı, 2 dikkat, 3 uyarı (gida.js RANK). Bileşenler (seviyesiz) 0 sayılır. */
 var CMP_SEV=["özel uyarı olmayan","durumu doğrulanmamış","dikkat gerektiren","uyarı işaretli"];
 
@@ -80,6 +80,66 @@ function cmpProduct(text,idx,prof,name){
     palm:S.palm.slice(),sugar:sugar,uretim:uretimOzet(res,idx)};
 }
 
+/* Kozmetik ürün özeti. Seviye: AB'de yasak ve başka pazarda yasak (red/orange) 3, dikkat (yellow) 2, diğerleri 0.
+   Tanınmayan oran: INCI listesindeki bileşenlerden tanınmayanlar. */
+var CMP_KRANK={red:3,orange:3,yellow:2,info:0};
+function cmpMisfitK(S,prof){
+  var o=[],j=function(a){return a.join(", ")};
+  if(!prof)return o;
+  if(prof.koku&&S.fragrance.length)o.push("Koku alerjeni içerir ("+j(S.fragrance)+")");
+  var no=S.nonVeg.concat(S.nonVegan);
+  if(prof.vegan&&no.length)o.push("Vegan değil ("+j(no)+")");
+  if(prof.veg&&S.nonVeg.length)o.push("Vejetaryen değil ("+j(S.nonVeg)+")");
+  return o;
+}
+function cmpProductK(text,K,prof,name,opts){
+  var res=analyzeK(text,K,opts),S=summarizeK(res,K),items=[],by={};
+  res.forEach(function(r){
+    if(!r.found)return;
+    var rk=CMP_KRANK[r.level]||0;
+    if(by[r.name]){if(rk>by[r.name].rank)by[r.name].rank=rk;return}
+    by[r.name]={key:r.name,ids:[r.name],name:r.name,rank:rk};items.push(by[r.name]);
+  });
+  return cmpWrap({mode:"koz",name:name||"",text:text,res:res,S:S,noun:"madde",
+    unknown:{total:S.total,found:S.found,ratio:S.total?(S.total-S.found)/S.total:0},misfit:cmpMisfitK(S,prof)},items);
+}
+
+/* Temizlik ürün özeti. Tehlike ifadeleri ve madde notları: ciddi tehlike (red) 3, uyarı (yellow) 2, bilgi 0; adı yazılan diğer maddeler 0.
+   Temizlik etiketinde tam içerik listesi olmadığı için tanınmayan oran uygulanmaz. */
+var CMP_TRANK={red:3,yellow:2,info:0};
+function cmpMisfitT(S,A,T,prof){
+  var o=[],j=function(a){return a.join(", ")},lv=function(c){return T.byCode[c]&&T.byCode[c].level};
+  if(!prof)return o;
+  if(prof.koku&&S.fragrance.length)o.push("Koku alerjeni içerir ("+j(S.fragrance)+")");
+  if(prof.astim){var rs=S.resp.filter(function(c){return /^(H334|EUH071)$/.test(c)});if(rs.length)o.push("Astım / solunum: "+j(rs))}
+  var who=prof.preg?"Hamilelik":prof.baby?"Bebek":prof.child?"Çocuk":"";
+  if(who&&S.cmr.length)o.push(who+": kanser, genetik hasar ya da üreme tehlikesi ("+j(S.cmr)+")");
+  if(who&&S.ed.length)o.push(who+": endokrin bozucu tehlike ifadesi ("+j(S.ed)+")");
+  if(prof.baby||prof.child){
+    var sw=S.swallow.concat(S.eye).filter(function(c){return lv(c)==="red"});
+    if(sw.length)o.push((prof.baby?"Bebek":"Çocuk")+": yutma ya da göze kaçma halinde ciddi tehlike ("+j(sw)+")");
+    if(A.capsule)o.push((prof.baby?"Bebek":"Çocuk")+": deterjan kapsülü");
+  }
+  return o.filter(function(x,i){return o.indexOf(x)===i});
+}
+function cmpProductT(text,T,K,prof,name){
+  var A=analyzeT(text,T,K),S=summarizeT(A),items=[],by={};
+  function add(key,nm,rk,kind,x){if(by[key]){if(rk>by[key].rank)by[key].rank=rk;return}by[key]={key:key,ids:[key],name:nm,rank:rk,kind:kind,x:x};items.push(by[key])}
+  A.hazards.forEach(function(x){add(x.code,x.code+" "+x.h.tr.replace(/^içerir\. /,"").replace(/\.$/,""),CMP_TRANK[x.h.level]||0,"hz",x)});
+  A.subs.forEach(function(x){var s=x.s;add(s.inci[0],s.inci.length>1?"Enzim: "+s.inci.join(", ").toLowerCase():s.inci[0],CMP_TRANK[s.level]||0,"sub",x)});
+  A.inci.forEach(function(x){add(x.name,x.name,0,"inci",x)});
+  return cmpWrap({mode:"tem",name:name||"",text:text,A:A,S:S,noun:"ifade ya da madde",
+    unknown:{total:0,found:0,ratio:0},misfit:cmpMisfitT(S,A,T,prof)},items);
+}
+/* Ortak alanlar: sayılar, en riskli seviye, en riskli maddeler */
+function cmpWrap(P,items){
+  items.sort(function(x,y){return y.rank-x.rank||x.name.localeCompare(y.name,"tr")});
+  var cnt=[0,0,0,0];items.forEach(function(it){cnt[it.rank]++});
+  P.items=items;P.counts=cnt;P.maxRank=items.length?items[0].rank:0;P.yellow=cnt[2];
+  P.top=items.filter(function(it){return it.rank===P.maxRank&&P.maxRank>0});
+  return P;
+}
+
 /* Madde farkları: anahtar madde kimliğidir (E322 ile "soya lesitini" aynı madde) */
 function cmpDiff(A,B){
   var kb={},ka={},o={onlyA:[],onlyB:[],both:[]};
@@ -109,18 +169,19 @@ function cmpDecide(A,B,cfg){
   var w,l,r;
   if(A.maxRank!==B.maxRank){
     w=A.maxRank<B.maxRank?"A":"B";l=other(w);
-    r=CMP_SEV[P[l].maxRank].charAt(0).toUpperCase()+CMP_SEV[P[l].maxRank].slice(1)+" madde ("+P[l].top.slice(0,2).map(function(x){return x.name}).join(", ")+") yalnızca "+P[l].name+" içinde var.";
+    r=CMP_SEV[P[l].maxRank].charAt(0).toUpperCase()+CMP_SEV[P[l].maxRank].slice(1)+" "+(P[l].noun||"madde")+" ("+P[l].top.slice(0,2).map(function(x){return x.name}).join(", ")+") yalnızca "+P[l].name+" içinde var.";
     return o(w,"en_riskli",winT(w),cmpExtra(r,P[w],P[l]));
   }
   if(A.yellow!==B.yellow){
     w=A.yellow<B.yellow?"A":"B";l=other(w);
-    r="Dikkat gerektiren madde sayısı: "+P[w].name+" "+P[w].yellow+", "+P[l].name+" "+P[l].yellow+".";
+    r="Dikkat gerektiren "+(P[w].noun||"madde")+" sayısı: "+P[w].name+" "+P[w].yellow+", "+P[l].name+" "+P[l].yellow+".";
     return o(w,"dikkat",winT(w),cmpExtra(r,P[w],P[l]));
   }
   return o(null,"benzer","Benzer","İki ürün içerik açısından benzer görünüyor.");
 }
-/* Kazananın lehine tek bir ek fark: palm yağı ya da şeker kaynağı sayısı */
+/* Kazananın lehine tek bir ek fark (yalnızca gıda): palm yağı ya da şeker kaynağı sayısı */
 function cmpExtra(r,W,L){
+  if(!L.palm||!W.palm)return r;   // kozmetik ve temizlikte bu ek fark yok
   if(L.palm.length&&!W.palm.length)return r+" Palm yağı yalnızca "+L.name+" içinde var.";
   if(L.sugar.length>W.sugar.length)return r+" Şeker kaynağı sayısı: "+W.name+" "+W.sugar.length+", "+L.name+" "+L.sugar.length+".";
   return r;
