@@ -8,20 +8,23 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 ## 3. Google Fonts
 - ÇÖZÜLDÜ (04.10.2026): Yazı tipleri depoda (şimdi Bricolage Grotesque + Figtree; Schibsted kaldırıldı 04.10.2026) (fonts/, SIL OFL 1.1, @fontsource 5.3.0; latin + latin-ext, 400/600/800 woff2). Google'a istek gitmiyor; service worker önbelleğe alıyor (tagsis-v5).
 
-## 4. Kozmetik verisi (data/kozmetik.json) — yayın öncesi
-- **Türkiye ekleri:** Durum karşılaştırması yapıldı (kaynak/TR_KOZMETIK_KARSILASTIRMA.md): son TR değişikliği 05.03.2024 (AB 2023/1490), sonraki AB değişiklikleri `tr` alanında. Ek II–VI satır satır karşılaştırması Resmî Gazete metnine erişilemediği için yapılamadı; Eylül 2026 taslağının resmî metni de görülmedi.
-- **Anlık görüntü yaşı — KAPANDI (07.10.2026):** CosIng verisi 2024 başına ait (inhouse-work/cosing @268e3cd); sonraki değişiklikler `kaynak/kozmetik_guncellemeler.tsv` ile elle ekleniyor. 2026/78 ve 2026/909 tüzüklerinin tamamı AB Resmî Gazetesi metninden (publications.europa.eu) satır satır işlendi: 2026/78 ile eklenen 15 CMR maddesi (Ek II 1752–1766), perborat birleştirmesi (1397), gümüş (Ek II 1727, Ek III 379, Ek IV 142), hexyl salicylate (Ek III 380); 2026/909 ile triphenyl phosphate, alüminyum, suda çözünen çinko tuzları, citral, benzyl salicylate, acetylated vetiver oil, gümüş çinko zeolit (Ek V 61), DHHB ve 4 saç boyası (Ek III 381–384). Bu iki tüzüğün kayıtlarında `inceleme` artık 0. Kayıt sayısı 1.972 → 1.994.
-  - Kalan: İki tüzük aynı sıra numaralarını farklı maddelere vermiş (Ek II 1752; Ek III 379, 380). 2026/909'daki çakışan üç kayıt (triphenyl phosphate, alüminyum, acetylated vetiver oil) konsolide metin yeni numara verene kadar `?` ile duruyor.
-  - Kalan: Gümüş çinko zeolit hem Ek II'de (yasak) hem Ek V'te (koşullu izinli) olduğu için etikette görülünce kırmızı görünüyor; Ek II kaydına istisna notu yazıldı.
-  - Kalan: 2026 sonu taslak (benzofenon-1/-2, BHA, butilparaben) henüz kabul edilmedi; K3 `ab_taslak` listesinde izleniyor. CBD taslak listesinde yok; resmi taslak metni görülmedi.
-- **Doğrulama:** 2026/78 ve 2026/909 dışında `inceleme=1` kalan güncelleme (2025/877'deki N,N-dimethyl-p-toluidine) EUR-Lex metniyle satır satır karşılaştırılmalı.
-- **Otomatik güncelleme:** CosIng verisi artık depoda (`kaynak/cosing/`, `cosing_al.py` ile alınır). Kaynak depo inhouse-work/cosing 13.05.2024'ten beri güncellenmiyor (268e3cd en son commit), yani oradan yeni veri gelmez. Daha yeni veri için Komisyon'un CosIng sitesinden indirme gerekir (bu ortamdan erişilemedi); aylık mevzuat izleme işine bağlı.
-- **Eş anlamlılar:** `kaynak/kozmetik_esanlamlilar.tsv` (Türkçe/İngilizce yaygın adlar) ve ABD renklendirici tablosu (`kaynak/kozmetik_abd_renkler.tsv`) (FD&C/D&C → CI) bilgiye dayanarak yazıldı; FDA 21 CFR 74/82 listeleriyle karşılaştırılmalı. Türkçe kimyasal adlar kuralla üretiliyor (975 ad); Türk etiketlerinde görülen gerçek yazımlarla denetlenmeli.
+## 4. Kozmetik verisi (data/kozmetik.json) — KAPANDI (07.10.2026)
+- **Türkiye ekleri — KAPANDI:** Ek II–VI, Resmî Gazete'deki ek PDF'lerinden (2023 yönetmeliği ve 05.03.2024 değişikliği) yazı tanımayla okunup AB'nin 2.291 kaydıyla satır satır karşılaştırıldı (kaynak/TR_KOZMETIK_KARSILASTIRMA.md). Tek fark: AB Ek II 1394–1397 (boric oxide, borik asit, boratlar, sodyum perborat) Türkiye'de yasaklı listede yok; bu kayıtlarda `tr: farkli`, kartın (i) panelinde açıklanıyor. Sınır: yazı tanıma yüzde ve ürün tipi değerlerinin tek tek karşılaştırılmasına yetmiyor; karşılaştırma maddenin listede olup olmadığını kapsıyor.
+- **Anlık görüntü yaşı — KAPANDI:** `cosing_al.py` artık Komisyon'un CosIng arama servisinden indiriyor (inhouse-work/cosing kopyası bırakıldı). Veri 28.04.2026'ya (2026/909) kadar güncel; 2026/78 ve 2026/909 ayrıca resmi metinden doğrulandı, numara çakışması CosIng'in konsolide numaralarıyla çözüldü (Ek II 1767; Ek III 381–386). 2025/877'nin eksik 7 CMR kaydı eklendi. CosIng'den çıkarılan 1.474 INCI adı `kaynak/cosing/ingredients_eski.csv`'de korunuyor (eski etiketlerde tanınsın diye).
+  - Düzeltilen eski hatalar: CosIng'de aynı numarayı taşıyan iki kaydın biri kayboluyordu (ör. Ek III 269 BASIC RED 51); "Please consider entry 419…" gibi koşullu CosIng notları artık yasak sayılmıyor (MINERAL OIL, SQUALENE gibi yaygın adlar kırmızı olmuyor); gümüş çinko zeolit Ek V/61 ile koşullu izinli göründüğü için artık kırmızı değil.
+- **Doğrulama — KAPANDI:** `kaynak/kozmetik_guncellemeler.tsv`'de `inceleme=1` satır kalmadı (2025/877 N,N-dimethyl-p-toluidine resmi metinle doğrulandı).
+- **Otomatik güncelleme — KAPANDI:** `.github/workflows/cosing.yml` ayda bir (her ayın 1'i) CosIng'den indirir; değişiklik varsa testleri çalıştırıp PR açar. Yeni AB değişikliği gelirse güncelleme tablosuna Türkçe not ve Türkiye durumu elle eklenir.
+- **Eş anlamlılar — KAPANDI (ABD renkleri):** `kaynak/kozmetik_abd_renkler.tsv`'deki 33 satırın hepsi 21 CFR 74/82'deki (eCFR) kimyasal tanımla ve AB Ek IV CAS'ıyla tutarlı; eksik 3 ABD rengi eklendi (FD&C Blue No. 2, D&C Black No. 2 ve 3). Eş anlamlıların hepsi yeni INCI listesinde geçerli hedefe bağlı.
+  - Kalan: Kurala göre üretilen Türkçe kimyasal adlar (992 ad) gerçek Türk etiketlerinde görülen yazımlarla denetlenmeli; bunun için etiket fotoğrafı gerekiyor (telefon testleriyle birlikte).
 
-## 5. Kozmetik K3 (kaynak/kozmetik_k3.tsv)
-- **Kaynak denetimi:** Kaliforniya listesi HSC §108980 metninin Justia kopyasından (2024 kodu) alındı; resmi leginfo sitesinden karşılaştırılmadı. ASEAN satırı (mikonazol) ikincil kaynaktan (CIRS), needs_review.
-- **Güncelleme:** AB endokrin bozucu listesinin B grubu için ikinci veri çağrısı ve SCCS görüşleri izlenmeli; tarihleri elle güncellenir.
-- **SIN List:** ChemSec'in veri yeniden kullanım koşulları belirsiz; yazılı izin alınmadan eklenmemeli.
+## 5. Kozmetik K3 (kaynak/kozmetik_k3.tsv) — KAPANDI (07.10.2026), 1 madde AÇIK
+- **Kaliforniya — KAPANDI:** Satırlar HSC §108980'in resmi metniyle (AB 60 ile değişik hali, yürürlük 01.01.2026; Kaliforniya Yasama Meclisi toplu veri dosyası) karşılaştırıldı. Eksikler eklendi: perborat ve boratların ek CAS'ları, musk ketone (yasak değil üst sınır; yeni sarı liste `ca_sinir`).
+- **ASEAN — KAPANDI:** Mikonazol, Singapur HSA'nın yayımladığı resmi ASEAN ekleriyle (sürüm 2026-1, 22.06.2026) doğrulandı; aynı sürümde eklenen 4 mantar ilacı (bifonazol, klotrimazol, tiyabendazol, tiyokonazol) eklendi.
+- **AB taslağı — KAPANDI:** `ab_taslak` satırları Komisyon'un Konsey'e 21.09.2026'da ilettiği resmi taslakla (D117774) doğrulandı; taslaktaki diğer maddeler (Basic Brown 16, Basic Blue 99, prostaglandin benzeri kirpik serumu maddeleri, cıvalı koruyucular, CBD sınırı) eklendi. Kabul edilince güncelleme tablosuna taşınmalı.
+- **REACH D4/D5/D6 — KAPANDI:** (EU) 2024/1328 resmi metniyle doğrulandı; D6 tarihi düzeltildi (durulanan üründe de 6 Haziran 2027).
+- **AB endokrin listesi:** Komisyon sayfasında (07.10.2026) B grubu için yeni veri çağrısı yok; 28 madde değişmedi. Taslak tüzük B grubundan 4 maddeyi kapsıyor.
+- **SIN List — AÇIK (kullanıcı işi):** ChemSec'ten yazılı izin gerekiyor (info@chemsec.org). Kod tarafında yapılacak bir şey yok; izin gelince liste eklenir.
+- Kalan `inceleme=1` satırlar ikincil kaynaklı listeler: Danimarka (resmi duyuru bulunamadı), Fransa ANSES (Légifrance metni okunmadı), komedojenite (Fulton 1989 taranmış tablo), Türkiye taslağı (resmi metin yok).
 
 ## ocr.html tek dosyada — KAPANDI (04.10.2026)
 - ~1.550 satırlık ocr.html gıda, kozmetik, temizlik ve arayüz kodunu birlikte taşıyordu. Kod `js/` klasöründe alana göre 9 dosyaya bölündü (derleme adımı yok, davranış değişmedi; eski ve yeni sayfanın sonuç ekranları tarayıcıda birebir karşılaştırıldı). Kalan: arayüz kodunun sözdizimi dışında otomatik testi yok (tarayıcı testi CI'da çalışmıyor).
@@ -86,8 +89,8 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
   - İlk parti önerisi: belirti zaten geçen 28 kayıt, polioller (E420, E421, E953, E965–E968), Southampton renkleri, sülfitler (E220–E228).
 
 ### Kozmetik
-- Ansiklopedi sayfası yok. Veride 1.972 AB kaydı (`kozmetik.json`) ve 30.609 INCI adı (`kozmetik_inci.json`) var; yalnızca durum/gerekçe cümlesi ve CosIng işlevi var, "ne işe yarar / nerelerde bulunur / vücutta" açıklaması yok.
-- `tr` (Türkiye ek durumu) 1.942 kayıtta boş (Resmî Gazete satır satır karşılaştırılamadı, bkz. 4).
+- Ansiklopedi sayfası yok. Veride 2.009 AB kaydı (`kozmetik.json`) ve 35.081 INCI adı (`kozmetik_inci.json`) var; yalnızca durum/gerekçe cümlesi ve CosIng işlevi var, "ne işe yarar / nerelerde bulunur / vücutta" açıklaması yok.
+- `tr` (Türkiye ek durumu): Türk ekleriyle satır satır karşılaştırıldı; yalnızca 2024 sonrası AB değişikliklerinde ve bor bileşiklerinde dolu, diğerleri AB ile aynı (bkz. 4).
 - 225 kaydın bayrağı var; 302'si bilgi (komedojenite vb.) düzeyinde. En çok aranan ~200–300 yaygın madde (UV filtreleri, koruyucular, parabenler, yağlar, asitler, koku alerjenleri) için elle kayıt öncelikli; tamamı gerekmez.
 - Yapılacak: ansiklopedi modeline `product_types: cosmetic` kayıtları (model ve doğrulama bunu zaten kabul ediyor), kayıt anahtarı INCI.
 

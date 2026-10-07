@@ -15,8 +15,8 @@ Kullanım:
   gösterilerek yeniden kullanılabilir). cosing_al.py CosIng'in resmi arama servisinden indirip kaynak/cosing/'e yazar.
   kaynak/kozmetik_guncellemeler.tsv, AB değişikliklerine Türkçe not, uygulama tarihi ve Türkiye durumu ekler; CosIng'e
   henüz girmemiş bir değişiklik olursa kaydı da ekler.
-- Türkiye: Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) ekleri AB ekleriyle uyumludur.
-  Madde madde karşılaştırma henüz yapılmadı (TEKNIK_BORC.md).
+- Türkiye: Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) ekleri AB ekleriyle uyumludur; 07.10.2026'da madde madde
+  karşılaştırıldı, tek fark bor bileşikleri (TR_BY_ID, kaynak/TR_KOZMETIK_KARSILASTIRMA.md).
 """
 import argparse, csv, json, os, re, sys
 from collections import defaultdict
@@ -53,8 +53,13 @@ with open(os.path.join(COSING_DIR, "surum.txt"), encoding="utf-8") as _f:
 # 2026/909'daki hükümlerin bir kısmını içeriyor. Kaynak: kaynak/TR_KOZMETIK_KARSILASTIRMA.md
 TR_BY_REG = {"(EU) 2024/858": "yok", "(EU) 2024/996": "taslak", "(EU) 2025/877": "yok",
              "(EU) 2026/78": "taslak", "(EU) 2026/909": "taslak"}
+# Türkiye ekleriyle satır satır karşılaştırma (07.10.2026, RG 08.05.2023 32184 mük. ekleri + RG 05.03.2024 32480 ekleri,
+# Resmî Gazete PDF'lerinden yazı tanıma ile; ayrıntı kaynak/TR_KOZMETIK_KARSILASTIRMA.md): 2023/1545'e kadarki AB kayıtlarının
+# hepsi Türk eklerinde var; tek fark bor bileşikleri. Türk Ek II'si 1393'ten 1400'e atlıyor, AB'nin 1394-1397 kayıtları yok.
+TR_BY_ID = {"II/1394": "farkli", "II/1395": "farkli", "II/1396": "farkli", "II/1397": "farkli"}
 TR_TEXT = {
-    "yok": "Türkiye: Bu AB değişikliği Türkiye'de henüz yayımlanmadı (03.10.2026 itibarıyla). Türk mevzuatı AB'yi genellikle aylar sonra izler.",
+    "farkli": "Türkiye: Bu madde Türkiye Kozmetik Ürünler Yönetmeliği'nin yasaklı maddeler listesinde (Ek II) yer almıyor; AB'deki bu yasak Türkiye'ye aktarılmadı. Borik asit ve boratlar için Türkiye'de Ek III'teki (1a, 1b) kullanım sınırları geçerli.",
+    "yok": "Türkiye: Bu AB değişikliği Türkiye'de henüz yayımlanmadı (07.10.2026 itibarıyla; mevzuat.gov.tr'deki son değişiklik RG 05.03.2024). Türk mevzuatı AB'yi genellikle aylar sonra izler.",
     "taslak": "Türkiye: Bu AB değişikliği henüz yürürlükte değil; benzer hükümler Ticaret Bakanlığı'nın Eylül 2026 yönetmelik taslağında yer alıyor.",
 }
 
@@ -481,6 +486,8 @@ def finalize(entries):
     for e in entries.values():
         if "tr" not in e and TR_BY_REG.get(e.get("regulation")):
             e["tr"] = TR_BY_REG[e["regulation"]]
+        if e["id"] in TR_BY_ID:
+            e["tr"] = TR_BY_ID[e["id"]]
         s = set(e["inci"])
         if e["annex"] in ("V", "III") and s & fr: e["flags"].append("formaldehyde_releaser")
         if e["annex"] == "V" and s & pa: e["flags"].append("allergen_preservative")
@@ -657,7 +664,7 @@ def main():
             "description": "AB kozmetik yönetmeliği (EC) 1223/2009 eklerindeki düzenlenmiş maddeler. Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile uyumludur.",
             "source": "Avrupa Komisyonu CosIng veritabanı (resmi arama servisinden %s tarihinde indirildi; en son yayın %s) + kaynak/kozmetik_guncellemeler.tsv (değişikliklere Türkçe not ve Türkiye durumu)." % (COSING_INDIRME, COSING_SON),
             "license": "CosIng içeriği Komisyon'un 2011/833/AB kararıyla kaynak gösterilerek yeniden kullanılabilir.",
-            "tr_status": "Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile (EU) 2023/1490'a kadar uyumlu (son değişiklik RG 05.03.2024, 32480). Sonraki AB değişikliklerinin Türkiye durumu kayıtlardaki 'tr' alanında. Ek'ler satır satır karşılaştırılamadı (Resmî Gazete metnine erişilemedi).",
+            "tr_status": "Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile (EU) 2023/1490'a kadar uyumlu (son değişiklik RG 05.03.2024, 32480). Sonraki AB değişikliklerinin Türkiye durumu kayıtlardaki 'tr' alanında. Ekler 07.10.2026'da Resmî Gazete metniyle satır satır karşılaştırıldı: tek fark bor bileşikleri (AB Ek II 1394-1397 Türkiye'de yasak değil, 'tr': 'farkli').",
             "tr_text": TR_TEXT,
             "match": "inci alanındaki adlar büyük harfle, etiketteki INCI adlarıyla eşleştirilir.",
             "levels": LEVELS, "flags": FLAGS,
@@ -668,7 +675,8 @@ def main():
                 "non_veg": "Kesim, balık ya da böcek kaynaklı bir bileşen.",
                 "vegan_unsure": "Bitkisel, sentetik ya da hayvansal kaynaklı olabilir; etikette kaynak yazmaz."},
             "known_gaps": [
-                "2026 sonu taslak: benzofenon-1/-2, BHA, paraben ve CBD kısıtlamaları (henüz yayımlanmadı).",
+                "AB taslak tüzüğü D117774 (benzofenon-1/-2, BHA, butilparaben, CBD, cıvalı koruyucular, prostaglandinler, 2 saç boyası): henüz kabul edilmedi, K3 'ab_taslak' listesinde izleniyor; ek tabloları (yeni CMR maddeleri) Konsey belgesinde yok.",
+                "Türkiye Eylül 2026 taslağının resmi metni bulunamadı (TİTCK görüş platformunda yok); bilgiler basın haberlerinden.",
                 "K3: ChemSec SIN List eklenmedi (verinin uygulamada yeniden kullanımı için ChemSec'ten yazılı izin gerekiyor).",
                 "K3: Kanada Hotlist, Çin, Japonya, Kore, Brezilya ve ABD'nin diğer eyalet yasakları (ör. Washington) eklenmedi.",
                 "Endokrin: Fransa ANSES listesinin tam metni (Légifrance) ve edlists.org listeleri eklenmedi; yalnızca ikincil kaynaklarda adı geçen Fransa maddeleri var.",
