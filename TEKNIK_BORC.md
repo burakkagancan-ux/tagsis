@@ -2,16 +2,6 @@
 
 Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmalı.
 
-## 1. OCR Worker'a istek sınırı — KAPANDI (03.10.2026: worker/ depoda, Workers Builds ile dağıtılıyor, IP ve genel istek sınırı çalışıyor). Kalan: Google Cloud Vision "Requests per minute" kotasının düşürülmesi.
-- **Durum:** `ocr.html`, Cloudflare Worker'a (`inapp-ocr-3a8f…workers.dev`) istek atıyor; Worker da Google Cloud Vision'ı çağırıyor. Worker yalnızca `ALLOWED_ORIGIN` başlığına bakıyor. Bu başlığı tarayıcı dışından istek atan biri kolayca taklit edebilir, yani bu kontrol tek başına koruma sağlamaz.
-- **Risk:** Adresi bulan biri yüksek hacimde istek atarak Vision kotasını ve faturayı şişirebilir. Google Cloud'da bütçe uyarısı kurulu (03.10.2026). Uyarı yalnızca haber verir, harcamayı durdurmaz.
-- **Önerilen çözüm:**
-  1. Worker'a Cloudflare Rate Limiting bağlaması: IP başına ör. dakikada 10, günde 100 istek.
-  2. Görüntü boyutu üst sınırı (ör. 4 MB). Aşan istek reddedilir.
-  3. İsteğe bağlı: Cloudflare Turnstile (görünmez doğrulama).
-  4. İsteğe bağlı: bütçe aşılınca Vision API'yi otomatik kapatan bütçe → Pub/Sub → Cloud Function.
-- **Kod:** Worker kodu bu depoda yok. Önce depoya eklenmeli (`worker/`), sonra sınır eklenmeli.
-
 ## 2. Worker'ın kayıt (log) tutmaması — KAPANDI (kodda log yok, observability kapalı, panelde Exports/Logpush tanımlı değil)
 - `ocr.html` gizlilik notu "fotoğraf ve metin kaydedilmez" diyor. Worker kodunda `console.log` ile görüntü ya da metin yazılmadığı ve Workers Logs/Logpush'ın kapalı olduğu kontrol edilmeli.
 
@@ -20,8 +10,11 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 
 ## 4. Kozmetik verisi (data/kozmetik.json) — yayın öncesi
 - **Türkiye ekleri:** Durum karşılaştırması yapıldı (kaynak/TR_KOZMETIK_KARSILASTIRMA.md): son TR değişikliği 05.03.2024 (AB 2023/1490), sonraki AB değişiklikleri `tr` alanında. Ek II–VI satır satır karşılaştırması Resmî Gazete metnine erişilemediği için yapılamadı; Eylül 2026 taslağının resmî metni de görülmedi.
-- **Anlık görüntü yaşı:** CosIng verisi 2024 başına ait (inhouse-work/cosing @268e3cd). Sonraki değişiklikler `kaynak/kozmetik_guncellemeler.tsv` ile elle eklendi. Eksikler: 2026/78 ile eklenen 15 CMR maddesinin adları; 2026/909'daki alüminyum, çinko tuzları, DHHB ve 4 saç boyası; 2026 sonu taslak (benzofenon-1/-2, BHA, paraben, CBD).
-- **Doğrulama:** `inceleme=1` olan güncellemeler (needs_review) EUR-Lex metniyle satır satır karşılaştırılmalı; 2026/78 ve 2026/909 ek sıra numaraları doğrulanamadı.
+- **Anlık görüntü yaşı — KAPANDI (07.10.2026):** CosIng verisi 2024 başına ait (inhouse-work/cosing @268e3cd); sonraki değişiklikler `kaynak/kozmetik_guncellemeler.tsv` ile elle ekleniyor. 2026/78 ve 2026/909 tüzüklerinin tamamı AB Resmî Gazetesi metninden (publications.europa.eu) satır satır işlendi: 2026/78 ile eklenen 15 CMR maddesi (Ek II 1752–1766), perborat birleştirmesi (1397), gümüş (Ek II 1727, Ek III 379, Ek IV 142), hexyl salicylate (Ek III 380); 2026/909 ile triphenyl phosphate, alüminyum, suda çözünen çinko tuzları, citral, benzyl salicylate, acetylated vetiver oil, gümüş çinko zeolit (Ek V 61), DHHB ve 4 saç boyası (Ek III 381–384). Bu iki tüzüğün kayıtlarında `inceleme` artık 0. Kayıt sayısı 1.972 → 1.994.
+  - Kalan: İki tüzük aynı sıra numaralarını farklı maddelere vermiş (Ek II 1752; Ek III 379, 380). 2026/909'daki çakışan üç kayıt (triphenyl phosphate, alüminyum, acetylated vetiver oil) konsolide metin yeni numara verene kadar `?` ile duruyor.
+  - Kalan: Gümüş çinko zeolit hem Ek II'de (yasak) hem Ek V'te (koşullu izinli) olduğu için etikette görülünce kırmızı görünüyor; Ek II kaydına istisna notu yazıldı.
+  - Kalan: 2026 sonu taslak (benzofenon-1/-2, BHA, butilparaben) henüz kabul edilmedi; K3 `ab_taslak` listesinde izleniyor. CBD taslak listesinde yok; resmi taslak metni görülmedi.
+- **Doğrulama:** 2026/78 ve 2026/909 dışında `inceleme=1` kalan güncelleme (2025/877'deki N,N-dimethyl-p-toluidine) EUR-Lex metniyle satır satır karşılaştırılmalı.
 - **Otomatik güncelleme:** CosIng verisi artık depoda (`kaynak/cosing/`, `cosing_al.py` ile alınır). Kaynak depo inhouse-work/cosing 13.05.2024'ten beri güncellenmiyor (268e3cd en son commit), yani oradan yeni veri gelmez. Daha yeni veri için Komisyon'un CosIng sitesinden indirme gerekir (bu ortamdan erişilemedi); aylık mevzuat izleme işine bağlı.
 - **Eş anlamlılar:** `kaynak/kozmetik_esanlamlilar.tsv` (Türkçe/İngilizce yaygın adlar) ve ABD renklendirici tablosu (`kaynak/kozmetik_abd_renkler.tsv`) (FD&C/D&C → CI) bilgiye dayanarak yazıldı; FDA 21 CFR 74/82 listeleriyle karşılaştırılmalı. Türkçe kimyasal adlar kuralla üretiliyor (975 ad); Türk etiketlerinde görülen gerçek yazımlarla denetlenmeli.
 
