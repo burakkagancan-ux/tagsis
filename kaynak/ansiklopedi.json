@@ -720,7 +720,7 @@
    "publisher": "ABD Federal Düzenlemeler Kodu (eCFR)",
    "year": 1977,
    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-81/section-81.10",
-   "official": false
+   "official": true
   },
   "efsa_e154": {
    "title": "Scientific Opinion on the re-evaluation of Brown FK (E 154) as a food additive",
@@ -790,7 +790,7 @@
    "publisher": "Avrupa Komisyonu Gıda Bilimsel Komitesi (SCF)",
    "year": 2000,
    "url": "https://food.ec.europa.eu/system/files/2020-12/sci-com_scf_out53_en.pdf",
-   "official": false
+   "official": true
   },
   "eu_dir_2003_115": {
    "title": "Directive 2003/115/EC of the European Parliament and of the Council of 22 December 2003 amending Directive 94/35/EC on sweeteners for use in foodstuffs",
@@ -811,7 +811,7 @@
    "publisher": "ABD Federal Düzenlemeler Kodu (eCFR)",
    "year": 1977,
    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-189/subpart-C/section-189.135",
-   "official": false
+   "official": true
   },
   "efsa_parabens_2004": {
    "title": "Opinion of the Scientific Panel on food additives, flavourings, processing aids and materials in contact with food (AFC) related to para hydroxybenzoates (E 214-219)",
@@ -846,7 +846,7 @@
    "publisher": "ECHA",
    "year": 2013,
    "url": "https://echa.europa.eu/documents/10162/ee39f026-9d2d-28f7-5d90-63a424112162",
-   "official": false
+   "official": true
   },
   "efsa_e320": {
    "title": "Scientific Opinion on the re-evaluation of butylated hydroxyanisole – BHA (E 320) as a food additive",
@@ -1350,6 +1350,13 @@
    "publisher": "legislation.gov.uk (The National Archives)",
    "year": 2020,
    "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/13/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g1": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 1 (kategori 01 Süt ürünleri; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/1/2020-12-31",
    "official": true
   },
   "efsa_tartrates": {
@@ -1973,7 +1980,7 @@
    "publisher": "JECFA / FAO",
    "year": 2003,
    "url": "https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph3/additive-367.pdf",
-   "official": false
+   "official": true
   },
   "efsa_e1201_e1202": {
    "title": "Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives and extension of use of polyvinylpyrrolidone (E 1201)",
@@ -2002,7 +2009,11 @@
   "food.gov.uk",
   "cfs.gov.hk",
   "inchem.org",
-  "ecolex.org"
+  "ecolex.org",
+  "ecfr.gov",
+  "ec.europa.eu",
+  "echa.europa.eu",
+  "fao.org"
  ],
  "kategoriler": {
   "_kaynak": "İşlev tanımları AB 1333/2008 Ek I ve TGK Gıda Katkı Maddeleri Yönetmeliği'ndeki işlevsel sınıf tanımlarından sadeleştirildi.",
@@ -10378,11 +10389,13 @@
   },
   "E355": {
    "evidence_level": "limited",
-   "what_it_does": "Tatlılarda ekşilik veren ve asitliği düzenleyen bir asittir.",
+   "what_it_does": "Tatlılarda, dolgularda ve içecek tozlarında ekşilik veren ve asitliği düzenleyen bir asittir.",
    "found_in": [
     "Toz tatlı karışımları",
     "Jel kıvamlı tatlılar",
-    "Meyve aromalı tatlılar"
+    "Meyve aromalı tatlılar",
+    "İnce unlu mamullerin dolgu ve kaplamaları",
+    "Evde hazırlanan içecek tozları (hazır çay ve bitki çayı tozları dahil)"
    ],
    "in_the_body": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı.",
    "diet_flags": {
@@ -10403,7 +10416,7 @@
      "agency": "Avrupa Komisyonu",
      "region": "EU",
      "status": "restricted",
-     "detail": "Yalnızca belirli tatlılarda izinli (toz tatlı karışımları ve meyve aromalı tatlılarda 1000 mg/kg, jel kıvamlı tatlılarda 6000 mg/kg; E 355–357 birlikte).",
+     "detail": "Yalnızca belirli ürünlerde izinli (E 355–357 birlikte, adipik asit olarak): toz tatlı karışımları ve meyve aromalı tatlılarda 1.000 mg/kg, ince unlu mamul dolgu ve kaplamalarında 2.000 mg/kg, jel kıvamlı tatlılarda 6.000 mg/kg, evde hazırlanan içecek tozlarında 10.000 mg/kg.",
      "year": 2011,
      "src": "ab1333_annex2_e_g13"
     }
@@ -10411,10 +10424,13 @@
    "sources": [
     "jecfa_e355",
     "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g1",
     "ab1333_annex2_c",
     "tgk2013"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-07"
   },
   "E356": {
    "evidence_level": "limited",
@@ -10422,7 +10438,9 @@
    "found_in": [
     "Toz tatlı karışımları",
     "Jel kıvamlı tatlılar",
-    "Meyve aromalı tatlılar"
+    "Meyve aromalı tatlılar",
+    "İnce unlu mamullerin dolgu ve kaplamaları",
+    "Evde hazırlanan içecek tozları (hazır çay ve bitki çayı tozları dahil)"
    ],
    "in_the_body": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı. AB'de adipik asit ve tuzları için izin verilen en yüksek miktarlar birlikte (adipik asit olarak) uygulanır.",
    "diet_flags": {
@@ -10443,7 +10461,7 @@
      "agency": "Avrupa Komisyonu",
      "region": "EU",
      "status": "restricted",
-     "detail": "Yalnızca belirli tatlılarda izinli (toz tatlı karışımları ve meyve aromalı tatlılarda 1000 mg/kg, jel kıvamlı tatlılarda 6000 mg/kg; E 355–357 birlikte).",
+     "detail": "Yalnızca belirli ürünlerde izinli (E 355–357 birlikte, adipik asit olarak): toz tatlı karışımları ve meyve aromalı tatlılarda 1.000 mg/kg, ince unlu mamul dolgu ve kaplamalarında 2.000 mg/kg, jel kıvamlı tatlılarda 6.000 mg/kg, evde hazırlanan içecek tozlarında 10.000 mg/kg.",
      "year": 2011,
      "src": "ab1333_annex2_e_g13"
     }
@@ -10458,10 +10476,13 @@
    "sources": [
     "jecfa_e355",
     "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g1",
     "ab1333_annex2_c",
     "tgk2013"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-07"
   },
   "E357": {
    "evidence_level": "limited",
@@ -10469,7 +10490,9 @@
    "found_in": [
     "Toz tatlı karışımları",
     "Jel kıvamlı tatlılar",
-    "Meyve aromalı tatlılar"
+    "Meyve aromalı tatlılar",
+    "İnce unlu mamullerin dolgu ve kaplamaları",
+    "Evde hazırlanan içecek tozları (hazır çay ve bitki çayı tozları dahil)"
    ],
    "in_the_body": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı. AB'de adipik asit ve tuzları için izin verilen en yüksek miktarlar birlikte (adipik asit olarak) uygulanır.",
    "diet_flags": {
@@ -10490,7 +10513,7 @@
      "agency": "Avrupa Komisyonu",
      "region": "EU",
      "status": "restricted",
-     "detail": "Yalnızca belirli tatlılarda izinli (toz tatlı karışımları ve meyve aromalı tatlılarda 1000 mg/kg, jel kıvamlı tatlılarda 6000 mg/kg; E 355–357 birlikte).",
+     "detail": "Yalnızca belirli ürünlerde izinli (E 355–357 birlikte, adipik asit olarak): toz tatlı karışımları ve meyve aromalı tatlılarda 1.000 mg/kg, ince unlu mamul dolgu ve kaplamalarında 2.000 mg/kg, jel kıvamlı tatlılarda 6.000 mg/kg, evde hazırlanan içecek tozlarında 10.000 mg/kg.",
      "year": 2011,
      "src": "ab1333_annex2_e_g13"
     }
@@ -10498,10 +10521,13 @@
    "sources": [
     "jecfa_e355",
     "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g1",
     "ab1333_annex2_c",
     "tgk2013"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-07"
   },
   "E363": {
    "evidence_level": "moderate",

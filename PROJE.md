@@ -96,7 +96,7 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 
 **Yüksek**
 1. **Kozmetik verisi eski:** CosIng 2024 başı. 2026/78 (15 CMR) ve 2026/909 eksik; `inceleme=1` satırları EUR-Lex'le doğrulanmadı; `tr` alanı 1.942 kayıtta boş. Aylık mevzuat izleme buna bağlı.
-2. **Tesseract CDN:** sürüm sabitlenmemiş, SRI yok.
+2. ~~Tesseract CDN~~ — KAPANDI (07.10.2026): tesseract.js@5.1.1 sabitlendi, SRI (sha384) eklendi.
 3. **"Vücutta ne olur?" → "Olası etkiler":** yapılandırılmış belirti listesi önerisi hazır (TEKNIK_BORC.md); önce kısa plan.
 
 **Orta**
@@ -107,7 +107,6 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 8. Arayüzün otomatik testi yok (CI'da tarayıcı testi çalışmıyor).
 
 **Düşük**
-9. Temizlikte INCI adlarının yanında Türkçe ad yok (LIMONENE · limonen).
 10. Kaynak denetimleri: FDA renk tablosu ve eş anlamlılar, Kaliforniya listesi (resmi site), EUH ve P ifadelerinin Türkçesi.
 11. Kozmetik ve temizlik verisi çevrimdışı önceden önbelleğe alınmıyor.
 12. Helal ("kaynağı belirsiz, sertifikaya bakın"), besin değeri tablosu.
@@ -115,10 +114,10 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 
 ## 8. Sıradaki adımlar
 
-1. BKC: telefon testi; ChemSec izni (SIN List).
+1. BKC: —
 2. Ansiklopedi son 33 madde.
 3. Kozmetik verisi güncellemesi (2026/78, 2026/909) — veri doğruluğu, en güçlü model.
-4. Tesseract CDN sürüm sabitleme + SRI (küçük iş).
+4. ~~Tesseract CDN sürüm sabitleme + SRI~~ (yapıldı).
 5. "Olası etkiler" için kısa plan → onay → kod.
 6. Telefon testleri (BKC) ve sonuçlara göre ayar; sonra besin tablosu, aylık mevzuat izleme, hukuki görüş.
 
