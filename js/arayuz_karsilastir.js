@@ -1,10 +1,10 @@
-/* Arayüz: iki gıda ürününü karşılaştırma ve tarama geçmişi (localStorage "taramalar"). Saf mantık js/karsilastir.js, ayarlar js/karsilastir_ayar.js. */
+/* Arayüz: aynı türden (gıda, kozmetik ya da temizlik) iki ürünü karşılaştırma ve tarama geçmişi (localStorage "taramalar"). Saf mantık js/karsilastir.js, ayarlar js/karsilastir_ayar.js. */
 var HCUR=null,HSCAN=true,HOCR=false,CMP_IDS=null;   // HCUR: ekrandaki taramanın kaydı; HSCAN: sonraki analiz yeni kayıt açar; HOCR: metin fotoğraftan/örnekten geldi
 function histLoad(){try{var a=JSON.parse(localStorage.getItem("taramalar")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}}
 function histStore(a){try{localStorage.setItem("taramalar",JSON.stringify(a))}catch(e){}}
 function histGet(id){return histLoad().filter(function(x){return x.id===id})[0]||null}
 function histRename(id,name){var a=histLoad();a.forEach(function(x){if(x.id===id)x.name=name});histStore(a)}
-/* Analizden sonra çağrılır (mode: gida/koz/tem; karşılaştırma yalnızca gıda kayıtlarını kullanır, paylaşım kartı adı ve sırayı buradan alır). Fotoğraf/örnek yeni kayıt açar; elle düzeltme aynı kaydı günceller. */
+/* Analizden sonra çağrılır (mode: gida/koz/tem; karşılaştırma ekrandaki türün kayıtlarını kullanır, paylaşım kartı adı ve sırayı buradan alır). Fotoğraf/örnek yeni kayıt açar; elle düzeltme aynı kaydı günceller. */
 function histSave(text,mode){
   if(!KARS_AYAR.acik)return;
   mode=mode||"gida";
@@ -18,12 +18,20 @@ function histSave(text,mode){
   a=histAdd(a.filter(function(x){return x.id!==e.id}),e,KARS_AYAR.gecmisBoyut);
   histStore(a);HCUR=e.id;
 }
-/* Analiz Et'in yanındaki düğme: son taramalardan iki ürün seçtirir */
+/* Türe göre karşılaştırma özeti; liste yüklenmemişse null */
+var KARS_TUR={gida:"gıda",koz:"kozmetik",tem:"temizlik"};
+function karsReady(mode){return mode==="koz"?!!KIDX:mode==="tem"?!!TIDX:!!IDX}
+function karsProduct(e){
+  if(e.mode==="koz")return cmpProductK(e.text,KIDX,PROF,e.name,{ptype:PTYPE});
+  if(e.mode==="tem")return cmpProductT(e.text,TIDX,KIDX,PROF,e.name);
+  return cmpProduct(e.text,IDX,PROF,e.name);
+}
+/* Analiz Et'in yanındaki düğme: ekrandaki türün son taramalarından iki ürün seçtirir */
 function karsOpen(pre,ret){
   if(!KARS_AYAR.acik)return;
-  var list=histLoad().filter(function(x){return x.mode==="gida"});
-  if(list.length<2){ST.textContent="Karşılaştırmak için en az iki ürün taratmalısınız.";return}
-  if(!IDX){ST.textContent="Gıda listeleri yükleniyor, biraz sonra yeniden deneyin.";return}
+  var mode=MODE||"gida",list=histLoad().filter(function(x){return (x.mode||"gida")===mode});
+  if(list.length<2){ST.textContent="Karşılaştırmak için en az iki "+KARS_TUR[mode]+" ürünü taratmalısınız.";return}
+  if(!karsReady(mode)){ST.textContent=KARS_TUR[mode].charAt(0).toUpperCase()+KARS_TUR[mode].slice(1)+" listeleri yükleniyor, biraz sonra yeniden deneyin.";return}
   var sel=pre&&list.some(function(x){return x.id===pre})?[pre]:[],body=el("div","kpick"),btns={};
   var cnt=el("div","how"),go=el("button",null,"Karşılaştır");go.type="button";
   function upd(){
@@ -51,13 +59,14 @@ function karsOpen(pre,ret){
 var CMP_ICON=["g","u","y","r"];
 function cmpIcon(rank){var s=el("span","ic "+CMP_ICON[rank]);s.setAttribute("aria-hidden","true");return s}
 function showCompare(ida,idb){
-  var ea=histGet(ida),eb=histGet(idb);if(!ea||!eb||!IDX)return;
+  var ea=histGet(ida),eb=histGet(idb);if(!ea||!eb||ea.mode!==eb.mode||!karsReady(ea.mode||"gida"))return;
+  var mode=ea.mode||"gida";
   if((eb.t||0)<(ea.t||0)){var t=ea;ea=eb;eb=t;ida=ea.id;idb=eb.id}   // önce taranan (küçük numaralı) solda; ad değişse de kayıt zamanı aynı kalır
   CMP_IDS=[ida,idb];
-  var A=cmpProduct(ea.text,IDX,PROF,ea.name),B=cmpProduct(eb.text,IDX,PROF,eb.name),D=cmpDecide(A,B,KARS_AYAR),F=cmpDiff(A,B);
+  var A=karsProduct(ea),B=karsProduct(eb),D=cmpDecide(A,B,KARS_AYAR),F=cmpDiff(A,B);
   var box=$("kars");box.textContent="";
   var bk=el("button","alt kback","← Sonuca dön");bk.type="button";bk.onclick=closeCompare;box.appendChild(bk);
-  box.appendChild(el("h2",null,"Karşılaştırma"));
+  box.appendChild(el("h2",null,"Karşılaştırma"+(mode==="gida"?"":" · "+KARS_TUR[mode].charAt(0).toUpperCase()+KARS_TUR[mode].slice(1))));
   // 1) İki sütun: ad + risk özeti
   var hd=el("div","kcols");
   [[A,ea],[B,eb]].forEach(function(pe){
@@ -76,7 +85,7 @@ function showCompare(ida,idb){
   // 2) Karar kartı
   var dc=el("div","res kdec "+(D.winner?"g":D.kind==="benzer"?"u":"y"));
   dc.appendChild(el("div","t",D.title));if(D.reason)dc.appendChild(el("div","ln",D.reason));
-  dc.appendChild(el("div","how","Yalnızca okunan içerik listesine dayanır; miktar bilinmez ve bu bir onay değildir."));
+  dc.appendChild(el("div","how",mode==="tem"?"Yalnızca etikette okunan tehlike ifadelerine ve içerik bilgisine dayanır; bu bir onay değildir.":"Yalnızca okunan içerik listesine dayanır; miktar bilinmez ve bu bir onay değildir."));
   box.appendChild(dc);
   // 3) Satır satır
   var tb=el("div","ktab");
@@ -84,10 +93,32 @@ function showCompare(ida,idb){
     tb.appendChild(el("div","kl",label));
     [fa(A),fb?fb(B):fa(B)].forEach(function(v){var c=el("div","kv");if(typeof v==="string")c.textContent=v;else c.appendChild(v);tb.appendChild(c)});
   }
-  tr("En riskli madde",function(P){
+  var lst=function(a){return a.length?a.length+": "+a.join(", "):"Bulunamadı"};
+  tr(mode==="tem"?"En riskli ifade ya da madde":"En riskli madde",function(P){
     if(!P.top.length)return "Özel uyarı yok";
     var f=document.createDocumentFragment();f.appendChild(cmpIcon(P.maxRank));f.appendChild(document.createTextNode(P.top.map(function(x){return x.name}).join(", ")));return f});
-  tr("Dikkat gerektiren madde",function(P){return String(P.yellow)});
+  tr(mode==="tem"?"Dikkat gerektiren ifade ya da madde":"Dikkat gerektiren madde",function(P){return String(P.yellow)});
+  if(mode==="koz"){
+    tr("AB'de yasak",function(P){return lst(P.S.red)});
+    tr("Başka ülkede yasak",function(P){return lst(P.S.ban)});
+    tr("Koku alerjeni",function(P){return lst(P.S.fragrance)});
+    tr("Parfüm / aroma",function(P){return P.S.parfum?"Var":"Yazmıyor"});
+    tr("Koruyucu",function(P){return lst(P.S.preservative)});
+    tr("Formaldehit salıcı",function(P){return lst(P.S.formaldehyde)});
+    tr("Endokrin bozucu şüphesi",function(P){return lst(P.S.ed)});
+    tr("Vegan",function(P){var no=P.S.nonVeg.concat(P.S.nonVegan);return no.length?"Vegan değil":P.S.veganUnsure.length?"Kaynağı belirsiz bileşen var":"Hayvansal bileşen bulunamadı"});
+    tr("Tanınan bileşen",function(P){return P.unknown.total?P.unknown.found+"/"+P.unknown.total:"—"});
+  }
+  if(mode==="tem"){
+    tr("Uyarı sözcüğü",function(P){return P.A.signal==="tehlike"?"TEHLİKE":P.A.signal==="dikkat"?"DİKKAT":"Okunmadı"});
+    tr("Ciddi tehlike ifadesi",function(P){return lst(P.S.red)});
+    tr("Karıştırma uyarısı",function(P){return P.S.mix?"Var":"Bulunamadı"});
+    tr("Solunum",function(P){return P.S.resp.length?P.S.resp.join(", "):P.S.enzyme?"Enzim içerir":"Bulunamadı"});
+    tr("Koku alerjeni",function(P){return lst(P.S.fragrance)});
+    tr("Koruyucu",function(P){return lst(P.S.pres)});
+    tr("Deterjan kapsülü",function(P){return P.A.capsule?"Evet":"Hayır"});
+  }
+  if(mode==="gida"){
   tr("Alerjenler",function(P){var a=P.allergen;return a.yes.length||a.may.length?(a.yes.length?"İçerir: "+a.yes.join(", "):"")+(a.yes.length&&a.may.length?" · ":"")+(a.may.length?"İçerebilir: "+a.may.join(", "):""):"Bulunamadı"});
   tr("Glüten",function(P){return {var:"İçerir",icerebilir:"İçerebilir",yok:"Bulunamadı"}[P.gluten]});
   tr("Vegan",function(P){return {degil:"Vegan değil",belirsiz:"Kaynağı belirsiz madde var",yok:"Hayvansal içerik bulunamadı"}[P.vegan]});
@@ -95,9 +126,10 @@ function showCompare(ida,idb){
   tr("Şeker kaynağı",function(P){return P.sugar.length?P.sugar.length+": "+P.sugar.join(", "):"Bulunamadı"});
   tr("Üretim yolu",function(P){return uretimMetin(P.uretim)||"Sentetik ya da işlenmiş katkı bulunamadı"});
   tr("Tanınan içerik",function(P){return P.unknown.total?P.unknown.found+"/"+P.unknown.total:"—"});
+  }
   box.appendChild(tb);
   // 4) Madde farkları
-  box.appendChild(el("h2",null,"Madde Farkları"));
+  box.appendChild(el("h2",null,mode==="tem"?"İfade ve Madde Farkları":"Madde Farkları"));
   var g2=el("div","kcols kdiff");
   g2.appendChild(diffList("Sadece "+A.name,F.onlyA,A));g2.appendChild(diffList("Sadece "+B.name,F.onlyB,B));
   box.appendChild(g2);box.appendChild(diffList("İkisinde de",F.both,A));
@@ -106,7 +138,7 @@ function showCompare(ida,idb){
   var g3=el("div","kcols kpers");
   [A,B].forEach(function(P){
     var c=el("div","kcol");c.appendChild(el("h3",null,P.name));
-    var cards=profileCards(P.S);
+    var cards=mode==="koz"?kProfileCards(P.S,P.res):mode==="tem"?tProfileCards(P.S,P.A):profileCards(P.S);
     if(!cards.length)c.appendChild(el("div","mut","Hassasiyetlerim'de seçim yaparsanız kişisel uyarılar burada görünür."));
     cards.forEach(function(x){c.appendChild(x)});g3.appendChild(c);
   });
@@ -124,8 +156,19 @@ function diffList(title,items,P){
   });
   return d;
 }
-/* Maddeye dokununca mevcut alt sayfa: katkı maddesinde sonuç ekranındaki özet, bileşende adı ve notu */
+/* Maddeye dokununca mevcut alt sayfa: katkı maddesinde sonuç ekranındaki özet, bileşende adı ve notu; kozmetik ve temizlikte sonuç ekranındaki kart */
 function openItem(it,P,ret){
+  if(P.mode==="koz"){
+    var kr=P.res.filter(function(x){return x.found&&x.name===it.key})[0];
+    if(kr){openSheet(kr.name,"Bileşen",kCard(kr),ret);return}
+  }
+  if(P.mode==="tem"){
+    var tb=el("div");
+    if(it.kind==="hz")tb.appendChild(hzCard(it.x));
+    else if(it.kind==="sub"){tb.appendChild(el("div","ln",it.x.s.text));tb.appendChild(srcLinks(it.x.s.sources))}
+    else{var fs=it.x.funcs||[];tb.appendChild(el("div","ln",fs.length?"İşlevi (AB kozmetik INCI listesi): "+fs.join(", ")+".":"Bu madde için ayrıca bir not yok."))}
+    openSheet(it.name,it.kind==="hz"?"Tehlike ifadesi":"Madde",tb,ret);return;
+  }
   var r=P.res.filter(function(x){return !x.neg&&!x.may&&x.ids.slice().sort().join("+")===it.key})[0];
   if(r&&!r.isB){additiveCard(r)._open(ret);return}
   var body=el("div");
