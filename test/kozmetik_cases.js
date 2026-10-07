@@ -54,7 +54,7 @@ const ESA=[
  ["İçindekiler: Su, Gliserin, Shea yağı, Hindistan cevizi yağı, E vitamini, Parfüm, Sodyum benzoat, Potasyum sorbat, Sitrik asit, Setearil alkol, Ksantan gam, Pantenol",
   ["AQUA","GLYCERIN","BUTYROSPERMUM PARKII BUTTER","COCOS NUCIFERA OIL","TOCOPHEROL","PARFUM","SODIUM BENZOATE","POTASSIUM SORBATE","CITRIC ACID","CETEARYL ALCOHOL","XANTHAN GUM","PANTHENOL"]],
  ["Ingredients: Water, Glycerin, Butyrospermum Parkii (Shea) Butter, Mineral Oil, Fragrance, FD&C Yellow No. 5, Red 40 Lake, D&C Red No. 7 Calcium Lake, Iron Oxides, Mica, Titanium Dioxide (CI 77891)",
-  ["WATER","GLYCERIN","BUTYROSPERMUM PARKII BUTTER","PARAFFINUM LIQUIDUM","PARFUM","CI 19140","CI 16035","CI 15850","CI 77491 / CI 77492 / CI 77499","MICA","TITANIUM DIOXIDE"]],
+  ["WATER","GLYCERIN","BUTYROSPERMUM PARKII BUTTER","MINERAL OIL","PARFUM","CI 19140","CI 16035","CI 15850","CI 77491 / CI 77492 / CI 77499","MICA","TITANIUM DIOXIDE"]],
  ["Aqua, SLES, CAPB, MIT, Sodyum lauril sülfat, Kokamidopropil betain, Salisilik asit, Hyalüronik asit, Niasinamid",
   ["AQUA","SODIUM LAURETH SULFATE","COCAMIDOPROPYL BETAINE","METHYLISOTHIAZOLINONE","SODIUM LAURYL SULFATE","SALICYLIC ACID","HYALURONIC ACID","NIACINAMIDE"]],
 ];

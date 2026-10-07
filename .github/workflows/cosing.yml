@@ -1,0 +1,50 @@
+name: CosIng güncelle
+# Ayda bir CosIng'den (AB kozmetik ekleri + INCI listesi) güncel veriyi indirir. Değişiklik varsa üreteçleri ve
+# testleri çalıştırır, sonucu bir PR olarak açar; birleştirme kararı kullanıcıda.
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: cosing-guncelle
+  cancel-in-progress: false
+jobs:
+  cosing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python cosing_al.py
+      - name: Değişiklik var mı
+        id: fark
+        # surum.txt indirme tarihini taşıdığı için her ay değişir; karşılaştırmaya alınmaz
+        run: git diff --quiet -- kaynak/cosing/ ':!kaynak/cosing/surum.txt' && echo "var=0" >> "$GITHUB_OUTPUT" || echo "var=1" >> "$GITHUB_OUTPUT"
+      - name: Üreteçler ve testler
+        if: steps.fark.outputs.var == '1'
+        run: |
+          for g in gen_kozmetik gen_eslesmeler gen_temizlik; do python3 $g.py; done
+          for t in sozdizimi ocr_tolerans kozmetik_veri kozmetik_cases kozmetik_k3 temizlik karsilastir paylas; do node test/$t.js; done
+      - name: PR aç
+        if: steps.fark.outputs.var == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          dal="cosing/$(date +%Y-%m)"
+          git config user.name "tagsis-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git checkout -b "$dal"
+          git add kaynak/cosing data/
+          git commit -m "CosIng verisi güncellendi ($(cut -d' ' -f3 kaynak/cosing/surum.txt) tarihine kadarki yayınlar)"
+          git push -f origin "$dal"
+          gh pr create --base main --head "$dal" --title "CosIng güncellemesi $(date +%Y-%m)" \
+            --body "CosIng'den aylık indirme. Yeni bir AB değişikliği varsa kaynak/kozmetik_guncellemeler.tsv'ye Türkçe not ve Türkiye durumu eklenmeli (bkz. TEKNIK_BORC.md). Testler bu iş içinde çalıştı." \
+            || echo "Bu ay için PR zaten açık"

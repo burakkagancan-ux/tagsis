@@ -1,1 +1,1 @@
-https://github.com/inhouse-work/cosing 268e3cd368c2aa581046beb914b72f70093480fd
+cosing-api 2026-10-07 2026-04-28

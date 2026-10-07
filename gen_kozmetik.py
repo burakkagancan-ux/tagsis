@@ -12,9 +12,9 @@ Kullanım:
 - JSON dosyalarını elle düzenlemeyin; değişikliği kaynak/kozmetik_*.tsv / kozmetik_listeler.json dosyalarında
   (güncellemeler, K3, eş anlamlılar, işlev adları, Türkçe sözcükler, ABD renkleri) ya da bu betikte yapın.
 - Ham veri: Avrupa Komisyonu CosIng veritabanı (Komisyon içeriği 2011/833/AB kararıyla kaynak
-  gösterilerek yeniden kullanılabilir). CSV biçimine dönüştürülmüş anlık görüntü inhouse-work/cosing
-  deposundan (MIT lisansı) alınır; kullanılan kısmı kaynak/cosing/'de. Anlık görüntü 2024 başına aittir; sonraki AB değişiklikleri
-  kaynak/kozmetik_guncellemeler.tsv ile elle eklenir.
+  gösterilerek yeniden kullanılabilir). cosing_al.py CosIng'in resmi arama servisinden indirip kaynak/cosing/'e yazar.
+  kaynak/kozmetik_guncellemeler.tsv, AB değişikliklerine Türkçe not, uygulama tarihi ve Türkiye durumu ekler; CosIng'e
+  henüz girmemiş bir değişiklik olursa kaydı da ekler.
 - Türkiye: Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) ekleri AB ekleriyle uyumludur.
   Madde madde karşılaştırma henüz yapılmadı (TEKNIK_BORC.md).
 """
@@ -43,9 +43,9 @@ OUT_INCI = os.path.join(HERE, "data", "kozmetik_inci.json")
 UPD = os.path.join(HERE, "kaynak", "kozmetik_guncellemeler.tsv")
 K3 = os.path.join(HERE, "kaynak", "kozmetik_k3.tsv")
 COSING_DIR = os.path.join(HERE, "kaynak", "cosing")
-# kaynak/cosing/surum.txt: "<depo> <commit>" (cosing_al.py yazar)
+# kaynak/cosing/surum.txt: "cosing-api <indirme tarihi> <CosIng'deki en son yayın tarihi>" (cosing_al.py yazar)
 with open(os.path.join(COSING_DIR, "surum.txt"), encoding="utf-8") as _f:
-    COSING_COMMIT = _f.read().split()[1][:7]
+    _, COSING_INDIRME, COSING_SON = _f.read().split()[:3]
 
 # Türkiye durumu (03.10.2026): Kozmetik Ürünler Yönetmeliği (RG 08.05.2023, 32184 mük.) en son 05.03.2024'te
 # (RG 32480) değişti; bu değişiklik AB (EU) 2023/1490 ile uyumludur. Ondan sonraki AB değişiklikleri Türkiye'de
@@ -62,7 +62,7 @@ TR_TEXT = {
 # Karar (03.10.2026, kullanıcı): başka büyük pazarda yasak -> turuncu; AB değerlendirme listeleri ve SIN List -> sarı.
 WATCH_LISTS = kaynak_json("kozmetik_listeler.json")["listeler"]
 
-# CSV başlıklarında "regulated_by" sütunu var ama satırlarda yok; satırlar bir sütun eksik.
+# kaynak/cosing/annex.*.csv sütunları (cosing_al.py COLS ile aynı sıra)
 H2 = ["ref", "inn", "cas", "ec", "regulation", "other_regulations", "sccs", "chemical_name",
       "identified", "cmr", "update_date"]
 H3 = ["ref", "inn", "common", "cas", "ec", "product_type", "max", "other", "wording", "regulation",
@@ -163,7 +163,14 @@ CHEM_STOP = {"INN", "ISO", "INNM", "NANO", "INCI", "CAS", "SALTS", "ESTERS", "IS
 # Bir kayda yanlışlıkla bağlanan genel adlar (kayıt id -> çıkarılacak adlar)
 # II/1388 (D4): CosIng, D4 içerebileceği için CYCLOMETHICONE adını da bağlıyor; ama cyclomethicone (D4/D5/D6 karışımı)
 # kozmetik yönetmeliğinde yasak değil. Etikette görülünce "AB'de yasak" denmemesi için çıkarıldı.
-ALIAS_EXCLUDE = {"V/59": {"CITRIC ACID"}, "II/1388": {"CYCLOMETHICONE"}}
+# III/12 (hidrojen peroksit salan maddeler): CosIng SODIUM PERBORATE'ı buraya da bağlıyor; perboratlar CMR 1B olarak
+# Ek II/1397'de yasak (2026/78 ile birleştirildi). Ad III/12'de kalırsa II kaydından düşüyor ve sarı görünüyordu.
+ALIAS_EXCLUDE = {"V/59": {"CITRIC ACID"}, "II/1388": {"CYCLOMETHICONE"}, "III/12": {"SODIUM PERBORATE"}}
+# CosIng'in güncel INCI listesinde bağlantısı yalnızca "Please consider entry ..." notu olarak kalan ya da kopan, ama ek
+# kaydının kendisi olan adlar. II/450 "Verbena oil (Lippia citriodora Kunth.)": bu adlar verbena yağının kendisidir.
+# III/157 adında "delta-Damascone" geçiyor; CosIng ad kaydı artık olmayan III/161'i gösteriyor.
+ALIAS_INCLUDE = {"II/450": {"LIPPIA CITRIODORA LEAF OIL", "LIPPIA CITRIODORA FLOWER/LEAF/STEM OIL"},
+                 "III/157": {"DELTA-DAMASCONE"}}
 
 
 def short_chem(s):
@@ -287,20 +294,32 @@ def build(cdir):
 
     # INCI listesi -> ek referansları (ör. "III/60")
     ing = list(csv.DictReader(open(os.path.join(cdir, "ingredients.csv"), encoding="utf-8")))
+    eski = os.path.join(cdir, "ingredients_eski.csv")   # CosIng'den çıkarılmış adlar: yalnızca tanıma için
+    if os.path.exists(eski):
+        ing += list(csv.DictReader(open(eski, encoding="utf-8")))
     for r in ing:
-        for m in re.finditer(r"\b(II|III|IV|V|VI)\s*/\s*(\d+[a-z]?)", r["restriction"] or ""):
-            alias_from_ingredients["%s/%s" % (m.group(1), m.group(2))].add(norm_alias(r["inci_name"]))
+        s = r["restriction"] or ""
+        # Koşul bildiren notlarda ("II/778 ... contain > 3 % w/w DMSO extract", "II/875 ... except full refining history
+        # known", "Please consider entry 419 Annex II ... applicable", "For nano form please II/1727", "II/1354 (... used
+        # in hair dye products)") madde her durumda yasak değildir: Ek II bağlantısı alınmaz, izinli eklere (III-VI)
+        # bağlantı kalır. Yoksa MINERAL OIL, SQUALENE, C13-15 ALKANE gibi yaygın adlar kırmızı görünür.
+        cond = re.search(r"\b(please|consider|if|except|contains?|used)\b|>", s, re.I)
+        for m in re.finditer(r"\b(II|III|IV|V|VI)\s*/\s*(\d+[a-z]?)", s):
+            if not cond or m.group(1) != "II":
+                alias_from_ingredients["%s/%s" % (m.group(1), m.group(2))].add(norm_alias(r["inci_name"]))
 
     for annex in ["II", "III", "IV", "V", "VI"]:
         for d in read_annex(cdir, annex):
             eid = "%s/%s" % (annex, d["ref"])
+            if eid in entries:   # CosIng'de aynı numarayı taşıyan ikinci madde (ör. III/269): üzerine yazılmasın
+                eid += "-2"
             inci = []
             for k in ("common", "identified"):
                 if d.get(k):
                     inci += split_names(d[k])
             if annex == "IV" and clean(d.get("ci")):
                 inci.append(norm_alias(d["ci"]))
-            inci += sorted(alias_from_ingredients.get(eid, []))
+            inci += sorted(alias_from_ingredients.get(eid, set()) | ALIAS_INCLUDE.get(eid, set()))
             chem = clean(d.get("chemical_name")) or clean(d["inn"])
             if not inci or annex == "II":
                 inci += short_chem(d["inn"])
@@ -380,6 +399,20 @@ def apply_updates(entries):
             if r["inceleme"] == "1": e["needs_review"] = True
             log.append("guncelle " + eid)
             continue
+        if op == "ekle" and "%s/%s" % (annex, ref) in entries:
+            # CosIng kaydı zaten var: koşullar CosIng'den kalır, Türkçe not ve tarih bu satırdan eklenir
+            e = entries["%s/%s" % (annex, ref)]
+            for a in inci:
+                if a not in e["inci"]:
+                    e["inci"].append(a); by_inci[a].append(e["id"])
+            e.update({k: upd[k] for k in ("regulation", "applies_from", "note_tr", "source", "tr") if upd.get(k)})
+            if annex == "II" and "CMR" in r["not_tr"] and "cmr_ban" not in e["flags"]:
+                e["flags"].append("cmr_ban")
+            if any("(NANO)" in a for a in e["inci"]) and "nano" not in e["flags"]:
+                e["flags"].append("nano")
+            if r["inceleme"] == "1": e["needs_review"] = True
+            log.append("ekle(CosIng'de var) " + e["id"])
+            continue
         if op == "ekle":
             if ref == "?":
                 auto += 1
@@ -446,6 +479,8 @@ def finalize(entries):
     fr = set(FORMALDEHYDE_RELEASERS)
     pa = set(PRESERVATIVE_ALLERGENS)
     for e in entries.values():
+        if "tr" not in e and TR_BY_REG.get(e.get("regulation")):
+            e["tr"] = TR_BY_REG[e["regulation"]]
         s = set(e["inci"])
         if e["annex"] in ("V", "III") and s & fr: e["flags"].append("formaldehyde_releaser")
         if e["annex"] == "V" and s & pa: e["flags"].append("allergen_preservative")
@@ -620,7 +655,7 @@ def main():
         "version": VERSION, "last_updated": LAST_UPDATED,
         "meta": {
             "description": "AB kozmetik yönetmeliği (EC) 1223/2009 eklerindeki düzenlenmiş maddeler. Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile uyumludur.",
-            "source": "Avrupa Komisyonu CosIng veritabanı (anlık görüntü: inhouse-work/cosing @%s, 2024 başı) + kaynak/kozmetik_guncellemeler.tsv (2024-2026 değişiklikleri)." % COSING_COMMIT,
+            "source": "Avrupa Komisyonu CosIng veritabanı (resmi arama servisinden %s tarihinde indirildi; en son yayın %s) + kaynak/kozmetik_guncellemeler.tsv (değişikliklere Türkçe not ve Türkiye durumu)." % (COSING_INDIRME, COSING_SON),
             "license": "CosIng içeriği Komisyon'un 2011/833/AB kararıyla kaynak gösterilerek yeniden kullanılabilir.",
             "tr_status": "Türkiye Kozmetik Ürünler Yönetmeliği ekleri AB ile (EU) 2023/1490'a kadar uyumlu (son değişiklik RG 05.03.2024, 32480). Sonraki AB değişikliklerinin Türkiye durumu kayıtlardaki 'tr' alanında. Ek'ler satır satır karşılaştırılamadı (Resmî Gazete metnine erişilemedi).",
             "tr_text": TR_TEXT,
@@ -633,8 +668,6 @@ def main():
                 "non_veg": "Kesim, balık ya da böcek kaynaklı bir bileşen.",
                 "vegan_unsure": "Bitkisel, sentetik ya da hayvansal kaynaklı olabilir; etikette kaynak yazmaz."},
             "known_gaps": [
-                "(EU) 2026/78 ile Ek II'ye eklenen 15 CMR maddesinin adları henüz eklenmedi.",
-                "(EU) 2026/909: alüminyum içeren bileşenler, suda çözünen çinko tuzları, DHHB ve 4 yeni saç boyası eklenmedi.",
                 "2026 sonu taslak: benzofenon-1/-2, BHA, paraben ve CBD kısıtlamaları (henüz yayımlanmadı).",
                 "K3: ChemSec SIN List eklenmedi (verinin uygulamada yeniden kullanımı için ChemSec'ten yazılı izin gerekiyor).",
                 "K3: Kanada Hotlist, Çin, Japonya, Kore, Brezilya ve ABD'nin diğer eyalet yasakları (ör. Washington) eklenmedi.",
@@ -657,7 +690,7 @@ def main():
     aliases = build_aliases([i[0] for i in items], [a for e in lst for a in e["inci"]])
     with open(OUT_INCI, "w", encoding="utf-8") as f:
         json.dump({"version": VERSION, "last_updated": LAST_UPDATED,
-                   "meta": {"source": "Avrupa Komisyonu CosIng INCI listesi (inhouse-work/cosing @%s)" % COSING_COMMIT,
+                   "meta": {"source": "Avrupa Komisyonu CosIng INCI listesi (%s tarihinde indirildi) + CosIng'den sonradan çıkarılmış adlar (kaynak/cosing/ingredients_eski.csv)" % COSING_INDIRME,
                             "item": "[INCI adı, [işlev indeksleri], [bayraklar]?]",
                             "aliases": "[etiketteki ad, [hedef INCI adları], tür (tr | tr_kural | en | abd | kisa)]; kaynak/kozmetik_esanlamlilar.tsv + Türkçe ad kuralları + ABD renklendirici adları", "flags": {k: FLAGS[k] for k in ("non_vegan", "non_veg", "vegan_unsure", "pfas")}},
                    "functions": funcs, "items": items, "aliases": aliases}, f, ensure_ascii=False, separators=(",", ":"))
