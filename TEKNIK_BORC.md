@@ -54,7 +54,7 @@ Alt maddeler:
 Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikte ansiklopedi sayfası yok. Aşağıdakiler bilerek sonraya bırakıldı; sayılar `data/ansiklopedi.json`, `data/e_kodlari.json`, `data/kozmetik.json`, `data/temizlik.json`'dan 05.10.2026'da sayıldı.
 
 ### Gıda (E kodları)
-- 300 sayfa elle incelenmiş (`review=curated`), **33 sayfa otomatik** (`review=auto`; 06.10.2026'da 6. parti ile 39, 7. ve 8. partilerle 40'ar madde eklendi). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. Bunların hepsinde eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet.
+- 332 sayfa elle incelenmiş (`review=curated`), **1 sayfa otomatik** (E1203; 07.10.2026'da 9. parti ile 32 madde eklendi) (`review=auto`; 06.10.2026'da 6. parti ile 39, 7. ve 8. partilerle 40'ar madde eklendi). Otomatik sayfada yalnızca bir satırlık ortak açıklama (`e_aciklama`), kategori işlevi ve e_kodlari.json'dan gelen kurum satırı var. Bunların hepsinde eksik: "Nerelerde bulunur" (`found_in`), "Vücutta" (`in_the_body`), kanıt düzeyi, inceleme tarihi, madde özel özet.
 - ÇÖZÜLDÜ (06.10.2026, 6. parti): 11 renkli madde (E123, E154, E160f, E216, E217, E230, E284, E285, E320, E924a, E952) resmi kaynakla elle yazıldı; e_kodlari kaynakları Wikipedia/ikincil siteler yerine EFSA, EUR-Lex, JECFA/IARC (inchem), FDA. Gerekçe düzeltmeleri: E154 (EFSA 2010, 1129/2011), E230 (2003/114/AT), E924a (IARC 1999), E952 ("1996" ve "1970" kaldırıldı; SCF 2000), E216/E217 (2006/52/AT; "doğrulanmalı" kalktı). Aynı partide koruyucular (E214, E215, E218, E219, E239, E242, E243, E261–E263, E1105), lezzet artırıcılar (E626–E635, E640, E650), tatlandırıcılar (E957, E959, E960, E961, E969).
 - 6. partiden açık kalanlar:
   - KAPANDI (07.10.2026): E920 (L-sistein) AB kullanım koşulları (Ek II: unda quantum satis, bebek bisküvilerinde 1.000 mg/kg) ve şartnamesi (231/2012: insan saçı kaynak olarak kullanılamaz, başka hammadde belirtilmez) okundu; tarama gerekçesi kaynaklandı. Ansiklopedi sayfası "son 33 madde" işinde yazılacak.
@@ -74,14 +74,14 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
   - KAPANDI (07.10.2026): E425 (konjak) tarama gerekçesine EFSA 2017 günde 3 g koşulu ve AB 2003/52/AT jöleli şekerleme yasağı yazıldı. Risk rengi yeşil kaldı (K1–K7 ölçütlerinden hiçbirine girmiyor).
   - KAPANDI (07.10.2026): E579/E585 kategorisi "Stabilizatör / dolgu" oldu (AB 1333/2008 Ek I: rengi koruyan maddeler stabilizatör sayılır).
   - KAPANDI (07.10.2026): E441 (jelatin) için AB 1333/2008 Madde 3 ve 853/2004 Ek III kaynakları e_kodlari.json'a eklendi.
-- Kalan otomatik sayfalar, hepsi yeşil (33), kategoriye göre:
-  - Emülgatörler (1): E431 (EFSA yeniden değerlendirmesi bulunamadı)
-  - Antioksidanlar (1): E385 (EFSA görüşü yok; 2024 veri çağrısı açık)
-  - Diğer (9): E920, E927b, E1103, E1200, E1505, E1517, E1518, E1519, E1521
-  - Parlatıcılar (10): E901, E902, E903, E904, E905, E907, E912, E914, E1203, E1205
-  - Topaklanmayı önleyiciler (8): E535, E536, E538, E551, E552, E553a, E553b, E558
-  - Renklendiriciler (4): E101, E160d, E162, E172
-- Yapılacak: her madde için EFSA/AB 1333/2008 kaynaklı elle kayıt (`kaynak/ansiklopedi.json` `kayitlar`), aynı biçim ve `test/ansiklopedi.js` doğrulamasıyla. Kaynağı güvenilir okunamayanlar (E101, E160d, E162, E172 gibi) otomatik kalabilir, nedeni kayda yazılır.
+- ÇÖZÜLDÜ (07.10.2026, 9. parti, son): 32 madde elle yazıldı (E101, E160d, E162, E172, E385, E431, E535, E536, E538, E551, E552, E553a, E553b, E558, E901–E907, E912, E914, E920, E927b, E1103, E1200, E1205, E1505, E1517–E1519, E1521). Kaynaklar: EFSA görüşleri (özetler OpenAlex/Europe PMC üzerinden; efsa.europa.eu ve Wiley bu ortamdan 403), JECFA (INCHEM), AB 1333/2008 Ek II–III (31.12.2020 metni).
+- Bu partide bulunan veri hataları: E912 (AB 957/2014 ile listeden çıkarıldı) ve E558 (AB 380/2012 ile izni 31.05.2013'te bitti) `ab: listed` görünüyordu; ikisi de K1 ile kırmızı oldu.
+- 9. partiden açık kalanlar:
+  - E1203 (polivinil alkol) otomatik kaldı: EFSA 2006 görüşünün özeti ve JECFA kaydı okunamadı.
+  - E553b (talk): IARC 2025'te Grup 2A (Monografi 136). K4 ölçütüne göre sarı olması gerekebilir; risk rengi değiştirilmedi (kullanıcı kararı). Ansiklopedide IARC satırı var.
+  - E160d (likopen): EFSA 2026 maruziyet değerlendirmesinde doğal besin + katkı + yeni gıda toplamı bebeklerde yüksek tüketimde 0,97 mg/kg/gün (EFSA ADI 0,5); aşımın ana kaynağı doğal besin olduğu için K6 uygulanmadı.
+  - E431: AB Ek II Bölüm B'de var, ama Bölüm E kullanım tablolarında (31.12.2020) kullanım satırı yok; güncel konsolide metinle doğrulanmalı.
+  - E101, E162, E172'nin AB kullanımlarından yalnızca Ek II tablolarında adıyla geçenler yazıldı (grup II 'quantum satis' renkleri listesi Bölüm C'den okunmadı).
 - **"Vücutta ne olur?" alanı kullanıcı beklentisini karşılamıyor (05.10.2026, kullanıcı geri bildirimi).** Kullanıcı belirti bekliyor (baş ağrısı, ishal gibi). Alan ise metabolizma ve kurum kararını anlatıyor. 181 elle kayıttan 172'sinde EFSA/ADI/IARC cümlesi var ve bu, "Kurumlar" bölümünü tekrar ediyor. Yalnızca 28 kayıtta belirti ya da hassasiyet geçiyor. Örnek: E440 "değişmeden emilmez… EFSA 2017 ADI gerekmedi". 33 otomatik sayfada alan hiç yok.
   - Önerilen çözüm (seçilmedi, önce kısa plan): `in_the_body` yerine yapılandırılmış "Olası etkiler" listesi. Her satırda belirti, kimde, hangi miktarda, kanıt düzeyi ve kaynak olur. Belirti yoksa "Normal kullanımda bilinen bir yan etki yok (kaynak, yıl)" yazılır. EFSA/ADI cümleleri Kurumlar bölümüne taşınır. Kısa bir "vücutta nasıl işlenir" satırı kalabilir.
   - Kurallar: Kaynak zorunlu (EFSA, JECFA, AB etiket zorunluluğu, hakemli derleme). Kanıt düzeyi üç seviyedir: "Resmi uyarı", "Duyarlı kişilerde bildirildi", "Kanıt tutarsız" (örneğin MSG ve baş ağrısı). Anekdot yazılmaz. Dil "yapar" değil "yol açabilir / bildirilmiştir" olur, miktar ve kişi belirtilir, teşhis ya da tedavi önerisi verilmez. Sabit bir "Şikâyetiniz varsa hekime danışın" notu eklenir. Belirtiler renk almaz, kırmızı yine yalnızca kişisel uyarıda kalır. Dil hukuki görüş maddesine de girer.

@@ -1995,6 +1995,349 @@
    "year": 2025,
    "url": "https://eur-lex.europa.eu/eli/reg/2025/1337/oj/eng",
    "official": true
+  },
+  "efsa_e101": {
+   "title": "Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5′-phosphate sodium (E 101(ii)) as food additives",
+   "publisher": "EFSA (EFSA Journal 2013, 3357)",
+   "year": 2013,
+   "url": "https://doi.org/10.2903/j.efsa.2013.3357",
+   "official": true
+  },
+  "jecfa_e101": {
+   "title": "JECFA Evaluations: Riboflavin",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1981,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2099.htm",
+   "official": true
+  },
+  "efsa_e160d_2008": {
+   "title": "Use of Lycopene as a food colour - Scientific Opinion of the AFC Panel",
+   "publisher": "EFSA (EFSA Journal 2008, 674)",
+   "year": 2008,
+   "url": "https://doi.org/10.2903/j.efsa.2008.674",
+   "official": true
+  },
+  "efsa_e160d_2010": {
+   "title": "Statement on the divergence between the risk assessment of lycopene by EFSA and JECFA",
+   "publisher": "EFSA (EFSA Journal 2010, 1676)",
+   "year": 2010,
+   "url": "https://doi.org/10.2903/j.efsa.2010.1676",
+   "official": true
+  },
+  "efsa_e160d_2026": {
+   "title": "Dietary exposure to lycopene from background diet, novel foods and food additive use in the European population",
+   "publisher": "EFSA (EFSA Journal 2026, 9994)",
+   "year": 2026,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13062937",
+   "official": true
+  },
+  "efsa_e162": {
+   "title": "Scientific Opinion on the re-evaluation of beetroot red (E 162) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2015, 4318)",
+   "year": 2015,
+   "url": "https://doi.org/10.2903/j.efsa.2015.4318",
+   "official": true
+  },
+  "jecfa_e162": {
+   "title": "JECFA Evaluations: Beet red",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1987,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_174.htm",
+   "official": true
+  },
+  "efsa_e172": {
+   "title": "Scientific Opinion on the re-evaluation of iron oxides and hydroxides (E 172) as food additives",
+   "publisher": "EFSA (EFSA Journal 2015, 4317)",
+   "year": 2015,
+   "url": "https://doi.org/10.2903/j.efsa.2015.4317",
+   "official": true
+  },
+  "jecfa_e385": {
+   "title": "JECFA Evaluations: Calcium disodium ethylenediaminetetraacetate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_311.htm",
+   "official": true
+  },
+  "jecfa_e431": {
+   "title": "JECFA Evaluations: Polyoxyethylene (40) stearate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1956.htm",
+   "official": true
+  },
+  "ab1333_annex2_b": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part B – list of all additives (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/part/B/2020-12-31",
+   "official": true
+  },
+  "efsa_e535": {
+   "title": "Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives",
+   "publisher": "EFSA (EFSA Journal 2018, 5374)",
+   "year": 2018,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536",
+   "official": true
+  },
+  "efsa_e551": {
+   "title": "Re-evaluation of silicon dioxide (E 551) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2018, 5088)",
+   "year": 2018,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009582",
+   "official": true
+  },
+  "efsa_e551_2024": {
+   "title": "Re-evaluation of silicon dioxide (E 551) as a food additive in foods for infants below 16 weeks of age and follow-up of its re-evaluation",
+   "publisher": "EFSA (EFSA Journal 2024, 8880)",
+   "year": 2024,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11483555",
+   "official": true
+  },
+  "efsa_e552": {
+   "title": "Re-evaluation of calcium silicate (E 552), magnesium silicate (E 553a(i)), magnesium trisilicate (E 553a(ii)) and talc (E 553b) as food additives",
+   "publisher": "EFSA (EFSA Journal 2018, 5375)",
+   "year": 2018,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009349",
+   "official": true
+  },
+  "jecfa_e553b": {
+   "title": "JECFA Evaluations: Talc",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1986,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2221.htm",
+   "official": true
+  },
+  "iarc_talc": {
+   "title": "Talc and Acrylonitrile (IARC Monographs on the Identification of Carcinogenic Hazards to Humans, Volume 136)",
+   "publisher": "IARC / WHO",
+   "year": 2025,
+   "url": "https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Talc-And-Acrylonitrile-2025",
+   "official": true
+  },
+  "jecfa_e558": {
+   "title": "JECFA Evaluations: Bentonite",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1976,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_175.htm",
+   "official": true
+  },
+  "eu_380_2012": {
+   "title": "Commission Regulation (EU) No 380/2012 amending Annex II to Regulation (EC) No 1333/2008 as regards the conditions of use and the use levels for aluminium-containing food additives",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2012,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0380",
+   "official": true
+  },
+  "jecfa_e901": {
+   "title": "JECFA Evaluations: Beeswax",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 2005,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_173.htm",
+   "official": true
+  },
+  "efsa_e902": {
+   "title": "Scientific Opinion on the re-evaluation of candelilla wax (E 902) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2012, 2946)",
+   "year": 2012,
+   "url": "https://doi.org/10.2903/j.efsa.2012.2946",
+   "official": true
+  },
+  "efsa_e903": {
+   "title": "Scientific Opinion on the re-evaluation of carnauba wax (E 903) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2012, 2880)",
+   "year": 2012,
+   "url": "https://doi.org/10.2903/j.efsa.2012.2880",
+   "official": true
+  },
+  "efsa_e904": {
+   "title": "Re-evaluation of shellac (E 904) as a food additive and a new application on the extension of use in dietary foods for special medical purposes",
+   "publisher": "EFSA (EFSA Journal 2024, 8897)",
+   "year": 2024,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11292212",
+   "official": true
+  },
+  "efsa_e905": {
+   "title": "Scientific Opinion on the re-evaluation of microcrystalline wax (E 905) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2013, 3146)",
+   "year": 2013,
+   "url": "https://doi.org/10.2903/j.efsa.2013.3146",
+   "official": true
+  },
+  "efsa_e907": {
+   "title": "Re-evaluation of hydrogenated poly-1-decene (E 907) as food additive",
+   "publisher": "EFSA (EFSA Journal 2020, 6034)",
+   "year": 2020,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7448092",
+   "official": true
+  },
+  "efsa_e912": {
+   "title": "Scientific Opinion on the re-evaluation of montan acid esters (E 912) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2013, 3236)",
+   "year": 2013,
+   "url": "https://doi.org/10.2903/j.efsa.2013.3236",
+   "official": true
+  },
+  "eu_957_2014": {
+   "title": "Commission Regulation (EU) No 957/2014 amending Annex II to Regulation (EC) No 1333/2008 and the Annex to Regulation (EU) No 231/2012 as regards the removal of montan acid esters (E 912)",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2014,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0957",
+   "official": true
+  },
+  "efsa_e914": {
+   "title": "Scientific Opinion on the re-evaluation of oxidised polyethylene wax (E 914) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2015, 4145)",
+   "year": 2015,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13151590",
+   "official": true
+  },
+  "jecfa_e920": {
+   "title": "JECFA Evaluations: L-Cysteine",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 2004,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_490.htm",
+   "official": true
+  },
+  "eu_231_2012": {
+   "title": "Commission Regulation (EU) No 231/2012 laying down specifications for food additives",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2012,
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0231",
+   "official": true
+  },
+  "jecfa_e927b": {
+   "title": "JECFA Evaluations: Urea",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2374.htm",
+   "official": true
+  },
+  "jecfa_e1103": {
+   "title": "JECFA Evaluations: Invertase from Saccharomyces cerevisiae",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 2001,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1122.htm",
+   "official": true
+  },
+  "efsa_e1200": {
+   "title": "Re-evaluation of polydextrose (E 1200) as a food additive",
+   "publisher": "EFSA (EFSA Journal 2021, 6363)",
+   "year": 2021,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7792022",
+   "official": true
+  },
+  "efsa_e1205": {
+   "title": "Scientific Opinion on the use of Basic Methacrylate Copolymer as a food additive",
+   "publisher": "EFSA (EFSA Journal 2010, 1513)",
+   "year": 2010,
+   "url": "https://doi.org/10.2903/j.efsa.2010.1513",
+   "official": true
+  },
+  "jecfa_e1505": {
+   "title": "JECFA Evaluations: Triethyl citrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1999,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2316.htm",
+   "official": true
+  },
+  "jecfa_e1517": {
+   "title": "JECFA Evaluations: Glycerol diacetate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1976,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_926.htm",
+   "official": true
+  },
+  "jecfa_e1518": {
+   "title": "JECFA Evaluations: Triacetin",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 2002,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2302.htm",
+   "official": true
+  },
+  "efsa_e1519": {
+   "title": "Re-evaluation of benzyl alcohol (E 1519) as food additive",
+   "publisher": "EFSA (EFSA Journal 2019, 5876)",
+   "year": 2019,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7008871",
+   "official": true
+  },
+  "efsa_e1521": {
+   "title": "Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive",
+   "publisher": "EFSA (EFSA Journal 2018, 5293)",
+   "year": 2018,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009417",
+   "official": true
+  },
+  "jecfa_e1521": {
+   "title": "JECFA Evaluations: Polyethylene glycols",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1979,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1944.htm",
+   "official": true
+  },
+  "ab1333_annex2_e_g2": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 2 (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/2/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g4": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 4 (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/4/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g6": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 6 (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/6/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g7": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 7 (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/7/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex2_e_g11": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 11 (31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/11/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex3_p2": {
+   "title": "Regulation (EC) No 1333/2008, Annex III Part 2 (katkı preparatlarında diğer katkılar; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/2/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex3_p3": {
+   "title": "Regulation (EC) No 1333/2008, Annex III Part 3 (gıda enzimlerinde katkılar; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/3/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex3_p4": {
+   "title": "Regulation (EC) No 1333/2008, Annex III Part 4 (aroma vericilerde katkılar; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/4/2020-12-31",
+   "official": true
+  },
+  "ab1333_annex3_p5": {
+   "title": "Regulation (EC) No 1333/2008, Annex III Part 5 (besin öğelerinde katkılar; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/5/2020-12-31",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -12949,6 +13292,1017 @@
     "ab1333_annex2_e_g12"
    ],
    "last_reviewed": "2026-10-06"
+  },
+  "E101": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sarı-turuncu renk veren bir renklendiricidir; B2 vitamini (riboflavin) ve onun fosfatlı biçiminden oluşur.",
+   "found_in": [
+    "Kırmızı meyve konserveleri ve sebze konserveleri (zeytin hariç)",
+    "Kurutulmuş patates granülleri ve pulları",
+    "Balık ve kabuklu ezmeleri, tütsülenmiş balık",
+    "Pastırma ve kaplaması",
+    "Aromalı şaraplar (americano, bitter vino; en çok 100 mg/l)"
+   ],
+   "in_the_body": "Riboflavin B2 vitaminidir. EFSA 2013'te fosfatlı biçimin bağırsakta hızla serbest riboflavine dönüştüğünü ve normal metabolizma yollarıyla işlendiğini belirtti. Uzun süreli ve üreme çalışmaları bulunmadığından ADI belirlemedi; buna karşın mevcut izinli kullanım ve düzeylerde güvenlik endişesi oluşturmasının olası olmadığı sonucuna vardı. JECFA 1981'de riboflavin ve riboflavin-5'-fosfat için grup ADI'yi 0–0,5 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi olası değil.",
+     "year": 2013,
+     "src": "efsa_e101"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Riboflavin ve riboflavin-5'-fosfat için grup ADI 0–0,5 mg/kg vücut ağırlığı.",
+     "year": 1981,
+     "src": "jecfa_e101"
+    }
+   ],
+   "sources": [
+    "efsa_e101",
+    "jecfa_e101",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g3",
+    "ab1333_annex2_e_g4",
+    "ab1333_annex2_e_g7",
+    "eu_1333_annex2_e",
+    "ab1333_annex2_e_g12"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E160d": {
+   "evidence_level": "moderate",
+   "what_it_does": "Domatese kırmızı rengini veren karotenoit pigmentidir; kırmızı renklendirici olarak kullanılır.",
+   "found_in": [
+    "Aromalı fermente süt ürünleri ve işlenmiş peynir",
+    "Şekerleme ve sakız (sakızda en çok 300 mg/kg)",
+    "İnce unlu mamuller, atıştırmalıklar, çorba ve soslar",
+    "Aromalı içecekler (en çok 12 mg/l)",
+    "Et ürünü kılıf ve süslemeleri, surimi ve balık ezmeleri"
+   ],
+   "in_the_body": "EFSA 2008'de bir yıllık sıçan çalışmasında görülen karaciğer enzimi (ALT) artışına dayanarak tüm kaynaklardan alınan likopen için ADI'yi 0,5 mg/kg vücut ağırlığı/gün olarak belirledi. JECFA 2009'da 'belirtilmemiş' ADI verdi; EFSA 2010'da bu farkın aynı çalışmanın farklı yorumlanmasından kaynaklandığını açıkladı. EFSA'nın 2026 maruziyet değerlendirmesinde besinlerdeki doğal likopen, katkı ve yeni gıda kullanımı birlikte hesaplandı; en gerçekçi senaryoda yüksek tüketen bebeklerde alım günde 0,97 mg/kg'a ulaştı ve toplam alımın en büyük kaynağı besinlerde doğal olarak bulunan likopendi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Tüm kaynaklardan ADI 0,5 mg/kg vücut ağırlığı/gün.",
+     "year": 2008,
+     "src": "efsa_e160d_2010"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Doğal besin, katkı ve yeni gıda kaynaklı toplam maruziyet değerlendirildi.",
+     "year": 2026,
+     "src": "efsa_e160d_2026"
+    }
+   ],
+   "sources": [
+    "efsa_e160d_2010",
+    "efsa_e160d_2008",
+    "efsa_e160d_2026",
+    "ab1333_annex2_e_g1",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g6",
+    "ab1333_annex2_e_g7",
+    "ab1333_annex2_e_g12"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E162": {
+   "evidence_level": "limited",
+   "what_it_does": "Kırmızı pancardan elde edilen, başlıca betanin içeren kırmızı-mor bir renklendiricidir.",
+   "found_in": [
+    "Kırmızı meyve konserveleri ve sebze konserveleri",
+    "Meyve aromalı kahvaltılık gevrekler (en çok 200 mg/kg)",
+    "Sosis, pate ve terrinler",
+    "Balık ve kabuklu ezmeleri, haşlanmış kabuklular"
+   ],
+   "in_the_body": "Renk veren betalainler (başlıca betanin) pancarda doğal olarak bulunur. EFSA 2015'te toksikoloji verilerinin ADI belirlemeye yetmediğini belirtti; ancak katkıdan gelen betanin alımının normal beslenmeyle alınanla aynı aralıkta olduğunu ve bildirilen kullanım düzeylerinde güvenlik endişesi bulunmadığını açıkladı. JECFA 1987'de ADI'yi 'belirtilmemiş' olarak belirledi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI için veri yetersiz, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_e162"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş'.",
+     "year": 1987,
+     "src": "jecfa_e162"
+    }
+   ],
+   "sources": [
+    "efsa_e162",
+    "jecfa_e162",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g3",
+    "ab1333_annex2_e_g6",
+    "ab1333_annex2_e_g7",
+    "eu_1333_annex2_e"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E172": {
+   "evidence_level": "limited",
+   "what_it_does": "Sarı, kırmızı ve siyah demir oksit ve hidroksitlerden oluşan, toprak tonlarında renk veren bir renklendiricidir.",
+   "found_in": [
+    "Turunçgil, kavun ve nar kabuğundaki işaretlemelerde (kontrast için)",
+    "Balık ve kabuklu ezmeleri, tütsülenmiş balık",
+    "Deniz yosunu bazlı balık yumurtası taklitleri"
+   ],
+   "in_the_body": "Demir oksitlerden demir emilimi düşüktür. JECFA 1980'de ADI'yi 0–0,5 mg/kg vücut ağırlığı/gün olarak belirlemişti. EFSA 2015'te kırmızı ve siyah demir oksidin hücre deneylerinde genotoksisite testlerinde pozitif sonuç verdiğini, eldeki verilerin bunu değerlendirmeye yetmediğini ve yeterli biyolojik ve toksikolojik veri bulunmadığından E 172'nin güvenliğinin değerlendirilemediğini bildirdi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veri yetersizliği nedeniyle güvenlik değerlendirilemedi.",
+     "year": 2015,
+     "src": "efsa_e172"
+    }
+   ],
+   "sources": [
+    "efsa_e172",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g3",
+    "eu_1333_annex2_e"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E385": {
+   "evidence_level": "limited",
+   "what_it_does": "Metal iyonlarını bağlayarak (şelatlama) renk ve tat bozulmasını geciktiren bir antioksidan ve koruyucudur.",
+   "found_in": [
+    "Sürülebilir yağlar (en çok 100 mg/kg)",
+    "Konserve baklagil, mantar ve enginar (en çok 250 mg/kg)",
+    "Dondurulmuş kabuklular; konserve balık, kabuklu ve yumuşakçalar",
+    "Emülsiyon soslar (en çok 75 mg/kg)"
+   ],
+   "in_the_body": "JECFA 1973'te ADI'yi kalsiyum disodyum EDTA olarak 0–2,5 mg/kg vücut ağırlığı/gün belirledi ve gıdada fazla disodyum EDTA kalmaması gerektiğini belirtti.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–2,5 mg/kg vücut ağırlığı (kalsiyum disodyum EDTA olarak).",
+     "year": 1973,
+     "src": "jecfa_e385"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca belirli yağ, konserve, kabuklu ve sos ürünlerinde, 75–250 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g2"
+    }
+   ],
+   "sources": [
+    "jecfa_e385",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g3",
+    "ab1333_annex2_e_g7",
+    "eu_1333_annex2_e",
+    "ab1333_annex2_e_g10"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E431": {
+   "evidence_level": "limited",
+   "what_it_does": "Yağ ile suyun karışmasını sağlayan, polioksietilen içeren bir emülgatördür.",
+   "found_in": [
+    "AB'nin katkı listesinde (Ek II Bölüm B) yer alır; Ek II kullanım tablolarında (31.12.2020 metni) bu madde için kullanım satırı yoktur"
+   ],
+   "in_the_body": "JECFA 1973'te polioksietilen (8) ve (40) stearatların toplamı için ADI'yi 0–25 mg/kg vücut ağırlığı/gün olarak belirledi.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Polioksietilen (8) ve (40) stearatların toplamı için ADI 0–25 mg/kg vücut ağırlığı.",
+     "year": 1973,
+     "src": "jecfa_e431"
+    }
+   ],
+   "sources": [
+    "jecfa_e431",
+    "ab1333_annex2_b"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E535": {
+   "evidence_level": "strong",
+   "what_it_does": "Tuzun topaklanmasını önleyen bir ferrosiyanür tuzudur (sodyum ferrosiyanür).",
+   "found_in": [
+    "Tuz ve tuz yerine geçen ürünler (AB'de yalnızca bunlarda, en çok 20 mg/kg)"
+   ],
+   "in_the_body": "Ferrosiyanürlerin emilimi düşüktür ve vücutta birikmez. EFSA 2018'de genotoksisite ve kanserojenlik açısından endişe görmedi; sıçanlarda iki yıllık çalışmada böbreği hedef organ olarak belirledi ve sodyum, potasyum ve kalsiyum ferrosiyanür için grup ADI'yi ferrosiyanür iyonu olarak 0,03 mg/kg vücut ağırlığı/gün belirledi. Tahmini alım bu sınırın çok altında kaldığından izinli kullanımda güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; grup ADI 0,03 mg/kg vücut ağırlığı/gün (ferrosiyanür iyonu olarak), izinli kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e535"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca tuz ve tuz yerine geçen ürünlerde, en çok 20 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    }
+   ],
+   "sources": [
+    "efsa_e535",
+    "ab1333_annex2_e_g9"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E536": {
+   "evidence_level": "strong",
+   "what_it_does": "Tuzun topaklanmasını önleyen bir ferrosiyanür tuzudur (potasyum ferrosiyanür).",
+   "found_in": [
+    "Tuz ve tuz yerine geçen ürünler (AB'de yalnızca bunlarda, en çok 20 mg/kg)"
+   ],
+   "in_the_body": "Ferrosiyanürlerin emilimi düşüktür ve vücutta birikmez. EFSA 2018'de genotoksisite ve kanserojenlik açısından endişe görmedi; sıçanlarda iki yıllık çalışmada böbreği hedef organ olarak belirledi ve sodyum, potasyum ve kalsiyum ferrosiyanür için grup ADI'yi ferrosiyanür iyonu olarak 0,03 mg/kg vücut ağırlığı/gün belirledi. Tahmini alım bu sınırın çok altında kaldığından izinli kullanımda güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; grup ADI 0,03 mg/kg vücut ağırlığı/gün (ferrosiyanür iyonu olarak), izinli kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e535"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca tuz ve tuz yerine geçen ürünlerde, en çok 20 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    }
+   ],
+   "sources": [
+    "efsa_e535",
+    "ab1333_annex2_e_g9"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E538": {
+   "evidence_level": "strong",
+   "what_it_does": "Tuzun topaklanmasını önleyen bir ferrosiyanür tuzudur (kalsiyum ferrosiyanür).",
+   "found_in": [
+    "Tuz ve tuz yerine geçen ürünler (AB'de yalnızca bunlarda, en çok 20 mg/kg)"
+   ],
+   "in_the_body": "Ferrosiyanürlerin emilimi düşüktür ve vücutta birikmez. EFSA 2018'de genotoksisite ve kanserojenlik açısından endişe görmedi; sıçanlarda iki yıllık çalışmada böbreği hedef organ olarak belirledi ve sodyum, potasyum ve kalsiyum ferrosiyanür için grup ADI'yi ferrosiyanür iyonu olarak 0,03 mg/kg vücut ağırlığı/gün belirledi. Tahmini alım bu sınırın çok altında kaldığından izinli kullanımda güvenlik endişesi bulmadı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; grup ADI 0,03 mg/kg vücut ağırlığı/gün (ferrosiyanür iyonu olarak), izinli kullanımda güvenlik endişesi yok.",
+     "year": 2018,
+     "src": "efsa_e535"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca tuz ve tuz yerine geçen ürünlerde, en çok 20 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    }
+   ],
+   "sources": [
+    "efsa_e535",
+    "ab1333_annex2_e_g9"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E551": {
+   "evidence_level": "moderate",
+   "what_it_does": "Toz gıdaların topaklanmasını önleyen sentetik amorf silikadır.",
+   "found_in": [
+    "Toz gıdalar ve çeşniler (çeşnilerde en çok 30.000 mg/kg)",
+    "Dilimlenmiş ya da rendelenmiş peynir",
+    "Tablet biçimli gıdalar, sofra tatlandırıcıları ve takviye edici gıdalar",
+    "Tuz ve tuz yerine geçen ürünler",
+    "Bebek ve küçük çocuklar için kuru tahıl ürünleri (en çok 2.000 mg/kg)"
+   ],
+   "in_the_body": "Silikon dioksit sindirim kanalından az emilir. EFSA 2018'de eldeki çalışmalarda zararlı etki görmedi; ancak AB şartnamesinin nano boyuttaki parçacıkları dışlamadığını ve veri sınırlılıkları nedeniyle 'belirtilmemiş' ADI'yi doğrulayamadığını belirtti. 2024'teki izleme değerlendirmesinde ADI yerine maruziyet payı (MOE) yaklaşımını kullandı ve 16 haftalıktan küçük bebekler dahil tüm yaş gruplarında bildirilen kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; 2024'te tüm yaş gruplarında bildirilen kullanımda güvenlik endişesi yok (MOE yaklaşımı).",
+     "year": 2024,
+     "src": "efsa_e551_2024"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş' veri sınırlılıkları nedeniyle doğrulanamadı; şartname değişikliği önerildi.",
+     "year": 2018,
+     "src": "efsa_e551"
+    }
+   ],
+   "sources": [
+    "efsa_e551_2024",
+    "efsa_e551",
+    "ab1333_annex2_e_g1",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g10",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p2",
+    "ab1333_annex3_p5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E552": {
+   "evidence_level": "limited",
+   "what_it_does": "Toz gıdaların topaklanmasını önleyen kalsiyum silikattır.",
+   "found_in": [
+    "Toz gıdalar, dilimlenmiş ya da rendelenmiş peynir, tablet biçimli gıdalar ve takviye edici gıdalar (E 551–553 grubu)",
+    "Sakız (yüzey işlemi)",
+    "Renklendirici, emülgatör, poliol ve besin öğesi preparatlarında taşıyıcı"
+   ],
+   "in_the_body": "Silikatlar çok az emilir. EFSA 2018'de kalsiyum ve magnezyum silikat ile talk için genotoksisite ya da gelişimsel toksisite belirtisi görmedi; ancak sıçanlarda kalsiyum silikattan gelen silisyumun böbrek ve karaciğerde biriktiğinin bildirildiğini ve güvenilir uzun süreli toksisite, kanserojenlik ve üreme verisi bulunmadığını belirterek katkı olarak güvenliklerinin değerlendirilemeyeceği sonucuna vardı. SCF'nin silikon dioksit ve silikatlar için 1991'de verdiği grup ADI'nin geçerliliğini yitirdiğini belirtti.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veri eksikliği nedeniyle güvenlik değerlendirilemedi, SCF grup ADI'si geçersiz sayıldı.",
+     "year": 2018,
+     "src": "efsa_e552"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Toz ve tablet biçimli gıdalar, peynir, tuz, çeşniler, sakız yüzeyi ve takviye edici gıdalarda belirli düzeylerle izinli (E 551–553 grubu).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    }
+   ],
+   "sources": [
+    "efsa_e552",
+    "ab1333_annex2_e_g1",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p1",
+    "ab1333_annex3_p2",
+    "ab1333_annex3_p5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E553a": {
+   "evidence_level": "limited",
+   "what_it_does": "Toz gıdaların topaklanmasını önleyen magnezyum silikat ve magnezyum trisilikattır.",
+   "found_in": [
+    "Toz gıdalar, dilimlenmiş ya da rendelenmiş peynir, tablet biçimli gıdalar ve takviye edici gıdalar (E 551–553 grubu)",
+    "Sakız (yüzey işlemi)",
+    "Poliol preparatlarında taşıyıcı"
+   ],
+   "in_the_body": "Silikatlar çok az emilir. EFSA 2018'de kalsiyum ve magnezyum silikat ile talk için genotoksisite ya da gelişimsel toksisite belirtisi görmedi; ancak sıçanlarda kalsiyum silikattan gelen silisyumun böbrek ve karaciğerde biriktiğinin bildirildiğini ve güvenilir uzun süreli toksisite, kanserojenlik ve üreme verisi bulunmadığını belirterek katkı olarak güvenliklerinin değerlendirilemeyeceği sonucuna vardı. SCF'nin silikon dioksit ve silikatlar için 1991'de verdiği grup ADI'nin geçerliliğini yitirdiğini belirtti. Magnezyum trisilikatın mide ilacı olarak on yıllardır günde 4 g'a kadar kullanıldığını ve AB ilaç güvenliği veri tabanında doğrulanmış böbrek etkisi vakası bulunmadığını da not etti.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veri eksikliği nedeniyle güvenlik değerlendirilemedi, SCF grup ADI'si geçersiz sayıldı.",
+     "year": 2018,
+     "src": "efsa_e552"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Toz ve tablet biçimli gıdalar, peynir, tuz, çeşniler, sakız yüzeyi ve takviye edici gıdalarda belirli düzeylerle izinli (E 551–553 grubu).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    }
+   ],
+   "sources": [
+    "efsa_e552",
+    "ab1333_annex2_e_g1",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p1",
+    "ab1333_annex3_p2"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E553b": {
+   "evidence_level": "limited",
+   "what_it_does": "Doğal bir magnezyum silikat minerali olan talktır; topaklanmayı önler ve yüzey işleminde kullanılır.",
+   "found_in": [
+    "Pirinç (yüzey işlemi)",
+    "Sosis yüzeyi",
+    "Kabuğu soyulmamış boyalı haşlanmış yumurta yüzeyi (en çok 5.400 mg/kg)",
+    "Sakız",
+    "Toz gıdalar, dilimlenmiş ya da rendelenmiş peynir, tablet biçimli gıdalar ve takviye edici gıdalar (E 551–553 grubu)"
+   ],
+   "in_the_body": "Silikatlar çok az emilir. EFSA 2018'de kalsiyum ve magnezyum silikat ile talk için genotoksisite ya da gelişimsel toksisite belirtisi görmedi; ancak sıçanlarda kalsiyum silikattan gelen silisyumun böbrek ve karaciğerde biriktiğinin bildirildiğini ve güvenilir uzun süreli toksisite, kanserojenlik ve üreme verisi bulunmadığını belirterek katkı olarak güvenliklerinin değerlendirilemeyeceği sonucuna vardı. SCF'nin silikon dioksit ve silikatlar için 1991'de verdiği grup ADI'nin geçerliliğini yitirdiğini belirtti. JECFA 1986'da ADI'yi 'belirtilmemiş' olarak belirlemişti. IARC 2025'te (Monografi 136) talkı Grup 2A (insanlarda muhtemelen kanserojen) olarak sınıflandırdı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; veri eksikliği nedeniyle güvenlik değerlendirilemedi, SCF grup ADI'si geçersiz sayıldı.",
+     "year": 2018,
+     "src": "efsa_e552"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Toz ve tablet biçimli gıdalar, peynir, tuz, çeşniler, sakız yüzeyi ve takviye edici gıdalarda belirli düzeylerle izinli (E 551–553 grubu).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g9"
+    },
+    {
+     "agency": "IARC",
+     "region": "INT",
+     "status": "classified",
+     "detail": "Grup 2A: insanlarda muhtemelen kanserojen (Monografi 136).",
+     "year": 2025,
+     "src": "iarc_talc"
+    }
+   ],
+   "sources": [
+    "efsa_e552",
+    "ab1333_annex2_e_g1",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p1",
+    "ab1333_annex3_p2",
+    "jecfa_e553b",
+    "iarc_talc",
+    "ab1333_annex2_e_g6",
+    "ab1333_annex2_e_g7",
+    "eu_1333_annex2_e"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E558": {
+   "evidence_level": "limited",
+   "what_it_does": "Topaklanmayı önleyici olarak kullanılmış, alüminyum içeren doğal bir kil mineralidir.",
+   "found_in": [
+    "AB'de gıda katkısı olarak izni 31 Mayıs 2013'te sona erdi; gıda üreticileri artık kullanmadığını bildirmişti"
+   ],
+   "in_the_body": "JECFA bentonit için ADI belirlemedi ('ADI verilmedi'). AB, alüminyum içeren katkıların kullanım koşullarını düzenleyen Tüzük 380/2012 ile bentoniti, gıda üreticilerinin artık kullanmadığını bildirmesi üzerine 31 Mayıs 2013'ten sonra izinli listeden çıkardı.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "İzni 31 Mayıs 2013'te sona erdi (Tüzük 380/2012).",
+     "year": 2012,
+     "src": "eu_380_2012"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI verilmedi.",
+     "year": 1976,
+     "src": "jecfa_e558"
+    }
+   ],
+   "sources": [
+    "eu_380_2012",
+    "jecfa_e558",
+    "ab1333_annex2_b"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E901": {
+   "evidence_level": "moderate",
+   "what_it_does": "Bal arısı peteğinden elde edilen bir mumdur; parlatıcı ve taşıyıcı olarak kullanılır.",
+   "found_in": [
+    "Meyve yüzeyi (turunçgil, kavun, elma, armut, şeftali, ananas, muz, mango, avokado, nar)",
+    "Şekerlemeler ve çikolata kaplı küçük unlu mamuller",
+    "Sakız, kahve çekirdeği, kaplı kuruyemiş ve atıştırmalıklar",
+    "Takviye edici gıdalar",
+    "Renk ve aroma preparatlarında taşıyıcı (aromalı içeceklerde en çok 200 mg/l)"
+   ],
+   "in_the_body": "JECFA 2005'te uzun kullanım geçmişine ve ana bileşenlerinde toksisite görülmemesine dayanarak, tahmini alımda (kişi başı günde 650 mg'ın altında) güvenlik endişesi olmadığı sonucuna vardı; ADI 'kabul edilebilir' olarak belirtildi.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'kabul edilebilir'; tahmini alımda güvenlik endişesi yok.",
+     "year": 2005,
+     "src": "jecfa_e901"
+    }
+   ],
+   "sources": [
+    "jecfa_e901",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p1",
+    "ab1333_annex3_p4"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E902": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kandelilla bitkisinin (Euphorbia antisyphilitica) yapraklarından elde edilen bitkisel bir mumdur; parlatıcı olarak kullanılır.",
+   "found_in": [
+    "Meyve yüzeyi (turunçgil, kavun, elma, armut, şeftali, ananas) ve kuruyemiş",
+    "Şekerleme ve sakız",
+    "Kahve çekirdeği, atıştırmalıklar ve takviye edici gıdalar"
+   ],
+   "in_the_body": "EFSA 2012'de emiliminin düşük olmasının beklendiğini, emilen bileşenlerin normal metabolizmaya katılacağını ve genotoksik olmadığını belirtti. Uzun süreli veri eksik olduğundan ADI belirlemedi; ancak güvenlik payı yeterli bulunduğundan izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı. JECFA ve SCF de ADI belirlemeden parlatıcı olarak kullanımını kabul edilebilir bulmuştu.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2012,
+     "src": "efsa_e902"
+    }
+   ],
+   "sources": [
+    "efsa_e902",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E903": {
+   "evidence_level": "moderate",
+   "what_it_does": "Brezilya'daki karnauba palmiyesinden (Copernicia cerifera) elde edilen bitkisel bir mumdur; parlatıcı olarak kullanılır.",
+   "found_in": [
+    "Meyve yüzeyi (en çok 200 mg/kg) ve kuruyemiş",
+    "Şekerleme (en çok 500 mg/kg) ve sakız (en çok 1.200 mg/kg)",
+    "Kabuğu soyulmamış boyalı haşlanmış yumurta yüzeyi",
+    "Kahve çekirdeği, atıştırmalıklar ve takviye edici gıdalar"
+   ],
+   "in_the_body": "EFSA 2012'de önemli ölçüde emilmesinin beklenmediğini, genotoksisite endişesi olmadığını ve kısa süreli, üreme ve gelişim çalışmalarında olumsuz etki görülmediğini belirtti. Uzun süreli veri olmadığından ADI belirlemedi, ancak güvenlik payını yeterli bularak izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı. JECFA ADI'yi 7 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2012,
+     "src": "efsa_e903"
+    }
+   ],
+   "sources": [
+    "efsa_e903",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g5",
+    "eu_1333_annex2_e",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E904": {
+   "evidence_level": "moderate",
+   "what_it_does": "Lak böceğinin salgısından elde edilen bir reçinedir; parlatıcı ve kaplama maddesi olarak kullanılır.",
+   "found_in": [
+    "Meyve yüzeyi ve kuruyemiş",
+    "Şekerleme, sakız ve çikolata kaplı küçük unlu mamuller",
+    "Kabuğu soyulmamış haşlanmış yumurta yüzeyi ve kahve çekirdeği",
+    "Takviye edici gıdalar"
+   ],
+   "in_the_body": "EFSA 2024'te fiziksel yolla renksizleştirilmiş, mumu alınmış gomalak için ADI'yi 4 mg/kg vücut ağırlığı/gün olarak belirledi; kimyasal ağartmayla üretilen gomalak için bu değeri, organoklorlu safsızlık verileri gelene kadar geçici saydı. Bazı yaş gruplarında yüksek tüketimde ADI'nin hafifçe aşıldığını, ancak hesapların ihtiyatlı olduğunu belirterek bunun güvenlik endişesi göstermediği sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 4 mg/kg vücut ağırlığı/gün (kimyasal ağartılmış için geçici).",
+     "year": 2024,
+     "src": "efsa_e904"
+    }
+   ],
+   "sources": [
+    "efsa_e904",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g5",
+    "eu_1333_annex2_e",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E905": {
+   "evidence_level": "moderate",
+   "what_it_does": "Mineral yağlarla kimyasal olarak yakın, rafine bir hidrokarbon mumudur; yüzey işleminde kullanılır.",
+   "found_in": [
+    "Kavun, papaya, mango, avokado ve ananas yüzeyi",
+    "Şekerleme (çikolata hariç), sakız, süsleme ve kaplamalar"
+   ],
+   "in_the_body": "JECFA mineral yağlar, parafinler ve mikrokristal mumlar için grup ADI'yi 20 mg/kg vücut ağırlığı/gün olarak belirlemişti. EFSA 2013'te mineral yağ ürünlerinin aksine mikrokristal mumun dokularda birikmediğini ve genotoksisite endişesi olmadığını belirtti; uzun süreli çalışma olmadığından ADI belirlemedi, ancak izinli kullanımda güvenlik payını yeterli buldu.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2013,
+     "src": "efsa_e905"
+    }
+   ],
+   "sources": [
+    "efsa_e905",
+    "ab1333_annex2_e_g2",
+    "ab1333_annex2_e_g5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E907": {
+   "evidence_level": "moderate",
+   "what_it_does": "Sentetik bir hidrokarbon polimeridir; parlatıcı olarak kullanılır.",
+   "found_in": [
+    "Şekerleme ve sakız (parlatıcı, en çok 2.000 mg/kg)",
+    "Kuru meyve (parlatıcı, en çok 2.000 mg/kg)"
+   ],
+   "in_the_body": "EFSA 2020'de akut toksisitesinin düşük olduğunu ve genotoksisite endişesi bulunmadığını belirtti; 90 günlük sıçan çalışmasına dayanarak ADI'yi 20 mg/kg vücut ağırlığı/gün olarak belirledi. En yüksek maruziyet senaryosunda bile alım bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 20 mg/kg vücut ağırlığı/gün, izinli düzeyde güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e907"
+    }
+   ],
+   "sources": [
+    "efsa_e907",
+    "ab1333_annex2_e_g3",
+    "ab1333_annex2_e_g5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E912": {
+   "evidence_level": "limited",
+   "what_it_does": "Linyit (montan) mumundan elde edilen asitlerin esterleridir; daha önce taze meyve yüzeyinde kullanılırdı.",
+   "found_in": [
+    "AB'de 2014'ten beri izinli değil; daha önce yalnızca taze meyvelerin yüzey işleminde izinliydi"
+   ],
+   "in_the_body": "EFSA 2013'te toksikokinetik, üreme ve gelişim verisi bulunmadığını, kronik toksisite çalışmalarında önemli eksiklikler olduğunu ve 2012 veri çağrısına yanıt gelmediğini belirterek maddenin katkı olarak değerlendirilemeyeceği sonucuna vardı. AB, Tüzük 957/2014 ile montan asit esterlerini izinli katkı listesinden çıkardı.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "withdrawn",
+     "detail": "İzinli katkı listesinden çıkarıldı (Tüzük 957/2014).",
+     "year": 2014,
+     "src": "eu_957_2014"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Veri yetersizliği nedeniyle değerlendirilemedi.",
+     "year": 2013,
+     "src": "efsa_e912"
+    }
+   ],
+   "sources": [
+    "eu_957_2014",
+    "efsa_e912"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E914": {
+   "evidence_level": "moderate",
+   "what_it_does": "Polietilenin oksitlenmesiyle elde edilen sentetik bir mumdur; meyve yüzeyinde kullanılır.",
+   "found_in": [
+    "Turunçgil, kavun, papaya, mango, avokado ve ananas yüzeyi"
+   ],
+   "in_the_body": "EFSA 2015'te maddenin genotoksik olmadığını ve 90 günlük çalışmalarda birikme görülmediğini belirtti; uzun süreli veri eksikliği nedeniyle ADI belirlemedi. En yüksek tahmini alımda güvenlik payını 4.400 olarak hesapladı ve izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI belirlenmedi, izinli kullanımda güvenlik endişesi yok.",
+     "year": 2015,
+     "src": "efsa_e914"
+    }
+   ],
+   "sources": [
+    "efsa_e914",
+    "ab1333_annex2_e_g2"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E920": {
+   "evidence_level": "limited",
+   "what_it_does": "Bir amino asittir; un işleme maddesi olarak hamuru yumuşatır.",
+   "found_in": [
+    "Un (gerektiği kadar)",
+    "Bebek ve küçük çocuk bisküvileri (en çok 1.000 mg/kg)",
+    "Gıda enzimi preparatları"
+   ],
+   "in_the_body": "L-sistein proteinlerin doğal yapı taşıdır. JECFA 2004'te aroma maddesi olarak değerlendirdiğinde besinlerle alınan miktarın aroma kullanımından beklenenden kat kat fazla olduğunu belirterek mevcut alım düzeylerinde güvenlik endişesi görmedi. AB şartnamesine göre insan saçı hammadde olarak kullanılamaz.",
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca unda (gerektiği kadar) ve bebek ve küçük çocuk bisküvilerinde (en çok 1.000 mg/kg); insan saçı kaynak olarak kullanılamaz.",
+     "year": 2012,
+     "src": "eu_231_2012"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Aroma maddesi olarak mevcut alımda güvenlik endişesi yok.",
+     "year": 2004,
+     "src": "jecfa_e920"
+    }
+   ],
+   "sources": [
+    "jecfa_e920",
+    "eu_231_2012",
+    "ab1333_annex2_e_g6",
+    "ab1333_annex2_e_g10",
+    "ab1333_annex3_p3"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E927b": {
+   "evidence_level": "limited",
+   "what_it_does": "Karbamittir (üre); şeker eklenmemiş sakızlarda doku düzenleyici olarak kullanılır.",
+   "found_in": [
+    "Şeker eklenmemiş sakız (en çok 30.000 mg/kg)"
+   ],
+   "in_the_body": "JECFA 1993'te sakızda doku düzenleyici ve maya besini olarak kullanımını kabul edilebilir buldu.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Sakızda doku düzenleyici olarak kullanımı kabul edilebilir.",
+     "year": 1993,
+     "src": "jecfa_e927b"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca şeker eklenmemiş sakızda, en çok 30.000 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g5"
+    }
+   ],
+   "sources": [
+    "jecfa_e927b",
+    "ab1333_annex2_e_g5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1103": {
+   "evidence_level": "limited",
+   "what_it_does": "Sakarozu glikoz ve fruktoza ayıran bir enzimdir (beta-fruktofuranozidaz).",
+   "found_in": [
+    "Vitamin ve mineral gibi besin öğesi preparatlarında katkı ve taşıyıcı"
+   ],
+   "in_the_body": "JECFA 2001'de Saccharomyces cerevisiae mayasından elde edilen ve şartnameye uyan invertazı, bu mayanın gıda hazırlamada yaygın kullanıldığını belirterek kabul edilebilir buldu; kullanımının iyi üretim uygulamasıyla sınırlandırılmasını önerdi.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Maya kaynaklı invertaz kabul edilebilir; kullanım iyi üretim uygulamasıyla sınırlı.",
+     "year": 2001,
+     "src": "jecfa_e1103"
+    }
+   ],
+   "sources": [
+    "jecfa_e1103",
+    "ab1333_annex3_p5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1200": {
+   "evidence_level": "strong",
+   "what_it_does": "Hacim veren, düşük enerjili bir dolgu maddesidir; şekerin yerini doldurmak için kullanılabilir.",
+   "found_in": [
+    "Toz ve tablet sofra tatlandırıcıları",
+    "Enerjisi azaltılmış ve düşük alkollü biralar",
+    "Katkı, enzim ve besin öğesi preparatlarında taşıyıcı"
+   ],
+   "in_the_body": "EFSA 2021'de polidekstrozun sınırlı emildiğini ve bir kısmının kalın bağırsakta kısa zincirli yağ asitlerine fermente edildiğini belirtti. Genotoksisite endişesi bulmadı; uzun süreli, üreme ve gelişim çalışmalarında en yüksek dozlarda olumsuz etki görülmedi. Sayısal ADI'ye gerek görmedi ve bildirilen kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2021,
+     "src": "efsa_e1200"
+    }
+   ],
+   "sources": [
+    "efsa_e1200",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex3_p1",
+    "ab1333_annex3_p3",
+    "ab1333_annex3_p5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1205": {
+   "evidence_level": "moderate",
+   "what_it_does": "Takviye edici gıda tabletlerinde kaplama ve parlatıcı olarak kullanılan sentetik bir polimerdir.",
+   "found_in": [
+    "Takviye edici gıdalar (çiğnenebilir olanlar hariç, en çok 100.000 mg/kg)"
+   ],
+   "in_the_body": "EFSA 2010'da yüksek molekül ağırlığı nedeniyle emilmediğini ve genotoksik olmadığını belirtti; üreme verisi bulunmadığından ADI belirlemedi. Hesaplanan güvenlik paylarını yeterli bularak takviye edici gıdalarda önerilen düzeyde kullanımın güvenlik endişesi oluşturmadığı sonucuna vardı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Takviye edici gıdalarda kaplama olarak önerilen düzeyde güvenlik endişesi yok.",
+     "year": 2010,
+     "src": "efsa_e1205"
+    }
+   ],
+   "sources": [
+    "efsa_e1205",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1505": {
+   "evidence_level": "limited",
+   "what_it_does": "Sitrik asidin etil esteridir; taşıyıcı çözücü ve metal bağlayıcı olarak kullanılır.",
+   "found_in": [
+    "Kurutulmuş yumurta akı",
+    "Takviye edici gıda kapsül ve tabletleri (en çok 3.500 mg/kg)",
+    "Aroma vericilerde taşıyıcı (E 1505, E 1517, E 1518 ve E 1520 birlikte, gıdada tüm kaynaklardan en çok 3.000 mg/kg)"
+   ],
+   "in_the_body": "JECFA 1984'te ADI'yi 0–20 mg/kg vücut ağırlığı/gün olarak belirledi; 1999'da aroma maddesi olarak değerlendirirken bu değeri korudu ve mevcut alımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–20 mg/kg vücut ağırlığı.",
+     "year": 1999,
+     "src": "jecfa_e1505"
+    }
+   ],
+   "sources": [
+    "jecfa_e1505",
+    "eu_1333_annex2_e",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p4"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1517": {
+   "evidence_level": "limited",
+   "what_it_does": "Gliserolün asetik asitle esterleşmesinden oluşan bir taşıyıcı çözücüdür (diasetin).",
+   "found_in": [
+    "Aroma vericilerde taşıyıcı (E 1505, E 1517, E 1518 ve E 1520 birlikte, gıdada tüm kaynaklardan en çok 3.000 mg/kg)"
+   ],
+   "in_the_body": "JECFA 1976'da ADI'yi 'belirtilmemiş' olarak belirledi.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş'.",
+     "year": 1976,
+     "src": "jecfa_e1517"
+    }
+   ],
+   "sources": [
+    "jecfa_e1517",
+    "ab1333_annex3_p4"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1518": {
+   "evidence_level": "limited",
+   "what_it_does": "Gliserolün asetik asitle tam esterleşmesinden oluşan bir nem tutucu ve taşıyıcı çözücüdür (triasetin).",
+   "found_in": [
+    "Sakız",
+    "Renk, aroma ve besin öğesi preparatlarında taşıyıcı (aroma vericilerde gıdada tüm kaynaklardan en çok 3.000 mg/kg)"
+   ],
+   "in_the_body": "JECFA 1975'te ADI'yi 'belirtilmemiş' olarak belirledi; 2002'de aroma maddesi olarak değerlendirdiğinde mevcut alımda güvenlik endişesi görmedi.",
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş'; aroma maddesi olarak güvenlik endişesi yok.",
+     "year": 2002,
+     "src": "jecfa_e1518"
+    }
+   ],
+   "sources": [
+    "jecfa_e1518",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex3_p1",
+    "ab1333_annex3_p4",
+    "ab1333_annex3_p5"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1519": {
+   "evidence_level": "strong",
+   "what_it_does": "Aroma vericilerde taşıyıcı çözücü olarak kullanılan bir alkoldür.",
+   "found_in": [
+    "Likör, aromalı şarap ve aromalı şarap bazlı içeceklerin aroma vericileri (gıdada en çok 100 mg/l)",
+    "Çikolata dahil şekerlemeler ve diğer bazı ürünlerin aroma vericileri"
+   ],
+   "in_the_body": "EFSA 2019'da akut toksisitesinin düşük olduğunu, genotoksisite ve kanserojenlik endişesi bulunmadığını belirtti; sıçan kanserojenlik çalışmasına dayanarak ADI'yi 4 mg/kg vücut ağırlığı/gün olarak belirledi. Tahmini alım tüm yaş gruplarında bu sınırın altında kaldı.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 4 mg/kg vücut ağırlığı/gün, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2019,
+     "src": "efsa_e1519"
+    }
+   ],
+   "sources": [
+    "efsa_e1519",
+    "ab1333_annex3_p4"
+   ],
+   "last_reviewed": "2026-10-07"
+  },
+  "E1521": {
+   "evidence_level": "moderate",
+   "what_it_does": "Polietilen glikoldür (PEG); tablet kaplamalarında ve tatlandırıcılarda taşıyıcı olarak kullanılır.",
+   "found_in": [
+    "Toz ve tablet sofra tatlandırıcıları",
+    "Takviye edici gıda kapsül ve tabletleri (en çok 10.000 mg/kg)",
+    "Tatlandırıcı preparatlarında taşıyıcı"
+   ],
+   "in_the_body": "JECFA 1979'da PEG için ADI'yi 0–10 mg/kg vücut ağırlığı/gün olarak belirledi; SCF ise PEG 300–4000 için 5 mg/kg grup ADI'si vermişti. EFSA 2006'da takviye edici gıda tablet kaplamalarında kullanımın güvenlik endişesi oluşturmadığını belirtmişti. 2018'deki maruziyet değerlendirmesinde en yüksek tahmini alım (yalnızca takviye kullananlarda günde 6,1 mg/kg) bu ADI aralığında kaldı ve tahminlerin gerçek alımı büyük olasılıkla abarttığı belirtildi.",
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Maruziyet yeniden değerlendirildi; en yüksek tahmin SCF ve JECFA ADI aralığında.",
+     "year": 2018,
+     "src": "efsa_e1521"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0–10 mg/kg vücut ağırlığı.",
+     "year": 1979,
+     "src": "jecfa_e1521"
+    }
+   ],
+   "sources": [
+    "efsa_e1521",
+    "jecfa_e1521",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g14",
+    "ab1333_annex3_p1"
+   ],
+   "last_reviewed": "2026-10-07"
   }
  }
 }

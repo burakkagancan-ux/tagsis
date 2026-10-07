@@ -46,7 +46,7 @@ bad(r=>r.last_reviewed=null,'last_reviewed eksik');
 // Bilinmeyen URL boş + todo ile girilebilir
 {const r=JSON.parse(JSON.stringify(good));r.sources.push({title:'x',publisher:'y',year:null,url:'',todo:'URL doğrulanamadı'});ok(ansValidate(r,T,by).length===0,'boş url + todo kabul edilmeli')}
 // Otomatik kayıtta kanıt düzeyi ve inceleme tarihi boş olabilir
-ok(by.E101.review==='auto'&&by.E101.evidence_level===null&&ansValidate(by.E101,T,by).length===0,'otomatik kayıt geçerli');
+ok(by.E1203.review==='auto'&&by.E1203.evidence_level===null&&ansValidate(by.E1203,T,by).length===0,'otomatik kayıt geçerli');
 
 // 3. Türkçe harf duyarsız arama
 const IX=ansIndex(R,T),first=q=>{const s=ansSearch(IX,q,5);return s.length?s[0].id:null};
