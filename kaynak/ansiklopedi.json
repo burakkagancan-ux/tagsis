@@ -1596,6 +1596,398 @@
    "year": 2020,
    "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/III/part/1/2020-12-31",
    "official": true
+  },
+  "jecfa_e525": {
+   "title": "JECFA Evaluations: Potassium hydroxide",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1982.htm",
+   "official": true
+  },
+  "jecfa_e526": {
+   "title": "JECFA Evaluations: Calcium hydroxide",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_320.htm",
+   "official": true
+  },
+  "jecfa_e527": {
+   "title": "JECFA Evaluations: Ammonia solution",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_98.htm",
+   "official": true
+  },
+  "jecfa_e528": {
+   "title": "JECFA Evaluations: Magnesium hydroxide",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1302.htm",
+   "official": true
+  },
+  "jecfa_e529": {
+   "title": "JECFA Evaluations: Calcium oxide",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_327.htm",
+   "official": true
+  },
+  "jecfa_e530": {
+   "title": "JECFA Evaluations: Magnesium oxide",
+   "publisher": "JECFA / WHO (IPCS INCHEM; NMRS 40/TRS 339-JECFA 9/16)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1306.htm",
+   "official": true
+  },
+  "jecfa_hydroxides_fas40": {
+   "title": "Toxicological evaluation of some antimicrobials, antioxidants, emulsifiers, stabilizers, flour-treatment agents, acids and bases: carbonates, hydroxides and oxides",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; FAS 40A,B,C)",
+   "year": 1967,
+   "url": "https://inchem.org/documents/jecfa/jecmono/40abcj46.htm",
+   "official": true
+  },
+  "jecfa_e574": {
+   "title": "JECFA Evaluations: Gluconic acid",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 2001,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_911.htm",
+   "official": true
+  },
+  "jecfa_e575": {
+   "title": "JECFA Evaluations: Glucono delta-lactone",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 891-JECFA 51)",
+   "year": 1998,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_912.htm",
+   "official": true
+  },
+  "jecfa_e576": {
+   "title": "JECFA Evaluations: Sodium gluconate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 891-JECFA 51/46)",
+   "year": 1998,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2150.htm",
+   "official": true
+  },
+  "jecfa_e577": {
+   "title": "JECFA Evaluations: Potassium gluconate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 891-JECFA 51/46)",
+   "year": 1998,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1978.htm",
+   "official": true
+  },
+  "jecfa_e578": {
+   "title": "JECFA Evaluations: Calcium gluconate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 891-JECFA 51)",
+   "year": 1998,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_315.htm",
+   "official": true
+  },
+  "jecfa_gluconates_fas42": {
+   "title": "Glucono-delta-lactone and the calcium, magnesium, potassium, and sodium salts of gluconic acid (WHO Food Additives Series 42)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; 51. toplantı)",
+   "year": 1999,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v042je12.htm",
+   "official": true
+  },
+  "jecfa_e579": {
+   "title": "JECFA Evaluations: Ferrous gluconate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 759-JECFA 31/29)",
+   "year": 1987,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_857.htm",
+   "official": true
+  },
+  "jecfa_e585": {
+   "title": "JECFA Evaluations: Ferrous lactate",
+   "publisher": "JECFA / WHO (IPCS INCHEM; TRS 789-JECFA 35/26)",
+   "year": 1989,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_859.htm",
+   "official": true
+  },
+  "efsa_call_gluconates_2023": {
+   "title": "Call for data for the re-evaluation of gluconic acid (E 574) and related food additives (E 575-579)",
+   "publisher": "EFSA",
+   "year": 2023,
+   "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-gluconic-acid-e-574-and-related-food-additives-e-575-579",
+   "official": true
+  },
+  "efsa_call_misc_2012": {
+   "title": "Call for scientific data on miscellaneous food additives permitted in the EU and belonging to the functional classes of emulsifiers, stabilisers and gelling agents",
+   "publisher": "EFSA",
+   "year": 2012,
+   "url": "https://www.efsa.europa.eu/sites/default/files/consultation/120706a.pdf",
+   "official": true
+  },
+  "efsa_e405": {
+   "title": "Re-evaluation of propane-1,2-diol alginate (E 405) as a food additive",
+   "publisher": "EFSA (EFSA Journal 16(7):e05371)",
+   "year": 2018,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009538",
+   "official": true
+  },
+  "efsa_e406": {
+   "title": "Re-evaluation of agar (E 406) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14(12):4645)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4645",
+   "official": true
+  },
+  "jecfa_e406": {
+   "title": "Agar – JECFA evaluation summary (INS 406)",
+   "publisher": "JECFA / IPCS INCHEM",
+   "year": 1973,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_47.htm",
+   "official": true
+  },
+  "efsa_e413": {
+   "title": "Re-evaluation of tragacanth (E 413) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(6):e04789)",
+   "year": 2017,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009969",
+   "official": true
+  },
+  "efsa_e416": {
+   "title": "Re-evaluation of karaya gum (E 416) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14(12):4598)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4598",
+   "official": true
+  },
+  "efsa_e417": {
+   "title": "Re-evaluation of tara gum (E 417) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(6):4863)",
+   "year": 2017,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/4863",
+   "official": true
+  },
+  "efsa_e418": {
+   "title": "Re-evaluation of gellan gum (E 418) as food additive",
+   "publisher": "EFSA (EFSA Journal 16(6):5296)",
+   "year": 2018,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/5296",
+   "official": true
+  },
+  "efsa_e425": {
+   "title": "Re-evaluation of konjac gum (E 425 i) and konjac glucomannan (E 425 ii) as food additives",
+   "publisher": "EFSA (EFSA Journal 15(6):4864)",
+   "year": 2017,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009929",
+   "official": true
+  },
+  "eu_dir_2003_52": {
+   "title": "Directive 2003/52/EC of the European Parliament and of the Council of 18 June 2003 amending Directive 95/2/EC as regards the conditions of use for a food additive E 425 konjac",
+   "publisher": "Avrupa Parlamentosu ve Konseyi (legislation.gov.uk kopyası)",
+   "year": 2003,
+   "url": "https://www.legislation.gov.uk/eudr/2003/52/pdfs/eudr_20030052_adopted_en.pdf",
+   "official": true
+  },
+  "efsa_e426": {
+   "title": "Re-evaluation of soybean hemicellulose (E 426) as a food additive",
+   "publisher": "EFSA (EFSA Journal 15(3):4721)",
+   "year": 2017,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4721",
+   "official": true
+  },
+  "eu_2020_279": {
+   "title": "Commission Regulation (EU) 2020/279 of 27 February 2020 amending Annex II to Regulation (EC) No 1333/2008 as regards the use of soybean hemicellulose (E 426)",
+   "publisher": "Avrupa Komisyonu (legislation.gov.uk kopyası)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2020/279/introduction",
+   "official": true
+  },
+  "efsa_e427": {
+   "title": "Opinion of the Scientific Panel on food additives, flavourings, processing aids and materials in contact with food (AFC) related to an application on the use of cassia gum as a food additive",
+   "publisher": "EFSA (The EFSA Journal (2006) 389)",
+   "year": 2006,
+   "url": "https://doaj.org/article/d4ed686e962f4862893b0e4c7abdff77",
+   "official": true
+  },
+  "efsa_e427_min": {
+   "title": "Minutes of the AFC Panel plenary meeting, 26 September 2006 (cassia gum opinion adopted)",
+   "publisher": "EFSA",
+   "year": 2006,
+   "url": "https://www.efsa.europa.eu/sites/default/files/event/afc060926-m.pdf",
+   "official": true
+  },
+  "eu_dir_2010_69": {
+   "title": "Commission Directive 2010/69/EU of 22 October 2010 amending the Annexes to European Parliament and Council Directive 95/2/EC on food additives other than colours and sweeteners",
+   "publisher": "Avrupa Komisyonu (legislation.gov.uk kopyası)",
+   "year": 2010,
+   "url": "https://www.legislation.gov.uk/eudr/2010/69/pdfs/eudr_20100069_adopted_en.pdf",
+   "official": true
+  },
+  "eu_dir_2010_67": {
+   "title": "Commission Directive 2010/67/EU of 20 October 2010 amending Directive 2008/84/EC laying down specific purity criteria on food additives other than colours and sweeteners",
+   "publisher": "Avrupa Komisyonu (FAOLEX kopyası)",
+   "year": 2010,
+   "url": "https://faolex.fao.org/docs/pdf/eur98406.pdf",
+   "official": true
+  },
+  "ab1333_art3": {
+   "title": "Regulation (EC) No 1333/2008, Article 3 – Definitions",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2008,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/article/3",
+   "official": true
+  },
+  "ab853_jelatin": {
+   "title": "Regulation (EC) No 853/2004, Annex III Section XIV – Gelatine",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2004,
+   "url": "https://www.legislation.gov.uk/eur/2004/853/annex/III/section/XIV",
+   "official": true
+  },
+  "ab853_tanim": {
+   "title": "Regulation (EC) No 853/2004, Annex I – Definitions (7.7 Gelatine)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2004,
+   "url": "https://www.legislation.gov.uk/eur/2004/853/annex/I?view=plain",
+   "official": true
+  },
+  "jecfa_e441": {
+   "title": "Edible gelatin – JECFA evaluation summary",
+   "publisher": "JECFA / IPCS INCHEM",
+   "year": 1970,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_690.htm",
+   "official": true
+  },
+  "efsa_e1204": {
+   "title": "Re-evaluation of pullulan (E 1204) as a food additive and new application for its extension of use",
+   "publisher": "EFSA (EFSA Journal 23(3):e9267)",
+   "year": 2025,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/9267",
+   "official": true
+  },
+  "ab1333_annex2_e_g14": {
+   "title": "Regulation (EC) No 1333/2008, Annex II Part E, Table 34 group 14 (kategori 16–17; 31.12.2020 itibarıyla metin)",
+   "publisher": "legislation.gov.uk (The National Archives)",
+   "year": 2020,
+   "url": "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/14/2020-12-31",
+   "official": true
+  },
+  "efsa_gases_call": {
+   "title": "Call for data for the re-evaluation of food additives in gaseous form",
+   "publisher": "EFSA",
+   "year": 2023,
+   "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-food-additives-gaseous-form",
+   "official": true
+  },
+  "efsa_e938_e939": {
+   "title": "Re-evaluation of argon (E 938) and helium (E 939) as food additives",
+   "publisher": "EFSA (EFSA Journal 22(10):9048)",
+   "year": 2024,
+   "url": "https://doaj.org/article/84131d28728b465885e0658b4e1870c5",
+   "official": true
+  },
+  "efsa_e943_e944": {
+   "title": "Re-evaluation of butane (E 943a), isobutane (E 943b) and propane (E 944) as food additives",
+   "publisher": "EFSA (EFSA Journal 23(1):9203)",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/9203",
+   "official": true
+  },
+  "efsa_e948_e949": {
+   "title": "Re-evaluation of oxygen (E 948) and hydrogen (E 949) as food additives",
+   "publisher": "EFSA (EFSA Journal 23(8):9595)",
+   "year": 2025,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/9595",
+   "official": true
+  },
+  "efsa_faf_wg_2026_07": {
+   "title": "Update on the FAF WG re-evaluation & follow-up (67th FAF Plenary, 1-2 July 2026, Annex VI)",
+   "publisher": "EFSA",
+   "year": 2026,
+   "url": "https://www.efsa.europa.eu/sites/default/files/2026-07/Annex%20VI_12.3%20Update%20on%20the%20WG%20re-evaluation-Follow-up_%201-2%20July%202026_0.pdf",
+   "official": true
+  },
+  "jecfa_e290": {
+   "title": "JECFA Evaluations: Carbon dioxide",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 733-JECFA 29/39)",
+   "year": 1985,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_362.htm",
+   "official": true
+  },
+  "jecfa_e941": {
+   "title": "JECFA Evaluations: Nitrogen",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 653-JECFA 24/25)",
+   "year": 1980,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1704.htm",
+   "official": true
+  },
+  "jecfa_e942": {
+   "title": "JECFA Evaluations: Nitrous oxide",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM; TRS 901-JECFA 55/17)",
+   "year": 2000,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_1707.htm",
+   "official": true
+  },
+  "efsa_e444": {
+   "title": "Re-evaluation of sucrose acetate isobutyrate (E 444) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14(5):4489)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4489",
+   "official": true
+  },
+  "jecfa_e444": {
+   "title": "JECFA Evaluations: Sucrose acetate isobutyrate",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1996,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_2208.htm",
+   "official": true
+  },
+  "efsa_e445": {
+   "title": "Re-evaluation of glycerol esters of wood rosin (E 445) as a food additive",
+   "publisher": "EFSA (EFSA Journal 16(7):5370)",
+   "year": 2018,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/5370",
+   "official": true
+  },
+  "efsa_e445_followup": {
+   "title": "Follow-up of the re-evaluation of glycerol esters of wood rosins (E 445) as a food additive",
+   "publisher": "EFSA (EFSA Journal, doi:10.2903/j.efsa.2023.8110)",
+   "year": 2023,
+   "url": "https://efsa.europa.eu/en/efsajournal/pub/8110",
+   "official": true
+  },
+  "efsa_e459": {
+   "title": "Re-evaluation of β-cyclodextrin (E 459) as a food additive",
+   "publisher": "EFSA (EFSA Journal 14(12):4628)",
+   "year": 2016,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4628",
+   "official": true
+  },
+  "jecfa_e459": {
+   "title": "JECFA Evaluations: Beta-cyclodextrin",
+   "publisher": "JECFA / WHO (IPCS INCHEM)",
+   "year": 1995,
+   "url": "https://inchem.org/documents/jecfa/jeceval/jec_465.htm",
+   "official": true
+  },
+  "efsa_e999": {
+   "title": "Re-evaluation of Quillaia extract (E 999) as a food additive and safety of the proposed extension of use",
+   "publisher": "EFSA (EFSA Journal 17(3):e05622; PMC kopyası)",
+   "year": 2019,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009130",
+   "official": true
+  },
+  "jecfa_e999_spec": {
+   "title": "Quillaia extract (Type 1) – specifications prepared at the 61st JECFA (2003), FNP 52 Add 11",
+   "publisher": "JECFA / FAO",
+   "year": 2003,
+   "url": "https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph3/additive-367.pdf",
+   "official": false
+  },
+  "efsa_e1201_e1202": {
+   "title": "Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives and extension of use of polyvinylpyrrolidone (E 1201)",
+   "publisher": "EFSA (EFSA Journal 18(8):e06215; PMC kopyası)",
+   "year": 2020,
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7416752",
+   "official": true
+  },
+  "eu_2025_1337": {
+   "title": "Commission Regulation (EU) 2025/1337 of 10 July 2025 amending Annex III to Regulation (EC) No 1333/2008 as regards polyvinylpolypyrrolidone (E 1202) as a carrier in colour tablets for decorative colouring of poultry eggshells",
+   "publisher": "Avrupa Komisyonu (Official Journal of the European Union)",
+   "year": 2025,
+   "url": "https://eur-lex.europa.eu/eli/reg/2025/1337/oj/eng",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -10802,6 +11194,1733 @@
     "ab1333_annex2_c",
     "ab1129_2011",
     "efsa_call_batch5"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E1201": {
+   "evidence_level": "strong",
+   "what_it_does": "Tablet şeklindeki takviye edici gıdalarda ve tatlandırıcı tabletlerinde kullanılan, suda çözünen sentetik bir polimerdir.",
+   "found_in": [
+    "Tablet ve kaplı tablet şeklindeki takviye edici gıdalar",
+    "Tablet şeklindeki masa tatlandırıcıları"
+   ],
+   "in_the_body": "Polivinilpirolidon çok az emilir; alınan miktarın büyük kısmı dışkıyla atılır, emilen az miktar böbreklerle atılır. EFSA 2020'de genotoksisite endişesi bulmadı, sıçanlarda denenen en yüksek dozda kanserojen etki bildirilmediğini belirtti ve sayısal bir günlük alım sınırına (ADI) gerek olmadığı, bildirilen kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmiyor, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e1201_e1202"
+    }
+   ],
+   "sources": [
+    "efsa_e1201_e1202",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E1202": {
+   "evidence_level": "moderate",
+   "what_it_does": "Polivinilpirolidonun suda çözünmeyen, çapraz bağlı biçimidir; renk ve kolloid stabilizatörü ve berraklaştırıcı olarak kullanılır.",
+   "found_in": [
+    "Tablet ve kaplı tablet şeklindeki takviye edici gıdalar",
+    "Tablet şeklindeki masa tatlandırıcıları",
+    "Yumurta kabuğu boyama tabletleri (taşıyıcı olarak)"
+   ],
+   "in_the_body": "Polivinilpolipirolidon çok az emilir ve büyük kısmı dışkıyla atılır. EFSA 2020'de polivinilpirolidonla kimyasal benzerliği ve tekrarlı doz çalışmalarında olumsuz etki görülmemesi nedeniyle sayısal bir günlük alım sınırına (ADI) gerek olmadığı ve bildirilen kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmiyor, bildirilen kullanımda güvenlik endişesi yok.",
+     "year": 2020,
+     "src": "efsa_e1201_e1202"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Yumurta kabuğu boyama tabletlerinde taşıyıcı olarak kullanımı Ek III'e eklendi.",
+     "year": 2025,
+     "src": "eu_2025_1337"
+    }
+   ],
+   "sources": [
+    "efsa_e1201_e1202",
+    "eu_2025_1337",
+    "ab1333_annex2_e_g9",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E1204": {
+   "evidence_level": "strong",
+   "what_it_does": "Film ve kaplama oluşturur, kıvam verir.",
+   "found_in": [
+    "Gıda takviyesi kapsül ve tabletleri",
+    "Ağız ferahlatıcı film şekerlemeler"
+   ],
+   "in_the_body": "Pululan tükürük ve pankreas amilazıyla kısmen parçalanır; kalan kısmı kalın bağırsakta fermente edilerek kısa zincirli yağ asitlerine dönüşür. EFSA 2025'te sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanımlarda güvenlik endişesi bulmadı. Günde 10 g ve üzeri alımda karında dolgunluk, gaz, şişkinlik ve kramp gibi hafif istenmeyen sindirim belirtileri bildirilmiştir; EFSA, özellikle gıda takviyelerinden yüksek miktarda alan kişilerde bu belirtilerin görülebileceğini belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Günde 10 g ve üzerinde hafif sindirim belirtileri olabilir.",
+     "year": 2025,
+     "src": "efsa_e1204"
+    }
+   ],
+   "sources": [
+    "efsa_e1204",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E290": {
+   "evidence_level": "limited",
+   "what_it_does": "Gıdaya gaz (köpürme) veren, ambalajda koruyucu atmosfer oluşturan ve itici gaz olarak kullanılan bir gazdır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA 1985'te karbondioksit için günlük alım sınırını (ADI) 'belirtilmemiş' (not specified) olarak değerlendirdi; JECFA'nın listelediği işlevler arasında gazlandırıcı, itici gaz, koruyucu, dondurucu ve ekstraksiyon çözücüsü yer alır. EFSA, karbondioksidi de kapsayan gaz halindeki katkıların yeniden değerlendirmesi için 2023'te veri çağrısı yayımlamıştır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'belirtilmemiş' (not specified).",
+     "year": 1985,
+     "src": "jecfa_e290"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Gaz halindeki katkıların yeniden değerlendirmesi için 2023'te veri çağrısı yayımlandı (son başvuru 31 Mart 2024).",
+     "year": 2023,
+     "src": "efsa_gases_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e290",
+    "efsa_gases_call",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E405": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir, köpüğü ve karışımı kararlı tutar.",
+   "found_in": [
+    "Bira ve malt içecekleri",
+    "Hazır soslar",
+    "Şekerlemeler, sakız ve unlu mamul dolguları"
+   ],
+   "in_the_body": "Bağırsakta kısmen propan-1,2-diol (propilen glikol) ve aljinik aside ayrışır; propan-1,2-diol kısmının yaklaşık dörtte biri vücuda geçer. EFSA 2018'de, katkıdaki en fazla %45 propan-1,2-diol oranına ve bu maddenin 25 mg/kg ADI'sine dayanarak günlük kabul edilebilir alımı (ADI) 55 mg/kg vücut ağırlığı olarak belirledi. Hayvan çalışmalarında olumsuz etki bildirilmedi; genotoksik ya da kanserojen etki endişesi görülmedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 55 mg/kg vücut ağırlığı/gün.",
+     "year": 2018,
+     "src": "efsa_e405"
+    }
+   ],
+   "sources": [
+    "efsa_e405",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g13"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E406": {
+   "evidence_level": "moderate",
+   "what_it_does": "Jel oluşturur ve kıvam verir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Agar bağırsakta bozulmadan emilmez ve bağırsak bakterilerince yalnızca az miktarda fermente edilir. EFSA 2016'da sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanımlarda genel nüfus için güvenlik endişesi bulmadı; değerlendirme sanayinin veri verdiği 7 gıda kategorisiyle sınırlı kaldı. JECFA da ADI'yi 'sınırlanmamış' olarak belirlemiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Değerlendirme 7 gıda kategorisinin verisiyle sınırlı.",
+     "year": 2016,
+     "src": "efsa_e406"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI sınırlanmamış.",
+     "year": 1973,
+     "src": "jecfa_e406"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Grup I katkısı; mini jöle kaplarında (jelly mini-cups) kullanılamaz.",
+     "year": 2011,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_e406",
+    "jecfa_e406",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E413": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve karışımı kararlı tutar.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Kitre zamkı bağırsakta bozulmadan emilmez ve bağırsak bakterilerince kısmen fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve bildirilen kullanımlarda güvenlik endişesi bulmadı. EFSA, kitreye bağlı bazı aşırı duyarlılık (alerji) vakalarının bildirildiğini ve bunların zamktaki proteinlerden kaynaklanabileceğini belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Bazı aşırı duyarlılık vakaları bildirildi.",
+     "year": 2017,
+     "src": "efsa_e413"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Grup I katkısı; mini jöle kaplarında (jelly mini-cups) kullanılamaz.",
+     "year": 2011,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_e413",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E416": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam verir, jel oluşturur ve karışımı kararlı tutar.",
+   "found_in": [
+    "Sakız",
+    "Unlu mamul ve tatlı dolguları, kaplamaları",
+    "Patates ve tahıl bazlı çerezler, kuruyemiş kaplamaları"
+   ],
+   "in_the_body": "Karaya zamkı pratikte sindirilmez, bağırsak bakterilerince parçalanmaz ve büyük olasılıkla emilmez. EFSA 2016'da sayısal bir günlük alım sınırına (ADI) gerek görmedi ve mevcut kullanımda güvenlik endişesi bulmadı (SCF daha önce 12,5 mg/kg ADI belirlemişti). EFSA, yetişkinlerde bazı kişilerde karın rahatsızlığı görülen günde 7.000 mg düzeyinin bu katkıyla aşılmaması gerektiğini belirtti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Yetişkinde günde 7.000 mg'ı aşmaması önerildi.",
+     "year": 2016,
+     "src": "efsa_e416"
+    }
+   ],
+   "sources": [
+    "efsa_e416",
+    "ab1333_annex2_e_g5",
+    "ab1333_annex2_e_g13",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E417": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve karışımı kararlı tutar.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Tara zamkı bağırsakta bozulmadan emilmez; kalın bağırsakta bakterilerce fermente edilmesi beklenir. SCF (1992) ve JECFA (1987) ADI'yi 'belirtilmemiş' olarak vermişti; EFSA 2017'de sayısal ADI'ye gerek görmedi ve bildirilen kullanımlarda genel nüfus için güvenlik endişesi bulmadı. Uzun süreli hayvan çalışmalarında en yüksek dozlarda olumsuz etki bildirilmedi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi, genel nüfus için güvenlik endişesi yok.",
+     "year": 2017,
+     "src": "efsa_e417"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Grup I katkısı; mini jöle kaplarında ve yutulurken suyla şişmesi amaçlanan kurutulmuş gıdalarda kullanılamaz.",
+     "year": 2011,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_e417",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E418": {
+   "evidence_level": "strong",
+   "what_it_does": "Jel oluşturur, kıvam verir ve karışımı kararlı tutar.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Gellan zamkı bağırsakta bozulmadan emilmez ve bağırsak bakterilerince fermente edilmez. EFSA 2018'de sayısal bir günlük alım sınırına (ADI) gerek görmedi; insanlarda 3 hafta boyunca günde 200 mg/kg vücut ağırlığına kadar alımda olumsuz etki görülmediğini bildirdi. EFSA, saflık kriterlerinin (üretici bakterinin canlı hücrelerinin bulunmaması dahil) daha iyi tanımlanmasını önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Saflık kriterlerinin iyileştirilmesi önerildi.",
+     "year": 2018,
+     "src": "efsa_e418"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Grup I katkısı; mini jöle kaplarında (jelly mini-cups) kullanılamaz.",
+     "year": 2011,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "sources": [
+    "efsa_e418",
+    "ab1333_annex2_c",
+    "ab1129_2011"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E425": {
+   "evidence_level": "strong",
+   "what_it_does": "Kıvam verir ve jel oluşturur.",
+   "found_in": [
+    "AB'de birçok gıdada en fazla 10 g/kg kullanılabilir (jöleli şekerlemelerde kullanılamaz)"
+   ],
+   "in_the_body": "Konjak bağırsakta çok az emilir ve kalın bağırsakta bakterilerce büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi; 10 g/kg'a kadar kullanımı, tüm kaynaklardan toplam alım günde 3 g'ın altında kaldığı sürece kabul edilebilir buldu. Yetişkinlerde 12 hafta boyunca günde 3.000 mg alımda bazı kişilerde karın rahatsızlığı (ishal ya da kabızlık), yeterli sıvı olmadan tablet olarak alındığında yemek borusu tıkanması bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Tüm kaynaklardan toplam alımın günde 3 g'ın altında kalması koşuluyla.",
+     "year": 2017,
+     "src": "efsa_e425"
+    },
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Mini jöle kapları dahil jöleli şekerlemelerde kullanımı yasaklandı (çocuk ve yaşlılarda boğulma vakaları nedeniyle).",
+     "year": 2003,
+     "src": "eu_dir_2003_52"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Grup I'de en fazla 10 g/kg; mini jöle kaplarında, jöleli şekerlemelerde ve yutulurken suyla şişmesi amaçlanan kurutulmuş gıdalarda kullanılamaz.",
+     "year": 2011,
+     "src": "ab1333_annex2_c"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "child",
+     "severity": "medium",
+     "text": "AB, üçüncü ülkelerde çocuk ve yaşlılarda boğulma vakalarına yol açtığı için konjaklı jöleli şekerlemeleri (mini jöle kapları dahil) 2003'te yasakladı."
+    },
+    {
+     "profile": "baby",
+     "severity": "medium",
+     "text": "AB, üçüncü ülkelerde çocuk ve yaşlılarda boğulma vakalarına yol açtığı için konjaklı jöleli şekerlemeleri (mini jöle kapları dahil) 2003'te yasakladı."
+    }
+   ],
+   "sources": [
+    "efsa_e425",
+    "eu_dir_2003_52",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E426": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kıvam verir ve asitli ortamda proteinlerin çökmesini önleyerek karışımı kararlı tutar.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Aromalı fermente süt ürünleri ve aromalı içecekler"
+   ],
+   "in_the_body": "Soya hemiselülozu bozulmadan emilmez; bağırsak bakterilerince büyük ölçüde fermente edilir. EFSA 2017'de sayısal bir günlük alım sınırına (ADI) gerek görmedi ve mevcut kullanımda güvenlik endişesi olmasının çok düşük olasılık olduğunu belirtti. EFSA, katkıdaki kalıntı proteinlerin olabildiğince azaltılmasını ve tüketicilerin olası alerjen proteinler konusunda bilgilendirilmesini önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; sayısal ADI gerekmedi. Kalıntı soya proteinlerinin azaltılması önerildi.",
+     "year": 2017,
+     "src": "efsa_e426"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Kullanımı aromalı fermente süt ürünleri ve aromalı içecekleri kapsayacak şekilde genişletildi (Grup I).",
+     "year": 2020,
+     "src": "eu_2020_279"
+    },
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "label_required",
+     "detail": "Soya ve soya ürünleri (tam rafine yağ gibi istisnalar dışında) içindekiler listesinde vurgulanmalıdır.",
+     "year": 2011,
+     "src": "ab1169"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "allergen_soy",
+     "severity": "high",
+     "text": "Soyadan elde edilir; EFSA, katkıda olası alerjen soya proteinleri kalabileceğini belirtti."
+    }
+   ],
+   "sources": [
+    "efsa_e426",
+    "eu_2020_279",
+    "ab1333_annex2_c",
+    "ab1169"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E427": {
+   "evidence_level": "limited",
+   "what_it_does": "Jel oluşturur ve kıvam verir.",
+   "found_in": [
+    "Dondurma",
+    "Sütlü tatlılar ve aromalı fermente süt ürünleri",
+    "Soslar, salata sosları ve kurutulmuş çorbalar"
+   ],
+   "in_the_body": "Kasya zamkı çok az emilir ve bağırsakta parçalanır. EFSA 2006'da toksikoloji verilerini ADI belirlemek için yetersiz buldu, ancak yeni tanımlanan saflık kriterlerine uyan kasya zamkının önerilen kullanımlarda güvenlik endişesi oluşturmadığı sonucuna vardı. Saflık kriterleri, tohumlarda doğal olarak bulunan antrakinonların sınırlandırılmasını içerir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Önerilen kullanımlarda güvenlik endişesi yok; veriler ADI belirlemeye yetersiz.",
+     "year": 2006,
+     "src": "efsa_e427"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Dondurma (2.500 mg/kg), süt ürünleri, tatlılar, dolgular, işlenmiş peynir, soslar, kurutulmuş çorbalar ve ısıl işlem görmüş et ürünlerinde (1.500 mg/kg) izin verildi.",
+     "year": 2010,
+     "src": "eu_dir_2010_69"
+    }
+   ],
+   "sources": [
+    "efsa_e427",
+    "efsa_e427_min",
+    "eu_dir_2010_69",
+    "eu_dir_2010_67"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E441": {
+   "evidence_level": "moderate",
+   "what_it_does": "Jel oluşturur, kıvam verir ve karışımı kararlı tutar.",
+   "found_in": [
+    "AB'de katkı maddesi değil gıda bileşeni sayılır; jelleştirici ve kıvam verici olarak çeşitli gıdalarda kullanılır"
+   ],
+   "in_the_body": "Jelatin, hayvan kolajeninin kısmi hidroliziyle elde edilen bir proteindir; AB mevzuatına göre hammaddesi kemik, sığır ve diğer çiftlik geviş getirenlerinin derisi, domuz derisi, kümes hayvanı derisi, tendonlar, av hayvanı derisi ya da balık derisi ve kılçığı olabilir. AB'de yenilebilir jelatin katkı maddesi sayılmaz. JECFA 1970'te ADI'yi 'sınırlanmamış' olarak belirledi.",
+   "diet_flags": {
+    "vegan": "no",
+    "source": "animal",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "Avrupa Parlamentosu ve Konseyi",
+     "region": "EU",
+     "status": "not_listed",
+     "detail": "Yenilebilir jelatin katkı maddesi sayılmaz; E 441 AB katkı listesinde yoktur.",
+     "year": 2008,
+     "src": "ab1333_art3"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI sınırlanmamış.",
+     "year": 1970,
+     "src": "jecfa_e441"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "vegan",
+     "severity": "high",
+     "text": "Hayvansal kaynaklıdır (kemik, deri, tendon ya da balık)."
+    },
+    {
+     "profile": "veg",
+     "severity": "high",
+     "text": "Hayvan kemiği, derisi ya da balıktan elde edilir; vejetaryen değildir."
+    }
+   ],
+   "sources": [
+    "ab1333_art3",
+    "ab853_jelatin",
+    "ab853_tanim",
+    "jecfa_e441"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E444": {
+   "evidence_level": "strong",
+   "what_it_does": "Bulanık içeceklerde aroma yağlarının yoğunluğunu ayarlayarak bulanık görünümün içecekte düzgün dağılmasını sağlar (yoğunluk ayarlayıcı).",
+   "found_in": [
+    "Bulanık görünümlü aromalı içecekler",
+    "Alkol oranı %15'in altındaki bulanık aromalı alkollü içecekler"
+   ],
+   "in_the_body": "İnsanlarda ağızdan alınan sükroz asetat izobütiratın büyük kısmının (%88 ve üzeri) emildiği bildirilmiştir. EFSA 2016'daki yeniden değerlendirmede günlük kabul edilebilir alımı (ADI) 10'dan 20 mg/kg vücut ağırlığına yükseltti ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını, izinli kullanımda güvenlik endişesi olmadığını belirtti. JECFA da 1996'da ADI'yi 0-20 mg/kg vücut ağırlığı olarak belirlemişti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 20 mg/kg vücut ağırlığı/gün (önceki 10 mg/kg yerine), maruziyet ADI'yi aşmıyor.",
+     "year": 2016,
+     "src": "efsa_e444"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0-20 mg/kg vücut ağırlığı/gün.",
+     "year": 1996,
+     "src": "jecfa_e444"
+    }
+   ],
+   "sources": [
+    "efsa_e444",
+    "jecfa_e444",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g13"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E445": {
+   "evidence_level": "moderate",
+   "what_it_does": "Çam ağacı reçinesinden elde edilen bir stabilizatördür; AB'de yalnızca bulanık içeceklerde kullanılmasına izin verilir.",
+   "found_in": [
+    "Bulanık görünümlü aromalı içecekler",
+    "Bulanık spirtli içecekler",
+    "Alkol oranı %15'in altındaki bulanık aromalı alkollü içecekler"
+   ],
+   "in_the_body": "EFSA 2018'deki yeniden değerlendirmede üreme ve gelişim verisi bulunmadığı için 12,5 mg/kg vücut ağırlığı günlük alım sınırını (ADI) geçici olarak korudu ve değerlendirmeyi Pinus palustris ve Pinus elliottii çamlarından üretilen ürünle sınırladı. 2023'teki izleme görüşünde yeni sıçan çalışmasına dayanarak ADI'yi 10 mg/kg vücut ağırlığı olarak belirledi; izinli azami düzeylerde ve bildirilen kullanımda güvenlik endişesi bulmadı ve AB spesifikasyonlarında değişiklik (tanımın gözden geçirilmesi, toksik element sınırlarının düşürülmesi) önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; üreme/gelişim verisi eksik olduğu için ADI 12,5 mg/kg geçici olarak korundu.",
+     "year": 2018,
+     "src": "efsa_e445"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "İzleme görüşü: ADI 10 mg/kg vücut ağırlığı/gün; yalnızca P. palustris ve P. elliottii kaynaklı ürün için geçerli, güvenlik endişesi yok.",
+     "year": 2023,
+     "src": "efsa_e445_followup"
+    }
+   ],
+   "sources": [
+    "efsa_e445",
+    "efsa_e445_followup",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g13"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E459": {
+   "evidence_level": "strong",
+   "what_it_does": "Aroma, katkı ve vitaminleri içine alarak (kapsülleyerek) koruyan, nişastadan elde edilen halka yapılı bir şekerdir.",
+   "found_in": [
+    "Aromalı toz hazır içecekler",
+    "Tablet ve kaplı tablet şeklindeki takviye edici gıdalar"
+   ],
+   "in_the_body": "Beta-siklodekstrin hayvanlarda ve insanlarda ağızdan alındığında az emilir; kalın bağırsakta bağırsak bakterileri ve amilaz enzimleriyle maltoz ve glikoza parçalanır. EFSA 2016'da mevcut 5 mg/kg vücut ağırlığı günlük alım sınırını (ADI) değiştirmeye gerek görmedi; ancak en gerçekçi kabul ettiği aynı markaya bağlı tüketim senaryosunda bu sınırın bebekler dışındaki tüm yaş gruplarında ortalama tüketimde, tüm gruplarda ise yüksek tüketimde aşıldığını bildirdi. JECFA da 1995'te ADI'yi 0-5 mg/kg vücut ağırlığı olarak belirlemişti.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 5 mg/kg vücut ağırlığı/gün korundu, aynı markaya bağlı senaryoda ADI aşımı bildirildi.",
+     "year": 2016,
+     "src": "efsa_e459"
+    },
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 0-5 mg/kg vücut ağırlığı/gün.",
+     "year": 1995,
+     "src": "jecfa_e459"
+    }
+   ],
+   "sources": [
+    "efsa_e459",
+    "jecfa_e459",
+    "ab1333_annex2_e_g12",
+    "ab1333_annex2_e_g14"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E525": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek ve ortamı nötrleştirmek için kullanılan güçlü bir bazdır (kostik potas).",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için)"
+   ],
+   "in_the_body": "Gıdada kullanıldığında asitlerle tepkimeye girerek nötrleşir ve potasyum tuzlarına dönüşür. JECFA 1965'te potasyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen potasyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (not limited).",
+     "year": 1965,
+     "src": "jecfa_e525"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Tahıl bazlı bebek mamaları ve bebek ek gıdalarında yalnızca pH ayarı için izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "sources": [
+    "jecfa_e525",
+    "jecfa_hydroxides_fas40",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_batch5",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E526": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek, nötrleştirmek ve dokuyu sertleştirmek için kullanılan bir bazdır (sönmüş kireç).",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için)"
+   ],
+   "in_the_body": "Gıdada asitlerle tepkimeye girerek nötrleşir ve kalsiyum tuzlarına dönüşür. JECFA 1965'te kalsiyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen kalsiyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (not limited).",
+     "year": 1965,
+     "src": "jecfa_e526"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Tahıl bazlı bebek mamaları ve bebek ek gıdalarında yalnızca pH ayarı için izinli.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "sources": [
+    "jecfa_e526",
+    "jecfa_hydroxides_fas40",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_batch5",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E527": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan sulu amonyak çözeltisidir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Gıdada asitlerle tepkimeye girerek nötrleşir ve amonyum tuzlarına dönüşür. JECFA 1965'te amonyak çözeltisi (amonyum hidroksit) için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen amonyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "synthetic",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (not limited).",
+     "year": 1965,
+     "src": "jecfa_e527"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    }
+   ],
+   "sources": [
+    "jecfa_e527",
+    "jecfa_hydroxides_fas40",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_batch5",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E528": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan bir bazdır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Gıdada asitlerle tepkimeye girerek nötrleşir ve magnezyum tuzlarına dönüşür. JECFA 1965'te magnezyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen magnezyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (not limited).",
+     "year": 1965,
+     "src": "jecfa_e528"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    }
+   ],
+   "sources": [
+    "jecfa_e528",
+    "jecfa_hydroxides_fas40",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_batch5",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E529": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan bir bazdır (sönmemiş kireç); hamur düzenleyici olarak da kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Suyla tepkimeye girerek kalsiyum hidroksite, asitlerle de kalsiyum tuzlarına dönüşür. JECFA 1965'te kalsiyum oksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen kalsiyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (not limited).",
+     "year": 1965,
+     "src": "jecfa_e529"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    }
+   ],
+   "sources": [
+    "jecfa_e529",
+    "jecfa_hydroxides_fas40",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_batch5",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E530": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitliği düzenlemek, nötrleştirmek ve topaklanmayı önlemek için kullanılan bir bazdır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Gıdada asitlerle tepkimeye girerek magnezyum tuzlarına dönüşür. JECFA 1965'te magnezyum oksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen magnezyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "mineral",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI 'sınırlandırılmamış' (not limited).",
+     "year": 1965,
+     "src": "jecfa_e530"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme kapsamında kullanım/konsantrasyon veri çağrısına dahil edildi (son başvuru 31.01.2017).",
+     "year": 2016,
+     "src": "efsa_call_batch5"
+    }
+   ],
+   "sources": [
+    "jecfa_e530",
+    "jecfa_hydroxides_fas40",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_batch5",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E574": {
+   "evidence_level": "limited",
+   "what_it_does": "Asitlik düzenleyici ve kabartıcı olarak kullanılan, glikozdan elde edilen hafif bir organik asittir.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Suda glukono-delta-lakton ile denge halinde bulunur. Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır. JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Glukonik asit için ayrı ADI yok; suda dengede bulunduğu glukono-delta-lakton ve glukonat tuzları için ortak ADI 'belirtilmemiş'.",
+     "year": 1998,
+     "src": "jecfa_gluconates_fas42"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yapıldı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_call_gluconates_2023"
+    }
+   ],
+   "sources": [
+    "jecfa_e574",
+    "jecfa_gluconates_fas42",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_gluconates_2023",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E575": {
+   "evidence_level": "moderate",
+   "what_it_does": "Suda yavaşça glukonik aside dönüşerek ortamı ekşitir; asitlik düzenleyici, kabartıcı ve pıhtılaştırıcı olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Bebekler ve küçük çocuklar için bisküvi ve galeta (AB'de en çok 5.000 mg/kg)"
+   ],
+   "in_the_body": "Suda yavaşça glukonik aside dönüşür; çözeltide asit ve lakton biçimleri dengede bulunur. Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır. JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Glukono-delta-lakton ve glukonat tuzları için ortak ADI 'belirtilmemiş' (not specified).",
+     "year": 1998,
+     "src": "jecfa_e575"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yapıldı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_call_gluconates_2023"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Bebek ek gıdaları kategorisinde yalnızca bisküvi ve galetada, en çok 5.000 mg/kg.",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g10"
+    }
+   ],
+   "sources": [
+    "jecfa_e575",
+    "jecfa_gluconates_fas42",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_gluconates_2023",
+    "ab1333_annex2_e_g10",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E576": {
+   "evidence_level": "moderate",
+   "what_it_does": "Glukonik asidin sodyum tuzu olup asitlik düzenleyici ve metal bağlayıcı (sekestran) olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır. JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Glukono-delta-lakton ve glukonat tuzları için ortak ADI 'belirtilmemiş' (not specified).",
+     "year": 1998,
+     "src": "jecfa_e576"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yapıldı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_call_gluconates_2023"
+    }
+   ],
+   "profile_warnings": [
+    {
+     "profile": "salt",
+     "severity": "low",
+     "text": "Sodyum kaynağıdır. Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."
+    }
+   ],
+   "sources": [
+    "jecfa_e576",
+    "jecfa_gluconates_fas42",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_gluconates_2023",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E577": {
+   "evidence_level": "moderate",
+   "what_it_does": "Glukonik asidin potasyum tuzu olup asitlik düzenleyici olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır. JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Glukono-delta-lakton ve glukonat tuzları için ortak ADI 'belirtilmemiş' (not specified).",
+     "year": 1998,
+     "src": "jecfa_e577"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yapıldı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_call_gluconates_2023"
+    }
+   ],
+   "sources": [
+    "jecfa_e577",
+    "jecfa_gluconates_fas42",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_gluconates_2023",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E578": {
+   "evidence_level": "moderate",
+   "what_it_does": "Glukonik asidin kalsiyum tuzu olup asitlik düzenleyici, sertleştirici ve metal bağlayıcı olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır. JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Glukono-delta-lakton ve glukonat tuzları için ortak ADI 'belirtilmemiş' (not specified).",
+     "year": 1998,
+     "src": "jecfa_e578"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yapıldı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_call_gluconates_2023"
+    }
+   ],
+   "sources": [
+    "jecfa_e578",
+    "jecfa_gluconates_fas42",
+    "ab1129_2011",
+    "ab1333_annex2_c",
+    "efsa_call_gluconates_2023",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E579": {
+   "evidence_level": "limited",
+   "what_it_does": "Oksidasyonla karartılan zeytinlerde siyah rengi sabitlemek için kullanılan bir demir tuzudur (renk sabitleyici).",
+   "found_in": [
+    "Oksidasyonla karartılmış siyah zeytin (AB'de en çok 150 mg/kg, demir olarak)"
+   ],
+   "in_the_body": "Vücuda demir ve glukonat olarak katılır. JECFA 1987'de değerlendirdiği demir(II) glukonatı, tüm demir kaynakları için geçerli olan ve demir (Fe) cinsinden ifade edilen 0,8 mg/kg vücut ağırlığı/gün geçici en yüksek tolere edilebilir günlük alım (PMTDI) kapsamına aldı; 1975 değerlendirmesinde glukonik asidin tüm kaynaklardan gelen katkısının da göz önünde tutulmasını önermişti. AB'de yalnızca oksidasyonla karartılmış zeytinlerde izinlidir; EFSA'nın yeniden değerlendirmesi sürmektedir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Demir için grup PMTDI 0,8 mg/kg vücut ağırlığı/gün (Fe olarak).",
+     "year": 1987,
+     "src": "jecfa_e579"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca oksidasyonla karartılmış zeytinlerde, en çok 150 mg/kg (Fe olarak).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g3"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor; 2023'te veri çağrısı yapıldı (son başvuru 31.03.2024).",
+     "year": 2023,
+     "src": "efsa_call_gluconates_2023"
+    }
+   ],
+   "sources": [
+    "jecfa_e579",
+    "ab1333_annex2_e_g3",
+    "efsa_call_gluconates_2023",
+    "efsa_call_misc_2012",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E585": {
+   "evidence_level": "limited",
+   "what_it_does": "Oksidasyonla karartılan zeytinlerde siyah rengi sabitlemek için kullanılan bir demir tuzudur (renk sabitleyici).",
+   "found_in": [
+    "Oksidasyonla karartılmış siyah zeytin (AB'de en çok 150 mg/kg, demir olarak)",
+    "İsveç usulü ciğer ezmelerinde kullanılan Albatrellus ovinus mantarı (AB'de yalnızca bu kullanım)"
+   ],
+   "in_the_body": "Vücuda demir ve laktat olarak katılır. JECFA 1989'da demir(II) laktatı, tüm demir kaynakları için geçerli olan ve demir (Fe) cinsinden ifade edilen 0,8 mg/kg vücut ağırlığı/gün geçici en yüksek tolere edilebilir günlük alım (PMTDI) kapsamına aldı; ayrı bir toksikoloji monografı hazırlanmadı. AB'de yalnızca karartılmış zeytin ve bir mantar türünde izinlidir; EFSA 2012'de yeniden değerlendirme için veri çağrısı yaptı, sonuçlanmış bir görüş henüz yoktur.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "Demir için grup PMTDI 0,8 mg/kg vücut ağırlığı/gün (Fe olarak).",
+     "year": 1989,
+     "src": "jecfa_e585"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca oksidasyonla karartılmış zeytinlerde ve İsveç ciğer ezmelerindeki Albatrellus ovinus mantarında, en çok 150 mg/kg (Fe olarak).",
+     "year": 2008,
+     "src": "ab1333_annex2_e_g3"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme için bilimsel veri çağrısına dahil edildi (son başvuru 01.01.2013).",
+     "year": 2012,
+     "src": "efsa_call_misc_2012"
+    }
+   ],
+   "sources": [
+    "jecfa_e585",
+    "ab1333_annex2_e_g3",
+    "efsa_call_misc_2012",
+    "tgk2013"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E938": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ambalajlı gıdalarda havanın yerini alan, tepkimeye girmeyen bir ambalaj gazıdır (argon).",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Argon kimyasal olarak çok kararlı, tepkimeye girmeyen bir soy gazdır. SCF ve JECFA daha önceki değerlendirmelerinde bu fiziksel-kimyasal özelliklere dayanarak kullanımını toksikolojik değerlendirme olmaksızın güvenli saymıştı. EFSA 2024'te argon ve helyumu birlikte yeniden değerlendirdi, gıda katkısı olarak düşük toksikolojik endişe taşıdıklarını ve kullanımlarının güvenlik endişesi doğurmadığını belirtti; AB spesifikasyonlarına CAS numaralarının eklenmesini önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Argon ve helyumla birlikte yeniden değerlendirildi; güvenlik endişesi yok, ADI gerekmedi; spesifikasyona CAS numarası eklenmesi önerildi.",
+     "year": 2024,
+     "src": "efsa_e938_e939"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_e938_e939",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E939": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ambalajlı gıdalarda havanın yerini alan, tepkimeye girmeyen bir ambalaj gazıdır (helyum).",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "Helyum kimyasal olarak çok kararlı, tepkimeye girmeyen bir soy gazdır. SCF ve JECFA daha önceki değerlendirmelerinde bu fiziksel-kimyasal özelliklere dayanarak kullanımını toksikolojik değerlendirme olmaksızın güvenli saymıştı. EFSA 2024'te argon ve helyumu birlikte yeniden değerlendirdi, gıda katkısı olarak düşük toksikolojik endişe taşıdıklarını ve kullanımlarının güvenlik endişesi doğurmadığını belirtti; AB spesifikasyonlarına CAS numaralarının eklenmesini önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Argon ve helyumla birlikte yeniden değerlendirildi; güvenlik endişesi yok, ADI gerekmedi; spesifikasyona CAS numarası eklenmesi önerildi.",
+     "year": 2024,
+     "src": "efsa_e938_e939"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_e938_e939",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E941": {
+   "evidence_level": "limited",
+   "what_it_does": "Ambalajda havanın yerini alarak oksidasyonu yavaşlatan bir ambalaj gazı; ayrıca itici gaz ve dondurucu olarak kullanılır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA 1980'de azot için günlük alım sınırı (ADI) belirlenmesine gerek olmadığına (no ADI necessary) karar verdi; JECFA'nın listelediği işlevler dondurucu, itici gaz ve ambalaj gazıdır. EFSA, azotu da kapsayan gaz halindeki katkıların yeniden değerlendirmesi için 2023'te veri çağrısı yayımlamıştır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "ADI gerekli görülmedi (no ADI necessary).",
+     "year": 1980,
+     "src": "jecfa_e941"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Gaz halindeki katkıların yeniden değerlendirmesi için 2023'te veri çağrısı yayımlandı (son başvuru 31 Mart 2024).",
+     "year": 2023,
+     "src": "efsa_gases_call"
+    }
+   ],
+   "sources": [
+    "jecfa_e941",
+    "efsa_gases_call",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E942": {
+   "evidence_level": "limited",
+   "what_it_does": "İtici gaz ve köpürtücü olarak kullanılan bir gazdır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
+   ],
+   "in_the_body": "JECFA 1985'te diazot monoksidi itici gaz olarak kabul edilebilir buldu; 2000 yılındaki son değerlendirmesinde işlevlerini itici gaz, antioksidan ve köpürtücü olarak listeledi. EFSA'nın gaz halindeki katkılar için 2023'te açtığı veri çağrısı bu maddeyi de kapsar; Temmuz 2026 itibarıyla EFSA'nın yeniden değerlendirme çalışma listesinde yer almaktadır.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "JECFA",
+     "region": "INT",
+     "status": "reviewed",
+     "detail": "İtici gaz olarak kabul edilebilir (1985); son değerlendirme 2000.",
+     "year": 2000,
+     "src": "jecfa_e942"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    },
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirme sürüyor (2023 veri çağrısı; Temmuz 2026 FAF çalışma listesinde).",
+     "year": 2026,
+     "src": "efsa_faf_wg_2026_07"
+    }
+   ],
+   "sources": [
+    "jecfa_e942",
+    "efsa_gases_call",
+    "efsa_faf_wg_2026_07",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E943a": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağ ve emülsiyon spreylerinde itici gaz olarak kullanılan kısa zincirli bir hidrokarbondur (bütan).",
+   "found_in": [
+    "Bitkisel yağ tava spreyleri (yalnızca profesyonel kullanım için)",
+    "Su bazlı emülsiyon spreyleri",
+    "Gıda renklendirici preparatları (gıdada en fazla 1 mg/kg kalıntı)"
+   ],
+   "in_the_body": "Bütan, izobütan ve propan oda sıcaklığında gaz halinde bulunan kısa zincirli (C3–C4) alkanlardır. EFSA 2025'te üçünü birlikte yeniden değerlendirdi: solunum yoluyla bilinen etkilerin gıda katkısı değerlendirmesi için ilgili olmadığını, besinle maruziyetin çok düşük olduğunu ve izinli kullanımlarda güvenlik endişesi bulunmadığını belirtti. EFSA, mevcut spesifikasyonlarda 1,3-bütadien sınırı bulunduğunu, ancak üretim süreçleri hakkında bilgi eksikliği nedeniyle başka safsızlıklar konusunda belirsizlik kaldığını bildirerek spesifikasyonların güncellenmesini önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bütan, izobütan ve propanla birlikte yeniden değerlendirildi; izinli kullanımlarda güvenlik endişesi yok; spesifikasyonların (safsızlıklar) güncellenmesi önerildi.",
+     "year": 2025,
+     "src": "efsa_e943_e944"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca bitkisel yağ tava spreyi (profesyonel kullanım) ve su bazlı emülsiyon spreyinde itici gaz; renklendirici preparatlarında gıdada en fazla 1 mg/kg kalıntı.",
+     "year": 2025,
+     "src": "efsa_e943_e944"
+    }
+   ],
+   "sources": [
+    "efsa_e943_e944"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E943b": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağ ve emülsiyon spreylerinde itici gaz olarak kullanılan kısa zincirli bir hidrokarbondur (izobütan).",
+   "found_in": [
+    "Bitkisel yağ tava spreyleri (yalnızca profesyonel kullanım için)",
+    "Su bazlı emülsiyon spreyleri",
+    "Gıda renklendirici preparatları (gıdada en fazla 1 mg/kg kalıntı)"
+   ],
+   "in_the_body": "Bütan, izobütan ve propan oda sıcaklığında gaz halinde bulunan kısa zincirli (C3–C4) alkanlardır. EFSA 2025'te üçünü birlikte yeniden değerlendirdi: solunum yoluyla bilinen etkilerin gıda katkısı değerlendirmesi için ilgili olmadığını, besinle maruziyetin çok düşük olduğunu ve izinli kullanımlarda güvenlik endişesi bulunmadığını belirtti. EFSA, mevcut spesifikasyonlarda 1,3-bütadien sınırı bulunduğunu, ancak üretim süreçleri hakkında bilgi eksikliği nedeniyle başka safsızlıklar konusunda belirsizlik kaldığını bildirerek spesifikasyonların güncellenmesini önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bütan, izobütan ve propanla birlikte yeniden değerlendirildi; izinli kullanımlarda güvenlik endişesi yok; spesifikasyonların (safsızlıklar) güncellenmesi önerildi.",
+     "year": 2025,
+     "src": "efsa_e943_e944"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca bitkisel yağ tava spreyi (profesyonel kullanım) ve su bazlı emülsiyon spreyinde itici gaz; renklendirici preparatlarında gıdada en fazla 1 mg/kg kalıntı.",
+     "year": 2025,
+     "src": "efsa_e943_e944"
+    }
+   ],
+   "sources": [
+    "efsa_e943_e944"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E944": {
+   "evidence_level": "moderate",
+   "what_it_does": "Yağ ve emülsiyon spreylerinde itici gaz olarak kullanılan kısa zincirli bir hidrokarbondur (propan).",
+   "found_in": [
+    "Bitkisel yağ tava spreyleri (yalnızca profesyonel kullanım için)",
+    "Su bazlı emülsiyon spreyleri",
+    "Gıda renklendirici preparatları (gıdada en fazla 1 mg/kg kalıntı)"
+   ],
+   "in_the_body": "Bütan, izobütan ve propan oda sıcaklığında gaz halinde bulunan kısa zincirli (C3–C4) alkanlardır. EFSA 2025'te üçünü birlikte yeniden değerlendirdi: solunum yoluyla bilinen etkilerin gıda katkısı değerlendirmesi için ilgili olmadığını, besinle maruziyetin çok düşük olduğunu ve izinli kullanımlarda güvenlik endişesi bulunmadığını belirtti. EFSA, mevcut spesifikasyonlarda 1,3-bütadien sınırı bulunduğunu, ancak üretim süreçleri hakkında bilgi eksikliği nedeniyle başka safsızlıklar konusunda belirsizlik kaldığını bildirerek spesifikasyonların güncellenmesini önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Bütan, izobütan ve propanla birlikte yeniden değerlendirildi; izinli kullanımlarda güvenlik endişesi yok; spesifikasyonların (safsızlıklar) güncellenmesi önerildi.",
+     "year": 2025,
+     "src": "efsa_e943_e944"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "restricted",
+     "detail": "Yalnızca bitkisel yağ tava spreyi (profesyonel kullanım) ve su bazlı emülsiyon spreyinde itici gaz; renklendirici preparatlarında gıdada en fazla 1 mg/kg kalıntı.",
+     "year": 2025,
+     "src": "efsa_e943_e944"
+    }
+   ],
+   "sources": [
+    "efsa_e943_e944"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E948": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ambalaj gazı ve itici gaz olarak kullanılan bir gazdır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Ambalajlı gıdalarda ambalaj gazı olarak"
+   ],
+   "in_the_body": "EFSA 2025'te oksijen ve hidrojeni birlikte yeniden değerlendirdi; iki gazın gıda katkısı olarak düşük toksikolojik endişe taşıdığını ve besinle maruziyetin çok düşük olduğunu belirterek kullanımlarının güvenlik endişesi doğurmadığı sonucuna vardı. AB'de bebek ve küçük çocuk gıdaları dahil tüm gıda kategorilerinde gerektiği kadar (quantum satis) izinlidir; EFSA AB spesifikasyonlarında bazı değişiklikler önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Oksijen ve hidrojenle birlikte yeniden değerlendirildi; güvenlik endişesi yok, ADI gerekmedi; spesifikasyon değişiklikleri önerildi.",
+     "year": 2025,
+     "src": "efsa_e948_e949"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_e948_e949",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E949": {
+   "evidence_level": "moderate",
+   "what_it_does": "Ambalaj gazı olarak kullanılan bir gazdır.",
+   "found_in": [
+    "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
+    "Ambalajlı gıdalarda ambalaj gazı olarak"
+   ],
+   "in_the_body": "EFSA 2025'te oksijen ve hidrojeni birlikte yeniden değerlendirdi; iki gazın gıda katkısı olarak düşük toksikolojik endişe taşıdığını ve besinle maruziyetin çok düşük olduğunu belirterek kullanımlarının güvenlik endişesi doğurmadığı sonucuna vardı. AB'de bebek ve küçük çocuk gıdaları dahil tüm gıda kategorilerinde gerektiği kadar (quantum satis) izinlidir; EFSA AB spesifikasyonlarında bazı değişiklikler önerdi.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "unknown",
+    "gluten": "no"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Oksijen ve hidrojenle birlikte yeniden değerlendirildi; güvenlik endişesi yok, ADI gerekmedi; spesifikasyon değişiklikleri önerildi.",
+     "year": 2025,
+     "src": "efsa_e948_e949"
+    },
+    {
+     "agency": "Avrupa Komisyonu",
+     "region": "EU",
+     "status": "approved",
+     "detail": "Grup I katkı maddesi; genel olarak quantum satis (gerektiği kadar) izinli.",
+     "year": 2011,
+     "src": "ab1129_2011"
+    }
+   ],
+   "sources": [
+    "efsa_e948_e949",
+    "ab1129_2011",
+    "ab1333_annex2_c"
+   ],
+   "last_reviewed": "2026-10-06"
+  },
+  "E999": {
+   "evidence_level": "moderate",
+   "what_it_does": "Kilaya ağacı kabuğundan elde edilen, saponin içeren bir özüttür; köpük oluşturucu ve emülgatör olarak kullanılır.",
+   "found_in": [
+    "Aromalı içecekler",
+    "Elma ve armut şırası (sider ve perry)"
+   ],
+   "in_the_body": "EFSA'ya göre bozulmamış saponinler bağırsaktan az emilir, sindirim kanalında parçalanır ve geriye kalan kısım da sınırlı ölçüde emilir. EFSA 2019'da günlük kabul edilebilir alımı (ADI) 3 mg saponin/kg vücut ağırlığı olarak belirledi (SCF'nin 1978'deki 5 mg kurutulmuş öz/kg değeri yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti. Hayvan çalışmalarında sindirim organlarının ağırlığında değişiklikler görüldüğü, ancak bunlara tutarlı doku değişikliklerinin eşlik etmediği bildirilmiştir.",
+   "diet_flags": {
+    "vegan": "yes",
+    "source": "plant",
+    "gluten": "unknown"
+   },
+   "regulatory_extra": [
+    {
+     "agency": "EFSA",
+     "region": "EU",
+     "status": "reviewed",
+     "detail": "Yeniden değerlendirildi; ADI 3 mg saponin/kg vücut ağırlığı/gün, maruziyet ADI'yi aşmıyor.",
+     "year": 2019,
+     "src": "efsa_e999"
+    }
+   ],
+   "sources": [
+    "efsa_e999",
+    "jecfa_e999_spec",
+    "ab1333_annex2_e_g12"
    ],
    "last_reviewed": "2026-10-06"
   }
