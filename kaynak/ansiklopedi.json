@@ -3222,7 +3222,7 @@
     "Kola ve diğer koyu renkli içecekler",
     "Koyu renkli soslar"
    ],
-   "in_the_body": "Amonyak bileşikleri kullanılarak üretilen karamellerde (sınıf III) 4-metilimidazol (4-MEI) adlı bir yan ürün oluşabilir.",
+   "in_the_body": "",
    "agency_note": "IARC, 4-MEI'yi hayvan çalışmalarına dayanarak Grup 2B'de (insanlarda kanserojen olabilir) sınıflandırır. Hong Kong Gıda Güvenliği Merkezi, olağan kola tüketiminin 4-MEI nedeniyle sağlık sorununa yol açmasının beklenmediğini belirtir.",
    "diet_flags": {
     "vegan": "yes",
@@ -3232,7 +3232,8 @@
    "sources": [
     "cfs_caramel"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-04",
+   "uretim_ek": "Amonyak bileşikleri kullanıldığı için (sınıf III) üretim sırasında 4-metilimidazol (4-MEI) adlı bir yan ürün oluşabilir."
   },
   "E150d": {
    "evidence_level": "moderate",
@@ -3241,7 +3242,7 @@
     "Kola ve diğer koyu renkli içecekler",
     "Koyu renkli soslar"
    ],
-   "in_the_body": "Amonyak bileşikleri kullanılarak üretilen karamellerde (sınıf IV) 4-metilimidazol (4-MEI) adlı bir yan ürün oluşabilir.",
+   "in_the_body": "",
    "agency_note": "IARC, 4-MEI'yi hayvan çalışmalarına dayanarak Grup 2B'de (insanlarda kanserojen olabilir) sınıflandırır. Hong Kong Gıda Güvenliği Merkezi, olağan kola tüketiminin 4-MEI nedeniyle sağlık sorununa yol açmasının beklenmediğini belirtir.",
    "diet_flags": {
     "vegan": "yes",
@@ -3251,7 +3252,8 @@
    "sources": [
     "cfs_caramel"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-04",
+   "uretim_ek": "Amonyak bileşikleri kullanıldığı için (sınıf IV) üretim sırasında 4-metilimidazol (4-MEI) adlı bir yan ürün oluşabilir."
   },
   "E171": {
    "evidence_level": "strong",
@@ -4034,13 +4036,13 @@
   },
   "E620": {
    "evidence_level": "moderate",
-   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir.",
+   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir. Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
    "found_in": [
     "Hazır çorba ve bulyon",
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4054,13 +4056,13 @@
   },
   "E621": {
    "evidence_level": "moderate",
-   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir.",
+   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir. Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
    "found_in": [
     "Hazır çorba ve bulyon",
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4074,13 +4076,13 @@
   },
   "E622": {
    "evidence_level": "moderate",
-   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir.",
+   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir. Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
    "found_in": [
     "Hazır çorba ve bulyon",
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4094,13 +4096,13 @@
   },
   "E623": {
    "evidence_level": "moderate",
-   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir.",
+   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir. Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
    "found_in": [
     "Hazır çorba ve bulyon",
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4114,13 +4116,13 @@
   },
   "E624": {
    "evidence_level": "moderate",
-   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir.",
+   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir. Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
    "found_in": [
     "Hazır çorba ve bulyon",
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4134,13 +4136,13 @@
   },
   "E625": {
    "evidence_level": "moderate",
-   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir.",
+   "what_it_does": "Gıdanın tadını, özellikle umami (et suyu) tadını belirginleştirir. Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
    "found_in": [
     "Hazır çorba ve bulyon",
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "Glutamat domates, peynir ve et suyunda doğal olarak da bulunan bir amino asittir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4181,8 +4183,8 @@
     "Şekersiz tatlılar",
     "Stevia ile karışık tatlandırıcılar"
    ],
-   "in_the_body": "",
-   "agency_note": "Mayalandırma ile üretilir. Vücutta kolayca emilir ve büyük kısmı değişmeden idrarla atılır. EFSA 2023'te günlük kabul edilebilir alımı (ADI) laksatif (ishal yapıcı) etkiye dayanarak 0,5 g/kg vücut ağırlığı olarak belirledi ve çocuk ve ergenlerde tahmini alımın bu değerin üzerinde olduğunu bildirdi.",
+   "in_the_body": "Vücutta kolayca emilir ve büyük kısmı değişmeden idrarla atılır.",
+   "agency_note": "EFSA 2023'te günlük kabul edilebilir alımı (ADI) laksatif (ishal yapıcı) etkiye dayanarak 0,5 g/kg vücut ağırlığı olarak belirledi ve çocuk ve ergenlerde tahmini alımın bu değerin üzerinde olduğunu bildirdi.",
    "diet_flags": {
     "vegan": "yes",
     "source": "plant",
@@ -4205,11 +4207,11 @@
   },
   "E338": {
    "evidence_level": "strong",
-   "what_it_does": "Asitlik verir ve asitliği düzenler.",
+   "what_it_does": "Asitlik verir ve asitliği düzenler. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "Kola türü içecekler"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4245,12 +4247,12 @@
   },
   "E339": {
    "evidence_level": "strong",
-   "what_it_does": "Asitliği düzenler; işlenmiş et ve peynirde su tutmaya ve dokuya yardım eder.",
+   "what_it_does": "Asitliği düzenler; işlenmiş et ve peynirde su tutmaya ve dokuya yardım eder. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "İşlenmiş et ürünleri",
     "Eritme peynir"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4286,11 +4288,11 @@
   },
   "E340": {
    "evidence_level": "strong",
-   "what_it_does": "Asitliği düzenler ve su tutmaya yardım eder.",
+   "what_it_does": "Asitliği düzenler ve su tutmaya yardım eder. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "İşlenmiş gıdalar"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4326,12 +4328,12 @@
   },
   "E341": {
    "evidence_level": "strong",
-   "what_it_does": "Asitliği düzenler; kabartma tozlarında ve topaklanmayı önlemek için kullanılır.",
+   "what_it_does": "Asitliği düzenler; kabartma tozlarında ve topaklanmayı önlemek için kullanılır. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "Kabartma tozu ve unlu mamuller",
     "Toz gıdalar"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4367,11 +4369,11 @@
   },
   "E343": {
    "evidence_level": "strong",
-   "what_it_does": "Asitliği düzenler ve topaklanmayı önler.",
+   "what_it_does": "Asitliği düzenler ve topaklanmayı önler. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "Toz gıdalar"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4407,12 +4409,12 @@
   },
   "E450": {
    "evidence_level": "strong",
-   "what_it_does": "Kabartma tozunda kabartıcı asit olarak ve işlenmiş ette su tutmak için kullanılır.",
+   "what_it_does": "Kabartma tozunda kabartıcı asit olarak ve işlenmiş ette su tutmak için kullanılır. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "Kabartma tozu ve unlu mamuller",
     "İşlenmiş et ürünleri"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4448,12 +4450,12 @@
   },
   "E451": {
    "evidence_level": "strong",
-   "what_it_does": "İşlenmiş et ve deniz ürünlerinde su tutmaya yardım eder.",
+   "what_it_does": "İşlenmiş et ve deniz ürünlerinde su tutmaya yardım eder. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "İşlenmiş et ürünleri",
     "Deniz ürünleri"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4489,12 +4491,12 @@
   },
   "E452": {
    "evidence_level": "strong",
-   "what_it_does": "İşlenmiş et, peynir ve deniz ürünlerinde su tutmaya ve dokuya yardım eder.",
+   "what_it_does": "İşlenmiş et, peynir ve deniz ürünlerinde su tutmaya ve dokuya yardım eder. Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
    "found_in": [
     "İşlenmiş et ürünleri",
     "Eritme peynir"
    ],
-   "in_the_body": "Fosfor vücut için gerekli bir mineraldir ve gıdalarda doğal olarak da bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -5136,7 +5138,7 @@
     "Hayvan yemi (renk pigmenti olarak)"
    ],
    "in_the_body": "",
-   "agency_note": "Sentetik olarak üretilir. EFSA 2010'da, insanlarda ve maymunlarda gözün retinasında kristal birikintileri gözlendiği için günlük kabul edilebilir alımı (ADI) 0,03 mg/kg vücut ağırlığı olarak belirledi. Gıda ve yemden gelen toplam alımın bu sınırı aşmasının beklenmediğini bildirdi.",
+   "agency_note": "EFSA 2010'da, insanlarda ve maymunlarda gözün retinasında kristal birikintileri gözlendiği için günlük kabul edilebilir alımı (ADI) 0,03 mg/kg vücut ağırlığı olarak belirledi. Gıda ve yemden gelen toplam alımın bu sınırı aşmasının beklenmediğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
     "source": "synthetic",
@@ -6031,13 +6033,13 @@
   },
   "E306": {
    "evidence_level": "moderate",
-   "what_it_does": "Tokoferolce zengin ekstre; yağların oksitlenip acımasını geciktirir.",
+   "what_it_does": "Tokoferolce zengin ekstre; yağların oksitlenip acımasını geciktirir. Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
    "found_in": [
     "Bitkisel yağlar ve margarin",
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6056,13 +6058,13 @@
   },
   "E307": {
    "evidence_level": "moderate",
-   "what_it_does": "Alfa-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "what_it_does": "Alfa-tokoferol; yağların oksitlenip acımasını geciktirir. Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
    "found_in": [
     "Bitkisel yağlar ve margarin",
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6081,13 +6083,13 @@
   },
   "E308": {
    "evidence_level": "moderate",
-   "what_it_does": "Gama-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "what_it_does": "Gama-tokoferol; yağların oksitlenip acımasını geciktirir. Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
    "found_in": [
     "Bitkisel yağlar ve margarin",
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6106,13 +6108,13 @@
   },
   "E309": {
    "evidence_level": "moderate",
-   "what_it_does": "Delta-tokoferol; yağların oksitlenip acımasını geciktirir.",
+   "what_it_does": "Delta-tokoferol; yağların oksitlenip acımasını geciktirir. Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
    "found_in": [
     "Bitkisel yağlar ve margarin",
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "Tokoferoller E vitamini ailesindendir ve besinlerle doğal olarak da alınır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6785,13 +6787,13 @@
   },
   "E161b": {
    "evidence_level": "moderate",
-   "what_it_does": "Sarı renk verir.",
+   "what_it_does": "Sarı renk verir. Lutein yeşil yapraklı sebzelerde doğal olarak da bulunur.",
    "found_in": [
     "Şekerlemeler",
     "İçecekler",
     "Sütlü tatlılar"
    ],
-   "in_the_body": "Lutein yeşil yapraklı sebzelerle de alınır.",
+   "in_the_body": "",
    "agency_note": "EFSA ADI'yi 1 mg/kg vücut ağırlığı olarak belirledi; 2012'de bazı ülkelerde çok tüketen çocuklarda besinler ve katkı birlikte bu sınırın aşılabildiğini, yetişkinlerde aşılmadığını bildirdi.",
    "regulatory_extra": [
     {
@@ -6817,13 +6819,13 @@
   },
   "E163": {
    "evidence_level": "moderate",
-   "what_it_does": "Kırmızı, mor ya da mavi renk verir.",
+   "what_it_does": "Kırmızı, mor ya da mavi renk verir. Antosiyaninler meyve ve sebzelerde doğal olarak da bulunur.",
    "found_in": [
     "İçecekler",
     "Reçeller",
     "Şekerlemeler"
    ],
-   "in_the_body": "Antosiyaninler meyve ve sebzelerle de alınır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2013'te veri yetersiz olduğu için sayısal ADI belirlemedi; yenilebilir meyve ve sebzelerin sulu ekstrelerinin mevcut kullanımda endişe yaratmasının olası olmadığını bildirdi.",
    "regulatory_extra": [
     {
@@ -7283,13 +7285,13 @@
   },
   "E392": {
    "evidence_level": "moderate",
-   "what_it_does": "Biberiyeden elde edilen, yağların acımasını geciktiren doğal kaynaklı bir antioksidandır.",
+   "what_it_does": "Biberiyeden elde edilen, yağların acımasını geciktiren doğal kaynaklı bir antioksidandır. Etkin bileşenleri karnosik asit ve karnosoldür.",
    "found_in": [
     "Yağlar ve yağ bazlı ürünler",
     "Et ürünleri",
     "Soslar ve atıştırmalıklar"
    ],
-   "in_the_body": "Etkin bileşenleri karnosik asit ve karnosoldür.",
+   "in_the_body": "",
    "agency_note": "EFSA 2018'de maruziyeti yeniden hesapladı ve JECFA'nın geçici günlük alım sınırına (0,3 mg/kg vücut ağırlığı, karnosik asit + karnosol olarak) göre çocuklarda 100–2.000, yetişkinlerde 200–3.000 kat güvenlik payı hesapladı; tahminlerin gerçek maruziyeti büyük olasılıkla abarttığını belirtti.",
    "diet_flags": {
     "vegan": "yes",
@@ -8412,7 +8414,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "Etil paraben metil/etil paraben grubundandır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8442,7 +8444,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "Etil parabenin sodyum tuzu olan bu madde metil/etil paraben grubundandır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8525,8 +8527,8 @@
    "found_in": [
     "AB'de 2006'dan beri gıdada izinli değil"
    ],
-   "in_the_body": "Vücutta propil paraben (E 216) ile aynı şekilde değerlendirilir.",
-   "agency_note": "EFSA 2004'te propil parabeni metil ve etil paraben grup ADI'sine (0–10 mg/kg vücut ağırlığı) dahil etmedi; genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler bildirildiği ve net bir etkisiz doz belirlenemediği için ADI önerilemedi. E 217 de 2006/52/AT Direktifi ile AB katkı listesinden çıkarıldı.",
+   "in_the_body": "",
+   "agency_note": "Vücutta propil paraben (E 216) ile aynı şekilde değerlendirilir. EFSA 2004'te propil parabeni metil ve etil paraben grup ADI'sine (0–10 mg/kg vücut ağırlığı) dahil etmedi; genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler bildirildiği ve net bir etkisiz doz belirlenemediği için ADI önerilemedi. E 217 de 2006/52/AT Direktifi ile AB katkı listesinden çıkarıldı.",
    "diet_flags": {
     "vegan": "yes",
     "source": "synthetic",
@@ -8573,7 +8575,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "Metil paraben metil/etil paraben grubundandır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8603,7 +8605,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "Metil parabenin sodyum tuzu olan bu madde metil/etil paraben grubundandır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8921,8 +8923,8 @@
    "found_in": [
     "Havyar (mersin balığı yumurtası)"
    ],
-   "in_the_body": "Bor bileşiği olarak emilir ve değerlendirmesi bor üzerinden yapılır.",
-   "agency_note": "EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; bu değer sıçanlarda yapılan bir gelişimsel toksisite çalışmasındaki etkisiz doza dayanır. Hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir; EFSA yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
+   "in_the_body": "Bor bileşiği olarak emilir.",
+   "agency_note": "Değerlendirmesi bor üzerinden yapılır. EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; bu değer sıçanlarda yapılan bir gelişimsel toksisite çalışmasındaki etkisiz doza dayanır. Hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir; EFSA yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
    "diet_flags": {
     "vegan": "yes",
     "source": "mineral",
@@ -8975,8 +8977,8 @@
    "found_in": [
     "Havyar (mersin balığı yumurtası)"
    ],
-   "in_the_body": "Vücutta borik asitle aynı şekilde bor olarak değerlendirilir.",
-   "agency_note": "EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir. EFSA, yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
+   "in_the_body": "",
+   "agency_note": "Vücutta borik asitle aynı şekilde bor olarak değerlendirilir. EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir. EFSA, yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
    "diet_flags": {
     "vegan": "yes",
     "source": "mineral",
@@ -9557,12 +9559,12 @@
   },
   "E640": {
    "evidence_level": "moderate",
-   "what_it_does": "Lezzeti düzenleyen ve tatlandırıcı preparatlarında kullanılan bir amino asittir (glisin) ve sodyum tuzudur.",
+   "what_it_does": "Lezzeti düzenleyen ve tatlandırıcı preparatlarında kullanılan bir amino asittir (glisin) ve sodyum tuzudur. Glisin proteinlerin doğal yapı taşıdır; besinlerle alınan miktar, katkı olarak alınandan çok daha fazladır.",
    "found_in": [
     "Sıvı masa tatlandırıcıları",
     "Grup I katkılarına genel olarak izin verilen işlenmiş gıdalar"
    ],
-   "in_the_body": "Glisin proteinlerin doğal yapı taşı olan bir amino asittir; besinlerle alınan miktar, katkı olarak alınandan çok daha fazladır.",
+   "in_the_body": "",
    "agency_note": "JECFA 2004'te glisini aroma maddesi olarak değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
    "diet_flags": {
     "vegan": "unknown",
@@ -9596,11 +9598,11 @@
   },
   "E650": {
    "evidence_level": "limited",
-   "what_it_does": "Sakızda lezzet artırıcı olarak kullanılan bir çinko tuzudur.",
+   "what_it_does": "Sakızda lezzet artırıcı olarak kullanılan bir çinko tuzudur. Çinko vücut için gerekli bir mineraldir.",
    "found_in": [
     "Sakız"
    ],
-   "in_the_body": "Çinko vücut için gerekli bir mineraldir.",
+   "in_the_body": "",
    "agency_note": "JECFA 1982'de çinko için geçici en yüksek tolere edilebilir günlük alımı 0,3–1 mg/kg vücut ağırlığı olarak belirledi; SCF 2002'de yetişkinler için tolere edilebilir üst alım düzeyini günde 25 mg olarak belirledi. AB'de yalnızca sakızda en fazla 1 000 mg/kg düzeyinde kullanımına izin verilir.",
    "diet_flags": {
     "vegan": "yes",
@@ -11448,11 +11450,11 @@
   },
   "E508": {
    "evidence_level": "strong",
-   "what_it_does": "Kıvam artırıcı, stabilizör ve aroma/tuz tadı düzenleyici olarak kullanılan bir mineral tuzdur.",
+   "what_it_does": "Kıvam artırıcı, stabilizör ve aroma/tuz tadı düzenleyici olarak kullanılan bir mineral tuzdur. Klorür ve potasyum besinlerle de alınan doğal minerallerdir.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Klorür ve potasyum vücutta besinlerle de alınan doğal minerallerdir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11486,13 +11488,13 @@
   },
   "E509": {
    "evidence_level": "strong",
-   "what_it_does": "Meyve ve sebzelerde dokunun sertliğini korumaya yardımcı olan kıvam ve doku düzenleyici bir mineral tuzdur.",
+   "what_it_does": "Meyve ve sebzelerde dokunun sertliğini korumaya yardımcı olan kıvam ve doku düzenleyici bir mineral tuzdur. Klorür ve kalsiyum besinlerle de alınan doğal minerallerdir.",
    "found_in": [
     "Konserve ve kavanoz meyve ve sebzeler",
     "Elma dışı meyve kompostoları",
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Klorür ve kalsiyum vücutta besinlerle de alınan doğal minerallerdir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11527,12 +11529,12 @@
   },
   "E511": {
    "evidence_level": "strong",
-   "what_it_does": "Kıvam düzenleyici ve stabilizör olarak kullanılan bir mineral tuzdur; deniz tuzunda da izinlidir.",
+   "what_it_does": "Kıvam düzenleyici ve stabilizör olarak kullanılan bir mineral tuzdur; deniz tuzunda da izinlidir. Klorür ve magnezyum besinlerle de alınan doğal minerallerdir.",
    "found_in": [
     "Deniz tuzu",
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Klorür ve magnezyum vücutta besinlerle de alınan doğal minerallerdir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11806,7 +11808,7 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Gıdada kullanıldığında asitlerle tepkimeye girerek nötrleşir.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te sodyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. AB'de Grup I katkısıdır; EFSA'nın 2016'da yayımladığı yeniden değerlendirme veri çağrısına dahil edilmiştir.",
    "diet_flags": {
     "vegan": "yes",
@@ -12383,7 +12385,7 @@
     "AB'de katkı maddesi değil gıda bileşeni sayılır; jelleştirici ve kıvam verici olarak çeşitli gıdalarda kullanılır"
    ],
    "in_the_body": "",
-   "agency_note": "Jelatin, hayvan kolajeninin kısmi hidroliziyle elde edilen bir proteindir; AB mevzuatına göre hammaddesi kemik, sığır ve diğer çiftlik geviş getirenlerinin derisi, domuz derisi, kümes hayvanı derisi, tendonlar, av hayvanı derisi ya da balık derisi ve kılçığı olabilir. AB'de yenilebilir jelatin katkı maddesi sayılmaz. JECFA 1970'te ADI'yi 'sınırlanmamış' olarak belirledi.",
+   "agency_note": "AB'de yenilebilir jelatin katkı maddesi sayılmaz. JECFA 1970'te ADI'yi 'sınırlanmamış' olarak belirledi.",
    "diet_flags": {
     "vegan": "no",
     "source": "animal",
@@ -12425,7 +12427,8 @@
     "ab853_tanim",
     "jecfa_e441"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-06",
+   "uretim_ek": "AB mevzuatına göre hammaddesi kemik, sığır ve diğer çiftlik geviş getirenlerinin derisi, domuz derisi, kümes hayvanı derisi, tendonlar, av hayvanı derisi ya da balık derisi ve kılçığı olabilir."
   },
   "E444": {
    "evidence_level": "strong",
@@ -12550,12 +12553,12 @@
   },
   "E525": {
    "evidence_level": "limited",
-   "what_it_does": "Asitliği düzenlemek ve ortamı nötrleştirmek için kullanılan güçlü bir bazdır (kostik potas).",
+   "what_it_does": "Asitliği düzenlemek ve ortamı nötrleştirmek için kullanılan güçlü bir bazdır (kostik potas). Gıdada asitlerle tepkimeye girip potasyum tuzlarına dönüşür.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için)"
    ],
-   "in_the_body": "Gıdada kullanıldığında asitlerle tepkimeye girerek nötrleşir ve potasyum tuzlarına dönüşür.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te potasyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen potasyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
    "diet_flags": {
     "vegan": "yes",
@@ -12609,12 +12612,12 @@
   },
   "E526": {
    "evidence_level": "limited",
-   "what_it_does": "Asitliği düzenlemek, nötrleştirmek ve dokuyu sertleştirmek için kullanılan bir bazdır (sönmüş kireç).",
+   "what_it_does": "Asitliği düzenlemek, nötrleştirmek ve dokuyu sertleştirmek için kullanılan bir bazdır (sönmüş kireç). Gıdada asitlerle tepkimeye girip kalsiyum tuzlarına dönüşür.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için)"
    ],
-   "in_the_body": "Gıdada asitlerle tepkimeye girerek nötrleşir ve kalsiyum tuzlarına dönüşür.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te kalsiyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen kalsiyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
    "diet_flags": {
     "vegan": "yes",
@@ -12668,11 +12671,11 @@
   },
   "E527": {
    "evidence_level": "limited",
-   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan sulu amonyak çözeltisidir.",
+   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan sulu amonyak çözeltisidir. Gıdada asitlerle tepkimeye girip amonyum tuzlarına dönüşür.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Gıdada asitlerle tepkimeye girerek nötrleşir ve amonyum tuzlarına dönüşür.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te amonyak çözeltisi (amonyum hidroksit) için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen amonyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
    "diet_flags": {
     "vegan": "yes",
@@ -12717,11 +12720,11 @@
   },
   "E528": {
    "evidence_level": "limited",
-   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan bir bazdır.",
+   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan bir bazdır. Gıdada asitlerle tepkimeye girip magnezyum tuzlarına dönüşür.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Gıdada asitlerle tepkimeye girerek nötrleşir ve magnezyum tuzlarına dönüşür.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te magnezyum hidroksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen magnezyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
    "diet_flags": {
     "vegan": "yes",
@@ -12766,11 +12769,11 @@
   },
   "E529": {
    "evidence_level": "limited",
-   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan bir bazdır (sönmemiş kireç); hamur düzenleyici olarak da kullanılır.",
+   "what_it_does": "Asitliği düzenlemek ve nötrleştirmek için kullanılan bir bazdır (sönmemiş kireç); hamur düzenleyici olarak da kullanılır. Suyla tepkimeye girerek kalsiyum hidroksite, asitlerle de kalsiyum tuzlarına dönüşür.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Suyla tepkimeye girerek kalsiyum hidroksite, asitlerle de kalsiyum tuzlarına dönüşür.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te kalsiyum oksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen kalsiyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
    "diet_flags": {
     "vegan": "yes",
@@ -12815,11 +12818,11 @@
   },
   "E530": {
    "evidence_level": "limited",
-   "what_it_does": "Asitliği düzenlemek, nötrleştirmek ve topaklanmayı önlemek için kullanılan bir bazdır.",
+   "what_it_does": "Asitliği düzenlemek, nötrleştirmek ve topaklanmayı önlemek için kullanılan bir bazdır. Gıdada asitlerle tepkimeye girip magnezyum tuzlarına dönüşür.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Gıdada asitlerle tepkimeye girerek magnezyum tuzlarına dönüşür.",
+   "in_the_body": "",
    "agency_note": "JECFA 1965'te magnezyum oksit için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; değerlendirmede iyi üretim uygulamasına uygun kullanımın sınırlanması için toksikolojik bir gerekçe görülmediği, ancak bu katkılardan gelen magnezyum toplam alımının beslenme açısından göz önünde tutulması gerektiği belirtildi. AB'de Grup I katkısıdır; EFSA'nın yeniden değerlendirmesi henüz yayımlanmamıştır (2016'da veri çağrısına dahil edildi).",
    "diet_flags": {
     "vegan": "yes",
@@ -12864,11 +12867,11 @@
   },
   "E574": {
    "evidence_level": "limited",
-   "what_it_does": "Asitlik düzenleyici ve kabartıcı olarak kullanılan, glikozdan elde edilen hafif bir organik asittir.",
+   "what_it_does": "Asitlik düzenleyici ve kabartıcı olarak kullanılan, glikozdan elde edilen hafif bir organik asittir. Suda glukono-delta-lakton ile denge halinde bulunur.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Suda glukono-delta-lakton ile denge halinde bulunur. Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır.",
+   "in_the_body": "Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır.",
    "agency_note": "JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
    "diet_flags": {
     "vegan": "yes",
@@ -12918,7 +12921,7 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Bebekler ve küçük çocuklar için bisküvi ve galeta (AB'de en çok 5.000 mg/kg)"
    ],
-   "in_the_body": "Suda yavaşça glukonik aside dönüşür; çözeltide asit ve lakton biçimleri dengede bulunur. Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır.",
+   "in_the_body": "Glukonik asit ve tuzları, vücutta glikozun pentoz fosfat yolu üzerinden yıkımında oluşan normal ara ürünlerdir; alınan glukonatın bir kısmı idrarla değişmeden atılır, kalanı yıkılır.",
    "agency_note": "JECFA 1998'de glukono-delta-lakton ile glukonik asidin kalsiyum, magnezyum, potasyum ve sodyum tuzları için ortak ADI'yi 'belirtilmemiş' (not specified) olarak belirledi. JECFA, glukono-delta-laktonun 20 g'ı aşan tek dozlarının insanlarda müshil etkisi yaptığını ve günde 20–50 g alan gönüllülerde ishal bildirildiğini aktarmıştır. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2023'te yeni veri çağrısı yapıldı).",
    "diet_flags": {
     "vegan": "yes",
@@ -13222,11 +13225,11 @@
   },
   "E938": {
    "evidence_level": "moderate",
-   "what_it_does": "Ambalajlı gıdalarda havanın yerini alan, tepkimeye girmeyen bir ambalaj gazıdır (argon).",
+   "what_it_does": "Ambalajlı gıdalarda havanın yerini alan, tepkimeye girmeyen bir ambalaj gazıdır (argon). Kimyasal olarak çok kararlı bir soy gazdır.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Argon kimyasal olarak çok kararlı, tepkimeye girmeyen bir soy gazdır.",
+   "in_the_body": "",
    "agency_note": "SCF ve JECFA daha önceki değerlendirmelerinde bu fiziksel-kimyasal özelliklere dayanarak kullanımını toksikolojik değerlendirme olmaksızın güvenli saymıştı. EFSA 2024'te argon ve helyumu birlikte yeniden değerlendirdi, gıda katkısı olarak düşük toksikolojik endişe taşıdıklarını ve kullanımlarının güvenlik endişesi doğurmadığını belirtti; AB spesifikasyonlarına CAS numaralarının eklenmesini önerdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -13260,11 +13263,11 @@
   },
   "E939": {
    "evidence_level": "moderate",
-   "what_it_does": "Ambalajlı gıdalarda havanın yerini alan, tepkimeye girmeyen bir ambalaj gazıdır (helyum).",
+   "what_it_does": "Ambalajlı gıdalarda havanın yerini alan, tepkimeye girmeyen bir ambalaj gazıdır (helyum). Kimyasal olarak çok kararlı bir soy gazdır.",
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "Helyum kimyasal olarak çok kararlı, tepkimeye girmeyen bir soy gazdır.",
+   "in_the_body": "",
    "agency_note": "SCF ve JECFA daha önceki değerlendirmelerinde bu fiziksel-kimyasal özelliklere dayanarak kullanımını toksikolojik değerlendirme olmaksızın güvenli saymıştı. EFSA 2024'te argon ve helyumu birlikte yeniden değerlendirdi, gıda katkısı olarak düşük toksikolojik endişe taşıdıklarını ve kullanımlarının güvenlik endişesi doğurmadığını belirtti; AB spesifikasyonlarına CAS numaralarının eklenmesini önerdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -13399,7 +13402,7 @@
     "Su bazlı emülsiyon spreyleri",
     "Gıda renklendirici preparatları (gıdada en fazla 1 mg/kg kalıntı)"
    ],
-   "in_the_body": "Bütan, izobütan ve propan oda sıcaklığında gaz halinde bulunan kısa zincirli (C3–C4) alkanlardır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2025'te üçünü birlikte yeniden değerlendirdi: solunum yoluyla bilinen etkilerin gıda katkısı değerlendirmesi için ilgili olmadığını, besinle maruziyetin çok düşük olduğunu ve izinli kullanımlarda güvenlik endişesi bulunmadığını belirtti. EFSA, mevcut spesifikasyonlarda 1,3-bütadien sınırı bulunduğunu, ancak üretim süreçleri hakkında bilgi eksikliği nedeniyle başka safsızlıklar konusunda belirsizlik kaldığını bildirerek spesifikasyonların güncellenmesini önerdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -13437,7 +13440,7 @@
     "Su bazlı emülsiyon spreyleri",
     "Gıda renklendirici preparatları (gıdada en fazla 1 mg/kg kalıntı)"
    ],
-   "in_the_body": "Bütan, izobütan ve propan oda sıcaklığında gaz halinde bulunan kısa zincirli (C3–C4) alkanlardır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2025'te üçünü birlikte yeniden değerlendirdi: solunum yoluyla bilinen etkilerin gıda katkısı değerlendirmesi için ilgili olmadığını, besinle maruziyetin çok düşük olduğunu ve izinli kullanımlarda güvenlik endişesi bulunmadığını belirtti. EFSA, mevcut spesifikasyonlarda 1,3-bütadien sınırı bulunduğunu, ancak üretim süreçleri hakkında bilgi eksikliği nedeniyle başka safsızlıklar konusunda belirsizlik kaldığını bildirerek spesifikasyonların güncellenmesini önerdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -13475,7 +13478,7 @@
     "Su bazlı emülsiyon spreyleri",
     "Gıda renklendirici preparatları (gıdada en fazla 1 mg/kg kalıntı)"
    ],
-   "in_the_body": "Bütan, izobütan ve propan oda sıcaklığında gaz halinde bulunan kısa zincirli (C3–C4) alkanlardır.",
+   "in_the_body": "",
    "agency_note": "EFSA 2025'te üçünü birlikte yeniden değerlendirdi: solunum yoluyla bilinen etkilerin gıda katkısı değerlendirmesi için ilgili olmadığını, besinle maruziyetin çok düşük olduğunu ve izinli kullanımlarda güvenlik endişesi bulunmadığını belirtti. EFSA, mevcut spesifikasyonlarda 1,3-bütadien sınırı bulunduğunu, ancak üretim süreçleri hakkında bilgi eksikliği nedeniyle başka safsızlıklar konusunda belirsizlik kaldığını bildirerek spesifikasyonların güncellenmesini önerdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -13625,7 +13628,7 @@
     "Pastırma ve kaplaması",
     "Aromalı şaraplar (americano, bitter vino; en çok 100 mg/l)"
    ],
-   "in_the_body": "Riboflavin B2 vitaminidir.",
+   "in_the_body": "",
    "agency_note": "EFSA 2013'te fosfatlı biçimin bağırsakta hızla serbest riboflavine dönüştüğünü ve normal metabolizma yollarıyla işlendiğini belirtti. Uzun süreli ve üreme çalışmaları bulunmadığından ADI belirlemedi; buna karşın mevcut izinli kullanım ve düzeylerde güvenlik endişesi oluşturmasının olası olmadığı sonucuna vardı. JECFA 1981'de riboflavin ve riboflavin-5'-fosfat için grup ADI'yi 0–0,5 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
    "regulatory_extra": [
     {
@@ -13718,7 +13721,7 @@
     "Sosis, pate ve terrinler",
     "Balık ve kabuklu ezmeleri, haşlanmış kabuklular"
    ],
-   "in_the_body": "Renk veren betalainler (başlıca betanin) pancarda doğal olarak bulunur.",
+   "in_the_body": "",
    "agency_note": "EFSA 2015'te toksikoloji verilerinin ADI belirlemeye yetmediğini belirtti; ancak katkıdan gelen betanin alımının normal beslenmeyle alınanla aynı aralıkta olduğunu ve bildirilen kullanım düzeylerinde güvenlik endişesi bulunmadığını açıkladı. JECFA 1987'de ADI'yi 'belirtilmemiş' olarak belirledi.",
    "regulatory_extra": [
     {
@@ -14408,14 +14411,14 @@
   },
   "E920": {
    "evidence_level": "limited",
-   "what_it_does": "Bir amino asittir; un işleme maddesi olarak hamuru yumuşatır.",
+   "what_it_does": "Bir amino asittir; un işleme maddesi olarak hamuru yumuşatır. Proteinlerin doğal yapı taşlarından biridir.",
    "found_in": [
     "Un (gerektiği kadar)",
     "Bebek ve küçük çocuk bisküvileri (en çok 1.000 mg/kg)",
     "Gıda enzimi preparatları"
    ],
-   "in_the_body": "L-sistein proteinlerin doğal yapı taşıdır.",
-   "agency_note": "JECFA 2004'te aroma maddesi olarak değerlendirdiğinde besinlerle alınan miktarın aroma kullanımından beklenenden kat kat fazla olduğunu belirterek mevcut alım düzeylerinde güvenlik endişesi görmedi. AB şartnamesine göre insan saçı hammadde olarak kullanılamaz.",
+   "in_the_body": "",
+   "agency_note": "JECFA 2004'te aroma maddesi olarak değerlendirdiğinde besinlerle alınan miktarın aroma kullanımından beklenenden kat kat fazla olduğunu belirterek mevcut alım düzeylerinde güvenlik endişesi görmedi.",
    "regulatory_extra": [
     {
      "agency": "Avrupa Komisyonu",
