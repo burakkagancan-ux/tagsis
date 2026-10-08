@@ -13,7 +13,8 @@ function loadK(){
   }).catch(function(e){KLOAD=null;setSt("koz","Kozmetik listesi yüklenemedi (internet bağlantısını kontrol edin).");throw e});
   return KLOAD;
 }
-function setMode(m,save){
+function setMode(m,save,tasi){
+  if(m!==MODE&&$("metin").value.trim()&&typeof HMOD!=="undefined")HMOD=tasi?"tasi":"gor";   // yeniden analiz geçmişi bozmasın
   MODE=m;
   ["gida","koz","tem"].forEach(function(x){$("m-"+x).setAttribute("aria-checked",String(m===x))});
   $("ptype").hidden=m!=="koz";
@@ -40,7 +41,7 @@ document.querySelectorAll("#ptype button").forEach(function(b){
 function suggestCard(){
   var d=el("div","res suggest");d.appendChild(el("div","t","Bu bir kozmetik etiketine benziyor"));
   d.appendChild(el("div","ln","Metinde “Aqua”, “Parfum” gibi kozmetik bileşen adları var. Gıda listeleriyle yapılan analiz yanıltıcı olabilir."));
-  var b=el("button",null,"Kozmetik olarak analiz et");b.type="button";b.onclick=function(){setMode("koz",true);window.scrollTo(0,0)};d.appendChild(b);
+  var b=el("button",null,"Kozmetik olarak analiz et");b.type="button";b.onclick=function(){setMode("koz",true,true);window.scrollTo(0,0)};d.appendChild(b);
   return d;
 }
 var KCLS={red:"r",orange:"o",yellow:"y",info:"g"},KLBL={red:"AB'de yasak",orange:"Uyarı",yellow:"Dikkat",info:"Özel uyarı yok"};

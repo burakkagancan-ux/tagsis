@@ -82,7 +82,21 @@ async function scan(p,mode,text){
     ok(await p.isVisible('#sheet .sheet-pn'),m+': maddeye dokununca alt sayfa açılır');
     await p.evaluate(()=>{closeSheet();closeCompare()});
   }
-  await p.click('#m-gida');await p.evaluate(()=>{localStorage.removeItem('taramalar')});await p.click('#karsla');
+  // Tür ayrımı: sekmeyle geçişte tarama kendi türünde kalır; öneri kartıyla geçişte yeni türe taşınır; yeni türde yazılan metin o türe kaydedilir
+  const hist=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('taramalar')||'[]').map(x=>x.mode));
+  await p.click('#m-gida');await p.evaluate(()=>{document.getElementById('metin').value='';localStorage.removeItem('taramalar')});
+  await scan(p,'gida',pairs.gida[0]);
+  await p.click('#m-tem');await p.waitForTimeout(800);await p.click('#m-koz');await p.waitForTimeout(800);
+  ok(JSON.stringify(await hist())==='["gida"]','sekmeyle geçiş geçmişe yazılmaz: '+JSON.stringify(await hist()));
+  await p.fill('#metin',pairs.koz[0]).catch(()=>p.evaluate(t=>{const m=document.getElementById('metin');m.value=t;m.dispatchEvent(new Event('input'))},pairs.koz[0]));
+  await p.waitForTimeout(1200);
+  ok(JSON.stringify((await hist()).sort())==='["gida","koz"]','yeni türde yazılan metin o türe kaydedilir: '+JSON.stringify(await hist()));
+  await p.evaluate(()=>{document.getElementById('metin').value='';localStorage.removeItem('taramalar')});
+  await scan(p,'gida',pairs.tem[1]);
+  ok(await p.isVisible('#sonuc .suggest button'),'temizlik metninde öneri kartı');
+  await p.click('#sonuc .suggest button');await p.waitForTimeout(1500);
+  ok(JSON.stringify(await hist())==='["tem"]','öneri kartıyla tarama temizliğe taşınır: '+JSON.stringify(await hist()));
+  await p.click('#m-gida');await p.evaluate(()=>{document.getElementById('metin').value='';localStorage.removeItem('taramalar')});await p.click('#karsla');
   ok(/en az iki gıda ürünü/.test(await p.textContent('#st')),'tek tarama yokken uyarı');
   ok(!errs.length,'karşılaştırma konsol hatası: '+errs.join(' | '));errs.length=0;
 
