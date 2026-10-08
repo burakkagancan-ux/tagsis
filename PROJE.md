@@ -104,11 +104,11 @@ Google Cloud Vision dakikalık kotası düşürüldü (tamam).
 5. Ansiklopedi: 333 sayfanın hepsi elle yazıldı (08.10.2026). Kalan: eski kayıtların güncel AB konsolide metniyle karşılaştırılması, TGK 2023.
 6. Üretim yolu: 157 E kodu kaynakla doğrulanmadı.
 7. Kozmetik (~200–300 madde) ve temizlik (~30 madde) ansiklopedisi yok.
-8. Arayüzün otomatik testi yok (CI'da tarayıcı testi çalışmıyor).
+8. ~~Arayüzün otomatik testi yok~~ — KAPANDI (08.10.2026): test/arayuz.js, CI "arayuz" işi.
 
 **Düşük**
 10. Kaynak denetimleri: FDA renk tablosu ve eş anlamlılar, Kaliforniya listesi (resmi site), EUH ve P ifadelerinin Türkçesi.
-11. Kozmetik ve temizlik verisi çevrimdışı önceden önbelleğe alınmıyor.
+11. ~~Kozmetik ve temizlik verisi çevrimdışı önbelleğe alınmıyor~~ — KAPANDI (08.10.2026): sw.js CORE, tagsis-v24.
 12. Helal ("kaynağı belirsiz, sertifikaya bakın"), besin değeri tablosu.
 13. Hukuki görüş (KVKK / Google Vision, "zararlı" dili, arşiv gösterimi): en son.
 

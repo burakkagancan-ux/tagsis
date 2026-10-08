@@ -1,5 +1,5 @@
 name: Testler
-# Her PR'da ve main'e her gönderimde tüm testleri çalıştırır (dış bağımlılık yok, npm install gerekmez)
+# Her PR'da ve main'e her gönderimde tüm testleri çalıştırır. "test" işinde dış bağımlılık yok; "arayuz" işi Playwright kurar.
 on:
   pull_request:
   push:
@@ -46,6 +46,8 @@ jobs:
         run: node test/ansiklopedi.js
       - name: Paylaşım kartı
         run: node test/paylas.js
+      - name: Çevrimdışı önbellek listesi
+        run: node test/onbellek.js
       - name: Bakanlık verisi doğrulaması
         run: python3 test/dogrula_veri.py
       - name: OCR Worker
@@ -55,3 +57,19 @@ jobs:
         run: |
           for g in gen_e_kodlari gen_bilesenler gen_e_aciklama gen_kozmetik gen_eslesmeler gen_temizlik gen_ansiklopedi; do python3 $g.py; done
           git diff --stat --exit-code -I '"generated":' -- data/
+
+  # Arayüz: sayfalar gerçek tarayıcıda (Chromium) açılıp tıklanır; üç modda analiz, karşılaştırma, ansiklopedi, çevrimdışı açılış.
+  arayuz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Playwright ve Chromium kurulumu
+        run: |
+          npm i --no-save --no-package-lock playwright@1.47.2
+          npx playwright install --with-deps chromium
+      - name: Arayüz testi
+        run: node test/arayuz.js
