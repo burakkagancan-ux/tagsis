@@ -90,6 +90,7 @@ Son güncelleme: 08.10.2026.
 
 ## Worker (worker/)
 - Cloudflare Workers Builds, GitHub main'den otomatik dağıtır (root directory: worker). Panelde kod düzenlenmez.
+- D1 (08.10.2026): `tagsis-urunler` veritabanı (Jurisdiction EU) wrangler.toml'da `URUNLER` olarak bağlı; barkodlu ürün veritabanı için (kullanıcı katkısı). Bağlama yalnızca wrangler.toml'da tanımlanır (panelden eklenen bağlama dağıtımda silinir). Tablolar Worker'ın ilk isteğinde CREATE TABLE IF NOT EXISTS ile oluşur.
 - Korumalar: IP başına 6/dk, genel 30/dk (IP_LIMIT/GLOBAL_LIMIT), ALLOWED_ORIGIN (panelde secret, virgülle çoklu), ~4 MB, JPEG/PNG/WebP, 20 sn zaman aşımı, observability kapalı, keep_vars. wrangler.toml'a [vars] ALLOWED_ORIGIN EKLENMEZ (secret ile çakışır).
 
 ## Testler
