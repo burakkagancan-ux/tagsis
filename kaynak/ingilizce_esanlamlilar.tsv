@@ -1,0 +1,680 @@
+# İngilizce eş anlamlılar (08.10.2026, B-08). gen_e_kodlari.py (E kodları) ve gen_bilesenler.py (bileşenler) okur; çıktıda ayrı alan "aliases_en" (ve koşullu olanlar "en_only").
+# İngilizce adlar benzer yazımla (short1) aranmaz; yalnızca birebir, İngilizce metinde tekil/çoğul farkıyla ve uzun adlarda sözcük düzeyinde benzer yazımla bulunur (js/gida.js).
+# Sütunlar: hedef<TAB>ad<TAB>koşul<TAB>kaynak
+#   hedef : E kodu (E331; birden çok kod virgülle: E1404,E1410) ya da kaynak/bilesenler.json madde kimliği (seker, sut, n_su…)
+#   ABD/İngiltere yazım farkları (aluminum, color, flavor, sulfite, fiber, stabilizer…) burada ayrıca yazılmaz: js/gida.js ABD_YAZIM ikisini tek biçime indirir.
+#   koşul : boş = her metinde; en = yalnızca İngilizce görünen metinde ("ingredients" başlığı ya da İngilizce bağlaç çoğunluğu).
+#           Türkçede başka anlamı olan ya da Türkçe etikette başka bağlamda geçen sözcükler: salt (yalnızca), soy (soy ağacı), ham (işlenmemiş), tuna (nehir), rum.
+#   kaynak: OFF en:<kimlik> = Open Food Facts madde sözlüğü, taxonomies/food/ingredients.txt (openfoodfacts-server 4ae1e39, 08.10.2026).
+#             Lisans: Open Database License (ODbL) 1.0, © Open Food Facts katkıcıları, https://world.openfoodfacts.org. Ad, girişin "en:" satırındaki adlardan biridir.
+#           AB 1169/2011 Ek II = alerjen listesinin İngilizce resmi metni; Ek VII B = kategori adları (sugar, dextrose, glucose syrup, spices, herbs, cheese, fish, milk proteins, starch, vegetable oil);
+#           Ek VII C = katkı kategori adları (emulsifier, stabiliser, colour, sweetener, flavour enhancer…); Ek VII D = aroma adları (flavouring, natural flavouring, smoke flavouring).
+#           AB 231/2012 = katkı maddeleri spesifikasyonu (E kodunun alt maddeleri). 21 CFR 101.22 = ABD "flavor", "color" yazımı. ABD yazımı = aynı terimin ABD imlası (aynı satırdaki İngiltere yazımının kaynağı geçerli).
+#
+# ---------- E KODLARI ----------
+E331	sodium citrate		AB 231/2012 E331 (sodium citrates: monosodium, disodium, trisodium citrate)
+E331	monosodium citrate		AB 231/2012 E331 (i)
+E331	disodium citrate		AB 231/2012 E331 (ii)
+E331	trisodium citrate		AB 231/2012 E331 (iii)
+E1404,E1410,E1412,E1413,E1414,E1420,E1422,E1440,E1442,E1450,E1451,E1452	modified food starch		21 CFR 172.892 (food starch-modified); AB 1169/2011 Ek VII C (modified starch)
+E1404,E1410,E1412,E1413,E1414,E1420,E1422,E1440,E1442,E1450,E1451,E1452	food starch modified		21 CFR 172.892
+E339	monosodium phosphate		AB 231/2012 E339 (i)
+E339	disodium phosphate		AB 231/2012 E339 (ii)
+E339	trisodium phosphate		AB 231/2012 E339 (iii)
+E340	monopotassium phosphate		AB 231/2012 E340 (i)
+E340	dipotassium phosphate		AB 231/2012 E340 (ii)
+E340	tripotassium phosphate		AB 231/2012 E340 (iii)
+E341	monocalcium phosphate		AB 231/2012 E341 (i)
+E341	dicalcium phosphate		AB 231/2012 E341 (ii)
+E450	disodium diphosphate		AB 231/2012 E450 (i)
+E450	sodium acid pyrophosphate		21 CFR 182.1087 (AB 231/2012 E450 (i) disodium diphosphate)
+E450	tetrasodium diphosphate		AB 231/2012 E450 (iii)
+E451	pentasodium triphosphate		AB 231/2012 E451 (i)
+E451	sodium tripolyphosphate		21 CFR 182.1810 (AB 231/2012 E451 (i))
+E451	sodium triphosphate		AB 231/2012 E451 (i)
+E452	sodium polyphosphate		AB 231/2012 E452 (i)
+E452	sodium hexametaphosphate		21 CFR 182.6760 (AB 231/2012 E452 (i))
+E500	sodium hydrogen carbonate		AB 231/2012 E500 (ii)
+E501	potassium hydrogen carbonate		AB 231/2012 E501 (ii)
+E503	ammonium hydrogen carbonate		AB 231/2012 E503 (ii)
+E471	monoglycerides		21 CFR 184.1505 (mono- and diglycerides)
+E471	mono and diglycerides of fatty acids		AB 1333/2008 E471
+#
+# ---------- ŞEKER ----------
+seker	sugar		AB 1169/2011 Ek VII B (sugar); OFF en:sugar
+seker	white sugar		OFF en:white-sugar
+seker	cane sugar		OFF en:cane-sugar
+seker	pure cane sugar		OFF en:cane-sugar
+seker	brown sugar		OFF en:brown-sugar
+seker	icing sugar		OFF en:icing-sugar
+seker	powdered sugar		OFF en:icing-sugar
+seker	caster sugar		OFF en:caster-sugar
+seker	sucrose		OFF en:sucrose
+seker	sugar syrup		OFF en:sugar-syrup
+glukoz_surubu	glucose syrup		AB 1169/2011 Ek VII B (glucose syrup); OFF en:glucose-syrup
+glukoz_surubu	dried glucose syrup		AB 1169/2011 Ek VII B (dried glucose syrup)
+glukoz_surubu	glucose		OFF en:glucose
+gfs	glucose-fructose syrup		OFF en:glucose-fructose-syrup
+gfs	fructose-glucose syrup		OFF en:glucose-fructose-syrup
+gfs	glucose and fructose syrup		OFF en:glucose-fructose-syrup
+gfs	high fructose corn syrup		OFF en:high-fructose-corn-syrup
+gfs	isoglucose		OFF en:high-fructose-corn-syrup
+gfs	corn syrup		OFF en:corn-syrup (tr: mısır şurubu)
+invert	invert sugar		OFF en:invert-sugar
+invert	invert sugar syrup		OFF en:invert-sugar-syrup
+invert	invert syrup		OFF en:invert-sugar-syrup
+dekstroz	dextrose		AB 1169/2011 Ek VII B (dextrose); OFF en:dextrose
+dekstroz	dextrose monohydrate		AB 1169/2011 Ek VII B (dextrose monohydrate)
+fruktoz	fructose		OFF en:fructose
+maltoz	maltose		OFF en:maltose
+maltodekstrin	maltodextrin		OFF en:maltodextrin
+laktoz	lactose		AB 1169/2011 Ek II (milk, including lactose); OFF en:lactose
+laktoz	milk sugar		OFF en:lactose
+bal	honey		OFF en:honey
+melas	molasses		OFF en:molasses
+melas	black treacle		OFF en:molasses
+surup_diger	agave syrup		OFF en:agave-syrup
+surup_diger	agave nectar		OFF en:agave-syrup
+surup_diger	maple syrup		OFF en:maple-syrup
+surup_diger	rice syrup		OFF en:rice-syrup
+meyve_konsantre	fruit juice concentrate		OFF en:fruit-juice-concentrate
+meyve_konsantre	concentrated grape juice		OFF en:concentrated-grape-juice
+meyve_konsantre	grape juice concentrate		OFF en:concentrated-grape-juice
+meyve_konsantre	concentrated lemon juice		OFF en:concentrated-lemon-juice (tr: limon suyu konsantresi)
+meyve_konsantre	lemon juice concentrate		OFF en:concentrated-lemon-juice
+malt	malt extract		OFF en:malt-extract
+malt	barley malt extract		OFF en:barley-malt-extract
+#
+# ---------- GLUTEN (AB 1169/2011 Ek II: cereals containing gluten, namely: wheat (such as spelt and khorasan wheat), rye, barley, oats) ----------
+bugday	wheat		AB 1169/2011 Ek II; OFF en:wheat
+bugday	wheat flour		OFF en:wheat-flour
+bugday	wheatflour		OFF en:wheat-flour
+bugday	wholemeal wheat flour		OFF en:whole-wheat-flour
+bugday	whole wheat flour		OFF en:whole-wheat-flour
+bugday	wholewheat flour		OFF en:whole-wheat-flour
+bugday	wheat starch		OFF en:wheat-starch (allergens: gluten)
+bugday	wheat semolina		OFF en:wheat-semolina
+bugday	semolina		OFF en:semolina (< en:wheat)
+bugday	durum wheat		OFF en:durum-wheat
+bugday	durum wheat semolina		OFF en:durum-wheat-semolina
+bugday	wheat bran		OFF en:wheat-bran
+bugday	wheat germ		OFF en:wheat-germ
+bugday	wheat protein		OFF en:wheat-protein (allergens: gluten)
+bugday	breadcrumbs		OFF en:breadcrumbs
+bugday	bread crumbs		OFF en:breadcrumbs
+bugday	bulgur		OFF en:bulgur (< en:durum-wheat)
+bugday	bulgur wheat		OFF en:bulgur
+bugday	couscous		OFF en:couscous (tr: kuskus)
+bugday	freekeh		OFF en:freekeh
+gluten	wheat gluten		OFF en:wheat-gluten
+gluten	vital wheat gluten		OFF en:vital-wheat-gluten
+gluten	seitan		OFF en:seitan (tr: buğday gluteni)
+arpa	barley		AB 1169/2011 Ek II; OFF en:barley
+arpa	barley flour		OFF en:barley-flour
+arpa	malted barley		OFF en:barley-malt-extract (< en:malted-barley)
+cavdar	rye		AB 1169/2011 Ek II; OFF en:rye
+cavdar	rye flour		OFF en:rye-flour
+yulaf	oats		AB 1169/2011 Ek II
+yulaf	oat		OFF en:oat-flour (< en:oat)
+yulaf	oat flakes		OFF en:oat-flakes
+yulaf	rolled oats		OFF en:oat-flakes
+yulaf	oat flour		OFF en:oat-flour
+yulaf	oat bran		OFF en:oat-bran
+yulaf	oat fibre		OFF en:oat-fibre
+yulaf	oat fiber		ABD yazımı (oat fibre)
+yulaf	oat milk		OFF en:oat-milk
+spelt	khorasan wheat		AB 1169/2011 Ek II; OFF en:khorasan-wheat
+spelt	spelt flour		AB 1169/2011 Ek II (spelt)
+spelt	einkorn wheat		OFF en:einkorn-wheat
+spelt	emmer wheat		OFF en:emmer
+#
+# ---------- KABUKLULAR / YUMUŞAKÇALAR / BALIK ----------
+kabuklu	crustacean		AB 1169/2011 Ek II; OFF en:crustacean
+kabuklu	crustaceans		AB 1169/2011 Ek II; OFF en:crustacean
+kabuklu	shrimp		OFF en:shrimp
+kabuklu	prawn		OFF en:shrimp
+kabuklu	crab		OFF en:crab
+kabuklu	crab meat		OFF en:crab
+kabuklu	lobster		OFF en:lobster
+kabuklu	crayfish		OFF en:crayfish
+yumusakca	mollusc		AB 1169/2011 Ek II; OFF en:mollusc
+yumusakca	molluscs		AB 1169/2011 Ek II; OFF en:mollusc
+yumusakca	mollusk		OFF en:mollusc
+yumusakca	mollusks		OFF en:mollusc
+yumusakca	mussel		OFF en:mussel
+yumusakca	squid		OFF en:squid
+yumusakca	octopus		OFF en:octopus
+yumusakca	oyster		OFF en:oyster
+yumusakca	cuttlefish		OFF en:cuttlefish
+yumusakca	clam		OFF en:clam
+yumusakca	scallop		OFF en:scallop
+yumusakca	snail		OFF en:snail
+balik	fish		AB 1169/2011 Ek II, Ek VII B; OFF en:fish
+balik	fish oil		OFF en:fish-oil
+balik	fish sauce		OFF en:fish-sauce (allergens: fish)
+balik	anchovy		OFF en:anchovy
+balik	anchovies		OFF en:anchovy
+balik	tuna	en	OFF en:tuna
+balik	tuna fish		OFF en:tuna
+balik	salmon		OFF en:salmon
+balik	sardine		OFF en:sardine
+balik	mackerel		OFF en:mackerel
+balik	cod		OFF en:cod
+balik	codfish		OFF en:cod
+balik_jelatini	fish gelatine		OFF en:fish-gelatine (allergens: fish)
+balik_jelatini	fish gelatin		ABD yazımı (fish gelatine)
+#
+# ---------- YUMURTA ----------
+yumurta	egg		AB 1169/2011 Ek II (eggs); OFF en:egg
+yumurta	eggs		AB 1169/2011 Ek II; OFF en:egg
+yumurta	whole egg		OFF en:whole-egg
+yumurta	egg powder		OFF en:egg-powder
+yumurta	powdered egg		OFF en:egg-powder
+yumurta	egg white		OFF en:egg-white
+yumurta	egg albumen		OFF en:egg-white
+yumurta	egg yolk		OFF en:egg-yolk
+#
+# ---------- YER FISTIĞI / SERT KABUKLU MEYVELER (Ek II: nuts, namely almonds, hazelnuts, walnuts, cashews, pecan nuts, Brazil nuts, pistachio nuts, macadamia or Queensland nuts) ----------
+yer_fistigi	peanut		AB 1169/2011 Ek II (peanuts); OFF en:peanut
+yer_fistigi	peanuts		AB 1169/2011 Ek II; OFF en:peanut
+yer_fistigi	peanut butter		OFF en:peanut-butter
+yer_fistigi	peanut oil		OFF en:peanut-oil (allergens: peanuts)
+sert_kabuklu	nuts		AB 1169/2011 Ek II (nuts)
+sert_kabuklu	tree nuts		OFF en:tree-nut (allergens: nuts)
+sert_kabuklu	tree nut		OFF en:tree-nut
+badem	almond		AB 1169/2011 Ek II; OFF en:almond
+badem	almonds		AB 1169/2011 Ek II; OFF en:almond
+badem	ground almonds		OFF en:ground-almonds
+badem	almond paste		OFF en:almond-paste
+badem	almond milk		OFF en:almond-milk
+findik	hazelnut		AB 1169/2011 Ek II; OFF en:hazelnut
+findik	hazelnuts		AB 1169/2011 Ek II; OFF en:hazelnut
+findik	hazelnut oil		OFF en:hazelnut-oil
+ceviz	walnut		AB 1169/2011 Ek II; OFF en:walnut
+ceviz	walnuts		AB 1169/2011 Ek II; OFF en:walnut
+kaju	cashew		AB 1169/2011 Ek II (cashews); OFF en:cashew-nuts
+kaju	cashews		AB 1169/2011 Ek II; OFF en:cashew-nuts
+kaju	cashew nuts		OFF en:cashew-nuts
+antep	pistachio		OFF en:pistachio-nuts
+antep	pistachio nuts		AB 1169/2011 Ek II; OFF en:pistachio-nuts
+antep	pistachios		OFF en:pistachio-nuts
+pikan	pecan		OFF en:pecan-nut
+pikan	pecans		OFF en:pecan-nut
+pikan	pecan nuts		AB 1169/2011 Ek II; OFF en:pecan-nut
+pikan	brazil nut		OFF en:brazil-nut
+pikan	brazil nuts		AB 1169/2011 Ek II; OFF en:brazil-nut
+makadamya	macadamia nuts		AB 1169/2011 Ek II
+makadamya	queensland nuts		AB 1169/2011 Ek II
+#
+# ---------- SOYA ----------
+soya	soy	en	OFF en:soya
+soya	soya bean		OFF en:soya-bean (allergens: soybeans)
+soya	soya beans		OFF en:soya-bean
+soya	soybean		OFF en:soya-bean
+soya	soybeans		AB 1169/2011 Ek II; OFF en:soya-bean
+soya	soy beans		OFF en:soya-bean
+soya	soya flour		OFF en:soya-flour
+soya	soy flour		OFF en:soya-flour
+soya	soy protein		OFF en:soy-protein (allergens: soybeans)
+soya	soy milk		OFF en:soy-milk
+soya	soy drink		OFF en:soy-milk
+soya	tofu		OFF en:tofu
+soya_izolat	soy protein isolate		OFF en:soy-protein-isolate
+soya_izolat	soya protein isolate		OFF en:soy-protein-isolate
+soya_izolat	isolated soy protein		OFF en:soy-protein-isolate
+soya_yagi	soya oil		OFF en:soya-oil
+soya_yagi	soybean oil		OFF en:soya-oil
+soya_yagi	soy oil		OFF en:soya-oil
+soya_sosu	soy sauce		OFF en:soy-sauce
+soya_sosu	soya sauce		OFF en:soy-sauce
+#
+# ---------- SÜT (Ek II: milk and products thereof, including lactose) ----------
+sut	milk		AB 1169/2011 Ek II; OFF en:milk
+sut	cow's milk		OFF en:cow-s-milk
+sut	cows milk		OFF en:cow-s-milk
+sut	cow milk		OFF en:cow-s-milk
+sut	goat milk		OFF en:goat-milk
+sut	goat's milk		OFF en:goat-milk
+sut	sheep's milk		OFF en:sheeps-milk
+sut	sheep milk		OFF en:sheeps-milk
+sut	whole milk		OFF en:whole-milk
+sut	skimmed milk		OFF en:skimmed-milk
+sut	skim milk		OFF en:skimmed-milk
+sut	nonfat milk		OFF en:skimmed-milk
+sut	semi-skimmed milk		OFF en:semi-skimmed-milk
+sut	reduced-fat milk		OFF en:semi-skimmed-milk
+sut	buttermilk		OFF en:buttermilk (< en:dairy)
+sut	butter milk		OFF en:buttermilk
+sut_tozu	milk powder		OFF en:milk-powder
+sut_tozu	powdered milk		OFF en:milk-powder
+sut_tozu	dry milk		OFF en:milk-powder
+sut_tozu	dried milk		OFF en:milk-powder (dry milk)
+sut_tozu	skimmed milk powder		OFF en:skimmed-milk-powder
+sut_tozu	dried skimmed milk		OFF en:skimmed-milk-powder (skimmed milk powder)
+sut_tozu	nonfat dry milk		OFF en:skimmed-milk-powder
+sut_tozu	whole milk powder		OFF en:whole-milk-powder
+sut_tozu	dried whole milk		OFF en:whole-milk-powder
+pas	whey		OFF en:whey (tr: peynir altı suyu)
+pas	whey powder		OFF en:whey-powder
+pas	dried whey		OFF en:whey-powder (powdered whey)
+pas	powdered whey		OFF en:whey-powder
+pas	whey permeate		OFF en:whey-permeate
+pas	milk permeate		OFF en:whey-permeate
+pas_protein	whey protein		OFF en:whey-protein
+pas_protein	whey proteins		OFF en:whey-protein
+pas_protein	milk proteins		AB 1169/2011 Ek VII B; OFF en:milk-proteins (allergens: milk)
+pas_protein	milk protein		AB 1169/2011 Ek VII B (milk proteins)
+pas_protein	milk minerals		OFF en:milk-minerals
+kazein	casein		OFF en:casein
+kazein	caseinate		OFF en:caseinate (< en:dairy)
+kazein	sodium caseinate		OFF en:sodium-caseinate
+kazein	calcium caseinate		OFF en:calcium-caseinate
+krema	cream		OFF en:cream
+krema	sour cream		OFF en:sour-cream
+krema	soured cream		OFF en:sour-cream
+krema	double cream		OFF en:double-cream
+krema	whipping cream		OFF en:whipping-cream
+tereyagi	butter		OFF en:butter
+tereyagi	butter oil		OFF en:butterfat
+tereyagi	butterfat		OFF en:butterfat
+tereyagi	anhydrous milk fat		OFF en:butterfat
+tereyagi	milk fat		OFF en:milkfat
+tereyagi	milkfat		OFF en:milkfat
+tereyagi	ghee		OFF en:ghee
+tereyagi	clarified butter		OFF en:clarified-butter
+yogurt	yogurt		OFF en:yogurt
+yogurt	yoghurt		OFF en:yogurt
+peynir	cheese		AB 1169/2011 Ek VII B; OFF en:cheese
+peynir	cheese powder		OFF en:cheese-powder
+peynir	cream cheese		OFF en:cream-cheese
+peynir	mozzarella cheese		OFF en:mozzarella
+peynir	parmesan cheese		OFF en:parmigiano-reggiano
+peynir	cheddar cheese		OFF en:cheddar
+peynir	feta		OFF en:feta (tr: beyaz peynir)
+#
+# ---------- KEREVİZ / HARDAL / SUSAM / LUPİN / SÜLFİT ----------
+kereviz	celery		AB 1169/2011 Ek II; OFF en:celery (allergens: celery)
+kereviz	celeriac		OFF en:celeriac (allergens: celery)
+kereviz	celery seed		OFF en:celery-seed
+hardal	mustard		AB 1169/2011 Ek II; OFF en:mustard
+hardal	mustard seed		OFF en:mustard-seed
+hardal	mustard seeds		OFF en:mustard-seed
+hardal	mustard powder		OFF en:mustard-powder
+hardal	mustard flour		OFF en:mustard-powder
+hardal	dijon mustard		OFF en:dijon-mustard
+susam	sesame		OFF en:sesame
+susam	sesame seeds		AB 1169/2011 Ek II; OFF en:sesame-seeds
+susam	sesame seed		AB 1169/2011 Ek II (sesame seeds)
+susam	sesame oil		OFF en:sesame-oil
+susam	tahini		OFF en:tahini
+susam	sesame paste		OFF en:tahini
+lupin	lupine		OFF en:lupin-bean
+lupin	lupin flour		OFF en:lupin-flour
+#
+# ---------- HAYVANSAL (vegan / vejetaryen) ----------
+et	meat		OFF en:meat
+et	beef		OFF en:beef
+et	beef meat		OFF en:beef-meat
+et	lamb		OFF en:lamb
+et	mutton		OFF en:mutton
+et	veal		OFF en:veal
+et	salami		OFF en:salami
+et	beef stock		OFF en:beef-broth
+et	beef broth		OFF en:beef-broth
+domuz	pork		OFF en:pork
+domuz	pork meat		OFF en:pork-meat
+domuz	pork fat		OFF en:pork-fat
+domuz	lard		OFF en:lard (< en:pork-fat)
+domuz	ham	en	OFF en:ham (< en:pork-meat)
+tavuk	chicken		OFF en:chicken
+tavuk	chicken meat		OFF en:chicken-meat
+tavuk	chicken breast		OFF en:chicken-breast
+tavuk	turkey meat		OFF en:turkey-meat
+tavuk	chicken fat		OFF en:chicken-fat
+tavuk	chicken stock		OFF en:chicken-broth
+tavuk	chicken broth		OFF en:chicken-broth
+hayvansal_yag	animal fat		OFF en:animal-fat
+kolajen	collagen		OFF en:collagen
+peynir_mayasi	animal rennet		OFF en:rennet
+ari_urunu	royal jelly		OFF en:royal-jelly
+ari_urunu	pollen		OFF en:pollen
+#
+# ---------- KAFEİN / KAKAO / ALKOL / ÜZÜM / SOĞAN ----------
+kafein	caffeine		OFF en:caffeine
+kafein	coffee		OFF en:coffee
+kafein	instant coffee		OFF en:instant-coffee
+kafein	soluble coffee		OFF en:instant-coffee
+kafein	green tea extract		OFF en:green-tea-extract
+kakao	cocoa		OFF en:cocoa
+kakao	cacao		OFF en:cocoa
+kakao	cocoa powder		OFF en:cocoa-powder
+kakao	cocoa mass		OFF en:cocoa-paste
+kakao	cocoa paste		OFF en:cocoa-paste
+kakao	chocolate liquor		OFF en:cocoa-paste
+kakao	chocolate		OFF en:chocolate
+kakao	dark chocolate		OFF en:dark-chocolate
+kakao	plain chocolate		OFF en:dark-chocolate
+n_kakao	cocoa butter		OFF en:cocoa-butter
+n_kakao	cacao butter		OFF en:cocoa-butter
+alkol	alcohol		OFF en:alcohol
+alkol	ethanol		OFF en:ethanol
+alkol	wine		OFF en:wine
+alkol	red wine		OFF en:red-wine
+alkol	white wine		OFF en:white-wine
+alkol	port wine		OFF en:port
+alkol	liqueur		OFF en:liqueur
+alkol	brandy		OFF en:brandy
+alkol	rum	en	OFF en:rum
+alkol	whisky		OFF en:whisky
+alkol	vodka		OFF en:vodka
+alkol	beer		OFF en:beer
+uzum	grape		OFF en:grape
+uzum	grapes		OFF en:grape
+uzum	raisin		OFF en:raisin
+uzum	raisins		OFF en:raisin
+uzum	sultanas		OFF en:sultana
+uzum	blackcurrant		OFF en:blackcurrant
+sogan	onion		OFF en:onion
+sogan	onions		OFF en:onion
+sogan	dried onion		OFF en:dehydrated-onion
+sogan	onion powder		OFF en:onion-powder
+sogan	garlic		OFF en:garlic
+sogan	garlic powder		OFF en:garlic-powder
+sogan	garlic puree		OFF en:garlic-puree
+sogan	leek		OFF en:leek
+sogan	shallot		OFF en:shallot
+sogan	shallots		OFF en:shallot
+sogan	chives		OFF en:chives
+sogan	spring onion		OFF en:spring-onion
+#
+# ---------- UPF İŞARETLERİ (AB 1169/2011 Ek VII C ve D adları) ----------
+aroma	flavouring		AB 1169/2011 Ek VII D; OFF en:flavouring
+aroma	flavourings		AB 1169/2011 Ek VII D; OFF en:flavouring
+aroma	flavoring		21 CFR 101.22; OFF en:flavouring
+aroma	flavorings		OFF en:flavouring
+aroma	flavour		OFF en:flavouring
+aroma	flavours		OFF en:flavouring
+aroma	flavor		21 CFR 101.22; OFF en:flavouring
+aroma	flavors		OFF en:flavouring
+aroma	natural flavouring		AB 1169/2011 Ek VII D; OFF en:natural-flavouring
+aroma	natural flavourings		OFF en:natural-flavouring
+aroma	natural flavoring		OFF en:natural-flavouring
+aroma	natural flavorings		OFF en:natural-flavouring
+aroma	natural flavour		OFF en:natural-flavouring
+aroma	natural flavours		OFF en:natural-flavouring
+aroma	natural flavor		21 CFR 101.22; OFF en:natural-flavouring
+aroma	natural flavors		OFF en:natural-flavouring
+aroma	artificial flavor		21 CFR 101.22
+aroma	artificial flavour		21 CFR 101.22 (İngiltere yazımı)
+aroma	smoke flavouring		AB 1169/2011 Ek VII D; OFF en:smoke-flavouring
+aroma	smoke flavour		OFF en:smoke-flavouring
+aroma	vanillin		OFF en:vanillin
+hidrolize_protein	yeast extract		OFF en:yeast-extract
+hidrolize_protein	autolysed yeast extract		OFF en:autolyzed-yeast-extract
+hidrolize_protein	autolyzed yeast extract		OFF en:autolyzed-yeast-extract
+hidrolize_protein	hydrolysed vegetable protein		OFF en:hydrolysed-vegetable-protein
+hidrolize_protein	hydrolyzed vegetable protein		ABD yazımı (hydrolysed vegetable protein)
+hidrojenize	hydrogenated vegetable oil		OFF en:hydrogenated-vegetable-oil
+hidrojenize	margarine		OFF en:margarine
+upf_sinif_emulgator	emulsifier		AB 1169/2011 Ek VII C
+upf_sinif_emulgator	emulsifiers		AB 1169/2011 Ek VII C
+upf_sinif_emulgator	emulsifying salts		AB 1169/2011 Ek VII C
+upf_sinif_kivam	stabiliser		AB 1169/2011 Ek VII C
+upf_sinif_kivam	stabilisers		AB 1169/2011 Ek VII C
+upf_sinif_kivam	stabilizer		ABD yazımı (stabiliser)
+upf_sinif_kivam	stabilizers		ABD yazımı (stabiliser)
+upf_sinif_kivam	thickener		AB 1169/2011 Ek VII C
+upf_sinif_kivam	thickeners		AB 1169/2011 Ek VII C
+upf_sinif_kivam	gelling agent		AB 1169/2011 Ek VII C
+upf_sinif_kivam	gelling agents		AB 1169/2011 Ek VII C
+upf_sinif_renk	colour		AB 1169/2011 Ek VII C
+upf_sinif_renk	colours		AB 1169/2011 Ek VII C
+upf_sinif_renk	color		21 CFR 101.22 (ABD yazımı)
+upf_sinif_renk	colors		21 CFR 101.22 (ABD yazımı)
+upf_sinif_renk	artificial color		21 CFR 101.22
+upf_sinif_tatlandirici	sweetener		AB 1169/2011 Ek VII C
+upf_sinif_tatlandirici	sweeteners		AB 1169/2011 Ek VII C
+upf_sinif_lezzet	flavour enhancer		AB 1169/2011 Ek VII C
+upf_sinif_lezzet	flavour enhancers		AB 1169/2011 Ek VII C
+upf_sinif_lezzet	flavor enhancer		ABD yazımı (flavour enhancer)
+upf_sinif_lezzet	flavor enhancers		ABD yazımı (flavour enhancer)
+upf_sinif_parlatici	glazing agent		AB 1169/2011 Ek VII C
+upf_sinif_parlatici	glazing agents		AB 1169/2011 Ek VII C
+upf_sinif_kopuk	anti-foaming agent		AB 1169/2011 Ek VII C
+upf_sinif_kopuk	bulking agent		AB 1169/2011 Ek VII C
+#
+# ---------- NÖTR (uyarı yok; tanınır, "Diğer içerik"te görünür; daha uzun ad kısa alerjen adını yutar: cocoa butter, coconut milk, pine nuts) ----------
+n_hindistan	coconut		OFF en:coconut
+n_hindistan	coconut oil		OFF en:coconut-oil
+n_hindistan	coconut milk		OFF en:coconut-milk
+n_hindistan	coconut cream		OFF en:coconut-cream
+n_hindistan	desiccated coconut		OFF en:desiccated-coconut
+n_hindistan	coconut flour		OFF en:coconut-flour
+n_muskat	nutmeg		OFF en:nutmeg
+n_cam_fistigi	pine nuts		OFF en:pine-nuts
+n_cam_fistigi	pine nut kernels		OFF en:pine-nuts
+n_pirinc_sutu	rice milk		OFF en:rice-milk
+n_balkabagi	butternut squash		OFF en:butternut-squash
+n_glutensiz_un	corn starch		OFF en:corn-starch
+n_glutensiz_un	cornstarch		OFF en:corn-starch
+n_glutensiz_un	maize starch		OFF en:corn-starch
+n_glutensiz_un	corn flour		OFF en:corn-flour
+n_glutensiz_un	cornflour		OFF en:corn-flour
+n_glutensiz_un	maize flour		OFF en:corn-flour
+n_glutensiz_un	rice flour		OFF en:rice-flour
+n_glutensiz_un	potato flour		OFF en:potato-flour
+n_glutensiz_un	potato starch		OFF en:potato-starch
+n_glutensiz_un	rice starch		OFF en:rice-starch
+n_glutensiz_un	chickpea flour		OFF en:chickpea-flour
+n_glutensiz_un	gram flour		OFF en:chickpea-flour
+n_glutensiz_un	tapioca		OFF en:tapioca
+n_glutensiz_un	tapioca starch		OFF en:tapioca
+n_glutensiz_un	buckwheat		OFF en:buckwheat
+n_glutensiz_un	millet		OFF en:millet
+n_glutensiz_un	quinoa		OFF en:quinoa
+n_tahil	corn		OFF en:corn
+n_tahil	maize		OFF en:corn
+n_tahil	rice		OFF en:rice
+n_nisasta	starch		AB 1169/2011 Ek VII B; OFF en:starch
+n_nisasta	food starch		OFF en:starch
+tuz	salt	en	AB 1169/2011 Ek VII; OFF en:salt
+tuz	table salt		OFF en:salt
+tuz	sea salt		OFF en:sea-salt
+tuz	himalayan salt		OFF en:himalayan-salt
+tuz	brine		OFF en:brine (tr: salamura)
+n_bulyon	bouillon		OFF en:broth
+n_bulyon	broth		OFF en:broth
+n_hamur_mayasi	yeast		OFF en:yeast (tr: maya)
+n_hamur_mayasi	baker's yeast		OFF en:baker-s-yeast
+n_su	water		OFF en:water
+n_su	drinking water		OFF en:water
+n_su	carbonated water		OFF en:carbonated-water
+n_su	sparkling water		OFF en:carbonated-water
+n_su	mineral water		OFF en:mineral-water
+n_su	spring water		OFF en:spring-water
+n_bitkisel_yag	vegetable oil		AB 1169/2011 Ek VII A (vegetable oil); OFF en:vegetable-oil
+n_bitkisel_yag	vegetable oils		OFF en:vegetable-oil
+n_bitkisel_yag	plant oils		OFF en:vegetable-oil
+n_bitkisel_yag	vegetable fat		AB 1169/2011 Ek VII A (vegetable fat); OFF en:vegetable-fat
+n_bitkisel_yag	vegetable fats		OFF en:vegetable-fat
+n_bitkisel_yag	shea		OFF en:shea-butter
+n_bitkisel_yag	shea butter		OFF en:shea-butter
+n_bitkisel_yag	shea fat		OFF en:shea-butter
+n_aycicek	sunflower oil		OFF en:sunflower-oil
+n_aycicek	sunflower seed oil		OFF en:sunflower-oil
+n_aycicek	sunflower		OFF en:sunflower
+n_kanola	rapeseed oil		OFF en:rapeseed-oil
+n_kanola	canola oil		OFF en:canola-oil
+n_kanola	rapeseed		OFF en:rapeseed
+n_kanola	oilseed rape		OFF en:rapeseed
+n_zeytinyagi	olive oil		OFF en:olive-oil
+n_zeytinyagi	extra virgin olive oil		OFF en:extra-virgin-olive-oil
+n_misir_yagi	corn oil		OFF en:corn-oil
+n_misir_yagi	maize oil		OFF en:corn-oil
+n_patates	potato		OFF en:potato
+n_patates	potatoes		OFF en:potato
+n_patates	potato flakes		OFF en:potato-flakes
+n_domates	tomato		OFF en:tomato
+n_domates	tomatoes		OFF en:tomato
+n_domates	tomato paste		OFF en:tomato-concentrate
+n_domates	tomato concentrate		OFF en:tomato-concentrate
+n_sirke	vinegar		OFF en:vinegar
+n_sirke	spirit vinegar		OFF en:spirit-vinegar
+n_sirke	cider vinegar		OFF en:cider-vinegar
+n_sirke	wine vinegar		OFF en:wine-vinegar
+n_sirke	balsamic vinegar		OFF en:balsamic-vinegar
+n_baharat	spice		AB 1169/2011 Ek VII B (spice(s)); OFF en:spice
+n_baharat	spices		AB 1169/2011 Ek VII B; OFF en:spice
+n_baharat	herb		AB 1169/2011 Ek VII B (herbs); OFF en:herb
+n_baharat	herbs		AB 1169/2011 Ek VII B
+n_baharat	mixed herbs		OFF en:herb
+n_baharat	spice extract		OFF en:spice-extract
+n_baharat	spice extracts		OFF en:spice-extract
+n_baharat	herb extract		OFF en:herb-extract
+n_baharat	herb extracts		OFF en:herb-extract
+n_baharat	pepper		OFF en:pepper
+n_baharat	black pepper		OFF en:black-pepper
+n_baharat	paprika		OFF en:paprika
+n_baharat	cinnamon		OFF en:cinnamon
+n_baharat	cumin		OFF en:cumin
+n_baharat	ginger		OFF en:ginger
+n_baharat	oregano		OFF en:oregano
+n_baharat	basil		OFF en:basil
+n_baharat	parsley		OFF en:parsley
+n_baharat	thyme		OFF en:thyme
+n_baharat	rosemary		OFF en:rosemary
+n_baharat	coriander		OFF en:coriander
+n_baharat	chilli		OFF en:chili-pepper
+n_baharat	chillies		OFF en:chili-pepper
+n_baharat	chili pepper		OFF en:chili-pepper
+n_baharat	chilli pepper		OFF en:chili-pepper
+n_meyve	fruit		OFF en:fruit
+n_meyve	strawberry		OFF en:strawberry
+n_meyve	strawberries		OFF en:strawberry
+n_meyve	raspberry		OFF en:raspberry
+n_meyve	raspberries		OFF en:raspberry
+n_meyve	apple		OFF en:apple
+n_meyve	apples		OFF en:apple
+n_meyve	banana		OFF en:banana
+n_meyve	apricot		OFF en:apricot
+n_meyve	apricots		OFF en:apricot
+n_meyve	dried apricots		OFF en:dried-apricots
+n_meyve	cranberry		OFF en:cranberry
+n_meyve	cranberries		OFF en:cranberry
+n_meyve	lemon juice		OFF en:lemon-juice
+n_meyve	orange juice		OFF en:orange-juice
+n_sebze	vegetable		OFF en:vegetable
+n_sebze	vegetables		OFF en:vegetable
+n_sebze	carrot		OFF en:carrot
+n_sebze	pumpkin		OFF en:pumpkin
+n_sebze	spinach		OFF en:spinach
+n_sebze	peas		OFF en:pea
+n_sebze	lentils		OFF en:lentils
+n_sebze	chickpeas		OFF en:chickpea
+n_sebze	beans		OFF en:beans
+n_vitamin	vitamins		OFF vitamins.txt en:vitamins
+n_vitamin	vitamin a		OFF vitamins.txt en:vitamin-a
+n_vitamin	vitamin d		OFF vitamins.txt en:vitamin-d
+n_vitamin	vitamin d3		OFF vitamins.txt en:cholecalciferol
+n_vitamin	thiamin		OFF vitamins.txt en:thiamin
+n_vitamin	thiamine		OFF vitamins.txt en:thiamin
+n_vitamin	niacin		OFF vitamins.txt en:niacin
+n_vitamin	vitamin b6		OFF vitamins.txt en:vitamin-b6
+n_vitamin	folic acid		OFF vitamins.txt en:folic-acid
+n_vitamin	vitamin b12		OFF vitamins.txt en:vitamin-b12
+n_vitamin	iron		OFF minerals.txt en:iron
+n_vitamin	zinc		OFF minerals.txt en:zinc
+n_vitamin	thiamin mononitrate		OFF vitamins.txt en:thiamin-mononitrate
+n_vitamin	thiamine mononitrate		OFF vitamins.txt en:thiamin-mononitrate
+n_vitamin	niacinamide		OFF vitamins.txt en:nicotinamide
+n_vitamin	nicotinamide		OFF vitamins.txt en:nicotinamide
+n_vitamin	pyridoxine		OFF vitamins.txt en:pyridoxine
+n_vitamin	pyridoxine hydrochloride		OFF vitamins.txt en:pyridoxine-hydrochloride
+n_vitamin	calcium pantothenate		OFF vitamins.txt en:calcium-pantothenate
+n_vitamin	calcium d-pantothenate		OFF vitamins.txt en:calcium-d-pantothenate
+n_vitamin	pantothenic acid		OFF vitamins.txt en:pantothenic-acid
+n_vitamin	cyanocobalamin		OFF vitamins.txt en:cyanocobalamin
+n_vitamin	retinyl palmitate		OFF vitamins.txt en:retinyl-palmitate
+n_vitamin	vitamin a acetate		OFF vitamins.txt en:retinyl-acetate
+n_vitamin	reduced iron		OFF minerals.txt en:iron (elemental iron)
+n_vitamin	taurine		OFF other_nutritional_substances.txt en:taurine
+invert	inverted sugar		OFF en:invert-sugar
+invert	golden syrup		OFF en:golden-syrup (< en:invert-sugar-syrup)
+invert	partially inverted refiners syrup		OFF en:golden-syrup
+invert	inverted syrup		OFF en:invert-sugar-syrup
+maltodekstrin	maltodextrine		OFF en:maltodextrin
+#
+# ---------- ALERJEN TARAMASI (08.10.2026): OFF adları analyze()'dan geçirildi; yanlış alerjeni önleyen uzun adlar ve kaçan yaygın adlar ----------
+# Yanlış süt/gluten/yumuşakça uyarısını önleyen uzun adlar (daha uzun ad kısa alerjen adını yutar)
+badem	almond butter		OFF en:almond-butter
+kaju	cashew butter		OFF en:cashew-nut-paste
+kaju	cashew nut butter		OFF en:cashew-nut-paste
+kaju	cashew nut paste		OFF en:cashew-nut-paste
+findik	hazelnut butter		OFF en:hazelnut-paste
+findik	hazelnut paste		OFF en:hazelnut-paste
+makadamya	macadamia butter		OFF en:macadamia-nut-butter
+makadamya	macadamia nut butter		OFF en:macadamia-nut-butter
+susam	sesame butter		OFF en:tahini
+susam	sesame seed butter		OFF en:tahini
+n_hindistan	coconut butter		OFF en:coconut-butter
+n_hindistan	creamed coconut		OFF en:coconut-butter
+n_sebze	butter bean		OFF en:lima-bean
+n_sebze	butter beans		OFF en:lima-bean (lima beans)
+n_sebze	lima beans		OFF en:lima-bean
+n_sebze	oyster mushroom		OFF en:oyster-mushroom
+n_sebze	tigernut milk		OFF en:tigernut-milk
+n_pirinc_sutu	rice cream		OFF en:rice-cream
+n_glutensiz_un	corn semolina		OFF en:cornmeal
+n_glutensiz_un	cornmeal		OFF en:cornmeal
+n_glutensiz_un	corn meal		OFF en:cornmeal
+n_glutensiz_un	corn grits		OFF en:cornmeal
+n_glutensiz_un	rice semolina		OFF en:rice-semolina
+# Kaçan yaygın alerjen adları
+sut	dairy		OFF en:dairy (allergens: milk)
+sut	dairy products		OFF en:dairy
+sut	milk products		OFF en:dairy
+sut	evaporated milk		OFF en:evaporated-milk
+sut	dulce de leche		OFF en:dulce-de-leche (tr: süt reçeli)
+krema	crème fraîche		OFF en:cr-me-fra-che
+yogurt	skyr		OFF en:skyr
+peynir	mascarpone		OFF en:mascarpone
+peynir	ricotta		OFF en:ricotta
+peynir	quark		OFF en:quark
+peynir	paneer		OFF en:paneer
+peynir	halloumi		OFF en:halloumi
+peynir	brie		OFF en:brie
+peynir	camembert		OFF en:camembert
+peynir	emmental		OFF en:emmental
+peynir	gouda		OFF en:gouda
+peynir	edam		OFF en:edam
+peynir	gruyère		OFF en:gruy-re
+peynir	pecorino		OFF en:pecorino
+peynir	roquefort		OFF en:roquefort
+peynir	stilton		OFF en:stilton
+peynir	provolone		OFF en:provolone
+peynir	gorgonzola		OFF en:gorgonzola
+peynir	cottage cheese		OFF en:cottage-cheese
+balik	herring		OFF en:herring
+balik	haddock		OFF en:haddock
+balik	hake		OFF en:hake
+balik	pollock		OFF en:saithe
+balik	alaska pollock		OFF en:alaska-pollock
+balik	tilapia		OFF en:tilapia
+balik	trout		OFF en:trout
+balik	plaice		OFF en:european-plaice
+balik	seabream		OFF en:seabream
+balik	swordfish		OFF en:swordfish
+balik	whiting		OFF en:whiting
+balik	sprat		OFF en:european-sprat
+balik	roe		OFF en:roe
+balik	tuna eggs		OFF en:tuna-egg (< en:fish ağacı; yumurta değil)
+balik	surimi		OFF en:surimi
+balik	pangasius		OFF en:pangas
+balik	monkfish		OFF en:monkfish
+yumusakca	cockles		OFF en:cockles
+yumusakca	abalone		OFF en:abalone
+bugday	wheat flakes		OFF en:wheat-flakes
+bugday	graham flour		OFF en:graham-flour
+lupin	lupini beans		OFF en:lupin-bean
+findik	filbert		OFF en:hazelnut
+findik	filberts		OFF en:hazelnut

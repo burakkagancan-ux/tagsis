@@ -195,6 +195,29 @@ def apply_verify(rec, review):
     return True if v.get("partial") else False
 
 
+# İngilizce eş anlamlılar (08.10.2026, B-08): kaynak/ingilizce_esanlamlilar.tsv. hedef<TAB>ad<TAB>koşul<TAB>kaynak.
+# E kodu satırları "aliases_en" alanına (koşul "en" ise "en_only"; hedef virgülle birden çok kod olabilir); bileşen satırlarını gen_bilesenler.py okur.
+EN_TSV = os.path.join(HERE, "kaynak", "ingilizce_esanlamlilar.tsv")
+
+
+def load_en(path=EN_TSV):
+    out = {}
+    with open(path, encoding="utf-8") as f:
+        for n, line in enumerate(f, 1):
+            line = line.rstrip("\n")
+            if not line.strip() or line.startswith("#"):
+                continue
+            p = line.split("\t")
+            assert len(p) == 4 and p[0] and p[1] and p[3], ("ingilizce_esanlamlilar.tsv satır %d: 4 sütun, ad ve kaynak dolu olmalı" % n, line)
+            assert p[2] in ("", "en"), ("ingilizce_esanlamlilar.tsv satır %d: koşul boş ya da 'en'" % n, line)
+            for h in p[0].split(","):          # birden çok E kodu: "E1404,E1410"
+                out.setdefault(h, []).append((p[1], p[2]))
+    return out
+
+
+EN = load_en()
+
+
 def code_aliases(eid):
     c = eid[1:].lower()
     a = ["e" + c, "e-" + c, "e " + c, "ins " + c, "ins" + c]
@@ -243,6 +266,12 @@ def build():
             rec["tgk_note"] = TGK_NOTES.get(eid, TGK_MISSING)
         if ctx:
             rec["context_aliases"] = CONTEXT[ctx]
+        var = set(a.lower() for a in rec["aliases"])
+        for a, k in EN.get(eid, []):
+            if a.lower() in var:
+                continue
+            var.add(a.lower())
+            rec.setdefault("en_only" if k == "en" else "aliases_en", []).append(a)
         if eid in ADI:
             rec["adi"] = ADI[eid]
         assert eid in URETIM, ("e_uretim.tsv: eksik kod", eid)
@@ -252,6 +281,8 @@ def build():
         assert eid in seen, ("e_adi.tsv: bilinmeyen kod", eid)
     for eid in URETIM:
         assert eid in seen, ("e_uretim.tsv: bilinmeyen kod", eid)
+    for eid in EN:
+        assert eid in seen or not re.match(r"^E\d", eid), ("ingilizce_esanlamlilar.tsv: bilinmeyen kod", eid)
     meta = dict(META)
     cnt = {"total": len(items)}
     for lv in ("green", "red", "yellow", "unrated"):

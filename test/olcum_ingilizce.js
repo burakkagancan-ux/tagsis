@@ -1,31 +1,48 @@
-// Ölçüm (CI'da değil): İngilizce gıda etiketlerinde içerik ve alerjen tanıma. Çalıştır: node test/olcum_ingilizce.js
-// 10 gerçekçi etiket (İngiltere/AB yazımı). Her etikette: içerik listesi parçalarından kaçı tanındı (parçanın içinde en az bir madde eşleşti),
-// beklenen alerjenlerden kaçı bulundu, E kodu ve katkı adları. Tanınmayan parçalar listelenir (eş anlamlı eklemek ayrı iş).
+// Ölçüm: İngilizce gıda etiketlerinde içerik, alerjen ve E kodu tanıma; yanlış uyarı sayısı. Çalıştır: node test/olcum_ingilizce.js
+// Set: test/veri/ingilizce_etiketler.json (30 etiket: 10 İngiltere/AB, 10 ABD, 10 zor durum). CI'daki eşik denetimi test/ingilizce.js'te (aynı olc() işlevi).
+// İçerik parçası: içerik listesinin ayraç dışındaki virgülle ayrılmış öğesi; içinde en az bir madde eşleştiyse tanınmış sayılır.
+// Yanlış uyarı: beklenmeyen alerjen (içerir ya da içerebilir) ve beklenmeyen dikkat/uyarı seviyeli E kodu; beklenen kod beklenenden yüksek seviyeyle de sayılır.
 eval(require('./yukle.js')+';global.G={analyze,summarize,buildIndex,normText,cmpSegments}');
 const {idx}=require('./run.js');
-const E=[
- {ad:'Çikolatalı bisküvi',al:['allergen_gluten','allergen_milk','allergen_soy'],m:'Ingredients: Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin), Milk Chocolate (30%) (Sugar, Cocoa Butter, Cocoa Mass, Dried Skimmed Milk, Dried Whey (Milk), Butter Oil (Milk), Vegetable Fat (Palm, Shea), Emulsifiers (Soya Lecithin, E476), Natural Vanilla Flavouring), Vegetable Oil (Palm), Wholemeal Wheat Flour, Sugar, Glucose-Fructose Syrup, Raising Agents (Sodium Bicarbonate, Malic Acid, Ammonium Bicarbonate), Salt.'},
- {ad:'Kola',al:[],m:'Ingredients: Carbonated Water, Sugar, Colour (Caramel E150d), Phosphoric Acid, Natural Flavourings including Caffeine.'},
- {ad:'Şekersiz içecek',al:[],m:'Ingredients: Carbonated Water, Citric Acid, Natural Flavourings, Acidity Regulator (Sodium Citrate), Sweeteners (Aspartame, Acesulfame K), Preservative (Potassium Sorbate). Contains a source of Phenylalanine.'},
- {ad:'Peynirli cips',al:['allergen_milk'],m:'Ingredients: Potatoes, Sunflower Oil (31%), Cheese & Onion Seasoning (Whey Permeate (from Milk), Dried Onion, Salt, Cheese Powder (from Milk), Dried Yeast, Dextrose, Potassium Chloride, Flavouring, Colours (Annatto Norbixin, Paprika Extract), Garlic Powder, Acid (Citric Acid), Flavour Enhancer (Monosodium Glutamate)).'},
- {ad:'Ekmek',al:['allergen_gluten','allergen_soy'],m:'Ingredients: Wheat Flour, Water, Yeast, Salt, Soya Flour, Preservative (Calcium Propionate), Emulsifiers (E471, E472e), Vegetable Oil (Rapeseed), Flour Treatment Agent (Ascorbic Acid).'},
- {ad:'Jelibon',al:[],m:'Ingredients: Glucose Syrup, Sugar, Gelatine (Pork), Dextrose, Citric Acid, Flavourings, Fruit Juice Concentrates (Apple, Strawberry), Colours (E129, E133, E102), Glazing Agent (Carnauba Wax), Coconut Oil.'},
- {ad:'Meyveli yoğurt',al:['allergen_milk'],m:'Ingredients: Yogurt (Milk), Sugar, Strawberries (8%), Modified Maize Starch, Concentrated Lemon Juice, Stabiliser (Pectins), Flavouring, Colour (Carmine).'},
- {ad:'Jambon',al:[],m:'Ingredients: Pork (87%), Water, Salt, Dextrose, Stabilisers (Triphosphates), Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).'},
- {ad:'Ketçap',al:['allergen_celery'],m:'Ingredients: Tomatoes, Spirit Vinegar, Sugar, Salt, Spice and Herb Extracts (contain Celery), Spice.'},
- {ad:'Margarin',al:['allergen_milk'],m:'Ingredients: Vegetable Oils (Palm, Rapeseed, Sunflower) (59%), Water, Buttermilk (Milk), Salt (1.2%), Emulsifier (Mono- and Diglycerides of Fatty Acids), Preservative (Potassium Sorbate), Acid (Lactic Acid), Natural Flavouring, Vitamins A and D, Colour (Carotenes).'},
-];
-let tp=0,tt=0,ap=0,at=0;const kayip={};
-for(const e of E){
-  const res=G.analyze(e.m,idx),S=G.summarize(res,idx),tok=G.normText(e.m).split(' ').filter(Boolean),seg=G.cmpSegments(tok);
-  const hit=seg.filter(s=>res.some(r=>r.pos>=s[0]&&r.pos<s[1]));
-  const miss=seg.filter(s=>!hit.includes(s)).map(s=>tok.slice(s[0],s[1]).filter(w=>w!=='|'&&w!=='('&&w!==')').join(' '));
-  const al=e.al.filter(f=>S.allergen[f]&&(S.allergen[f].yes.length||S.allergen[f].may.length));
-  tp+=hit.length;tt+=seg.length;ap+=al.length;at+=e.al.length;
-  miss.forEach(m=>kayip[m]=(kayip[m]||0)+1);
-  const bul=[...new Set(res.filter(r=>!r.neg).map(r=>r.ids.join('/')))];
-  console.log(`${e.ad}: ${hit.length}/${seg.length} parça tanındı; alerjen ${al.length}/${e.al.length}${e.al.length>al.length?' (eksik: '+e.al.filter(f=>!al.includes(f)).join(', ')+')':''}`);
-  console.log('  bulunan: '+bul.join(', '));
+const SET=require(process.argv[2]&&require.main===module?require('path').resolve(process.argv[2]):'./veri/ingilizce_etiketler.json').etiketler;   // başka set: node test/olcum_ingilizce.js test/veri/ingilizce_kor.json
+function olc(etiketler){
+  const o={parca:[0,0],alerjen:[0,0],alerjenTur:[0,0],kod:[0,0],yanlis:[],kayipParca:{},etiket:[]};
+  for(const e of etiketler||SET){
+    const res=G.analyze(e.m,idx),S=G.summarize(res,idx),tok=G.normText(e.m).split(' ').filter(Boolean),seg=G.cmpSegments(tok);
+    const pos=[].concat(...res.map(r=>r.poslar||[r.pos]));
+    const hit=seg.filter(s=>pos.some(p=>p>=s[0]&&p<s[1]));
+    const miss=seg.filter(s=>!hit.includes(s)).map(s=>tok.slice(s[0],s[1]).filter(w=>w!=='|'&&w!=='('&&w!==')').join(' '));
+    miss.forEach(m=>o.kayipParca[m]=(o.kayipParca[m]||0)+1);
+    o.parca[0]+=hit.length;o.parca[1]+=seg.length;
+    const bul={};for(const k of Object.keys(S.allergen)){const a=S.allergen[k];if(a.yes.length||a.may.length)bul[k.replace('allergen_','')]=a.yes.length?'yes':'may'}
+    const al=Object.keys(e.al),alBul=al.filter(k=>bul[k]),alTur=al.filter(k=>bul[k]===e.al[k]);
+    o.alerjen[0]+=alBul.length;o.alerjen[1]+=al.length;o.alerjenTur[0]+=alTur.length;o.alerjenTur[1]+=al.length;
+    const yan=[];
+    for(const k of Object.keys(bul))if(!e.al[k])yan.push('alerjen '+k+' ('+bul[k]+')');
+    const E=res.filter(r=>!r.isB&&!r.neg),kod={};E.forEach(r=>{const k=r.ids.join('/');kod[k]=Math.max(kod[k]===undefined?-1:kod[k],r.rank)});
+    const bek=Object.keys(e.e),kodBul=bek.filter(k=>kod[k]!==undefined);
+    o.kod[0]+=kodBul.length;o.kod[1]+=bek.length;
+    for(const k of Object.keys(kod)){
+      if(e.e[k]===undefined){if(kod[k]>=2)yan.push(k+' seviye '+kod[k]+' (beklenmiyordu)')}
+      else if(kod[k]>e.e[k])yan.push(k+' seviye '+kod[k]+' (beklenen '+e.e[k]+')');
+    }
+    yan.forEach(y=>o.yanlis.push(e.ad+': '+y));
+    o.etiket.push({ad:e.ad,grup:e.grup,parca:[hit.length,seg.length],miss,alEksik:al.filter(k=>!bul[k]),alTur:al.filter(k=>bul[k]&&bul[k]!==e.al[k]).map(k=>k+' '+bul[k]+'≠'+e.al[k]),
+      kodEksik:bek.filter(k=>kod[k]===undefined),kodFazla:Object.keys(kod).filter(k=>e.e[k]===undefined),yan,res});
+  }
+  o.oran={parca:o.parca[0]/o.parca[1],alerjen:o.alerjen[1]?o.alerjen[0]/o.alerjen[1]:1,kod:o.kod[1]?o.kod[0]/o.kod[1]:1};
+  return o;
 }
-console.log(`\nToplam: ${tp}/${tt} parça (%${Math.round(tp/tt*100)}), alerjen ${ap}/${at} (%${Math.round(ap/at*100)})`);
-console.log('Tanınmayan parçalar: '+Object.keys(kayip).sort().join(' | '));
+module.exports={olc,SET};
+if(require.main===module){
+  const o=olc(),y=x=>'%'+Math.round(x*100);
+  for(const e of o.etiket){
+    console.log(`[${e.grup}] ${e.ad}: parça ${e.parca[0]}/${e.parca[1]}`+(e.alEksik.length?'; eksik alerjen: '+e.alEksik.join(', '):'')+(e.alTur.length?'; alerjen türü: '+e.alTur.join(', '):'')+
+      (e.kodEksik.length?'; eksik kod: '+e.kodEksik.join(', '):'')+(e.kodFazla.length?'; beklenmeyen kod: '+e.kodFazla.join(', '):'')+(e.yan.length?'; YANLIŞ UYARI: '+e.yan.join(', '):''));
+    console.log('  bulunan: '+[...new Set(e.res.map(r=>r.ids.join('/')+(r.neg?'~olumsuz':'')+(r.may?'~içerebilir':'')+(r.how==='benzer'?'~benzer':'')))].join(', '));
+  }
+  for(const g of [...new Set(SET.map(e=>e.grup))]){const s=olc(SET.filter(e=>e.grup===g));console.log(`${g}: parça ${y(s.oran.parca)}, alerjen ${y(s.oran.alerjen)}, E kodu ${y(s.oran.kod)}, yanlış uyarı ${s.yanlis.length}`)}
+  console.log(`\nToplam (${SET.length} etiket): parça ${o.parca[0]}/${o.parca[1]} (${y(o.oran.parca)}), alerjen ${o.alerjen[0]}/${o.alerjen[1]} (${y(o.oran.alerjen)}; türü doğru ${o.alerjenTur[0]}), E kodu ${o.kod[0]}/${o.kod[1]} (${y(o.oran.kod)}), yanlış uyarı ${o.yanlis.length}`);
+  if(o.yanlis.length)console.log('Yanlış uyarılar: '+o.yanlis.join(' | '));
+  console.log('Tanınmayan parçalar: '+Object.keys(o.kayipParca).sort().join(' | '));
+}

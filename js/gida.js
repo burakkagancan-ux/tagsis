@@ -1,30 +1,44 @@
 /* Gıda: E kodu ve bileşen dizini, içerik listesi analizi, özet, marka eşleşmesi. Saf mantık; testler de yükler. */
 /* db: e_kodlari.json; bdb: bilesenler.json (isteğe bağlı). Bileşen kimlikleri "B:" ile başlar. */
 function capFirst(s){return s&&s.length?s[0].toLocaleUpperCase('tr')+s.slice(1).toLocaleLowerCase('tr'):s}
+/* ABD ve İngiltere yazımı (B-08): ad ve metin sözcükleri tek biçime (İngiltere, AB resmi metni) indirilir. Yalnızca Türkçede karşılığı olmayan İngilizce sözcükler
+   (sulfur, yogurt, fiber, gelatin Türkçe sülfür/yoğurt/fiber/jelatin ile çakıştığı için listede yok; iki yazım da veride eş anlamlı). */
+var ABD_YAZIM={};("aluminum:aluminium color:colour colors:colours colored:coloured coloring:colouring colorings:colourings flavor:flavour flavors:flavours flavored:flavoured "+
+  "flavoring:flavouring flavorings:flavourings sulfate:sulphate sulfates:sulphates sulfite:sulphite sulfites:sulphites sulfide:sulphide bisulfite:bisulphite "+
+  "metabisulfite:metabisulphite stabilizer:stabiliser stabilizers:stabilisers stabilized:stabilised caramelized:caramelised pasteurized:pasteurised "+
+  "homogenized:homogenised hydrolyzed:hydrolysed autolyzed:autolysed oxidized:oxidised").split(" ").forEach(function(x){x=x.split(":");ABD_YAZIM[x[0]]=x[1]});
+function abYazim(s){return s.indexOf(" ")<0?(ABD_YAZIM[s]||s):s.split(" ").map(function(w){return ABD_YAZIM[w]||w}).join(" ")}
 function buildIndex(db,bdb){
-  var exact=new Map(),nos=new Map(),byK={},ks={1:1,2:1,3:1,4:1},byId={},ctx={};
+  var exact=new Map(),nos=new Map(),byK={},ks={1:1,2:1,3:1,4:1},byId={},ctx={},exactEn=new Map(),trKey={},voc={};
   function add(m,k,id){if(!m.has(k))m.set(k,new Set());m.get(k).add(id)}
+  function ekle(m,a,it,tr){   // tr: Türkçe/genel eş anlamlı (benzer yazımla da aranır); İngilizce ad (aliases_en, en_only) yalnızca birebir
+    if(!it.bil&&/^(e[-\s]?\d|ins\s?\d)/.test(a))return;
+    var n=abYazim(norm(a));if(!n||(n.length<3&&!it.short_ok))return;
+    if(it.bil&&m.has(n)&&Array.from(m.get(n)).some(function(x){return x.indexOf("B:")!==0}))return;   // E kodu adıyla aynı (ABD yazımı tek biçime inince): bileşen eklenmez, gen_bilesenler.py kuralı
+    add(m,n,it.id);if(tr)trKey[n]=1;
+    n.split(" ").forEach(function(w){voc[w]=1});
+    if(m===exact&&n.indexOf(" ")>-1&&n.length>=8)add(nos,n.replace(/ /g,""),it.id);
+  }
   var list=db.ingredients.slice();
-  if(bdb)bdb.items.forEach(function(b){list.push({id:"B:"+b.id,bil:b,aliases:b.aliases,short_ok:b.short_ok})});
+  if(bdb)bdb.items.forEach(function(b){list.push({id:"B:"+b.id,bil:b,aliases:b.aliases,aliases_en:b.aliases_en,en_only:b.en_only,short_ok:b.short_ok})});
   list.forEach(function(it){
     byId[it.id]=it.bil?it.bil:it;
     if(it.bil)byId[it.id].isB=true;
-    it.aliases.forEach(function(a){
-      if(!it.bil&&/^(e[-\s]?\d|ins\s?\d)/.test(a))return;
-      var n=norm(a);if(!n||(n.length<3&&!it.short_ok))return;
-      add(exact,n,it.id);
-      if(n.indexOf(" ")>-1&&n.length>=8)add(nos,n.replace(/ /g,""),it.id);
-    });
+    it.aliases.forEach(function(a){ekle(exact,a,it,true)});
+    (it.aliases_en||[]).forEach(function(a){ekle(exact,a,it,false)});
+    (it.en_only||[]).forEach(function(a){ekle(exactEn,a,it,false)});
     (it.context_aliases||[]).forEach(function(c){
       var k=norm(c.alias);(ctx[k]=ctx[k]||{req:c.requires_any.map(norm),ids:[]}).ids.push(it.id);
     });
   });
-  var short1=[];   // kısa tek sözcüklü bileşen adları (alerjen, şeker vb.; E kodu adları hariç: "niasin" -> nisin olmasın). Yalnızca tek adayla benzer yazım ("svt" değil, "susarn" -> susam)
-  exact.forEach(function(ids,n){var k=n.split(" ").length;ks[k]=1;if(n.length>=8){(byK[k]=byK[k]||[]).push({n:n,ids:Array.from(ids)})}
-    if(k===1&&n.length>=4&&n.length<=8&&!/\d/.test(n))short1.push({n:n,ids:Array.from(ids)})});
+  var short1=[];   // kısa tek sözcüklü bileşen adları (alerjen, şeker vb.; E kodu adları hariç: "niasin" -> nisin olmasın). Yalnızca tek adayla benzer yazım ("svt" değil, "susarn" -> susam). İngilizce adlar girmez.
+  function grup(ids,n){var k=n.split(" ").length;ks[k]=1;if(n.length>=8){(byK[k]=byK[k]||[]).push({n:n,ids:Array.from(ids)})}return k}
+  exact.forEach(function(ids,n){var k=grup(ids,n);
+    if(k===1&&trKey[n]&&n.length>=4&&n.length<=8&&!/\d/.test(n))short1.push({n:n,ids:Array.from(ids)})});
+  exactEn.forEach(function(ids,n){ks[n.split(" ").length]=1});
   var m=(bdb&&bdb.meta)||{};
-  return {exact:exact,nos:nos,byK:byK,short1:short1,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx,
-    bmeta:m,may:(m.may_triggers||[]),neg:(m.negations||[]),aromaNext:(m.aroma_next||[])};
+  return {exact:exact,nos:nos,exactEn:exactEn,voc:voc,byK:byK,short1:short1,ks:Object.keys(ks).map(Number),byId:byId,ctx:ctx,
+    bmeta:m,may:(m.may_triggers||[]),mayFwd:(m.may_forward||[]),neg:(m.negations||[]),negPre:(m.neg_prefix||[]),aromaNext:(m.aroma_next||[])};
 }
 function codeId(cand,idx){
   var list=[cand];ROMAN.forEach(function(r){if(cand.length-r.length>=4&&cand.slice(-r.length)===r)list.push(cand.slice(0,-r.length))});
@@ -54,39 +68,99 @@ function findCodes(tok,idx){
   return out;
 }
 var OCRDF={"0":"o","1":"l","5":"s","8":"b","6":"g"};
-function ocrFixF(w){
+function ocrFixF(w,voc){   // voc verilirse sözlükte zaten olan (gerçek) sözcük değiştirilmez: "corn" -> "com" olmaz
   return w.split(" ").map(function(x){
+    if(voc&&voc[x])return x;
     if(x.indexOf("rn")>-1&&x.indexOf("karnauba")<0)x=x.replace(/rn/g,"m");
     if(/\d/.test(x)&&(x.match(/[a-z]/g)||[]).length>=3)x=x.replace(/\d+(?=[a-z])/g,function(ds){return ds.replace(/\d/g,function(d){return OCRDF[d]||d})});
     return x;
   }).join(" ");
 }
-function findNames(tok,idx){
-  var out=[],i;
+/* İngilizce tekil/çoğul: son sözcüğün biçimleri ("sodium citrate" <-> "sodium citrates", "tomatoes" -> "tomato"). Yalnızca İngilizce metinde, birebir aramada. */
+function enCogul(w){
+  var p=w.split(" "),l=p[p.length-1],v=[],b=p.slice(0,-1);
+  if(l.length<4||/\d/.test(l))return v;
+  if(/ies$/.test(l))v.push(l.slice(0,-3)+"y");
+  if(/(ch|sh|x|o|ss)es$/.test(l))v.push(l.slice(0,-2));
+  if(/[^s]s$/.test(l))v.push(l.slice(0,-1));
+  else{v.push(l+"s");if(/(ch|sh|x|o|ss)$/.test(l))v.push(l+"es");if(/[^aeiou]y$/.test(l))v.push(l.slice(0,-1)+"ies")}
+  return v.map(function(x){return b.concat(x).join(" ")});
+}
+function cogulCift(a,b){return a+"s"===b||b+"s"===a||a+"es"===b||b+"es"===a}
+/* Yalnızca son ek farkı (aynı kök + farklı İngilizce ek): biçim ya da kimyasal ad farkıdır, yazım hatası değil.
+   sweeten-ed/-er, nitr-ate/-ite, cellul-ase/-ose, chlor-ide/-ate, ferr-ic/-ous, invert/invert-ed. Sondaki tek harf eksiği/fazlası (OCR) bu kurala girmez. */
+var SONEK=["ed","er","ing","ate","ite","ide","ase","ose","ic","ous"];
+function sonEkFarki(a,b){
+  var ek=[""].concat(SONEK);
+  for(var i=0;i<ek.length;i++){var s1=ek[i];if(a.length-s1.length<3||a.slice(a.length-s1.length)!==s1)continue;
+    var kok=a.slice(0,a.length-s1.length);if(b.indexOf(kok)!==0)continue;
+    var s2=b.slice(kok.length);if(s2!==s1&&(s2===""||SONEK.indexOf(s2)>-1)&&(s1!==""||s2!==""))return true}
+  return false;
+}
+function tekHarfKisa(a,b){return b.length===a.length+1&&b.indexOf(a)===0}   // "soy" -> "soya", "yag" -> "yagi": sondaki harf okunmamış
+/* İngilizce görünen metin: "ingredients", "contains", "allergens" sözcükleri ya da İngilizce bağlaçların Türkçelerden belirgin fazla olması */
+var EN_KESIN={ingredients:1,ingredient:1,contains:1,allergens:1,allergy:1};
+var EN_SOZ={and:1,of:1,with:1,from:1,contains:1,contain:1,may:1,including:1,the:1,"for":1,or:1};
+var TR_SOZ={ve:1,ile:1,icindekiler:1,icerir:1,icerebilir:1,bilesenler:1,veya:1,icin:1,bu:1,urun:1};
+function enBaslik(w){return w.length>=10&&w.length<=12&&(w[0]==="i"||w[0]==="l")&&lev(w,"ingredients",2)<=2}   // OCR'lı başlık: "lngredlents"
+function enMetin(tok){
+  var e=0,r=0;
+  for(var i=0;i<tok.length;i++){var w=tok[i];if(EN_KESIN[w]||enBaslik(w))return true;if(EN_SOZ[w])e++;else if(TR_SOZ[w])r++}
+  return e>=2&&e>2*r;
+}
+function riskOf(ids,idx){var r=-1;ids.forEach(function(id){var it=idx.byId[id];if(!it.isB)r=Math.max(r,RANK[it.risk_level])});return r}
+/* Benzer yazım (08.10.2026'ya kadar ilk aday alınırdı; "sodium citrate" -> E250 sodium nitrite). Kurallar (B-08, 08.10.2026):
+   1) Metindeki sözcük sözlükte gerçek bir sözcükse (başka bir maddenin adında geçiyorsa) değiştirilmez; yalnızca İngilizce tekil/çoğul farkı ve
+      (Türkçe metinde) sondaki tek harf eksiği serbest ("soy sütü" -> soya sütü, "yağ" -> yağı).
+   2) Her sözcükte en çok 1 harf farkı (10 harf ve üstü sözcükte 2); fark yalnızca son ekteyse (sonEkFarki) eşleşme yok.
+   3) En yakın aday alınır; aynı uzaklıkta farklı madde varsa eşleşme yok (belirsiz).
+   4) Benzer yazım risk yükseltemez: daha düşük riskli farklı bir aday bir harf daha uzaktaysa bile eşleşme yok. */
+function benzerAday(w,list,tol,idx,en){
+  var ws=w.split(" "),best=null,bd=tol+1,amb=false,adaylar=[];
+  for(var q=0;q<list.length;q++){
+    var c=list[q];if(c.n[0]!==w[0]||Math.abs(c.n.length-w.length)>tol)continue;
+    var d=lev(w,c.n,tol);if(!(d>0&&d<=tol))continue;
+    var cs=c.n.split(" "),ok=cs.length===ws.length;
+    for(var j=0;ok&&j<ws.length;j++){
+      if(ws[j]===cs[j]||cogulCift(ws[j],cs[j]))continue;
+      if((idx.voc[ws[j]]&&!(!en&&tekHarfKisa(ws[j],cs[j])))||sonEkFarki(ws[j],cs[j])){ok=false;break}
+      var cap=ws[j].length>=10?2:1;if(lev(ws[j],cs[j],cap)>cap)ok=false;
+    }
+    if(!ok)continue;
+    adaylar.push({c:c,d:d});
+    if(d<bd){bd=d;best=c;amb=false}else if(d===bd&&best.ids.join()!==c.ids.join())amb=true;
+  }
+  if(!best||amb)return null;
+  var r=riskOf(best.ids,idx);
+  for(q=0;q<adaylar.length;q++){var a=adaylar[q];if(a.d<=bd+1&&a.c.ids.join()!==best.ids.join()&&riskOf(a.c.ids,idx)<r)return null}
+  return best;
+}
+function findNames(tok0,idx,en){
+  var out=[],i,voc=idx.voc||{},tok=en?tok0.map(abYazim):tok0;   // ABD yazımı yalnızca İngilizce metinde tek biçime iner
+  function ex(k){return idx.exact.get(k)||(en&&idx.exactEn&&idx.exactEn.get(k))}
   idx.ks.forEach(function(k){
     for(i=0;i+k<=tok.length;i++){
       var part=tok.slice(i,i+k);if(hasSep(part))continue;
-      var w=part.join(" "),hit=idx.exact.get(w);
+      var w=part.join(" "),ow=tok0.slice(i,i+k).join(" "),hit=ex(w);
       if(!hit&&k<=4)hit=idx.nos.get(part.join(""));
-      if(hit){out.push({a:i,b:i+k,ids:Array.from(hit),how:"isim",text:w});continue}
-      var fx=ocrFixF(w);   // sık OCR karışmaları: "rn"->"m", harf arasındaki rakam ("5itrik", "fınd1k")
-      if(fx!==w&&(hit=idx.exact.get(fx))){out.push({a:i,b:i+k,ids:Array.from(hit),how:"benzer",text:w,alias:fx});continue}
+      if(hit){out.push({a:i,b:i+k,ids:Array.from(hit),how:"isim",text:ow});continue}
+      if(en){var cv=enCogul(w),q1;for(q1=0;q1<cv.length&&!hit;q1++)hit=ex(cv[q1]);
+        if(hit){out.push({a:i,b:i+k,ids:Array.from(hit),how:"isim",text:ow,alias:cv[q1-1]});continue}}
+      var fx=ocrFixF(w,voc);   // sık OCR karışmaları: "rn"->"m", harf arasındaki rakam ("5itrik", "fınd1k"); sözlükteki gerçek sözcük değişmez
+      if(fx!==w&&(hit=ex(fx))){out.push({a:i,b:i+k,ids:Array.from(hit),how:"benzer",text:ow,alias:fx});continue}
       if(k===1&&w.length>=5&&w.length<8&&idx.short1){
+        if(en||voc[w])continue;   // İngilizce metinde kısa sözcükte benzer yazım yok (batter -> butter); gerçek sözcük değiştirilmez
         var one=null,many=false;
         for(var q0=0;q0<idx.short1.length&&!many;q0++){var c0=idx.short1[q0];
           if((c0.n[0]!==fx[0]&&!(/[il]/.test(c0.n[0])&&/[il]/.test(fx[0])))||Math.abs(c0.n.length-fx.length)>1)continue;
           if(fx.indexOf(c0.n)===0||c0.n.indexOf(fx)===0)continue;   // yalnızca sondaki ek farkı: Türkçe çekim eki olabilir ("alkolü" -> alkol değil)
           if(lev(fx,c0.n,1)===1){if(one&&one.ids.join()!==c0.ids.join())many=true;else one=c0}}
-        if(one&&!many&&one.ids.every(function(x){return x.indexOf("B:")===0}))out.push({a:i,b:i+k,ids:one.ids,how:"benzer",text:w,alias:one.n});
+        if(one&&!many&&one.ids.every(function(x){return x.indexOf("B:")===0}))out.push({a:i,b:i+k,ids:one.ids,how:"benzer",text:ow,alias:one.n});
         continue;
       }
       var list=idx.byK[k];if(!list||w.length<8)continue;
-      var tol=w.length>=12?2:1;
-      for(var q=0;q<list.length;q++){
-        var c=list[q];if(c.n[0]!==w[0]||Math.abs(c.n.length-w.length)>tol)continue;
-        var d=lev(w,c.n,tol);
-        if(d>0&&d<=tol){out.push({a:i,b:i+k,ids:c.ids,how:"benzer",text:w,alias:c.n});break}
-      }
+      var c=benzerAday(w,list,w.length>=12?2:1,idx,en);
+      if(c)out.push({a:i,b:i+k,ids:c.ids,how:"benzer",text:ow,alias:c.n});
     }
   });
   return out;
@@ -104,12 +178,13 @@ function findContext(tok,idx){
 }
 /* "Eser miktarda ... içerebilir" bölgeleri: token aralıkları [a,b) */
 function mayZones(tok,idx){
-  var z=[],trig={};idx.may.forEach(function(tg){trig[tg]=1});
+  var z=[],trig={},fwd={};idx.may.forEach(function(tg){trig[tg]=1});(idx.mayFwd||[]).forEach(function(tg){fwd[tg]=1});
   function sentStart(i){for(var j=i-1;j>=0;j--)if(tok[j]===SENT)return j+1;return 0}
   function sentEnd(i){for(var j=i+1;j<tok.length;j++)if(tok[j]===SENT)return j;return tok.length}
   for(var i=0;i<tok.length;i++){
     var tk=tok[i],two=tk+" "+(tok[i+1]||"");
     if(tk==="eser"){z.push([i,sentEnd(i)]);continue}
+    if(fwd[two]||fwd[two+" "+(tok[i+2]||"")]){z.push([i,sentEnd(i)]);continue}   // İngilizce "may contain …": ileriye, cümle sonuna kadar
     if(trig[two]){var s=sentStart(i),e=sentEnd(i);z.push([Math.max(s,i-12),Math.min(e,i+14)]);continue}
     if(trig[tk]){
       var s0=sentStart(i),st=Math.max(s0,i-10);
@@ -121,10 +196,10 @@ function mayZones(tok,idx){
 }
 // Olumsuzluk: madde ile "içermez" arasında geçebilecek sözcükler ve maddeleri bağlayan sözcükler
 var NEGFILL={kaynakli:1,madde:1,maddesi:1,maddeler:1,urun:1,urunu:1,urunleri:1,eti:1,turevi:1,turevleri:1,katki:1,katkisi:1,bilesen:1,bileseni:1,hicbir:1,kesinlikle:1,iz:1,miktarda:1};
-var NEGJOIN={ve:1,veya:1,ile:1,ya:1,da:1,de:1,hem:1,ne:1,"|":1};
+var NEGJOIN={ve:1,veya:1,ile:1,ya:1,da:1,de:1,hem:1,ne:1,"|":1,and:1,or:1,nor:1};
 function analyze(text,idx){
-  var tok=normText(text).split(" ").filter(Boolean);
-  var all=findCodes(tok,idx).concat(findNames(tok,idx),findContext(tok,idx));
+  var tok=normText(text).split(" ").filter(Boolean),en=enMetin(tok);
+  var all=findCodes(tok,idx).concat(findNames(tok,idx,en),findContext(tok,idx));
   var pr={kod:3,isim:2,benzer:1};
   all.sort(function(x,y){return (y.b-y.a)-(x.b-x.a)||pr[y.how]-pr[x.how]});
   var used={},kept=[];
@@ -140,7 +215,8 @@ function analyze(text,idx){
   // Besin değerleri tablosu satırı ("Tuz 1,2 g", "Şeker 30 g"): ad + sayı + birim -> bileşen sayılmaz
   kept=kept.filter(function(m){
     if(!/^\d/.test(tok[m.b]||""))return true;
-    for(var q=m.b+1;q<=m.b+4&&q<tok.length;q++){if(UNITS[tok[q]])return false;if(!/^\d/.test(tok[q])&&tok[q]!=="|")break}
+    if(/^\d+(g|mg|kg|ml|kcal|kj)$/.test(tok[m.b]))return false;   // "Salt 0.5g" -> "0 5g"
+    for(var q=m.b+1;q<=m.b+4&&q<tok.length;q++){if(UNITS[tok[q]]||/^\d+(g|mg|kg|ml|kcal|kj)$/.test(tok[q]))return false;if(!/^\d/.test(tok[q])&&tok[q]!=="|")break}
     return true;
   });
   // İçerik listesindeki sıra (bileşenler çoktan aza yazılır): "İçindekiler:" sonrası, ayraç dışındaki virgüller sayılır
@@ -151,13 +227,14 @@ function analyze(text,idx){
     for(var q=st;q<m.a;q++){var tk=tok[q];if(tk==="(")dep++;else if(tk===")")dep=Math.max(0,dep-1);else if(tk===SENT&&dep===0){n=0;break}else if(tk==="|"&&dep===0)n++}
     if(n)m.ord=n;
   });
-  var zones=mayZones(tok,idx),negs={},arn={};
-  idx.neg.forEach(function(n){negs[n]=1});idx.aromaNext.forEach(function(n){arn[n]=1});
+  var zones=mayZones(tok,idx),negs={},arn={},npre={};
+  idx.neg.forEach(function(n){negs[n]=1});idx.aromaNext.forEach(function(n){arn[n]=1});(idx.negPre||[]).forEach(function(n){npre[n]=1});
   kept.forEach(function(m){
     m.may=zones.some(function(z){return m.a>=z[0]&&m.a<z[1]});
     var n1=tok[m.b]||"",n2=tok[m.b+1]||"";
     m.neg=!!(negs[n1]||negs[n1+" "+n2]||(negs[n2]&&!SEP[n1]&&n1!=="ve"));   // iki sözcüklü olumsuzluk: "ilave edilmemiştir"
     if(!m.neg){var q=m.b;while(q<m.b+5&&(NEGFILL[tok[q]]||(NEGJOIN[tok[q]]&&tok[q]!=="|")))q++;m.neg=q>m.b&&!!(negs[tok[q]]||negs[tok[q]+" "+(tok[q+1]||"")])}   // "domuz kaynaklı madde içermez"
+    if(!m.neg&&en){var p1=tok[m.a-1]||"",p2=tok[m.a-2]||"";m.neg=m.pre=!!(npre[p1]||npre[p2+" "+p1]||(p1===":"&&npre[p2+" "+(tok[m.a-3]||"")]))}   // İngilizce önden olumsuzluk: "no added sugar", "free from milk"
     m.aroma=!!(arn[n1]&&m.ids.every(function(id){var it=idx.byId[id];return it.isB&&!it.upf_class}));
   });
   // Sıralı olumsuzluk: "alkol ve domuz içermez", "koruyucu, renklendirici içermez" -> öndeki maddeler de olumsuz.
@@ -172,16 +249,26 @@ function analyze(text,idx){
     if(comma){if(inList(m.a))continue;var c=1;for(var j=k+1;j<byPos.length&&byPos[j].neg&&j-k<5;j++)c++;if(c>4)continue}
     m.neg=true;
   }
+  // İngilizce önden olumsuzluğun ardından gelenler: "free from milk, egg and gluten" (içerik listesi dışında, en çok 4 madde)
+  for(k=0;k<byPos.length-1;k++){
+    m=byPos[k];if(!m.pre||inList(m.a))continue;
+    for(j=k+1,c=1;j<byPos.length&&c<4;j++,c++){
+      nx=byPos[j];ok=nx.a>=byPos[j-1].b;
+      for(q=byPos[j-1].b;ok&&q<nx.a;q++)if(!NEGJOIN[tok[q]])ok=false;
+      if(!ok)break;nx.neg=true;
+    }
+  }
   var merged={};
   kept.forEach(function(m){
     var key=m.ids.slice().sort().join("+")+"/"+(m.neg?"n":"")+(m.may?"m":"")+(m.aroma?"a":"");
-    var cur=merged[key];
+    var cur=merged[key],ps=(cur?cur.poslar:[]).concat(m.a);
     if(!cur||pr[m.how]>pr[cur.how])merged[key]=m;
+    merged[key].poslar=ps;
   });
   var res=Object.keys(merged).map(function(k){
     var m=merged[k],isB=idx.byId[m.ids[0]].isB;
     var lv=isB?-1:Math.max.apply(null,m.ids.map(function(id){return RANK[idx.byId[id].risk_level]}));
-    return {ids:m.ids,how:m.how,fixed:!!m.fixed,text:m.text,alias:m.alias,rank:lv,isB:isB,may:m.may,neg:m.neg,aroma:m.aroma,pos:m.a,ord:m.ord};
+    return {ids:m.ids,how:m.how,fixed:!!m.fixed,text:m.text,alias:m.alias,rank:lv,isB:isB,may:m.may,neg:m.neg,aroma:m.aroma,pos:m.a,poslar:m.poslar,ord:m.ord};
   });
   res.sort(function(x,y){return y.rank-x.rank||x.pos-y.pos});
   return res;
@@ -235,7 +322,9 @@ function summarize(res,idx){
         var txt=" "+r.text+" ",kind=r.may?"may":"yes";
         if(fl.indexOf("allergen_sulphite")>-1)al("allergen_sulphite",kind,name);
         if(fl.indexOf("allergen_egg")>-1)al("allergen_egg",kind,name);
-        if(fl.indexOf("allergen_soy_possible")>-1)al("allergen_soy",txt.indexOf(" soya")>-1?kind:"may",txt.indexOf(" soya")>-1?name:t("gida.soya_olabilir",{ad:name}));
+        if(fl.indexOf("allergen_soy_possible")>-1&&!/ (aycicek|aycicegi|kolza|sunflower|rapeseed|canola|yumurta|egg) /.test(txt))   // kaynağı yazan lesitin: ayçiçek/kolza/yumurta ise soya şüphesi yok
+          al("allergen_soy",txt.indexOf(" soy")>-1?kind:"may",txt.indexOf(" soy")>-1?name:t("gida.soya_olabilir",{ad:name}));   // "soya lesitini", "soy lecithin"
+        if(/ (bugday|wheat) /.test(txt))al("allergen_gluten",kind,name);   // "modifiye buğday nişastası", "modified wheat starch": buğday AB 1169/2011 Ek II muafiyetinde değil
         if(r.may)return;
         var cl=upfE[it.category];if(cl)(o.upf[cl]=o.upf[cl]||[]).push(capFirst(it.id));
         if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,name);

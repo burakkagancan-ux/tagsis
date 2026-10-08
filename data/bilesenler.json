@@ -118,13 +118,52 @@
    "yoktur",
    "icermemektedir",
    "ilave edilmemistir",
-   "katilmamistir"
+   "katilmamistir",
+   "free"
+  ],
+  "may_forward": [
+   "may contain",
+   "may also contain",
+   "may contain traces",
+   "traces of",
+   "made in a factory",
+   "made in a facility",
+   "produced in a factory",
+   "produced in a facility",
+   "manufactured in a facility",
+   "manufactured in a factory",
+   "manufactured on shared equipment",
+   "processed in a facility",
+   "packed in a facility",
+   "facility that also",
+   "factory that also",
+   "factory which also",
+   "shared equipment",
+   "same equipment",
+   "same production line"
+  ],
+  "neg_prefix": [
+   "no",
+   "non",
+   "without",
+   "no added",
+   "free from",
+   "contains no",
+   "no artificial",
+   "not contain",
+   "contain no"
   ],
   "aroma_next": [
    "aromasi",
    "aromali",
    "aroma",
-   "esansi"
+   "esansi",
+   "flavour",
+   "flavouring",
+   "flavor",
+   "flavoring",
+   "flavoured",
+   "flavored"
   ],
   "sources": [
    {
@@ -171,8 +210,9 @@
    "Hamile/bebek/çocuk, PKU ve evcil hayvan kontrolleri yalnızca bilinen maddeleri arar; miktar bilinmez ve sonuç bir onay değildir."
   ],
   "counts": {
-   "items": 99,
-   "aliases": 699
+   "items": 115,
+   "aliases": 704,
+   "aliases_en": 606
   }
  },
  "items": [
@@ -197,6 +237,18 @@
    ],
    "flags": [
     "sugar"
+   ],
+   "aliases_en": [
+    "sugar",
+    "white sugar",
+    "cane sugar",
+    "pure cane sugar",
+    "brown sugar",
+    "icing sugar",
+    "powdered sugar",
+    "caster sugar",
+    "sucrose",
+    "sugar syrup"
    ]
   },
   {
@@ -215,6 +267,11 @@
     "sugar",
     "sugar_hidden",
     "upf"
+   ],
+   "aliases_en": [
+    "glucose syrup",
+    "dried glucose syrup",
+    "glucose"
    ],
    "upf_class": "şeker türevi şurup"
   },
@@ -238,6 +295,14 @@
     "sugar_hidden",
     "upf"
    ],
+   "aliases_en": [
+    "glucose-fructose syrup",
+    "fructose-glucose syrup",
+    "glucose and fructose syrup",
+    "high fructose corn syrup",
+    "isoglucose",
+    "corn syrup"
+   ],
    "note": "Nişasta bazlı şeker (NBŞ) olarak da bilinir.",
    "upf_class": "şeker türevi şurup"
   },
@@ -254,6 +319,15 @@
     "sugar",
     "upf"
    ],
+   "aliases_en": [
+    "invert sugar",
+    "invert sugar syrup",
+    "invert syrup",
+    "inverted sugar",
+    "golden syrup",
+    "partially inverted refiners syrup",
+    "inverted syrup"
+   ],
    "upf_class": "şeker türevi şurup"
   },
   {
@@ -267,6 +341,10 @@
     "sugar",
     "sugar_hidden",
     "upf"
+   ],
+   "aliases_en": [
+    "dextrose",
+    "dextrose monohydrate"
    ],
    "upf_class": "şeker türevi şurup"
   },
@@ -282,6 +360,9 @@
     "sugar",
     "upf"
    ],
+   "aliases_en": [
+    "fructose"
+   ],
    "upf_class": "şeker türevi şurup"
   },
   {
@@ -294,6 +375,9 @@
    "flags": [
     "sugar",
     "sugar_hidden"
+   ],
+   "aliases_en": [
+    "maltose"
    ]
   },
   {
@@ -306,6 +390,10 @@
     "sugar",
     "sugar_hidden",
     "upf"
+   ],
+   "aliases_en": [
+    "maltodextrin",
+    "maltodextrine"
    ],
    "note": "Kimyasal olarak şeker sayılmaz ama kan şekerini hızla yükselten bir nişasta türevidir.",
    "upf_class": "şeker türevi şurup"
@@ -325,6 +413,10 @@
     "lactose",
     "non_vegan"
    ],
+   "aliases_en": [
+    "lactose",
+    "milk sugar"
+   ],
    "upf_class": "şeker türevi şurup"
   },
   {
@@ -342,6 +434,9 @@
     "sugar_hidden",
     "non_vegan",
     "infant_honey"
+   ],
+   "aliases_en": [
+    "honey"
    ]
   },
   {
@@ -370,6 +465,10 @@
    "flags": [
     "sugar",
     "sugar_hidden"
+   ],
+   "aliases_en": [
+    "molasses",
+    "black treacle"
    ]
   },
   {
@@ -387,6 +486,12 @@
    "flags": [
     "sugar",
     "sugar_hidden"
+   ],
+   "aliases_en": [
+    "agave syrup",
+    "agave nectar",
+    "maple syrup",
+    "rice syrup"
    ]
   },
   {
@@ -406,6 +511,13 @@
     "sugar_hidden",
     "upf"
    ],
+   "aliases_en": [
+    "fruit juice concentrate",
+    "concentrated grape juice",
+    "grape juice concentrate",
+    "concentrated lemon juice",
+    "lemon juice concentrate"
+   ],
    "note": "Eklenen meyve suyu konsantresi DSÖ tanımına göre serbest şekerdir.",
    "upf_class": "şeker türevi şurup"
   },
@@ -424,6 +536,10 @@
     "sugar",
     "sugar_hidden",
     "allergen_gluten"
+   ],
+   "aliases_en": [
+    "malt extract",
+    "barley malt extract"
    ],
    "note": "Genellikle arpadan elde edilir; gluten içerir."
   },
@@ -511,6 +627,29 @@
    ],
    "flags": [
     "allergen_gluten"
+   ],
+   "aliases_en": [
+    "wheat",
+    "wheat flour",
+    "wheatflour",
+    "wholemeal wheat flour",
+    "whole wheat flour",
+    "wholewheat flour",
+    "wheat starch",
+    "wheat semolina",
+    "semolina",
+    "durum wheat",
+    "durum wheat semolina",
+    "wheat bran",
+    "wheat germ",
+    "wheat protein",
+    "breadcrumbs",
+    "bread crumbs",
+    "bulgur wheat",
+    "couscous",
+    "freekeh",
+    "wheat flakes",
+    "graham flour"
    ]
   },
   {
@@ -541,6 +680,11 @@
     "allergen_gluten",
     "upf"
    ],
+   "aliases_en": [
+    "wheat gluten",
+    "vital wheat gluten",
+    "seitan"
+   ],
    "upf_class": "protein izolatı"
   },
   {
@@ -556,6 +700,11 @@
    ],
    "flags": [
     "allergen_gluten"
+   ],
+   "aliases_en": [
+    "barley",
+    "barley flour",
+    "malted barley"
    ]
   },
   {
@@ -568,6 +717,10 @@
    ],
    "flags": [
     "allergen_gluten"
+   ],
+   "aliases_en": [
+    "rye",
+    "rye flour"
    ]
   },
   {
@@ -584,6 +737,17 @@
    ],
    "flags": [
     "allergen_gluten"
+   ],
+   "aliases_en": [
+    "oats",
+    "oat",
+    "oat flakes",
+    "rolled oats",
+    "oat flour",
+    "oat bran",
+    "oat fibre",
+    "oat fiber",
+    "oat milk"
    ],
    "note": "Yulaf yönetmelikte gluten içeren tahıllar arasındadır; 'glutensiz yulaf' ibaresini etikette kontrol edin."
   },
@@ -602,6 +766,12 @@
    ],
    "flags": [
     "allergen_gluten"
+   ],
+   "aliases_en": [
+    "khorasan wheat",
+    "spelt flour",
+    "einkorn wheat",
+    "emmer wheat"
    ]
   },
   {
@@ -620,6 +790,16 @@
     "allergen_crustacean",
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "crustacean",
+    "crustaceans",
+    "shrimp",
+    "prawn",
+    "crab",
+    "crab meat",
+    "lobster",
+    "crayfish"
    ]
   },
   {
@@ -639,6 +819,22 @@
     "allergen_mollusc",
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "mollusc",
+    "molluscs",
+    "mollusk",
+    "mollusks",
+    "mussel",
+    "squid",
+    "octopus",
+    "oyster",
+    "cuttlefish",
+    "clam",
+    "scallop",
+    "snail",
+    "cockles",
+    "abalone"
    ]
   },
   {
@@ -679,6 +875,39 @@
     "allergen_fish",
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "fish",
+    "fish oil",
+    "fish sauce",
+    "anchovy",
+    "anchovies",
+    "tuna fish",
+    "salmon",
+    "sardine",
+    "mackerel",
+    "cod",
+    "codfish",
+    "herring",
+    "haddock",
+    "hake",
+    "pollock",
+    "alaska pollock",
+    "tilapia",
+    "trout",
+    "plaice",
+    "seabream",
+    "swordfish",
+    "whiting",
+    "sprat",
+    "roe",
+    "tuna eggs",
+    "surimi",
+    "pangasius",
+    "monkfish"
+   ],
+   "en_only": [
+    "tuna"
    ]
   },
   {
@@ -693,6 +922,10 @@
     "allergen_fish",
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "fish gelatine",
+    "fish gelatin"
    ],
    "note": "Yönetmelik muafiyeti: vitamin veya karotenoid preparatlarında taşıyıcı olarak ya da bira ve şarapta durultma için kullanılan balık jelatini/isinglass alerjen sayılmaz. Diğer kullanımlarda balık alerjenidir."
   },
@@ -716,6 +949,16 @@
    "flags": [
     "allergen_egg",
     "non_vegan"
+   ],
+   "aliases_en": [
+    "egg",
+    "eggs",
+    "whole egg",
+    "egg powder",
+    "powdered egg",
+    "egg white",
+    "egg albumen",
+    "egg yolk"
    ]
   },
   {
@@ -732,6 +975,12 @@
    ],
    "flags": [
     "allergen_peanut"
+   ],
+   "aliases_en": [
+    "peanut",
+    "peanuts",
+    "peanut butter",
+    "peanut oil"
    ]
   },
   {
@@ -764,6 +1013,14 @@
    ],
    "flags": [
     "allergen_nuts"
+   ],
+   "aliases_en": [
+    "almond",
+    "almonds",
+    "ground almonds",
+    "almond paste",
+    "almond milk",
+    "almond butter"
    ]
   },
   {
@@ -782,6 +1039,15 @@
    ],
    "flags": [
     "allergen_nuts"
+   ],
+   "aliases_en": [
+    "hazelnut",
+    "hazelnuts",
+    "hazelnut oil",
+    "hazelnut butter",
+    "hazelnut paste",
+    "filbert",
+    "filberts"
    ]
   },
   {
@@ -794,6 +1060,10 @@
    ],
    "flags": [
     "allergen_nuts"
+   ],
+   "aliases_en": [
+    "walnut",
+    "walnuts"
    ]
   },
   {
@@ -805,6 +1075,14 @@
    ],
    "flags": [
     "allergen_nuts"
+   ],
+   "aliases_en": [
+    "cashew",
+    "cashews",
+    "cashew nuts",
+    "cashew butter",
+    "cashew nut butter",
+    "cashew nut paste"
    ]
   },
   {
@@ -818,6 +1096,11 @@
    ],
    "flags": [
     "allergen_nuts"
+   ],
+   "aliases_en": [
+    "pistachio",
+    "pistachio nuts",
+    "pistachios"
    ]
   },
   {
@@ -833,6 +1116,13 @@
    ],
    "flags": [
     "allergen_nuts"
+   ],
+   "aliases_en": [
+    "pecan",
+    "pecans",
+    "pecan nuts",
+    "brazil nut",
+    "brazil nuts"
    ]
   },
   {
@@ -849,6 +1139,25 @@
    "flags": [
     "allergen_nuts",
     "pet_toxic"
+   ],
+   "aliases_en": [
+    "macadamia nuts",
+    "queensland nuts",
+    "macadamia butter",
+    "macadamia nut butter"
+   ]
+  },
+  {
+   "id": "sert_kabuklu",
+   "name": "Sert kabuklu meyveler",
+   "aliases": [],
+   "flags": [
+    "allergen_nuts"
+   ],
+   "aliases_en": [
+    "nuts",
+    "tree nuts",
+    "tree nut"
    ]
   },
   {
@@ -870,6 +1179,21 @@
    "flags": [
     "allergen_soy"
    ],
+   "en_only": [
+    "soy"
+   ],
+   "aliases_en": [
+    "soya bean",
+    "soya beans",
+    "soybean",
+    "soybeans",
+    "soy beans",
+    "soya flour",
+    "soy flour",
+    "soy protein",
+    "soy milk",
+    "soy drink"
+   ],
    "note": "Soya sosu çoğunlukla buğday da içerir; etikete bakın."
   },
   {
@@ -885,6 +1209,11 @@
     "allergen_soy",
     "upf"
    ],
+   "aliases_en": [
+    "soy protein isolate",
+    "soya protein isolate",
+    "isolated soy protein"
+   ],
    "upf_class": "protein izolatı"
   },
   {
@@ -897,6 +1226,11 @@
     "rafine soya fasulyesi yağı"
    ],
    "flags": [],
+   "aliases_en": [
+    "soya oil",
+    "soybean oil",
+    "soy oil"
+   ],
    "note": "Yönetmelik muafiyeti: rafine soya fasulyesi yağı (katı ve sıvı) soya alerjeni sayılmaz."
   },
   {
@@ -918,6 +1252,29 @@
     "allergen_milk",
     "lactose",
     "non_vegan"
+   ],
+   "aliases_en": [
+    "milk",
+    "cow's milk",
+    "cows milk",
+    "cow milk",
+    "goat milk",
+    "goat's milk",
+    "sheep's milk",
+    "sheep milk",
+    "whole milk",
+    "skimmed milk",
+    "skim milk",
+    "nonfat milk",
+    "semi-skimmed milk",
+    "reduced-fat milk",
+    "buttermilk",
+    "butter milk",
+    "dairy",
+    "dairy products",
+    "milk products",
+    "evaporated milk",
+    "dulce de leche"
    ]
   },
   {
@@ -935,6 +1292,17 @@
     "allergen_milk",
     "lactose",
     "non_vegan"
+   ],
+   "aliases_en": [
+    "milk powder",
+    "powdered milk",
+    "dry milk",
+    "dried milk",
+    "skimmed milk powder",
+    "dried skimmed milk",
+    "nonfat dry milk",
+    "whole milk powder",
+    "dried whole milk"
    ]
   },
   {
@@ -955,6 +1323,13 @@
     "lactose",
     "non_vegan",
     "upf"
+   ],
+   "aliases_en": [
+    "whey powder",
+    "dried whey",
+    "powdered whey",
+    "whey permeate",
+    "milk permeate"
    ],
    "upf_class": "protein izolatı"
   },
@@ -977,6 +1352,12 @@
     "non_vegan",
     "upf"
    ],
+   "aliases_en": [
+    "whey proteins",
+    "milk proteins",
+    "milk protein",
+    "milk minerals"
+   ],
    "upf_class": "protein izolatı"
   },
   {
@@ -997,6 +1378,12 @@
     "upf",
     "lactose_low"
    ],
+   "aliases_en": [
+    "casein",
+    "caseinate",
+    "sodium caseinate",
+    "calcium caseinate"
+   ],
    "note": "Laktoz miktarı çok düşüktür ama süt alerjisinde sorun yaratır.",
    "upf_class": "protein izolatı"
   },
@@ -1015,6 +1402,14 @@
     "allergen_milk",
     "lactose",
     "non_vegan"
+   ],
+   "aliases_en": [
+    "cream",
+    "sour cream",
+    "soured cream",
+    "double cream",
+    "whipping cream",
+    "crème fraîche"
    ]
   },
   {
@@ -1034,6 +1429,16 @@
     "non_vegan",
     "lactose_low"
    ],
+   "aliases_en": [
+    "butter",
+    "butter oil",
+    "butterfat",
+    "anhydrous milk fat",
+    "milk fat",
+    "milkfat",
+    "ghee",
+    "clarified butter"
+   ],
    "note": "Laktoz miktarı düşüktür; süt alerjisinde sorun yaratır."
   },
   {
@@ -1051,6 +1456,10 @@
     "allergen_milk",
     "lactose",
     "non_vegan"
+   ],
+   "aliases_en": [
+    "yoghurt",
+    "skyr"
    ]
   },
   {
@@ -1080,6 +1489,32 @@
     "lactose",
     "non_vegan"
    ],
+   "aliases_en": [
+    "cheese",
+    "cheese powder",
+    "cream cheese",
+    "mozzarella cheese",
+    "parmesan cheese",
+    "cheddar cheese",
+    "feta",
+    "mascarpone",
+    "ricotta",
+    "quark",
+    "paneer",
+    "halloumi",
+    "brie",
+    "camembert",
+    "emmental",
+    "gouda",
+    "edam",
+    "gruyère",
+    "pecorino",
+    "roquefort",
+    "stilton",
+    "provolone",
+    "gorgonzola",
+    "cottage cheese"
+   ],
    "note": "Olgunlaştırılmış sert peynirlerde laktoz çok düşüktür."
   },
   {
@@ -1095,6 +1530,11 @@
    ],
    "flags": [
     "allergen_celery"
+   ],
+   "aliases_en": [
+    "celery",
+    "celeriac",
+    "celery seed"
    ]
   },
   {
@@ -1110,6 +1550,14 @@
    ],
    "flags": [
     "allergen_mustard"
+   ],
+   "aliases_en": [
+    "mustard",
+    "mustard seed",
+    "mustard seeds",
+    "mustard powder",
+    "mustard flour",
+    "dijon mustard"
    ]
   },
   {
@@ -1125,6 +1573,16 @@
    ],
    "flags": [
     "allergen_sesame"
+   ],
+   "aliases_en": [
+    "sesame",
+    "sesame seeds",
+    "sesame seed",
+    "sesame oil",
+    "tahini",
+    "sesame paste",
+    "sesame butter",
+    "sesame seed butter"
    ]
   },
   {
@@ -1139,6 +1597,11 @@
    ],
    "flags": [
     "allergen_lupin"
+   ],
+   "aliases_en": [
+    "lupine",
+    "lupin flour",
+    "lupini beans"
    ]
   },
   {
@@ -1189,6 +1652,17 @@
     "non_vegan",
     "non_vegetarian"
    ],
+   "aliases_en": [
+    "meat",
+    "beef",
+    "beef meat",
+    "lamb",
+    "mutton",
+    "veal",
+    "salami",
+    "beef stock",
+    "beef broth"
+   ],
    "short_ok": true
   },
   {
@@ -1210,6 +1684,15 @@
    "flags": [
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "chicken",
+    "chicken meat",
+    "chicken breast",
+    "turkey meat",
+    "chicken fat",
+    "chicken stock",
+    "chicken broth"
    ]
   },
   {
@@ -1224,6 +1707,15 @@
    "flags": [
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "pork",
+    "pork meat",
+    "pork fat",
+    "lard"
+   ],
+   "en_only": [
+    "ham"
    ]
   },
   {
@@ -1241,6 +1733,9 @@
    "flags": [
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "animal fat"
    ]
   },
   {
@@ -1255,6 +1750,9 @@
    "flags": [
     "non_vegan",
     "non_vegetarian"
+   ],
+   "aliases_en": [
+    "collagen"
    ]
   },
   {
@@ -1270,6 +1768,9 @@
    "flags": [
     "non_vegan",
     "vegetarian_suspect"
+   ],
+   "aliases_en": [
+    "animal rennet"
    ],
    "note": "Hayvansal (şirden) ya da mikrobiyal olabilir; mikrobiyal maya vejetaryene uygundur."
   },
@@ -1296,6 +1797,10 @@
    ],
    "flags": [
     "non_vegan"
+   ],
+   "aliases_en": [
+    "royal jelly",
+    "pollen"
    ]
   },
   {
@@ -1356,6 +1861,13 @@
     "caffeine",
     "pet_toxic"
    ],
+   "aliases_en": [
+    "caffeine",
+    "coffee",
+    "instant coffee",
+    "soluble coffee",
+    "green tea extract"
+   ],
    "note": "Etikette 150 mg/L'den fazla kafein varsa “Yüksek miktarda kafein içerir. Çocuklar veya hamile ya da emziren kadınlar için tavsiye edilmez.” uyarısı zorunludur. EFSA hamilelikte günde 200 mg'ı aşmamayı önerir."
   },
   {
@@ -1395,6 +1907,17 @@
    "flags": [
     "pet_toxic"
    ],
+   "aliases_en": [
+    "cocoa",
+    "cacao",
+    "cocoa powder",
+    "cocoa mass",
+    "cocoa paste",
+    "chocolate liquor",
+    "chocolate",
+    "dark chocolate",
+    "plain chocolate"
+   ],
    "note": "Teobromin içerir; köpek ve kediler için zehirlidir. Az miktarda kafein de içerir."
   },
   {
@@ -1423,6 +1946,22 @@
    "flags": [
     "alcohol",
     "pet_toxic"
+   ],
+   "aliases_en": [
+    "alcohol",
+    "ethanol",
+    "wine",
+    "red wine",
+    "white wine",
+    "port wine",
+    "liqueur",
+    "brandy",
+    "whisky",
+    "vodka",
+    "beer"
+   ],
+   "en_only": [
+    "rum"
    ],
    "note": "Pişirme ve fırınlama sonrasında alkolün bir kısmı üründe kalabilir.",
    "short_ok": true
@@ -1456,6 +1995,14 @@
    "flags": [
     "pet_toxic"
    ],
+   "aliases_en": [
+    "grape",
+    "grapes",
+    "raisin",
+    "raisins",
+    "sultanas",
+    "blackcurrant"
+   ],
    "note": "Üzüm ve kuru üzüm köpeklerde böbrek yetmezliğine yol açabilir."
   },
   {
@@ -1484,6 +2031,20 @@
    ],
    "flags": [
     "pet_toxic"
+   ],
+   "aliases_en": [
+    "onion",
+    "onions",
+    "dried onion",
+    "onion powder",
+    "garlic",
+    "garlic powder",
+    "garlic puree",
+    "leek",
+    "shallot",
+    "shallots",
+    "chives",
+    "spring onion"
    ],
    "note": "Soğan grubu bitkiler köpek ve kedilerde kansızlığa yol açabilir; toz hâli daha yoğundur."
   },
@@ -1518,6 +2079,29 @@
     "upf",
     "vegan_suspect"
    ],
+   "aliases_en": [
+    "flavouring",
+    "flavourings",
+    "flavoring",
+    "flavorings",
+    "flavour",
+    "flavours",
+    "flavor",
+    "flavors",
+    "natural flavouring",
+    "natural flavourings",
+    "natural flavoring",
+    "natural flavorings",
+    "natural flavour",
+    "natural flavours",
+    "natural flavor",
+    "natural flavors",
+    "artificial flavor",
+    "artificial flavour",
+    "smoke flavouring",
+    "smoke flavour",
+    "vanillin"
+   ],
    "note": "Aroma vericilerin kaynağı etikette genellikle yazmaz.",
    "upf_class": "aroma verici"
   },
@@ -1536,6 +2120,13 @@
    ],
    "flags": [
     "upf"
+   ],
+   "aliases_en": [
+    "yeast extract",
+    "autolysed yeast extract",
+    "autolyzed yeast extract",
+    "hydrolysed vegetable protein",
+    "hydrolyzed vegetable protein"
    ],
    "note": "Doğal glutamat kaynağıdır; 'lezzet artırıcı içermez' etiketlerinde sık kullanılır.",
    "upf_class": "lezzet artırıcı"
@@ -1557,6 +2148,10 @@
    "flags": [
     "upf"
    ],
+   "aliases_en": [
+    "hydrogenated vegetable oil",
+    "margarine"
+   ],
    "upf_class": "hidrojenize yağ"
   },
   {
@@ -1572,6 +2167,11 @@
    ],
    "flags": [
     "upf"
+   ],
+   "aliases_en": [
+    "emulsifier",
+    "emulsifiers",
+    "emulsifying salts"
    ],
    "upf_class": "emülgatör"
   },
@@ -1597,6 +2197,16 @@
    "flags": [
     "upf"
    ],
+   "aliases_en": [
+    "stabiliser",
+    "stabilisers",
+    "stabilizer",
+    "stabilizers",
+    "thickener",
+    "thickeners",
+    "gelling agent",
+    "gelling agents"
+   ],
    "upf_class": "kıvam artırıcı"
   },
   {
@@ -1611,6 +2221,13 @@
    "flags": [
     "upf"
    ],
+   "aliases_en": [
+    "colour",
+    "colours",
+    "color",
+    "colors",
+    "artificial color"
+   ],
    "upf_class": "renklendirici"
   },
   {
@@ -1623,6 +2240,10 @@
    ],
    "flags": [
     "upf"
+   ],
+   "aliases_en": [
+    "sweetener",
+    "sweeteners"
    ],
    "upf_class": "tatlandırıcı"
   },
@@ -1643,6 +2264,12 @@
    "flags": [
     "upf"
    ],
+   "aliases_en": [
+    "flavour enhancer",
+    "flavour enhancers",
+    "flavor enhancer",
+    "flavor enhancers"
+   ],
    "upf_class": "lezzet artırıcı"
   },
   {
@@ -1656,6 +2283,10 @@
    ],
    "flags": [
     "upf"
+   ],
+   "aliases_en": [
+    "glazing agent",
+    "glazing agents"
    ],
    "upf_class": "parlatıcı"
   },
@@ -1671,6 +2302,10 @@
    "flags": [
     "upf"
    ],
+   "aliases_en": [
+    "anti-foaming agent",
+    "bulking agent"
+   ],
    "upf_class": "köpük/dolgu maddesi"
   },
   {
@@ -1685,6 +2320,16 @@
     "rendelenmiş hindistan cevizi"
    ],
    "flags": [],
+   "aliases_en": [
+    "coconut",
+    "coconut oil",
+    "coconut milk",
+    "coconut cream",
+    "desiccated coconut",
+    "coconut flour",
+    "coconut butter",
+    "creamed coconut"
+   ],
    "note": "Yönetmelikteki sert kabuklu meyveler listesinde yoktur."
   },
   {
@@ -1695,7 +2340,10 @@
     "muskat cevizi",
     "küçük hindistan cevizi"
    ],
-   "flags": []
+   "flags": [],
+   "aliases_en": [
+    "nutmeg"
+   ]
   },
   {
    "id": "n_cam_fistigi",
@@ -1705,6 +2353,10 @@
     "dolmalık fıstık"
    ],
    "flags": [],
+   "aliases_en": [
+    "pine nuts",
+    "pine nut kernels"
+   ],
    "note": "Yönetmelikteki sert kabuklu meyveler listesinde yoktur; ayrı bir alerji olabilir."
   },
   {
@@ -1715,6 +2367,10 @@
     "kakao tereyağı"
    ],
    "flags": [],
+   "aliases_en": [
+    "cocoa butter",
+    "cacao butter"
+   ],
    "note": "Süt ürünü değildir."
   },
   {
@@ -1739,7 +2395,11 @@
     "pirinç sütü",
     "pirinç içeceği"
    ],
-   "flags": []
+   "flags": [],
+   "aliases_en": [
+    "rice milk",
+    "rice cream"
+   ]
   },
   {
    "id": "n_balkabagi",
@@ -1749,7 +2409,10 @@
     "balkabağı",
     "bal kabağı çekirdeği"
    ],
-   "flags": []
+   "flags": [],
+   "aliases_en": [
+    "butternut squash"
+   ]
   },
   {
    "id": "n_sut_aroma",
@@ -1759,7 +2422,12 @@
     "süt aroması",
     "tereyağı aroması",
     "peynir aroması",
-    "yoğurt aroması"
+    "yoğurt aroması",
+    "kaymak aromalı",
+    "süt aromalı",
+    "tereyağı aromalı",
+    "peynir aromalı",
+    "yoğurt aromalı"
    ],
    "flags": [
     "upf",
@@ -1791,6 +2459,30 @@
     "darı unu"
    ],
    "flags": [],
+   "aliases_en": [
+    "corn starch",
+    "cornstarch",
+    "maize starch",
+    "corn flour",
+    "cornflour",
+    "maize flour",
+    "rice flour",
+    "potato flour",
+    "potato starch",
+    "rice starch",
+    "chickpea flour",
+    "gram flour",
+    "tapioca",
+    "tapioca starch",
+    "buckwheat",
+    "millet",
+    "quinoa",
+    "corn semolina",
+    "cornmeal",
+    "corn meal",
+    "corn grits",
+    "rice semolina"
+   ],
    "note": "Gluten içeren tahıllardan değildir; çapraz bulaşma için etikete bakın."
   },
   {
@@ -1829,6 +2521,15 @@
    ],
    "flags": [
     "salt"
+   ],
+   "en_only": [
+    "salt"
+   ],
+   "aliases_en": [
+    "table salt",
+    "sea salt",
+    "himalayan salt",
+    "brine"
    ]
   },
   {
@@ -1844,6 +2545,10 @@
     "allergen_soy",
     "sodium_hidden"
    ],
+   "aliases_en": [
+    "soy sauce",
+    "soya sauce"
+   ],
    "note": "Soya sosu çoğunlukla buğday da içerir; etikete bakın. Tuz oranı yüksektir."
   },
   {
@@ -1858,6 +2563,10 @@
    "flags": [
     "sodium_hidden",
     "vegan_suspect"
+   ],
+   "aliases_en": [
+    "bouillon",
+    "broth"
    ],
    "note": "Bulyon genellikle yoğun tuz içerir; et ya da tavuk içerip içermediği etikette ayrıca yazar."
   },
@@ -1889,7 +2598,253 @@
     "instant maya",
     "aktif kuru maya"
    ],
-   "flags": []
+   "flags": [],
+   "aliases_en": [
+    "yeast",
+    "baker's yeast"
+   ]
+  },
+  {
+   "id": "n_su",
+   "name": "Su",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "water",
+    "drinking water",
+    "carbonated water",
+    "sparkling water",
+    "mineral water",
+    "spring water"
+   ]
+  },
+  {
+   "id": "n_bitkisel_yag",
+   "name": "Bitkisel yağ",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "vegetable oil",
+    "vegetable oils",
+    "plant oils",
+    "vegetable fat",
+    "vegetable fats",
+    "shea",
+    "shea butter",
+    "shea fat"
+   ]
+  },
+  {
+   "id": "n_aycicek",
+   "name": "Ayçiçek yağı",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "sunflower oil",
+    "sunflower seed oil",
+    "sunflower"
+   ]
+  },
+  {
+   "id": "n_kanola",
+   "name": "Kanola (kolza) yağı",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "rapeseed oil",
+    "canola oil",
+    "rapeseed",
+    "oilseed rape"
+   ]
+  },
+  {
+   "id": "n_zeytinyagi",
+   "name": "Zeytinyağı",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "olive oil",
+    "extra virgin olive oil"
+   ]
+  },
+  {
+   "id": "n_misir_yagi",
+   "name": "Mısır yağı",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "corn oil",
+    "maize oil"
+   ]
+  },
+  {
+   "id": "n_tahil",
+   "name": "Mısır / pirinç",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "corn",
+    "maize",
+    "rice"
+   ]
+  },
+  {
+   "id": "n_nisasta",
+   "name": "Nişasta",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "starch",
+    "food starch"
+   ]
+  },
+  {
+   "id": "n_patates",
+   "name": "Patates",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "potato",
+    "potatoes",
+    "potato flakes"
+   ]
+  },
+  {
+   "id": "n_domates",
+   "name": "Domates",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "tomato",
+    "tomatoes",
+    "tomato paste",
+    "tomato concentrate"
+   ]
+  },
+  {
+   "id": "n_sirke",
+   "name": "Sirke",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "vinegar",
+    "spirit vinegar",
+    "cider vinegar",
+    "wine vinegar",
+    "balsamic vinegar"
+   ]
+  },
+  {
+   "id": "n_baharat",
+   "name": "Baharat ve otlar",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "spice",
+    "spices",
+    "herb",
+    "herbs",
+    "mixed herbs",
+    "spice extract",
+    "spice extracts",
+    "herb extract",
+    "herb extracts",
+    "pepper",
+    "black pepper",
+    "paprika",
+    "cinnamon",
+    "cumin",
+    "ginger",
+    "oregano",
+    "basil",
+    "parsley",
+    "thyme",
+    "rosemary",
+    "coriander",
+    "chilli",
+    "chillies",
+    "chili pepper",
+    "chilli pepper"
+   ]
+  },
+  {
+   "id": "n_meyve",
+   "name": "Meyve",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "fruit",
+    "strawberry",
+    "strawberries",
+    "raspberry",
+    "raspberries",
+    "apple",
+    "apples",
+    "banana",
+    "apricot",
+    "apricots",
+    "dried apricots",
+    "cranberry",
+    "cranberries",
+    "lemon juice",
+    "orange juice"
+   ]
+  },
+  {
+   "id": "n_sebze",
+   "name": "Sebze ve baklagiller",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "vegetable",
+    "vegetables",
+    "carrot",
+    "pumpkin",
+    "spinach",
+    "peas",
+    "lentils",
+    "chickpeas",
+    "beans",
+    "butter bean",
+    "butter beans",
+    "lima beans",
+    "oyster mushroom",
+    "tigernut milk"
+   ]
+  },
+  {
+   "id": "n_vitamin",
+   "name": "Vitamin ve mineraller",
+   "aliases": [],
+   "flags": [],
+   "aliases_en": [
+    "vitamins",
+    "vitamin a",
+    "vitamin d",
+    "vitamin d3",
+    "thiamin",
+    "thiamine",
+    "niacin",
+    "vitamin b6",
+    "folic acid",
+    "vitamin b12",
+    "iron",
+    "zinc",
+    "thiamin mononitrate",
+    "thiamine mononitrate",
+    "niacinamide",
+    "nicotinamide",
+    "pyridoxine",
+    "pyridoxine hydrochloride",
+    "calcium pantothenate",
+    "calcium d-pantothenate",
+    "pantothenic acid",
+    "cyanocobalamin",
+    "retinyl palmitate",
+    "vitamin a acetate",
+    "reduced iron",
+    "taurine"
+   ]
   }
  ]
 }

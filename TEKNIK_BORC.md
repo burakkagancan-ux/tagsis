@@ -138,16 +138,24 @@ Sayılar data/ ve i18n/veri/en.json'dan 08.10.2026'da sayıldı. Ansiklopedi har
 | Temizlik ifade notu, içerik grubu açıklaması, madde notu, karıştırma/kapsül metni | 37 + 22 + 8 + 2 |
 | Ansiklopedi (data/ansiklopedi_en.json yok) | 4.038 |
 
-Çevrilenler (i18n/veri/en.json, 364): alerjen adları (AB 1169/2011 Ek II), katkı işlev sınıfları (AB 1333/2008 Ek I), CosIng işlev adları (85, resmi), deterjan içerik grupları ve yüzde bantları (AB 648/2004 Ek VII), 99 bileşen adı, gıda ve kozmetik bayrak etiketleri, K3 liste adları ve çipleri, ADI ekleri, K3 dayanakları. Resmi metinden doğrudan: CLP H/EUH/P ifadeleri (veride `en`), E kodu adları (`name_en`; kaynağı FAIA envanteri, AB 1333/2008 Ek II metniyle tek tek karşılaştırılmadı), INCI adları. Kozmetik AB gerekçelerinin 2.009'u da kalıptan (koz.gerekce.*) İngilizce.
+Çevrilenler (i18n/veri/en.json, 380): alerjen adları (AB 1169/2011 Ek II), katkı işlev sınıfları (AB 1333/2008 Ek I), CosIng işlev adları (85, resmi), deterjan içerik grupları ve yüzde bantları (AB 648/2004 Ek VII), 115 bileşen adı, gıda ve kozmetik bayrak etiketleri, K3 liste adları ve çipleri, ADI ekleri, K3 dayanakları. Resmi metinden doğrudan: CLP H/EUH/P ifadeleri (veride `en`), E kodu adları (`name_en`; kaynağı FAIA envanteri, AB 1333/2008 Ek II metniyle tek tek karşılaştırılmadı), INCI adları. Kozmetik AB gerekçelerinin 2.009'u da kalıptan (koz.gerekce.*) İngilizce.
 
 ### Çevrilmeyen sayfalar
 - ansiklopedi.html'in arayüz metinleri (js/arayuz_ansiklopedi.js) ve index.html (Liste: Tarım ve Orman Bakanlığı listesi; ülke katmanı) Türkçe. Alt menü yalnızca ocr.html'de çevrili.
 - Ülke ayarı yok: Türkiye'ye özgü metinler (`ulke.tr.*`, UZEM, TGK adı, SEA atfı) her dilde "In Türkiye" diye görünür.
 
-### İngilizce etiket tanıma ölçümü (test/olcum_ingilizce.js, 10 gerçekçi İngiltere/AB gıda etiketi)
-- İçerik listesi parçalarının %42'si tanındı (30/72); beklenen alerjenlerin %56'sı (5/9).
-- İyi: E numaraları ve katkıların İngilizce adları (citric acid, soya lecithin, aspartame, potassium sorbate, sodium nitrite, monosodium glutamate, carmine…).
-- Tanınmayan temel bileşenler (eş anlamlı yok): sugar, salt, water, wheat flour, wholemeal wheat flour, glucose syrup, glucose-fructose syrup, dextrose, yeast, flavouring(s), vegetable oil, sunflower/coconut/rapeseed oil, buttermilk, celery, spice, tomatoes, potatoes, vinegar, fruit juice concentrates, vitamins.
-- Kaçan alerjenler: "Wheat Flour" (gluten, 2 etikette), "contain Celery" (kereviz), "Buttermilk (Milk)" (süt).
-- **Yanlış eşleşme (öncelikli):** "Sodium Citrate" (E331) benzer yazımla E250 sodyum nitrite eşleşiyor ve kırmızı uyarı çıkıyor. İngilizce eş anlamlılar eklenirken ilk düzeltilecek.
-- Eş anlamlı ekleme ayrı iş (kaynak/bilesenler.json, kaynak/e_kodlari_maddeler.json aliases).
+### İngilizce etiket tanıma (B-08, 08.10.2026)
+- Ölçüm: `node test/olcum_ingilizce.js` (30 etiket: 10 İngiltere/AB, 10 ABD, 10 zor durum; test/veri/ingilizce_etiketler.json). CI'da `node test/ingilizce.js` eşikleri denetler: içerik parçası ≥ %85, beklenen alerjen %100, yanlış uyarı 0.
+- Önce (eski 10 etiket): içerik %42 (30/72), alerjen %56 (5/9), "Sodium Citrate" → E250 yanlış uyarısı. Sonra (30 etiket): içerik %100 (239/239), alerjen %100 (49/49, türü de doğru), E kodu %100 (109/109), yanlış uyarı 0. Bu set ayar yapılırken kullanıldı; iyimser bir ölçüdür.
+- Kör set (test/veri/ingilizce_kor.json, 10 etiket, ayar bittikten sonra yazıldı): ilk ölçümde içerik %92 (86/93), alerjen %100, gerçek yanlış uyarı 0 (beklenti dosyasında 2 hatam vardı: soya lesitini ve pepperonideki sodyum nitrit etikette gerçekten yazıyordu), bir yanlış eşleşme ("ammonium hydrogen carbonate" → E949 hidrojen; yeşil, uyarı değil) ve tanınmayan vitamin adları. Bunlar düzeltildi; şimdi %98, yanlış uyarı 0.
+- Kalanlar:
+  - Yalın "flour" eşleştirilmez (İngiltere'de tahıl adı zorunlu; ABD'de "flour" buğday demek ama "X flour" ile karışırsa yanlış gluten uyarısı olur). "Enriched flour (wheat flour…)" parantezden bulunur.
+  - "Milk chocolate", "white chocolate" ayrı ad değil: süt yalnızca "milk" sözcüğünden ya da parantezdeki içerikten bulunur (Türkçedeki "sütlü çikolata" ile aynı kural).
+  - Rafine soya yağı (soybean oil) soya alerjeni sayılmaz (AB 1169/2011 Ek II muafiyeti; Türkçe veriyle aynı).
+  - Balık türleri ve peynir adlarının yalnızca yaygın olanları var (Open Food Facts'te ~150 balık, ~200 peynir adı); "cheese culture(s)" süt sayılır; "Penicillium roqueforti" benzer yazımla "roquefort" (süt) olur.
+  - İngilizce olumsuzluk yalnızca maddenin hemen önünde ("no", "non", "without", "free from", "no added", "does not contain") ya da arkasında ("free"); daha karmaşık cümleler yok.
+  - İngilizce işareti olmayan (başlıksız, bağlaçsız) kısa İngilizce parçalar Türkçe kurallarla okunur: kısa sözcükte Türkçe benzer yazım ("salad" → salam) açık, İngilizceye özgü kısa adlar (salt, soy, ham, tuna, rum) kapalı.
+  - OCR'lı başlık ("lngredlents") metni İngilizce sayar ama içerik listesinin başlangıcı sayılmaz.
+  - Hardal yaprağı (mustard greens) hardal alerjeni sayılır (İngiltere FSA: hardal bitkisinin yaprağı da alerjen).
+  - Türkçe OCR toleransında küçük kayıp: sözlükte gerçek sözcük olan bozulmalar artık düzeltilmiyor ("karya zamkı" karaya mı kasya mı belirsiz; "çam bazı" → çam balı değil). Yapay tek harf testi %94,4 → %94,3; başka maddeye düşen 13 → 10, bunlardan dikkat/uyarı verenler 3 → 0.
+- Türkçe derlem karşılaştırması: `node test/olcum_turkce.js <kök>` iki sürümün çıktısını yazar, `--fark a.json b.json` farkları listeler (test/veri/turkce_etiketler.json + testlerdeki Türkçe metinler).

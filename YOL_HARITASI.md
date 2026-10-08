@@ -78,7 +78,7 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 | B-05 | Ülke mevzuat katmanı: kullanıcının ülkesine göre öne çıkan kural; yeni ülke = yeni veri dosyası. İlk eklenecekler: Birleşik Krallık (FSA), ABD (FDA katkı listeleri) | Claude | B-01 | Türkiye/AB/ABD/Birleşik Krallık aynı modelde; kodda ülke adı geçmez | ⬜ |
 | B-06 | Çeviri iş akışı: resmi çeviri > makine çevirisi + uzman kontrolü; her metinde "kontrol edildi / edilmedi" işareti; 60 dile ölçeklenir | Claude + 👤 (çevirmen bulmak) | B-02 | Kontrol edilmemiş metin arayüzde işaretli | ⬜ |
 | B-07 | Latin dışı alfabeler: Noto yazı tipi yedeği, sağdan sola yerleşim (Arapça, Farsça, İbranice, Urduca) | Claude | B-01 | İlk Latin dışı dil eklenince | ⬜ |
-| B-08 | İngilizce etiketlerde madde tanıma ölçümü ve eksik eş anlamlılar | Claude | B-02 | 10+ gerçekçi İngilizce etikette ölçüm | ⬜ |
+| B-08 | İngilizce etiketlerde madde tanıma ölçümü ve eksik eş anlamlılar | Claude | B-02 | 10+ gerçekçi İngilizce etikette ölçüm | ✅ 08.10.2026: 30 etiket (İngiltere/AB, ABD, zor durum) içerik %100, alerjen %100, yanlış uyarı 0; ayarsız kör sette içerik %92 → %98. CI eşiği test/ingilizce.js. 638 kaynaklı İngilizce ad satırı (kaynak/ingilizce_esanlamlilar.tsv). Telefon testi 👤 (A-01). Kalanlar TEKNIK_BORC.md |
 
 ### Faz C: Mağaza ve hız
 

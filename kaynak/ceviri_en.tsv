@@ -192,6 +192,7 @@ b.kaju.ad	Cashew
 b.antep.ad	Pistachio	
 b.pikan.ad	Pecan / Brazil nut / macadamia	
 b.makadamya.ad	Macadamia	
+b.sert_kabuklu.ad	Nuts	AB 1169/2011 Ek II
 b.soya.ad	Soya	
 b.soya_izolat.ad	Soya protein isolate	
 b.soya_yagi.ad	Soya oil	
@@ -251,6 +252,21 @@ b.soya_sosu.ad	Soy sauce
 b.n_bulyon.ad	Stock	
 b.n_bulyon_et.ad	Meat / chicken stock	
 b.n_hamur_mayasi.ad	Yeast	
+b.n_su.ad	Water	
+b.n_bitkisel_yag.ad	Vegetable oil	
+b.n_aycicek.ad	Sunflower oil	
+b.n_kanola.ad	Rapeseed oil	
+b.n_zeytinyagi.ad	Olive oil	
+b.n_misir_yagi.ad	Corn oil	
+b.n_tahil.ad	Corn / rice	
+b.n_nisasta.ad	Starch	
+b.n_patates.ad	Potato	
+b.n_domates.ad	Tomato	
+b.n_sirke.ad	Vinegar	
+b.n_baharat.ad	Spices and herbs	
+b.n_meyve.ad	Fruit	
+b.n_sebze.ad	Vegetables and pulses	
+b.n_vitamin.ad	Vitamins and minerals	
 # Günlük kabul edilebilir alım ekleri (e_kodlari.json adi.as)
 metin:alüminyum olarak, tüm diyet	as aluminium, all dietary sources	
 metin:benzoik asit olarak, grup	as benzoic acid, group	

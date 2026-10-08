@@ -32,6 +32,8 @@ jobs:
         run: node test/uretim.js
       - name: OCR toleransı
         run: node test/ocr_tolerans.js
+      - name: İngilizce etiket tanıma (eşikler, benzer yazım, diller arası çakışma)
+        run: node test/ingilizce.js
       - name: Kozmetik veri
         run: node test/kozmetik_veri.js
       - name: Kozmetik durumlar
