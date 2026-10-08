@@ -1,7 +1,7 @@
 # Yol haritası: küresel Tağşiş
 
 Bu dosya projenin ana iş planıdır. Her oturumun başında okunur. Bir iş başlayınca, bitince ya da plan değişince aynı PR içinde güncellenir (durum, tarih, PR numarası).
-İlk yazım: 08.10.2026 (rakip analizi ve kullanıcı kararıyla). Son güncelleme: 08.10.2026 (barkod birinci öncelik, C-08 eklendi).
+İlk yazım: 08.10.2026 (rakip analizi ve kullanıcı kararıyla). Son güncelleme: 09.10.2026 (§9 öngörülen engeller ve önleyici işler).
 
 Durum işaretleri: ⬜ başlamadı · 🔄 sürüyor · ✅ bitti · ⏸ bekletiliyor · 👤 kullanıcının işi
 
@@ -23,6 +23,7 @@ Her PR açıklamasında bu beş soru yanıtlanır:
 3. Güvenlik bilgisi ücretli katmana mı kaydı? (Kaymamalı.)
 4. Yeni metin çeviri anahtarıyla mı yazıldı? Türkçe sabit metin eklendi mi?
 5. Mevzuata bağlı bilgi ülke katmanında mı, yoksa tek ülkeye mi gömüldü?
+6. **Ölçek denetimi (§9):** Bu iş, ileride 10 kat kullanıcı, 60 dil, 20 ülke ya da mağaza sürümü geldiğinde yeniden yapılmak zorunda kalır mı? Kalacaksa bugün hangi küçük önlem bunu önler? (Önlem ya PR'da yapılır ya §9'a kimlikli bir iş olarak yazılır.)
 
 ---
 
@@ -145,6 +146,7 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 > 08.10.2026: bulut oturumu kullanılmıyor; işler bu (yerel) oturumda yapılır. Bulut için yazılan barkod işi başlamadan kaldı; İngilizce tanıma (B-08) bitti.
 
 1. **C-05 barkod** (kullanıcı kararı: birinci öncelik). Ölçüm → OFF Türkiye verisi + barkod okuma + Worker canlı sorgu → D1 kullanıcı katkısı.
+   - Paralelde, ucuzken yapılacak önleyici işler (§9.1): 👤 O-01 alan adı, O-02 küresel ad, O-03 lisans, O-04 hesap güvenliği, O-08 bütçe uyarıları kararları; Claude O-05 değişiklik kaydı, O-06 cihaz verisi sürümü, O-07 bağlantı denetimi.
 2. A-02 besin değeri tablosu
 3. C-01 👤 hesaplar → C-02 Android → C-04 cihaz içi okuma → **C-08 sayaç ve sınır denetimi**
 4. A-03 ölçüm
@@ -177,6 +179,7 @@ Sıra kullanıcı kararıyla değişebilir; değişince bu bölüm güncellenir.
 - 👤 Hukuki görüş, tetik gelince (E-05)
 - 👤 Barkod kararı, C-05 ölçümünden sonra (CLAUDE.md'deki "barkod en sona, belki hiç" kararı bu ölçümle yeniden değerlendirilecek)
 - 👤 Çeviri kontrolcüleri (B-06)
+- 👤 **Önleyici kararlar (§9.1, ucuzken):** alan adı (O-01), küresel marka adı (O-02), depo ve veri lisansı (O-03), hesaplarda iki aşamalı doğrulama ve organizasyon (O-04), bulut bütçe uyarıları (O-08)
 
 ---
 
@@ -192,6 +195,7 @@ Sıra kullanıcı kararıyla değişebilir; değişince bu bölüm güncellenir.
 | Kişiye bağımlılık (bir mimar + Claude) | Belgeler güncel; büyüyünce insan geliştirici ve danışman (E-04) |
 | Gelir baskısı ilkeyi aşındırır | §0 kuralları, Bağımsızlık sayfası (D-03), sözleşme maddesi (D-04) |
 | Yerli rakiplerin hızlanması (Ürün Dedektörü 12 dilde) | Kaynak derinliği, temizlik modu ve Bakanlık listesi ile ayrışma |
+| Ölçekle büyüyen teknik ve hukuki engeller | §9 (öngörülen engeller ve önleyici işler) |
 
 ---
 
@@ -209,3 +213,52 @@ Son bakış: 08.10.2026.
 | Mevzuat | AB 2026/405 dijital ürün pasaportu takvimi; kozmetik için pasaport kararı |
 
 Analizin kaynakları 08.10.2026 oturumunda toplandı: Yuka yardım ve bağımsızlık sayfaları, UPI, CBS, Fox News, Glossy, Sensor Tower, Osana, Olive, CodeCheck, INCI Beauty, Think Dirty, EWG, Open Food Facts, ÇabukBak, Ürün Dedektörü, REACH24H, SGS.
+
+---
+
+## 9. Öngörülen engeller ve önleyici işler (09.10.2026)
+
+Amaç: bugün bir saatte yapılabilecek bir önlemin, iş büyüdükten sonra günler süren bir düzeltmeye dönüşmesini önlemek. Her satırda: engel, ne zaman ortaya çıkar, bugün yapılırsa maliyeti, geç kalınırsa maliyeti, önleyici iş. Liste her büyük adımda (yeni dil, yeni ülke, mağaza, gelir) yeniden gözden geçirilir; yeni öngörü eklenir.
+
+Önem: 🔴 geri dönüşü zor ya da kullanıcı verisi kaybı · 🟠 maliyeti hızla büyür · 🟡 izlenmesi yeterli
+
+### 9.1 Hemen (önümüzdeki birkaç hafta; mağazadan ve ilk kullanıcı tabanından önce)
+
+| Kimlik | Önem | Engel | Ne zaman çıkar | Bugün | Geç kalınırsa | Önleyici iş |
+|---|---|---|---|---|---|---|
+| O-01 | 🔴 | **Alan adı.** Uygulama `burakkagancan-ux.github.io/tagsis` adresinde. Tarayıcı, kayıtlı ürünleri, tarama geçmişini ve profili **adrese bağlı** saklar; adres değişince kullanıcıların bütün verisi görünmez olur. Paylaşılan bağlantılar, mağaza sayfaları ve Worker izinleri de eski adrese bağlı kalır. | Kendi alan adına geçildiği gün | Alan adı al (yıllık ~10–15 $), GitHub Pages'e bağla, ALLOWED_ORIGIN'e ekle: ~1 saat | Kullanıcı verisinin taşınması için ayrı bir aktarma akışı, kırık bağlantılar, mağaza güncellemesi: günler | 👤 Alan adı kararı ve satın alma → Claude bağlar; eski adres yeni adrese yönlenir |
+| O-02 | 🔴 | **Küresel marka adı.** "Tağşiş" Türkçe dışında okunmuyor, yazılamıyor (ğ, ş), anlamı yalnızca Türkçede var. Mağaza adı, alan adı, sosyal medya hesapları ve marka tescili sonradan değişirse kullanıcı ve bağlantı kaybı olur. | Mağazaya çıkış ve ilk yurtdışı pazar | Ad kararı + alan adı ve hesapların ayrılması + Türkpatent/EUIPO ön araştırması | Mağazada yeniden adlandırma, yeni hesaplar, karışan kullanıcılar | 👤 Küresel ad kararı (Türkiye'de "Tağşiş" kalabilir, uluslararası ad ayrı olabilir); Claude ad uygunluğu ve çakışma araştırması yapabilir |
+| O-03 | 🔴 | **Depo herkese açık ve lisanssız.** Elle, kaynakla hazırlanmış veri (333 ansiklopedi sayfası, renk ölçütleri, eş anlamlılar) bizim asıl değerimiz; herkes indirebiliyor. Lisans yazılı olmadığı için hukuken "tüm hakları saklı", ama koruma ve kullanım koşulları belirsiz. Sonradan kapatmak, yayılmış kopyaları geri almaz. | Rakiplerin ilgisi ya da veri satışı (D-04) gündeme gelince | Karar: kod ve veri için ayrı lisans (ör. kod açık, veri "tüm hakları saklı" ya da CC BY-NC); README'ye yazmak | Kopyalanmış veri geri alınamaz; B2B lisans pazarlığı zayıflar | 👤 Lisans kararı (Claude seçenekleri yazar). Not: GitHub Pages ücretsiz planda depo açık olmalı; depo gizlenirse barındırma Cloudflare Pages'e taşınır (ücretsiz) |
+| O-04 | 🔴 | **Hesaplar kişisel e-postada.** GitHub, Cloudflare, Google Cloud, ileride mağaza hesapları tek kişiye bağlı. Hesap kilitlenirse ya da şirket kurulunca devir zahmetli. | Şirketleşme, ekip, para akışı | İki aşamalı doğrulama + kurtarma kodları; GitHub organizasyonu açıp depoyu taşımak (bağlantılar otomatik yönlenir) | Mağaza hesabı devri haftalar sürer; Apple/Google şirket doğrulaması ayrıca | 👤 2FA ve kurtarma kodları; mağaza hesapları baştan şirket adına (D-06) |
+| O-05 | 🟠 | **Değerlendirme değişiklik kaydı.** Yöntem sayfası ve "neden değişti" sorusu (E-02) için her renk değişikliğinin tarihi ve kaynağı gerekiyor. Şu an bu bilgi PR'lara ve CLAUDE.md'ye dağınık. | Yöntem sayfası, ilk şikâyet ya da hukuki soru | Makinece okunur bir kayıt (kaynak/degisiklik_kaydi.tsv: tarih, kimlik, eski → yeni, gerekçe, kaynak) + veride renk değişirse kaydı zorunlu kılan test: ~2 saat; geçmiş 20–30 değişikliği şimdi doldurmak kolay | Aylar sonra git geçmişinden yeniden çıkarmak: günler, eksik kalır | Claude: bir sonraki veri PR'ında |
+| O-06 | 🟠 | **Cihazdaki kullanıcı verisinin sürümü.** localStorage'daki kayıtlarda (kayitli, taramalar, profil) şema sürümü yok. Yapı değişince ya da mağaza uygulamasına geçince eski veri okunamayabilir. Ayrıca web'deki veri mağaza uygulamasına kendiliğinden geçmez. | Veri yapısı değişikliği, mağaza sürümü | Her kayda `v` alanı + açılışta sürüm yükseltme işlevi + testi: ~2 saat. Yedek dosyası zaten var (aktarma yolu). | Bozuk kayıtlar, kullanıcı şikâyeti, tek tek göç kodu | Claude |
+| O-07 | 🟠 | **Kaynak bağlantılarının çürümesi.** Binlerce kaynak bağlantısı (EUR-Lex, EFSA, PMC…) zamanla taşınıyor ya da kırılıyor; ilkemiz kaynağa dayalı olduğu için kırık bağlantı güveni zedeler. | Sürekli; birikerek | Aylık bağlantı denetimi (GitHub Actions; kırık listesi issue olarak) + önemli kaynaklar için Wayback arşiv bağlantısı | Yüzlerce kırık bağlantıyı bir anda düzeltmek | Claude |
+| O-08 | 🟠 | **Bulut maliyet ve kötüye kullanım koruması.** Worker herkese açık; ALLOWED_ORIGIN tarayıcı dışı istemcileri durdurmaz. Google Vision anahtarı kötüye kullanılırsa fatura çıkar. D1 katkılarına sahte veri girilebilir. | Uygulama duyulunca | Google Cloud'da bütçe uyarısı + günlük kota (kota düşürülmüştü, bütçe uyarısı kontrol edilmeli); Cloudflare'de Worker kullanım uyarısı; D1 katkıları için basit inceleme sayfası (TEKNIK_BORC.md) | Sürpriz fatura, kirli veritabanı | 👤 Bütçe uyarıları (Claude adım adım tarif eder); Claude inceleme sayfası |
+| O-09 | 🟡 | **Dağınık kaynak dili.** Yeni içerik Türkçe yazıldıkça çevrilecek metin birikiyor (bugün 1.164 veri + 4.038 ansiklopedi metni). | Her yeni dilde | Bundan sonra yazılan yeni içerik İngilizce anahtarla da girer (B-03'ün "yeni içerik" kısmı hemen başlar) | Her dil için katlanan çeviri | Claude: kural CLAUDE.md'de |
+
+### 9.2 Yakın (4. dilden, 2. ülkeden ya da mağazadan önce)
+
+| Kimlik | Önem | Engel | Tetik | Önleyici iş |
+|---|---|---|---|---|
+| O-10 | 🟠 | **Veri dosyalarının boyutu.** Bugün ~4,8 MB, hepsi açılışta önbelleğe iniyor. 60 dilde her dilin dosyası eklenirse çok ağırlaşır. | 4. dil | Dil ve içerik dosyalarını parçalara bölmek: kullanıcı yalnızca kendi dilini indirir, ansiklopedi sayfaları açıldıkça iner (veritabanı değil; bkz. karar 08.10.2026). Boyut bütçesi testi: açılışta inen toplam X MB'ı geçerse CI uyarır. |
+| O-11 | 🟠 | **Türkiye'ye gömülü kod.** TGK, Bakanlık listesi, `tr` durum alanları, UZEM, "In Türkiye" metinleri kodda Türkiye'yi varsayıyor. | 2. ülke | B-05 ülke katmanı, 2. ülkeden önce. Yeni Türkiye'ye özgü bilgi bugünden ülke anahtarıyla eklenir. |
+| O-12 | 🟠 | **Çeviri yönetimi.** 60 dil × ~700 arayüz anahtarı + veri metinleri elle JSON düzenlenerek yönetilemez. | 3.–4. dil | Çeviri platformu (açık kaynaklara ücretsiz Weblate ya da Crowdin); bugünkü düz anahtarlı JSON biçimi buna uygun, değiştirilmez. Terim sözlüğü (i18n/sozluk.md) platformun sözlüğüne aktarılır. |
+| O-13 | 🟠 | **Mobil uygulamada veri güncellemesi.** Veri uygulamanın içine gömülürse her bilgi düzeltmesi mağaza onayı bekler. | C-02 | Uygulama verinin bir kopyasıyla gelir, açılışta sitemizden güncelini çeker (bugünkü önbellek mantığı). Veri sürüm numarası + uyumluluk denetimi. |
+| O-14 | 🟠 | **Mağaza gereksinimleri.** Gizlilik politikası, Google "veri güvenliği" formu, Apple gizlilik etiketleri, yaş sınıflandırması; Apple sağlık bilgisi veren uygulamalarda kaynak ve sorumluluk reddi ister. | C-02, C-03 | E-06 metinleri mağazadan önce; bugünkü gizlilik notları ve sorumluluk reddi temel alınır. Veri toplama listesi (sayaç, barkod katkısı) güncel tutulur. |
+| O-15 | 🟡 | **Arayüz kodunun büyümesi.** 20'den fazla betik, ortak global değişkenler, yükleme sırası önemli. Büyüdükçe çakışma ve hata riski artar. | Mağaza sürümü ya da ikinci geliştirici | Saf mantık ayrımı korunur (testler bunu kullanıyor); sozdizimi testi global ad çakışmalarını da denetler. Gerekirse mağaza sürümünden önce modül yapısına geçiş, tek PR'da. |
+| O-16 | 🟡 | **Testlerin süresi.** Tarayıcı testi ~5 dakika; her özellikle uzuyor. | CI 15 dakikayı aşınca | Tarayıcı testini bölümlere ayırıp paralel çalıştırmak. |
+| O-17 | 🟡 | **Düşük donanımlı telefonda hız.** Eş anlamlı sözlükleri ve benzer yazım araması büyüdükçe analiz yavaşlar. | Yeni dillerin eş anlamlıları | Hız bütçesi testi (temizlik testindeki gibi): 30 etiketlik sette analiz süresi sınırı. |
+
+### 9.3 Uzak (gelir ve küresel ölçek)
+
+| Kimlik | Engel | Tetik | Önleyici iş |
+|---|---|---|---|
+| O-18 | **Hesap ve cihazlar arası eşitleme.** Ücretli kullanıcı birden çok cihaz ister; hesap yok. | D-02 | Hesapsız eşitleme seçenekleri (ör. şifreli yedek bağlantısı) önce değerlendirilir; hesap gerekiyorsa KVKK/GDPR ve veri yeri (AB) baştan seçilir. |
+| O-19 | **Uygulama içi satın alma ve vergi.** Ülkelere göre KDV, mağaza komisyonu, fatura. | D-02 | Satışı mağaza üzerinden yapmak (vergiyi mağaza yönetir); web'de ödeme sonraya. |
+| O-20 | **Bilgi bakım yükü.** 20 ülkede mevzuat takibi tek kişiyle sürdürülemez. | 3. ülke | Otomatik izleme (A-06) her ülke eklenirken kurulur; ülke başına "bakım sahibi" (danışman). |
+| O-21 | **Ürün veritabanının kalitesi.** Kullanıcı katkısı büyüdükçe yanlış ya da kötü niyetli kayıt. | Katkı sayısı ~1.000 | İnceleme sayfası, çelişen katkı uyarısı, gerekirse güvenilir katkıcı mantığı. |
+
+### 9.4 Kural
+- Her PR'da 6. ilke sorusu (ölçek denetimi) yanıtlanır.
+- Bu bölüm her büyük adımda (yeni dil, yeni ülke, mağaza, gelir, kullanıcı sayısında 10 kat artış) yeniden gözden geçirilir; kapanan satırın durumu yazılır, yeni öngörü eklenir.
+- 👤 işaretli kararlar beklerken ilgili teknik iş başlamaz; ama Claude kararın seçeneklerini ve maliyetini önceden hazırlar.
