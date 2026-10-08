@@ -82,12 +82,29 @@ function panelGenel(r){
     p.appendChild(h("p","mut","Üretim yolu bir risk değerlendirmesi değildir."+(r.production.verified?"":" Bu bilgi genel bilgiye dayanır, kaynakla doğrulanmadı.")));
   }
   if(c.found_in.length){p.appendChild(h("h3",null,"Nerede bulunur?"));var ul=h("ul");c.found_in.forEach(function(k){ul.appendChild(h("li",null,t(k)))});p.appendChild(ul)}
-  if(c.in_the_body){p.appendChild(h("h3",null,"Vücutta ne olur?"));p.appendChild(h("p",null,t(c.in_the_body)))}
-  if(r.review!=="curated")p.appendChild(h("p","mut","“Nerede bulunur?” ve “Vücutta ne olur?” bölümleri bu madde için henüz yazılmadı."));
+  if(r.effects&&r.effects.length){
+    p.appendChild(h("h3",null,"Olası etkiler"));
+    var el=h("ul","eff");
+    r.effects.forEach(function(x){
+      var li=h("li"),s=x.source;
+      li.appendChild(h("span","lv",t("eff."+x.level)));
+      li.appendChild(h("p",null,t(x.text)));
+      if(x.who)li.appendChild(effRow("Kimde",t(x.who)));
+      if(x.amount)li.appendChild(effRow("Hangi miktarda",t(x.amount)));
+      var k=h("div","mut"),a=h("a",null,s.label+(s.year?", "+s.year:""));a.href=s.url;a.target="_blank";a.rel="noopener";a.title=s.title;
+      k.appendChild(document.createTextNode("Kaynak: "));k.appendChild(a);li.appendChild(k);
+      el.appendChild(li);
+    });
+    p.appendChild(el);p.appendChild(h("p","mut",t("eff.doctor")));
+  }
+  if(c.in_the_body){p.appendChild(h("h3",null,"Vücutta nasıl işlenir?"));p.appendChild(h("p",null,t(c.in_the_body)))}
+  if(r.review!=="curated")p.appendChild(h("p","mut","“Nerede bulunur?” ve “Olası etkiler” bölümleri bu madde için henüz yazılmadı."));
   return p;
 }
+function effRow(k,v){var d=h("div","er");d.appendChild(h("b",null,k+": "));d.appendChild(document.createTextNode(v));return d}
 function panelOtorite(r){
   var p=h("div");
+  if(r.agency_note){p.appendChild(h("h3",null,"Kurumların değerlendirmesi"));p.appendChild(h("p",null,t(r.agency_note)))}
   if(!r.regulatory.length){p.appendChild(h("p","mut","Bu madde için henüz kurum bilgisi eklenmedi."));return p}
   r.regulatory.forEach(function(g){
     var row=h("div","ag"),l=h("div");
