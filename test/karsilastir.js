@@ -64,6 +64,12 @@ ok(keys(df.both).length+keys(df.onlyA).length===A.items.length,'A maddeleri eksi
 const C=K.cmpProduct('İçindekiler: Kakao, E322, şeker.',idx,{},'C'),D=K.cmpProduct('İçindekiler: Kakao, soya lesitini, şeker.',idx,{},'D');
 ok(!K.cmpDiff(C,D).onlyA.length&&!K.cmpDiff(C,D).onlyB.length,'E322 = soya lesitini');
 ok(K.cmpDecide(C,D,cfg).kind==='benzer','aynı içerik benzer');
+// Simge kuralı (ansiklopedi ve sonuç ekranıyla aynı): yeşil onay yalnızca üretim yolu doğal olan uyarısız maddede
+const U=K.cmpProduct('İçindekiler: Şeker, E100, E330, E300, tuz.',idx,{},'U'),ug=k=>U.items.filter(x=>x.key===k)[0];
+ok(ug('E100')&&ug('E100').dogal===true,'E100 doğal');
+ok(ug('E330')&&ug('E330').dogal===false&&ug('E300')&&ug('E300').dogal===false,'fermente ve işlenmiş doğal sayılmaz');
+ok(ug('B:tuz')&&!ug('B:tuz').dogal,'bileşen doğal simgesi almaz');
+const UD=K.cmpDiff(U,U).both.filter(x=>x.key==='E100')[0];ok(UD&&UD.dogal===true,'ikisinde de listesinde doğal bilgisi korunur');
 // "İçermez" ve "içerebilir" madde sayılmaz
 const E=K.cmpProduct('İçindekiler: Kakao, şeker. Palm yağı içermez. Fındık içerebilir.',idx,{al:['allergen_nuts']},'E');
 ok(!E.items.some(x=>x.key==='B:palm'),'içermez sayılmaz');ok(!E.misfit.length,'içerebilir uyumsuzluk sayılmaz');

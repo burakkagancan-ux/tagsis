@@ -83,6 +83,8 @@ async function scan(p,mode,text){
     const first=(await p.$$eval('#kars .kn',e=>e.map(x=>x.value)))[0];
     ok((await p.textContent('#kars .kdec .t')).indexOf(first+' içerik açısından daha iyi')===0,m+': ilk (risksiz) ürün öne çıkar');
     ok(await p.$$eval('#kars .ktab .kl',e=>e.length)>=7,m+': satır tablosu');
+    ok(!(await p.$$eval('#kars .kcnt .ic.g',e=>e.length)),m+': "özel uyarı yok" sayısı yeşil onay değil, gri tire');
+    if(m!=='gida')ok(!(await p.$$eval('#kars .ic.g',e=>e.length)),m+': kozmetik/temizlikte yeşil onay yok (üretim yolu bilgisi yok)');
     await p.click('#kars details.kgrp summary');
     await p.click('#kars details.kgrp[open] button.kmad');
     ok(await p.isVisible('#sheet .sheet-pn'),m+': maddeye dokununca alt sayfa açılır');

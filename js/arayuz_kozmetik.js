@@ -44,7 +44,7 @@ function suggestCard(){
   var b=el("button",null,"Kozmetik olarak analiz et");b.type="button";b.onclick=function(){setMode("koz",true,true);window.scrollTo(0,0)};d.appendChild(b);
   return d;
 }
-var KCLS={red:"r",orange:"o",yellow:"y",info:"g"},KLBL={red:"AB'de yasak",orange:"Uyarı",yellow:"Dikkat",info:"Özel uyarı yok"};
+var KCLS={red:"r",orange:"o",yellow:"y",info:"g n"},KLBL={red:"AB'de yasak",orange:"Uyarı",yellow:"Dikkat",info:"Özel uyarı yok"};
 function kChips(r){
   var out=[],seen={},F=KIDX.flags;
   r.reg.forEach(function(e){e.flags.forEach(function(f){if(!seen[f]&&f!=="cmr_ban"){seen[f]=1;out.push(F[f]||f)}})});

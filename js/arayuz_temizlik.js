@@ -20,7 +20,7 @@ function suggestCardT(){
   return d;
 }
 var TFUNC_SKIP=["Saç boyası","Deodorant","Saç bakımı","Cilt bakımı","Ağız bakımı","Tırnak bakımı","Keratolitik","Bronzlaştırıcı","Cilt koruyucu","Kepek önleyici"];
-var TCLS={red:"r",yellow:"y",info:"u"},TLBL={red:"Ciddi tehlike",yellow:"Uyarı",info:"Bilgi"};
+var TCLS={red:"r",yellow:"y",info:"g n"},TLBL={red:"Ciddi tehlike",yellow:"Uyarı",info:"Bilgi"};
 function srcLinks(urls){
   var ps=el("div","how","Kaynak: ");
   (urls||[]).forEach(function(u,i){var a=el("a",null,u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u;a.target="_blank";a.rel="noopener";if(i)ps.appendChild(document.createTextNode(" · "));ps.appendChild(a)});

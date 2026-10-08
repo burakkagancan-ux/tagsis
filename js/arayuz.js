@@ -231,7 +231,7 @@ function adiBlock(a,pre){
 }
 function additiveCard(r){
   var items=r.ids.map(function(id){return IDX.byId[id]});
-  var notr=r.rank===0&&!items.every(function(i){return i.uretim&&i.uretim.s==="dogal"});   // yeşil tik yalnızca "doğal" üretim yolunda; diğer uyarısız maddeler nötr (gri)
+  var notr=r.rank===0&&!uretimDogal(r.ids,IDX);   // yeşil tik yalnızca "doğal" üretim yolunda; diğer uyarısız maddeler nötr (gri)
   var d=el("div","res "+CLS[r.rank]+(notr?" n":""));
   var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
   var top=el("div","hd");
