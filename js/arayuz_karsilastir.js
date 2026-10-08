@@ -71,8 +71,9 @@ function karsOpen(pre,ret){
   openSheet("Karşılaştır","İki ürün seçin.",body,ret);
 }
 /* Karşılaştırma ekranı */
-var CMP_ICON=["g","u","y","r"];
-function cmpIcon(rank){var s=el("span","ic "+CMP_ICON[rank]);s.setAttribute("aria-hidden","true");return s}
+/* Simgeler sonuç ekranı ve ansiklopediyle aynı: yeşil onay yalnızca doğal kaynaklı uyarısız maddede (dogal), diğer uyarısızlar ve "özel uyarı yok" sayısı gri tire */
+var CMP_ICON=["n","u","y","r"];
+function cmpIcon(rank,dogal){var s=el("span","ic "+(rank===0&&dogal?"g":CMP_ICON[rank]));s.setAttribute("aria-hidden","true");return s}
 function showCompare(ida,idb){
   var ea=histGet(ida),eb=histGet(idb);if(!ea||!eb||ea.mode!==eb.mode||!karsReady(ea.mode||"gida"))return;
   var mode=ea.mode||"gida";
@@ -166,7 +167,7 @@ function diffList(title,items,P){
   var d=document.createElement("details");d.className="kgrp";d.appendChild(el("summary",null,title+" ("+items.length+")"));
   if(!items.length){d.appendChild(el("div","mut","Yok"));return d}
   items.forEach(function(it){
-    var b=el("button","kitem kmad");b.type="button";b.appendChild(cmpIcon(it.rank));b.appendChild(el("span","kin",it.name));
+    var b=el("button","kitem kmad");b.type="button";b.appendChild(cmpIcon(it.rank,it.dogal));b.appendChild(el("span","kin",it.name));
     b.onclick=function(){openItem(it,P,b)};d.appendChild(b);
   });
   return d;

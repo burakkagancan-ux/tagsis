@@ -117,18 +117,18 @@ function payWrap(text,maxW,maxLines,measure){
   return lines.map(cut);
 }
 /* ---------- Çizim ---------- */
-var PAY_RENK={bg:"#F5F1E8",card:"#FFFFFF",line:"#E4DED2",ok:"#1F4D3A",okbg:"#E6EFE9",ink:"#1B211E",mute:"#5A615C",amb:"#8A5A00",ambbg:"#FFF3D1",hi:"#A4470B",hibg:"#FCE9DA",red:"#B3261E",redbg:"#FBE9E7",sunk:"#EEE9DD",bant2:"#CFE0D6"};
+var PAY_RENK={bg:"#F5F1E8",card:"#FFFFFF",line:"#E4DED2",ok:"#1F4D3A",okbg:"#E6EFE9",ink:"#1B211E",mute:"#5A615C",amb:"#8A5A00",ambbg:"#FFF3D1",hi:"#A4470B",hibg:"#FCE9DA",red:"#B3261E",redbg:"#FBE9E7",sunk:"#EEE9DD",bant2:"#CFE0D6",notr:"#8A8F8B"};
 var PAY_HF='"Bricolage Grotesque",system-ui,sans-serif',PAY_BF='"Figtree",system-ui,sans-serif';
 function payRR(x,X,Y,W,H,r){x.beginPath();x.moveTo(X+r,Y);x.lineTo(X+W-r,Y);x.quadraticCurveTo(X+W,Y,X+W,Y+r);x.lineTo(X+W,Y+H-r);x.quadraticCurveTo(X+W,Y+H,X+W-r,Y+H);x.lineTo(X+r,Y+H);x.quadraticCurveTo(X,Y+H,X,Y+H-r);x.lineTo(X,Y+r);x.quadraticCurveTo(X,Y,X+r,Y);x.closePath()}
-/* Seviye simgesi (sonuç ekranıyla aynı): yeşil daire + onay, amber üçgen + ünlem, koyu turuncu daire + ünlem; cx,cy merkez, s boyut */
+/* Seviye simgesi (sonuç ekranıyla aynı): gri daire + tire (özel uyarı yok; yeşil onay yalnızca doğal kaynaklı tek maddede, kartta madde düzeyinde gösterilmez), amber üçgen + ünlem, koyu turuncu daire + ünlem; cx,cy merkez, s boyut */
 function payIcon(x,lvl,cx,cy,s,red){
   var k=s/24;x.save();x.translate(cx-s/2,cy-s/2);x.scale(k,k);
   x.lineCap="round";x.lineJoin="round";x.strokeStyle="#FFFFFF";x.lineWidth=2.4;
   if(lvl===1){x.fillStyle=PAY_RENK.amb;x.beginPath();x.moveTo(12,2.5);x.lineTo(23,21.5);x.lineTo(1,21.5);x.closePath();x.fill();
     x.beginPath();x.moveTo(12,9);x.lineTo(12,15);x.stroke();x.fillStyle="#FFFFFF";x.beginPath();x.arc(12,18.2,1.4,0,Math.PI*2);x.fill()}
-  else{x.fillStyle=lvl===2?(red?PAY_RENK.red:PAY_RENK.hi):PAY_RENK.ok;x.beginPath();x.arc(12,12,10,0,Math.PI*2);x.fill();
+  else{x.fillStyle=lvl===2?(red?PAY_RENK.red:PAY_RENK.hi):PAY_RENK.notr;x.beginPath();x.arc(12,12,10,0,Math.PI*2);x.fill();
     if(lvl===2){x.beginPath();x.moveTo(12,6.5);x.lineTo(12,13.5);x.stroke();x.fillStyle="#FFFFFF";x.beginPath();x.arc(12,17.2,1.5,0,Math.PI*2);x.fill()}
-    else{x.beginPath();x.moveTo(7,12.5);x.lineTo(10.2,15.7);x.lineTo(17,9);x.stroke()}}
+    else{x.beginPath();x.moveTo(7.5,12);x.lineTo(16.5,12);x.stroke()}}
   x.restore();
 }
 function payFont(x,w,px,hf){x.font=w+" "+px+"px "+(hf?PAY_HF:PAY_BF)}
@@ -174,7 +174,7 @@ function payDraw(x,M,L,cfg,logo){
   // Sayı kutuları: renkli zemin + şekil; sıfır olan kutu soluk
   function counts(y){
     var gap=20,bw=(CW-2*gap)/3,tek=L.kutuTek,bh=tek?L.sayi+44:L.sayi+116;   // kutuTek: simge + etiket + sayı tek satırda (kısa kart)
-    [[0,M.counts.ok,"özel uyarı yok",R.okbg,R.ok],[1,M.counts.dikkat,"dikkat",R.ambbg,R.amb],[2,M.counts.uyari,"uyarı",R.hibg,R.hi]].forEach(function(b,i){
+    [[0,M.counts.ok,"özel uyarı yok",R.sunk,R.ink],[1,M.counts.dikkat,"dikkat",R.ambbg,R.amb],[2,M.counts.uyari,"uyarı",R.hibg,R.hi]].forEach(function(b,i){
       var bx=P+i*(bw+gap),on=b[1]>0;
       box(bx,y,bw,bh,28,on?b[3]:R.card);
       if(draw&&!on){x.strokeStyle=R.line;x.lineWidth=2;payRR(x,bx+1,y+1,bw-2,bh-2,27);x.stroke()}
@@ -214,12 +214,12 @@ function payDraw(x,M,L,cfg,logo){
   }
   // Hiç riskli madde yoksa: olumlu kutu (onay dili yok) + okunan maddeler
   function olumlu(y){
-    var h=L.h>1600?300:236;box(P,y,CW,h,28,R.okbg);
+    var h=L.h>1600?300:236;box(P,y,CW,h,28,R.sunk);
     icon(0,P+80,y+h/2,72);
     payFont(x,700,48,true);var t1=payWrap(tem?"Özel uyarı bulunan ifade yok":"Özel uyarı bulunan madde yok",CW-180,2,meas);
     payFont(x,400,32);var t2=payWrap(M.total?"Okunan "+M.total+" "+(tem?"bilgide":"maddede")+" dikkat işareti çıkmadı.":"Okunan metinde dikkat işareti çıkmadı.",CW-180,2,meas);
     var th=t1.length*56+t2.length*42+8,ty=y+(h-th)/2;
-    payFont(x,700,48,true);t1.forEach(function(l,i){txt(l,P+144,ty+44+i*56,R.ok)});
+    payFont(x,700,48,true);t1.forEach(function(l,i){txt(l,P+144,ty+44+i*56,R.ink)});
     payFont(x,400,32);t2.forEach(function(l,i){txt(l,P+144,ty+t1.length*56+40+i*42,R.ink)});
     return y+h+40;
   }

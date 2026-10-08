@@ -282,6 +282,8 @@ function uretimSinif(ids,idx){   // birden çok olası kod varsa hepsi aynı sı
   for(var i=0;i<ids.length;i++){var it=idx.byId[ids[i]];if(!it||it.isB||!it.uretim)return null;if(s&&s!==it.uretim.s)return null;s=it.uretim.s}
   return URETIM_AD[s]?s:null;
 }
+/* Yeşil onay simgesi yalnızca üretim yolu "doğal" olan uyarısız maddede (ansiklopedi, sonuç, karşılaştırma aynı kural); diğer uyarısızlar gri tire */
+function uretimDogal(ids,idx){return ids.length>0&&ids.every(function(id){var it=idx.byId[id];return it&&!it.isB&&it.uretim&&it.uretim.s==="dogal"})}
 function uretimOzet(res,idx){
   var o={sentetik:[],islenmis:[],fermente:[]},seen={};
   res.forEach(function(r){

@@ -57,7 +57,7 @@ function cmpProduct(text,idx,prof,name){
     var key=r.ids.slice().sort().join("+"),rk=Math.max(0,r.rank);
     var nm=r.ids.map(function(id){var it=idx.byId[id];return it.isB?it.name:it.id+" "+it.primary_name}).join(" / ");
     if(by[key]){if(rk>by[key].rank)by[key].rank=rk;return}
-    by[key]={key:key,ids:r.ids,name:nm,rank:rk,isB:r.isB};items.push(by[key]);
+    by[key]={key:key,ids:r.ids,name:nm,rank:rk,isB:r.isB,dogal:uretimDogal(r.ids,idx)};items.push(by[key]);
   });
   items.sort(function(x,y){return y.rank-x.rank||x.name.localeCompare(y.name,"tr")});
   var cnt=[0,0,0,0];items.forEach(function(it){cnt[it.rank]++});
@@ -144,7 +144,7 @@ function cmpWrap(P,items){
 function cmpDiff(A,B){
   var kb={},ka={},o={onlyA:[],onlyB:[],both:[]};
   B.items.forEach(function(it){kb[it.key]=it});A.items.forEach(function(it){ka[it.key]=it});
-  A.items.forEach(function(it){if(kb[it.key])o.both.push({key:it.key,ids:it.ids,name:it.name,rank:Math.max(it.rank,kb[it.key].rank)});else o.onlyA.push(it)});
+  A.items.forEach(function(it){if(kb[it.key])o.both.push({key:it.key,ids:it.ids,name:it.name,rank:Math.max(it.rank,kb[it.key].rank),dogal:it.dogal,kind:it.kind,x:it.x});else o.onlyA.push(it)});
   B.items.forEach(function(it){if(!ka[it.key])o.onlyB.push(it)});
   return o;
 }
