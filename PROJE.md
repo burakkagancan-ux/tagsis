@@ -1,7 +1,7 @@
 # tagsis — Proje dokümanı
 
 Terminalden (Claude Code CLI) devam etmek için tek sayfalık özet. Son güncelleme: 07.10.2026.
-Ayrıntılar: [CLAUDE.md](CLAUDE.md) (kararlar, veri, mimari), [TEKNIK_BORC.md](TEKNIK_BORC.md) (ertelenen işler).
+Ayrıntılar: [CLAUDE.md](CLAUDE.md) (kararlar, veri, mimari), [YOL_HARITASI.md](YOL_HARITASI.md) (küresel iş planı), [TEKNIK_BORC.md](TEKNIK_BORC.md) (ertelenen işler).
 
 ## 1. Proje özeti
 
@@ -11,7 +11,7 @@ Gıda, kozmetik ve temizlik ürünlerinin etiketindeki içerik listesini fotoğr
 - Depo: https://github.com/burakkagancan-ux/tagsis
 - Sayfalar: Liste (`index.html`), Etiket Oku (`ocr.html`; Gıda / Kozmetik / Temizlik modu), Ansiklopedi (`ansiklopedi.html`), Hassasiyetlerim (profil).
 - OCR: `ocr.html` → Cloudflare Worker (`worker/`) → Google Cloud Vision; Worker'a ulaşılamazsa Tesseract.js.
-- Gelir modeli henüz seçilmedi.
+- Gelir modeli henüz seçilmedi (YOL_HARITASI.md D-01).
 
 ## 2. Ürün kuralları (değişmez)
 

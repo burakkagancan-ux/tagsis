@@ -11,6 +11,7 @@ Son güncelleme: 08.10.2026.
 ## Vizyon ve ilkeler (kullanıcı kararı, 08.10.2026)
 - Amaç: para kazanan, küresel bir uygulama (hedef onlarca dil, olası 60). Türkiye ilk pazar, son değil.
 - Değişmez ilke: her bilgi kaynağa dayalı, tarafsız ve bilimsel. Gelir bu ilkeyi bozamaz: markadan para, reklam, ücretli sıralama yok; güvenlik uyarıları hiçbir zaman ücretli katmana konmaz.
+- İş planı: **YOL_HARITASI.md** (fazlar, iş paketleri, sıra, kullanıcı kararları, riskler). Her oturumda okunur; iş başlayınca/bitince aynı PR'da durumu güncellenir. Her PR açıklamasında oradaki 5 maddelik ilke denetimi yanıtlanır.
 - Teknik sonucu: yeni kod ve veri baştan çok dilli ve çok ülkeli düşünülür (metinler çeviri anahtarıyla, maddeler evrensel kimlikle: E kodu, INCI, CAS, H/EUH kodu; mevzuat ülke katmanı olarak). Yeni Türkçe sabit metin eklemeden önce çeviri anahtarı düşünülür.
 
 ## Ürün
@@ -105,11 +106,7 @@ Son güncelleme: 08.10.2026.
 - Yapay OCR hatası testi (tek harf karışması): kozmetik %92 -> %98, gıda %74 -> %88; yeni yanlış eşleşme yok. Kalan zayıflık: iki harfi bozulmuş adlar, 4 harften kısa sözcükler (süt, palm).
 
 ## Sıradaki işler
-1. Telefon testleri (kullanıcı yapıyor) ve sonuçlara göre ayar.
-2. Faz 2: helal ("kaynağı belirsiz, sertifikaya bakın"). Besin değeri tablosu ve yeşil aklama bekleyen geliştirmeler (sıraya alınmadı; yeşil aklama ikinci fotoğraf gerektirdiği için ertelendi).
-3. Aylık mevzuat izleme (GitHub Actions: EUR-Lex, Resmî Gazete, CosIng -> issue). Türkiye taslağı yayımlanınca `TR_BY_REG` güncellenir.
-5. Hukuki görüş hazırlığı (KVKK / Google Vision, "zararlı" dili, arşiv gösterimi) — en son.
-6. Sonra: temizlik ikinci sürüm (gelişim alanlarına bakın), CI ile testler, SIN List (ChemSec izni), barkod (belki hiç).
+- Ana plan YOL_HARITASI.md'de (08.10.2026'dan beri). Eski liste oraya taşındı: telefon testleri A-01, besin değeri tablosu A-02, helal A-05, aylık mevzuat izleme A-06, hukuki görüş E-05, barkod C-05, temizlik ikinci sürüm U-03/U-06.
 
 ## Gelişim alanları (bilerek sonraya bırakılan genişletmeler)
 - Birlikte dikkat: 22 kural. Adaylar: sorbat + benzoat gıdada (AB 1333/2008 Ek II dipnot metni doğrulanamadı), karagenan E407/E407a ortak ADI, sorbitan esterleri E491–495.
