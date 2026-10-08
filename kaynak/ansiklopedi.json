@@ -3734,8 +3734,8 @@
    "found_in": [
     "Kürlenmiş et ürünleri"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2017'de günlük kabul edilebilir alımı (ADI) nitrat iyonu olarak 3,7 mg/kg vücut ağırlığı olarak korudu. Katkı maddesinden gelen nitrat toplam alımın küçük bir kısmıdır; sebzelerdeki doğal nitrat da hesaba katıldığında sınırın tüm yaş gruplarında aşılabildiğini bildirdi. Nitrat ağızda nitrite dönüşebilir; IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da sınıflandırır.",
+   "in_the_body": "Nitrat ağızda nitrite dönüşebilir.",
+   "agency_note": "EFSA 2017'de günlük kabul edilebilir alımı (ADI) nitrat iyonu olarak 3,7 mg/kg vücut ağırlığı olarak korudu. Katkı maddesinden gelen nitrat toplam alımın küçük bir kısmıdır; sebzelerdeki doğal nitrat da hesaba katıldığında sınırın tüm yaş gruplarında aşılabildiğini bildirdi. IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da sınıflandırır.",
    "diet_flags": {
     "vegan": "yes",
     "source": "synthetic",
@@ -3762,8 +3762,8 @@
    "found_in": [
     "Kürlenmiş et ürünleri"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2017'de günlük kabul edilebilir alımı (ADI) nitrat iyonu olarak 3,7 mg/kg vücut ağırlığı olarak korudu. Katkı maddesinden gelen nitrat toplam alımın küçük bir kısmıdır; sebzelerdeki doğal nitrat da hesaba katıldığında sınırın tüm yaş gruplarında aşılabildiğini bildirdi. Nitrat ağızda nitrite dönüşebilir; IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da sınıflandırır.",
+   "in_the_body": "Nitrat ağızda nitrite dönüşebilir.",
+   "agency_note": "EFSA 2017'de günlük kabul edilebilir alımı (ADI) nitrat iyonu olarak 3,7 mg/kg vücut ağırlığı olarak korudu. Katkı maddesinden gelen nitrat toplam alımın küçük bir kısmıdır; sebzelerdeki doğal nitrat da hesaba katıldığında sınırın tüm yaş gruplarında aşılabildiğini bildirdi. IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da sınıflandırır.",
    "diet_flags": {
     "vegan": "yes",
     "source": "synthetic",
@@ -4537,8 +4537,8 @@
     "Dondurma",
     "Soslar ve tatlılar"
    ],
-   "in_the_body": "",
-   "agency_note": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır.",
+   "agency_note": "EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "plant_or_animal",
@@ -4566,8 +4566,8 @@
     "Dondurma",
     "Soslar ve tatlılar"
    ],
-   "in_the_body": "",
-   "agency_note": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır.",
+   "agency_note": "EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "plant_or_animal",
@@ -4595,8 +4595,8 @@
     "Dondurma",
     "Soslar ve tatlılar"
    ],
-   "in_the_body": "",
-   "agency_note": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır.",
+   "agency_note": "EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "plant_or_animal",
@@ -4624,8 +4624,8 @@
     "Dondurma",
     "Soslar ve tatlılar"
    ],
-   "in_the_body": "",
-   "agency_note": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır.",
+   "agency_note": "EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "plant_or_animal",
@@ -4653,8 +4653,8 @@
     "Dondurma",
     "Soslar ve tatlılar"
    ],
-   "in_the_body": "",
-   "agency_note": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır. EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
+   "in_the_body": "Bağırsakta sınırlı ölçüde emilir; sorbitan ve yağ asitlerine ayrışır.",
+   "agency_note": "EFSA 2015'te polisorbatlar (E432–E436) için ortak günlük kabul edilebilir alımı (ADI) 25 mg/kg vücut ağırlığı olarak belirledi; genotoksisite, kanserojenlik ve gelişimsel toksisite yönünden endişe bulmadı. Çok tüketen küçük çocuklarda alımın sınıra yaklaştığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "plant_or_animal",
@@ -8170,8 +8170,8 @@
     "Çorba ve et suları",
     "Meyve suları ve alkolsüz içecekler"
    ],
-   "in_the_body": "",
-   "agency_note": "Dimetil polisiloksan sindirim kanalından çok sınırlı ölçüde emilir; büyük kısmı değişmeden dışkıyla atılır. EFSA 2020'de günlük alım sınırını (ADI) 17 mg/kg vücut ağırlığı olarak belirledi ve bildirilen kullanım ve düzeylerde güvenlik endişesi bulmadı.",
+   "in_the_body": "Dimetil polisiloksan sindirim kanalından çok sınırlı ölçüde emilir; büyük kısmı değişmeden dışkıyla atılır.",
+   "agency_note": "EFSA 2020'de günlük alım sınırını (ADI) 17 mg/kg vücut ağırlığı olarak belirledi ve bildirilen kullanım ve düzeylerde güvenlik endişesi bulmadı.",
    "diet_flags": {
     "vegan": "yes",
     "source": "synthetic",
@@ -8801,8 +8801,8 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
-   "agency_note": "Asetat, vücudun normal metabolizmasında yer alan bir bileşiktir; JECFA, sirkeden gelen asetik asidin insanlarca düzenli tüketildiğini belirtmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi ve bu karar 1997'de korundu.",
+   "in_the_body": "Asetat vücudun normal metabolizmasında yer alan bir bileşiktir.",
+   "agency_note": "JECFA, sirkeden gelen asetik asidin insanlarca düzenli tüketildiğini belirtmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi ve bu karar 1997'de korundu.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -8839,8 +8839,8 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
-   "agency_note": "Asetat, vücudun normal metabolizmasında yer alan bir bileşiktir; JECFA, sirkeden gelen asetik asidin insanlarca düzenli tüketildiğini belirtmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi ve bu karar 1997'de korundu. Sodyum diasetat için JECFA 1973'te ayrıca 0–15 mg/kg vücut ağırlığı ADI belirlemiş, diğer asetat tuzları gibi metabolize edilmesinin beklendiğini belirtmiştir.",
+   "in_the_body": "Asetat vücudun normal metabolizmasında yer alan bir bileşiktir.",
+   "agency_note": "JECFA, sirkeden gelen asetik asidin insanlarca düzenli tüketildiğini belirtmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi ve bu karar 1997'de korundu. Sodyum diasetat için JECFA 1973'te ayrıca 0–15 mg/kg vücut ağırlığı ADI belirlemiş, diğer asetat tuzları gibi metabolize edilmesinin beklendiğini belirtmiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -9963,8 +9963,8 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre asetat vücudun normal metabolizmasına katılır; bağırsaktan emilir ve enerji üretiminde ya da yağ asidi, glikojen gibi bileşiklerin yapımında tamamen kullanılır. İnsanların sirke ve gıdalarla günde yaklaşık 1 g asetik asidi yüzyıllardır tükettiği belirtilmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi, 1997'de bu kararı korudu; 2004'te antimikrobiyal yıkama çözeltilerinden gıdada kalan küçük kalıntıların güvenlik sorunu oluşturmayacağını belirtti.",
+   "in_the_body": "Asetat vücudun normal metabolizmasına katılır; bağırsaktan emilir ve enerji üretiminde ya da yağ asidi, glikojen gibi bileşiklerin yapımında tamamen kullanılır.",
+   "agency_note": "İnsanların sirke ve gıdalarla günde yaklaşık 1 g asetik asidi yüzyıllardır tükettiği belirtilmiştir. JECFA 1973'te asetik asit ve potasyum/sodyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi, 1997'de bu kararı korudu; 2004'te antimikrobiyal yıkama çözeltilerinden gıdada kalan küçük kalıntıların güvenlik sorunu oluşturmayacağını belirtti.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10004,8 +10004,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1973'te laktik asit ve tuzları için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; 2001'de aroma maddesi olarak mevcut alım düzeylerinde güvenlik sorunu görmedi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "in_the_body": "L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır.",
+   "agency_note": "İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1973'te laktik asit ve tuzları için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi; 2001'de aroma maddesi olarak mevcut alım düzeylerinde güvenlik sorunu görmedi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10169,8 +10169,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için, L(+) formu)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te sodyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "in_the_body": "L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır.",
+   "agency_note": "İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te sodyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10231,8 +10231,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için, L(+) formu)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te potasyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "in_the_body": "L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır.",
+   "agency_note": "İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te potasyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10288,8 +10288,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Tahıl bazlı bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı için, L(+) formu)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır. İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te kalsiyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
+   "in_the_body": "L(+)-laktat memeli metabolizmasının normal bir ara ürünüdür ve karaciğerde büyük ölçüde glikojene dönüştürülür; D(-) formu daha yavaş kullanılır.",
+   "agency_note": "İnsanlar laktik asit içeren ekşi süt ve fermente ürünleri yüzyıllardır tüketmektedir. JECFA 1974'te kalsiyum laktat için ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, ilk üç aydaki bebeklerin DL ve D(-) laktik asidi kullanmakta güçlük çektiğini bildirmiş ve bu formların bebek gıdalarında kullanılmamasını önermiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10345,8 +10345,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür. JECFA 1973'te sitrik asit ve kalsiyum, potasyum, sodyum ve amonyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, sitrik asidin sık ya da yüksek miktarda alınmasının düşük pH nedeniyle diş erozyonuna ve yerel tahrişe yol açabileceğini bildirmiştir.",
+   "in_the_body": "Sitrik asit ve sitratlar vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür.",
+   "agency_note": "JECFA 1973'te sitrik asit ve kalsiyum, potasyum, sodyum ve amonyum tuzları için grup ADI'yi 'sınırlandırılmamış' (not limited) olarak belirledi. JECFA, sitrik asidin sık ya da yüksek miktarda alınmasının düşük pH nedeniyle diş erozyonuna ve yerel tahrişe yol açabileceğini bildirmiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10387,8 +10387,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür. JECFA sodyum sitratları sitrik asit grup ADI'sine ('sınırlandırılmamış') dahil etmiştir; sodyum sitratın tıpta günde 10 g'a varan dozlarda uzun yıllar kullanıldığını belirtmiştir.",
+   "in_the_body": "Sitrik asit ve sitratlar vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür.",
+   "agency_note": "JECFA sodyum sitratları sitrik asit grup ADI'sine ('sınırlandırılmamış') dahil etmiştir; sodyum sitratın tıpta günde 10 g'a varan dozlarda uzun yıllar kullanıldığını belirtmiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10445,8 +10445,8 @@
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir",
     "Bebek mamaları ve bebek ek gıdaları (AB'de yalnızca pH ayarı gibi sınırlı koşullarla)"
    ],
-   "in_the_body": "",
-   "agency_note": "JECFA'ya göre sitrik asit ve sitratlar birçok gıdada doğal olarak bulunur ve vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür. JECFA potasyum sitratları sitrik asit grup ADI'sine ('sınırlandırılmamış') dahil etmiştir; potasyum sitratın tıpta günde 10 g'a varan dozlarda uzun yıllar kullanıldığını belirtmiştir.",
+   "in_the_body": "Sitrik asit ve sitratlar vücutta enerji üretimindeki trikarboksilik asit (Krebs) döngüsünün normal bir ara ürünüdür.",
+   "agency_note": "JECFA potasyum sitratları sitrik asit grup ADI'sine ('sınırlandırılmamış') dahil etmiştir; potasyum sitratın tıpta günde 10 g'a varan dozlarda uzun yıllar kullanıldığını belirtmiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "unknown",
@@ -10536,8 +10536,8 @@
     "Kek, bisküvi gibi ince unlu mamuller",
     "Aromalı içecekler ve soslar"
    ],
-   "in_the_body": "",
-   "agency_note": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür.",
+   "agency_note": "EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
    "diet_flags": {
     "vegan": "yes",
     "source": "plant",
@@ -10585,8 +10585,8 @@
     "Kek, bisküvi gibi ince unlu mamuller",
     "Aromalı içecekler ve soslar"
    ],
-   "in_the_body": "",
-   "agency_note": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür.",
+   "agency_note": "EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10633,8 +10633,8 @@
     "Kek, bisküvi gibi ince unlu mamuller",
     "Aromalı içecekler ve soslar"
    ],
-   "in_the_body": "",
-   "agency_note": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür.",
+   "agency_note": "EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10681,8 +10681,8 @@
     "Kek, bisküvi gibi ince unlu mamuller",
     "Aromalı içecekler ve soslar"
    ],
-   "in_the_body": "",
-   "agency_note": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür.",
+   "agency_note": "EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10727,8 +10727,8 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
-   "agency_note": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; JECFA L(+)-formun metabolizmasının iyi bilindiğini, D(-)-formun akıbeti hakkında ise daha az bilgi olduğunu belirtmiştir. JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
+   "in_the_body": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; L(+) formunun metabolizması iyi bilinir, D(-) formunun vücuttaki akıbeti hakkında daha az bilgi vardır.",
+   "agency_note": "JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10792,8 +10792,8 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
-   "agency_note": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; JECFA L(+)-formun metabolizmasının iyi bilindiğini, D(-)-formun akıbeti hakkında ise daha az bilgi olduğunu belirtmiştir. JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
+   "in_the_body": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; L(+) formunun metabolizması iyi bilinir, D(-) formunun vücuttaki akıbeti hakkında daha az bilgi vardır.",
+   "agency_note": "JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10857,8 +10857,8 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
-   "agency_note": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; JECFA L(+)-formun metabolizmasının iyi bilindiğini, D(-)-formun akıbeti hakkında ise daha az bilgi olduğunu belirtmiştir. JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
+   "in_the_body": "Malik asit vücutta enerji döngüsünün (Krebs döngüsü) bir ara ürünüdür; L(+) formunun metabolizması iyi bilinir, D(-) formunun vücuttaki akıbeti hakkında daha az bilgi vardır.",
+   "agency_note": "JECFA malik asit ile sodyum, potasyum ve kalsiyum tuzları için grup ADI'yi 'belirtilmemiş' olarak belirledi; D(-)-malik asit ve tuzları için bu ADI'nin çok küçük bebeklere uygulanmadığını bildirdi. EFSA'nın AB'deki yeniden değerlendirmesi sürmektedir (2024'te veri çağrısı yayımlandı).",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10914,8 +10914,8 @@
     "Şarap ve kısmen fermente üzüm şırası (yalnızca tartarik stabilizasyon için)",
     "Meyve şarapları ve bazı şarap bazlı alkollü içecekler (AB'de 100 mg/l'ye kadar, belirli ürünlerle sınırlı)"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA'ya göre metatartarik asit vücuda emilmeden önce tamamen L(+)-tartarik aside parçalanır. EFSA 2020'de bu nedenle maddenin tartarik asit–tartaratlar için belirlenen 240 mg/kg vücut ağırlığı/gün grup ADI'sine dahil edilmesini önerdi ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
+   "in_the_body": "Metatartarik asidin vücuda emilmeden önce tamamen L(+)-tartarik aside parçalandığı varsayılır.",
+   "agency_note": "EFSA 2020'de, emilmeden önce tamamen tartarik aside parçalandığı varsayımıyla maddenin tartarik asit–tartaratlar için belirlenen 240 mg/kg vücut ağırlığı/gün grup ADI'sine dahil edilmesini önerdi ve bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna vardı.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -10962,8 +10962,8 @@
     "Kek, bisküvi gibi ince unlu mamuller",
     "Aromalı içecekler ve soslar"
    ],
-   "in_the_body": "",
-   "agency_note": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür; EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
+   "in_the_body": "L(+)-tartarik asidin insanda emilimi sıçana göre daha düşüktür.",
+   "agency_note": "EFSA'ya göre yapılan hayvan çalışmalarında böbrek etkisi dahil toksik etki ve genotoksik potansiyel görülmemiştir. EFSA 2020'de E 334–337 ve E 354 için grup ADI'yi tartarik asit olarak 240 mg/kg vücut ağırlığı/gün olarak belirledi (SCF'nin 1990'daki 30 mg/kg ADI'sinin yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
     "source": "unknown",
@@ -13593,8 +13593,8 @@
     "Aromalı içecekler",
     "Elma ve armut şırası (sider ve perry)"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA'ya göre bozulmamış saponinler bağırsaktan az emilir, sindirim kanalında parçalanır ve geriye kalan kısım da sınırlı ölçüde emilir. EFSA 2019'da günlük kabul edilebilir alımı (ADI) 3 mg saponin/kg vücut ağırlığı olarak belirledi (SCF'nin 1978'deki 5 mg kurutulmuş öz/kg değeri yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti. Hayvan çalışmalarında sindirim organlarının ağırlığında değişiklikler görüldüğü, ancak bunlara tutarlı doku değişikliklerinin eşlik etmediği bildirilmiştir.",
+   "in_the_body": "Bozulmamış saponinler bağırsaktan az emilir ve sindirim kanalında parçalanır; geriye kalan kısım da sınırlı ölçüde emilir.",
+   "agency_note": "EFSA 2019'da günlük kabul edilebilir alımı (ADI) 3 mg saponin/kg vücut ağırlığı olarak belirledi (SCF'nin 1978'deki 5 mg kurutulmuş öz/kg değeri yerine) ve tahmini maruziyetin hiçbir yaş grubunda bu sınırı aşmadığını belirtti. Hayvan çalışmalarında sindirim organlarının ağırlığında değişiklikler görüldüğü, ancak bunlara tutarlı doku değişikliklerinin eşlik etmediği bildirilmiştir.",
    "diet_flags": {
     "vegan": "yes",
     "source": "plant",
@@ -13628,8 +13628,8 @@
     "Pastırma ve kaplaması",
     "Aromalı şaraplar (americano, bitter vino; en çok 100 mg/l)"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2013'te fosfatlı biçimin bağırsakta hızla serbest riboflavine dönüştüğünü ve normal metabolizma yollarıyla işlendiğini belirtti. Uzun süreli ve üreme çalışmaları bulunmadığından ADI belirlemedi; buna karşın mevcut izinli kullanım ve düzeylerde güvenlik endişesi oluşturmasının olası olmadığı sonucuna vardı. JECFA 1981'de riboflavin ve riboflavin-5'-fosfat için grup ADI'yi 0–0,5 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
+   "in_the_body": "Fosfatlı biçimi bağırsakta hızla serbest riboflavine dönüşür ve normal metabolizma yollarıyla işlenir.",
+   "agency_note": "EFSA 2013'te uzun süreli ve üreme çalışmaları bulunmadığından ADI belirlemedi; buna karşın mevcut izinli kullanım ve düzeylerde güvenlik endişesi oluşturmasının olası olmadığı sonucuna vardı. JECFA 1981'de riboflavin ve riboflavin-5'-fosfat için grup ADI'yi 0–0,5 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
    "regulatory_extra": [
     {
      "agency": "EFSA",
@@ -14215,8 +14215,8 @@
     "Şekerleme ve sakız",
     "Kahve çekirdeği, atıştırmalıklar ve takviye edici gıdalar"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2012'de emiliminin düşük olmasının beklendiğini, emilen bileşenlerin normal metabolizmaya katılacağını ve genotoksik olmadığını belirtti. Uzun süreli veri eksik olduğundan ADI belirlemedi; ancak güvenlik payı yeterli bulunduğundan izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı. JECFA ve SCF de ADI belirlemeden parlatıcı olarak kullanımını kabul edilebilir bulmuştu.",
+   "in_the_body": "Emiliminin düşük olması beklenir; emilen bileşenler normal metabolizmaya katılır.",
+   "agency_note": "EFSA 2012'de genotoksik olmadığını belirtti. Uzun süreli veri eksik olduğundan ADI belirlemedi; ancak güvenlik payı yeterli bulunduğundan izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı. JECFA ve SCF de ADI belirlemeden parlatıcı olarak kullanımını kabul edilebilir bulmuştu.",
    "regulatory_extra": [
     {
      "agency": "EFSA",
@@ -14246,8 +14246,8 @@
     "Kabuğu soyulmamış boyalı haşlanmış yumurta yüzeyi",
     "Kahve çekirdeği, atıştırmalıklar ve takviye edici gıdalar"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2012'de önemli ölçüde emilmesinin beklenmediğini, genotoksisite endişesi olmadığını ve kısa süreli, üreme ve gelişim çalışmalarında olumsuz etki görülmediğini belirtti. Uzun süreli veri olmadığından ADI belirlemedi, ancak güvenlik payını yeterli bularak izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı. JECFA ADI'yi 7 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
+   "in_the_body": "Önemli ölçüde emilmesi beklenmez.",
+   "agency_note": "EFSA 2012'de genotoksisite endişesi olmadığını ve kısa süreli, üreme ve gelişim çalışmalarında olumsuz etki görülmediğini belirtti. Uzun süreli veri olmadığından ADI belirlemedi, ancak güvenlik payını yeterli bularak izinli kullanımda güvenlik endişesi olmadığı sonucuna vardı. JECFA ADI'yi 7 mg/kg vücut ağırlığı/gün olarak belirlemişti.",
    "regulatory_extra": [
     {
      "agency": "EFSA",
@@ -14510,8 +14510,8 @@
     "Enerjisi azaltılmış ve düşük alkollü biralar",
     "Katkı, enzim ve besin öğesi preparatlarında taşıyıcı"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2021'de polidekstrozun sınırlı emildiğini ve bir kısmının kalın bağırsakta kısa zincirli yağ asitlerine fermente edildiğini belirtti. Genotoksisite endişesi bulmadı; uzun süreli, üreme ve gelişim çalışmalarında en yüksek dozlarda olumsuz etki görülmedi. Sayısal ADI'ye gerek görmedi ve bildirilen kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
+   "in_the_body": "Polidekstroz sınırlı ölçüde emilir; bir kısmı kalın bağırsakta kısa zincirli yağ asitlerine fermente edilir.",
+   "agency_note": "EFSA 2021'de genotoksisite endişesi bulmadı; uzun süreli, üreme ve gelişim çalışmalarında en yüksek dozlarda olumsuz etki görülmedi. Sayısal ADI'ye gerek görmedi ve bildirilen kullanımda güvenlik endişesi olmadığı sonucuna vardı.",
    "regulatory_extra": [
     {
      "agency": "EFSA",
@@ -14538,8 +14538,8 @@
    "found_in": [
     "Takviye edici gıdalar (çiğnenebilir olanlar hariç, en çok 100.000 mg/kg)"
    ],
-   "in_the_body": "",
-   "agency_note": "EFSA 2010'da yüksek molekül ağırlığı nedeniyle emilmediğini ve genotoksik olmadığını belirtti; üreme verisi bulunmadığından ADI belirlemedi. Hesaplanan güvenlik paylarını yeterli bularak takviye edici gıdalarda önerilen düzeyde kullanımın güvenlik endişesi oluşturmadığı sonucuna vardı.",
+   "in_the_body": "Yüksek molekül ağırlığı nedeniyle emilmez.",
+   "agency_note": "EFSA 2010'da genotoksik olmadığını belirtti; üreme verisi bulunmadığından ADI belirlemedi. Hesaplanan güvenlik paylarını yeterli bularak takviye edici gıdalarda önerilen düzeyde kullanımın güvenlik endişesi oluşturmadığı sonucuna vardı.",
    "regulatory_extra": [
     {
      "agency": "EFSA",
