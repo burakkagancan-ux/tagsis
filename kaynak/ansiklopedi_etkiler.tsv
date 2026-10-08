@@ -1,0 +1,117 @@
+# Ansiklopedi "Olası etkiler" listesi (gıda, E kodları). gen_ansiklopedi.py okur; elle incelenen her kaydın en az bir satırı olur.
+# Sütunlar: kodlar (boşlukla ayrılır) | düzey | belirti | kimde | hangi miktarda | kaynak anahtarı (kaynak/ansiklopedi.json "kaynaklar")
+# Düzeyler: resmi (kurum uyarısı, etiket zorunluluğu, yasak ya da sınıflandırma), bildirildi (insanda bazı kişilerde ya da yüksek miktarda bildirildi),
+#   tutarsiz (kurumların ya da çalışmaların sonuçları farklı), hayvan (yalnızca hayvan çalışmalarında görüldü), asim (bazı gruplarda günlük sınır aşılabilir),
+#   belirsiz (veri yetersiz, kurum güvenliği değerlendiremedi), yok (normal kullanımda bilinen bir yan etki yok; belirti boş bırakılır).
+# Dil: "yol açabilir / bildirilmiştir"; teşhis ya da tedavi önerisi yazılmaz; renk verilmez. Boş hücre "-".
+E322	resmi	Soya ya da yumurtadan elde edildiyse alerjik tepkiye yol açabilir; AB'de kaynağı etikette alerjen olarak belirtilir	Soya ya da yumurta alerjisi olanlar	Az miktarda bile	ab1169
+E322	yok	-	Alerjisi olmayan, 1 yaşından büyük kişiler	Bildirilen kullanım düzeylerinde	efsa_e322
+E120	bildirildi	Üretimden kalan böcek proteinleri nedeniyle nadiren alerjik tepki bildirilmiştir	Karmine duyarlı kişiler	Az miktarda bile	efsa_e120
+E951	resmi	Fenilalanin kaynağıdır; kandaki fenilalanin düzeyini yükseltebilir. AB'de etikette “fenilalanin kaynağı içerir” uyarısı zorunludur	Fenilketonüri (PKU) hastaları	Her miktarda	ab1169
+E951	tutarsiz	IARC 2023'te “insanlarda kanserojen olabilir” (Grup 2B) sınıfına aldı; JECFA aynı yıl günlük sınırı değiştirmedi ve bu sınırın altında endişe görmedi	Genel nüfus	Günde 40 mg/kg vücut ağırlığının altında JECFA'ya göre endişe yok	who_aspartame
+E962	resmi	Fenilalanin kaynağıdır; kandaki fenilalanin düzeyini yükseltebilir. AB'de etikette “fenilalanin kaynağı içerir” uyarısı zorunludur	Fenilketonüri (PKU) hastaları	Her miktarda	ab1169
+E962	tutarsiz	İçindeki aspartamı IARC 2023'te Grup 2B'ye (insanlarda kanserojen olabilir) aldı; JECFA aynı yıl günlük sınırı değiştirmedi	Genel nüfus	-	who_aspartame
+E102 E104 E110 E122 E124 E129	resmi	Çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabilir; AB'de içeren ürünün etiketinde bu uyarı zorunludur. EFSA tek tek renklendiricilerle nedensel bağı doğrulamadı	Çocuklar	-	ab1333
+E102	bildirildi	Duyarlılık (intolerans) tepkileri bildirilmiştir	Az sayıda duyarlı kişi	Günlük sınırın altındaki miktarlarda bile	efsa_e102
+E104 E110 E124	asim	Bazı yetişkin ve çocuklarda günlük sınır aşılabilir	Çok tüketen yetişkin ve çocuklar	-	efsa_colours_2009
+E122 E129	asim	Günlük sınır aşılabilir	Çok tüketen bazı çocuklar	-	efsa_colours_2009
+E127	resmi	Erkek sıçanlarda yüksek dozda tümör görüldüğü için ABD'de 2025'te gıdadaki izni iptal edildi; FDA insanlarda zarar gösteren kanıt bulunmadığını belirtti	Genel nüfus	Hayvan çalışmasında yüksek doz	fda_red3
+E128	resmi	AB 2007'de gıdada kullanımını acil önlemle askıya aldı; AB'de üretilen gıdalarda bulunmaz	Genel nüfus	-	ab884_2007
+E150c E150d	tutarsiz	Üretimde oluşabilen 4-MEI, hayvan çalışmalarına dayanarak IARC Grup 2B'dedir; Hong Kong Gıda Güvenliği Merkezi olağan kola tüketiminde sağlık sorunu beklemiyor	Genel nüfus	Olağan tüketimde sorun beklenmiyor	cfs_caramel
+E171	resmi	Genetik malzemeye zarar verme (genotoksisite) endişesi dışlanamadığı için gıdada güvenli kabul edilmedi; AB'de 2022'den, Türkiye'de 2024'ten beri gıdada kullanılamaz	Genel nüfus	Her miktarda	fsai_e171
+E203	belirsiz	Genotoksisite verisi sunulmadığı için AB izinli listesinden çıkarıldı; kanıtlanmış bir zarar yok, veri eksik	-	-	ab2018_98
+E210 E211 E212 E213	asim	Günlük sınır aşılabilir, özellikle aromalı içeceklerden	Aynı markayı çok tüketen küçük çocuklar	-	efsa_e211
+E220 E221 E222 E223 E224 E226 E227 E228	resmi	Solunum yolu tepkilerine (ör. astım belirtilerinde artış) yol açabilir; AB'de etikette alerjen olarak belirtilmesi zorunludur	Astımlı ve sülfite duyarlı kişiler	Kilogramda ya da litrede 10 mg'ın üzerinde etikete yazılır	ab1169
+E220 E221 E222 E223 E224 E226 E227 E228	asim	EFSA güvenli bir günlük sınır belirleyemedi ve yüksek tüketen gruplarda güvenlik endişesi bildirdi	Yüksek tüketenler	-	efsa_sulfite
+E249 E250	resmi	Yüksek miktarda kanın oksijen taşımasını azaltan methemoglobin artışına yol açabilir; EFSA'nın günlük sınırı bu etkiye dayanır	Genel nüfus	Günlük sınırın üzerinde	efsa_nitrite
+E249 E250	resmi	Etteki bazı maddelerle nitrozamin oluşturabilir; IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da (insanlarda muhtemelen kanserojen) sınıflandırır	Genel nüfus	-	efsa_nitrite
+E249 E250	asim	Günlük sınır hafifçe aşılabilir	En çok tüketen çocuklar	-	efsa_nitrite
+E251 E252	resmi	Ağızda nitrite dönüşebilir; IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da sınıflandırır	Genel nüfus	-	efsa_nitrate
+E251 E252	asim	Sebzelerdeki doğal nitrat da sayıldığında günlük sınır aşılabilir; katkının payı küçüktür	Tüm yaş grupları	Tüm kaynaklardan toplam	efsa_nitrate
+E407 E407a	belirsiz	Kimya, alım ve toksikoloji verilerindeki belirsizlikler nedeniyle günlük sınır geçici belirlendi; değerlendirme tamamlanmadı	-	-	efsa_carrageenan
+E420 E421 E953 E964 E965 E966 E967	resmi	Gaz, şişkinlik ve ishale (laksatif etki) yol açabilir; AB'de %10'dan fazla eklenmiş poliol içeren üründe “aşırı tüketimi laksatif etki yapabilir” uyarısı zorunludur	Herkes	Fazla tüketildiğinde	ab1169
+E968	resmi	İshale (laksatif etki) yol açabilir; EFSA'nın günlük sınırı bu etkiye dayanır	Herkes	Günde 0,5 g/kg vücut ağırlığının üzerinde	efsa_erythritol
+E968	asim	Tahmini alım günlük sınırın üzerinde	Çocuklar ve ergenler	-	efsa_erythritol
+E620 E621 E622 E623 E624 E625	tutarsiz	Baş ağrısı bildirimleri vardır; nedensel bağ kesin değildir	Duyarlı olduğunu bildiren kişiler	Yüksek miktarda	efsa_glutamate
+E620 E621 E622 E623 E624 E625	asim	Bazı yüksek tüketim senaryolarında günlük sınır aşılabilir	Yüksek tüketenler	-	efsa_glutamate
+E338 E339 E340 E341 E343 E450 E451 E452	asim	Tüm kaynaklardan alınan fosforla birlikte günlük sınır aşılabilir	Bebekler, küçük çocuklar ve çocuklar (ortalama alım), ergenler (yüksek alım)	Tüm kaynaklardan toplam	efsa_phosphate
+E432 E433 E434 E435 E436	yok	-	-	-	efsa_polysorbate
+E491 E492 E493 E494 E495	yok	-	-	-	efsa_sorbitan
+E173 E520 E521 E522 E523 E541 E554 E555 E556 E559 E1452	asim	Tüm kaynaklardan alınan alüminyum haftalık sınırı aşabilir; emilen kısım dokularda birikebilir. Katkıların payı ölçülemedi	Avrupa nüfusunun önemli bir kısmı	Tüm kaynaklardan toplam	efsa_aluminium
+E161g	bildirildi	Gözün retinasında kristal birikintileri gözlenmiştir; günlük sınır bu bulguya dayanır	Yüksek miktarda alan kişiler	Günlük sınırın çok üzerinde; gıdadan alınan miktarın bu sınırı aşması beklenmiyor	efsa_e161g
+E950 E954 E959 E969	yok	-	-	-	-
+E955	yok	-	-	-	efsa_e955
+E955	tutarsiz	Evde fırınlama ve kızartma gibi yüksek ısıda klorlu bileşik oluşup oluşmadığı belirsizdir	-	Yüksek ısıda pişirme	efsa_e955
+E200 E202	yok	-	-	-	efsa_sorbate
+E1404 E1410 E1412 E1413 E1414 E1420 E1422 E1440 E1442 E1450 E1451	yok	-	-	-	efsa_starch
+E1450	belirsiz	Bebek formüllerindeki güvenliği mevcut verilerle tam değerlendirilemedi	Bebekler	-	efsa_starch
+E460 E461 E462 E463 E464 E465 E466 E468 E469	yok	-	-	-	efsa_cellulose
+E400 E401 E402 E403 E404	yok	-	-	-	efsa_alginate
+E306 E307 E308 E309	yok	-	-	-	efsa_tocopherol
+E410 E412 E440 E471 E422	yok	-	-	-	-
+E412	belirsiz	Bebek formüllerinde güvenliğini gösterecek veri yetersiz; AB 2026'da bu ürünlerdeki iznini kaldırdı	Bebekler	-	efsa_e412
+E414	bildirildi	Gaz yapabildiği bildirilmiştir; EFSA bunu zararlı etki saymadı	Herkes	Yüksek miktarda	efsa_e414
+E415	bildirildi	Karın rahatsızlığı bildirilmiştir; EFSA bunu zararlı etki saymadı	Herkes	Yüksek dozda	efsa_e415
+E100 E131 E132 E133 E140 E142 E150a E150b E153 E160b E160c E160e E163 E170 E175 E180	yok	-	-	-	-
+E141	belirsiz	Emilim, uzun süreli etki ve üreme verileri eksik olduğu için EFSA güvenlik değerlendirmesini tamamlayamadı	-	-	efsa_e141
+E151 E155	asim	Günlük sınır aşılabilir	Çok tüketen çocuklar	-	-
+E160a	bildirildi	Akciğer kanseri riskine dair bulgular vardır	Takviye kullanan kişiler, özellikle sigara içenler	Günde 15 mg'ın üzerindeki takviye kullanımında	efsa_e160a
+E160a	yok	-	Normal beslenmeyle alınana denk miktarda	Günde 5–10 mg'a kadar	efsa_e160a
+E161b	asim	Besinler ve katkı birlikte günlük sınırı aşabilir	Bazı ülkelerde çok tüketen çocuklar	-	efsa_e161b
+E174	belirsiz	Toksisite çalışması ve parçacık boyutu bilgisi olmadığı için EFSA güvenliğini değerlendiremedi	-	-	efsa_e174
+E300 E301 E302 E304 E310 E315 E316 E319 E392 E586 E234 E235	yok	-	-	-	-
+E311 E312	belirsiz	Yeterli toksikolojik veri olmadığı için değerlendirilemedi; 2018'de AB izinli listesinden çıkarıldı	-	-	-
+E321	asim	Günlük sınır aşılabilir	Bazı ülkelerde yüksek tüketen çocuklar	-	efsa_e321
+E280 E281 E282 E283	yok	-	-	-	efsa_propionates
+E442 E470a E470b E472a E472b E472c E472d E472e E472f E474 E475 E476 E477 E479b E570 E900 E1520	yok	-	-	-	-
+E473	asim	Güncel kullanım düzeyleriyle günlük sınır aşılabilir	Birçok yaş grubu	-	efsa_e473
+E481 E482	asim	Günlük sınır aşılabilir	Yetişkinler dışındaki yaş grupları; yüksek tüketimde tüm gruplar	-	efsa_e481_e482
+E483	belirsiz	Yeterli toksisite ve genotoksisite verisi olmadığı için güvenliği değerlendirilemedi; AB 2023'te izinli listeden çıkardı	-	-	efsa_e483
+E1105	resmi	Yumurtadan elde edildiği için alerjik tepkiye yol açabilir; AB'de etikette yumurta alerjeni olarak belirtilir	Yumurta alerjisi olanlar	Bira, peynir ve şaraptaki kalıntı miktarlarında bile	efsa_lysozyme_enzyme
+E123	asim	Günlük sınır aşılabilir	Düzenli olarak çok yüksek miktarda Americano tüketen yetişkinler	Sınırın 6 katına kadar	efsa_e123
+E154	belirsiz	Uzun süreli toksisite ve kanserojenlik çalışmalarındaki eksiklikler nedeniyle EFSA güvenliği hakkında sonuca varamadı	-	-	efsa_e154
+E160f E230	yok	-	-	-	-
+E214 E215 E218 E219	yok	-	-	-	efsa_parabens
+E216 E217	hayvan	Genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler görüldü; bu nedenle AB katkı listesinden çıkarıldı	Hayvan çalışması (insanda gösterilmedi)	Etkisiz doz belirlenemedi	efsa_parabens_2004
+E239	tutarsiz	Asidik koşullarda formaldehite ayrışır; formaldehit IARC'ye göre insanda kanserojendir (Grup 1). EFSA Provolone peynirindeki izinli düzeyde güvenlik endişesi görmedi	Genel nüfus	İzinli düzeyde (25 mg/kg) EFSA'ya göre endişe yok	efsa_e239
+E242	yok	-	-	-	jecfa_e242
+E243	asim	Günlük sınıra ulaşılabilir	Yüksek tüketen küçük çocuklar ve çocuklar	Mevcut izinli düzeyde (160 mg/kg)	efsa_e243
+E260 E261 E262 E263	yok	-	-	-	-
+E284 E285	hayvan	Hayvan çalışmalarında erkek üreme sistemi ve gelişim üzerinde olumsuz etkiler görüldü; günlük sınır bu bulgulara dayanır	Hayvan çalışması; hamilelikte gelişim açısından önemli	Günlük sınırın düzenli aşılması (yalnızca havyardaki izinli kullanımda olası değil)	efsa_e284
+E320	tutarsiz	IARC hayvanlarda ön mide tümörlerine dayanarak Grup 2B'de (insanlar için olası kanserojen) sınıflandırdı; EFSA 2011'de bu tümörlerin insan için geçerli olmayabileceğini ve genotoksisite endişesi olmadığını belirtti	Genel nüfus	-	efsa_e320
+E626 E627 E628 E629 E630 E631 E632 E633 E634 E635	bildirildi	Kandaki ürik asit düzeyini ve idrarla ürik asit atılımını artırabilir	Gut yatkınlığı olanlar ve ürik asit atılımını azaltan idrar söktürücü ilaç kullananlar	Büyük miktarlarda	-
+E640 E650	yok	-	-	-	-
+E924a	resmi	Hayvanlarda böbrek ve tiroit tümörleri bildirilmiştir; JECFA genotoksik kanserojen olarak değerlendirdi ve un işlem maddesi olarak kullanımını uygun bulmadı, IARC Grup 2B'de sınıflandırır	Genel nüfus	Pişmiş ekmekte kalan kalıntı miktarlarında bile	jecfa_bromate_fas30
+E952	hayvan	Bazı kişilerin bağırsak bakterileri siklamatı sikloheksilamine dönüştürür; bu madde sıçanlarda testisleri etkiledi ve günlük sınır bu bulguya dayanır	Siklamatı dönüştüren kişiler (oran kişiden kişiye değişir)	Günlük sınırın üzerinde	scf_cyclamate_2000
+E957	yok	-	-	-	efsa_e957
+E960	asim	Günlük sınır aşılabilir; başlıca kaynak alkolsüz içecekler	Yüksek tüketen yetişkin ve çocuklar	-	efsa_e960
+E961	yok	-	-	-	efsa_e961
+E270 E325 E326 E327	yok	-	İlk üç aydaki bebekler dışında herkes	-	-
+E270 E325 E326 E327	resmi	İlk üç aydaki bebekler DL ve D(-) laktik asidi kullanmakta güçlük çeker; JECFA bu formların bebek gıdalarında kullanılmamasını önerdi	İlk üç aydaki bebekler	-	-
+E296 E350 E351 E352	yok	-	Çok küçük bebekler dışında herkes	-	-
+E296 E350 E351 E352	belirsiz	D(-)-malik asit ve tuzları için günlük sınır çok küçük bebeklere uygulanmaz	Çok küçük bebekler	-	-
+E297	bildirildi	Müshil etkisi; ishal gibi istenmeyen sindirim etkileri bildirilmiştir	Herkes	Tek seferde 15 g'ın üzerindeki sodyum fumarat dozlarında; günde 500 mg fumarik asitte bir yıl boyunca olumsuz bulgu görülmedi	jecfa_e297
+E330 E333	bildirildi	Düşük pH nedeniyle diş minesinde aşınmaya ve ağızda tahrişe yol açabilir	Herkes	Sık ya da yüksek miktarda	-
+E331 E332 E334 E335 E336 E337 E354 E353 E355 E356 E357 E363 E380 E500 E501 E503 E504	yok	-	-	-	-
+E507 E508 E509 E511	yok	-	-	-	efsa_chlorides
+E512	bildirildi	Mide-bağırsak tahrişi bildirilmiştir	Herkes	Tek seferde 40 mg kalay; konserve içecekte kilogramda 150 mg, diğer konservelerde 250 mg kadar kalay düzeyleri	efsa_e512
+E513 E514 E515 E516 E517	bildirildi	Müshil (ishal yapıcı) etki bildirilmiştir; katkıdan tahmin edilen alım bu dozun çok altındadır	Herkes	Kilogram vücut ağırlığı başına 300 mg ve üzeri sodyum sülfat	efsa_sulphates
+E524 E525 E526 E527 E528 E529 E530	yok	-	-	-	-
+E1201 E1202	yok	-	-	-	efsa_e1201_e1202
+E1204	bildirildi	Karında dolgunluk, gaz, şişkinlik ve kramp gibi hafif sindirim belirtileri bildirilmiştir	Özellikle takviyelerden yüksek miktarda alanlar	Günde 10 g ve üzeri	efsa_e1204
+E290 E405 E406 E417 E418 E427 E441 E444 E445	yok	-	-	-	-
+E413	bildirildi	Bazı aşırı duyarlılık (alerji) vakaları bildirilmiştir; zamktaki proteinlerden kaynaklanabilir	Duyarlı kişiler	-	efsa_e413
+E416	bildirildi	Karın rahatsızlığı bildirilmiştir	Bazı yetişkinler	Günde 7.000 mg	efsa_e416
+E425	resmi	Yeterli sıvı olmadan tablet olarak alındığında yemek borusu tıkanması bildirilmiştir; AB'de jöleli şekerlemelerde kullanımı yasaktır	Herkes, özellikle çocuklar	Jöleli şekerleme, sıvısız tablet	eu_dir_2003_52
+E425	bildirildi	Karın rahatsızlığı (ishal ya da kabızlık) bildirilmiştir	Bazı yetişkinler	Günde 3.000 mg, 12 hafta	efsa_e425
+E426	resmi	Kalıntı soya proteinleri alerjik tepkiye yol açabilir; AB'de soya alerjeni olarak etikette belirtilir	Soya alerjisi olanlar	Az miktarda bile	ab1169
+E459	asim	Aynı markaya bağlı tüketimde günlük sınır aşılabilir	Bebekler dışındaki tüm yaş grupları (ortalama tüketim), tüm gruplar (yüksek tüketim)	-	efsa_e459
+E574 E575	bildirildi	Müshil etkisi; ishal bildirilmiştir	Herkes	Tek seferde 20 g'ın üzerinde; günde 20–50 g alan gönüllülerde	-
+E576 E577 E578 E579 E585	yok	-	-	-	-
+E938 E939 E941 E942 E943a E943b E944 E948 E949 E999	yok	-	-	-	-
+E101 E162 E160d E385 E431 E535 E536 E538 E551 E558 E901 E902 E903 E904 E905 E907 E914 E920 E927b E1103 E1200 E1205 E1505 E1517 E1518 E1519 E1521	yok	-	-	-	-
+E172	belirsiz	Yeterli biyolojik ve toksikolojik veri olmadığı için EFSA güvenliğini değerlendiremedi	-	-	efsa_e172
+E552 E553a E553b	belirsiz	Güvenilir uzun süreli toksisite, kanserojenlik ve üreme verisi olmadığı için EFSA güvenliğini değerlendiremedi	-	-	efsa_e552
+E553b	resmi	IARC 2025'te talkı Grup 2A'da (insanlarda muhtemelen kanserojen) sınıflandırdı	Genel nüfus	-	iarc_talc
+E912	belirsiz	Toksikokinetik, üreme ve gelişim verisi olmadığı için EFSA değerlendiremedi; AB 2014'te izinli listeden çıkardı	-	-	efsa_e912
+E1203	belirsiz	EFSA 2006 görüşünün sonucu okunamadı; bu çalışmada bilinen bir yan etki bulunamadı	-	-	-

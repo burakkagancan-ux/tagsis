@@ -3,6 +3,7 @@ var ANS={
   risk:["green","amber","red"],evidence:["strong","moderate","limited"],diet:["yes","no","unknown"],
   source:["plant","animal","insect","synthetic","mineral","plant_or_animal","unknown"],ptype:["food","cosmetic","cleaning"],
   severity:["high","medium","low"],review:["curated","auto"],production:["dogal","fermente","islenmis","sentetik","belirsiz"],
+  effect:["resmi","bildirildi","tutarsiz","hayvan","asim","belirsiz","yok"],
   status:["approved","label_required","restricted","concern","classified","banned","withdrawn","not_listed","reviewed"]
 };
 /* Arama anahtarı: ı/i, ş/s vb. eşlenir, büyük/küçük harf, boşluk ve tire yok sayılır ("E-322" = "e322") */
@@ -32,8 +33,16 @@ function ansValidate(r,T,ids){
     txt(r.content.what_it_does,"content.what_it_does eksik");
     need(Array.isArray(r.content.found_in)&&(!cur||r.content.found_in.length>0),"content.found_in boş");
     (r.content.found_in||[]).forEach(function(k){txt(k,"content.found_in metni eksik")});
-    if(cur||r.content.in_the_body!=null)txt(r.content.in_the_body,"content.in_the_body eksik");
+    if(r.content.in_the_body!=null)txt(r.content.in_the_body,"content.in_the_body eksik");
   }
+  // Olası etkiler: elle incelenen her kayıtta en az bir satır; her satırın düzeyi, metni ve https kaynağı olur
+  need(Array.isArray(r.effects)&&(!cur||r.effects.length>0),"effects boş");
+  (r.effects||[]).forEach(function(x){
+    inn(x.level,ANS.effect,"effects.level");txt(x.text,"effects.text eksik");
+    if(x.who!=null)txt(x.who,"effects.who eksik");if(x.amount!=null)txt(x.amount,"effects.amount eksik");
+    need(x.source&&x.source.label&&/^https:\/\//.test(x.source.url||""),"effects.source geçersiz");
+  });
+  if(r.agency_note!=null)txt(r.agency_note,"agency_note eksik");
   need(r.diet_flags&&typeof r.diet_flags==="object","diet_flags eksik");
   if(r.diet_flags){inn(r.diet_flags.vegan,ANS.diet,"diet_flags.vegan");inn(r.diet_flags.gluten,ANS.diet,"diet_flags.gluten");inn(r.diet_flags.source,ANS.source,"diet_flags.source")}
   if(r.production!=null){inn(r.production.class,ANS.production,"production.class");txt(r.production.note,"production.note eksik")}

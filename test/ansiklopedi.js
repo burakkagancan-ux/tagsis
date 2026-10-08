@@ -14,7 +14,21 @@ ok(R.length===E.ingredients.length&&E.ingredients.every(i=>by[i.id]),'her E kodu
 R.forEach(r=>ok(r.slug===ansSlug(r.id+' '+T[r.names.primary]),r.id+' slug JS ile aynı üretilmeli: '+r.slug));
 const cur=R.filter(r=>r.review==='curated');
 ok(cur.length>=5&&by.E322.review==='curated','en az 5 elle incelenmiş kayıt, E322 dahil');
-cur.forEach(r=>{ok(r.sources.some(s=>s.official&&/^https:\/\//.test(s.url)),r.id+' resmi kaynak');ok(r.regulatory.length&&r.related_ids.length&&r.content.found_in.length&&r.content.in_the_body,r.id+' tüm alanlar dolu')});
+cur.forEach(r=>{ok(r.sources.some(s=>s.official&&/^https:\/\//.test(s.url)),r.id+' resmi kaynak');ok(r.regulatory.length&&r.related_ids.length&&r.content.found_in.length&&r.effects.length,r.id+' tüm alanlar dolu')});
+// Olası etkiler: her elle kayıtta en az bir satır; "yok" satırı aynı kayıtta başka belirtiyle çelişmez; dil "yapar" değil
+cur.forEach(r=>{
+  const lv=r.effects.map(x=>x.level);
+  ok(!(lv.indexOf('yok')>-1&&lv.some(l=>l==='resmi'||l==='bildirildi'||l==='hayvan')&&!r.effects.some(x=>x.level==='yok'&&x.who)),r.id+' "bilinen yan etki yok" ile belirti satırı birlikte (kişi belirtilmeden)');
+  r.effects.forEach(x=>ok(!/ yapar\b|neden olur\b|kesin(likle)? (zarar|hastal)/i.test(T[x.text]),r.id+' etkiler dili: '+T[x.text]));
+  // Kurum cümleleri Otoriteler sekmesinde; "Vücutta nasıl işlenir?" kurum değerlendirmesi içermez
+  if(r.content.in_the_body)ok(!/EFSA|JECFA|ADI|IARC/.test(T[r.content.in_the_body]),r.id+' vücutta bölümünde kurum cümlesi');
+  ok(r.content.in_the_body||r.agency_note,r.id+' vücutta ya da kurum notu olmalı');
+});
+ok(by.E420.effects.some(x=>x.level==='resmi'&&/ishal/.test(T[x.text])),'poliol: ishal resmi uyarı');
+ok(by.E951.effects.some(x=>x.level==='resmi'&&/PKU/.test(T[x.who])),'aspartam: PKU');
+ok(by.E621.effects.some(x=>x.level==='tutarsiz'&&/baş ağrısı/i.test(T[x.text])),'MSG: baş ağrısı kanıt tutarsız');
+ok(by.E102.effects.some(x=>x.level==='resmi'&&/Çocuk/.test(T[x.who])),'tartrazin: çocuk uyarısı');
+ok(by.E440.effects.length===1&&by.E440.effects[0].level==='yok'&&T[by.E440.effects[0].text].indexOf('bilinen bir yan etki yok')>-1,'pektin: bilinen yan etki yok');
 // Risk düzeyi tarama verisiyle aynı (iki yerde farklı renk görünmesin)
 const RM={green:'green',yellow:'amber',red:'red'};
 E.ingredients.forEach(i=>ok(by[i.id].risk_level===RM[i.risk_level],i.id+' risk tarama verisiyle farklı'));
@@ -43,10 +57,14 @@ bad(r=>r.sources=r.sources.filter(s=>!s.official),'resmi kaynak yok');
 bad(r=>r.sources[0].url='http://uydurma','sources url geçersiz');
 bad(r=>r.product_types=['drug'],'product_types geçersiz');
 bad(r=>r.last_reviewed=null,'last_reviewed eksik');
+bad(r=>r.effects=[],'effects boş');
+bad(r=>r.effects[0].level='orta','effects.level geçersiz');
+bad(r=>r.effects[0].source.url='http://x','effects.source geçersiz');
+bad(r=>r.effects[0].text='YOK.anahtar','effects.text eksik');
 // Bilinmeyen URL boş + todo ile girilebilir
 {const r=JSON.parse(JSON.stringify(good));r.sources.push({title:'x',publisher:'y',year:null,url:'',todo:'URL doğrulanamadı'});ok(ansValidate(r,T,by).length===0,'boş url + todo kabul edilmeli')}
 // Otomatik kayıtta kanıt düzeyi ve inceleme tarihi boş olabilir
-{const a=JSON.parse(JSON.stringify(by.E1203));a.review='auto';a.evidence_level=null;a.last_reviewed=null;ok(ansValidate(a,T,by).length===0,'otomatik kayıt geçerli')}
+{const a=JSON.parse(JSON.stringify(by.E1203));a.review='auto';a.evidence_level=null;a.last_reviewed=null;a.effects=[];a.content.in_the_body=null;a.agency_note=null;ok(ansValidate(a,T,by).length===0,'otomatik kayıt geçerli')}
 
 // 3. Türkçe harf duyarsız arama
 const IX=ansIndex(R,T),first=q=>{const s=ansSearch(IX,q,5);return s.length?s[0].id:null};

@@ -51,6 +51,12 @@ h2.name{font-size:30px;margin:0 0 6px}
 .tab[aria-selected="true"]{color:var(--ok);border-bottom-color:var(--ok)}
 .panel{padding:4px 0}.panel h3{font-size:17px;margin:16px 0 6px}.panel p{margin:0}
 .panel ul{margin:0;padding-left:20px}.panel li{margin:3px 0}
+/* Olası etkiler: renk almaz (belirtiler risk rengi taşımaz), düzey gri etiketle */
+.panel ul.eff{list-style:none;padding:0;margin:0 0 8px}
+.eff li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0}
+.eff .lv{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;background:#EEE9DD;color:var(--ink);margin-bottom:4px}
+.eff p{font-size:15px}.eff .er{font-size:14px;margin-top:4px}.eff .mut{margin-top:4px}
+.eff a{display:inline-flex;align-items:center;min-height:32px}
 .ag{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}.ag:first-child{border-top:0}
 .ag .who{font-weight:700}.ag .d{font-size:15px;margin-top:2px}
 .st{flex:0 0 auto;font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap;background:#EEE9DD;color:var(--ink)}

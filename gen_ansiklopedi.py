@@ -35,7 +35,12 @@ UI = {
     "profile.pku": "Fenilketonüri (PKU)", "profile.pet": "Evcil hayvan", "profile.salt": "Tansiyon / tuz kısıtlaması",
     "eval.inventory": "Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor. Bu bir onay değildir.",
     "reg.tr_listed": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.",
+    "eff.resmi": "Resmi uyarı", "eff.bildirildi": "Bazı kişilerde bildirildi", "eff.tutarsiz": "Kanıt tutarsız",
+    "eff.hayvan": "Yalnızca hayvan çalışmasında", "eff.asim": "Sınır aşılabilir", "eff.belirsiz": "Değerlendirilemedi",
+    "eff.yok": "Bilinen yan etki yok", "eff.none_text": "Normal kullanımda bilinen bir yan etki yok.",
+    "eff.doctor": "Bir şikâyetiniz varsa hekiminize danışın. Bu liste teşhis ya da tedavi önerisi değildir.",
 }
+EFF_LEVELS = ("resmi", "bildirildi", "tutarsiz", "hayvan", "asim", "belirsiz", "yok")
 EU_STATUS = {"banned": ("banned", "AB'de gıda katkısı olarak yasak."), "withdrawn": ("withdrawn", "AB'de izni geri çekildi."),
              "not_listed": ("not_listed", "AB'nin izinli gıda katkı maddeleri listesinde yer almıyor.")}
 
@@ -53,6 +58,36 @@ def num(i):
     return int(m.group(1)) if m else 0
 
 
+def short_pub(p):
+    """Kaynak satırındaki kısa kurum adı: "EFSA (EFSA Journal …)" -> "EFSA"."""
+    for k, v in (("EFSA", "EFSA"), ("IARC", "IARC"), ("JECFA", "JECFA"), ("JMPR", "JMPR"), ("SCF", "SCF"), ("FDA", "FDA"),
+                 ("eCFR", "FDA"), ("CFS", "Hong Kong CFS"), ("FSAI", "FSAI"), ("Avrupa", "AB"), ("legislation.gov.uk", "AB"),
+                 ("Dünya Sağlık", "DSÖ"), ("ECHA", "ECHA"), ("Tarım", "Tarım ve Orman Bakanlığı")):
+        if k in p:
+            return v
+    return p
+
+
+def read_effects(path):
+    """kaynak/ansiklopedi_etkiler.tsv -> {kod: [satır, ...]} (dosyadaki sırayla)."""
+    out = {}
+    for n, line in enumerate(open(path, encoding="utf-8"), 1):
+        if not line.strip() or line.startswith("#"):
+            continue
+        c = line.rstrip("\n").split("\t")
+        if len(c) != 6:
+            raise SystemExit("ansiklopedi_etkiler.tsv %d. satır: 6 sütun olmalı" % n)
+        ids, lvl, txt, who, amt, src = [x.strip() for x in c]
+        if lvl not in EFF_LEVELS:
+            raise SystemExit("ansiklopedi_etkiler.tsv %d. satır: düzey geçersiz: %s" % (n, lvl))
+        if (lvl == "yok") != (txt == "-"):
+            raise SystemExit("ansiklopedi_etkiler.tsv %d. satır: belirti yalnızca 'yok' düzeyinde boş olur" % n)
+        for i in ids.split():
+            out.setdefault(i, []).append({"level": lvl, "text": None if txt == "-" else txt, "who": None if who == "-" else who,
+                                          "amount": None if amt == "-" else amt, "src": None if src == "-" else src, "line": n})
+    return out
+
+
 def main():
     K = json.load(open(os.path.join(HERE, "kaynak", "ansiklopedi.json"), encoding="utf-8"))
     edb = json.load(open(os.path.join(HERE, "data", "e_kodlari.json"), encoding="utf-8"))
@@ -60,6 +95,7 @@ def main():
     bdb = json.load(open(os.path.join(HERE, "data", "bilesenler.json"), encoding="utf-8"))
     SRC, CAT, AG, FL, CUR = K["kaynaklar"], K["kategoriler"], K["ajanslar"], K["bayrak_uyarilari"], K["kayitlar"]
     official = K["resmi_alan_adlari"]
+    EFF = read_effects(os.path.join(HERE, "kaynak", "ansiklopedi_etkiler.tsv"))
     titles = {s["url"]: s["name"] for s in edb["meta"].get("sources", []) if s.get("url")}
     T = dict(UI)
     for code, name in bdb["meta"]["allergens"]:
@@ -152,6 +188,7 @@ def main():
         same = sorted((x for x in bycat[it["category"]] if x != rid), key=lambda x: (abs(num(x) - num(rid)), x))
         r.update({"evidence_level": None, "summary": rid + ".summary" if rid in about else None, "evaluation": ev,
                   "content": {"what_it_does": "cat." + cat["code"] + ".what", "found_in": [], "in_the_body": None},
+                  "effects": [], "agency_note": None,
                   "diet_flags": {"vegan": vegan, "source": source, "gluten": "unknown"},
                   "regulatory": regs, "profile_warnings": pws, "related_ids": same[:4], "sources": srcs,
                   "last_reviewed": None,
@@ -165,12 +202,35 @@ def main():
                 T[rid + ".summary"] = cur["summary"]
                 r["summary"] = rid + ".summary"
             T[rid + ".what"] = cur["what_it_does"]
-            T[rid + ".body"] = cur["in_the_body"]
             for n, x in enumerate(cur["found_in"]):
                 T["%s.found.%d" % (rid, n)] = x
             r["content"] = {"what_it_does": rid + ".what",
                             "found_in": ["%s.found.%d" % (rid, n) for n in range(len(cur["found_in"]))],
-                            "in_the_body": rid + ".body"}
+                            "in_the_body": None}
+            # "Vücutta nasıl işlenir?" yalnızca metabolizma; kurum değerlendirmesi Otoriteler sekmesine gider
+            if cur["in_the_body"]:
+                T[rid + ".body"] = cur["in_the_body"]
+                r["content"]["in_the_body"] = rid + ".body"
+            if cur.get("agency_note"):
+                T[rid + ".agn"] = cur["agency_note"]
+                r["agency_note"] = rid + ".agn"
+            # Olası etkiler: belirti, kimde, hangi miktarda, kanıt düzeyi ve kaynak (kaynak/ansiklopedi_etkiler.tsv)
+            effs = []
+            for n, e in enumerate(EFF.get(rid, [])):
+                sk = e["src"] or cur["sources"][0]
+                if sk not in SRC:
+                    raise SystemExit("ansiklopedi_etkiler.tsv %d. satır: kaynak bulunamadı: %s" % (e["line"], sk))
+                s = SRC[sk]
+                o = {"level": e["level"], "text": "eff.none_text", "who": None, "amount": None,
+                     "source": {"label": short_pub(s["publisher"]), "year": s["year"], "url": s["url"], "title": s["title"]}}
+                for f, suf in (("text", "t"), ("who", "w"), ("amount", "a")):
+                    if e[f]:
+                        T["%s.eff.%d.%s" % (rid, n, suf)] = e[f]
+                        o[f] = "%s.eff.%d.%s" % (rid, n, suf)
+                effs.append(o)
+                if sk not in cur["sources"]:
+                    cur["sources"].append(sk)
+            r["effects"] = effs
             if "regulatory" in cur:
                 regs = []
                 for n, g in enumerate(cur["regulatory"]):
@@ -201,7 +261,12 @@ def main():
         missing = [x for x in r["related_ids"] if x not in ids]
         if missing:
             raise SystemExit(r["id"] + ": related_ids bulunamadı: " + ", ".join(missing))
+    for k in EFF:
+        if k not in CUR:
+            raise SystemExit(k + ": ansiklopedi_etkiler.tsv'de var ama elle incelenmiş kayıt değil")
     for k in CUR:
+        if k not in EFF:
+            raise SystemExit(k + ": olası etkiler satırı yok (kaynak/ansiklopedi_etkiler.tsv)")
         if k not in ids:
             raise SystemExit(k + ": e_kodlari.json'da yok")
     today = datetime.date.today().isoformat()
