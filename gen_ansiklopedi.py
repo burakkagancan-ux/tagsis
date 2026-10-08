@@ -211,6 +211,8 @@ def main():
             if cur["in_the_body"]:
                 T[rid + ".body"] = cur["in_the_body"]
                 r["content"]["in_the_body"] = rid + ".body"
+            if cur.get("uretim_ek"):   # elle yazılan üretim ayrıntısı "Nasıl üretilir?" metnine eklenir
+                T[rid + ".prod"] = T[rid + ".prod"] + " " + cur["uretim_ek"]
             if cur.get("agency_note"):
                 T[rid + ".agn"] = cur["agency_note"]
                 r["agency_note"] = rid + ".agn"

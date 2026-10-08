@@ -23,11 +23,16 @@ cur.forEach(r=>{
   // Kurum cümleleri Otoriteler sekmesinde; "Vücutta nasıl işlenir?" kurum değerlendirmesi içermez
   if(r.content.in_the_body)ok(!/EFSA|JECFA|ADI|IARC/.test(T[r.content.in_the_body]),r.id+' vücutta bölümünde kurum cümlesi');
   ok(r.content.in_the_body||r.agency_note,r.id+' vücutta ya da kurum notu olmalı');
+  // "Vücutta nasıl işlenir?" ve kurum notu üretim yolu, gıdadaki kimya ya da madde tanımı anlatmaz (bunlar Nasıl üretilir? / Ne işe yarar?)
+  const nb=/(?<!bakterilerince de )üretil|elde edil|hammadde|Mayalandırma|^Gıdada |^Suda |soy gaz|alkanlar|grubundandır|^Riboflavin B2 vitaminidir|gerekli bir mineral|doğal minerallerdir|doğal olarak (da )?bulunan bir amino|sebzelerle de alınır/;
+  if(r.content.in_the_body)ok(!nb.test(T[r.content.in_the_body]),r.id+' vücutta bölümünde üretim/tanım cümlesi: '+T[r.content.in_the_body]);
+  if(r.agency_note)T[r.agency_note].split(/(?<=\.)\s+/).forEach(c=>ok(!/^(Mayalandırma|Sentetik olarak) |hammadde olarak kullanılamaz|^Jelatin, /.test(c),r.id+' kurum notunda üretim cümlesi: '+c));
 });
 ok(by.E420.effects.some(x=>x.level==='resmi'&&/ishal/.test(T[x.text])),'poliol: ishal resmi uyarı');
 ok(by.E951.effects.some(x=>x.level==='resmi'&&/PKU/.test(T[x.who])),'aspartam: PKU');
 ok(by.E621.effects.some(x=>x.level==='tutarsiz'&&/baş ağrısı/i.test(T[x.text])),'MSG: baş ağrısı kanıt tutarsız');
 ok(by.E102.effects.some(x=>x.level==='resmi'&&/Çocuk/.test(T[x.who])),'tartrazin: çocuk uyarısı');
+ok(T[by.E441.production.note].indexOf('domuz derisi')>-1&&T[by.E150c.production.note].indexOf('4-MEI')>-1,'üretim ayrıntısı Nasıl üretilir? bölümünde');
 ok(by.E440.effects.length===1&&by.E440.effects[0].level==='yok'&&T[by.E440.effects[0].text].indexOf('bilinen bir yan etki yok')>-1,'pektin: bilinen yan etki yok');
 // Risk düzeyi tarama verisiyle aynı (iki yerde farklı renk görünmesin)
 const RM={green:'green',yellow:'amber',red:'red'};
