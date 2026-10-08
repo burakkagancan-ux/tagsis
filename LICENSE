@@ -1,0 +1,47 @@
+Copyright (c) 2025-2026 Burak Kağan Can. All rights reserved.
+
+This repository (source code, data files, texts, encyclopedia pages, risk
+criteria, synonym lists, translations, images and documentation) is
+proprietary. It is made visible for transparency only. No licence is granted
+to copy, modify, distribute, sublicense, sell, scrape, or use it, in whole or
+in part, in any other product, service, database or AI training set, without
+prior written permission from the copyright holder.
+
+Viewing the code on GitHub and using the published app at its official
+address for personal purposes is permitted.
+
+Third-party material
+--------------------
+Some files contain or are derived from third-party data. Those parts remain
+under their own terms, which are stated at the top of each file or next to it,
+and this notice does not restrict any right those terms grant. Currently:
+
+- European Commission, CosIng database (kaynak/cosing/): reuse authorised
+  under Commission Decision 2011/833/EU, with source acknowledged.
+- Open Food Facts ingredient taxonomy (rows marked "OFF" in
+  kaynak/ingilizce_esanlamlilar.tsv): Open Database License (ODbL) 1.0,
+  (c) Open Food Facts contributors, https://world.openfoodfacts.org.
+- Official legal texts (EU, Turkish and US regulations) and the Ministry of
+  Agriculture and Forestry public list are quoted from their public sources.
+
+Permission requests: burakkagancan@gmail.com
+
+---
+
+Telif hakkı (c) 2025-2026 Burak Kağan Can. Tüm hakları saklıdır.
+
+Bu deponun içeriği (kaynak kod, veri dosyaları, metinler, ansiklopedi
+sayfaları, risk ölçütleri, eş anlamlı listeleri, çeviriler, görseller ve
+belgeler) sahibine aittir ve yalnızca şeffaflık için görünür tutulmaktadır.
+Telif sahibinin yazılı izni olmadan tamamı ya da bir kısmı kopyalanamaz,
+değiştirilemez, dağıtılamaz, satılamaz, otomatik olarak toplanamaz ya da başka
+bir ürün, hizmet, veritabanı veya yapay zekâ eğitim verisinde kullanılamaz.
+
+Kodu GitHub'da incelemek ve yayınlanan uygulamayı resmi adresinde kişisel
+amaçla kullanmak serbesttir.
+
+Üçüncü taraf verileri yukarıdaki İngilizce bölümde listelenmiştir; bu kısımlar
+kendi lisanslarına tabidir ve bu metin o lisansların tanıdığı hakları
+kısıtlamaz.
+
+İzin talepleri: burakkagancan@gmail.com

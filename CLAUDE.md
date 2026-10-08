@@ -109,6 +109,7 @@ Son güncelleme: 08.10.2026 (B-08 İngilizce tanıma).
 - `node test/onbellek.js` (08.10.2026): sayfaların ve js/*.js'in yüklediği her yerel dosya sw.js CORE listesinde mi.
 
 ## Kararlar
+- Lisans (09.10.2026, kullanıcı kararı; O-03): depo "tüm hakları saklıdır" (LICENSE). Üçüncü taraf verisi eklenince kaynağı ve lisansı dosya başına ve LICENSE'taki listeye yazılır. Depo GitHub Pages yüzünden şimdilik açık; gizleme alan adı/Cloudflare Pages taşımasıyla (O-01).
 - Bakanlık verisi değiştirilmez. Marka eşleşmesi suçlama değil, nötr bağlantı.
 - Uygulama asla "güvenli/uygun" demez; "bulunamadı, bu bir onay değildir" der. "Zararlı" ifadesi her zaman kaynağa (yönetmelik, tarih) bağlanır.
 - Kozmetik, besin tablosu ve helalin önüne geçti. Gıda ve kozmetik JSON'ları ayrı; kozmetik dosyaları sayfada yalnızca Kozmetik seçilince yüklenir, ama service worker kurulumda (08.10.2026'dan beri) kozmetik ve temizlik verisini de önbelleğe alır (~2,8 MB) ki internetsiz açılsın. Kamera kilitlenmez.
