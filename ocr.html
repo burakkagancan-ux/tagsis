@@ -23,6 +23,8 @@ button.alt{background:none;color:var(--ok)}button:disabled{opacity:.5}
 label.camera{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:1.5px dashed var(--ok);border-radius:14px;background:var(--card);min-height:64px;color:var(--ink);font-weight:600;cursor:pointer}
 label.camera svg{flex:0 0 auto;width:40px;height:40px;padding:8px;border-radius:50%;background:var(--ok);fill:none;stroke:var(--bg);stroke-width:2;stroke-linejoin:round}
 #foto:focus-visible+img,label.camera:focus-within{outline:3px solid var(--ok)}
+label.dosya{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:8px;padding:10px 16px;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ok);font-weight:600;font-size:15px;cursor:pointer}
+label.dosya svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}label.dosya:focus-within{outline:3px solid var(--ok)}
 #cropwrap{position:relative;display:none;width:fit-content;max-width:100%;margin:10px auto 0;overflow:hidden;border-radius:8px;user-select:none;-webkit-user-select:none}
 img#pre{display:block;max-width:100%;max-height:60vh;-webkit-user-drag:none;pointer-events:none}
 #crop{position:absolute;border:2px solid #fff;outline:1px solid rgba(0,0,0,.5);box-shadow:0 0 0 9999px rgba(0,0,0,.45);box-sizing:border-box}
@@ -153,6 +155,8 @@ button.kkayit{flex-direction:column;align-items:flex-start;gap:4px;width:100%;te
 <div class="ptype" id="ptype" hidden><span class="mut">Ürün Tipi (isteğe bağlı):</span><button type="button" data-p="rinse" aria-pressed="false">Durulanan</button><button type="button" data-p="leave" aria-pressed="false">Durulanmayan</button><button type="button" data-p="makeup" aria-pressed="false">Makyaj</button><button type="button" data-p="baby" aria-pressed="false">Bebek/çocuk</button></div>
 <label class="camera" for="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span id="camtxt">Ürünün “İçindekiler” yazısının fotoğrafını çekin.</span></label>
 <input type="file" id="foto" class="vh" accept="image/*" capture="environment">
+<label class="dosya" for="dosya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>Galeriden ya da dosyadan fotoğraf yükle</label>
+<input type="file" id="dosya" class="vh" accept="image/*">
 <div id="cropwrap"><img id="pre" alt="Seçilen fotoğraf"><div id="crop" aria-hidden="true"><span class="h" data-h="nw"></span><span class="h" data-h="n"></span><span class="h" data-h="ne"></span><span class="h" data-h="e"></span><span class="h" data-h="se"></span><span class="h" data-h="s"></span><span class="h" data-h="sw"></span><span class="h" data-h="w"></span><span class="mv" data-h="move"></span></div></div>
 <div id="cropbar" class="row"><span>Köşeleri sürükleyerek yalnızca içerik listesini çerçeveye alın.</span><button type="button" class="alt" id="cropreset">Tümünü seç</button></div>
 <div class="row"><button id="oku" disabled>Analiz Et</button><button type="button" class="alt" id="karsla">Karşılaştır</button><button class="alt" id="ornek">Örnek metin dene</button></div>

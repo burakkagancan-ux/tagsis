@@ -50,6 +50,12 @@ async function scan(p,mode,text){
   ok(!errs.length,'index.html konsol hatası: '+errs.join(' | '));errs.length=0;
   await p.goto(B+'ocr.html');await p.waitForFunction(()=>typeof IDX!=='undefined'&&IDX,null,{timeout:15000});
 
+  // 1b) Fotoğraf: kameranın yanında galeriden/dosyadan yükleme (capture olmayan ikinci girdi) kırpma ekranını açar
+  ok(await p.isVisible('label.dosya')&&await p.getAttribute('#dosya','capture')===null&&await p.getAttribute('#foto','capture')==='environment','kamera ve dosya yükleme düğmeleri');
+  await p.setInputFiles('#dosya',require('path').join(__dirname,'..','icon-192.png'));
+  await p.waitForFunction(()=>getComputedStyle(document.getElementById('cropwrap')).display==='block'&&!document.getElementById('oku').disabled,null,{timeout:5000});
+  ok(await p.evaluate(()=>/^blob:/.test(document.getElementById('pre').src)),'dosyadan yüklenen fotoğraf kırpma ekranında');
+
   // 2) Üç modda örnek analiz
   for(const m of ['gida','koz','tem']){
     await sample(p,m);

@@ -50,10 +50,13 @@ $("cropreset").onclick=resetCrop;
   $("crop").addEventListener("pointermove",move);
   $("crop").addEventListener("pointerup",end);$("crop").addEventListener("pointercancel",end);
 })();
-$("foto").onchange=function(){
+// Kamera (capture) ya da galeri/dosya: ikisi de aynı kırpma ve okuma akışına girer
+function fotoSec(){
   var f=this.files[0];if(!f)return;var im=$("pre");im.src=URL.createObjectURL(f);
   $("cropwrap").style.display="block";$("cropbar").style.display="flex";resetCrop();$("oku").disabled=false;
-};
+  this.value="";   // aynı dosya yeniden seçilebilsin
+}
+$("foto").onchange=fotoSec;$("dosya").onchange=fotoSec;
 function prep(img,on){
   // Yalnızca seçilen alan okunur; kırpılan alan küçükse daha yüksek çözünürlükte gönderilir
   var W=img.naturalWidth,H=img.naturalHeight,sx=Math.round(CROP.x*W),sy=Math.round(CROP.y*H),sw=Math.max(1,Math.round(CROP.w*W)),sh=Math.max(1,Math.round(CROP.h*H));
