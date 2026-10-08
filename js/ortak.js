@@ -12,7 +12,7 @@ function hasSep(a){for(var i=0;i<a.length;i++)if(SEP[a[i]])return true;return fa
 function lev(a,b,max){   // bantlı Levenshtein: yalnızca |i-j|<=max hücreleri; max'ı aşınca max+1 döner
   var n=a.length,m=b.length,INF=max+1;
   if(Math.abs(n-m)>max)return INF;
-  var prev=new Array(m+2),cur=new Array(m+2),i,j,t;
+  var prev=new Array(m+2),cur=new Array(m+2),i,j,tmp;
   for(j=0;j<=m;j++)prev[j]=j<=max?j:INF;prev[m+1]=INF;
   for(i=1;i<=n;i++){
     var lo=Math.max(1,i-max),hi=Math.min(m,i+max),mn=INF,ca=a.charCodeAt(i-1);
@@ -23,7 +23,7 @@ function lev(a,b,max){   // bantlı Levenshtein: yalnızca |i-j|<=max hücreleri
     }
     cur[hi+1]=INF;
     if(mn>max)return INF;
-    t=prev;prev=cur;cur=t;
+    tmp=prev;prev=cur;cur=tmp;
   }
   return prev[m]>max?INF:prev[m];
 }

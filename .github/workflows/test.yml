@@ -50,6 +50,8 @@ jobs:
         run: node test/kayit.js
       - name: Çevrimdışı önbellek listesi
         run: node test/onbellek.js
+      - name: Çeviri (anahtarlar, yer tutucular, taşınmamış metin)
+        run: node test/ceviri.js
       - name: Bakanlık verisi doğrulaması
         run: python3 test/dogrula_veri.py
       - name: OCR Worker

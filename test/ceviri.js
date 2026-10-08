@@ -1,0 +1,125 @@
+// Çok dil denetimi. Çalıştır: node test/ceviri.js
+// 1) i18n/diller.json'daki her dilin dosyası var ve tr.json'daki her anahtarı içeriyor; yer tutucular ({n}, {ad}) her dilde aynı.
+// 2) Kodda (js/*.js, ocr.html) kullanılan her anahtar tanımlı; tr.json'da kullanılmayan anahtar yok.
+// 3) Arayüz dosyalarında anahtara taşınmamış Türkçe metin kalmadı (ğüşıöç taraması; bilinçli istisnalar aşağıda, gerekçesiyle).
+// 4) ocr.html'deki data-i18n metinleri tr.json ile aynı (sayfa ilk açılışta Türkçe görünür, dil dosyası gelince aynı metin yazılır).
+// 5) Hiçbir js dosyası t() işlevini yerel bir "t" değişkeniyle gölgelemiyor.
+// 6) t(), çoğul, sayı ve tarih biçimi (Türkçe çıktı eski görünümle aynı).
+const fs=require('fs'),path=require('path'),R=path.join(__dirname,'..'),I=path.join(R,'i18n');
+let fail=0,n=0;const ok=(c,m)=>{n++;if(!c){fail++;console.log('HATA',m)}};
+const oku=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const tr=oku(path.join(I,'tr.json')),bilgi=oku(path.join(I,'diller.json')).diller;
+// Yer tutucular: düz metinde ya da çoğul nesnesinin bütün biçimlerinde
+const yt=v=>[...new Set((typeof v==='string'?[v]:Object.values(v)).join(' ').match(/\{\w+\}/g)||[])].sort().join(',');
+const ANAHTAR=/^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+$/;
+
+// 1) Dil dosyaları
+ok(bilgi.tr,'diller.json: tr kaydı yok');
+for(const k of Object.keys(tr)){ok(ANAHTAR.test(k),'anahtar biçimi (küçük harf, ASCII, nokta): '+k);const v=tr[k];ok(typeof v==='string'||(v&&typeof v==='object'&&typeof v.other==='string'),'değer metin ya da {one,other}: '+k)}
+for(const [kod,b] of Object.entries(bilgi)){
+  ok(typeof b.ad==='string'&&b.ad,'diller.json '+kod+': ad');ok(b.yon==='ltr'||b.yon==='rtl','diller.json '+kod+': yon ltr|rtl');
+  if(b.yazi)ok(typeof b.yazi.govde==='string'||typeof b.yazi.baslik==='string','diller.json '+kod+': yazi.baslik/govde');
+  if(b.yazi&&b.yazi.css)ok(fs.existsSync(path.join(R,b.yazi.css)),'diller.json '+kod+': yazı tipi dosyası yok '+b.yazi.css);
+  const p=path.join(I,kod+'.json');ok(fs.existsSync(p),'dil dosyası yok: i18n/'+kod+'.json');if(!fs.existsSync(p))continue;
+  const d=oku(p),eksik=Object.keys(tr).filter(k=>!(k in d)),fazla=Object.keys(d).filter(k=>!(k in tr));
+  ok(!eksik.length,kod+'.json eksik anahtar ('+eksik.length+'): '+eksik.slice(0,10).join(', '));
+  ok(!fazla.length,kod+'.json tr.json\'da olmayan anahtar: '+fazla.slice(0,10).join(', '));
+  for(const k of Object.keys(tr))if(k in d){ok(yt(tr[k])===yt(d[k]),kod+'.json yer tutucu farklı: '+k+' ('+yt(tr[k])+' / '+yt(d[k])+')');ok(typeof d[k]==='string'||(d[k]&&d[k].other),kod+'.json değer: '+k)}
+}
+// Veri çevirileri (i18n/veri/<kod>.json): yalnızca desteklenen dillerde
+const VD=path.join(I,'veri');if(fs.existsSync(VD))for(const f of fs.readdirSync(VD)){ok(bilgi[f.replace(/\.json$/,'')],'i18n/veri/'+f+': diller.json\'da yok');const d=oku(path.join(VD,f));for(const k of Object.keys(d))if(!k.startsWith('_'))ok(typeof d[k]==='string','i18n/veri/'+f+' değer metin değil: '+k)}
+
+// JS kaynağını parçalara ayırır: dizgeler (tırnaklı), düzenli ifadeler ve yorumlar ayrılır (kaba ama bu kod tabanının yazımı için yeterli)
+function parcala(src){
+  const out={str:[],code:''};let i=0,prev='';
+  const reOnce=/[(,=:[!&|?{};+\-*%<>~^]$|^$|return$|typeof$|case$/;
+  while(i<src.length){
+    const c=src[i],c2=src[i+1];
+    if(c==='/'&&c2==='*'){const e=src.indexOf('*/',i+2);i=e<0?src.length:e+2;continue}
+    if(c==='/'&&c2==='/'){const e=src.indexOf('\n',i);i=e<0?src.length:e;continue}
+    if(c==='"'||c==="'"||c==='`'){let j=i+1,s='';while(j<src.length&&src[j]!==c){if(src[j]==='\\'){s+=src[j]+src[j+1];j+=2;continue}s+=src[j++]}out.str.push({s,i});out.code+='""';i=j+1;prev='"';continue}
+    if(c==='/'){const w=(out.code.match(/(\S+)\s*$/)||['',''])[1];if(reOnce.test(w)){let j=i+1,sinif=false;while(j<src.length&&(src[j]!=='/'||sinif)){if(src[j]==='\\'){j+=2;continue}if(src[j]==='[')sinif=true;else if(src[j]===']')sinif=false;if(src[j]==='\n')break;j++}j++;while(/[a-z]/.test(src[j]||''))j++;out.code+='/re/';i=j;continue}}
+    out.code+=c;if(!/\s/.test(c))prev=c;i++;
+  }
+  return out;
+}
+const JS=fs.readdirSync(path.join(R,'js')).filter(f=>f.endsWith('.js'));
+const kaynak={};JS.forEach(f=>kaynak['js/'+f]=fs.readFileSync(path.join(R,'js',f),'utf8'));
+const html=fs.readFileSync(path.join(R,'ocr.html'),'utf8');
+
+// 2) Kullanılan anahtarlar: koddaki anahtar biçimli dizgeler + ocr.html data-i18n. Birleştirilerek kurulan anahtarlar ("kars.az_"+tür) DINAMIK listesinde.
+const DINAMIK=['kars.az_','kars.yukleniyor_','kars.baslik_','kars.sev.','kars.noun.','kars.uyum.','kars.uyum.cmr_','kars.uyum.ed_','kars.uyum.yutma_','kars.uyum.kapsul_','gida.uretim.say_','kayit.yuklenemedi_','foto.kamera_','gida.adi.','gida.uretim.say_','pay.kart.ust_','pay.neden.','pay.nedenk.','pay.metin.','tem.prof.','ornek.','koz.yukleniyor','tem.yukleniyor','gida.yukleniyor'];
+const NS=new Set(Object.keys(tr).map(k=>k.split('.')[0]));
+const kullanilan=new Set(),dinamikKullanim=new Set();
+for(const [f,src] of Object.entries(kaynak)){
+  if(f==='js/arayuz_ansiklopedi.js'||f==='js/ansiklopedi.js')continue;   // ansiklopedi metinleri ayrı dosyada (data/ansiklopedi_<dil>.json)
+  for(const {s} of parcala(src).str){
+    if(ANAHTAR.test(s)&&NS.has(s.split('.')[0])&&!DINAMIK.includes(s))kullanilan.add(s);
+    const m=/^([a-z]+\.[a-z0-9_.]*)$/.exec(s);if(m&&DINAMIK.some(p=>s===p||s.startsWith(p)))dinamikKullanim.add(s);
+  }
+}
+for(const m of html.matchAll(/data-i18n="([^"]+)"/g))kullanilan.add(m[1]);
+for(const m of html.matchAll(/data-i18n-attr="([^"]+)"/g))m[1].split(';').forEach(p=>kullanilan.add(p.split(':')[1].trim()));
+for(const k of kullanilan)ok(k in tr,'kodda kullanılan anahtar tr.json\'da yok: '+k);
+for(const p of DINAMIK)ok(Object.keys(tr).some(k=>k.startsWith(p)),'dinamik önek için anahtar yok: '+p);
+const kullanilmayan=Object.keys(tr).filter(k=>!kullanilan.has(k)&&!DINAMIK.some(p=>k.startsWith(p)));
+ok(!kullanilmayan.length,'tr.json\'da kullanılmayan anahtar ('+kullanilmayan.length+'): '+kullanilmayan.join(', '));
+
+// 3) Taşınmamış Türkçe metin: arayüz ve saf mantık dosyalarındaki dizgeler. İstisnalar: etiket okuma sözlükleri ve veri değerleri (arayüz metni değil).
+const TR=/[ğüşıöçĞÜŞİÖÇ]/;
+const ISTISNA={
+  'js/gida.js':['ilave edilmemiştir','domuz kaynaklı madde içermez',' içermez','tatlandırıcı','Tatlandırıcı','alkolü'],   // olumsuzluk ve tatlandırıcı eşleştirmesi: etiket dilindeki sözcükler / veri kategorisi
+  'js/kozmetik.js':['ingrédients'],   // etiket başlığı sözcükleri (düzenli ifade dışındaki dizge)
+  'js/arayuz_temizlik.js':['Saç boyası','Saç bakımı','Cilt bakımı','Ağız bakımı','Tırnak bakımı','Bronzlaştırıcı','Kepek önleyici'],   // TFUNC_SKIP: kozmetik_inci.json işlev değerleri
+  'js/paylas_ayar.js':['Tağşiş'],   // uygulamanın adı (marka; çevrilmez)
+  'js/dil.js':['Türkçe'],   // diller.json yüklenemezse yedek: dilin kendi adı
+};
+for(const [f,src] of Object.entries(kaynak)){
+  if(f==='js/arayuz_ansiklopedi.js'||f==='js/ansiklopedi.js')continue;   // ansiklopedi sayfası arayüzü bu işin kapsamı dışında (TEKNIK_BORC.md)
+  const ist=ISTISNA[f]||[];
+  for(const {s} of parcala(src).str){
+    if(!TR.test(s)||s.length<=2)continue;   // tek harf eşlemeleri (ç->c) metin değil
+    if(ist.some(x=>s===x||s.indexOf(x)===0&&x.length>12))continue;
+    if(/^[a-zçğıöşü ]+$/.test(s)&&s.split(' ').length>8)continue;   // uzun sözcük listeleri (GENERIC, CMP_SADE): tanıma sözlüğü
+    ok(false,f+': anahtara taşınmamış Türkçe metin: "'+s.slice(0,80)+'"');
+  }
+}
+// ocr.html: görünen metin ve erişilebilirlik öznitelikleri data-i18n ile işaretli olmalı
+const govde=html.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<style[\s\S]*?<\/style>/g,'').replace(/<!--[\s\S]*?-->/g,'');
+for(const m of govde.matchAll(/<([a-z0-9]+)([^>]*)>([^<]*)/g)){
+  const [_,tag,attr,txt]=m;
+  if(txt.trim()&&/[A-Za-zğüşıöçĞÜŞİÖÇ]{2}/.test(txt)&&!/data-i18n="/.test(attr))ok(false,'ocr.html: data-i18n yok: <'+tag+'> '+txt.trim().slice(0,60));
+  for(const a of ['placeholder','aria-label','alt','title']){const v=new RegExp('\\b'+a+'="([^"]*)"').exec(attr);if(v&&/[A-Za-z]{2}/.test(v[1]))ok(new RegExp('data-i18n-attr="[^"]*'+a+':').test(attr),'ocr.html: '+a+' çevrilmiyor: '+v[1])}
+}
+// 4) HTML'deki Türkçe metin tr.json ile aynı
+for(const m of html.matchAll(/data-i18n="([^"]+)"[^>]*>([^<]*)</g))ok(tr[m[1]]===m[2],'ocr.html metni tr.json ile farklı: '+m[1]+' ("'+m[2].slice(0,40)+'" / "'+String(tr[m[1]]).slice(0,40)+'")');
+for(const m of html.matchAll(/<[^>]*data-i18n-attr="([^"]+)"[^>]*>/g))m[1].split(';').forEach(p=>{const [a,k]=p.split(':').map(x=>x.trim()),v=new RegExp('\\b'+a+'="([^"]*)"').exec(m[0]);ok(v&&tr[k]===v[1],'ocr.html '+a+' tr.json ile farklı: '+k)});
+
+// 5) t() gölgeleme: yerel "t" bildirimi ya da parametresi yok
+for(const [f,src] of Object.entries(kaynak)){
+  if(f==='js/ceviri.js')continue;
+  const code=parcala(src).code;
+  const m=code.match(/(?:\b(?:var|let|const)\s+(?:[\w$]+\s*=[^;]*?,\s*)*t\s*[=,;)]|function\s*[\w$]*\s*\(([^)]*?,\s*)?t\s*[,)]|\bfunction\s+t\s*\(|[,(]\s*t\s*=>)/);
+  ok(!m,f+': t() yerel "t" ile gölgeleniyor: '+(m&&m[0]));
+}
+
+// 6) Çalışma: Türkçe biçimler eski görünümle aynı
+eval(fs.readFileSync(path.join(R,'js','ceviri.js'),'utf8')+';global.C={dilKur,t,tVar,dilSayi,dilTarih,veriMetin,dilSec,DIL}');
+C.dilKur('tr',{tr:Object.assign({},tr,{'test.cogul':{one:'{n} madde',other:'{n} maddeler'}})},bilgi);
+ok(C.t('kars.sadece',{ad:'Süt'})==='Sadece Süt','yer tutucu: '+C.t('kars.sadece',{ad:'Süt'}));
+ok(C.t('yok.boyle.anahtar')==='yok.boyle.anahtar','tanımsız anahtar kendisini döndürür');
+ok(C.t('test.cogul',{n:1})==='1 madde'&&C.t('test.cogul',{n:3})==='3 maddeler','çoğul (Türkçede tek biçim "other")');
+ok(C.dilSayi(62.5)==='62,5'&&C.dilSayi(1234.567)==='1234,57'&&C.dilSayi(3)==='3','sayı: virgül, binlik ayırıcı yok');
+ok(C.dilSayi(2,1,true)==='2,0','sabit ondalık');
+const t0=new Date(2026,9,5,9,5).getTime();
+ok(C.dilTarih(t0,'gun')==='5 Ekim 2026'&&C.dilTarih(t0,'gunsaat')==='5 Ekim 09:05'&&C.dilTarih(t0,'ayyil')==='Ekim 2026','tarih: '+[C.dilTarih(t0,'gun'),C.dilTarih(t0,'gunsaat'),C.dilTarih(t0,'ayyil')].join(' | '));
+ok(C.veriMetin('Türkçe not','x.y').s==='Türkçe not'&&!C.veriMetin('Türkçe not','x.y').cevrilmedi,'veri metni: Türkçede olduğu gibi');
+// Eksik çeviride sıra: seçili dil → İngilizce → Türkçe
+C.dilKur('de',{tr:{'a.b':'tr','a.c':'tr','a.d':'tr'},en:{'a.b':'en','a.c':'en'},de:{'a.b':'de'}},{tr:{ad:'Türkçe',yon:'ltr'},de:{ad:'Deutsch',yon:'ltr'}});
+ok(C.t('a.b')==='de'&&C.t('a.c')==='en'&&C.t('a.d')==='tr','geri düşme sırası: seçili → en → tr');
+C.dilKur('ar',{tr:{},ar:{}},{ar:{ad:'العربية',yon:'rtl',yazi:{govde:'"Noto Sans Arabic",sans-serif'}}});
+ok(C.DIL.yon==='rtl'&&C.DIL.yazi&&/Noto/.test(C.DIL.yazi.govde),'sağdan sola dil ve yazı tipi bilgisi');
+const r=C.veriMetin('Türkçe not','x.y');ok(r.cevrilmedi&&r.s==='Türkçe not','veri çevirisi yoksa Türkçe + çevrilmedi işareti');
+ok(C.veriMetin('Türkçe','x.y',{ar:'رسمي'}).s==='رسمي','veride resmi metin (ör. CLP) varsa o');
+ok(C.dilSec(null,['de-DE','tr-TR'],['tr','en'])==='tr'&&C.dilSec(null,['en-US'],['tr','en'])==='en'&&C.dilSec(null,['de'],['tr','en'])==='en'&&C.dilSec('tr',['en'],['tr','en'])==='tr','dil seçimi: kayıtlı > tarayıcı > İngilizce');
+console.log(n+' çeviri denetimi ('+Object.keys(tr).length+' anahtar, '+Object.keys(bilgi).length+' dil), '+fail+' hata');process.exit(fail?1:0);

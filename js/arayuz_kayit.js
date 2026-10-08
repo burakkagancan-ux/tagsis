@@ -4,7 +4,7 @@ var KAYIT_ACILAN=null;   // listeden açılan kaydın kimliği: sonuç çizilinc
 function kayitLoad(){try{var a=JSON.parse(localStorage.getItem("kayitli")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}}
 function kayitStore(a){try{localStorage.setItem("kayitli",JSON.stringify(a));return true}catch(e){return false}}
 function kayitGet(id){return kayitLoad().filter(function(x){return x.id===id})[0]||null}
-function kayitTarih(t){var d=new Date(t);return d.getDate()+" "+PAY_AY[d.getMonth()]+" "+d.getFullYear()}
+function kayitTarih(ms){return dilTarih(ms,"gun")}
 /* Ekrandaki sonucun özeti (veri yüklüyse) */
 function kayitSimdi(mode,text){
   try{if(!karsReady(mode))return null;return kayitOzet(karsProduct({mode:mode,text:text,name:""}))}catch(e){return null}
@@ -14,8 +14,8 @@ function kayitBtn(mode){
   var text=$("metin").value.trim(),k=kayitFind(kayitLoad(),mode,text);
   var b=el("button","alt pay kayitb"+(k?" on":""));b.type="button";
   b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>';
-  b.appendChild(document.createTextNode(k?"Kaydedildi":"Kaydet"));
-  b.setAttribute("aria-label",k?"Kayıtlı ürün: "+k.name+". Düzenlemek için dokunun":"Bu ürünü kaydet");
+  b.appendChild(document.createTextNode(t(k?"kayit.kaydedildi":"kayit.kaydet")));
+  b.setAttribute("aria-label",k?t("kayit.kayitli_aria",{ad:k.name}):t("kayit.kaydet_aria"));
   b.onclick=function(){kayitForm(mode,text,b)};
   kayitDegisti(mode,text);
   return b;
@@ -29,37 +29,37 @@ function kayitDegisti(mode,text){
   var f=kayitFark(k.oz,oz);
   k.oz=oz;kayitStore(a);
   if(!f)return;
-  var c=el("div","res "+(f.kotu?"y":"u"));c.appendChild(el("div","t","Kaydettiğinizden bu yana değerlendirme değişti"));
-  c.appendChild(el("div","ln","Kayıt tarihinde: "+f.once+". Şimdi: "+f.simdi+"."));
-  c.appendChild(el("div","how","Uygulamanın veri kaynakları güncellendi (ör. bir maddenin değerlendirmesi değişti). Ayrıntı aşağıdaki kartlarda."));
+  var c=el("div","res "+(f.kotu?"y":"u"));c.appendChild(el("div","t",t("kayit.degisti.baslik")));
+  c.appendChild(el("div","ln",t("kayit.degisti.satir",{once:f.once,simdi:f.simdi})));
+  c.appendChild(el("div","how",t("kayit.degisti.not")));
   setTimeout(function(){sonucUst(c)},0);
 }
 /* Kaydet / düzenle formu: ad (zorunlu), not (isteğe bağlı) */
 function kayitForm(mode,text,ret){
   var a=kayitLoad(),k=kayitFind(a,mode,text),body=el("div","kform");
   var h=histLoad().filter(function(x){return x.id===HCUR&&x.text===text})[0];
-  var def=k?k.name:h&&!/^Tarama \d+$/.test(h.name)?h.name:"";
-  var l1=el("label","kname");l1.appendChild(el("span",null,"Ürün adı"));
-  var inp=document.createElement("input");inp.type="text";inp.maxLength=60;inp.value=def;inp.placeholder="Ör. Marka Çikolatalı Gofret";inp.autocomplete="off";l1.appendChild(inp);body.appendChild(l1);
-  var l2=el("label","kname");l2.appendChild(el("span",null,"Not (isteğe bağlı)"));
-  var nt=document.createElement("textarea");nt.maxLength=300;nt.rows=2;nt.value=k?k.note||"":"";nt.placeholder="Ör. nereden alındı, fiyatı, çocuğum sevdi";l2.appendChild(nt);body.appendChild(l2);
-  body.appendChild(el("div","how","Tür: "+KAYIT_TUR[mode]+". Okunan metin ve sonuç özeti yalnızca bu cihazda saklanır."));
+  var def=k?k.name:h&&!histOtoNo(h.name)?h.name:"";
+  var l1=el("label","kname");l1.appendChild(el("span",null,t("kars.urun_adi")));
+  var inp=document.createElement("input");inp.type="text";inp.maxLength=60;inp.value=def;inp.placeholder=t("kayit.form.ad_ornek");inp.autocomplete="off";l1.appendChild(inp);body.appendChild(l1);
+  var l2=el("label","kname");l2.appendChild(el("span",null,t("kayit.form.not")));
+  var nt=document.createElement("textarea");nt.maxLength=300;nt.rows=2;nt.value=k?k.note||"":"";nt.placeholder=t("kayit.form.not_ornek");l2.appendChild(nt);body.appendChild(l2);
+  body.appendChild(el("div","how",t("kayit.form.tur",{tur:t(KAYIT_TUR[mode])})));
   var msg=el("div","how");
-  var go=el("button",null,k?"Değişiklikleri kaydet":"Kaydet");go.type="button";
+  var go=el("button",null,t(k?"kayit.form.degisiklik":"kayit.kaydet"));go.type="button";
   go.onclick=function(){
-    var name=inp.value.trim();if(!name){msg.textContent="Ürüne bir ad verin.";inp.focus();return}
+    var name=inp.value.trim();if(!name){msg.textContent=t("kayit.form.ad_ver");inp.focus();return}
     var list=kayitLoad();
-    if(!kayitFind(list,mode,text)&&list.length>=KAYIT_AYAR.enFazla){msg.textContent="En fazla "+KAYIT_AYAR.enFazla+" ürün kaydedilebilir. Profilim > Kaydedilen Ürünlerim'den eski kayıtları silin.";return}
+    if(!kayitFind(list,mode,text)&&list.length>=KAYIT_AYAR.enFazla){msg.textContent=t("kayit.form.sinir",{n:KAYIT_AYAR.enFazla});return}
     list=kayitAdd(list,{id:"k"+Date.now(),t:Date.now(),mode:mode,name:name,note:nt.value,text:text,oz:kayitSimdi(mode,text)},KAYIT_AYAR.enFazla);
-    if(!kayitStore(list)){msg.textContent="Kaydedilemedi: cihazda yer kalmamış olabilir.";return}
+    if(!kayitStore(list)){msg.textContent=t("kayit.form.yer_yok");return}
     if(h&&h.name!==name)histRename(h.id,name);   // karşılaştırma ve paylaşım kartı da bu adı kullanır
-    closeSheet();setSt(mode,"“"+name+"” kaydedildi. Profilim > Kaydedilen Ürünlerim'den ulaşabilirsiniz.");kayitBarYenile();kayitProfil();
+    closeSheet();setSt(mode,t("kayit.form.kaydedildi",{ad:name}));kayitBarYenile();kayitProfil();
   };
   body.appendChild(go);body.appendChild(msg);
-  if(k){var del=el("button","alt","Kaydı sil");del.type="button";
-    del.onclick=function(){kayitStore(kayitLoad().filter(function(x){return x.id!==k.id}));closeSheet();setSt(mode,"“"+k.name+"” kayıtlardan silindi.");kayitBarYenile();kayitProfil()};
+  if(k){var del=el("button","alt",t("kayit.form.sil"));del.type="button";
+    del.onclick=function(){kayitStore(kayitLoad().filter(function(x){return x.id!==k.id}));closeSheet();setSt(mode,t("kayit.form.silindi",{ad:k.name}));kayitBarYenile();kayitProfil()};
     body.appendChild(del)}
-  openSheet(k?"Kayıtlı ürün":"Ürünü kaydet",null,body,ret);
+  openSheet(t(k?"kayit.form.baslik_kayitli":"kayit.form.baslik"),null,body,ret);
   setTimeout(function(){inp.focus()},50);
 }
 function kayitBarYenile(){var o=document.querySelector("#sonuc .resbar .kayitb");if(o)o.parentNode.replaceChild(kayitBtn(MODE),o)}
@@ -69,7 +69,7 @@ function kayitProfil(){
   var box=$("kayitbar");if(!box)return;box.textContent="";
   var n=kayitLoad().length,b=el("button","kayitac");b.type="button";
   b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>';
-  var s=el("span","kt");s.appendChild(el("b",null,"Kaydedilen Ürünlerim"));s.appendChild(el("span","mut",n?n+" ürün":"Henüz kayıt yok"));b.appendChild(s);
+  var s=el("span","kt");s.appendChild(el("b",null,t("kayit.baslik")));s.appendChild(el("span","mut",n?t("kayit.urun_say",{n:n}):t("kayit.henuz_yok")));b.appendChild(s);
   b.onclick=function(){kayitAc()};box.appendChild(b);
 }
 
@@ -78,42 +78,42 @@ var KAYIT_SUZ={mode:"",q:"",sira:"yeni"};
 try{var ks=JSON.parse(localStorage.getItem("kayit_suz")||"null");if(ks&&typeof ks==="object"){KAYIT_SUZ.mode=KAYIT_TUR[ks.mode]?ks.mode:"";KAYIT_SUZ.sira=["yeni","ad","risk"].indexOf(ks.sira)>-1?ks.sira:"yeni"}}catch(e){}
 function kayitAc(){
   var box=$("kayit");box.textContent="";
-  var bk=el("button","alt kback","← Profilim");bk.type="button";bk.onclick=kayitKapat;box.appendChild(bk);
-  box.appendChild(el("h2",null,"Kaydedilen Ürünlerim"));
+  var bk=el("button","alt kback",t("kayit.geri"));bk.type="button";bk.onclick=kayitKapat;box.appendChild(bk);
+  box.appendChild(el("h2",null,t("kayit.baslik")));
   var all=kayitLoad(),say=kayitSay(all);
   // Tür süzgeci
-  var sg=el("div","seg kseg");sg.setAttribute("role","radiogroup");sg.setAttribute("aria-label","Ürün türü süzgeci");
-  [["","Tümü"],["gida","Gıda"],["koz","Kozmetik"],["tem","Temizlik"]].forEach(function(x){
-    var b=el("button",null,x[1]+" ("+say[x[0]]+")");b.type="button";b.setAttribute("role","radio");b.setAttribute("data-m",x[0]);b.setAttribute("aria-checked",String(KAYIT_SUZ.mode===x[0]));
+  var sg=el("div","seg kseg");sg.setAttribute("role","radiogroup");sg.setAttribute("aria-label",t("kayit.suzgec"));
+  [["","kayit.tumu"],["gida","kayit.tur.gida"],["koz","kayit.tur.koz"],["tem","kayit.tur.tem"]].forEach(function(x){
+    var b=el("button",null,t("ortak.baslik_sayi",{ad:t(x[1]),n:say[x[0]]}));b.type="button";b.setAttribute("role","radio");b.setAttribute("data-m",x[0]);b.setAttribute("aria-checked",String(KAYIT_SUZ.mode===x[0]));
     b.onclick=function(){KAYIT_SUZ.mode=x[0];kayitSuzKaydet();kayitAc()};sg.appendChild(b);
   });
   box.appendChild(sg);
   var row=el("div","krow");
-  var q=document.createElement("input");q.type="search";q.id="kara";q.placeholder="Ad ya da notta ara";q.value=KAYIT_SUZ.q;q.setAttribute("aria-label","Kayıtlarda ara");row.appendChild(q);
-  var so=document.createElement("select");so.id="ksira";so.setAttribute("aria-label","Sıralama");
-  [["yeni","En yeni"],["ad","Ada göre"],["risk","Önce uyarılı"]].forEach(function(o){var op=document.createElement("option");op.value=o[0];op.textContent=o[1];if(KAYIT_SUZ.sira===o[0])op.selected=true;so.appendChild(op)});
+  var q=document.createElement("input");q.type="search";q.id="kara";q.placeholder=t("kayit.ara_ph");q.value=KAYIT_SUZ.q;q.setAttribute("aria-label",t("kayit.ara"));row.appendChild(q);
+  var so=document.createElement("select");so.id="ksira";so.setAttribute("aria-label",t("kayit.siralama"));
+  [["yeni","kayit.sira.yeni"],["ad","kayit.sira.ad"],["risk","kayit.sira.risk"]].forEach(function(o){var op=document.createElement("option");op.value=o[0];op.textContent=t(o[1]);if(KAYIT_SUZ.sira===o[0])op.selected=true;so.appendChild(op)});
   so.onchange=function(){KAYIT_SUZ.sira=so.value;kayitSuzKaydet();ciz()};row.appendChild(so);
   box.appendChild(row);
   var ul=el("div","klistk");box.appendChild(ul);
   function ciz(){
     ul.textContent="";
     var L=kayitList(kayitLoad(),KAYIT_SUZ.mode,KAYIT_SUZ.q,KAYIT_SUZ.sira);
-    if(!L.length){ul.appendChild(el("p","mut",all.length?"Bu süzgece uyan kayıt yok.":"Henüz kayıtlı ürün yok. Bir ürünü taradıktan sonra sonuç ekranındaki “Kaydet” düğmesine dokunun."));return}
+    if(!L.length){ul.appendChild(el("p","mut",t(all.length?"kayit.suzgec_bos":"kayit.liste_bos")));return}
     L.forEach(function(k){ul.appendChild(kayitSatir(k))});
   }
   q.oninput=function(){KAYIT_SUZ.q=q.value;ciz()};
   ciz();
   // Yedekleme: kayıtlar yalnızca bu cihazda; telefon değişince ya da tarayıcı verisi silinince kaybolmasın
-  var yd=el("div","kyedek");yd.appendChild(el("h3",null,"Yedek"));
-  yd.appendChild(el("div","how","Kayıtlar yalnızca bu cihazda saklanır. Tarayıcı verisi silinirse kaybolur; yedek dosyası alıp başka cihazda geri yükleyebilirsiniz."));
+  var yd=el("div","kyedek");yd.appendChild(el("h3",null,t("kayit.yedek.baslik")));
+  yd.appendChild(el("div","how",t("kayit.yedek.not")));
   var r2=el("div","row");
-  var ex=el("button","alt","Yedek dosyası indir");ex.type="button";ex.disabled=!all.length;
+  var ex=el("button","alt",t("kayit.yedek.indir"));ex.type="button";ex.disabled=!all.length;
   ex.onclick=function(){
     var blob=new Blob([kayitYedek(kayitLoad())],{type:"application/json"}),a=document.createElement("a"),d=new Date();
     a.href=URL.createObjectURL(blob);a.download="tagsis-kayitlar-"+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+".json";document.body.appendChild(a);a.click();
     setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000);
   };
-  var im=el("button","alt","Yedekten geri yükle");im.type="button";
+  var im=el("button","alt",t("kayit.yedek.yukle"));im.type="button";
   var fi=document.createElement("input");fi.type="file";fi.accept="application/json,.json";fi.className="vh";fi.id="kyedekdosya";
   im.onclick=function(){fi.click()};
   var ym=el("div","how");
@@ -123,7 +123,7 @@ function kayitAc(){
       var r=kayitGeriYukle(kayitLoad(),String(rd.result),KAYIT_AYAR.enFazla);
       if(!r.ok){ym.textContent=r.hata;return}
       kayitStore(r.list);kayitProfil();kayitAc();
-      $("kayit").querySelector(".kyedek .how:last-child").textContent=r.eklenen+" ürün eklendi."+(r.fazla?" "+r.fazla+" eski kayıt sınır ("+KAYIT_AYAR.enFazla+") nedeniyle alınmadı.":"");
+      $("kayit").querySelector(".kyedek .how:last-child").textContent=t("kayit.yedek.eklendi",{n:r.eklenen})+(r.fazla?" "+t("kayit.yedek.fazla",{n:r.fazla,s:KAYIT_AYAR.enFazla}):"");
     };rd.readAsText(f);
   };
   r2.appendChild(ex);r2.appendChild(im);r2.appendChild(fi);yd.appendChild(r2);yd.appendChild(ym);box.appendChild(yd);
@@ -134,13 +134,13 @@ function kayitKapat(){document.body.classList.remove("mode-kayit");$("kayit").hi
 /* Liste satırı: ad, tür, tarih, özet; dokununca işlemler */
 function kayitSatir(k){
   var b=el("button","kitem kkayit");b.type="button";
-  var t=el("span","kin",k.name);b.appendChild(t);
-  var m=el("span","kis");m.appendChild(el("span","chip",KAYIT_TUR[k.mode]));m.appendChild(document.createTextNode(" "+kayitTarih(k.u||k.t)));b.appendChild(m);
+  b.appendChild(el("span","kin",k.name));
+  var m=el("span","kis");m.appendChild(el("span","chip",t(KAYIT_TUR[k.mode])));m.appendChild(document.createTextNode(" "+kayitTarih(k.u||k.t)));b.appendChild(m);
   var oz=el("span","koz");
   if(k.oz){
-    if(k.oz.u){oz.appendChild(cmpIcon(3));oz.appendChild(document.createTextNode(k.oz.u+" uyarı  "))}
-    if(k.oz.d){oz.appendChild(cmpIcon(2));oz.appendChild(document.createTextNode(k.oz.d+" dikkat"))}
-    if(!k.oz.u&&!k.oz.d){oz.appendChild(cmpIcon(0));oz.appendChild(document.createTextNode("Özel uyarı yok"))}
+    if(k.oz.u){oz.appendChild(cmpIcon(3));oz.appendChild(document.createTextNode(t("kars.say.uyari",{n:k.oz.u})+"  "))}
+    if(k.oz.d){oz.appendChild(cmpIcon(2));oz.appendChild(document.createTextNode(t("kars.say.dikkat",{n:k.oz.d})))}
+    if(!k.oz.u&&!k.oz.d){oz.appendChild(cmpIcon(0));oz.appendChild(document.createTextNode(t("risk.yok")))}
   }
   b.appendChild(oz);
   if(k.note)b.appendChild(el("span","kis",k.note));
@@ -149,18 +149,18 @@ function kayitSatir(k){
 }
 function kayitIslem(k,ret){
   var body=el("div","kpick");
-  if(k.oz&&k.oz.top.length)body.appendChild(el("div","ln","En riskli: "+k.oz.top.join(", ")));
+  if(k.oz&&k.oz.top.length)body.appendChild(el("div","ln",t("kayit.islem.en_riskli",{l:k.oz.top.join(", ")})));
   function btn(txt,cls,fn){var b=el("button",cls,txt);b.type="button";b.onclick=fn;body.appendChild(b);return b}
-  btn("Sonucu aç",null,function(){closeSheet();kayitSonuc(k)});
+  btn(t("kayit.islem.ac"),null,function(){closeSheet();kayitSonuc(k)});
   var ayni=kayitLoad().filter(function(x){return x.mode===k.mode&&x.id!==k.id});
-  var kb=btn("Başka kayıtlı ürünle karşılaştır","alt",function(){closeSheet();kayitKarsSec(k,ret)});
-  if(!ayni.length){kb.disabled=true;body.appendChild(el("div","how","Karşılaştırmak için aynı türden en az iki kayıtlı ürün gerekir."))}
-  btn("Adı ya da notu düzenle","alt",function(){closeSheet();kayitSonuc(k,true)});
-  btn("Sil","alt kclr",function(){
-    if(!confirm("“"+k.name+"” kayıtlardan silinsin mi?"))return;
+  var kb=btn(t("kayit.islem.kars"),"alt",function(){closeSheet();kayitKarsSec(k,ret)});
+  if(!ayni.length){kb.disabled=true;body.appendChild(el("div","how",t("kayit.islem.kars_az")))}
+  btn(t("kayit.islem.duzenle"),"alt",function(){closeSheet();kayitSonuc(k,true)});
+  btn(t("kayit.islem.sil"),"alt kclr",function(){
+    if(!confirm(t("kayit.islem.sil_onay",{ad:k.name})))return;
     kayitStore(kayitLoad().filter(function(x){return x.id!==k.id}));closeSheet();kayitProfil();kayitAc();
   });
-  openSheet(k.name,KAYIT_TUR[k.mode]+" · "+kayitTarih(k.u||k.t),body,ret);
+  openSheet(k.name,t(KAYIT_TUR[k.mode])+" · "+kayitTarih(k.u||k.t),body,ret);
 }
 /* Kaydı sonuç ekranında açar: tür seçilir, metin kutuya konur, analiz edilir (tarama geçmişine yazılmaz) */
 function kayitSonuc(k,duzenle){
@@ -175,18 +175,18 @@ function kayitSonuc(k,duzenle){
 /* İki kayıtlı ürünü karşılaştırma: kayıtlar karşılaştırma ekranına geçmiş kaydı gibi verilir */
 function kayitKarsSec(k,ret){
   var list=kayitList(kayitLoad(),k.mode,"","yeni").filter(function(x){return x.id!==k.id}),body=el("div","kpick");
-  body.appendChild(el("h3",null,"“"+k.name+"” ile karşılaştır"));
+  body.appendChild(el("h3",null,t("kayit.kars_ile",{ad:k.name})));
   list.forEach(function(x){
     var b=el("button","kitem");b.type="button";b.appendChild(el("span","kin",x.name));b.appendChild(el("span","kis",kayitTarih(x.u||x.t)));
     b.onclick=function(){closeSheet();kayitKarsAc(k,x)};body.appendChild(b);
   });
-  openSheet("Karşılaştır",KAYIT_TUR[k.mode],body,ret);
+  openSheet(t("kars.dugme"),t(KAYIT_TUR[k.mode]),body,ret);
 }
 function kayitKarsAc(a,b){
   var hazir=karsReady(a.mode)?Promise.resolve():a.mode==="koz"?loadK():a.mode==="tem"?loadT():Promise.reject();
   hazir.then(function(){kayitKapat();if(location.hash==="#profil"){history.replaceState(null,"",location.pathname+location.search);$("pd").open=false;tabSync()}showCompare(a.id,b.id)},
-    function(){alert(KAYIT_TUR[a.mode]+" listeleri yüklenemedi; internet bağlantısını kontrol edin.")});
+    function(){alert(t("kayit.yuklenemedi_"+a.mode))});
 }
-kayitProfil();
+// İlk çizim açılışta (js/arayuz_sayfa.js, dil yüklendikten sonra)
 window.addEventListener("hashchange",kayitProfil);   // Profilim sekmesine her girişte sayı güncel
 window.addEventListener("storage",function(e){if(e.key==="kayitli")kayitProfil()});   // başka sekmede kaydedilince

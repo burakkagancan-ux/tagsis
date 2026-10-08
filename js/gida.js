@@ -81,11 +81,11 @@ function findNames(tok,idx){
         continue;
       }
       var list=idx.byK[k];if(!list||w.length<8)continue;
-      var t=w.length>=12?2:1;
+      var tol=w.length>=12?2:1;
       for(var q=0;q<list.length;q++){
-        var c=list[q];if(c.n[0]!==w[0]||Math.abs(c.n.length-w.length)>t)continue;
-        var d=lev(w,c.n,t);
-        if(d>0&&d<=t){out.push({a:i,b:i+k,ids:c.ids,how:"benzer",text:w,alias:c.n});break}
+        var c=list[q];if(c.n[0]!==w[0]||Math.abs(c.n.length-w.length)>tol)continue;
+        var d=lev(w,c.n,tol);
+        if(d>0&&d<=tol){out.push({a:i,b:i+k,ids:c.ids,how:"benzer",text:w,alias:c.n});break}
       }
     }
   });
@@ -93,25 +93,25 @@ function findNames(tok,idx){
 }
 function findContext(tok,idx){
   var out=[];
-  tok.forEach(function(t,i){
-    var c=idx.ctx[t];if(!c)return;
+  tok.forEach(function(tk,i){
+    var c=idx.ctx[tk];if(!c)return;
     var prev=[];
     for(var j=i-1;j>=0&&prev.length<4;j--){if(tok[j]==="|"||tok[j]===")"||tok[j]===SENT)break;if(SEP[tok[j]])continue;prev.unshift(tok[j])}
     var s=" "+prev.join(" ")+" ";
-    if(c.req.some(function(r){return s.indexOf(" "+r+" ")>-1}))out.push({a:i,b:i+1,ids:c.ids.slice(),how:"isim",text:t});
+    if(c.req.some(function(r){return s.indexOf(" "+r+" ")>-1}))out.push({a:i,b:i+1,ids:c.ids.slice(),how:"isim",text:tk});
   });
   return out;
 }
 /* "Eser miktarda ... içerebilir" bölgeleri: token aralıkları [a,b) */
 function mayZones(tok,idx){
-  var z=[],trig={};idx.may.forEach(function(t){trig[t]=1});
+  var z=[],trig={};idx.may.forEach(function(tg){trig[tg]=1});
   function sentStart(i){for(var j=i-1;j>=0;j--)if(tok[j]===SENT)return j+1;return 0}
   function sentEnd(i){for(var j=i+1;j<tok.length;j++)if(tok[j]===SENT)return j;return tok.length}
   for(var i=0;i<tok.length;i++){
-    var t=tok[i],two=t+" "+(tok[i+1]||"");
-    if(t==="eser"){z.push([i,sentEnd(i)]);continue}
+    var tk=tok[i],two=tk+" "+(tok[i+1]||"");
+    if(tk==="eser"){z.push([i,sentEnd(i)]);continue}
     if(trig[two]){var s=sentStart(i),e=sentEnd(i);z.push([Math.max(s,i-12),Math.min(e,i+14)]);continue}
-    if(trig[t]){
+    if(trig[tk]){
       var s0=sentStart(i),st=Math.max(s0,i-10);
       for(var j=i-1;j>=s0;j--)if(tok[j]==="eser"){st=j;break}
       z.push([st,i]);
@@ -148,7 +148,7 @@ function analyze(text,idx){
   kept.forEach(function(m){
     if(m.a<st)return;
     var dep=0,n=1;
-    for(var q=st;q<m.a;q++){var t=tok[q];if(t==="(")dep++;else if(t===")")dep=Math.max(0,dep-1);else if(t===SENT&&dep===0){n=0;break}else if(t==="|"&&dep===0)n++}
+    for(var q=st;q<m.a;q++){var tk=tok[q];if(tk==="(")dep++;else if(tk===")")dep=Math.max(0,dep-1);else if(tk===SENT&&dep===0){n=0;break}else if(tk==="|"&&dep===0)n++}
     if(n)m.ord=n;
   });
   var zones=mayZones(tok,idx),negs={},arn={};
@@ -199,7 +199,7 @@ function summarize(res,idx){
   res.forEach(function(r){
     r.ids.forEach(function(id){
       var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
-      if(r.neg){push(o.claims,(it.isB?it.name:it.primary_name)+" içermez");return}
+      if(r.neg){push(o.claims,t("gida.ozet.icermez",{ad:it.isB?it.name:it.primary_name}));return}
       if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,{name:name,may:r.may});   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
       if(it.isB){
         if(r.aroma){
@@ -233,7 +233,7 @@ function summarize(res,idx){
         var txt=" "+r.text+" ",kind=r.may?"may":"yes";
         if(fl.indexOf("allergen_sulphite")>-1)al("allergen_sulphite",kind,name);
         if(fl.indexOf("allergen_egg")>-1)al("allergen_egg",kind,name);
-        if(fl.indexOf("allergen_soy_possible")>-1)al("allergen_soy",txt.indexOf(" soya")>-1?kind:"may",name+(txt.indexOf(" soya")>-1?"":" (kaynağı soya olabilir)"));
+        if(fl.indexOf("allergen_soy_possible")>-1)al("allergen_soy",txt.indexOf(" soya")>-1?kind:"may",txt.indexOf(" soya")>-1?name:t("gida.soya_olabilir",{ad:name}));
         if(r.may)return;
         var cl=upfE[it.category];if(cl)(o.upf[cl]=o.upf[cl]||[]).push(capFirst(it.id));
         if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,name);
@@ -270,13 +270,13 @@ function buildBrands(tg){
   return map;
 }
 function findBrands(text,brands){
-  var tok=normText(text).split(" ").filter(Boolean).map(function(t){return SEP[t]?"|":t}),s=" "+tok.join(" ")+" ",out=[];
+  var tok=normText(text).split(" ").filter(Boolean).map(function(tk){return SEP[tk]?"|":tk}),s=" "+tok.join(" ")+" ",out=[];
   Object.keys(brands).forEach(function(p){if(s.indexOf(" "+p+" ")>-1)out.push(brands[p])});
   return out;
 }
 
 /* Üretim yolu (05.10.2026): risk rengini değiştirmez, gri bilgi etiketi. dogal ve belirsiz için etiket yok. */
-var URETIM_AD={sentetik:"Sentetik",islenmis:"İşlenmiş",fermente:"Fermentasyonla üretilir"};
+var URETIM_AD={sentetik:"gida.uretim.sentetik",islenmis:"gida.uretim.islenmis",fermente:"gida.uretim.fermente"};   // çeviri anahtarları
 function uretimSinif(ids,idx){   // birden çok olası kod varsa hepsi aynı sınıftaysa
   var s=null;
   for(var i=0;i<ids.length;i++){var it=idx.byId[ids[i]];if(!it||it.isB||!it.uretim)return null;if(s&&s!==it.uretim.s)return null;s=it.uretim.s}
@@ -295,6 +295,6 @@ function uretimOzet(res,idx){
   return o;
 }
 function uretimMetin(o){
-  var p=[];["sentetik","islenmis","fermente"].forEach(function(s){if(o[s].length)p.push(o[s].length+" "+{sentetik:"sentetik",islenmis:"işlenmiş",fermente:"fermentasyonla üretilmiş"}[s])});
+  var p=[];["sentetik","islenmis","fermente"].forEach(function(s){if(o[s].length)p.push(t("gida.uretim.say_"+s,{n:o[s].length}))});
   return p.join(", ");
 }
