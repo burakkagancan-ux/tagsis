@@ -26,11 +26,13 @@ function payPersonal(cards){
 function paySource(){
   var s=PAY_SRC,o;if(!s)return null;
   if(s.mode==="gida"){o=payFromFood(s.text,IDX);o.personal=cmpMisfit(summarize(analyze(s.text,IDX),IDX),PROF,IDX).map(function(t){return {t:t,lvl:2}})}   // karşılaştırmadaki "profilinize uymuyor" satırları
-  else if(s.mode==="koz"){o=payFromK(s.res,s.S);o.personal=payPersonal(kProfileCards(s.S,s.res))}
+  else if(s.mode==="koz"){o=payFromK(s.res,s.S,KIDX);o.personal=payPersonal(kProfileCards(s.S,s.res))}
   else{o=payFromT(s.A,s.S);o.personal=payPersonal(tProfileCards(s.S,s.A))}
   return o;
 }
-function payName(){var t=$("metin").value.trim(),k=typeof kayitFind==="function"?kayitFind(kayitLoad(),MODE,t):null;if(k)return k.name;var e=histLoad().filter(function(x){return x.id===HCUR&&(x.text||"").trim()===t})[0];return payAd(e||null,Date.now())}   // kayıtlı ürünün adı önce
+/* Kartın adı ve tarama zamanı: kayıtlı ürünün adı önce, sonra tarama geçmişi */
+function payName(){var t=$("metin").value.trim(),k=typeof kayitFind==="function"?kayitFind(kayitLoad(),MODE,t):null;if(k)return {name:k.name,t:k.t};var e=histLoad().filter(function(x){return x.id===HCUR&&(x.text||"").trim()===t})[0];return {name:payAd(e||null,Date.now()),t:e&&e.t||Date.now()}}
+function payBoyut(){var b=null;try{b=localStorage.getItem("pay_boyut")}catch(e){}return PAYLAS_AYAR.yerlesim[b]?b:PAYLAS_AYAR.boyut}
 function payFonts(){
   if(!document.fonts||!document.fonts.load)return Promise.resolve();
   return Promise.all(['700 76px "Bricolage Grotesque"','400 32px "Figtree"','600 32px "Figtree"'].map(function(f){return document.fonts.load(f,"ğüşıöçĞÜŞİÖÇ").catch(function(){})}));
@@ -41,8 +43,18 @@ function payLogo(){
 }
 function payOpen(ret){
   var src=paySource();if(!src)return;
-  var L=PAYLAS_AYAR.yerlesim[PAYLAS_AYAR.boyut],name=payName(),opt={name:name,kisisel:false},blob=null,M=null;
-  var body=el("div","paysheet"),cv=document.createElement("canvas");cv.width=L.w;cv.height=L.h;cv.className="paypre";cv.setAttribute("role","img");
+  var bo=payBoyut(),L=PAYLAS_AYAR.yerlesim[bo],nm=payName(),opt={name:nm.name,t:nm.t,kisisel:false},blob=null,M=null;
+  var body=el("div","paysheet"),cv=document.createElement("canvas");cv.className="paypre";cv.setAttribute("role","img");
+  // Biçim seçici: hikâye (9:16) ya da gönderi (4:5); seçim hatırlanır
+  var ks=Object.keys(PAYLAS_AYAR.yerlesim);
+  if(ks.length>1){
+    var seg=el("div","seg payseg");seg.setAttribute("role","radiogroup");seg.setAttribute("aria-label","Kart biçimi");
+    ks.forEach(function(k){var b=el("button",null,PAYLAS_AYAR.yerlesim[k].etiket||k);b.type="button";b.setAttribute("role","radio");b.setAttribute("aria-checked",String(k===bo));
+      b.onclick=function(){if(k===bo)return;bo=k;L=PAYLAS_AYAR.yerlesim[k];try{localStorage.setItem("pay_boyut",k)}catch(e){}
+        seg.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-checked",String(x===b))});draw()};
+      seg.appendChild(b)});
+    body.appendChild(seg);
+  }
   body.appendChild(cv);
   var chk=null;
   if(src.personal.length){
@@ -54,7 +66,7 @@ function payOpen(ret){
   var go=el("button",null,"Paylaş");go.type="button";go.disabled=true;body.appendChild(go);
   var st=el("div","how");body.appendChild(st);
   function draw(){
-    M=payModel(src,opt);go.disabled=true;blob=null;
+    M=payModel(src,opt,PAYLAS_AYAR,L);go.disabled=true;blob=null;cv.width=L.w;cv.height=L.h;cv.classList.toggle("uzun",L.h/L.w>1.5);
     payDraw(cv.getContext("2d"),M,L,PAYLAS_AYAR,PAY_LOGO);
     cv.setAttribute("aria-label",payText(M));
     // Görsel önceden hazırlanır: Safari paylaşım menüsünü yalnızca dokunuşun içinde açar

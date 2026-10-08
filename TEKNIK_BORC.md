@@ -111,3 +111,7 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
 - Ansiklopedi sayfası yok. `temizlik.json`: 8 madde notu (`subs`: MIT/CMIT/BIT/OIT, sodyum hipoklorit, asit, amonyak, enzimler), 22 içerik grubu, 98 temizliğe özgü eş anlamlı. Notu olmayan yaygın maddeler (LAS, SLES, STPP, perkarbonat, kostik soda, butil glikol, DDAC, zeolit, EDTA, sitrik asit…) yalnızca "tanınan madde" olarak CosIng işleviyle listeleniyor; açıklama yok.
 - H/EUH/P ifadelerinin Türkçesi: EUH ve 23 P ifadesi çeviri (needs_review), SEA Yönetmeliği resmi metni okunamadı.
 - Yapılacak: önce bu ~30 yaygın madde için kısa kayıt (ne işe yarar, nerede kullanılır, hangi H ifadesi), sonra ansiklopedi sayfası.
+
+## Kozmetik: PFAS işareti AB kaydının tüm INCI adlarına geçiyor (08.10.2026)
+- gen_kozmetik.py kayıt düzeyinde `pfas` bayrağını, kaydın INCI listesindeki herhangi bir ad PFAS_RE'ye uyarsa kaydın tüm adlarına veriyor. Bu yüzden florsuz DIBEHENYL METHYLAMINE ve AMP-ACRYLATES/DIACETONEACRYLAMIDE COPOLYMER sonuç ekranında ve paylaşım kartında "PFAS" görünüyor. Bayrak ad düzeyinde (yalnızca PFAS_RE'ye uyan ada) verilmeli; hangi kayıtların etkilendiği sayılmadı.
+

@@ -2,7 +2,7 @@
 // Çizim sahte bir 2B bağlamla yapılır; karta yazılan metinler kaydedilir. Çalıştır: node test/paylas.js
 const fs=require('fs');
 const src=require('./yukle.js');
-eval(src+';global.P={payModel,payText,payWrap,payDraw,payAd,payFromFood,payFromK,payFromT,PAYLAS_AYAR,buildTIndex,analyzeT,summarizeT}');
+eval(src+';global.P={payOzet,payNedenE,payNedenK,payModel,payText,payWrap,payDraw,payAd,payFromFood,payFromK,payFromT,PAYLAS_AYAR,buildTIndex,analyzeT,summarizeT}');
 const {idx}=require('./run.js');
 const {K,KL}=require('./kozmetik_cases.js');
 let fail=0,n=0;const ok=(c,m)=>{n++;if(!c){fail++;console.log('HATA',m)}};
@@ -108,10 +108,59 @@ ok(/İçerir: .*Gluten/.test(F.allergens)&&/İçerebilir: /.test(F.allergens),'g
 ok(!F.items.some(x=>/renklendirici/i.test(x.name)),'sınıf adı madde sayılmaz');
 const kr=KL.analyzeK('Ingredients: Aqua, Glycerin, Butylparaben, Parfum, Linalool, Limonene.',K,{});
 F=P.payFromK(kr,KL.summarizeK(kr,K));
-ok(F.items.some(x=>x.name==='BUTYLPARABEN'&&x.lvl>=1)&&/Koku alerjeni: .*LINALOOL/.test(F.allergens),'kozmetik: '+JSON.stringify(F));
+ok(F.items.some(x=>x.name==='BUTYLPARABEN'&&x.lvl>=1)&&/LINALOOL/.test(F.allergens)&&!/Koku alerjeni/.test(F.allergens),'kozmetik: '+JSON.stringify(F));
 const Ti=P.buildTIndex(JSON.parse(fs.readFileSync(__dirname+'/../data/temizlik.json')));
 const A=P.analyzeT('TEHLİKE H318 Ciddi göz hasarına yol açar. EUH208 Contains limonene.',Ti,K);
 F=P.payFromT(A,P.summarizeT(A));
 ok(F.items.some(x=>/^H318 /.test(x.name)&&x.lvl===2)&&!F.items.some(x=>/^EUH208 içerir/.test(x.name)),'temizlik: '+JSON.stringify(F.items));
+
+// 10) Kısa gerekçe: gıda bayraklarından, kozmetikte liste/bayraktan; korku dili yok
+const Ei=id=>idx.byId[id];
+ok(P.payNedenE(['E102'],idx)==="AB'de zorunlu uyarı etiketi",'E102: '+P.payNedenE(['E102'],idx));
+ok(/^IARC Grup (1|2A|2B)$/.test(P.payNedenE(['E250'],idx))||P.payNedenE(['E250'],idx)!=='','E250: '+P.payNedenE(['E250'],idx));
+ok(P.payNedenE(['E211'],idx)==='C vitaminiyle benzen oluşabilir','E211 benzenin grubunu almaz: '+P.payNedenE(['E211'],idx));
+ok(P.payNedenE(['E150d'],idx)==='Yan ürünü IARC Grup 2B','E150d: '+P.payNedenE(['E150d'],idx));
+ok(P.payNedenE(['E239'],idx)==='Formaldehite ayrışabilir','E239: '+P.payNedenE(['E239'],idx));
+ok(['E407','E968','E621','E459'].every(i=>P.payNedenE([i],idx)==='Günlük alım sınırı aşılabilir (EFSA)'),'ADI aşımı tartışmadan önce: '+['E407','E968','E621','E459'].map(i=>P.payNedenE([i],idx)));
+ok(P.payNedenE(['E951'],idx)==='IARC Grup 2B','E951: '+P.payNedenE(['E951'],idx));
+ok(P.payNedenE(['E459'],idx)!=='','bayraksız sarı maddede de gerekçe: '+P.payNedenE(['E459'],idx));
+F=P.payFromFood('İçindekiler: Şeker, palm yağı, renklendirici (E 102), koruyucu (E 250), süt tozu.',idx);
+ok(F.items.filter(x=>x.lvl>0).every(x=>x.why),'gıda: her riskli maddede gerekçe '+JSON.stringify(F.items));
+ok(F.facts.includes('Palm yağı içerir')&&F.facts.some(x=>/^Eklenmiş şeker/.test(x))&&F.facts.includes('Vegan değil'),'gıda olguları: '+F.facts);
+ok(F.recog&&F.recog.total>=3,'tanınma bilgisi: '+JSON.stringify(F.recog));
+F=P.payFromK(kr,KL.summarizeK(kr,K),K);
+ok(F.items.find(x=>x.name==='BUTYLPARABEN').why,'kozmetik gerekçe: '+JSON.stringify(F.items.find(x=>x.name==='BUTYLPARABEN')));
+const why=[];[['E102'],['E250'],['E407'],['E621'],['E220'],['E951'],['E420']].forEach(i=>why.push(P.payNedenE(i,idx)));
+ok(!why.some(s=>/zararlı|tehlikeli|zehir|kanser/i.test(s)),'gerekçe dili: '+why);
+
+// 11) Özet satırı ve olgular kartta
+M=P.payModel(src5,{name:'Kraker'});
+ok(P.payOzet(M)==='7 maddeden 5 tanesi dikkat gerektiriyor','özet: '+P.payOzet(M));
+ok(P.payOzet(P.payModel({mode:'gida',items:[{name:'A',lvl:0}]},{}))==='','riskli yoksa özet satırı yok');
+M=P.payModel(Object.assign({},src5,{facts:['Vegan değil','Palm yağı içerir'],recog:{total:10,found:8}}),{name:'Kraker'},cfg,L);T=draw(M);
+ok(/Vegan değil/.test(joined(T))&&/Okunan 10 bileşenden 8 tanesi tanındı/.test(joined(T)),'olgu ve tanınma satırı: '+joined(T));
+ok(/Alerjenler: /.test(joined(T)),'gıdada alerjen başlığı');
+M=P.payModel({mode:'koz',items:[{name:'X',lvl:1}],allergens:'LINALOOL'},{});
+ok(/Koku alerjenleri: /.test(joined(draw(M)))&&!/Alerjenler: /.test(joined(draw(M))),'kozmetikte koku alerjeni başlığı tek');
+
+// 12) İki yerleşimde de hiçbir bölüm alttaki notun ya da bandın üstüne binmez (en kalabalık kart)
+const kal=Object.assign({},src5,{items:src5.items.concat([1,2,3,4,5].map(i=>({name:'E9'+i+' Uzun adlı bir katkı maddesi '+i,lvl:1,why:'Bilimsel tartışma var'}))),
+  facts:['Vegan değil','Palm yağı içerir','Eklenmiş şeker (3 tür)','Tatlandırıcı içerir','Kafein içerir','Alkol içerir'],recog:{total:20,found:15},
+  allergens:'İçerir: Gluten içeren tahıllar, Süt, Yumurta, Soya · İçerebilir: Fındık, Yer fıstığı, Susam, Hardal, Kereviz'});
+Object.keys(cfg.yerlesim).forEach(b=>{
+  const Lb=cfg.yerlesim[b],m=P.payModel(kal,{name:uzun,kisisel:true},cfg,Lb),c=fakeCtx();P.payDraw(c,m,Lb,cfg,null);
+  const not=c.texts.find(x=>x.s.indexOf(cfg.not)===0),tan=c.texts.find(x=>/bileşenden/.test(x.s)),ust=Math.min(not.y,tan?tan.y:1e9)-30;
+  const ni=c.texts.indexOf(not),body=c.texts.slice(0,ni).filter(x=>x.y<Lb.h-Lb.bant&&x!==tan&&x.y>ust);   // not ve sonrası alt bölüm
+  ok(!body.length,b+': not alanına binen metin yok: '+JSON.stringify(body.map(x=>x.s)));
+  ok(c.texts.some(x=>/Hamilelik/.test(x.s)),b+': kişisel uyarı sığdı');
+  ok(m.top.length<=Lb.enFazlaMadde,b+': madde sınırı '+m.top.length);
+  const out=c.texts.filter(x=>x.al==='right'?x.x-x.w<0:x.al==='center'?x.x-x.w/2<0||x.x+x.w/2>Lb.w:x.x+x.w>Lb.w);
+  ok(!out.length,b+': genişlik taşması yok: '+JSON.stringify(out.map(x=>x.s)));
+});
+ok(cfg.yerlesim[cfg.boyut].h===1920,'varsayılan hikâye (1080x1920)');
+
+// 13) Olumlu kartta okunan maddeler listelenir
+M=P.payModel({mode:'gida',items:[{name:'Pirinç unu',lvl:0},{name:'Tuz',lvl:0}]},{name:'Patlak'},cfg,L);T=draw(M);
+ok(/Okunan maddeler/.test(joined(T))&&T.some(x=>x.s==='Pirinç unu'),'okunan maddeler: '+joined(T));
 
 console.log(n+' durum, '+fail+' hata');process.exit(fail?1:0);
