@@ -1,7 +1,7 @@
 # Yol haritası: küresel Tağşiş
 
 Bu dosya projenin ana iş planıdır. Her oturumun başında okunur. Bir iş başlayınca, bitince ya da plan değişince aynı PR içinde güncellenir (durum, tarih, PR numarası).
-İlk yazım: 08.10.2026 (rakip analizi ve kullanıcı kararıyla). Son güncelleme: 08.10.2026 (B-01, B-02 bitti).
+İlk yazım: 08.10.2026 (rakip analizi ve kullanıcı kararıyla). Son güncelleme: 08.10.2026 (barkod birinci öncelik, C-08 eklendi).
 
 Durum işaretleri: ⬜ başlamadı · 🔄 sürüyor · ✅ bitti · ⏸ bekletiliyor · 👤 kullanıcının işi
 
@@ -88,9 +88,10 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 | C-02 | Android sürümü (TWA ya da Capacitor), kapalı test, sonra yayın | Claude | C-01 | Play Store'da yayında | ⬜ |
 | C-03 | iOS sürümü (Capacitor) | Claude | C-01 | App Store'da yayında | ⬜ |
 | C-04 | Cihaz içi metin okuma (Google ML Kit / Apple Vision); Google Vision yedek kalır. Tarama maliyeti sıfırlanır, bütün alfabeler okunur | Claude | C-02, C-03 | İnternetsiz okuma çalışır | ⬜ |
-| C-05 | Barkod: önce ölçüm (Türkiye'de en çok satılan 100 ürünün kaçı Open Food Facts'te), sonra karma model (barkod → veritabanı, yoksa fotoğraf). Kullanıcı izniyle fotoğraf taraması barkodla eşleşir, Türkiye veritabanı büyür, Open Food Facts'e geri katkı verilir | Claude | C-02 | Ölçüm raporu; karar kullanıcıda | ⬜ |
+| C-05 | **Barkod (kullanıcı kararı 08.10.2026: birinci öncelik).** Tarayıcı sürümünde başlar, mağaza sürümünü beklemez. Sıra: (1) uygulamadaki indirilmiş Open Food Facts Türkiye verisi (aylık otomatik güncelleme), (2) kendi D1 veritabanımız (`URUNLER`, PR #98; kullanıcı katkısı, açık izinle, varsayılan hayır; iki eşleşen katkıyla doğrulanır), (3) Open Food Facts / Open Beauty Facts / Open Products Facts canlı sorgu **Worker üzerinden** (GET /off/:barkod; kullanıcının IP'si üçüncü tarafa gitmez; 1 gün önbellek; 3 sn zaman aşımı), (4) bulunamadı → fotoğraf. OFF verisi D1'e yazılmaz (ODbL ayrımı); her gösterimde atıf. Paketteki etiket asıl kaynak: "fotoğrafla doğrula" hep görünür. Önce ölçüm: OFF'ta Türkiye ürün sayısı, içerik metni oranı, yaygın 100 üründe bulunma oranı. OFF'a geri katkı ayrı iş. | Claude | — | Elle barkod girişiyle uçtan uca test; ölçüm raporu | 🔄 |
 | C-06 | Mağaza sayfaları çok dilli (ekran görüntüleri, açıklama) | Claude | B-02, C-02 | Türkçe ve İngilizce sayfa | ⬜ |
 | C-07 | Alternatif ürün önerisi (aynı kategoride daha az uyarılı ürün; markadan para alınmaz) | Claude | C-05 | Yalnızca veritabanı yeterliyse | ⬜ |
+| C-08 | **Mağaza sürümünde sayaç ve sınır denetimi (unutulmasın).** Uygulama içinden gelen isteklerde: paylaşım sayacı (/sayac, sendBeacon ve Web Share uygulama içinde çalışıyor mu, s/d ayrımı doğru mu), barkod uç noktaları (/urun, /off), Worker hız sınırları (IP_LIMIT 6/dk, GLOBAL_LIMIT 30/dk, SAYAC_LIMIT 10/dk; uygulama trafiği tek IP'den mi görünüyor), ALLOWED_ORIGIN'e uygulamanın kaynağı (capacitor://localhost, https://localhost vb.) eklendi mi, cihaz içi okumaya geçince OCR sayımı. Ölçüm (A-03) eklenmişse o da. | Claude | C-02, C-03 | Kapalı testte her sayaç ve sınır elle doğrulanır, sonuç bu satıra yazılır | ⬜ |
 
 ### Faz D: Gelir
 
@@ -141,11 +142,13 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 
 ## 4. Önerilen sıra (bir sonraki iş)
 
-1. ~~B-01 → B-02~~ ✅ bitti. Sırada B-08: İngilizce eş anlamlılar ve **"Sodium Citrate" → E250 yanlış eşleşmesi** (yanlış "Uyarı" çıkıyor; TEKNIK_BORC.md, ilk düzeltilecek)
-2. A-02 besin değeri tablosu
-3. C-01 👤 hesaplar → C-02 Android → C-04 cihaz içi okuma
-4. A-03 ölçüm
-5. C-05 barkod ölçümü
+> 08.10.2026: bulut oturumu kullanılmıyor; işler bu (yerel) oturumda yapılır. Bulut için yazılan barkod ve İngilizce tanıma işleri başlamadan kaldı.
+
+1. **C-05 barkod** (kullanıcı kararı: birinci öncelik). Ölçüm → OFF Türkiye verisi + barkod okuma + Worker canlı sorgu → D1 kullanıcı katkısı.
+2. B-08: **"Sodium Citrate" → E250 yanlış eşleşmesi** (yanlış "Uyarı"; TEKNIK_BORC.md) ve İngilizce eş anlamlılar
+3. A-02 besin değeri tablosu
+4. C-01 👤 hesaplar → C-02 Android → C-04 cihaz içi okuma → **C-08 sayaç ve sınır denetimi**
+5. A-03 ölçüm
 6. B-05 ülke katmanı, B-03 İngilizce ana içerik
 7. D-01 👤 gelir kararı → D-02
 8. E-05 tetik gelince hukuki görüş → F-01 Türkiye lansmanı → F-03
