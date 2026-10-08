@@ -119,7 +119,7 @@ async function scan(p,mode,text){
   await scan(p,'tem',pairs.tem[0]);await p.click('#sonuc .resbar .kayitb');await p.fill('#sheet .kform input','');await p.click('#sheet .kform button:not(.alt)');
   ok(/ad verin/.test(await p.textContent('#sheet .kform')),'boş ad reddedilir');await p.evaluate(()=>closeSheet());
   // paylaşım kartı kayıtlı adı kullanır
-  await scan(p,'koz',pairs.koz[0]);ok(await p.evaluate(()=>payName())==='Şampuan C','paylaşım kartında kayıtlı ad');
+  await scan(p,'koz',pairs.koz[0]);ok(await p.evaluate(()=>payName().name)==='Şampuan C','paylaşım kartında kayıtlı ad');
   // Profil > Kaydedilen Ürünlerim
   await p.goto(B+'ocr.html#profil');await p.waitForSelector('#kayitbar .kayitac');
   ok(/4 ürün/.test(await p.textContent('#kayitbar')),'profilde kayıt sayısı: '+(await p.textContent('#kayitbar')));
