@@ -101,6 +101,22 @@
   "E920": {"sources": ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0231", "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/6/2020-12-31", "https://www.legislation.gov.uk/eur/2008/1333/annex/II/table/34/group/10/2020-12-31"], "reason": "Un işleme maddesi (amino asit). AB'de unda gerektiği kadar, bebek ve küçük çocuk bisküvilerinde 1.000 mg/kg'a kadar izinli. AB şartnamesi (231/2012) insan saçının kaynak olarak kullanılmasını yasaklar, başka bir hammadde belirtmez; bu yüzden hayvansal kaynaklı olabilir."},
   "E558": {"sources": ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0380", "https://inchem.org/documents/jecfa/jeceval/jec_175.htm"], "risk": "red", "flags": ["banned_eu"], "reason": "AB'de gıda katkısı olarak artık izinli değil: Tüzük (AB) 380/2012 ile izni 31 Mayıs 2013'te sona erdi (gıda üreticileri artık kullanmadığını bildirdi). JECFA ADI belirlemedi."},
   "E912": {"sources": ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0957", "https://doi.org/10.2903/j.efsa.2013.3236"], "risk": "red", "flags": ["banned_eu"], "reason": "AB'de gıda katkısı olarak artık izinli değil: Tüzük (AB) 957/2014 ile izinli listeden çıkarıldı (EFSA 2013'te veri yetersizliği nedeniyle değerlendiremedi)."},
-  "E553b": {"sources": ["https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Talc-And-Acrylonitrile-2025", "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009349"], "risk": "yellow", "flags": ["iarc_listed"], "reason": "IARC 2025'te talkı Grup 2A (insanlarda muhtemelen kanserojen) olarak sınıflandırdı (Monografi 136). EFSA 2018'de uzun süreli toksisite verisi eksik olduğundan katkı olarak güvenliğini değerlendiremedi. AB'de pirinç, sosis ve haşlanmış yumurta yüzeyinde, sakızda ve toz gıdalarda topaklanmayı önleyici olarak izinlidir."}
+  "E553b": {"sources": ["https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Talc-And-Acrylonitrile-2025", "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009349"], "risk": "yellow", "flags": ["iarc_listed"], "reason": "IARC 2025'te talkı Grup 2A (insanlarda muhtemelen kanserojen) olarak sınıflandırdı (Monografi 136). EFSA 2018'de uzun süreli toksisite verisi eksik olduğundan katkı olarak güvenliğini değerlendiremedi. AB'de pirinç, sosis ve haşlanmış yumurta yüzeyinde, sakızda ve toz gıdalarda topaklanmayı önleyici olarak izinlidir."},
+  "E471": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7010209/"]},
+  "E470a": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7009523/"]},
+  "E470b": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7009523/"]},
+  "E473": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC10119783/"]},
+  "E474": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC10119783/"]},
+  "E475": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7010213/"]},
+  "E570": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7009963/"]},
+  "E426": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7010024/"]},
+  "E479b": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7009384/"]},
+  "E904": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC11292212/"]},
+  "E901": {"sources": ["https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-051.pdf"]},
+  "E1105": {"sources": ["https://www.legislation.gov.uk/eur/2012/231/annex/division/345/adopted?view=plain"]},
+  "E127": {"sources": ["https://www.fda.gov/food/hfp-constituent-updates/fda-revoke-authorization-use-red-no-3-food-and-ingested-drugs", "https://doi.org/10.2903/j.efsa.2011.1854"]},
+  "E203": {"sources": ["https://www.legislation.gov.uk/eur/2018/98/adopted", "https://doi.org/10.2903/j.efsa.2015.4144"]},
+  "E120": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC9598894/", "https://eur-lex.europa.eu/eli/reg/2012/231/oj"], "partial": true},
+  "E322": {"sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC7010002/"], "partial": true}
  }
 }
