@@ -45,3 +45,12 @@ namespace_id = "1003"
 [[kv_namespaces]]
 binding = "SAYAC"
 id = "44f2c5a4b1ae41908edbb776a10e54a1"
+
+# Barkodlu ürün veritabanı (D1, ücretsiz katman). Panelde Storage & databases > D1 > Create: "tagsis-urunler"
+# (08.10.2026). Bağlama yalnızca burada tanımlanır: panelden "Add binding" ile eklenen bağlama Workers Builds
+# dağıtımında silinir. Worker kodu bu bağlamayı barkod işiyle kullanmaya başlar; bağlı değilse uç noktalar
+# sessizce devre dışı kalır. Tablolar Worker'ın ilk isteğinde otomatik oluşur (CREATE TABLE IF NOT EXISTS).
+[[d1_databases]]
+binding = "URUNLER"
+database_name = "tagsis-urunler"
+database_id = "fd2764c5-a992-4c5f-83c4-32d9098c5941"
