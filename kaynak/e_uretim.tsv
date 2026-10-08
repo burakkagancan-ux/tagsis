@@ -70,7 +70,7 @@ E350,E351,E352	sentetik	DL-malik asit petrokimyasal hammaddeden kimyasal sentezl
 E297	sentetik	Kimyasal sentezle üretilir; doğada da bulunan bir moleküldür.	https://www.oiv.int/node/3032	1
 E300	islenmis	Glikozdan fermentasyon ve kimyasal adımlarla üretilir; doğadaki C vitaminiyle aynı moleküldür.	https://www.ams.usda.gov/sites/default/files/media/AscorbicAcidTRFinal7172019.pdf	1
 E301,E302	islenmis	Glikozdan fermentasyon ve kimyasal adımlarla üretilir; doğadaki C vitaminiyle aynı moleküldür.		0
-E304	islenmis	Askorbik asidin yağ asidiyle esterleştirilmesiyle elde edilir.		0
+E304	islenmis	Askorbik asidin palmitik asitle (kimyasal ya da enzimatik yolla) esterleştirilmesiyle elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Ascorbyl%20Palmitate%20TR.pdf	1
 E306	dogal	Bitkisel yağların vakumla buhar damıtılmasıyla elde edilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
 E307	sentetik	Kimyasal sentezle üretilen tokoferoldür (E vitamini türü).	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32008L0084	1
 E308,E309	sentetik	Kimyasal sentezle üretilen tokoferoldür (E vitamini türü).		0
@@ -81,9 +81,13 @@ E319,E320	sentetik	Petrokimyasal hammaddeden kimyasal sentezle üretilir.		0
 E321	sentetik	p-Krezolün izobütilenle tepkimesiyle kimyasal sentezle üretilir; hammaddeleri petrol ve kömür katranından elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Butylated%20Hydroxytoluene%20TR.pdf	1
 E322	dogal	Soya, ayçiçeği ya da yumurta gibi gıdalardan fiziksel yöntemlerle elde edilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
 E330	fermente	Çoğunlukla şekerlerin Aspergillus niger küfüyle (bazen Candida mayasıyla) fermentasyonuyla üretilir.	https://www.ecfr.gov/current/title-21/section-184.1033	1
-E331,E332,E333,E380	islenmis	Sitrik asidin nötrleştirilmesiyle elde edilir.		0
+E331	islenmis	Sitrik asidin sodyum hidroksit ya da sodyum karbonatla nötrleştirilmesiyle elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1751	1
+E332	islenmis	Sitrik asidin potasyum hidroksit ya da potasyum karbonatla nötrleştirilmesiyle elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1625	1
+E333	islenmis	Sitrik asidin kalsiyum hidroksit ya da kalsiyum karbonatla nötrleştirilmesiyle elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1195	1
+E380	islenmis	Sitrik asidin amonyakla nötrleştirilmesiyle elde edilir.	https://www.ams.usda.gov/sites/default/files/media/AmmoniumCitrateTechnicalReport.pdf	1
 E334	islenmis	Şarap üretimi artıklarından kimyasal işlemle elde edilir; tuzları nötrleştirmeyle üretilir.	https://www.ecfr.gov/current/title-21/section-184.1099	1
-E335,E336,E337,E354	islenmis	Şarap üretimi artıklarından kimyasal işlemle elde edilir; tuzları nötrleştirmeyle üretilir.		0
+E335,E337,E354	islenmis	Şarap üretimi artıklarından kimyasal işlemle elde edilir; tuzları nötrleştirmeyle üretilir.		0
+E336	belirsiz	Potasyum hidrojen tartarat şarap üretimi artıklarından sıcak suyla çözülüp kristallendirilerek elde edilir; dipotasyum tartaratın üretim yolu kaynakta bulunamadı.	https://www.ams.usda.gov/sites/default/files/media/Potassium%20Acid%20Tartrate%20TR%20Final%2001%2011%2017.pdf	0
 E353	islenmis	Doğal L(+)-tartarik asidin 150 °C'nin üzerinde ısıtılmasıyla (su kaybı ve esterleşme) elde edilir.	https://www.efsa.europa.eu/en/efsajournal/pub/6031	1
 E338,E339,E340,E341,E450	sentetik	Fosfat kayasından üretilen fosforik asitten kimyasal yolla elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Phosphates%20TR%202_10_2016%20Final.pdf	1
 E343	sentetik	Magnezyum sülfat ile disodyum fosfatın ya da magnezit ile fosforik asidin tepkimesiyle çöktürülerek kimyasal yolla üretilir.	https://www.ecfr.gov/current/title-21/section-184.1434	1
@@ -114,7 +118,8 @@ E421	belirsiz	Glikoz/fruktoz şurubunun hidrojenasyonuyla ya da maya ile ferment
 E953	islenmis	Şeker ya da nişastadan hidrojenasyonla (kimyasal işlemle) elde edilir.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32008L0060	1
 E964	islenmis	Şeker ya da nişastadan hidrojenasyonla (kimyasal işlemle) elde edilir.	https://faolex.fao.org/docs/pdf/eur117128.pdf	1
 E965	islenmis	Şeker ya da nişastadan hidrojenasyonla (kimyasal işlemle) elde edilir.	https://fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/additive-272-m1.pdf	1
-E966,E967	islenmis	Şeker ya da nişastadan hidrojenasyonla (kimyasal işlemle) elde edilir.		0
+E966	islenmis	Laktozun katalitik hidrojenasyonuyla (kimyasal işlemle) elde edilir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/340/adopted?view=plain	1
+E967	islenmis	Şeker ya da nişastadan hidrojenasyonla (kimyasal işlemle) elde edilir.		0
 E968	fermente	Glikozun maya ile fermentasyonuyla üretilir.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32008L0060	1
 E422	islenmis	Yağların parçalanmasıyla yan ürün olarak elde edilir; kimyasal sentezle de üretilebilir.		0
 E425	dogal	Konjak bitkisinin yumrusundan elde edilir.	https://fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/additive-245-m1.pdf	1
@@ -129,11 +134,25 @@ E445	islenmis	Bitkisel hammaddenin kimyasal tepkimeyle değiştirilmesiyle üret
 E459	islenmis	Nişastadan enzimle dönüştürülerek üretilir.	https://fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-143.pdf	1
 E460	belirsiz	Bitki lifinden mekanik yolla (toz selüloz) ya da asitle işlenerek (mikrokristal selüloz) elde edilir.	https://legislation.gov.uk/eur/2012/231/annex/division/202/adopted?view=plain	1
 E461,E462	islenmis	Selülozun kimyasal tepkimeyle değiştirilmesiyle üretilir.	https://legislation.gov.uk/eur/2012/231/annex/division/204/adopted?view=plain	1
-E463,E464,E465,E466,E468,E469	islenmis	Selülozun kimyasal tepkimeyle değiştirilmesiyle üretilir.		0
+E463	islenmis	Selülozun alkali ve propilen oksitle işlenmesiyle üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-232.pdf	1
+E464	islenmis	Bitkisel liflerden elde edilen selülozun metil ve hidroksipropil gruplarıyla eterleştirilmesiyle üretilir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/207/adopted?view=plain	1
+E465	islenmis	Selülozun alkali, dimetil sülfat ve etil klorürle işlenmesiyle üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-278.pdf	1
+E466	islenmis	Selülozun alkali ve monokloroasetik asitle işlenmesiyle üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph11/additive-396-m11.pdf	1
+E468	islenmis	Karboksimetil selülozun asitlendirilip ısıtılarak çapraz bağlanmasıyla üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-138.pdf	1
+E469	islenmis	Karboksimetil selülozun selülaz enzimiyle kısmen parçalanmasıyla üretilir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/211/adopted?view=plain	1
 E470a,E470b	islenmis	Bitkisel ya da hayvansal yağların kimyasal işlemle parçalanmasıyla elde edilir.	https://legislation.gov.uk/eur/2012/231/annex/division/212/adopted?view=plain	1
-E570	islenmis	Bitkisel ya da hayvansal yağların kimyasal işlemle parçalanmasıyla elde edilir.		0
+E570	islenmis	Yağ asitleri (ör. stearik asit) hayvansal ya da bitkisel yağların hidroliziyle elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1090	1
 E471,E472e,E481	islenmis	Bitkisel ya da hayvansal yağlardan kimyasal tepkimeyle (esterleştirme) üretilen emülgatördür.	https://legislation.gov.uk/eur/2012/231/annex/division/219/adopted?view=plain	1
-E472a,E472b,E472c,E472d,E472f,E473,E474,E475,E476,E477,E479b,E482,E483	islenmis	Bitkisel ya da hayvansal yağlardan kimyasal tepkimeyle (esterleştirme) üretilen emülgatördür.		0
+E472a,E472b,E472d,E472f	islenmis	Bitkisel ya da hayvansal yağlardan kimyasal tepkimeyle (esterleştirme) üretilen emülgatördür.		0
+E472c	islenmis	Gliserolün sitrik asit ve yağ asitleriyle ya da mono- ve digliseritlerin sitrik asitle esterleştirilmesiyle üretilen emülgatördür.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph16/additive-136-m16.pdf	1
+E473	islenmis	Sakkarozun yağ asidi esterleriyle esterleştirilmesiyle ya da sukrogliseritlerden ekstraksiyonla üretilen emülgatördür.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph10/additive-447-m10.pdf	1
+E474	islenmis	Sakkarozun yemeklik yağlarla tepkimesiyle üretilen emülgatördür.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph10/additive-445-m10.pdf	1
+E475	islenmis	Poligliserolün yemeklik yağlar ya da yağ asitleriyle esterleştirilmesiyle üretilen emülgatördür.	https://www.legislation.gov.uk/eur/2012/231/annex/division/223/adopted?view=plain	1
+E476	islenmis	Poligliserolün hint yağı yağ asitleriyle esterleştirilmesiyle üretilen emülgatördür.	https://www.legislation.gov.uk/eur/2012/231/annex/division/224/adopted?view=plain	1
+E477	islenmis	Propilen glikolün yağ asitleriyle esterleştirilmesiyle ya da yağlarla transesterleştirilmesiyle üretilen emülgatördür.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-361.pdf	1
+E479b	islenmis	Isıyla oksitlenmiş soya yağının mono- ve digliseritlerle vakum altında tepkimesiyle üretilen emülgatördür.	https://www.legislation.gov.uk/eur/2012/231/annex/division/226/adopted?view=plain	1
+E482	islenmis	Stearik asidin laktik asitle tepkimesi ve kalsiyum tuzuna dönüştürülmesiyle üretilen emülgatördür.	https://www.legislation.gov.uk/eur/2012/231/annex/division/228/adopted?view=plain	1
+E483	islenmis	Tartarik asidin stearil alkolle esterleştirilmesiyle üretilen emülgatördür.	https://www.legislation.gov.uk/eur/2012/231/annex/division/229/adopted?view=plain	1
 E491,E492,E493,E494,E495	islenmis	Sorbitol ve yağ asitlerinin kimyasal tepkimesiyle üretilir.	https://legislation.gov.uk/eur/2012/231/annex/division/230/adopted?view=plain	1
 E500	belirsiz	Doğal mineral yataklarından ya da kimyasal üretimle elde edilebilir.	https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1742	1
 E504	sentetik	Magnezyum sülfat çözeltisine karbonat eklenerek ya da magnezyum hidroksitin karbonatlanmasıyla kimyasal yolla üretilir.	https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1425	1
@@ -167,7 +186,10 @@ E553b	dogal	Doğal kil ya da mineraldir (saflaştırılmış).	https://www.legis
 E558	dogal	Doğal kil ya da mineraldir (saflaştırılmış).		0
 E559	dogal	Doğal kil ya da mineraldir (saflaştırılmış).	https://www.legislation.gov.uk/eur/2012/231/annex/division/287/2020-01-31	1
 E574,E575	fermente	Glikozun fermentasyonuyla üretilir.	https://ams.prod.usda.gov/sites/default/files/media/Glucono%20Delta%20Lactone%20TR.pdf	1
-E576,E577,E578,E579	islenmis	Glukonik asidin nötrleştirilmesiyle elde edilir.		0
+E576	belirsiz	Fermentasyonla ya da kimyasal katalitik oksidasyonla üretilir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/283/adopted?view=plain	1
+E577	islenmis	Glukonik asidin nötrleştirilmesiyle elde edilir.		0
+E578	islenmis	Glukonik asidin kireç ya da kalsiyum karbonatla nötrleştirilmesiyle elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1199	1
+E579	islenmis	Kalsiyum ya da baryum glukonatın demir sülfatla ya da demir karbonatın glukonik asitle tepkimesiyle elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1308	1
 E586,E640,E650	sentetik	Kimyasal sentezle üretilir.		0
 E620,E621	fermente	Glutamik asit bakterilerle fermentasyonla üretilir; tuzları nötrleştirmeyle elde edilir.	https://www.legislation.gov.uk/eur/2020/1800/data.pdf	1
 E622,E623,E624,E625	fermente	Glutamik asit bakterilerle fermentasyonla üretilir; tuzları nötrleştirmeyle elde edilir.		0
@@ -177,16 +199,19 @@ E907	sentetik	Kimyasal sentezle üretilen polimerdir.	https://www.fao.org/filead
 E914	sentetik	Polietilenin havayla hafif oksidasyonuyla elde edilen polimerdir.	https://www.ecfr.gov/current/title-21/section-172.260	1
 E901	dogal	Bal arısı peteğinden elde edilen balmumudur.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-051.pdf	1
 E902	dogal	Kandelilla bitkisinin kurutulmuş saplarından, suda kaynatılarak elde edilen mumdur.	https://www.fao.org/fileadmin/templates/agns/pdf/jecfa/cta/65/candelillla_wax.pdf	1
-E903	dogal	Bitki yapraklarından elde edilen mumdur.		0
+E903	dogal	Brezilya mum palmiyesinin yaprak ve tomurcuklarından elde edilip saflaştırılan mumdur.	https://www.legislation.gov.uk/eur/2012/231/annex/division/310/adopted?view=plain	1
 E904	dogal	Lak böceğinin salgısından elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-384.pdf	1
 E905	islenmis	Petrol ya da doğal gazdan rafinasyonla elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-281-rev.pdf	1
-E943a,E943b,E944	islenmis	Petrol ya da doğal gazdan rafinasyonla elde edilir.		0
+E943a,E943b	dogal	Doğal gazdan fiziksel ayırmayla (fraksiyonlama) elde edilir.	https://www.ecfr.gov/current/title-21/section-184.1165	1
+E944	belirsiz	Doğal gazdan fiziksel ayırmayla ya da petrol rafinasyonunun yan ürünü olarak elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Propane%200%20report%202011.pdf	1
 E912	islenmis	Linyit mumunun kimyasal işlemle değiştirilmesiyle üretilir.		0
 E920	belirsiz	AB şartnamesi insan saçının kaynak olarak kullanılmasını yasaklar, başka bir hammadde belirtmez; hayvansal proteinlerin hidroliziyle ya da fermentasyonla üretilebilir.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0231	0
 E924a,E949	sentetik	Kimyasal yolla üretilir.		0
 E927b	sentetik	Karbondioksit ve amonyaktan ya da siyanamidin hidroliziyle kimyasal yolla üretilir.	https://www.ecfr.gov/current/title-21/section-184.1923	1
 E942	sentetik	Amonyum nitratın kontrollü ısıtılarak ayrıştırılmasıyla kimyasal yolla üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph11/additive-297-m11.pdf	1
-E938,E939,E941,E948	dogal	Havadan ya da doğal gazdan fiziksel ayırmayla elde edilen gazdır.		0
+E938,E948	dogal	Havadan ya da doğal gazdan fiziksel ayırmayla elde edilen gazdır.		0
+E939	dogal	Doğal gazın sıvılaştırılıp saflaştırılmasıyla elde edilen gazdır.	https://www.ecfr.gov/current/title-21/section-184.1355	1
+E941	dogal	Sıvı havanın ayrımsal damıtılmasıyla (fraksiyonlama) elde edilen gazdır.	https://www.ecfr.gov/current/title-21/section-184.1540	1
 E950	sentetik	Kimyasal yolla üretilen tatlandırıcıdır.	https://doi.org/10.2903/j.efsa.2025.9317	1
 E951,E952,E955	sentetik	Kimyasal sentezle üretilen tatlandırıcıdır.		0
 E954	sentetik	Kimyasal yolla üretilen tatlandırıcıdır.	https://doi.org/10.2903/j.efsa.2024.9044	1
@@ -198,7 +223,7 @@ E959	islenmis	Turunçgillerden elde edilen neohesperidinin katalitik hidrojenasy
 E960	belirsiz	Stevia yapraklarından ekstraksiyonla, enzimle dönüştürülerek ya da fermentasyonla üretilebilir.	https://www.fao.org/3/cb8031en/cb8031en.pdf	1
 E999	dogal	Kilaya ağacının kabuğundan ekstraksiyonla elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph3/additive-367.pdf	1
 E1103	fermente	Mayadan elde edilen enzimdir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-237.pdf	1
-E1105	dogal	Yumurta akından elde edilen enzimdir.		0
+E1105	dogal	Tavuk yumurtası akından elde edilen enzimdir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/345/adopted?view=plain	1
 E1200	islenmis	Glikozun az miktarda sorbitol ve sitrik asitle yoğunlaştırılarak polimerleştirilmesiyle üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-314.pdf	1
 E1201,E1521	sentetik	Kimyasal sentezle üretilen polimerdir.		0
 E1202	sentetik	N-vinil-2-pirolidonun polimerleştirilmesiyle üretilen polimerdir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/348/adopted?view=plain	1
@@ -206,7 +231,9 @@ E1205	sentetik	Metil metakrilat, bütil metakrilat ve dimetilaminoetil metakrila
 E1203	sentetik	Kimyasal sentezle üretilen polimerdir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph4/additive-327-m4.pdf	1
 E1204	fermente	Aureobasidium pullulans mantarıyla fermentasyonla üretilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/additive-365-m1.pdf	1
 E1404,E1410,E1412,E1413,E1414,E1420,E1422,E1440,E1442,E1450,E1451	islenmis	Nişastanın kimyasal tepkimeyle değiştirilmesiyle üretilir (modifiye nişasta).	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph16/additive-287-m16.pdf	1
-E1452	islenmis	Nişastanın kimyasal tepkimeyle değiştirilmesiyle üretilir (modifiye nişasta).		0
-E1505,E1517,E1518	islenmis	Sitrik asit ya da gliserolün kimyasal tepkimeyle esterleştirilmesiyle üretilir.		0
+E1452	islenmis	Nişastanın oktenilsüksinik anhidritle esterleştirilip alüminyum sülfatla işlenmesiyle üretilir (modifiye nişasta).	https://www.legislation.gov.uk/eur/2012/231/annex/division/363/adopted?view=plain	1
+E1505	islenmis	Sitrik asidin etil alkolle esterleştirilmesiyle üretilir.	https://www.ecfr.gov/current/title-21/section-184.1911	1
+E1517	islenmis	Sitrik asit ya da gliserolün kimyasal tepkimeyle esterleştirilmesiyle üretilir.		0
+E1518	belirsiz	Gliserolün asetik anhidritle ısıtılmasıyla ya da allil asetat ve asetik asitten kimyasal tepkimeyle üretilebilir.	https://www.ecfr.gov/current/title-21/section-184.1901	1
 E1519	sentetik	Petrokimyasal hammaddeden kimyasal sentezle üretilir.		0
 E1520	belirsiz	Propilenden kimyasal sentezle ya da gliserolün sodyum hidroksitle ısıtılmasıyla üretilebilir.	https://www.ecfr.gov/current/title-21/section-184.1666	1
