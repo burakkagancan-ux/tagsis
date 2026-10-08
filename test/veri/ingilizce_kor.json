@@ -1,0 +1,148 @@
+{
+"aciklama": "Kör ölçüm seti (08.10.2026): eş anlamlı ve kural ayarı bittikten sonra yazıldı, sonucuna göre ayar yapılmadı. CI eşiğine girmez; node test/olcum_ingilizce.js test/veri/ingilizce_kor.json İlk ölçümde (ayarsız) beklentideki 8 eksik yazıldı (etikette gerçekten olan kodlar: E170, E322, E250, E101, E14xx, E100, E504, E500; soya lesitini). Sonuçlar PR açıklamasında.",
+"etiketler": [
+{
+"grup": "kor",
+"ad": "Fırın kurabiyesi (İngiltere)",
+"al": {
+"gluten": "yes",
+"milk": "yes",
+"egg": "yes",
+"nuts": "may",
+"peanut": "may",
+"soy": "yes"
+},
+"e": {
+"E503": 0,
+"E500": 0,
+"E170": 0,
+"E322": 0
+},
+"m": "Ingredients: Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin), Butter (Milk) (24%), Sugar, Milk Chocolate Chunks (15%) (Sugar, Cocoa Butter, Whole Milk Powder, Cocoa Mass, Emulsifier: Soya Lecithin, Flavouring), Free Range Whole Egg, Raising Agents (Ammonium Hydrogen Carbonate, Sodium Hydrogen Carbonate), Salt. May contain peanuts and other nuts."
+},
+{
+"grup": "kor",
+"ad": "Hazır çorba (İngiltere)",
+"al": {
+"celery": "yes",
+"milk": "yes",
+"gluten": "yes"
+},
+"e": {
+"E621": 2,
+"E631": 0,
+"E627": 0,
+"E1404/E1410/E1412/E1413/E1414/E1420/E1422/E1440/E1442/E1450/E1451/E1452": 0
+},
+"m": "Ingredients: Water, Tomatoes (35%), Onion, Carrot, Celery, Double Cream (Milk) (3%), Modified Maize Starch, Wheat Flour, Sugar, Salt, Yeast Extract, Flavour Enhancers (Monosodium Glutamate, Disodium Inosinate, Disodium Guanylate), Garlic Purée, Black Pepper."
+},
+{
+"grup": "kor",
+"ad": "Balık kroket (İngiltere)",
+"al": {
+"fish": "yes",
+"gluten": "yes"
+},
+"e": {
+"E412": 0,
+"E100": 0
+},
+"m": "Ingredients: Alaska Pollock (Fish) (58%), Breadcrumb Coating (Wheat Flour, Water, Yeast, Salt, Paprika, Turmeric), Rapeseed Oil, Water, Potato Starch, Wheat Starch, Salt, Thickener (Guar Gum)."
+},
+{
+"grup": "kor",
+"ad": "Enerji içeceği (ABD)",
+"al": {},
+"e": {
+"E330": 0,
+"E331": 0,
+"E150a/E150b/E150c/E150d": 2,
+"E211": 2,
+"E202": 0,
+"E504": 0
+},
+"m": "INGREDIENTS: CARBONATED WATER, SUCROSE, GLUCOSE, CITRIC ACID, TAURINE, SODIUM CITRATE, MAGNESIUM CARBONATE, CAFFEINE, NIACINAMIDE, CALCIUM PANTOTHENATE, PYRIDOXINE HCL, VITAMIN B12, NATURAL AND ARTIFICIAL FLAVORS, CARAMEL COLOR, SODIUM BENZOATE, POTASSIUM SORBATE."
+},
+{
+"grup": "kor",
+"ad": "Pizza (ABD)",
+"al": {
+"gluten": "yes",
+"milk": "yes",
+"soy": "yes"
+},
+"e": {
+"E412": 0,
+"E200": 0,
+"E202": 0,
+"E250": 2,
+"E101": 0
+},
+"m": "Ingredients: Crust (Enriched Flour [Wheat Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid], Water, Soybean Oil, Yeast, Sugar, Salt), Mozzarella Cheese (Pasteurized Milk, Cheese Cultures, Salt, Enzymes), Tomato Paste, Pepperoni (Pork, Salt, Spices, Dextrose, Paprika, Sodium Nitrite), Soy Flour, Guar Gum, Sorbic Acid, Potassium Sorbate. CONTAINS: WHEAT, MILK, SOY."
+},
+{
+"grup": "kor",
+"ad": "Granola bar (ABD)",
+"al": {
+"gluten": "yes",
+"peanut": "yes",
+"soy": "yes",
+"milk": "may",
+"nuts": "may"
+},
+"e": {
+"E322": 0,
+"E500": 0
+},
+"m": "INGREDIENTS: WHOLE GRAIN OATS, PEANUTS, SUGAR, CORN SYRUP, RICE FLOUR, PEANUT BUTTER, CANOLA OIL, FRUCTOSE, SALT, SOY LECITHIN, NATURAL FLAVOR, BAKING SODA. CONTAINS PEANUT AND SOY INGREDIENTS. MAY CONTAIN MILK AND TREE NUTS."
+},
+{
+"grup": "kor",
+"ad": "Vegan peynir alternatifi",
+"al": {},
+"e": {
+"E1404/E1410/E1412/E1413/E1414/E1420/E1422/E1440/E1442/E1450/E1451/E1452": 0,
+"E160a": 0
+},
+"m": "Ingredients: Water, Coconut Oil (24%), Modified Starch, Potato Starch, Sea Salt, Olive Extract, Flavourings, Colour: Beta Carotene, Vitamin B12. Dairy free. Suitable for vegans."
+},
+{
+"grup": "kor",
+"ad": "OCR bozuk krakerler",
+"al": {
+"gluten": "yes",
+"sesame": "yes"
+},
+"e": {
+"E500": 0
+},
+"m": "lngredlents: Whea t Flour, Sesarne Seeds (12%), Sunf1ower Oil, Salt, Raising Agent (Sodium Bicarbonate), Barley Malt Extract."
+},
+{
+"grup": "kor",
+"ad": "Tuzlu karamel sos",
+"al": {
+"milk": "yes"
+},
+"e": {
+"E202": 0
+},
+"m": "INGREDIENTS: GLUCOSE SYRUP, SWEETENED CONDENSED MILK (MILK, SUGAR), BUTTER (MILK), SUGAR, WATER, SEA SALT (1%), PRESERVATIVE: POTASSIUM SORBATE, NATURAL FLAVOURING."
+},
+{
+"grup": "kor",
+"ad": "Tavuklu sandviç",
+"al": {
+"gluten": "yes",
+"egg": "yes",
+"mustard": "yes",
+"milk": "yes"
+},
+"e": {
+"E282": 0,
+"E471": 0
+},
+"m": "Ingredients: Malted Wheat Bread (Wheat Flour, Water, Malted Wheat Flakes, Wheat Bran, Yeast, Salt, Wheat Gluten, Emulsifier: Mono- and Diglycerides of Fatty Acids, Preservative: Calcium Propionate), Cooked Chicken (25%), Mayonnaise (Rapeseed Oil, Water, Pasteurised Egg Yolk, Spirit Vinegar, Mustard Seed), Lettuce, Cheddar Cheese (Milk)."
+}
+]
+}

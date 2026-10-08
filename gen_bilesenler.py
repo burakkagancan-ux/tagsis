@@ -55,14 +55,36 @@ ITEMS = [(x["id"], x["ad"], x["adlar"], x["bayraklar"], x["not"], x["ek"]) for x
 
 # Cümle düzeyinde "eser miktarda içerebilir" tetikleyicileri (normalize edilmiş)
 MAY_TRIGGERS = ["icerebilir", "iceribilir", "eser", "ayni tesiste", "ayni hatta", "ayni uretim", "bulunabilir"]
-NEGATIONS = ["icermez", "yoktur", "icermemektedir", "ilave edilmemistir", "katilmamistir"]
-AROMA_NEXT = ["aromasi", "aromali", "aroma", "esansi"]
+# İngilizce "may contain" ifadeleri ileriye bakar: tetikleyiciden cümle sonuna kadar (Türkçe "içerebilir" geriye bakar). (08.10.2026, B-08)
+MAY_FORWARD = ["may contain", "may also contain", "may contain traces", "traces of", "made in a factory", "made in a facility",
+               "produced in a factory", "produced in a facility", "manufactured in a facility", "manufactured in a factory",
+               "manufactured on shared equipment", "processed in a facility", "packed in a facility", "facility that also",
+               "factory that also", "factory which also", "shared equipment", "same equipment", "same production line"]
+NEGATIONS = ["icermez", "yoktur", "icermemektedir", "ilave edilmemistir", "katilmamistir", "free"]
+# İngilizce önden olumsuzluk ("no added sugar", "free from milk"): yalnızca İngilizce görünen metinde, maddenin hemen önünde
+NEG_PREFIX = ["no", "non", "without", "no added", "free from", "contains no", "no artificial", "not contain", "contain no"]
+AROMA_NEXT = ["aromasi", "aromali", "aroma", "esansi", "flavour", "flavouring", "flavor", "flavoring", "flavoured", "flavored"]
+
+# İngilizce eş anlamlılar: kaynak/ingilizce_esanlamlilar.tsv (hedef<TAB>ad<TAB>koşul<TAB>kaynak); E kodu satırlarını gen_e_kodlari.py okur.
+def load_en(path=os.path.join(HERE, "kaynak", "ingilizce_esanlamlilar.tsv")):
+    out = {}
+    with open(path, encoding="utf-8") as f:
+        for n, line in enumerate(f, 1):
+            line = line.rstrip("\n")
+            if not line.strip() or line.startswith("#"):
+                continue
+            p = line.split("\t")
+            assert len(p) == 4 and p[0] and p[1] and p[3], ("ingilizce_esanlamlilar.tsv satır %d" % n, line)
+            for h in p[0].split(","):
+                out.setdefault(h, []).append((p[1], p[2]))
+    return out
+EN = load_en()
 
 def main():
     edb = json.load(open(EDB, encoding="utf-8"))
     e_aliases = {}
     for it in edb["ingredients"]:
-        for a in it["aliases"]:
+        for a in it["aliases"] + it.get("aliases_en", []) + it.get("en_only", []):
             ids = e_aliases.setdefault(norm(a), [])
             if it["id"] not in ids: ids.append(it["id"])
     seen, items, dropped = {}, [], []
@@ -84,6 +106,16 @@ def main():
             seen[n] = iid
             keep.append(a)
         rec = {"id": iid, "name": name, "aliases": keep, "flags": flags}
+        for a, k in EN.get(iid, []):
+            n = norm(a)
+            if n in e_aliases:
+                dropped.append((iid, a, "e_kodlari.json'da var: " + ",".join(e_aliases[n]))); continue
+            if seen.get(n) == iid:
+                continue
+            if n in seen:
+                raise SystemExit("İngilizce eş anlamlı başka maddede: %s (%s, %s)" % (a, seen[n], iid))
+            seen[n] = iid
+            rec.setdefault("en_only" if k == "en" else "aliases_en", []).append(a)
         if note: rec["note"] = note
         if extra.get("upf_class"): rec["upf_class"] = extra["upf_class"]
         if extra.get("short_ok"): rec["short_ok"] = True
@@ -98,6 +130,8 @@ def main():
             "upf_e_categories": UPF_E_CATEGORIES,
             "may_triggers": MAY_TRIGGERS,
             "negations": NEGATIONS,
+            "may_forward": MAY_FORWARD,
+            "neg_prefix": NEG_PREFIX,
             "aroma_next": AROMA_NEXT,
             "sources": [
                 {"name": "TGK Gıda Etiketleme ve Tüketicileri Bilgilendirme Yönetmeliği, Ek-1 (alerjenler)", "ref": "Resmî Gazete 26.01.2017, sayı 29960 (1. mükerrer); son değişiklik 06.04.2024",
@@ -119,10 +153,14 @@ def main():
                 "Vegan/vejetaryen sonucu yalnızca içerik adlarına dayanır; üretim süreci ve çapraz bulaşma bilinmez.",
                 "Hamile/bebek/çocuk, PKU ve evcil hayvan kontrolleri yalnızca bilinen maddeleri arar; miktar bilinmez ve sonuç bir onay değildir.",
             ],
-            "counts": {"items": len(items), "aliases": sum(len(i["aliases"]) for i in items)},
+            "counts": {"items": len(items), "aliases": sum(len(i["aliases"]) for i in items),
+                       "aliases_en": sum(len(i.get("aliases_en", [])) + len(i.get("en_only", [])) for i in items)},
         },
         "items": items,
     }
+    ids = set(i["id"] for i in items) | set(it["id"] for it in edb["ingredients"])
+    for k in EN:
+        assert k in ids, ("ingilizce_esanlamlilar.tsv: bilinmeyen hedef", k)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("Yazıldı:", OUT, out["meta"]["counts"])
