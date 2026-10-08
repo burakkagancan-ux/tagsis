@@ -62,6 +62,12 @@ function tPCodes(text,T){
   return out;
 }
 /* EUH208 içinde adı geçen madde: "X içerir. Alerjik reaksiyona..." / "Contains X. May produce an allergic reaction" */
+/* Tehlike/önlem ifadesinin ekrandaki metni: veride CLP'nin resmi metni var (tr: SEA'ya dayalı, en: CLP Ek III/IV); başka dilde çevirisi yoksa İngilizce.
+   hzKisa: kart başlığında ve listelerde "içerir. " öneki (Türkçe birleşik ifadeler) ve sondaki nokta atılır. */
+function hzMetin(h){return veriS(h.tr,null,{en:h.en})}
+function hzKisa(h){return hzMetin(h).replace(/^içerir\. /,"").replace(/\.$/,"")}
+/* İçerik grubu adı (AB 648/2004 Ek VII) */
+function tGrupAd(g){return veriS(g.tr,"t.grup."+g.id)}
 function tEuh208(text){
   var out=[],tx=String(text||"").replace(/\s+/g," "),m;
   var re1=/(?:^|[.:;!]\s*|EUH\s?208\s*:?\s*)([^.:;!]{3,140}?)\s+i[cç]erir\.?\s*Alerjik reaksiyon/gi;
@@ -195,7 +201,7 @@ function summarizeT(A){
     if(/^(H314|H318|H319|EUH070)$/.test(h.code))push(o.eye,h.code);
     if(/^(EUH206|EUH031|EUH032|EUH029)$/.test(h.code)){o.mix=true;push(o.mixWhy,h.code)}
   });
-  A.groups.forEach(function(g){if(g.neg)return;if(g.g.mix){o.mix=true;push(o.mixWhy,g.g.tr)}if(g.id==="parfum")o.parfum=true;if(g.g.resp)o.enzyme=true});
+  A.groups.forEach(function(g){if(g.neg)return;if(g.g.mix){o.mix=true;push(o.mixWhy,tGrupAd(g.g))}if(g.id==="parfum")o.parfum=true;if(g.g.resp)o.enzyme=true});
   A.subs.forEach(function(x){if(x.s.mix){o.mix=true;push(o.mixWhy,x.s.inci[0])}if(x.s.resp)o.enzyme=true});
   A.inci.forEach(function(x){if(x.fragrance)push(o.fragrance,x.name);if(x.pres)push(o.pres,x.name);if(x.color)push(o.color,x.name)});
   A.subs.forEach(function(x){if(x.s.kind==="koruyucu")push(o.pres,x.s.inci[0])});

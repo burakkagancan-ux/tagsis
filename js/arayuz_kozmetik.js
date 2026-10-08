@@ -47,10 +47,10 @@ function suggestCard(){
 var KCLS={red:"r",orange:"o",yellow:"y",info:"g n"},KLBL={red:"koz.seviye.red",orange:"risk.uyari",yellow:"risk.dikkat",info:"risk.yok"};   // çeviri anahtarları
 function kChips(r){
   var out=[],seen={},F=KIDX.flags;
-  r.reg.forEach(function(e){e.flags.forEach(function(f){if(!seen[f]&&f!=="cmr_ban"){seen[f]=1;out.push(F[f]||f)}})});
-  r.iflags.forEach(function(f){if(!seen[f]){seen[f]=1;out.push(F[f]||f)}});
+  r.reg.forEach(function(e){e.flags.forEach(function(f){if(!seen[f]&&f!=="cmr_ban"){seen[f]=1;out.push(veriS(F[f]||f,"k.bayrak."+f))}})});
+  r.iflags.forEach(function(f){if(!seen[f]){seen[f]=1;out.push(veriS(F[f]||f,"k.bayrak."+f))}});
   if(r.nano&&!seen.nano)out.push(t("koz.nano"));
-  (r.k3||[]).forEach(function(w){var L=KIDX.watchLists[w.list],c=L?L.chip:w.list;if(L&&L.kind==="comedo"&&PTYPE==="rinse")return;if(!seen["k3:"+c]){seen["k3:"+c]=1;out.push(c)}});
+  (r.k3||[]).forEach(function(w){var L=KIDX.watchLists[w.list],c=L?L.chip:w.list;if(L&&L.kind==="comedo"&&PTYPE==="rinse")return;if(!seen["k3:"+c]){seen["k3:"+c]=1;out.push(veriS(c,"k.liste."+w.list+".cip"))}});
   return out;
 }
 /* K3 tarih ifadesi: "2027-01-01" -> "1 Ocak 2027 tarihinden itibaren yasak" / "...beri yasak"; "2019" -> "Listeye giriş: 2019" (tarih dile göre Intl ile) */
@@ -72,29 +72,30 @@ function kCard(r){
   kChips(r).forEach(function(c){d.appendChild(el("span","chip",c))});
   r.notes.forEach(function(n){d.appendChild(el("div","ln",kNot(n)))});
   var pn=el("div","ipanel");pn.hidden=true;
-  function line(lbl,txt){if(!txt)return;var p=el("div","ln");p.appendChild(el("b",null,lbl+" "));p.appendChild(document.createTextNode(txt));pn.appendChild(p)}
-  line(t("koz.kart.islevi"),r.funcs.join(", "));
+  // txt: düz metin ya da veriMetin sonucu ({s, cevrilmedi}); çevrilmemiş veri metnine işaret eklenir
+  function line(lbl,txt){if(!txt||typeof txt==="object"&&!txt.s)return;var p=el("div","ln");p.appendChild(el("b",null,lbl+" "));p.appendChild(document.createTextNode(typeof txt==="object"?txt.s:txt));pn.appendChild(typeof txt==="object"?vIsaret(p,txt):p)}
+  line(t("koz.kart.islevi"),r.funcs.map(kIslevAd).join(", "));
   var seen={};
   r.reg.forEach(function(e){
     if(seen[e.id])return;seen[e.id]=1;
     if(r.reg.length>1)pn.appendChild(el("div","ih",t("koz.kart.ek",{ek:e.annex})+(e.ref&&e.ref!=="?"?t("koz.kart.giris",{n:e.ref}):"")));
-    line(t("koz.kart.degerlendirme"),e.reason);
-    line(t("koz.kart.not"),e.note_tr);
-    (e.updates||[]).forEach(function(u){line(t("koz.kart.degisiklik",{r:u.regulation+(u.applies_from?", "+u.applies_from:"")}),u.note_tr)});
+    line(t("koz.kart.degerlendirme"),kGerekceMetin(e));
+    line(t("koz.kart.not"),veriMetin(e.note_tr,"k."+e.id+".not"));
+    (e.updates||[]).forEach(function(u,i){line(t("koz.kart.degisiklik",{r:u.regulation+(u.applies_from?", "+u.applies_from:"")}),veriMetin(u.note_tr,"k."+e.id+".degisiklik."+i))});
     var cond=[e.product_type&&t("koz.kart.urun_tipi",{l:e.product_type}),e.max&&t("koz.kart.ust_sinir",{l:e.max}),e.conditions_en].filter(Boolean).join(" · ");
     if(cond)pn.appendChild(el("div","how",t("koz.kart.ab_kosulu",{l:cond})));
     pn.appendChild(el("div","how",t("koz.kart.kaynak",{r:e.regulation||"(EC) 1223/2009"})+(e.applies_from?t("koz.kart.uygulama",{d:e.applies_from}):"")));
     var trs=[e.tr].concat((e.updates||[]).map(function(u){return u.tr})).filter(Boolean)[0];   // AB değişikliğinin Türkiye'deki durumu
-    if(trs&&KIDX.trText[trs])pn.appendChild(el("div","how",KIDX.trText[trs]));
+    if(trs&&KIDX.trText[trs])pn.appendChild(vEl("div","how",KIDX.trText[trs],"k.tr_durum."+trs));   // Türkiye'deki durum (ülke katmanı)
     if(e.needs_review)pn.appendChild(el("div","how",t("koz.kart.kayit_dogrulanmadi")));
   });
-  r.iflags.forEach(function(f){line(t("koz.kart.degerlendirme"),KIDX.flagReasons[f])});
+  r.iflags.forEach(function(f){line(t("koz.kart.degerlendirme"),veriMetin(KIDX.flagReasons[f],"k.bayrak_neden."+f))});
   if(r.k3&&r.k3.length){
     pn.appendChild(el("div","ih",t("koz.kart.diger_listeler")));
     r.k3.forEach(function(w){
-      var L=KIDX.watchLists[w.list]||{label:w.list,text:""};
-      line(L.label+":",L.text+(w.note_tr?" "+w.note_tr:""));
-      var src=el("div","how",[k3When(w,L.kind),w.basis].filter(Boolean).join(" · ")+" · ");
+      var L=KIDX.watchLists[w.list]||{label:w.list,text:""},lt=veriMetin(L.text,"k.liste."+w.list+".metin"),wn=w.note_tr?veriMetin(w.note_tr,"k.izle."+w.list+"."+(w.inci||[])[0]):null;
+      line(veriS(L.label,"k.liste."+w.list+".ad")+":",{s:lt.s+(wn?" "+wn.s:""),cevrilmedi:lt.cevrilmedi||!!(wn&&wn.cevrilmedi),kod:DIL_KAYNAK});
+      var src=el("div","how",[k3When(w,L.kind),veriS(w.basis||"",null)].filter(Boolean).join(" · ")+" · ");
       if(w.source){var a=el("a",null,t("ortak.kaynak_bag"));a.href=w.source;a.target="_blank";a.rel="noopener";src.appendChild(a)}
       pn.appendChild(src);
       if(w.needs_review)pn.appendChild(el("div","how",t("koz.kart.bilgi_dogrulanmadi")));
@@ -170,8 +171,8 @@ function comedoCard(res){
   d.appendChild(el("div","ln",hits.map(function(h){return h.r.name}).filter(function(x,i,a){return a.indexOf(x)===i}).join(", ")));
   d.appendChild(el("div","how",t("koz.komedo.bilgi")));
   var pn=el("div","ipanel");pn.hidden=true;
-  pn.appendChild(el("div","ln",L.text));
-  hits.forEach(function(h){var p=el("div","ln");p.appendChild(el("b",null,h.r.name+": "));p.appendChild(document.createTextNode(h.w.note_tr||""));pn.appendChild(p)});
+  pn.appendChild(vEl("div","ln",L.text,"k.liste.komedo.metin"));
+  hits.forEach(function(h){var rn=veriMetin(h.w.note_tr||"","k.izle.komedo."+(h.w.inci||[])[0]),p=el("div","ln");p.appendChild(el("b",null,h.r.name+": "));p.appendChild(document.createTextNode(rn.s));pn.appendChild(vIsaret(p,rn))});
   pn.appendChild(el("div","how",t("koz.komedo.not")));
   var src=el("div","how",t("koz.komedo.kaynak"));
   var a=el("a",null,t("koz.komedo.makale"));a.href="https://library.scconline.org/v040n06/13";a.target="_blank";a.rel="noopener";src.appendChild(a);pn.appendChild(src);
@@ -204,7 +205,7 @@ function renderK(res){
     var li=el("li");
     if(!r.found){li.appendChild(document.createTextNode(r.raw+" "));li.appendChild(el("span","fn",t("koz.taninmadi")));ol.appendChild(li);return}
     var b=el("b",null,r.name);li.appendChild(b);
-    if(r.funcs.length)li.appendChild(el("span","fn"," · "+r.funcs.join(", ")));
+    if(r.funcs.length)li.appendChild(el("span","fn"," · "+r.funcs.map(kIslevAd).join(", ")));
     if(r.how==="benzer")li.appendChild(el("span","fn",t("koz.okunan",{l:r.raw})));
     else if(norm(r.raw).indexOf(norm(r.name))<0)li.appendChild(el("span","fn",t("koz.etikette",{l:r.raw})));
     if(r.may)li.appendChild(el("span","fn",t("koz.icerebilir")));

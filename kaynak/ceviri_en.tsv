@@ -1,0 +1,285 @@
+# Veri etiketlerinin İngilizcesi → gen_ceviri_veri.py → i18n/veri/en.json. Sütunlar: anahtar<TAB>İngilizce<TAB>kaynak (resmi metin varsa)
+# Anahtar: kimlikli kayıt ("alerjen.allergen_milk", "e.bayrak.fodmap") ya da kimliği olmayan kısa etiket için "metin:<Türkçe metin>".
+# Uzun veri metinleri (gerekçe, not, açıklama) burada değil; çevrilmeyenler arayüzde "henüz çevrilmedi" işaretiyle Türkçe görünür.
+alerjen.allergen_gluten	Cereals containing gluten	AB 1169/2011 Ek II
+alerjen.allergen_crustacean	Crustaceans	AB 1169/2011 Ek II
+alerjen.allergen_egg	Eggs	AB 1169/2011 Ek II
+alerjen.allergen_fish	Fish	AB 1169/2011 Ek II
+alerjen.allergen_peanut	Peanuts	AB 1169/2011 Ek II
+alerjen.allergen_soy	Soybeans	AB 1169/2011 Ek II
+alerjen.allergen_milk	Milk	AB 1169/2011 Ek II
+alerjen.allergen_nuts	Nuts	AB 1169/2011 Ek II
+alerjen.allergen_celery	Celery	AB 1169/2011 Ek II
+alerjen.allergen_mustard	Mustard	AB 1169/2011 Ek II
+alerjen.allergen_sesame	Sesame seeds	AB 1169/2011 Ek II
+alerjen.allergen_sulphite	Sulphur dioxide and sulphites	AB 1169/2011 Ek II
+alerjen.allergen_lupin	Lupin	AB 1169/2011 Ek II
+alerjen.allergen_mollusc	Molluscs	AB 1169/2011 Ek II
+metin:Renklendirici	Colour	AB 1333/2008 Ek I
+metin:Koruyucu	Preservative	AB 1333/2008 Ek I
+metin:Antioksidan	Antioxidant	AB 1333/2008 Ek I
+metin:Emülgatör	Emulsifier	AB 1333/2008 Ek I
+metin:Kıvam artırıcı / jelleştirici	Thickener / gelling agent	AB 1333/2008 Ek I
+metin:Lezzet artırıcı	Flavour enhancer	AB 1333/2008 Ek I
+metin:Tatlandırıcı	Sweetener	AB 1333/2008 Ek I
+metin:Asitlik düzenleyici / mineral tuz	Acidity regulator / mineral salt	AB 1333/2008 Ek I
+metin:Modifiye nişasta	Modified starch	AB 1333/2008 Ek I
+metin:Parlatıcı / kaplama maddesi	Glazing agent	AB 1333/2008 Ek I
+metin:Stabilizatör / dolgu	Stabiliser / bulking agent	AB 1333/2008 Ek I
+metin:Topaklanmayı önleyici	Anti-caking agent	AB 1333/2008 Ek I
+metin:Gaz / itici gaz	Packaging gas / propellant	AB 1333/2008 Ek I
+metin:Diğer (taşıyıcı, nem tutucu, çözücü vb.)	Other (carrier, humectant, solvent etc.)	AB 1333/2008 Ek I
+metin:Aroma verici	Flavouring	AB 1334/2008
+metin:Hidrojenize yağ	Hydrogenated fat	
+metin:Köpük/dolgu maddesi	Foaming / bulking agent	
+metin:Kıvam artırıcı	Thickener	AB 1333/2008 Ek I
+metin:Parlatıcı	Glazing agent	AB 1333/2008 Ek I
+metin:Protein izolatı	Protein isolate	
+metin:Şeker türevi şurup	Sugar-derived syrup	
+e.bayrak.eu_warning_label	Mandatory warning label in the EU	
+e.bayrak.hyperactivity	Warning on activity and attention in children	AB 1333/2008 Ek V
+e.bayrak.banned_eu	Banned / withdrawn / not listed in the EU	
+e.bayrak.fda_banned	Banned or authorisation revoked in the US	
+e.bayrak.iarc_listed	IARC classification	
+e.bayrak.allergen_sulphite	Sulphite allergen	
+e.bayrak.phenylalanine	Phenylketonuria (PKU) warning	
+e.bayrak.laxative_polyols	Polyol with laxative effect	
+e.bayrak.fodmap	Sensitive gut / FODMAP	
+e.bayrak.pet_risk	Toxic to pets	
+e.bayrak.non_vegan	Of animal origin (not vegan)	
+e.bayrak.vegan_suspect	May be of plant or animal origin	
+e.bayrak.non_vegetarian	Slaughter by-product	
+e.bayrak.insect_derived	Insect-derived	
+e.bayrak.halal_suspect	Halal suitability unclear	
+e.bayrak.allergen_soy_possible	May be a soya allergen	
+e.bayrak.allergen_egg	Egg allergen	
+e.bayrak.gmo_suspect	May be from GM soya	
+e.bayrak.reproductive_toxicity	Classified for reproductive toxicity in the EU	
+e.bayrak.debated	Scientific / public debate	
+e.bayrak.sodium	Contains sodium (blood pressure)	
+e.bayrak.aluminium	Contains aluminium	
+k.bayrak.allergen_fragrance	Fragrance allergen (must be named on the label)	AB 1223/2009 Ek III
+k.bayrak.allergen_hairdye	Hair dye allergen	
+k.bayrak.allergen_preservative	Known preservative allergen	
+k.bayrak.formaldehyde_releaser	Formaldehyde-releasing preservative	
+k.bayrak.cmr2	CMR category 2 in the EU (suspected carcinogen/mutagen/reproductive toxicant)	
+k.bayrak.cmr_ban	Banned because of CMR classification (carcinogenic, mutagenic, toxic for reproduction)	
+k.bayrak.nano	Nano form	
+k.bayrak.pfas	PFAS (fluorinated, persistent in the environment)	
+k.bayrak.non_vegan	Of animal origin	
+k.bayrak.non_veg	From slaughter or insects (not vegetarian)	
+k.bayrak.vegan_unsure	May be of plant, synthetic or animal origin	
+k.bayrak_neden.pfas	From the PFAS group (fluorinated substances that do not break down in the environment). Banned in cosmetics in France from 1 January 2026 (Law 2025-188); in California, USA, all PFAS intentionally added to cosmetics have been banned since 1 January 2025 (AB 2771); a general restriction proposal is being assessed in the EU. Not currently banned in the EU or Türkiye.	
+k.bayrak_neden.non_vegan	An ingredient obtained from animals.	
+k.bayrak_neden.non_veg	An ingredient from slaughter, fish or insects.	
+k.bayrak_neden.vegan_unsure	May be of plant, synthetic or animal origin; the label does not state the source.	
+k.liste.ab_ed_a.ad	EU priority list of potential endocrine disruptors (group A)	
+k.liste.ab_ed_a.cip	EU list of potential endocrine disruptors	
+k.liste.ab_ed_b.ad	EU priority list of potential endocrine disruptors (group B)	
+k.liste.ab_ed_b.cip	EU list of potential endocrine disruptors	
+k.liste.ca.ad	USA – California	
+k.liste.ca.cip	Banned in California	
+k.liste.ca_sinir.ad	USA – California (maximum limit)	
+k.liste.ca_sinir.cip	Restricted in California	
+k.liste.asean.ad	ASEAN	
+k.liste.asean.cip	Banned in ASEAN	
+k.liste.ab_reach.ad	EU REACH restriction	
+k.liste.ab_reach.cip	Restricted in the EU (REACH)	
+k.liste.tr_taslak.ad	Türkiye – draft regulation	
+k.liste.tr_taslak.cip	In the Türkiye draft	
+k.liste.eu_svhc_ed.ad	EU REACH Candidate List (endocrine disrupting properties)	
+k.liste.eu_svhc_ed.cip	On the REACH Candidate List (endocrine)	
+k.liste.ab_taslak.ad	EU – September 2026 draft regulation	
+k.liste.ab_taslak.cip	In the EU draft	
+k.liste.dk.ad	Denmark	
+k.liste.dk.cip	Banned in Denmark in children's products	
+k.liste.fr.ad	France – ANSES list of endocrine disruptors	
+k.liste.fr.cip	On the French endocrine list	
+k.liste.komedo.ad	Pore-clogging (comedogenicity) tests	
+k.liste.komedo.cip	May clog pores	
+k.liste.sin.ad	ChemSec SIN List	
+k.liste.sin.cip	SIN List	
+metin:yapay tırnak sistemlerinde (profesyonel kullanım)	artificial nail systems (professional use)	AB 1223/2009
+metin:saç boyalarında	hair dye products	AB 1223/2009
+metin:ağız ve diş bakım ürünlerinde	oral products and toothpaste	AB 1223/2009
+metin:tırnak ürünlerinde	nail products	AB 1223/2009
+metin:göz/kirpik ürünlerinde	eye and eyelash products	AB 1223/2009
+metin:saç kıvırma/düzleştirme ürünlerinde	hair waving or straightening products	AB 1223/2009
+metin:tüy dökücülerde	depilatories	AB 1223/2009
+metin:saç ürünlerinde	hair products	AB 1223/2009
+t.grup_etiket.cilt_goz	Skin and eyes	
+t.grup_etiket.solunum	Breathing	
+t.grup_etiket.yutma	Swallowing	
+t.grup_etiket.zehir	Toxicity	
+t.grup_etiket.cmr	Cancer, genetic damage, reproduction (CMR)	
+t.grup_etiket.organ	Organ damage	
+t.grup_etiket.cevre	Environment	
+t.grup_etiket.fiziksel	Fire, explosion, pressure	
+t.grup_etiket.karistirma	Mixing	
+t.grup_etiket.alerji	Allergy	
+t.grup_etiket.endokrin	Endocrine disruptor	
+t.grup_etiket.diger	Other	
+t.grup.fosfat	Phosphates	AB 648/2004 Ek VII
+t.grup.fosfonat	Phosphonates	AB 648/2004 Ek VII
+t.grup.anyonik	Anionic surfactants	AB 648/2004 Ek VII
+t.grup.katyonik	Cationic surfactants	AB 648/2004 Ek VII
+t.grup.amfoterik	Amphoteric surfactants	AB 648/2004 Ek VII
+t.grup.noniyonik	Non-ionic surfactants	AB 648/2004 Ek VII
+t.grup.oksijen	Oxygen-based bleaching agents	AB 648/2004 Ek VII
+t.grup.klor	Chlorine-based bleaching agents	AB 648/2004 Ek VII
+t.grup.edta	EDTA and salts thereof	AB 648/2004 Ek VII
+t.grup.nta	NTA (nitrilotriacetic acid) and salts thereof	AB 648/2004 Ek VII
+t.grup.fenol	Phenols and halogenated phenols	AB 648/2004 Ek VII
+t.grup.pdcb	Paradichlorobenzene	AB 648/2004 Ek VII
+t.grup.hidrokarbon	Aromatic, aliphatic and halogenated hydrocarbons	AB 648/2004 Ek VII
+t.grup.sabun	Soap	AB 648/2004 Ek VII
+t.grup.zeolit	Zeolites	AB 648/2004 Ek VII
+t.grup.polikarboksilat	Polycarboxylates	AB 648/2004 Ek VII
+t.grup.enzim	Enzymes	AB 648/2004 Ek VII
+t.grup.dezenfektan	Disinfectants	AB 648/2004 Ek VII
+t.grup.optik	Optical brighteners	AB 648/2004 Ek VII
+t.grup.parfum	Perfumes	AB 648/2004 Ek VII
+t.grup.renklendirici	Colourants	
+t.grup.koruyucu	Preservation agents	AB 648/2004 Ek VII
+t.bant.b5	less than 5 %	AB 648/2004 Ek VII
+t.bant.b5_15	5 % or over but less than 15 %	AB 648/2004 Ek VII
+t.bant.b15_30	15 % or over but less than 30 %	AB 648/2004 Ek VII
+t.bant.b30	30 % and more	AB 648/2004 Ek VII
+t.karistirma.baslik	Do not mix with other products	
+t.kapsul.baslik	Detergent capsule: extra care for children	
+t.uzem	In Türkiye: National Poison Information Centre (UZEM): 114.	
+metin:klor	chlorine	
+metin:asit	acid	
+metin:amonyak	ammonia	
+# Bileşen adları (data/bilesenler.json)
+b.seker.ad	Sugar	
+b.glukoz_surubu.ad	Glucose syrup	
+b.gfs.ad	Glucose-fructose syrup	
+b.invert.ad	Invert sugar	
+b.dekstroz.ad	Dextrose	
+b.fruktoz.ad	Fructose	
+b.maltoz.ad	Maltose	
+b.maltodekstrin.ad	Maltodextrin	
+b.laktoz.ad	Lactose (milk sugar)	
+b.bal.ad	Honey	
+b.pekmez.ad	Grape molasses (pekmez)	
+b.melas.ad	Molasses	
+b.surup_diger.ad	Plant syrup	
+b.meyve_konsantre.ad	Fruit juice concentrate	
+b.malt.ad	Malt extract	
+b.bugday_glukoz.ad	Wheat glucose syrup	
+b.palm.ad	Palm oil	
+b.palm_cekirdek.ad	Palm kernel oil	
+b.bugday.ad	Wheat	
+b.un.ad	Flour	
+b.gluten.ad	Gluten	
+b.arpa.ad	Barley	
+b.cavdar.ad	Rye	
+b.yulaf.ad	Oats	
+b.spelt.ad	Spelt	
+b.kabuklu.ad	Crustacean shellfish	
+b.yumusakca.ad	Molluscs	
+b.deniz_urunu.ad	Seafood	
+b.balik.ad	Fish	
+b.balik_jelatini.ad	Fish gelatine	
+b.yumurta.ad	Egg	
+b.yer_fistigi.ad	Peanut	
+b.fistik.ad	Nut (type not specified)	
+b.badem.ad	Almond	
+b.findik.ad	Hazelnut	
+b.ceviz.ad	Walnut	
+b.kaju.ad	Cashew	
+b.antep.ad	Pistachio	
+b.pikan.ad	Pecan / Brazil nut / macadamia	
+b.makadamya.ad	Macadamia	
+b.soya.ad	Soya	
+b.soya_izolat.ad	Soya protein isolate	
+b.soya_yagi.ad	Soya oil	
+b.sut.ad	Milk	
+b.sut_tozu.ad	Milk powder	
+b.pas.ad	Whey	
+b.pas_protein.ad	Milk / whey protein	
+b.kazein.ad	Casein / caseinate	
+b.krema.ad	Cream	
+b.tereyagi.ad	Butter / milk fat	
+b.yogurt.ad	Yoghurt / ayran / kefir	
+b.peynir.ad	Cheese	
+b.kereviz.ad	Celery	
+b.hardal.ad	Mustard	
+b.susam.ad	Sesame	
+b.lupin.ad	Lupin	
+b.sulfit.ad	Sulphur dioxide and sulphites	
+b.et.ad	Meat	
+b.tavuk.ad	Chicken / turkey	
+b.domuz.ad	Pork	
+b.hayvansal_yag.ad	Animal fat	
+b.kolajen.ad	Collagen	
+b.peynir_mayasi.ad	Rennet	
+b.mikrobiyal_maya.ad	Microbial rennet	
+b.ari_urunu.ad	Bee products	
+b.lanolin.ad	Lanolin	
+b.cig_sut.ad	Raw milk	
+b.kafein.ad	Caffeine / coffee / tea extract	
+b.n_kafeinsiz.ad	Decaffeinated coffee	
+b.kakao.ad	Cocoa / chocolate	
+b.alkol.ad	Alcohol	
+b.n_alkolsuz.ad	Alcohol-free	
+b.uzum.ad	Grapes / raisins	
+b.sogan.ad	Onion / garlic / leek	
+b.aroma.ad	Flavouring	
+b.hidrolize_protein.ad	Hydrolysed protein	
+b.hidrojenize.ad	Hydrogenated / interesterified fat	
+b.upf_sinif_emulgator.ad	Emulsifier	
+b.upf_sinif_kivam.ad	Thickener	
+b.upf_sinif_renk.ad	Colour	
+b.upf_sinif_tatlandirici.ad	Sweetener	
+b.upf_sinif_lezzet.ad	Flavour enhancer	
+b.upf_sinif_parlatici.ad	Glazing agent	
+b.upf_sinif_kopuk.ad	Anti-foaming / raising agent	
+b.n_hindistan.ad	Coconut	
+b.n_muskat.ad	Nutmeg	
+b.n_cam_fistigi.ad	Pine nut	
+b.n_kakao.ad	Cocoa butter	
+b.n_bitkisel_krema.ad	Vegetable cream	
+b.n_pirinc_sutu.ad	Rice drink	
+b.n_balkabagi.ad	Pumpkin	
+b.n_sut_aroma.ad	Dairy flavouring	
+b.n_glutensiz_un.ad	Gluten-free flour / starch	
+b.n_sterol.ad	Plant sterol / stanol	
+b.tuz.ad	Salt	
+b.soya_sosu.ad	Soy sauce	
+b.n_bulyon.ad	Stock	
+b.n_bulyon_et.ad	Meat / chicken stock	
+b.n_hamur_mayasi.ad	Yeast	
+# Günlük kabul edilebilir alım ekleri (e_kodlari.json adi.as)
+metin:alüminyum olarak, tüm diyet	as aluminium, all dietary sources	
+metin:benzoik asit olarak, grup	as benzoic acid, group	
+metin:fosfor olarak, grup	as phosphorus, group	
+metin:glutamik asit olarak, grup	as glutamic acid, group	
+metin:grup	group	
+metin:grup, geçici	group, temporary	
+metin:karameller için grup	group for caramels	
+metin:nitrat iyonu olarak	as nitrate ion	
+metin:nitrit iyonu olarak	as nitrite ion	
+metin:siklamik asit olarak	as cyclamic acid	
+metin:sorbik asit olarak, grup	as sorbic acid, group	
+metin:sorbitan olarak, grup	as sorbitan, group	
+metin:steviol eşdeğeri olarak	as steviol equivalents	
+# K3 dayanakları (kozmetik.json watch basis)
+metin:(EU) 2024/1328 (REACH Ek XVII giriş 70)	(EU) 2024/1328 (REACH Annex XVII entry 70)	
+metin:AB Komisyonu taslak tüzüğü D117774 (Konsey'e 21.09.2026'da iletildi)	European Commission draft regulation D117774 (sent to the Council on 21.09.2026)	
+metin:AB Komisyonu öncelik listesi	European Commission priority list	
+metin:ASEAN Kozmetik Direktifi Ek II (giriş 1724)	ASEAN Cosmetic Directive Annex II (entry 1724)	
+metin:ASEAN Kozmetik Direktifi Ek II (giriş 1725)	ASEAN Cosmetic Directive Annex II (entry 1725)	
+metin:ASEAN Kozmetik Direktifi Ek II (giriş 1726)	ASEAN Cosmetic Directive Annex II (entry 1726)	
+metin:ASEAN Kozmetik Direktifi Ek II (giriş 1727)	ASEAN Cosmetic Directive Annex II (entry 1727)	
+metin:ASEAN Kozmetik Direktifi Ek II (giriş 1728)	ASEAN Cosmetic Directive Annex II (entry 1728)	
+metin:Danimarka ulusal yasağı (2010 sonunda duyuruldu)	Danish national ban (announced at the end of 2010)	
+metin:Fransa ANSES endokrin bozucu listesi (AGEC md. 13)	French ANSES endocrine disruptor list (AGEC art. 13)	
+metin:Fulton 1989, J Soc Cosmet Chem 40:321–333 (tavşan kulağı)	Fulton 1989, J Soc Cosmet Chem 40:321–333 (rabbit ear)	
+metin:Kaliforniya AB 2762 (HSC §108980(a))	California AB 2762 (HSC §108980(a))	
+metin:Kaliforniya AB 496 (HSC §108980(b))	California AB 496 (HSC §108980(b))	
+metin:Kaliforniya AB 60 (HSC §108980(c))	California AB 60 (HSC §108980(c))	
+metin:Kozmetik Ürünler Yönetmeliği değişiklik taslağı (Ticaret Bakanlığı, Eylül 2026)	Türkiye: draft amendment to the Cosmetic Products Regulation (Ministry of Trade, September 2026)	
+metin:REACH aday listesi (SVHC)	REACH Candidate List (SVHC)	
+metin:REACH aday listesi (SVHC), AB 2017/1210	REACH Candidate List (SVHC), EU 2017/1210	

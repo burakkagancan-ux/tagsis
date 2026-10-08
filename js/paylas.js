@@ -35,7 +35,7 @@ function payNedenE(ids,idx){
     if(/yan ürün/i.test(rs))return g?t("pay.neden.yan_urun_grup",{g:g[1]}):t("pay.neden.yan_urun");
     return g?t("pay.neden.iarc_grup",{g:g[1]}):t("pay.neden.iarc");
   }
-  return its.length?its[0].category||"":"";
+  return its.length?veriS(its[0].category||"",null):"";
 }
 /* Gıda: karşılaştırmadaki ürün özeti (cmpProduct) kullanılır; rank 3 uyarı, 2 dikkat, 1 doğrulanmadı, 0 özel uyarı yok */
 function payFromFood(text,idx){
@@ -55,7 +55,7 @@ function payFromFood(text,idx){
 var PAY_NEDEN_K=["cmr2","formaldehyde_releaser","pfas","allergen_preservative","allergen_hairdye","allergen_fragrance"];   // sırayla; metin pay.nedenk.<bayrak>
 function payNedenK(r,K){
   if(r.level==="red")return t("koz.seviye.red");
-  var W=(K&&K.watchLists)||{},k3=(r.k3||[]).map(function(w){return W[w.list]}).filter(Boolean);
+  var W=(K&&K.watchLists)||{},k3=(r.k3||[]).filter(function(w){return W[w.list]}).map(function(w){var L=W[w.list];return {level:L.level,chip:veriS(L.chip,"k.liste."+w.list+".cip")}});
   var o=k3.filter(function(L){return L.level==="orange"})[0];if(r.level==="orange"&&o)return o.chip;
   var fl=[];(r.reg||[]).forEach(function(e){fl=fl.concat(e.flags||[])});fl=fl.concat(r.iflags||[]);
   for(var k=0;k<PAY_NEDEN_K.length;k++)if(fl.indexOf(PAY_NEDEN_K[k])>-1)return t("pay.nedenk."+PAY_NEDEN_K[k]);
@@ -74,7 +74,7 @@ function payFromK(res,S,K){
 /* Temizlik: tehlike ifadeleri ve madde notları; ciddi tehlike (red) uyarı, yellow dikkat */
 function payFromT(A,S){
   var items=[],L=function(l){return l==="red"?2:l==="yellow"?1:0},f=[];
-  A.hazards.forEach(function(x){var l=L(x.h.level);items.push({name:x.code+" "+x.h.tr.replace(/^içerir\. /,"").replace(/\.$/,""),lvl:l})});   // ifadenin kendisi açıklayıcı; iki satıra tam yazılır
+  A.hazards.forEach(function(x){var l=L(x.h.level);items.push({name:x.code+" "+hzKisa(x.h),lvl:l})});   // ifadenin kendisi açıklayıcı; iki satıra tam yazılır
   A.subs.forEach(function(x){var l=L(x.s.level);items.push({name:x.s.inci.length>1?t("tem.enzim_l",{l:x.s.inci.join(", ").toLowerCase()}):x.s.inci[0],lvl:l,why:l&&x.s.mix?t("pay.neden.gaz"):""})});
   A.inci.forEach(function(x){items.push({name:x.name,lvl:0})});
   if(A.signal)f.push(t("pay.olgu.kelime",{l:t(A.signal==="tehlike"?"kars.satir.tehlike_buyuk":"kars.satir.dikkat_buyuk")}));
@@ -178,6 +178,10 @@ function payDraw(x,M,L,cfg,logo){
     if(oz){payFont(x,600,36);y+=60;txt(oz,P,y,R.ink)}
     return y+44;
   }
+  // Kutu etiketi: sığmazsa yazı küçülür, en küçük boyutta da sığmazsa iki satıra bölünür (dile göre uzunluk değişir: "özel uyarı yok" / "no specific warning").
+  // Satırlar Y'den yukarı doğru yerleşir (son satır Y'de); iki satıra bölünürse son satır kaydir kadar aşağı iner
+  function etiket(s,px,maxW,X,Y,col,kaydir){payFont(x,600,px);while(px>22&&meas(s)>maxW){px-=2;payFont(x,600,px)}
+    var ls=meas(s)>maxW?payWrap(s,maxW,2,meas):[s];if(ls.length>1)Y+=kaydir||0;ls.forEach(function(l,i){txt(l,X,Y-(ls.length-1-i)*px*1.1,col)})}
   // Sayı kutuları: renkli zemin + şekil; sıfır olan kutu soluk
   function counts(y){
     var gap=20,bw=(CW-2*gap)/3,tek=L.kutuTek,bh=tek?L.sayi+44:L.sayi+116;   // kutuTek: simge + etiket + sayı tek satırda (kısa kart)
@@ -186,11 +190,11 @@ function payDraw(x,M,L,cfg,logo){
       box(bx,y,bw,bh,28,on?b[3]:R.card);
       if(draw&&!on){x.strokeStyle=R.line;x.lineWidth=2;payRR(x,bx+1,y+1,bw-2,bh-2,27);x.stroke()}
       if(tek){
-        icon(b[0],bx+44,y+42,36);payFont(x,600,28);txt(b[2],bx+24,y+bh-24,on?R.ink:R.mute);
+        icon(b[0],bx+44,y+42,36);etiket(b[2],28,bw-48,bx+24,y+bh-24,on?R.ink:R.mute);
         payFont(x,700,L.sayi,true);txt(String(b[1]),bx+bw-24,y+L.sayi*0.78+14,on?b[4]:R.mute,"right");
       }else{
         icon(b[0],bx+50,y+52,40);
-        payFont(x,600,30);txt(b[2],bx+82,y+63,on?R.ink:R.mute);
+        etiket(b[2],30,bw-82-20,bx+82,y+63,on?R.ink:R.mute,26);
         payFont(x,700,L.sayi,true);txt(String(b[1]),bx+30,y+bh-30,on?b[4]:R.mute);
       }
     });

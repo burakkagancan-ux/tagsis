@@ -181,14 +181,14 @@ function openItem(it,P,ret){
   if(P.mode==="tem"){
     var tb=el("div");
     if(it.kind==="hz")tb.appendChild(hzCard(it.x));
-    else if(it.kind==="sub"){tb.appendChild(el("div","ln",it.x.s.text));tb.appendChild(srcLinks(it.x.s.sources))}
-    else{var fs=it.x.funcs||[];tb.appendChild(el("div","ln",fs.length?t("kars.islevi",{l:fs.join(", ")}):t("kars.not_yok_madde")))}
+    else if(it.kind==="sub"){tb.appendChild(vEl("div","ln",it.x.s.text,"t.madde."+it.x.s.id+".metin"));tb.appendChild(srcLinks(it.x.s.sources))}
+    else{var fs=it.x.funcs||[];tb.appendChild(el("div","ln",fs.length?t("kars.islevi",{l:fs.map(kIslevAd).join(", ")}):t("kars.not_yok_madde")))}
     openSheet(it.name,it.kind==="hz"?t("tem.ozet.ifade"):t("kars.madde"),tb,ret);return;
   }
   var r=P.res.filter(function(x){return !x.neg&&!x.may&&x.ids.slice().sort().join("+")===it.key})[0];
   if(r&&!r.isB){additiveCard(r)._open(ret);return}
   var body=el("div");
-  it.ids.forEach(function(id){var x=IDX.byId[id];if(x&&x.note)body.appendChild(el("div","ln",x.note))});
+  it.ids.forEach(function(id){var x=IDX.byId[id];if(x&&x.note)body.appendChild(vEl("div","ln",x.note,"b."+x.id+".not"))});
   if(!body.childNodes.length)body.appendChild(el("div","ln",t("kars.not_yok_bilesen")));
   openSheet(it.name,t("koz.ozet.bilesen"),body,ret);
 }

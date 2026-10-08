@@ -116,3 +116,38 @@ Ansiklopedi yalnızca E kodlarını kapsıyor (333 sayfa). Temizlik ve kozmetikt
 ## Kozmetik: PFAS işareti AB kaydının tüm INCI adlarına geçiyor (08.10.2026)
 - gen_kozmetik.py kayıt düzeyinde `pfas` bayrağını, kaydın INCI listesindeki herhangi bir ad PFAS_RE'ye uyarsa kaydın tüm adlarına veriyor. Bu yüzden florsuz DIBEHENYL METHYLAMINE ve AMP-ACRYLATES/DIACETONEACRYLAMIDE COPOLYMER sonuç ekranında ve paylaşım kartında "PFAS" görünüyor. Bayrak ad düzeyinde (yalnızca PFAS_RE'ye uyan ada) verilmeli; hangi kayıtların etkilendiği sayılmadı.
 
+
+## Çok dil: eksikler (08.10.2026)
+Altyapı ve İngilizce arayüz tamam (CLAUDE.md "Çok dil"). Bilerek bırakılanlar:
+
+### Çevrilmemiş veri metinleri (İngilizcede Türkçe + "not yet translated" işaretiyle görünür)
+Sayılar data/ ve i18n/veri/en.json'dan 08.10.2026'da sayıldı. Ansiklopedi hariç toplam 1.164 metin.
+
+| Metin | Sayı |
+|---|---|
+| E kodu gerekçesi (elle yazılmış; 206 ortak şablon arayüz anahtarıyla çevrili) | 127 |
+| E kodu üretim yolu notu (uretim.n) | 333 |
+| E kodu kısa açıklaması (e_aciklama) | 333 |
+| E kodu Türkiye notu (tgk_note; ülke katmanı) | 13 |
+| ADI notu | 19 |
+| Bileşen notu | 38 |
+| Birlikte dikkat kuralları (başlık, metin, grup adı) | 70 |
+| Kozmetik notu ve değişiklik notu (note_tr) | 70 |
+| K3 liste açıklaması ve madde notu | 13 + 76 |
+| Kozmetik Türkiye durumu (tr_text; ülke katmanı) | 3 |
+| Temizlik ifade notu, içerik grubu açıklaması, madde notu, karıştırma/kapsül metni | 37 + 22 + 8 + 2 |
+| Ansiklopedi (data/ansiklopedi_en.json yok) | 4.038 |
+
+Çevrilenler (i18n/veri/en.json, 364): alerjen adları (AB 1169/2011 Ek II), katkı işlev sınıfları (AB 1333/2008 Ek I), CosIng işlev adları (85, resmi), deterjan içerik grupları ve yüzde bantları (AB 648/2004 Ek VII), 99 bileşen adı, gıda ve kozmetik bayrak etiketleri, K3 liste adları ve çipleri, ADI ekleri, K3 dayanakları. Resmi metinden doğrudan: CLP H/EUH/P ifadeleri (veride `en`), E kodu adları (`name_en`; kaynağı FAIA envanteri, AB 1333/2008 Ek II metniyle tek tek karşılaştırılmadı), INCI adları. Kozmetik AB gerekçelerinin 2.009'u da kalıptan (koz.gerekce.*) İngilizce.
+
+### Çevrilmeyen sayfalar
+- ansiklopedi.html'in arayüz metinleri (js/arayuz_ansiklopedi.js) ve index.html (Liste: Tarım ve Orman Bakanlığı listesi; ülke katmanı) Türkçe. Alt menü yalnızca ocr.html'de çevrili.
+- Ülke ayarı yok: Türkiye'ye özgü metinler (`ulke.tr.*`, UZEM, TGK adı, SEA atfı) her dilde "In Türkiye" diye görünür.
+
+### İngilizce etiket tanıma ölçümü (test/olcum_ingilizce.js, 10 gerçekçi İngiltere/AB gıda etiketi)
+- İçerik listesi parçalarının %42'si tanındı (30/72); beklenen alerjenlerin %56'sı (5/9).
+- İyi: E numaraları ve katkıların İngilizce adları (citric acid, soya lecithin, aspartame, potassium sorbate, sodium nitrite, monosodium glutamate, carmine…).
+- Tanınmayan temel bileşenler (eş anlamlı yok): sugar, salt, water, wheat flour, wholemeal wheat flour, glucose syrup, glucose-fructose syrup, dextrose, yeast, flavouring(s), vegetable oil, sunflower/coconut/rapeseed oil, buttermilk, celery, spice, tomatoes, potatoes, vinegar, fruit juice concentrates, vitamins.
+- Kaçan alerjenler: "Wheat Flour" (gluten, 2 etikette), "contain Celery" (kereviz), "Buttermilk (Milk)" (süt).
+- **Yanlış eşleşme (öncelikli):** "Sodium Citrate" (E331) benzer yazımla E250 sodyum nitrite eşleşiyor ve kırmızı uyarı çıkıyor. İngilizce eş anlamlılar eklenirken ilk düzeltilecek.
+- Eş anlamlı ekleme ayrı iş (kaynak/bilesenler.json, kaynak/e_kodlari_maddeler.json aliases).

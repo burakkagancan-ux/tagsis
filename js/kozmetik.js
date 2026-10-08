@@ -147,9 +147,31 @@ function kResult(raw,h,may,pos,K,opts){
 function kNot(n){
   if(n==="rinse")return t("koz.not.durulanan");
   if(n.indexOf("k:")===0)return t("koz.not.cocuk",{n:n.slice(2)});
-  if(n.indexOf("o:")===0)return t("koz.not.yalnizca",{l:n.slice(2)});
+  if(n.indexOf("o:")===0)return t("koz.not.yalnizca",{l:veriS(n.slice(2),null)});
   return n;
 }
+/* AB kaydının kalıp gerekçesi (gen_kozmetik.py level_reason ile aynı kurgu, metinler koz.gerekce.* anahtarlarında).
+   tt: biçimleyici (varsayılan t; Türkçe karşılaştırma için tDil). Veri dosyasındaki gerekçe bu kalıptan farklıysa (elle yazılmış) kGerekceMetin veriyi gösterir. */
+function kGerekce(e,tt){
+  tt=tt||t;var a=e.annex,f=e.flags||[],has=function(x){return f.indexOf(x)>-1},reg=e.regulation||"";
+  if(a==="II"){var r=tt("koz.gerekce.ek2",{ref:e.ref,reg:reg?", "+reg:""});if(has("cmr_ban"))r+=" "+tt("koz.gerekce.ek2_cmr");return r+" "+tt("koz.gerekce.ek2_okuma")}
+  var p=[];
+  if(a==="III"){if(has("allergen_fragrance")&&!e.max)p.push(tt("koz.gerekce.koku"));else{p.push(tt("koz.gerekce.ek3"));if(has("allergen_fragrance"))p.push(tt("koz.gerekce.ek3_koku"))}}
+  else if(a==="IV")p.push(tt("koz.gerekce.ek4"));else if(a==="V")p.push(tt("koz.gerekce.ek5"));else if(a==="VI")p.push(tt("koz.gerekce.ek6"));
+  if(has("cmr2"))p.push(tt("koz.gerekce.cmr2"));
+  if(has("formaldehyde_releaser"))p.push(tt("koz.gerekce.formaldehit"));
+  if(has("allergen_preservative"))p.push(tt("koz.gerekce.koruyucu_alerjen"));
+  if(has("allergen_hairdye"))p.push(tt("koz.gerekce.sac_boyasi"));
+  if((a==="III"||a==="V"||a==="VI")&&e.max)p.push(tt("koz.gerekce.yuzde"));
+  return p.join(" ");
+}
+/* Ekrandaki gerekçe: veri kalıptan üretilmişse seçili dilde kalıp, değilse veri metni (çevirisi yoksa işaretli) */
+function kGerekceMetin(e){
+  if(e.reason&&kGerekce(e,function(k,v){return tDil(DIL_KAYNAK,k,v)})===e.reason)return {s:kGerekce(e),cevrilmedi:false};
+  return veriMetin(e.reason,"k."+e.id+".reason");
+}
+/* CosIng işlev adı (veride Türkçe; resmi İngilizcesi i18n/veri/en.json "k.islev:<Türkçe>", gen_ceviri_veri.py) */
+function kIslevAd(f){return veriS(f,"k.islev:"+f)}
 /* opts: {ptype:"rinse"|"leave"|"makeup"|"baby"|""}. Dönüş dizisinin .extra alanı: liste dışında kalan metin. */
 function analyzeK(text,K,opts){
   opts=opts||{};
