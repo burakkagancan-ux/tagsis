@@ -174,11 +174,21 @@ function showSearch(){
 
 /* ---------- Açılış ---------- */
 function aGet(p){return fetch(p).then(function(r){if(!r.ok)throw new Error(p);return r.json()})}
-/* Metinler dile göre: seçili dil → İngilizce → Türkçe (anahtar bazında; ansiklopedi_<dil>.json yoksa Türkçe). Dil js/dil.js'ten (DIL_HAZIR). */
-function ansMetin(){
-  var kodlar=[DIL_KAYNAK,DIL_YEDEK,DIL.kod].filter(function(x,i,a){return a.indexOf(x)===i});
-  return Promise.all(kodlar.map(function(k){return k===DIL_KAYNAK?aGet("data/ansiklopedi_tr.json"):aGet("data/ansiklopedi_"+k+".json").catch(function(){return {t:{}}})})).then(function(v){
-    var m={};v.forEach(function(x){var tt=(x&&x.t)||{};for(var k in tt)m[k]=tt[k]});return m;
+/* Metinler dile göre: seçili dil → İngilizce → Türkçe (anahtar bazında; dosya yoksa Türkçe). Dil js/dil.js'ten (DIL_HAZIR).
+   Açılışta dizin metni (data/ansiklopedi_<dil>.json), madde açılınca o sayfanın metni (data/ansiklopedi/<dil>/<kimlik>.json). */
+function ansKodlar(){return [DIL_KAYNAK,DIL_YEDEK,DIL.kod].filter(function(x,i,a){return a.indexOf(x)===i})}
+function ansMetinGetir(yol){
+  var u=ansKodlar().map(function(k){return yol(k)});
+  return Promise.all(u.map(function(p,i){var g=aGet(p);return i?g.catch(function(){return {t:{}}}):g})).then(function(v){
+    dilOnbellege(u);var m={};v.forEach(function(x){var tt=(x&&x.t)||{};for(var k in tt)m[k]=tt[k]});return m;
+  });
+}
+function ansMetin(){return ansMetinGetir(function(k){return "data/ansiklopedi_"+k+".json"})}
+/* Madde sayfası: tam kayıt ve metinleri (dizindeki kayıt yalnızca arama ve liste alanlarını taşır) */
+function ansSayfa(r){
+  var p="data/ansiklopedi/"+r.id+".json";
+  return Promise.all([aGet(p),ansMetinGetir(function(k){return "data/ansiklopedi/"+k+"/"+r.id+".json"})]).then(function(v){
+    dilOnbellege([p]);for(var k in v[1])AT[k]=v[1][k];return v[0];
   });
 }
 Promise.all([aGet("data/ansiklopedi.json"),DIL_HAZIR.then(ansMetin)]).then(function(v){
@@ -186,7 +196,15 @@ Promise.all([aGet("data/ansiklopedi.json"),DIL_HAZIR.then(ansMetin)]).then(funct
   var sp=new URLSearchParams(location.search),m=sp.get("m"),id=sp.get("id"),r=null;
   if(m)r=AD.records.filter(function(x){return x.slug===m})[0]||null;
   if(!r&&id){var f=ansFold(id);r=AD.records.filter(function(x){return ansFold(x.id)===f})[0]||null}
-  if(r){try{if(sp.get("m")!==r.slug)history.replaceState(null,"","ansiklopedi.html?m="+r.slug)}catch(e){}showRecord(r)}
-  else{showSearch();if(m||id)a$("ana").insertBefore(h("p","mut","Aradığınız madde bulunamadı."),a$("ana").firstChild)}
+  if(r){
+    try{if(sp.get("m")!==r.slug)history.replaceState(null,"","ansiklopedi.html?m="+r.slug)}catch(e){}
+    return ansSayfa(r).then(showRecord,function(){
+      document.title=r.id+" "+at(r.names.primary)+" · Ansiklopedi";var box=a$("ana");box.textContent="";
+      box.appendChild(h("h2","name",r.id+" "+at(r.names.primary)));
+      box.appendChild(h("p","mut","Bu maddenin sayfası henüz bu cihaza inmedi. İnternete bağlanınca açılır; açtığınız sayfalar sonra internetsiz de görünür."));
+      footer(box,r);
+    });
+  }
+  showSearch();if(m||id)a$("ana").insertBefore(h("p","mut","Aradığınız madde bulunamadı."),a$("ana").firstChild);
 }).catch(function(){a$("ana").textContent="Ansiklopedi verisi yüklenemedi. İnternet bağlantınızı kontrol edip sayfayı yenileyin."});
 try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}
