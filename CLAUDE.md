@@ -8,6 +8,11 @@ Son güncelleme: 08.10.2026.
 - Neyin test edildiği / edilemediği her seferinde açıkça söylenir. Telefon testlerini kullanıcı yapar.
 - Değişiklikler `claude/...` dalında yapılır, PR açılır; kullanıcı GitHub'da "Merge pull request" der.
 
+## Vizyon ve ilkeler (kullanıcı kararı, 08.10.2026)
+- Amaç: para kazanan, küresel bir uygulama (hedef onlarca dil, olası 60). Türkiye ilk pazar, son değil.
+- Değişmez ilke: her bilgi kaynağa dayalı, tarafsız ve bilimsel. Gelir bu ilkeyi bozamaz: markadan para, reklam, ücretli sıralama yok; güvenlik uyarıları hiçbir zaman ücretli katmana konmaz.
+- Teknik sonucu: yeni kod ve veri baştan çok dilli ve çok ülkeli düşünülür (metinler çeviri anahtarıyla, maddeler evrensel kimlikle: E kodu, INCI, CAS, H/EUH kodu; mevzuat ülke katmanı olarak). Yeni Türkçe sabit metin eklemeden önce çeviri anahtarı düşünülür.
+
 ## Ürün
 - Son tüketiciye Tarım ve Orman Bakanlığı taklit/tağşiş listesini gösteren PWA (index.html) ve etiketteki içerik listesini fotoğraftan okuyup analiz eden "Etiket oku" sayfası (ocr.html).
 - Site: https://burakkagancan-ux.github.io/tagsis/ (GitHub Pages, main dalı).
