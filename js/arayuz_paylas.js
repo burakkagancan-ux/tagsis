@@ -4,7 +4,7 @@ var PAY_SRC=null,PAY_LOGO=null;
 /* Sonuç ekranı çizildikten sonra çağrılır: üste bar ekler. src: {mode, text} (gıda) | {mode, res, S} (kozmetik) | {mode, A, S} (temizlik) */
 function payBar(box,src){
   PAY_SRC=src;
-  var bar=el("div","resbar");bar.appendChild(el("span","rt","Sonuç"));
+  var bar=el("div","resbar");   // başlık sayfadaki "Sonuç" (h2); bar yalnızca düğmeleri taşır
   var acts=el("span","racts");bar.appendChild(acts);
   if(typeof kayitBtn==="function")acts.appendChild(kayitBtn(src.mode));   // Kaydet (js/arayuz_kayit.js)
   if(!PAYLAS_AYAR.acik){box.insertBefore(bar,box.firstChild);return}
