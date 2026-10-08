@@ -9,6 +9,10 @@
 # Kaynaklar: AB 231/2012 (EUR-Lex E172'ye kadar; sonrası legislation.gov.uk madde sayfaları), 2008/84/AT, 2008/60/AT, 2004/45/AT, AB 2018/238;
 # FAO/WHO JECFA spesifikasyonları; ABD 21 CFR 184 (ecfr.gov); USDA AMS teknik raporları; OIV kodeksi (05.10.2026).
 # Yalnızca kimyasal adı veren tanımlar (azo boyalar, gallatlar) sentetik sınıfı için yeterli sayıldı; benzetmeyle (aynı gruptaki başka kod) doğrulama yapılmadı.
+# 2. tur (08.10.2026): dogrulandi=0 olan 167 koddan 66'sı doğrulandı. Kaynaklar: AB 231/2012 madde sayfaları (legislation.gov.uk), JECFA şartnameleri (FAO),
+# 21 CFR 172/182/184 (ecfr.gov), USDA AMS teknik raporları, EFSA görüş özetleri (doi.org). Kurallar: yöntem kaynakta açıkça yazmıyorsa 0 kalır (yalnızca kimyasal ad yetmez);
+# benzetme yok; kaynakta farklı sınıflara giden birden çok yol varsa 'belirsiz'; kısmen doğrulanan satır bölündü; yem tüzüğü kaynak sayılmaz.
+# Kaynak alt türlerden birini kapsıyorsa (E304 palmitat, E452(i), E570 stearik asit) ve sınıf aynıysa kabul edildi; sınıf farklı olabilecekse (E336) 0 kaldı.
 kodlar	sinif	not	kaynak	dogrulandi
 E100	dogal	Zerdeçal kökünden çözücüyle ekstraksiyonla elde edilir.	https://eur-lex.europa.eu/eli/reg/2012/231/oj	1
 E101	belirsiz	Riboflavin fermentasyonla ya da kimyasal sentezle üretilebilir; fosfatlı biçimi kimyasal işlemle elde edilir.	https://inchem.org/documents/jecfa/jecmono/v042je05.htm	1
