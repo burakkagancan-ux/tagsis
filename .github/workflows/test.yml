@@ -46,6 +46,8 @@ jobs:
         run: node test/ansiklopedi.js
       - name: Paylaşım kartı
         run: node test/paylas.js
+      - name: Kaydedilen ürünler
+        run: node test/kayit.js
       - name: Çevrimdışı önbellek listesi
         run: node test/onbellek.js
       - name: Bakanlık verisi doğrulaması

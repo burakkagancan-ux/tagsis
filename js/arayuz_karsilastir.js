@@ -5,8 +5,10 @@ var HCUR=null,HSCAN=true,HOCR=false,CMP_IDS=null;   // HCUR: ekrandaki taramanı
 var HMOD=null;
 function histLoad(){try{var a=JSON.parse(localStorage.getItem("taramalar")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}}
 function histStore(a){try{localStorage.setItem("taramalar",JSON.stringify(a))}catch(e){}}
-function histGet(id){return histLoad().filter(function(x){return x.id===id})[0]||null}
-function histRename(id,name){var a=histLoad();a.forEach(function(x){if(x.id===id)x.name=name});histStore(a)}
+/* Kayıtlı ürünler de karşılaştırılabilir: kimlik geçmişte yoksa kayıtlarda aranır (js/arayuz_kayit.js) */
+function histGet(id){return histLoad().filter(function(x){return x.id===id})[0]||(typeof kayitGet==="function"?kayitGet(id):null)}
+function histRename(id,name){var a=histLoad();a.forEach(function(x){if(x.id===id)x.name=name});histStore(a);
+  if(typeof kayitLoad==="function"){var k=kayitLoad();if(k.some(function(x){return x.id===id})){k.forEach(function(x){if(x.id===id)x.name=name});kayitStore(k)}}}
 /* Analizden sonra çağrılır (mode: gida/koz/tem; karşılaştırma ekrandaki türün kayıtlarını kullanır, paylaşım kartı adı ve sırayı buradan alır). Fotoğraf/örnek yeni kayıt açar; elle düzeltme aynı kaydı günceller. */
 function histSave(text,mode){
   if(!KARS_AYAR.acik)return;
@@ -39,6 +41,10 @@ function karsProduct(e){
 function karsOpen(pre,ret){
   if(!KARS_AYAR.acik)return;
   var mode=MODE||"gida",list=histLoad().filter(function(x){return (x.mode||"gida")===mode});
+  if(typeof kayitLoad==="function")kayitLoad().forEach(function(k){   // kayıtlı ürünler de listede; aynı metinli tarama yerine kayıtlı ad görünür
+    if(k.mode!==mode)return;var h=list.filter(function(x){return x.text===k.text})[0];
+    if(h){list[list.indexOf(h)]=k;if(pre===h.id)pre=k.id}else list.push(k);
+  });
   if(list.length<2){ST.textContent="Karşılaştırmak için en az iki "+KARS_TUR[mode]+" ürünü taratmalısınız.";return}
   if(!karsReady(mode)){ST.textContent=KARS_TUR[mode].charAt(0).toUpperCase()+KARS_TUR[mode].slice(1)+" listeleri yükleniyor, biraz sonra yeniden deneyin.";return}
   var sel=pre&&list.some(function(x){return x.id===pre})?[pre]:[],body=el("div","kpick"),btns={};
@@ -50,7 +56,7 @@ function karsOpen(pre,ret){
   body.appendChild(el("h3",null,"Son taramalar"));
   list.forEach(function(x){
     var b=el("button","kitem");b.type="button";btns[x.id]=b;
-    b.appendChild(el("span","kin",x.name));b.appendChild(el("span","kis",x.text.replace(/\s+/g," ").slice(0,70)));
+    b.appendChild(el("span","kin",x.name));if(/^k/.test(x.id))b.appendChild(el("span","chip","Kayıtlı"));b.appendChild(el("span","kis",x.text.replace(/\s+/g," ").slice(0,70)));
     b.onclick=function(){var i=sel.indexOf(x.id);if(i>=0)sel.splice(i,1);else{sel.push(x.id);if(sel.length>2)sel.shift()}upd()};
     body.appendChild(b);
   });
@@ -60,7 +66,7 @@ function karsOpen(pre,ret){
   var cl=el("button","alt kclr","Geçmişi temizle");cl.type="button";
   cl.onclick=function(){histStore([]);HCUR=null;closeSheet();ST.textContent="Tarama geçmişi silindi."};
   body.appendChild(cl);
-  body.appendChild(el("div","how","Son "+KARS_AYAR.gecmisBoyut+" tarama yalnızca bu cihazda saklanır."));
+  body.appendChild(el("div","how","Son "+KARS_AYAR.gecmisBoyut+" tarama ve kaydettiğiniz ürünler yalnızca bu cihazda saklanır. “Geçmişi temizle” kayıtlı ürünleri silmez."));
   upd();
   openSheet("Karşılaştır","İki ürün seçin.",body,ret);
 }

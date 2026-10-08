@@ -4,13 +4,15 @@ var PAY_SRC=null,PAY_LOGO=null;
 /* Sonuç ekranı çizildikten sonra çağrılır: üste bar ekler. src: {mode, text} (gıda) | {mode, res, S} (kozmetik) | {mode, A, S} (temizlik) */
 function payBar(box,src){
   PAY_SRC=src;
-  if(!PAYLAS_AYAR.acik)return;
   var bar=el("div","resbar");bar.appendChild(el("span","rt","Sonuç"));
+  var acts=el("span","racts");bar.appendChild(acts);
+  if(typeof kayitBtn==="function")acts.appendChild(kayitBtn(src.mode));   // Kaydet (js/arayuz_kayit.js)
+  if(!PAYLAS_AYAR.acik){box.insertBefore(bar,box.firstChild);return}
   var b=el("button","alt pay");b.type="button";b.setAttribute("aria-label","Sonucu görsel olarak paylaş");
   b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/></svg>';
   b.appendChild(document.createTextNode("Paylaş"));
   b.onclick=function(){payOpen(b)};
-  bar.appendChild(b);box.insertBefore(bar,box.firstChild);
+  acts.appendChild(b);box.insertBefore(bar,box.firstChild);
 }
 /* Sonucun üstüne kart eklemek için (öneri kartları bar'ın altına girer) */
 function sonucUst(c){var box=$("sonuc"),bar=box.querySelector(".resbar");box.insertBefore(c,bar?bar.nextSibling:box.firstChild)}
@@ -28,7 +30,7 @@ function paySource(){
   else{o=payFromT(s.A,s.S);o.personal=payPersonal(tProfileCards(s.S,s.A))}
   return o;
 }
-function payName(){var t=$("metin").value.trim(),e=histLoad().filter(function(x){return x.id===HCUR&&(x.text||"").trim()===t})[0];return payAd(e||null,Date.now())}
+function payName(){var t=$("metin").value.trim(),k=typeof kayitFind==="function"?kayitFind(kayitLoad(),MODE,t):null;if(k)return k.name;var e=histLoad().filter(function(x){return x.id===HCUR&&(x.text||"").trim()===t})[0];return payAd(e||null,Date.now())}   // kayıtlı ürünün adı önce
 function payFonts(){
   if(!document.fonts||!document.fonts.load)return Promise.resolve();
   return Promise.all(['700 76px "Bricolage Grotesque"','400 32px "Figtree"','600 32px "Figtree"'].map(function(f){return document.fonts.load(f,"ğüşıöçĞÜŞİÖÇ").catch(function(){})}));
