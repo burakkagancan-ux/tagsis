@@ -1,7 +1,7 @@
 # Yol haritası: küresel Tağşiş
 
 Bu dosya projenin ana iş planıdır. Her oturumun başında okunur. Bir iş başlayınca, bitince ya da plan değişince aynı PR içinde güncellenir (durum, tarih, PR numarası).
-İlk yazım: 08.10.2026 (rakip analizi ve kullanıcı kararıyla). Son güncelleme: 08.10.2026.
+İlk yazım: 08.10.2026 (rakip analizi ve kullanıcı kararıyla). Son güncelleme: 08.10.2026 (B-01, B-02 bitti).
 
 Durum işaretleri: ⬜ başlamadı · 🔄 sürüyor · ✅ bitti · ⏸ bekletiliyor · 👤 kullanıcının işi
 
@@ -29,7 +29,7 @@ Her PR açıklamasında bu beş soru yanıtlanır:
 ## 1. Bugünkü durum (08.10.2026)
 
 - **Ürün:** Tarayıcıdan çalışan uygulama (PWA). Bakanlık taklit/tağşiş listesi; fotoğraftan etiket okuma (gıda, kozmetik, temizlik); 333 sayfalık kaynaklı E kodu ansiklopedisi; karşılaştırma; kaydedilen ürünler; paylaşım kartı (hikâye ve gönderi boyutu).
-- **Diller:** Yalnızca Türkçe. Çok dil altyapısı başladı (G-01).
+- **Diller:** Türkçe ve İngilizce arayüz (#95, #96). Veri metinlerinden 1.164'ü ve ansiklopedinin 4.038 metni henüz İngilizce değil; İngilizcede "not yet translated" işaretiyle Türkçe görünüyor. Liste sayfası (index.html) ve ansiklopedi arayüzü yalnızca Türkçe.
 - **Mevzuat:** AB, Türkiye (TGK 2013 listesi, kozmetik ekleri), ABD (FDA renkleri), Kaliforniya, ASEAN, AB endokrin listeleri, REACH.
 - **Dağıtım:** GitHub Pages. Mağazada yok.
 - **Gelir:** Yok, model seçilmedi.
@@ -63,7 +63,7 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 | A-01 | Telefon testleri ve sonuçlara göre ayar | 👤 + Claude | — | Kullanıcının bulduğu her sorun PR'la kapanır | 🔄 👤 |
 | A-02 | Besin değeri tablosu (şeker, yağ, doymuş yağ, tuz; 100 g başına; NHS/AB eşikleri; puansız renkli gösterim) | Claude | — | Etiketteki tablo okunur, eşik kaynakları görünür, testli | ⬜ |
 | A-03 | Gizlilik dostu ölçüm: günlük tarama, mod, paylaşım, 7 gün sonra geri dönüş (kişisel veri ve metin yok; Worker KV) | Claude | — | Kişisel veri gönderilmez, KVKK notu güncellenir | ⬜ |
-| A-04 | Fotoğraf okuma kalitesi: iki sütunlu etiket, kavisli ambalaj, otomatik kırpma önerisi | Claude | — | Gerçek etiket setinde ölçülen iyileşme | ⬜ |
+| A-04 | Fotoğraf okuma kalitesi: iki sütunlu etiket, kavisli ambalaj, otomatik kırpma önerisi (galeriden yükleme eklendi, #90) | Claude | — | Gerçek etiket setinde ölçülen iyileşme | 🔄 |
 | A-05 | Helal katmanı ("kaynağı belirsiz, sertifikaya bakın"; hüküm vermez) | Claude | — | Kaynaklı, yalnızca bilgi; MENA pazarının ön koşulu | ⬜ |
 | A-06 | Aylık mevzuat izleme (EUR-Lex, Resmî Gazete; CosIng zaten var) | Claude | — | Değişiklik varsa otomatik issue ya da PR | ⬜ |
 
@@ -71,14 +71,14 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 
 | Kimlik | İş | Sahibi | Bağımlı | Kabul ölçütü | Durum |
 |---|---|---|---|---|---|
-| B-01 | Çok dil altyapısı: t() işlevi, i18n/tr.json, Intl tarih/sayı/çoğul, sağdan sola hazırlığı, yedek yazı tipi mekanizması; arayüz metinleri anahtara taşınır, Türkçe görünüm birebir aynı | Claude (bulut, `claude/cok-dil`) | — | Mevcut testler değişmeden geçer, test/ceviri.js eklenir | 🔄 |
-| B-02 | İngilizce arayüz (en.json, dil seçici, terim sözlüğü i18n/sozluk.md) | Claude (bulut) | B-01 | İngilizce modda arayüz testi geçer, paylaşım kartı taşmaz | ⬜ |
+| B-01 | Çok dil altyapısı: t() işlevi, i18n/tr.json, Intl tarih/sayı/çoğul, sağdan sola hazırlığı, yedek yazı tipi mekanizması; arayüz metinleri anahtara taşınır, Türkçe görünüm birebir aynı | Claude (bulut, `claude/cok-dil`) | — | Mevcut testler değişmeden geçer, test/ceviri.js eklenir | ✅ #95 |
+| B-02 | İngilizce arayüz (en.json, dil seçici, terim sözlüğü i18n/sozluk.md) | Claude (bulut) | B-01 | İngilizce modda arayüz testi geçer, paylaşım kartı taşmaz | ✅ #96 |
 | B-03 | Ana içerik dili İngilizce: ansiklopedi, gerekçeler ve notlar önce İngilizce yazılır, Türkçe dahil öteki diller oradan çevrilir | Claude | B-02 | Yeni içerik İngilizce anahtarla girer; mevcut Türkçe içeriğin çevrilme oranı raporlanır | ⬜ |
 | B-04 | Resmi çok dilli adlar: AB katkı adları ve CLP ifadeleri (24 AB dili, resmi metin), Open Food Facts madde sözlüğü (ODbL, atıfla) | Claude | B-01 | Kaynak ve lisans her dosyada yazılı | ⬜ |
 | B-05 | Ülke mevzuat katmanı: kullanıcının ülkesine göre öne çıkan kural; yeni ülke = yeni veri dosyası. İlk eklenecekler: Birleşik Krallık (FSA), ABD (FDA katkı listeleri) | Claude | B-01 | Türkiye/AB/ABD/Birleşik Krallık aynı modelde; kodda ülke adı geçmez | ⬜ |
 | B-06 | Çeviri iş akışı: resmi çeviri > makine çevirisi + uzman kontrolü; her metinde "kontrol edildi / edilmedi" işareti; 60 dile ölçeklenir | Claude + 👤 (çevirmen bulmak) | B-02 | Kontrol edilmemiş metin arayüzde işaretli | ⬜ |
 | B-07 | Latin dışı alfabeler: Noto yazı tipi yedeği, sağdan sola yerleşim (Arapça, Farsça, İbranice, Urduca) | Claude | B-01 | İlk Latin dışı dil eklenince | ⬜ |
-| B-08 | İngilizce etiketlerde madde tanıma ölçümü ve eksik eş anlamlılar | Claude | B-02 | 10+ gerçekçi İngilizce etikette ölçüm | ⬜ |
+| B-08 | İngilizce etiketlerde madde tanıma ölçümü ve eksik eş anlamlılar | Claude | B-02 | 10+ gerçekçi İngilizce etikette ölçüm | 🔄 ölçüm yapıldı (#96): içerik %42, alerjen %56; eş anlamlılar eksik |
 
 ### Faz C: Mağaza ve hız
 
@@ -141,7 +141,7 @@ Sütunlar: kimlik · iş · sahibi · bağımlılık · kabul ölçütü · duru
 
 ## 4. Önerilen sıra (bir sonraki iş)
 
-1. B-01 → B-02 (çok dil, bulut oturumunda sürüyor)
+1. ~~B-01 → B-02~~ ✅ bitti. Sırada B-08: İngilizce eş anlamlılar ve **"Sodium Citrate" → E250 yanlış eşleşmesi** (yanlış "Uyarı" çıkıyor; TEKNIK_BORC.md, ilk düzeltilecek)
 2. A-02 besin değeri tablosu
 3. C-01 👤 hesaplar → C-02 Android → C-04 cihaz içi okuma
 4. A-03 ölçüm
