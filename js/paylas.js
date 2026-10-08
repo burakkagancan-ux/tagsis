@@ -279,13 +279,13 @@ function payDraw(x,M,L,cfg,logo){
   payFont(x,400,26);
   notL.forEach(function(l,i){txt(l,P,ny+i*34,R.mute)});
   if(recog){payFont(x,400,28);txt(recog,P,ny-48,R.mute)}
-  // Alt bant: logo açık çerçeveyle (koyu zeminde kaybolmasın)
+  // Alt bant (ince): logo açık çerçeveyle (koyu zeminde kaybolmasın), ad + slogan solda, adres sağda
   x.fillStyle=R.ok;x.fillRect(0,foot,W,L.bant);
-  var ls=112,ly=foot+(L.bant-ls)/2;
-  if(logo){x.fillStyle="#FFFFFF";payRR(x,P-6,ly-6,ls+12,ls+12,32);x.fill();x.save();payRR(x,P,ly,ls,ls,26);x.clip();x.drawImage(logo,P,ly,ls,ls);x.restore()}
-  var tx=P+(logo?ls+36:0);
-  payFont(x,700,50,true);txt(cfg.uygulamaAdi,tx,ly+48,"#FFFFFF");
-  payFont(x,600,34);txt(cfg.slogan,tx,ly+94,R.bant2);
-  payFont(x,400,28);txt(cfg.adres.replace(/^https?:\/\//,"").replace(/\/$/,""),W-P,ly+48,R.bant2,"right");
+  var ls=Math.min(112,L.bant-40),ly=foot+(L.bant-ls)/2,ince=L.bant<180;
+  if(logo){x.fillStyle="#FFFFFF";payRR(x,P-4,ly-4,ls+8,ls+8,ls*0.28);x.fill();x.save();payRR(x,P,ly,ls,ls,ls*0.23);x.clip();x.drawImage(logo,P,ly,ls,ls);x.restore()}
+  var tx=P+(logo?ls+28:0);
+  payFont(x,700,ince?38:50,true);txt(cfg.uygulamaAdi,tx,ly+(ince?ls*0.48:48),"#FFFFFF");
+  payFont(x,600,ince?26:34);txt(cfg.slogan,tx,ly+(ince?ls*0.95:94),R.bant2);
+  payFont(x,400,ince?26:28);txt(cfg.adres.replace(/^https?:\/\//,"").replace(/\/$/,""),W-P,ly+(ince?ls*0.48:48),R.bant2,"right");
   return out;
 }
