@@ -31,12 +31,20 @@ var PROF={al:[],lactose:false,koku:false,astim:false,preg:false,emziriyorum:fals
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
 var LIFE=[["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["preg","Hamileyim"],["emziriyorum","Emziriyorum"],["vegan","Vegan"],["veg","Vejetaryen"],["pet","Evcil hayvanıma vereceğim"]];
 var OTHER=[["lactose","Laktoz intoleransı"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"],["salt","Tansiyon / tuz kısıtlaması"],["pku","Fenilketonüri (PKU)"]];
+/* Hassasiyetlerim'in altındaki sorumluluk reddi beyanı (metin yalnızca buradan değişir) */
+var SORUMLULUK=["Bu uygulama yalnızca bilgilendirme amaçlıdır; tıbbi tavsiye, teşhis ya da tedavi yerine geçmez.",
+  "Sonuçlar fotoğraftan okunan etiket metnine ve yayımlanmış resmî kaynaklara dayanır. Okuma hataları, eksik ya da güncel olmayan etiket bilgisi nedeniyle sonuç yanlış ya da eksik olabilir; ürünün içindeki miktarlar bilinmez.",
+  "Bir maddenin bulunamaması, üründe olmadığı ya da sizin için uygun olduğu anlamına gelmez. Hassasiyetlerim'deki seçimler yalnızca uyarıları kişiselleştirir.",
+  "Alerji, hastalık, hamilelik ve bebek beslenmesi gibi durumlarda karar vermeden önce ürün etiketini kendiniz kontrol edin ve hekiminize, eczacınıza ya da diyetisyeninize danışın."];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
 function buildProfile(){
   var box=$("profil");box.textContent="";
   if(!BDB){box.appendChild(el("div","mut","Profil filtreleri için bileşen listesi gerekli."));return}
-  function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
+  function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();[b1,b2,b3].forEach(function(b){if(b)b._upd()});if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
   function pbox(t){var d=el("div","pbox");d.appendChild(el("div","pt",t));box.appendChild(d);return d}
+  // Açılır kutu (kapalı başlar); başlıkta seçili sayısı görünür. n(): o kutudaki seçim sayısı
+  function pdrop(t,n){var d=document.createElement("details");d.className="pbox pdrop";var sm=el("summary","pt",t),c=el("span","pcnt");sm.appendChild(c);d.appendChild(sm);box.appendChild(d);
+    d._upd=function(){var k=n();c.textContent=k?k+" seçili":""};d._upd();return d}
   function abc(a){return a.slice().sort(function(x,y){return x[1].localeCompare(y[1],"tr")})}
   var b0=pbox("Kişisel Bilgiler"),g0=el("div","pg pnum");
   var cl=el("label","pn");cl.appendChild(el("span",null,"Cinsiyet"));var cs=document.createElement("select");
@@ -63,16 +71,19 @@ function buildProfile(){
   }
   updBmi();
   b0.appendChild(el("div","mut","Kilonuz, katkı maddesi kartlarındaki günlük sınırı size göre hesaplamak için kullanılır."));
-  var b1=pbox("Alerjenler"),g=el("div","pg");
+  var b1=null,b2=null,b3=null;
+  b1=pdrop("Alerjenler",function(){return PROF.al.length});var g=el("div","pg");
   abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
-  var b2=pbox("Yaşam Evresi"),g2=el("div","pg");
+  b2=pdrop("Yaşam Evresi",function(){return LIFE.filter(function(x){return PROF[x[0]]}).length});var g2=el("div","pg");
   abc(LIFE).forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b2.appendChild(g2);
-  var b3=pbox("Diğer"),g3=el("div","pg");
+  b3=pdrop("Diğer",function(){return OTHER.filter(function(x){return PROF[x[0]]}).length});var g3=el("div","pg");
   abc(OTHER).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
   box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
+  var sr=el("div","sorumlu");sr.appendChild(el("div","pt","Sorumluluk reddi"));
+  SORUMLULUK.forEach(function(t){sr.appendChild(el("p",null,t))});box.appendChild(sr);
   updProfSum();
 }
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}

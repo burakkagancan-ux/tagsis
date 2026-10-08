@@ -51,6 +51,10 @@ details#pd{background:var(--card);border:1px solid var(--line);border-radius:14p
 details#pd summary{font-family:var(--hf);font-weight:700;cursor:pointer;display:flex;align-items:center;min-height:44px}.pt{font-weight:600;font-size:14px;margin:10px 0 4px}
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}.pc{font-size:14px;display:flex;gap:8px;align-items:center;min-height:44px}.pc input{width:20px;height:20px;margin:0;flex:0 0 auto;accent-color:var(--ok)}
 .pbox{border:1px solid var(--line);border-radius:12px;padding:4px 12px 10px;margin:10px 0;background:var(--bg)}.pbox .pt{font-size:15px;margin:8px 0 6px}
+.pdrop{padding-bottom:0}.pdrop[open]{padding-bottom:10px}.pdrop>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;margin:0}.pdrop>summary::-webkit-details-marker{display:none}
+.pdrop>summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg) translateY(-3px);transition:transform .15s}
+.pdrop[open]>summary::after{transform:rotate(225deg) translateY(-2px)}.pdrop .pcnt{font-size:13px;color:var(--ok);font-weight:600}
+.sorumlu{border-top:1px solid var(--line);margin-top:14px;padding-top:6px;font-size:13px;color:var(--mute);line-height:1.5}.sorumlu .pt{font-size:14px;color:var(--ink);margin:8px 0 4px}.sorumlu p{margin:0 0 6px}
 /* Profil sekmesi: sayfada yalnızca başlık ve profil görünür */
 body:not(.mode-profil) details#pd{display:none}
 body.mode-profil .w>:not(h1):not(#pd){display:none!important}
