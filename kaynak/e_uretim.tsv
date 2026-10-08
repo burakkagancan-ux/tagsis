@@ -57,10 +57,13 @@ E234	fermente	Laktik asit bakterileriyle (Streptococcus lactis) fermentasyonla �
 E235	fermente	Streptomyces natalensis ile fermentasyonla üretilir.	https://eur-lex.europa.eu/eli/dir/2008/84/oj	1
 E249,E250	sentetik	Kimyasal yolla üretilir.		0
 E251,E252	belirsiz	Çoğunlukla kimyasal yolla üretilir; doğal mineral yataklarından da elde edilebilir.		0
-E260,E261,E262,E263	belirsiz	Asetik asit fermentasyonla ya da kimyasal sentezle üretilebilir; tuzları asidin nötrleştirilmesiyle elde edilir.		0
+E260	belirsiz	Karbonhidratların fermentasyonuyla ya da kimyasal sentezle (asetaldehit, bütan ya da metanolden) üretilir.	https://www.ecfr.gov/current/title-21/section-184.1005	1
+E261	belirsiz	Asetik asit fermentasyonla ya da kimyasal sentezle üretilebilir; tuzları asidin nötrleştirilmesiyle elde edilir.		0
+E262	belirsiz	Asetik asidin sodyum karbonatla nötrleştirilmesiyle elde edilir; asetik asit fermentasyonla ya da kimyasal sentezle üretilebilir.	https://www.ecfr.gov/current/title-21/section-184.1721	1
+E263	belirsiz	Asetik asidin kalsiyum hidroksitle nötrleştirilmesiyle elde edilir; asetik asit fermentasyonla ya da kimyasal sentezle üretilebilir.	https://www.ecfr.gov/current/title-21/section-184.1185	1
 E270	belirsiz	Şekerlerin laktik fermentasyonuyla ya da kimyasal sentezle üretilir.	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32012R0231	1
 E325,E326,E327	belirsiz	Laktik asidin nötrleştirilmesiyle elde edilir; laktik asit fermentasyonla ya da kimyasal sentezle üretilebilir.	https://www.ams.usda.gov/sites/default/files/media/Lactic%20Acid%20TR%202015.pdf	1
-E585	belirsiz	Laktik asidin nötrleştirilmesiyle elde edilir; laktik asit fermentasyonla ya da kimyasal sentezle üretilebilir.		0
+E585	belirsiz	Laktik asit ya da laktat tuzlarının demir bileşikleriyle tepkimesiyle elde edilir; laktik asit fermentasyonla ya da kimyasal sentezle üretilebilir.	https://www.ecfr.gov/current/title-21/section-184.1311	1
 E280,E281,E282,E283	sentetik	Çoğunlukla petrokimyasal hammaddelerden kimyasal sentezle üretilir; tuzları asidin nötrleştirilmesiyle elde edilir.	https://www.ams.usda.gov/sites/default/files/media/Calcium%20Propionate%20TR.pdf	1
 E284	islenmis	Boraks mineralinin asitle işlenmesiyle elde edilir.		0
 E285	dogal	Doğal bor mineralidir (saflaştırılmış).		0
@@ -102,7 +105,7 @@ E400	dogal	Kahverengi deniz yosunlarından ekstraksiyonla elde edilir.	https://w
 E401,E402,E403,E404	dogal	Kahverengi deniz yosunlarından ekstraksiyonla elde edilir.	https://fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-388.pdf	1
 E405	islenmis	Aljinik asidin propilen oksitle kimyasal tepkimesiyle elde edilir.	https://fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-360.pdf	1
 E406	dogal	Kırmızı deniz yosunlarından sıcak suyla ekstraksiyonla elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-008.pdf	1
-E407	belirsiz	Kırmızı deniz yosunlarından suyla ya da seyreltik alkaliyle ekstraksiyonla elde edilir.		0
+E407	belirsiz	Kırmızı deniz yosunlarından suyla ya da seyreltik alkaliyle ekstraksiyonla elde edilir.	https://www.legislation.gov.uk/eur/2012/231/annex/division/160/adopted?view=plain	1
 E407a	islenmis	Kırmızı deniz yosunlarının alkaliyle işlenmesiyle elde edilir.	https://faolex.fao.org/docs/pdf/eur42608.pdf	1
 E410	dogal	Bitki tohumu ya da ağaç özsuyundan (zamk) fiziksel yolla elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph5/additive-110-m5.pdf	1
 E412	dogal	Bitki tohumu ya da ağaç özsuyundan (zamk) fiziksel yolla elde edilir.	https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/Monograph1/Additive-218.pdf	1
