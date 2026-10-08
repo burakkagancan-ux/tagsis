@@ -12,6 +12,7 @@ Son güncelleme: 08.10.2026 (B-08 İngilizce tanıma).
 - Amaç: para kazanan, küresel bir uygulama (hedef onlarca dil, olası 60). Türkiye ilk pazar, son değil.
 - Değişmez ilke: her bilgi kaynağa dayalı, tarafsız ve bilimsel. Gelir bu ilkeyi bozamaz: markadan para, reklam, ücretli sıralama yok; güvenlik uyarıları hiçbir zaman ücretli katmana konmaz.
 - İş planı: **YOL_HARITASI.md** (fazlar, iş paketleri, sıra, kullanıcı kararları, riskler). Her oturumda okunur; iş başlayınca/bitince aynı PR'da durumu güncellenir. Her PR açıklamasında oradaki 5 maddelik ilke denetimi yanıtlanır.
+- **Ölçek ve öngörü kuralı (kullanıcı, 09.10.2026):** Bugün bir saatte yapılabilecek işin ileride günler süren düzeltmeye dönüşmesine izin verilmez. Her iş planlanırken ve her PR'da "10 kat kullanıcı, 60 dil, 20 ülke ya da mağaza sürümü gelince bu yeniden yapılmak zorunda kalır mı?" sorusu sorulur; ucuz önlem o PR'da yapılır, yapılamıyorsa YOL_HARITASI.md §9'a kimlikli (O-xx) iş olarak yazılır. §9 her büyük adımda yeniden gözden geçirilir.
 - Teknik sonucu: yeni kod ve veri baştan çok dilli ve çok ülkeli düşünülür (metinler çeviri anahtarıyla, maddeler evrensel kimlikle: E kodu, INCI, CAS, H/EUH kodu; mevzuat ülke katmanı olarak). Yeni Türkçe sabit metin eklemeden önce çeviri anahtarı düşünülür.
 
 ## Ürün
