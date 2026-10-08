@@ -2359,6 +2359,314 @@
    "year": 2007,
    "url": "https://www.fao.org/fileadmin/user_upload/jecfa_additives/docs/monograph4/additive-327-m4.pdf",
    "official": true
+  },
+  "jecfa_mono_e104": {
+   "title": "Quinoline yellow (WHO Food Additives Series 19)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1984,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v19je10.htm",
+   "official": true
+  },
+  "jecfa_mono_e110": {
+   "title": "Sunset Yellow FCF (WHO Food Additives Series 17)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v17je29.htm",
+   "official": true
+  },
+  "jecfa_mono_e122": {
+   "title": "Azorubine (WHO Food Additives Series 18)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1983,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v18je03.htm",
+   "official": true
+  },
+  "jecfa_mono_e123": {
+   "title": "Amaranth (WHO Food Additives Series 4)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1972,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v004je05.htm",
+   "official": true
+  },
+  "jecfa_mono_e124": {
+   "title": "Ponceau 4R (WHO Food Additives Series 18)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1983,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v18je12.htm",
+   "official": true
+  },
+  "jecfa_mono_e127": {
+   "title": "Erythrosine (WHO Food Additives Series 6)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1975,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v06je19.htm",
+   "official": true
+  },
+  "jecfa_mono_e128": {
+   "title": "Red 2G (WHO Food Additives Series 12)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1977,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v12je18.htm",
+   "official": true
+  },
+  "jecfa_mono_e129": {
+   "title": "Allura red AC (WHO Food Additives Series 15)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1980,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v15je02.htm",
+   "official": true
+  },
+  "jecfa_mono_e100": {
+   "title": "Curcumin (WHO Food Additives Series 52)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 2004,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v52je04.htm",
+   "official": true
+  },
+  "jecfa_mono_e133": {
+   "title": "Brilliant blue FCF (WHO Food Additives Series 46a)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1970,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v46aje08.htm",
+   "official": true
+  },
+  "jecfa_mono_e142": {
+   "title": "Green S (WHO Food Additives Series 6)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1975,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v06je20.htm",
+   "official": true
+  },
+  "jecfa_mono_e151": {
+   "title": "Brilliant black PN (WHO Food Additives Series 16)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1981,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v16je05.htm",
+   "official": true
+  },
+  "jecfa_mono_e154": {
+   "title": "Brown FK (WHO Food Additives Series 20)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1986,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v20je10.htm",
+   "official": true
+  },
+  "jecfa_mono_e155": {
+   "title": "Brown HT (WHO Food Additives Series 19)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1984,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v19je04.htm",
+   "official": true
+  },
+  "jecfa_mono_e160b": {
+   "title": "Annatto extracts (WHO Food Additives Series 52)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 2004,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v52je03.htm",
+   "official": true
+  },
+  "jecfa_mono_e160e": {
+   "title": "Carotenal, beta-apo-8'- (WHO Food Additives Series 6)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1975,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v06je14.htm",
+   "official": true
+  },
+  "jecfa_mono_e160f": {
+   "title": "Carotenoic acid, beta-apo-8'-, ethyl and methyl esters (WHO Food Additives Series 6)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1975,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v06je16.htm",
+   "official": true
+  },
+  "jecfa_mono_e161g": {
+   "title": "Canthaxanthin (WHO Food Additives Series 22)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1988,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v22je09.htm",
+   "official": true
+  },
+  "jecfa_mono_e162": {
+   "title": "Beet red (WHO Food Additives Series 22)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1988,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v22je08.htm",
+   "official": true
+  },
+  "jecfa_mono_e163": {
+   "title": "Anthocyanins (WHO Food Additives Series 17)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v17je05.htm",
+   "official": true
+  },
+  "jecfa_mono_sorbic": {
+   "title": "Sorbic acid and its calcium, potassium and sodium salts (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je18.htm",
+   "official": true
+  },
+  "jecfa_mono_diphenyl": {
+   "title": "Diphenyl (WHO Food Additives Series 38a)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1965,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v38aje15.htm",
+   "official": true
+  },
+  "jecfa_mono_parabens": {
+   "title": "Hydroxybenzoate, p- ethyl, methyl, propyl esters (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je13.htm",
+   "official": true
+  },
+  "jecfa_mono_tocopherol": {
+   "title": "Tocopherol, alpha- and mixed tocopherols concentrate (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je33.htm",
+   "official": true
+  },
+  "jecfa_mono_gallates": {
+   "title": "Gallates (WHO Food Additives Series 32)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v32je02.htm",
+   "official": true
+  },
+  "jecfa_mono_e319": {
+   "title": "Butylhydroquinone, tert- (TBHQ) (WHO Food Additives Series 40)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1998,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v040je02.htm",
+   "official": true
+  },
+  "jecfa_mono_e320": {
+   "title": "Butylated hydroxyanisole (WHO Food Additives Series 10)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1976,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v10je02.htm",
+   "official": true
+  },
+  "jecfa_mono_e586": {
+   "title": "Hexylresorcinol, 4- (WHO Food Additives Series 35)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1996,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v35je04.htm",
+   "official": true
+  },
+  "jecfa_mono_e235": {
+   "title": "Natamycin (pimaricin) (WHO Food Additives Series 48)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 2002,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v48je06.htm",
+   "official": true
+  },
+  "jecfa_mono_e442": {
+   "title": "Ammonium salts of phosphatidic acids (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je35.htm",
+   "official": true
+  },
+  "jecfa_mono_e474": {
+   "title": "Sucrose esters of fatty acids and sucroglycerides (WHO Food Additives Series 35)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1996,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v35je06.htm",
+   "official": true
+  },
+  "jecfa_mono_zinc": {
+   "title": "Zinc (WHO Food Additives Series 17)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1982,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v17je33.htm",
+   "official": true
+  },
+  "jecfa_mono_adipic": {
+   "title": "Adipic acid (WHO Food Additives Series 12)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1977,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v12je02.htm",
+   "official": true
+  },
+  "jecfa_mono_e385": {
+   "title": "Ethylenediaminetetraacetate, disodium and calcium disodium salts (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je25.htm",
+   "official": true
+  },
+  "jecfa_mono_e431": {
+   "title": "Polyoxyethylene (8) and polyoxyethylene (40) stearates (WHO Food Additives Series 5)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1974,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v05je48.htm",
+   "official": true
+  },
+  "jecfa_mono_e901": {
+   "title": "Beeswax (WHO Food Additives Series 30)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v30je11.htm",
+   "official": true
+  },
+  "jecfa_mono_e905": {
+   "title": "Microcrystalline wax and paraffin wax (WHO Food Additives Series 30)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v30je14.htm",
+   "official": true
+  },
+  "jecfa_mono_e927b": {
+   "title": "Urea (WHO Food Additives Series 32)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1993,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v32je16.htm",
+   "official": true
+  },
+  "jecfa_mono_e1505": {
+   "title": "Triethyl citrate (WHO Food Additives Series 19)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1984,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v19je12.htm",
+   "official": true
+  },
+  "jecfa_mono_e1517": {
+   "title": "Glycerol and glycerol diacetate (WHO Food Additives Series 10)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1976,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v10je06.htm",
+   "official": true
+  },
+  "jecfa_mono_e1518": {
+   "title": "Triacetin (WHO Food Additives Series 8)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1975,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v08je12.htm",
+   "official": true
+  },
+  "jecfa_mono_e1521": {
+   "title": "Polyethylene glycols (WHO Food Additives Series 14)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 1980,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v14je19.htm",
+   "official": true
+  },
+  "jecfa_mono_e1203": {
+   "title": "Polyvinyl alcohol (WHO Food Additives Series 52)",
+   "publisher": "WHO/FAO JECFA (IPCS INCHEM)",
+   "year": 2004,
+   "url": "https://inchem.org/documents/jecfa/jecmono/v52je09.htm",
+   "official": true
+  },
+  "efsa_e171_2021": {
+   "title": "Safety assessment of titanium dioxide (E171) as a food additive",
+   "publisher": "EFSA (EFSA Journal 19(5):6585)",
+   "year": 2021,
+   "url": "https://www.efsa.europa.eu/en/efsajournal/pub/6585",
+   "official": true
   }
  },
  "resmi_alan_adlari": [
@@ -2761,7 +3069,7 @@
     "Meyveli içecek ve yoğurtlar",
     "Şarküteri ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Karmin ve karminik asidin vücutta nasıl işlendiğini doğrudan inceleyen çalışma yok; dolaylı bulgular karminlerin emilip vücutta dağıldığını düşündürüyor.",
    "agency_note": "EFSA 2015'teki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) karminik asit olarak 2,5 mg/kg vücut ağırlığı (karmin olarak 5 mg/kg) olarak doğruladı ve karminik asidi genotoksik bulmadı. Üretimden kalan böcek proteinleri nadiren alerjik tepkiye yol açabildiği için saflaştırma yöntemlerinin iyileştirilmesini önerdi.",
    "diet_flags": {
     "vegan": "no",
@@ -2808,7 +3116,7 @@
     "efsa_e120",
     "tgk2013"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E951": {
    "evidence_level": "strong",
@@ -3032,7 +3340,7 @@
     "Renkli içecekler",
     "Tatlılar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan verilen kinolin sarısının yalnızca yaklaşık %2'si idrarla atılır, %94'ü beş gün içinde dışkıyla çıkar; vücutta kalan miktar çok azdır (yaklaşık %0,14).",
    "agency_note": "EFSA 2009'daki yeniden değerlendirmesinde bu renklendiricinin günlük kabul edilebilir alımını (ADI) düşürdü ve bazı yetişkin ve çocuklarda alımın yeni sınırı aşabileceğini belirtti. EFSA, Southampton çalışması dahil mevcut verilerin tek tek renklendiricilerle davranış etkileri arasında nedensel bir bağı doğrulamadığını belirtti; AB yine de içeren ürünlerde uyarı etiketini zorunlu tuttu.",
    "diet_flags": {
     "vegan": "yes",
@@ -3051,9 +3359,10 @@
    ],
    "sources": [
     "efsa_colours_2009",
-    "ab1333"
+    "ab1333",
+    "jecfa_mono_e104"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E110": {
    "evidence_level": "moderate",
@@ -3063,7 +3372,7 @@
     "Şekerleme",
     "Hazır tatlılar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan alınan sunset yellow'un çok az bir kısmı (yaklaşık %3,6) değişmeden emilir. Boya bağırsak bakterilerince azo bağından parçalanır; oluşan aromatik amin ve aminosülfonik asitler (ör. sülfanilik asit) kısmen emilip idrarla atılır.",
    "agency_note": "EFSA 2009'daki yeniden değerlendirmesinde bu renklendiricinin günlük kabul edilebilir alımını (ADI) düşürdü ve bazı yetişkin ve çocuklarda alımın yeni sınırı aşabileceğini belirtti. EFSA, Southampton çalışması dahil mevcut verilerin tek tek renklendiricilerle davranış etkileri arasında nedensel bir bağı doğrulamadığını belirtti; AB yine de içeren ürünlerde uyarı etiketini zorunlu tuttu.",
    "diet_flags": {
     "vegan": "yes",
@@ -3082,9 +3391,10 @@
    ],
    "sources": [
     "efsa_colours_2009",
-    "ab1333"
+    "ab1333",
+    "jecfa_mono_e110"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E122": {
    "evidence_level": "moderate",
@@ -3094,7 +3404,7 @@
     "Jöle",
     "Renkli içecekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Farelerde ağızdan verilen azorubinin büyük kısmı 16–32 saat içinde atılmıştır: yaklaşık %74'ü dışkıyla, %19'u idrarla. Diğer azo boyalar gibi bağırsak bakterilerince azo bağından parçalandığı düşünülür.",
    "agency_note": "EFSA 2009'daki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) değiştirmedi; yalnızca çok tüketen bazı çocuklarda sınırın aşılabileceğini belirtti. EFSA, Southampton çalışması dahil mevcut verilerin tek tek renklendiricilerle davranış etkileri arasında nedensel bir bağı doğrulamadığını belirtti; AB yine de içeren ürünlerde uyarı etiketini zorunlu tuttu.",
    "diet_flags": {
     "vegan": "yes",
@@ -3113,9 +3423,10 @@
    ],
    "sources": [
     "efsa_colours_2009",
-    "ab1333"
+    "ab1333",
+    "jecfa_mono_e122"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E124": {
    "evidence_level": "moderate",
@@ -3125,7 +3436,7 @@
     "Renkli içecekler",
     "Tatlılar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçan, fare ve kobaylarda ağızdan verilen ponceau 4R'nin hemen tamamı 72 saat içinde, çoğu (yaklaşık %90) dışkıyla atılmış; dokularda belirgin birikme görülmemiştir. Bağırsak içeriğinde parçalanır; idrardaki başlıca ürün naftiyonik asittir.",
    "agency_note": "EFSA 2009'daki yeniden değerlendirmesinde bu renklendiricinin günlük kabul edilebilir alımını (ADI) düşürdü ve bazı yetişkin ve çocuklarda alımın yeni sınırı aşabileceğini belirtti. EFSA, Southampton çalışması dahil mevcut verilerin tek tek renklendiricilerle davranış etkileri arasında nedensel bir bağı doğrulamadığını belirtti; AB yine de içeren ürünlerde uyarı etiketini zorunlu tuttu.",
    "diet_flags": {
     "vegan": "yes",
@@ -3144,9 +3455,10 @@
    ],
    "sources": [
     "efsa_colours_2009",
-    "ab1333"
+    "ab1333",
+    "jecfa_mono_e124"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E129": {
    "evidence_level": "moderate",
@@ -3156,7 +3468,7 @@
     "Renkli içecekler",
     "Tatlılar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçan ve köpeklerde ağızdan verilen allura kırmızısının emilimi sınırlıdır; başlıca dışkıyla atılır. İdrarda değişmemiş boya ölçülmemiştir; başlıca ürün, bağırsak bakterilerinin azo bağını parçalamasıyla oluşan kresidin sülfonik asittir.",
    "agency_note": "EFSA 2009'daki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) değiştirmedi; yalnızca çok tüketen bazı çocuklarda sınırın aşılabileceğini belirtti. EFSA, Southampton çalışması dahil mevcut verilerin tek tek renklendiricilerle davranış etkileri arasında nedensel bir bağı doğrulamadığını belirtti; AB yine de içeren ürünlerde uyarı etiketini zorunlu tuttu.",
    "diet_flags": {
     "vegan": "yes",
@@ -3175,9 +3487,10 @@
    ],
    "sources": [
     "efsa_colours_2009",
-    "ab1333"
+    "ab1333",
+    "jecfa_mono_e129"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E127": {
    "evidence_level": "moderate",
@@ -3185,7 +3498,7 @@
    "found_in": [
     "Kokteyl ve şekerli kiraz"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan alınan eritrozin büyük ölçüde değişmeden dışkıyla atılır; idrarda boya bulunmamıştır. Eritrozin vücutta kararlıdır ve iyodu ayrılmadan atılır. İnsanda 10 gün boyunca günde 16 mg verildiğinde kanda proteine bağlı iyot düzeyi geçici olarak yükselmiş, üç ayda eski düzeyine dönmüştür.",
    "agency_note": "ABD Gıda ve İlaç Dairesi (FDA), erkek sıçanlarda yüksek dozda görülen tümör bulgusu nedeniyle 15 Ocak 2025'te gıdadaki iznini iptal etti; aynı açıklamada insanlarda zarar gösteren bir kanıt bulunmadığını belirtti. AB'de yalnızca sınırlı ürünlerde izinlidir.",
    "diet_flags": {
     "vegan": "yes",
@@ -3193,9 +3506,10 @@
     "gluten": "no"
    },
    "sources": [
-    "fda_red3"
+    "fda_red3",
+    "jecfa_mono_e127"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E128": {
    "evidence_level": "strong",
@@ -3203,7 +3517,7 @@
    "found_in": [
     "AB'de 2007'den beri gıdada kullanılmıyor"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçan ve tavşanlarda ağızdan alınan Red 2G idrarda değişmeden bulunmaz; boya azo bağından parçalanır ve idrarla başlıca p-aminofenol (çoğu glukuronik asitle bağlı), daha az miktarda o-aminofenol ve anilin olarak atılır.",
    "agency_note": "Avrupa Komisyonu 2007'de bu renklendiricinin gıdada kullanımını acil önlemle askıya aldı (Tüzük 884/2007). Bu nedenle AB'de üretilen gıdalarda bulunmaz.",
    "diet_flags": {
     "vegan": "yes",
@@ -3211,9 +3525,10 @@
     "gluten": "no"
    },
    "sources": [
-    "ab884_2007"
+    "ab884_2007",
+    "jecfa_mono_e128"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E150c": {
    "evidence_level": "moderate",
@@ -3263,7 +3578,7 @@
     "Pasta kreması ve unlu mamuller",
     "Sos, çorba ve gıda takviyeleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Titanyum dioksit ağızdan alındığında çok az emilir (farelerde büyük olasılıkla %0,5'ten az). Emilen parçacıklar vücuttan çok yavaş atılır (yarılanma süresi 200–450 gün olarak tahmin edildi); bu nedenle vücutta birikebilir.",
    "agency_note": "EFSA Mayıs 2021'de, genotoksisite (genetik malzemeye zarar verme) endişesi dışlanamadığı için titanyum dioksidin gıda katkısı olarak artık güvenli kabul edilemeyeceği sonucuna vardı. AB'de gıdada kullanımı 7 Ağustos 2022'den beri yasaktır (Tüzük 2022/63). Türkiye'de 13 Ekim 2023 tarihli yönetmelikle listeden çıkarıldı; içeren gıdaların piyasaya arzına 1 Nisan 2024'e kadar izin verildi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3272,9 +3587,10 @@
    },
    "sources": [
     "fsai_e171",
-    "tgk2023"
+    "tgk2023",
+    "efsa_e171_2021"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E203": {
    "evidence_level": "moderate",
@@ -3282,7 +3598,7 @@
    "found_in": [
     "AB'de 2018'den beri izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sorbik asit vücutta kaproik asit gibi diğer yağ asitlerine benzer biçimde parçalanır (oksitlenir) ve enerji kaynağı olarak kullanılır.",
    "agency_note": "AB, kalsiyum sorbatı 2018'de izinli katkı listesinden çıkardı. Gerekçe, genotoksisite konusunda yeterli veri sunulmamasıydı; bu, kanıtlanmış bir zarar değil veri eksikliğidir. Diğer sorbatlar (E200, E202) izinlidir.",
    "diet_flags": {
     "vegan": "yes",
@@ -3290,9 +3606,10 @@
     "gluten": "no"
    },
    "sources": [
-    "ab2018_98"
+    "ab2018_98",
+    "jecfa_mono_sorbic"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E210": {
    "evidence_level": "strong",
@@ -3416,7 +3733,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3437,7 +3754,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E221": {
    "evidence_level": "moderate",
@@ -3447,7 +3764,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3468,7 +3785,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E222": {
    "evidence_level": "moderate",
@@ -3478,7 +3795,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3499,7 +3816,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E223": {
    "evidence_level": "moderate",
@@ -3509,7 +3826,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3530,7 +3847,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E224": {
    "evidence_level": "moderate",
@@ -3540,7 +3857,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3561,7 +3878,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E226": {
    "evidence_level": "moderate",
@@ -3571,7 +3888,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3592,7 +3909,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E227": {
    "evidence_level": "moderate",
@@ -3602,7 +3919,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3623,7 +3940,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E228": {
    "evidence_level": "moderate",
@@ -3633,7 +3950,7 @@
     "Şarap ve sirke",
     "Bazı patates ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sülfitler mide ve bağırsakta sülfit, bisülfit ve kükürt dioksit biçimleri arasında dengeye girer; bağırsaktan büyük ölçüde (%70–97) emilir. Emilen sülfit, başta karaciğer ve ince bağırsak olmak üzere sülfit oksidaz enzimiyle hızla sülfata çevrilir (insanda yarılanma süresi yaklaşık 15 dakika); yine de ağızdan alınan miktarın dörtte birine kadarı bu dönüşümden önce dolaşıma geçebilir.",
    "agency_note": "Sülfitler, kilogramda (ya da litrede) 10 mg'ın üzerinde bulunduğunda AB'de alerjen olarak etikette belirtilmesi zorunlu maddelerdendir; astımlı kişilerde tepkiye yol açabilir. EFSA 2022'deki değerlendirmesinde eski geçici günlük alım sınırını (0,7 mg/kg, SO₂ olarak) veriler yetersiz olduğu için kaldırdı, yerine yeni bir sınır koymadı ve yüksek tüketen gruplarda güvenlik endişesi bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -3654,7 +3971,7 @@
     "efsa_sulfite",
     "ab1169"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E249": {
    "evidence_level": "strong",
@@ -3663,7 +3980,7 @@
     "Sucuk, sosis ve salam",
     "Jambon ve diğer kürlenmiş etler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Nitrit bağırsaktan neredeyse tamamen emilir. Vücutta hemen hemen tamamı nitrata çevrilir ve idrarla atılır; idrarda nitrit olarak çıkan miktar dozun yaklaşık %0,02'sidir. Vücuttaki nitritin asıl kaynağı, besinlerle ve suyla alınan nitratın ağızdaki bakterilerce nitrite çevrilmesidir.",
    "agency_note": "EFSA 2017'de günlük kabul edilebilir alımı (ADI) nitrit iyonu olarak 0,07 mg/kg vücut ağırlığı olarak belirledi; genel nüfusta alım bu sınırın altında kaldı, en çok tüketen çocuklarda hafif aşım görüldü. Nitrit, etteki bazı maddelerle nitrozamin oluşturabilir; IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da (insanlarda muhtemelen kanserojen) sınıflandırır.",
    "diet_flags": {
     "vegan": "yes",
@@ -3690,7 +4007,7 @@
    "sources": [
     "efsa_nitrite"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E250": {
    "evidence_level": "strong",
@@ -3699,7 +4016,7 @@
     "Sucuk, sosis ve salam",
     "Jambon ve diğer kürlenmiş etler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Nitrit bağırsaktan neredeyse tamamen emilir. Vücutta hemen hemen tamamı nitrata çevrilir ve idrarla atılır; idrarda nitrit olarak çıkan miktar dozun yaklaşık %0,02'sidir. Vücuttaki nitritin asıl kaynağı, besinlerle ve suyla alınan nitratın ağızdaki bakterilerce nitrite çevrilmesidir.",
    "agency_note": "EFSA 2017'de günlük kabul edilebilir alımı (ADI) nitrit iyonu olarak 0,07 mg/kg vücut ağırlığı olarak belirledi; genel nüfusta alım bu sınırın altında kaldı, en çok tüketen çocuklarda hafif aşım görüldü. Nitrit, etteki bazı maddelerle nitrozamin oluşturabilir; IARC, nitrozamin oluşumuna yol açan koşullarda alınan nitrit ve nitratı Grup 2A'da (insanlarda muhtemelen kanserojen) sınıflandırır.",
    "diet_flags": {
     "vegan": "yes",
@@ -3726,7 +4043,7 @@
    "sources": [
     "efsa_nitrite"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E251": {
    "evidence_level": "strong",
@@ -4042,7 +4359,7 @@
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Glutamat bağırsaktan emilir ve büyük kısmı daha kana geçmeden bağırsak duvarında parçalanır (metabolize edilir).",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4052,7 +4369,7 @@
    "sources": [
     "efsa_glutamate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E621": {
    "evidence_level": "moderate",
@@ -4062,7 +4379,7 @@
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Glutamat bağırsaktan emilir ve büyük kısmı daha kana geçmeden bağırsak duvarında parçalanır (metabolize edilir).",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4072,7 +4389,7 @@
    "sources": [
     "efsa_glutamate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E622": {
    "evidence_level": "moderate",
@@ -4082,7 +4399,7 @@
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Glutamat bağırsaktan emilir ve büyük kısmı daha kana geçmeden bağırsak duvarında parçalanır (metabolize edilir).",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4092,7 +4409,7 @@
    "sources": [
     "efsa_glutamate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E623": {
    "evidence_level": "moderate",
@@ -4102,7 +4419,7 @@
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Glutamat bağırsaktan emilir ve büyük kısmı daha kana geçmeden bağırsak duvarında parçalanır (metabolize edilir).",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4112,7 +4429,7 @@
    "sources": [
     "efsa_glutamate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E624": {
    "evidence_level": "moderate",
@@ -4122,7 +4439,7 @@
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Glutamat bağırsaktan emilir ve büyük kısmı daha kana geçmeden bağırsak duvarında parçalanır (metabolize edilir).",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4132,7 +4449,7 @@
    "sources": [
     "efsa_glutamate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E625": {
    "evidence_level": "moderate",
@@ -4142,7 +4459,7 @@
     "Cips ve çerezler",
     "Çeşniler ve hazır yemekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Glutamat bağırsaktan emilir ve büyük kısmı daha kana geçmeden bağırsak duvarında parçalanır (metabolize edilir).",
    "agency_note": "EFSA 2017'de glutamatlar (E620–E625) için ortak günlük kabul edilebilir alımı (ADI) glutamik asit olarak 30 mg/kg vücut ağırlığı olarak belirledi ve bazı yüksek tüketim senaryolarında bu değerin aşılabileceğini belirtti. Duyarlı kişilerde baş ağrısı bildirimleri vardır.",
    "diet_flags": {
     "vegan": "yes",
@@ -4152,7 +4469,7 @@
    "sources": [
     "efsa_glutamate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E962": {
    "evidence_level": "strong",
@@ -4211,7 +4528,7 @@
    "found_in": [
     "Kola türü içecekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4243,7 +4560,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E339": {
    "evidence_level": "strong",
@@ -4252,7 +4569,7 @@
     "İşlenmiş et ürünleri",
     "Eritme peynir"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4284,7 +4601,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E340": {
    "evidence_level": "strong",
@@ -4292,7 +4609,7 @@
    "found_in": [
     "İşlenmiş gıdalar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4324,7 +4641,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E341": {
    "evidence_level": "strong",
@@ -4333,7 +4650,7 @@
     "Kabartma tozu ve unlu mamuller",
     "Toz gıdalar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4365,7 +4682,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E343": {
    "evidence_level": "strong",
@@ -4373,7 +4690,7 @@
    "found_in": [
     "Toz gıdalar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4405,7 +4722,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E450": {
    "evidence_level": "strong",
@@ -4414,7 +4731,7 @@
     "Kabartma tozu ve unlu mamuller",
     "İşlenmiş et ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4446,7 +4763,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E451": {
    "evidence_level": "strong",
@@ -4455,7 +4772,7 @@
     "İşlenmiş et ürünleri",
     "Deniz ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4487,7 +4804,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E452": {
    "evidence_level": "strong",
@@ -4496,7 +4813,7 @@
     "İşlenmiş et ürünleri",
     "Eritme peynir"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fosfat katkıları sindirim kanalında çözünerek serbest fosfata (ortofosfat) ayrışır; di-, tri- ve polifosfatlar da ortofosfata dönüşür. Bu fosforun yaklaşık %80–90'ı emilir; vücutta başka bir maddeye dönüşmez ve böbreklerden idrarla atılır.",
    "agency_note": "EFSA 2019'da fosfatlar için ortak günlük kabul edilebilir alımı (ADI) fosfor olarak 40 mg/kg vücut ağırlığı olarak belirledi. Tüm kaynaklardan alınan fosforla birlikte bebek, küçük çocuk ve çocuklarda ortalama alımın, ergenlerde ise yüksek alımın bu sınırı aşabildiğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -4528,7 +4845,7 @@
    "sources": [
     "efsa_phosphate"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E432": {
    "evidence_level": "strong",
@@ -5137,7 +5454,7 @@
     "AB'de yalnızca Strazburg sosisi",
     "Hayvan yemi (renk pigmenti olarak)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Kantaksantin sıçanlarda yağ dokusunda, karaciğerde ve dalakta birikir; yağ dokusundan çok yavaş atılır, diğer dokulardaki düzeyi alım kesildikten sonra haftalar içinde azalır.",
    "agency_note": "EFSA 2010'da, insanlarda ve maymunlarda gözün retinasında kristal birikintileri gözlendiği için günlük kabul edilebilir alımı (ADI) 0,03 mg/kg vücut ağırlığı olarak belirledi. Gıda ve yemden gelen toplam alımın bu sınırı aşmasının beklenmediğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -5155,9 +5472,10 @@
     }
    ],
    "sources": [
-    "efsa_e161g"
+    "efsa_e161g",
+    "jecfa_mono_e161g"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E950": {
    "evidence_level": "strong",
@@ -5195,7 +5513,7 @@
     "Masa tatlandırıcıları",
     "Diyet içecekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sakarinin çoğu, belki tamamı, bağırsaktan emilir. Vücutta parçalanmaz; yarılanma süresi yaklaşık 4 saattir ve başlıca idrarla değişmeden atılır.",
    "agency_note": "EFSA 2024'te günlük kabul edilebilir alımı (ADI) 5'ten 9 mg/kg vücut ağırlığına yükseltti; yeni çalışmaların genotoksisite endişesi doğurmadığını ve yüksek tüketenlerde bile alımın sınırın altında kaldığını bildirdi. IARC sakarini 1999'da Grup 3'e (insanlarda kanserojenliği sınıflandırılamaz) almıştı.",
    "diet_flags": {
     "vegan": "yes",
@@ -5215,7 +5533,7 @@
    "sources": [
     "efsa_e954"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E955": {
    "evidence_level": "strong",
@@ -5225,7 +5543,7 @@
     "Şekersiz tatlılar",
     "Masa tatlandırıcıları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sukralozun ağızdan alınan miktarının insanda yalnızca yaklaşık %9–22'si emilir; kalan büyük kısmı dışkıyla atılır. Emilen sukraloz başlıca idrarla atılır; idrardakinin %10'undan azı glukuronik asitle bağlanmış parçalanma ürünüdür.",
    "agency_note": "EFSA 2026'daki yeniden değerlendirmesinde günlük kabul edilebilir alımı (ADI) 15 mg/kg vücut ağırlığı olarak korudu ve en yüksek alım tahmininin bile bu sınırın altında olduğunu bildirdi. Evde fırınlama ve kızartma gibi yüksek ısıda klorlu bileşik oluşup oluşmadığı konusundaki belirsizlik nedeniyle unlu mamullerde kullanımın genişletilmesini onaylamadı.",
    "diet_flags": {
     "vegan": "yes",
@@ -5245,7 +5563,7 @@
    "sources": [
     "efsa_e955"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E200": {
    "evidence_level": "strong",
@@ -5255,7 +5573,7 @@
     "Unlu mamuller",
     "İçecekler ve soslar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sorbik asit vücutta kaproik asit gibi diğer yağ asitlerine benzer biçimde parçalanır (oksitlenir) ve enerji kaynağı olarak kullanılır.",
    "agency_note": "EFSA 2019'da sorbik asit ve potasyum sorbat için ortak günlük kabul edilebilir alımı (ADI) sorbik asit olarak 11 mg/kg vücut ağırlığı olarak belirledi; bu değer 2015'teki geçici sınırın (3 mg/kg) yerine geçti.",
    "diet_flags": {
     "vegan": "yes",
@@ -5273,9 +5591,10 @@
     }
    ],
    "sources": [
-    "efsa_sorbate"
+    "efsa_sorbate",
+    "jecfa_mono_sorbic"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E202": {
    "evidence_level": "strong",
@@ -5285,7 +5604,7 @@
     "Unlu mamuller",
     "İçecekler ve soslar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sorbik asit vücutta kaproik asit gibi diğer yağ asitlerine benzer biçimde parçalanır (oksitlenir) ve enerji kaynağı olarak kullanılır.",
    "agency_note": "EFSA 2019'da sorbik asit ve potasyum sorbat için ortak günlük kabul edilebilir alımı (ADI) sorbik asit olarak 11 mg/kg vücut ağırlığı olarak belirledi; bu değer 2015'teki geçici sınırın (3 mg/kg) yerine geçti.",
    "diet_flags": {
     "vegan": "yes",
@@ -5303,9 +5622,10 @@
     }
    ],
    "sources": [
-    "efsa_sorbate"
+    "efsa_sorbate",
+    "jecfa_mono_sorbic"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E1404": {
    "evidence_level": "strong",
@@ -6039,7 +6359,7 @@
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Tokoferollerin vücuttaki akıbeti tam olarak bilinmiyor. Sıçanlarda ağızdan alınan miktarın %3–15'i, yüksek dozlarda %25'e kadarı dışkıyla atılır; idrarla değişmeden atılan tokoferol hemen hemen yoktur, bazı parçalanma ürünleri idrarla çıkar. Gereksinimden fazlası karaciğerde bir miktar depolanır.",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6052,9 +6372,10 @@
     }
    ],
    "sources": [
-    "efsa_tocopherol"
+    "efsa_tocopherol",
+    "jecfa_mono_tocopherol"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E307": {
    "evidence_level": "moderate",
@@ -6064,7 +6385,7 @@
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Tokoferollerin vücuttaki akıbeti tam olarak bilinmiyor. Sıçanlarda ağızdan alınan miktarın %3–15'i, yüksek dozlarda %25'e kadarı dışkıyla atılır; idrarla değişmeden atılan tokoferol hemen hemen yoktur, bazı parçalanma ürünleri idrarla çıkar. Gereksinimden fazlası karaciğerde bir miktar depolanır.",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6077,9 +6398,10 @@
     }
    ],
    "sources": [
-    "efsa_tocopherol"
+    "efsa_tocopherol",
+    "jecfa_mono_tocopherol"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E308": {
    "evidence_level": "moderate",
@@ -6089,7 +6411,7 @@
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Tokoferollerin vücuttaki akıbeti tam olarak bilinmiyor. Sıçanlarda ağızdan alınan miktarın %3–15'i, yüksek dozlarda %25'e kadarı dışkıyla atılır; idrarla değişmeden atılan tokoferol hemen hemen yoktur, bazı parçalanma ürünleri idrarla çıkar. Gereksinimden fazlası karaciğerde bir miktar depolanır.",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6102,9 +6424,10 @@
     }
    ],
    "sources": [
-    "efsa_tocopherol"
+    "efsa_tocopherol",
+    "jecfa_mono_tocopherol"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E309": {
    "evidence_level": "moderate",
@@ -6114,7 +6437,7 @@
     "Yağlı atıştırmalıklar",
     "Bebek mamaları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Tokoferollerin vücuttaki akıbeti tam olarak bilinmiyor. Sıçanlarda ağızdan alınan miktarın %3–15'i, yüksek dozlarda %25'e kadarı dışkıyla atılır; idrarla değişmeden atılan tokoferol hemen hemen yoktur, bazı parçalanma ürünleri idrarla çıkar. Gereksinimden fazlası karaciğerde bir miktar depolanır.",
    "agency_note": "EFSA 2015'te katkı maddesi olarak kullanım düzeylerinde güvenlik endişesi bulmadı; üreme ve gelişim üzerine veri yetersiz olduğu için sayısal bir günlük alım sınırı (ADI) belirleyemedi. Yetişkinler için E vitamininin üst alım düzeyi günde 300 mg'dır.",
    "regulatory_extra": [
     {
@@ -6127,9 +6450,10 @@
     }
    ],
    "sources": [
-    "efsa_tocopherol"
+    "efsa_tocopherol",
+    "jecfa_mono_tocopherol"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E410": {
    "evidence_level": "strong",
@@ -6384,7 +6708,7 @@
     "Soslar",
     "Şekerlemeler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Kurkuminin bağırsaktan emilimi çok düşüktür. Günde 180 mg'a kadar alan hastaların kanında ve idrarında kurkumin bulunmamış, dışkıda bulunmuştur; günde 0,5–2 g alanların kanında güçlükle saptanabilmiş, 4–8 g'da ölçülebilmiş; idrarda hiçbir dozda bulunmamıştır.",
    "agency_note": "EFSA 2010'da kurkumin için günlük kabul edilebilir alımı (ADI) 3 mg/kg vücut ağırlığı olarak belirledi; uzun süreli çalışmalarda kanser yapıcı bulunmadı. 2014'teki ayrıntılı hesapta çok tüketen küçük çocuklarda alımın bu sınıra yaklaşabildiği görüldü.",
    "regulatory_extra": [
     {
@@ -6397,9 +6721,10 @@
     }
    ],
    "sources": [
-    "efsa_e100"
+    "efsa_e100",
+    "jecfa_mono_e100"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E131": {
    "evidence_level": "strong",
@@ -6458,7 +6783,7 @@
     "İçecekler",
     "Dondurma"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan verilen brilliant blue FCF'nin neredeyse tamamı değişmeden dışkıyla atılmış, idrarda bulunmamıştır. Köpeklerde safraya geçen miktar dozun %5'ini aşmamıştır.",
    "agency_note": "EFSA 2010'da parlak mavi FCF için ADI'yi 10'dan 6 mg/kg vücut ağırlığına düşürdü. Ayrıntılı hesapta alımlar bu sınırın altında kaldı.",
    "regulatory_extra": [
     {
@@ -6471,9 +6796,10 @@
     }
    ],
    "sources": [
-    "efsa_e133"
+    "efsa_e133",
+    "jecfa_mono_e133"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E140": {
    "evidence_level": "moderate",
@@ -6533,7 +6859,7 @@
     "Şekerlemeler",
     "Soslar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan verilen yeşil S'nin çok azı idrara geçmiş, çoğu dışkıyla atılmıştır. Domuz ve buzağılarda emilim görülmemiş, tamamı dışkıyla atılmıştır.",
    "agency_note": "EFSA 2010'da yeşil S için ADI'yi 5 mg/kg vücut ağırlığı olarak korudu. Ayrıntılı hesapta alımlar bu sınırın altında kaldı.",
    "regulatory_extra": [
     {
@@ -6546,9 +6872,10 @@
     }
    ],
    "sources": [
-    "efsa_e142"
+    "efsa_e142",
+    "jecfa_mono_e142"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E150a": {
    "evidence_level": "strong",
@@ -6607,7 +6934,7 @@
     "Siyah şekerlemeler",
     "Balık yumurtası taklitleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan verilen brilliant black PN'nin %94–98'i 40 saat içinde dışkıyla, %5'ten azı idrarla atılmış; dokularda yalnızca iz miktarı kalmıştır.",
    "agency_note": "EFSA 2010'da parlak siyah BN için ADI'yi 5 mg/kg vücut ağırlığı olarak belirledi; uzun süreli kanser çalışmaları olumsuz çıktı. 10 yaş altı çocuklarda yüksek alım bu sınırı aşabiliyordu.",
    "regulatory_extra": [
     {
@@ -6620,9 +6947,10 @@
     }
    ],
    "sources": [
-    "efsa_e151"
+    "efsa_e151",
+    "jecfa_mono_e151"
    ],
-   "last_reviewed": "2026-10-04",
+   "last_reviewed": "2026-10-08",
    "profile_warnings": [
     {
      "profile": "child",
@@ -6662,7 +6990,7 @@
     "Çikolata aromalı kekler",
     "Şekerlemeler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Fare ve sıçanlarda ağızdan verilen brown HT'nin hemen tamamı 72 saat içinde atılır: %80–90'ı dışkıyla, %7–16,5'i idrarla. 72 saat sonra dokularda dozun yalnızca yaklaşık %0,05'i kalmıştır.",
    "agency_note": "EFSA 2010'da kahverengi HT için ADI'yi 1,5 mg/kg vücut ağırlığı olarak belirledi. Ortalama alımlar sınırın altında kaldı; çok tüketen yetişkin ve çocuklarda aşılabildiği bildirildi.",
    "regulatory_extra": [
     {
@@ -6675,9 +7003,10 @@
     }
    ],
    "sources": [
-    "efsa_e155"
+    "efsa_e155",
+    "jecfa_mono_e155"
    ],
-   "last_reviewed": "2026-10-04",
+   "last_reviewed": "2026-10-08",
    "profile_warnings": [
     {
      "profile": "child",
@@ -6719,7 +7048,7 @@
     "Tereyağı",
     "Çerezler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Annatto pigmentleri (biksin ve norbiksin) bağırsaktan kana geçer ama kandan hızla temizlenir: gönüllülerde tek dozdan sonra biksin 8 saat içinde kandan kaybolmuş, norbiksin daha yavaş azalmıştır. Sıçanlarda düşük dozlarla bir yıl beslemede dokularda birikme görülmemiştir.",
    "agency_note": "EFSA 2019'da annattonun renk veren bileşenleri için ayrı ADI'ler kullandı: biksin 6 mg/kg, norbiksin 0,3 mg/kg vücut ağırlığı. Genotoksisite endişesi bulmadı; bir ülkede çok tüketen küçük çocuklarda norbiksin sınırının aşılabildiğini, bunun sağlık endişesi olmadığını bildirdi.",
    "regulatory_extra": [
     {
@@ -6732,9 +7061,10 @@
     }
    ],
    "sources": [
-    "efsa_e160b"
+    "efsa_e160b",
+    "jecfa_mono_e160b"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E160c": {
    "evidence_level": "strong",
@@ -6768,7 +7098,7 @@
     "Soslar",
     "Şekerlemeler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Ağızdan alınan beta-apo-8'-karotenalin normalde yalnızca küçük bir kısmı emilir; yüksek dozun neredeyse tamamı dışkıyla atılır. Emilen kısım karaciğerde A vitamini ve beta-apo-8'-karotenoik asitle birlikte bulunur; bir kısmı A vitaminine çevrilir.",
    "agency_note": "EFSA 2014'te ADI'yi 0,05'ten 0,3 mg/kg vücut ağırlığına yükseltti ve bildirilen kullanım düzeylerinde güvenlik endişesi görmedi.",
    "regulatory_extra": [
     {
@@ -6781,9 +7111,10 @@
     }
    ],
    "sources": [
-    "efsa_e160e"
+    "efsa_e160e",
+    "jecfa_mono_e160e"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E161b": {
    "evidence_level": "moderate",
@@ -6825,7 +7156,7 @@
     "Reçeller",
     "Şekerlemeler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Antosiyaninler sindirim kanalından az emilir; antosiyaninli besinleri yiyen kişilerin idrarı renklenmez.",
    "agency_note": "EFSA 2013'te veri yetersiz olduğu için sayısal ADI belirlemedi; yenilebilir meyve ve sebzelerin sulu ekstrelerinin mevcut kullanımda endişe yaratmasının olası olmadığını bildirdi.",
    "regulatory_extra": [
     {
@@ -6838,9 +7169,10 @@
     }
    ],
    "sources": [
-    "efsa_e163"
+    "efsa_e163",
+    "jecfa_mono_e163"
    ],
-   "last_reviewed": "2026-10-04"
+   "last_reviewed": "2026-10-08"
   },
   "E170": {
    "evidence_level": "strong",
@@ -7067,7 +7399,7 @@
     "Çerezler ve atıştırmalıklar",
     "Sakız"
    ],
-   "in_the_body": "",
+   "in_the_body": "Gallat esterleri vücutta (bağırsak duvarında ve bağırsak bakterilerince de) gallik aside parçalanır. Gallik asidin çoğu 4-O-metil gallik aside çevrilir ve serbest ya da glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2014'te propil gallat için 0,5 mg/kg vücut ağırlığı günlük alım sınırı (ADI) belirledi ve mevcut kullanım düzeylerinde güvenlik endişesi bulmadı.",
    "diet_flags": {
     "vegan": "yes",
@@ -7085,9 +7417,10 @@
     }
    ],
    "sources": [
-    "efsa_e310"
+    "efsa_e310",
+    "jecfa_mono_gallates"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E311": {
    "evidence_level": "moderate",
@@ -7095,7 +7428,7 @@
    "found_in": [
     "AB'de 2018'den beri izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Gallat esterleri vücutta (bağırsak duvarında ve bağırsak bakterilerince de) gallik aside parçalanır. Gallik asidin çoğu 4-O-metil gallik aside çevrilir ve serbest ya da glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2015'te mevcut verilerin bir günlük alım sınırı (ADI) belirlemek için çok sınırlı olduğunu ve güvenilir bir değerlendirme için yeterli toksikolojik veri gerektiğini belirtti. Bu veriler sağlanmadığı için madde 2018'de AB izinli listesinden çıkarıldı.",
    "diet_flags": {
     "vegan": "yes",
@@ -7122,9 +7455,10 @@
    ],
    "sources": [
     "efsa_e311",
-    "eu_2018_1481"
+    "eu_2018_1481",
+    "jecfa_mono_gallates"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E312": {
    "evidence_level": "moderate",
@@ -7132,7 +7466,7 @@
    "found_in": [
     "AB'de 2018'den beri izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Gallat esterleri vücutta (bağırsak duvarında ve bağırsak bakterilerince de) gallik aside parçalanır. Gallik asidin çoğu 4-O-metil gallik aside çevrilir ve serbest ya da glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2015'te mevcut verilerin bir günlük alım sınırı (ADI) belirlemek için çok sınırlı olduğunu belirtti; verisi sunulan tek kullanım için güvenlik endişesinin olası görünmediğini, ancak tam değerlendirme için yeterli toksikolojik veri gerektiğini ekledi. Bu veriler sağlanmadığı için madde 2018'de AB izinli listesinden çıkarıldı.",
    "diet_flags": {
     "vegan": "yes",
@@ -7159,9 +7493,10 @@
    ],
    "sources": [
     "efsa_e312",
-    "eu_2018_1481"
+    "eu_2018_1481",
+    "jecfa_mono_gallates"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E315": {
    "evidence_level": "strong",
@@ -7231,7 +7566,7 @@
     "Çerezler ve atıştırmalıklar",
     "Hazır çorba ve soslar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan alınan TBHQ'nun %78–88'i, büyük kısmı ilk 24 saatte olmak üzere, idrarla atılır; idrardakinin çoğu sülfatla, az bir kısmı glukuronik asitle bağlanmış biçimdedir. Dışkıyla atılan %2–6'dır; dokularda yalnızca iz miktarı kalır.",
    "agency_note": "TBHQ AB'de 0,7 mg/kg vücut ağırlığı günlük alım sınırıyla (ADI) izinlidir. EFSA 2016'daki ayrıntılı maruziyet değerlendirmesinde, en yüksek izinli düzeylerle yapılan hesapta küçük ve büyük çocuklarda ADI'nin aşılabildiğini, ancak gerçekçi (rafine) senaryolarda hiçbir grupta aşılmadığını belirtti.",
    "diet_flags": {
     "vegan": "yes",
@@ -7249,9 +7584,10 @@
     }
    ],
    "sources": [
-    "efsa_e319"
+    "efsa_e319",
+    "jecfa_mono_e319"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E321": {
    "evidence_level": "strong",
@@ -7319,7 +7655,7 @@
    "found_in": [
     "Taze ve dondurulmuş karides ve kabuklu deniz ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "İki erkek gönüllüde 1 g'lık dozun ortalama %18'i ilk 12 saatte idrarla, %64'ü dışkıyla atılmıştır. İdrarla başlıca sülfatla bağlanmış biçimde atıldığı bildirilmiştir.",
    "agency_note": "EFSA 2014'teki yeniden değerlendirmede, verilerin bir günlük alım sınırı (ADI) belirlemeye yetmediği konusunda önceki SCF görüşüne katıldı. Karideslerde kararmayı önlemek için, kabuklu eti kalıntısı 2 mg/kg'ı aşmadığı sürece toksikolojik olarak kabul edilebilir buldu; kullanımın genişletilmesi için üreme toksisitesi verisi gerektiğini belirtti.",
    "diet_flags": {
     "vegan": "yes",
@@ -7337,9 +7673,10 @@
     }
    ],
    "sources": [
-    "efsa_e586"
+    "efsa_e586",
+    "jecfa_mono_e586"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E234": {
    "evidence_level": "strong",
@@ -7378,7 +7715,7 @@
     "Sert ve yarı sert peynirlerin kabuğu",
     "Kurutulmuş sucuk ve salamların dış yüzeyi"
    ],
-   "in_the_body": "",
+   "in_the_body": "Natamisin bağırsaktan neredeyse hiç emilmez: 500 mg alan kişilerin kanında saptanamamıştır. Sıçanlarda neredeyse tamamı dışkıyla atılır; kalın bağırsakta bakterilerce etkisiz parçalara ayrılır.",
    "agency_note": "EFSA 2009'da verilerin kendi ADI'sini belirlemeye yeterince sağlam olmadığını belirtti (JECFA'nın ADI'si 0,3 mg/kg vücut ağırlığı). Yalnızca yarı sert ve yarı yumuşak peynir kabuğu ile bazı sucuk kılıflarının yüzey işleminde kullanıldığında önerilen düzeylerin güvenlik endişesi oluşturmadığı ve antimikrobiyal direnç açısından endişe olmadığı sonucuna vardı.",
    "regulatory_extra": [
     {
@@ -7391,9 +7728,10 @@
     }
    ],
    "sources": [
-    "efsa_e235"
+    "efsa_e235",
+    "jecfa_mono_e235"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E280": {
    "evidence_level": "moderate",
@@ -7523,7 +7861,7 @@
     "Kakao ürünleri",
     "Çikolata kaplamalı şekerlemeler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sindirim sıvılarında parçalanarak fosfat açığa çıkarır. Sıçanlarda işaretli maddenin yaklaşık %79'u 24 saatte dışkıyla, %4'ü idrarla atılmış; emilen fosfat kemik ve kasta inorganik fosfat olarak bulunmuştur.",
    "agency_note": "EFSA 2016'da yeniden değerlendirmesinde mevcut 30 mg/kg vücut ağırlığı günlük alım sınırını (ADI) değiştirmeye gerek görmedi ve gıda katkı maddesi olarak kullanımında güvenlik endişesi bulmadı.",
    "diet_flags": {
     "vegan": "unknown",
@@ -7541,9 +7879,10 @@
     }
    ],
    "sources": [
-    "efsa_e442"
+    "efsa_e442",
+    "jecfa_mono_e442"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E470a": {
    "evidence_level": "strong",
@@ -7877,7 +8216,7 @@
     "Şekerlemeler",
     "Tatlılar ve içecek beyazlatıcılar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sakkaroz esterleri bağırsakta kısmen sakkaroz ve yağ asitlerine parçalanır; değişmeden emilen kısım çok azdır (sıçanlarda sakkaroz monostearatın biyoyararlanımı %0,26–0,33).",
    "agency_note": "E474'ün ayrı bir EFSA yeniden değerlendirme görüşü bulunamadı. EFSA 2023'teki E473 görüşünde, E473 ve E474 için 2004'te belirlenen grup ADI'yi 40 mg/kg vücut ağırlığı olarak andı.",
    "diet_flags": {
     "vegan": "unknown",
@@ -7895,9 +8234,10 @@
     }
    ],
    "sources": [
-    "efsa_e473"
+    "efsa_e473",
+    "jecfa_mono_e474"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E475": {
    "evidence_level": "strong",
@@ -7985,7 +8325,7 @@
     "Tatlılar ve çırpılmış kremalar",
     "Yağ emülsiyonları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Propan-1,2-diol esterleri sindirim kanalında parçalanarak propan-1,2-diol (propilen glikol) ve yağ asitlerine ayrılır; laboratuvar deneylerinde bu ayrışma tam olmamıştır.",
    "agency_note": "EFSA 2018'de propan-1,2-diol cinsinden 25 mg/kg vücut ağırlığı ADI'yi (E477 olarak yaklaşık 80 mg/kg vücut ağırlığı) yeniden teyit etti. Bildirilen kullanım düzeylerinde maruziyet tahminleri ADI'yi aşmadığı için güvenlik endişesi bulmadı; propan-1,2-diol kaynaklı katkılar (E477, E1520, E405) için ortak bir değerlendirme yapılmasını planladığını belirtti.",
    "diet_flags": {
     "vegan": "unknown",
@@ -8005,7 +8345,7 @@
    "sources": [
     "efsa_e477"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E479b": {
    "evidence_level": "moderate",
@@ -8013,7 +8353,7 @@
    "found_in": [
     "Kızartma amaçlı yağ emülsiyonları"
    ],
-   "in_the_body": "",
+   "in_the_body": "Bu maddenin vücutta nasıl emildiğine, işlendiğine ve atıldığına ilişkin güvenilir veri yok.",
    "agency_note": "EFSA 2018'de sayısal bir ADI belirlemedi; sıçanlarda uzun süreli çalışmalardan 5.400 mg/kg vücut ağırlığı NOAEL'i ve küçük çocuklarda en yüksek tahmini 10,1 mg/kg vücut ağırlığı maruziyeti karşılaştırarak 540 güvenlik payı hesapladı. Mevcut kullanımın sınırlı olduğunu da dikkate alarak güvenlik endişesi bulmadı; emilim/metabolizma ve gelişimsel toksisite verilerinin yetersiz olduğunu not etti.",
    "diet_flags": {
     "vegan": "unknown",
@@ -8033,7 +8373,7 @@
    "sources": [
     "efsa_e479b"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E481": {
    "evidence_level": "strong",
@@ -8101,7 +8441,7 @@
    "found_in": [
     "AB'de 2024'ten beri izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Stearil tartaratın sindirim kanalında ne ölçüde parçalandığı, emildiği ve vücutta nasıl işlendiği bilinmiyor; mevcut veriler bunu göstermeye yetmiyor.",
    "agency_note": "EFSA 2020'de yeterli toksisite ve genotoksisite verisi bulunmadığını, sindirim kanalında tamamen parçalandığını gösteren verilerin de eksik olduğunu belirtti. Bu nedenle güvenliğinin değerlendirilemediğini ve 1978'de SCF'nin belirlediği kabul edilebilir alımın teyit edilemediğini bildirdi. AB, Komisyon Tüzüğü (AB) 2023/2379 ile E483'ü izinli katkılar listesinden çıkardı.",
    "diet_flags": {
     "vegan": "unknown",
@@ -8130,7 +8470,7 @@
     "efsa_e483",
     "ec_reg_2023_2379"
    ],
-   "last_reviewed": "2026-10-05"
+   "last_reviewed": "2026-10-08"
   },
   "E570": {
    "evidence_level": "strong",
@@ -8298,7 +8638,7 @@
     "Aperatif içkiler",
     "Balık yumurtası ürünleri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Sıçanlarda ağızdan alınan amarantın yalnızca yaklaşık %3'ü emilir. Boya bağırsak bakterilerince azo bağından parçalanır; idrar ve safrada bulunanlar başlıca bu parçalanmanın ürünleridir (aminonaftalin sülfonik asitler).",
    "agency_note": "EFSA 2010'daki yeniden değerlendirmesinde amarantın genotoksik ya da kanserojen olmadığı sonucuna vardı, ancak günlük kabul edilebilir alımı (ADI) 0,15 mg/kg vücut ağırlığına düşürdü (SCF'nin 1984'teki değeri 0,8 mg/kg idi). Çocuklarda tahmini maruziyetin bu sınırın yaklaşık 30 kat altında olduğunu, düzenli olarak çok yüksek miktarda Americano tüketen yetişkinlerde ise sınırın 6 katına kadar aşılabileceğini bildirdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8320,9 +8660,10 @@
     "efsa_amaranth_news_2010",
     "fda_red2_cpg",
     "ecfr_81_10",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_e123"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E154": {
    "evidence_level": "limited",
@@ -8330,7 +8671,7 @@
    "found_in": [
     "AB'de 2011'den beri izinli değil (önceden yalnızca tütsülenmiş ringa balığında)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Brown FK bağırsak içeriğinde azo bağından parçalanır. Sıçan, kobay, tavşan ve domuzlarda ağızdan verildiğinde parçalanma ürünü sülfanilik asit idrar ve dışkıyla atılmıştır.",
    "agency_note": "EFSA 2010'da, uzun süreli toksisite ve kanserojenlik çalışmalarındaki eksiklikler nedeniyle güvenliği hakkında bir sonuca varamadığını bildirdi. SCF daha önce 0,15 mg/kg vücut ağırlığı ADI belirlemişti; JECFA ise 1987'de veri yetersizliği nedeniyle geçici ADI'yi geri çekmişti. AB'de yalnızca tütsülenmiş ringa balığında (kipper) 20 mg/kg'a kadar izinliydi ve 2011'de kullanılmadığı gerekçesiyle izinli listeye alınmadı.",
    "diet_flags": {
     "vegan": "yes",
@@ -8357,9 +8698,10 @@
    ],
    "sources": [
     "efsa_e154",
-    "ab1129_2011"
+    "ab1129_2011",
+    "jecfa_mono_e154"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E160f": {
    "evidence_level": "limited",
@@ -8367,7 +8709,7 @@
    "found_in": [
     "AB'de 2011'den beri gıda katkısı olarak izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Beta-apo-8'-karotenoik asit ve esterleri vücutta apo-karotenalin olağan parçalanma ürünleridir. Sıçanlarda yüksek dozda verilen esterin (metil ester) yalnızca küçük bir kısmı emilmiş, çoğu dışkıyla atılmıştır; bebeklerde kandan hızla temizlendiği bildirilmiştir.",
    "agency_note": "JECFA 1974'te bu maddeyi beta-karoten, beta-apo-8'-karotenal ve beta-apo-8'-karotenoik asidin metil esteriyle birlikte 0–5 mg/kg vücut ağırlığı grup ADI'si içinde değerlendirdi. AB'de üretici maddeyi artık sunmadığı ve yeniden değerlendirme desteklenmediği için 2011'de izinli listeye alınmadı. EFSA 2016'da aynı maddeyi kanatlı yemlerinde yumurta sarısı ve deri renklendiricisi olarak ayrıca değerlendirdi ve tüketiciler için 0,015 mg/kg vücut ağırlığı ADI belirledi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8403,9 +8745,10 @@
    "sources": [
     "ab1129_2011",
     "jecfa_e160f",
-    "efsa_feed_e160f"
+    "efsa_feed_e160f",
+    "jecfa_mono_e160f"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E214": {
    "evidence_level": "moderate",
@@ -8414,7 +8757,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Parabenler ağızdan alındığında iyi emilir ve vücutta (karaciğer ve böbrekte) hızla p-hidroksibenzoik aside parçalanır; kanda ester hâli nadiren ölçülebilir. Bu asit serbest ya da glisin ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8433,9 +8776,10 @@
    ],
    "sources": [
     "efsa_parabens",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_parabens"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E215": {
    "evidence_level": "moderate",
@@ -8444,7 +8788,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Parabenler ağızdan alındığında iyi emilir ve vücutta (karaciğer ve böbrekte) hızla p-hidroksibenzoik aside parçalanır; kanda ester hâli nadiren ölçülebilir. Bu asit serbest ya da glisin ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8463,9 +8807,10 @@
    ],
    "sources": [
     "efsa_parabens",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_parabens"
    ],
-   "last_reviewed": "2026-10-06",
+   "last_reviewed": "2026-10-08",
    "profile_warnings": [
     {
      "profile": "salt",
@@ -8480,7 +8825,7 @@
    "found_in": [
     "AB'de 2006'dan beri gıdada izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Parabenler ağızdan alındığında iyi emilir ve vücutta (karaciğer ve böbrekte) hızla p-hidroksibenzoik aside parçalanır; kanda ester hâli nadiren ölçülebilir. Bu asit serbest ya da glisin ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 13 Temmuz 2004 tarihli görüşünde metil ve etil paraben için toplam 0–10 mg/kg vücut ağırlığı grup ADI belirledi, ancak propil parabeni bu gruba dahil etmedi. Gerekçe, propil parabenin genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler göstermiş olması ve net bir etkisiz doz (NOAEL) belirlenememesiydi; bu nedenle propil paraben için ADI önerilemedi. Bunun üzerine E 216, 2006/52/AT Direktifi ile AB katkı listesinden çıkarıldı.",
    "diet_flags": {
     "vegan": "yes",
@@ -8517,9 +8862,10 @@
     "efsa_parabens_2004",
     "eu_dir_2006_52",
     "ab1129_2011",
-    "ca_ab418"
+    "ca_ab418",
+    "jecfa_mono_parabens"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E217": {
    "evidence_level": "moderate",
@@ -8527,7 +8873,7 @@
    "found_in": [
     "AB'de 2006'dan beri gıdada izinli değil"
    ],
-   "in_the_body": "",
+   "in_the_body": "Parabenler ağızdan alındığında iyi emilir ve vücutta (karaciğer ve böbrekte) hızla p-hidroksibenzoik aside parçalanır; kanda ester hâli nadiren ölçülebilir. Bu asit serbest ya da glisin ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "Vücutta propil paraben (E 216) ile aynı şekilde değerlendirilir. EFSA 2004'te propil parabeni metil ve etil paraben grup ADI'sine (0–10 mg/kg vücut ağırlığı) dahil etmedi; genç sıçanlarda cinsiyet hormonları ve erkek üreme organları üzerinde etkiler bildirildiği ve net bir etkisiz doz belirlenemediği için ADI önerilemedi. E 217 de 2006/52/AT Direktifi ile AB katkı listesinden çıkarıldı.",
    "diet_flags": {
     "vegan": "yes",
@@ -8564,9 +8910,10 @@
     "efsa_parabens_2004",
     "eu_dir_2006_52",
     "ab1129_2011",
-    "ca_ab418"
+    "ca_ab418",
+    "jecfa_mono_parabens"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E218": {
    "evidence_level": "moderate",
@@ -8575,7 +8922,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Parabenler ağızdan alındığında iyi emilir ve vücutta (karaciğer ve böbrekte) hızla p-hidroksibenzoik aside parçalanır; kanda ester hâli nadiren ölçülebilir. Bu asit serbest ya da glisin ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8594,9 +8941,10 @@
    ],
    "sources": [
     "efsa_parabens",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_parabens"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E219": {
    "evidence_level": "moderate",
@@ -8605,7 +8953,7 @@
     "Jöle kaplamalı et ürünleri (ör. pate)",
     "Kurutulmuş et ürünleri (yüzey uygulaması)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Parabenler ağızdan alındığında iyi emilir ve vücutta (karaciğer ve böbrekte) hızla p-hidroksibenzoik aside parçalanır; kanda ester hâli nadiren ölçülebilir. Bu asit serbest ya da glisin ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "EFSA 2004'te metil ve etil paraben ile sodyum tuzları için grup günlük kabul edilebilir alım (ADI) değerini 0–10 mg/kg vücut ağırlığı olarak belirledi; bu iki parabenin hayvan çalışmalarında günde 1000 mg/kg vücut ağırlığına kadar üreme üzerinde etki göstermediğini belirtti. Genç erkek sıçanlarda görece düşük dozda sperm üretimini etkilediği bildirilen propil paraben ise yetersiz veri nedeniyle bu gruba dahil edilmedi.",
    "diet_flags": {
     "vegan": "yes",
@@ -8624,9 +8972,10 @@
    ],
    "sources": [
     "efsa_parabens",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_parabens"
    ],
-   "last_reviewed": "2026-10-06",
+   "last_reviewed": "2026-10-08",
    "profile_warnings": [
     {
      "profile": "salt",
@@ -8641,7 +8990,7 @@
    "found_in": [
     "AB'de 2003/114/AT Direktifi'nden beri gıda katkısı olarak izinli değil (önceden turunçgil yüzey işlemi)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Bifenil sıçan ve tavşanlarda başlıca 4-hidroksibifenile çevrilir; bu madde serbest ya da sülfat ve glukuronik asitle bağlanmış olarak idrarla atılır.",
    "agency_note": "AB'de daha önce turunçgillerin yüzey işleminde 70 mg/kg'a kadar izinliydi. 2003/114/AT Direktifi, bifenilin bitki koruma ürünü tanımına girdiğini ve gıda katkı mevzuatının kapsamında kalmaması gerektiğini belirterek bu kaydı katkı listesinden çıkardı. FAO/WHO pestisit kalıntıları toplantısı (JMPR) 1966–1967 değerlendirmesinde difenil için 0–0,125 mg/kg vücut ağırlığı ADI belirlemişti.",
    "diet_flags": {
     "vegan": "yes",
@@ -8669,9 +9018,10 @@
    "sources": [
     "eu_dir_2003_114",
     "ab1129_2011",
-    "jmpr_diphenyl_1967"
+    "jmpr_diphenyl_1967",
+    "jecfa_mono_diphenyl"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E239": {
    "evidence_level": "moderate",
@@ -8977,7 +9327,7 @@
    "found_in": [
     "Havyar (mersin balığı yumurtası)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Bor bileşiği olarak emilir.",
    "agency_note": "Vücutta borik asitle aynı şekilde bor olarak değerlendirilir. EFSA 2013'te borik asit ve boraks için bor olarak 0,16 mg/kg vücut ağırlığı grup ADI belirledi; hayvan çalışmalarında erkek üreme sisteminin olumsuz etkilendiği bildirilmiştir. EFSA, yalnızca havyardaki izinli kullanımdan ADI'nin düzenli olarak aşılmasının olası olmadığını belirtti.",
    "diet_flags": {
     "vegan": "yes",
@@ -9014,7 +9364,7 @@
     "eu_1333_annex2_e",
     "tgk2013"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E320": {
    "evidence_level": "strong",
@@ -9024,7 +9374,7 @@
     "Toz (kurutulmuş) çorba ve bulyonlar",
     "Çeşniler ve baharat karışımları"
    ],
-   "in_the_body": "",
+   "in_the_body": "BHA bağırsaktan emilir; karaciğerde glukuronik asit ya da sülfatla bağlanarak idrarla atılır. Çok yüksek dozlarda yağ dokusunda birikebildiğine dair bulgu var, diğer dokularda birikme görülmemiştir.",
    "agency_note": "EFSA 2011'de yeniden değerlendirmede BHA'nın genotoksisite açısından endişe oluşturmadığını belirtti; sıçanlarda ön mide (insanda karşılığı olmayan organ) tümörlerinin insan risk değerlendirmesi için artık geçerli olmayabileceğini değerlendirdi. Yavru sıçanlarda büyüme geriliği ve davranış etkilerine dayanarak ADI'yi 1,0 mg/kg vücut ağırlığına yükseltti (1989'da 0,5) ve mevcut kullanım düzeylerinde tahmini alımın genellikle bu sınırın altında olduğunu belirtti. IARC ise 1986'da hayvanlarda ön mide tümörleri için yeterli kanıt bulunduğunu, insanlarda veri olmadığını belirterek BHA'yı 1987'de Grup 2B (insanlar için olası kanserojen) olarak sınıflandırdı.",
    "diet_flags": {
     "vegan": "yes",
@@ -9054,9 +9404,10 @@
     "iarc_bha",
     "eu_1333_annex2_e",
     "ab1129_2011",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_e320"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E626": {
    "evidence_level": "moderate",
@@ -9602,7 +9953,7 @@
    "found_in": [
     "Sakız"
    ],
-   "in_the_body": "",
+   "in_the_body": "Çinko başlıca ince bağırsağın ilk bölümünden (duodenum) emilir; emilimi besindeki fitat ve soya proteini gibi maddelerden etkilenir. Vücuttaki çinko dengesinde metallotiyonein adlı protein rol oynar.",
    "agency_note": "JECFA 1982'de çinko için geçici en yüksek tolere edilebilir günlük alımı 0,3–1 mg/kg vücut ağırlığı olarak belirledi; SCF 2002'de yetişkinler için tolere edilebilir üst alım düzeyini günde 25 mg olarak belirledi. AB'de yalnızca sakızda en fazla 1 000 mg/kg düzeyinde kullanımına izin verilir.",
    "diet_flags": {
     "vegan": "yes",
@@ -9638,9 +9989,10 @@
    "sources": [
     "ab1333_annex2_e_g5",
     "jecfa_zinc",
-    "efsa_ul_overview"
+    "efsa_ul_overview",
+    "jecfa_mono_zinc"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E924a": {
    "evidence_level": "strong",
@@ -11003,7 +11355,7 @@
     "İnce unlu mamullerin dolgu ve kaplamaları",
     "Evde hazırlanan içecek tozları (hazır çay ve bitki çayı tozları dahil)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Adipik asit vücutta büyük ölçüde parçalanmadan idrarla atılır: sıçanlarda ağızdan alınan dozun yaklaşık %70'i değişmeden idrarda bulunmuştur. Vücut yağlarında ve proteinlerinde adipik asit kalıntısı görülmemiştir.",
    "agency_note": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı.",
    "diet_flags": {
     "vegan": "yes",
@@ -11035,9 +11387,10 @@
     "ab1333_annex2_e_g5",
     "ab1333_annex2_e_g1",
     "ab1333_annex2_c",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_adipic"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E356": {
    "evidence_level": "limited",
@@ -11049,7 +11402,7 @@
     "İnce unlu mamullerin dolgu ve kaplamaları",
     "Evde hazırlanan içecek tozları (hazır çay ve bitki çayı tozları dahil)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Adipik asit vücutta büyük ölçüde parçalanmadan idrarla atılır: sıçanlarda ağızdan alınan dozun yaklaşık %70'i değişmeden idrarda bulunmuştur. Vücut yağlarında ve proteinlerinde adipik asit kalıntısı görülmemiştir.",
    "agency_note": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı. AB'de adipik asit ve tuzları için izin verilen en yüksek miktarlar birlikte (adipik asit olarak) uygulanır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11088,9 +11441,10 @@
     "ab1333_annex2_e_g5",
     "ab1333_annex2_e_g1",
     "ab1333_annex2_c",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_adipic"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E357": {
    "evidence_level": "limited",
@@ -11102,7 +11456,7 @@
     "İnce unlu mamullerin dolgu ve kaplamaları",
     "Evde hazırlanan içecek tozları (hazır çay ve bitki çayı tozları dahil)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Adipik asit vücutta büyük ölçüde parçalanmadan idrarla atılır: sıçanlarda ağızdan alınan dozun yaklaşık %70'i değişmeden idrarda bulunmuştur. Vücut yağlarında ve proteinlerinde adipik asit kalıntısı görülmemiştir.",
    "agency_note": "JECFA 1977'de adipik asit ile potasyum, sodyum ve amonyum tuzları için ortak günlük kabul edilebilir alımı (ADI) 0–5 mg/kg vücut ağırlığı olarak belirledi. JECFA 1999'da adipik asidi aroma maddesi olarak da değerlendirdi ve mevcut alım düzeylerinde güvenlik endişesi bulmadı. AB'de adipik asit ve tuzları için izin verilen en yüksek miktarlar birlikte (adipik asit olarak) uygulanır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11134,9 +11488,10 @@
     "ab1333_annex2_e_g5",
     "ab1333_annex2_e_g1",
     "ab1333_annex2_c",
-    "tgk2013"
+    "tgk2013",
+    "jecfa_mono_adipic"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E363": {
    "evidence_level": "moderate",
@@ -11406,7 +11761,7 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
+   "in_the_body": "Mide-bağırsak kanalında klorür ve eşlik eden iyonlara ayrışır. Besinlerle alınan klorür bağırsak boyunca neredeyse tamamen emilir, organ ve dokulara dağılır; vücuttaki miktarı denge mekanizmalarıyla düzenlenir ve başlıca idrarla, ayrıca ter ve dışkıyla atılır.",
    "agency_note": "EFSA 2019'da hidroklorik asit ve potasyum, kalsiyum, magnezyum klorürleri birlikte yeniden değerlendirdi; değerlendirme için insan verisine dayanan 40 mg klorür/kg vücut ağırlığı/gün referans değeri kullandı ve genotoksisite ile kanserojenite açısından endişe bulmadı. Ortalama maruziyet tüm yaş gruplarında bu değerin altında ya da eşitinde kaldı; bazı küçük yaş gruplarında yüksek tüketicilerde (95. yüzdelik) hafifçe aşılabildiği bildirilmiştir. EFSA, bildirilen kullanım ve düzeylerde güvenlik endişesi bulmadı. JECFA 1965'te ADI'yi 'sınırlandırılmamış' olarak belirlemişti.",
    "diet_flags": {
     "vegan": "yes",
@@ -11446,7 +11801,7 @@
     "ab1333_annex2_c",
     "tgk2013"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E508": {
    "evidence_level": "strong",
@@ -11454,7 +11809,7 @@
    "found_in": [
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
+   "in_the_body": "Mide-bağırsak kanalında klorür ve eşlik eden iyonlara ayrışır. Besinlerle alınan klorür bağırsak boyunca neredeyse tamamen emilir, organ ve dokulara dağılır; vücuttaki miktarı denge mekanizmalarıyla düzenlenir ve başlıca idrarla, ayrıca ter ve dışkıyla atılır.",
    "agency_note": "EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11484,7 +11839,7 @@
     "ab1333_annex2_c",
     "ab1129_2011"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E509": {
    "evidence_level": "strong",
@@ -11494,7 +11849,7 @@
     "Elma dışı meyve kompostoları",
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
+   "in_the_body": "Mide-bağırsak kanalında klorür ve eşlik eden iyonlara ayrışır. Besinlerle alınan klorür bağırsak boyunca neredeyse tamamen emilir, organ ve dokulara dağılır; vücuttaki miktarı denge mekanizmalarıyla düzenlenir ve başlıca idrarla, ayrıca ter ve dışkıyla atılır.",
    "agency_note": "EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11525,7 +11880,7 @@
     "ab1333_annex2_c",
     "ab1129_2011"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E511": {
    "evidence_level": "strong",
@@ -11534,7 +11889,7 @@
     "Deniz tuzu",
     "AB'de birçok gıdada gerektiği kadar (quantum satis) kullanılabilir"
    ],
-   "in_the_body": "",
+   "in_the_body": "Mide-bağırsak kanalında klorür ve eşlik eden iyonlara ayrışır. Besinlerle alınan klorür bağırsak boyunca neredeyse tamamen emilir, organ ve dokulara dağılır; vücuttaki miktarı denge mekanizmalarıyla düzenlenir ve başlıca idrarla, ayrıca ter ve dışkıyla atılır.",
    "agency_note": "EFSA 2019'da E 507, E 508, E 509 ve E 511'i birlikte yeniden değerlendirdi; akut toksisitenin düşük olduğunu, genotoksisite ve kanserojenlik açısından endişe bulunmadığını belirtti ve klorür için 40 mg/kg vücut ağırlığı/gün referans değer kullandı. Bazı yaş gruplarında (küçük çocuklar, çocuklar, ergenler) yüksek tüketicilerde bu değerin hafifçe aşılabileceği bildirilmiş, ancak bildirilen kullanım düzeylerinde güvenlik endişesi olmadığı sonucuna varılmıştır.",
    "diet_flags": {
     "vegan": "yes",
@@ -11565,7 +11920,7 @@
     "ab1333_annex2_c",
     "ab1129_2011"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E512": {
    "evidence_level": "moderate",
@@ -12478,7 +12833,7 @@
     "Bulanık spirtli içecekler",
     "Alkol oranı %15'in altındaki bulanık aromalı alkollü içecekler"
    ],
-   "in_the_body": "",
+   "in_the_body": "Odun reçinesinin gliserol esterleri bağırsakta büyük ölçüde parçalanmaz; çoğu değişmeden dışkıyla atılır. Sıçanlarda dozun en çok %5'i emilmiştir; emilen kısım (büyük olasılıkla monoesterlerin parçalanma ürünleri) safrayla dışkıya geçer.",
    "agency_note": "EFSA 2018'deki yeniden değerlendirmede üreme ve gelişim verisi bulunmadığı için 12,5 mg/kg vücut ağırlığı günlük alım sınırını (ADI) geçici olarak korudu ve değerlendirmeyi Pinus palustris ve Pinus elliottii çamlarından üretilen ürünle sınırladı. 2023'teki izleme görüşünde yeni sıçan çalışmasına dayanarak ADI'yi 10 mg/kg vücut ağırlığı olarak belirledi; izinli azami düzeylerde ve bildirilen kullanımda güvenlik endişesi bulmadı ve AB spesifikasyonlarında değişiklik (tanımın gözden geçirilmesi, toksik element sınırlarının düşürülmesi) önerdi.",
    "diet_flags": {
     "vegan": "yes",
@@ -12509,7 +12864,7 @@
     "ab1333_annex2_e_g12",
     "ab1333_annex2_e_g13"
    ],
-   "last_reviewed": "2026-10-06"
+   "last_reviewed": "2026-10-08"
   },
   "E459": {
    "evidence_level": "strong",
@@ -13721,7 +14076,7 @@
     "Sosis, pate ve terrinler",
     "Balık ve kabuklu ezmeleri, haşlanmış kabuklular"
    ],
-   "in_the_body": "",
+   "in_the_body": "Betanin ağızdan alındığında az emilir; sıçanlarda büyük kısmı sindirim kanalında parçalanmış, dozun yaklaşık %3'ü idrarla, benzer bir miktarı dışkıyla atılmıştır.",
    "agency_note": "EFSA 2015'te toksikoloji verilerinin ADI belirlemeye yetmediğini belirtti; ancak katkıdan gelen betanin alımının normal beslenmeyle alınanla aynı aralıkta olduğunu ve bildirilen kullanım düzeylerinde güvenlik endişesi bulunmadığını açıkladı. JECFA 1987'de ADI'yi 'belirtilmemiş' olarak belirledi.",
    "regulatory_extra": [
     {
@@ -13757,7 +14112,8 @@
     "ab1333_annex2_e_g3",
     "ab1333_annex2_e_g6",
     "ab1333_annex2_e_g7",
-    "eu_1333_annex2_e"
+    "eu_1333_annex2_e",
+    "jecfa_mono_e162"
    ],
    "last_reviewed": "2026-10-08"
   },
@@ -13808,7 +14164,7 @@
     "Dondurulmuş kabuklular; konserve balık, kabuklu ve yumuşakçalar",
     "Emülsiyon soslar (en çok 75 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Kalsiyum disodyum EDTA bağırsaktan çok az emilir: sıçanlarda %2–4, insanda yaklaşık %2,5–5. Dozun büyük kısmı (sıçanlarda %80–90) 24 saat içinde dışkıyla atılır.",
    "agency_note": "JECFA 1973'te ADI'yi kalsiyum disodyum EDTA olarak 0–2,5 mg/kg vücut ağırlığı/gün belirledi ve gıdada fazla disodyum EDTA kalmaması gerektiğini belirtti.",
    "regulatory_extra": [
     {
@@ -13834,9 +14190,10 @@
     "ab1333_annex2_e_g3",
     "ab1333_annex2_e_g7",
     "eu_1333_annex2_e",
-    "ab1333_annex2_e_g10"
+    "ab1333_annex2_e_g10",
+    "jecfa_mono_e385"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E431": {
    "evidence_level": "limited",
@@ -13844,7 +14201,7 @@
    "found_in": [
     "AB'nin katkı listesinde (Ek II Bölüm B) yer alır, ancak güncel konsolide metinde (18.08.2026) hiçbir gıda kategorisi için kullanım izni yoktur"
    ],
-   "in_the_body": "",
+   "in_the_body": "İnsanda polioksietilen (40) kısmı çok az emilir: yalnızca %2,3–3,1'i idrarla, %90–97'si dışkıyla atılmıştır. Stearik asit kısmı ise büyük ölçüde (yaklaşık %96) sindirilir.",
    "agency_note": "JECFA 1973'te polioksietilen (8) ve (40) stearatların toplamı için ADI'yi 0–25 mg/kg vücut ağırlığı/gün olarak belirledi.",
    "regulatory_extra": [
     {
@@ -13866,7 +14223,8 @@
    ],
    "sources": [
     "jecfa_e431",
-    "ab1333_kons_2026"
+    "ab1333_kons_2026",
+    "jecfa_mono_e431"
    ],
    "last_reviewed": "2026-10-08"
   },
@@ -14184,7 +14542,7 @@
     "Takviye edici gıdalar",
     "Renk ve aroma preparatlarında taşıyıcı (aromalı içeceklerde en çok 200 mg/l)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Mumların insan dahil memelilerde sindirilmediği ve emilmediği genel olarak kabul edilir; balmumu sindirim enzimleriyle parçalanmaz ve vücut sıcaklığında erimez. Bunu doğrudan gösteren araştırma verisi yok.",
    "agency_note": "JECFA 2005'te uzun kullanım geçmişine ve ana bileşenlerinde toksisite görülmemesine dayanarak, tahmini alımda (kişi başı günde 650 mg'ın altında) güvenlik endişesi olmadığı sonucuna vardı; ADI 'kabul edilebilir' olarak belirtildi.",
    "regulatory_extra": [
     {
@@ -14203,9 +14561,10 @@
     "ab1333_annex2_e_g13",
     "ab1333_annex2_e_g14",
     "ab1333_annex3_p1",
-    "ab1333_annex3_p4"
+    "ab1333_annex3_p4",
+    "jecfa_mono_e901"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E902": {
    "evidence_level": "moderate",
@@ -14278,7 +14637,7 @@
     "Kabuğu soyulmamış haşlanmış yumurta yüzeyi ve kahve çekirdeği",
     "Takviye edici gıdalar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Şellak bileşenlerinin bağırsaktan emilimi çok düşüktür; sıçanlarda kanda yalnızca çok az ölçülmüştür.",
    "agency_note": "EFSA 2024'te fiziksel yolla renksizleştirilmiş, mumu alınmış gomalak için ADI'yi 4 mg/kg vücut ağırlığı/gün olarak belirledi; kimyasal ağartmayla üretilen gomalak için bu değeri, organoklorlu safsızlık verileri gelene kadar geçici saydı. Bazı yaş gruplarında yüksek tüketimde ADI'nin hafifçe aşıldığını, ancak hesapların ihtiyatlı olduğunu belirterek bunun güvenlik endişesi göstermediği sonucuna vardı.",
    "regulatory_extra": [
     {
@@ -14299,7 +14658,7 @@
     "ab1333_annex2_e_g13",
     "ab1333_annex2_e_g14"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E905": {
    "evidence_level": "moderate",
@@ -14308,7 +14667,7 @@
     "Kavun, papaya, mango, avokado ve ananas yüzeyi",
     "Şekerleme (çikolata hariç), sakız, süsleme ve kaplamalar"
    ],
-   "in_the_body": "",
+   "in_the_body": "Hidrokarbonların bağırsaktan emilimi zincir uzunluğu arttıkça azalır; 30 karbondan uzun düz zincirli parafinler çok az emilir.",
    "agency_note": "JECFA mineral yağlar, parafinler ve mikrokristal mumlar için grup ADI'yi 20 mg/kg vücut ağırlığı/gün olarak belirlemişti. EFSA 2013'te mineral yağ ürünlerinin aksine mikrokristal mumun dokularda birikmediğini ve genotoksisite endişesi olmadığını belirtti; uzun süreli çalışma olmadığından ADI belirlemedi, ancak izinli kullanımda güvenlik payını yeterli buldu.",
    "regulatory_extra": [
     {
@@ -14323,9 +14682,10 @@
    "sources": [
     "efsa_e905",
     "ab1333_annex2_e_g2",
-    "ab1333_annex2_e_g5"
+    "ab1333_annex2_e_g5",
+    "jecfa_mono_e905"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E907": {
    "evidence_level": "moderate",
@@ -14334,7 +14694,7 @@
     "Şekerleme ve sakız (parlatıcı, en çok 2.000 mg/kg)",
     "Kuru meyve (parlatıcı, en çok 2.000 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Hidrojene poli-1-desen sindirim kanalından çok az emilir: sıçanlarda dozun %92–102'si dışkıyla atılmış, safra ve idrarla atılan miktar %1'in altında kalmıştır.",
    "agency_note": "EFSA 2020'de akut toksisitesinin düşük olduğunu ve genotoksisite endişesi bulunmadığını belirtti; 90 günlük sıçan çalışmasına dayanarak ADI'yi 20 mg/kg vücut ağırlığı/gün olarak belirledi. En yüksek maruziyet senaryosunda bile alım bu sınırın altında kaldı.",
    "regulatory_extra": [
     {
@@ -14351,7 +14711,7 @@
     "ab1333_annex2_e_g3",
     "ab1333_annex2_e_g5"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E912": {
    "evidence_level": "limited",
@@ -14452,7 +14812,7 @@
    "found_in": [
     "Şeker eklenmemiş sakız (en çok 30.000 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Üre vücut sıvılarına kolayca dağılır ve başlıca idrarla atılır: domuzlarda besinle verilen işaretli ürenin %52'si 48 saatte idrarla, %1,3'ü dışkıyla atılmıştır.",
    "agency_note": "JECFA 1993'te sakızda doku düzenleyici ve maya besini olarak kullanımını kabul edilebilir buldu.",
    "regulatory_extra": [
     {
@@ -14474,9 +14834,10 @@
    ],
    "sources": [
     "jecfa_e927b",
-    "ab1333_annex2_e_g5"
+    "ab1333_annex2_e_g5",
+    "jecfa_mono_e927b"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E1103": {
    "evidence_level": "limited",
@@ -14564,7 +14925,7 @@
     "Takviye edici gıda kapsül ve tabletleri (en çok 3.500 mg/kg)",
     "Aroma vericilerde taşıyıcı (E 1505, E 1517, E 1518 ve E 1520 birlikte, gıdada tüm kaynaklardan en çok 3.000 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Değişmeden emilmesi beklenmez; karaciğer ve kan enzimleri trietil sitratı sitrik asit ve etanole parçalar (insan kanında sıçanınkinden daha yavaş).",
    "agency_note": "JECFA 1984'te ADI'yi 0–20 mg/kg vücut ağırlığı/gün olarak belirledi; 1999'da aroma maddesi olarak değerlendirirken bu değeri korudu ve mevcut alımda güvenlik endişesi görmedi.",
    "regulatory_extra": [
     {
@@ -14580,9 +14941,10 @@
     "jecfa_e1505",
     "eu_1333_annex2_e",
     "ab1333_annex2_e_g14",
-    "ab1333_annex3_p4"
+    "ab1333_annex3_p4",
+    "jecfa_mono_e1505"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E1517": {
    "evidence_level": "limited",
@@ -14590,7 +14952,7 @@
    "found_in": [
     "Aroma vericilerde taşıyıcı (E 1505, E 1517, E 1518 ve E 1520 birlikte, gıdada tüm kaynaklardan en çok 3.000 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Gliserol diasetatın sindirim kanalındaki ve dokulardaki enzimlerle hızla gliserol ve asetata parçalanması, bunların da vücutta tamamen kullanılması beklenir.",
    "agency_note": "JECFA 1976'da ADI'yi 'belirtilmemiş' olarak belirledi.",
    "regulatory_extra": [
     {
@@ -14604,9 +14966,10 @@
    ],
    "sources": [
     "jecfa_e1517",
-    "ab1333_annex3_p4"
+    "ab1333_annex3_p4",
+    "jecfa_mono_e1517"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E1518": {
    "evidence_level": "limited",
@@ -14615,7 +14978,7 @@
     "Sakız",
     "Renk, aroma ve besin öğesi preparatlarında taşıyıcı (aroma vericilerde gıdada tüm kaynaklardan en çok 3.000 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Triasetin sindirim kanalı dahil tüm dokularda hızla parçalanır; bağırsaktan diğer yağlardan daha hızlı emilir ve enerji kaynağı olarak kullanılır.",
    "agency_note": "JECFA 1975'te ADI'yi 'belirtilmemiş' olarak belirledi; 2002'de aroma maddesi olarak değerlendirdiğinde mevcut alımda güvenlik endişesi görmedi.",
    "regulatory_extra": [
     {
@@ -14632,9 +14995,10 @@
     "ab1333_annex2_e_g5",
     "ab1333_annex3_p1",
     "ab1333_annex3_p4",
-    "ab1333_annex3_p5"
+    "ab1333_annex3_p5",
+    "jecfa_mono_e1518"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E1519": {
    "evidence_level": "strong",
@@ -14643,7 +15007,7 @@
     "Likör, aromalı şarap ve aromalı şarap bazlı içeceklerin aroma vericileri (gıdada en çok 100 mg/l)",
     "Çikolata dahil şekerlemeler ve diğer bazı ürünlerin aroma vericileri"
    ],
-   "in_the_body": "",
+   "in_the_body": "Benzil alkol vücutta benzoik aside çevrilir; benzoik asit karaciğerde glisinle birleşerek hippürik asit olur ve idrarla hızla atılır.",
    "agency_note": "EFSA 2019'da akut toksisitesinin düşük olduğunu, genotoksisite ve kanserojenlik endişesi bulunmadığını belirtti; sıçan kanserojenlik çalışmasına dayanarak ADI'yi 4 mg/kg vücut ağırlığı/gün olarak belirledi. Tahmini alım tüm yaş gruplarında bu sınırın altında kaldı.",
    "regulatory_extra": [
     {
@@ -14659,7 +15023,7 @@
     "efsa_e1519",
     "ab1333_annex3_p4"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E1521": {
    "evidence_level": "moderate",
@@ -14669,7 +15033,7 @@
     "Takviye edici gıda kapsül ve tabletleri (en çok 10.000 mg/kg)",
     "Tatlandırıcı preparatlarında taşıyıcı"
    ],
-   "in_the_body": "",
+   "in_the_body": "Polietilen glikollerin bağırsaktan emilimi molekül büyüklüğüne bağlıdır: büyük olanlar (molekül ağırlığı 4000–6000) neredeyse hiç emilmez, küçük olanlar kısmen emilir (PEG 400 alan kişilerde dozun %40–50'si idrarda bulunmuştur); emilen kısım idrarla atılır.",
    "agency_note": "JECFA 1979'da PEG için ADI'yi 0–10 mg/kg vücut ağırlığı/gün olarak belirledi; SCF ise PEG 300–4000 için 5 mg/kg grup ADI'si vermişti. EFSA 2006'da takviye edici gıda tablet kaplamalarında kullanımın güvenlik endişesi oluşturmadığını belirtmişti. 2018'deki maruziyet değerlendirmesinde en yüksek tahmini alım (yalnızca takviye kullananlarda günde 6,1 mg/kg) bu ADI aralığında kaldı ve tahminlerin gerçek alımı büyük olasılıkla abarttığı belirtildi.",
    "regulatory_extra": [
     {
@@ -14694,9 +15058,10 @@
     "jecfa_e1521",
     "ab1333_annex2_e_g9",
     "ab1333_annex2_e_g14",
-    "ab1333_annex3_p1"
+    "ab1333_annex3_p1",
+    "jecfa_mono_e1521"
    ],
-   "last_reviewed": "2026-10-07"
+   "last_reviewed": "2026-10-08"
   },
   "E1203": {
    "evidence_level": "limited",
@@ -14704,7 +15069,7 @@
    "found_in": [
     "Takviye edici gıda kapsül ve tabletleri (AB'de yalnızca bunlarda, en çok 18.000 mg/kg)"
    ],
-   "in_the_body": "",
+   "in_the_body": "Polivinil alkol bağırsaktan neredeyse hiç emilmez: sıçanlarda dozun %98'inden fazlası 48 saat içinde dışkıyla atılmış, idrarda %0,2'den az bulunmuştur.",
    "agency_note": "EFSA 2006'da polivinil alkolün takviye edici gıdalarda kaplama maddesi olarak kullanımını değerlendirdi; görüşün tam metni bu çalışmada okunamadığı için sonucu burada aktarılmıyor. AB'de yalnızca takviye edici gıda kapsül ve tabletlerinde izinlidir; saflık şartları JECFA şartnamesinde tanımlıdır.",
    "regulatory_extra": [
     {
@@ -14727,7 +15092,8 @@
    "sources": [
     "ab1333_kons_2026",
     "efsa_e1203",
-    "jecfa_e1203_spec"
+    "jecfa_e1203_spec",
+    "jecfa_mono_e1203"
    ],
    "last_reviewed": "2026-10-08"
   }
