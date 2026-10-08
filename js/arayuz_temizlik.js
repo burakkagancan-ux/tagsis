@@ -39,8 +39,8 @@ function infoCard(cls,title,how,body){
 }
 function hzCard(x){
   var h=x.h,M=TIDX.meta,how=t(x.how.indexOf("benzer")>-1&&x.how.indexOf("kod")<0?"tem.how.benzer":x.how.indexOf("kod")>-1&&x.how.indexOf("metin")>-1?"tem.how.kod_metin":x.how.indexOf("kod")>-1?"tem.how.kod":"tem.how.metin");
-  return infoCard(TCLS[h.level],h.code+" · "+h.tr.replace(/^içerir\. /,"").replace(/\.$/,""),t(TLBL[h.level])+" · "+(M.group_labels[h.group]||h.group)+" · "+how,function(pn,d){
-    if(h.note)d.appendChild(el("div","ln",h.note));
+  return infoCard(TCLS[h.level],h.code+" · "+hzKisa(h),t(TLBL[h.level])+" · "+veriS(M.group_labels[h.group]||h.group,"t.grup_etiket."+h.group)+" · "+how,function(pn,d){
+    if(h.note)d.appendChild(vEl("div","ln",h.note,"t.ifade."+h.code+".not"));
     if(h.code==="EUH208"&&x.names&&x.names.length)d.appendChild(el("div","ln",t("tem.hz.adi_gecen",{l:x.names.join("; ")})));
     pn.appendChild(el("div","ln",t("tem.hz.zorunlu")));
     var eu=h.code.indexOf("EUH")===0;
@@ -54,9 +54,9 @@ function tSummaryCard(S,A){
   function lst(a){return a.length?t("ortak.say_liste",{n:a.length,l:a.join(", ")}):t("ortak.bulunamadi")}
   var n=A.hazards.length;
   row(t("tem.ozet.ifade"),n?t(S.info.length?"tem.ozet.ifade_say_bilgi":"tem.ozet.ifade_say",{n:n,r:S.red.length,y:S.yellow.length,i:S.info.length}):t("ortak.bulunamadi"),S.red.length?"r":S.yellow.length?"y":"");
-  row(t("tem.ozet.kelime"),A.signal==="tehlike"?t("tem.ozet.tehlike"):A.signal==="dikkat"?t("risk.dikkat"):t("tem.ozet.okunmadi"),A.signal==="tehlike"?"r":A.signal==="dikkat"?"y":"");
+  row(t("tem.ozet.kelime"),A.signal==="tehlike"?t("tem.ozet.tehlike"):A.signal==="dikkat"?t("tem.ozet.dikkat_kelime"):t("tem.ozet.okunmadi"),A.signal==="tehlike"?"r":A.signal==="dikkat"?"y":"");
   var g=A.groups.filter(function(x){return !x.neg});
-  row(t("tem.ozet.grup"),g.length?t("ortak.say_liste",{n:g.length,l:g.map(function(x){return x.g.tr}).join(", ")}):t("ortak.bulunamadi"));
+  row(t("tem.ozet.grup"),g.length?t("ortak.say_liste",{n:g.length,l:g.map(function(x){return tGrupAd(x.g)}).join(", ")}):t("ortak.bulunamadi"));
   row(t("koz.ozet.koku"),lst(S.fragrance));
   row(t("koz.ozet.koruyucu"),lst(S.pres));
   if(S.color.length)row(t("tem.ozet.renk"),lst(S.color));
@@ -71,7 +71,7 @@ function tSummaryCard(S,A){
 }
 function tProfileCards(S,A){
   var out=[],j=function(a){return a.join(", ")},has=function(c){return A.hazards.some(function(x){return x.code===c})};
-  function name(c){var h=TIDX.byCode[c];return c+" ("+h.tr.replace(/^içerir\. /,"").replace(/\.$/,"")+")"}
+  function name(c){return c+" ("+hzKisa(TIDX.byCode[c])+")"}
   if(PROF.koku){
     var e208=has("EUH208")?[A.euh208&&A.euh208.length?t("tem.prof.euh208_l",{l:A.euh208.join("; ")}):t("tem.prof.euh208")]:[];
     if(S.fragrance.length)out.push(card("r",t("koz.prof.koku_var"),[j(S.fragrance)].concat(e208,S.parfum?[t("tem.prof.parfum_ek")]:[])));
@@ -97,7 +97,7 @@ function tProfileCards(S,A){
     }
     if((PROF.baby||PROF.child)&&A.capsule)r2.push(["r",t("tem.prof.kapsul")]);
     var who=PROF.preg?"hamile":PROF.baby?"bebek":"cocuk";
-    out.push(lifeCard(t("tem.prof."+who),r2,t("tem.prof."+who+"_yok"),t("tem.prof.onay_sakla"),r2.length&&TIDX.uzem?TIDX.uzem:null));
+    out.push(lifeCard(t("tem.prof."+who),r2,t("tem.prof."+who+"_yok"),t("tem.prof.onay_sakla"),r2.length&&TIDX.uzem?veriS(TIDX.uzem,"t.uzem"):null));
   }
   return out;
 }
@@ -108,7 +108,7 @@ function renderT(A){
   if(S.cancer.length){
     var cd=el("div","res prof r"),hd=el("div","hd"),b=el("button","info sm","i");b.type="button";b.setAttribute("aria-label",t("kanser.tem_hakkinda"));
     hd.appendChild(el("div","t",t("kanser.tem_baslik")));hd.appendChild(b);cd.appendChild(hd);
-    cd.appendChild(el("div","ln",S.cancer.map(function(c){return c+" "+TIDX.byCode[c].tr}).join(" ")));
+    cd.appendChild(el("div","ln",S.cancer.map(function(c){return c+" "+hzMetin(TIDX.byCode[c])}).join(" ")));
     var ipan=el("div","ipanel");ipan.hidden=true;
     ipan.appendChild(el("div","how",t("kanser.tem_not")));
     cd.appendChild(ipan);b.onclick=function(){ipan.hidden=!ipan.hidden;b.setAttribute("aria-expanded",ipan.hidden?"false":"true");b.classList.toggle("on",!ipan.hidden)};
@@ -121,28 +121,28 @@ function renderT(A){
   if(S.mix||(A.capsule&&TIDX.cap)||A.hazards.length||notes.length)box.appendChild(el("h2",null,t("tem.dikkat_baslik")));
   if(S.mix){
     var R=TIDX.mix;
-    box.appendChild(infoCard("y",R.title,null,function(pn,d){
+    box.appendChild(infoCard("y",veriS(R.title,"t.karistirma.baslik"),null,function(pn,d){
       var p=el("div","ln");p.appendChild(el("b",null,t("eslesme.bu_urunde")));p.appendChild(document.createTextNode(S.mixWhy.join(", ")));d.appendChild(p);
-      pn.appendChild(el("div","ln",R.text));pn.appendChild(srcLinks(R.sources));
+      pn.appendChild(vEl("div","ln",R.text,"t.karistirma.metin"));pn.appendChild(srcLinks(R.sources));
     }));
   }
   if(A.capsule&&TIDX.cap){
     var C=TIDX.cap.d;
-    box.appendChild(infoCard("y",C.title,t("tem.cocuk_guvenligi"),function(pn){pn.appendChild(el("div","ln",C.text));pn.appendChild(srcLinks(C.sources))}));
+    box.appendChild(infoCard("y",veriS(C.title,"t.kapsul.baslik"),t("tem.cocuk_guvenligi"),function(pn){pn.appendChild(vEl("div","ln",C.text,"t.kapsul.metin"));pn.appendChild(srcLinks(C.sources))}));
   }
   A.hazards.slice().sort(function(a,b){return TRANK[b.h.level]-TRANK[a.h.level]}).forEach(function(x){box.appendChild(hzCard(x))});
   notes.forEach(function(x){
-    var s=x.s,m=/^(.+?\.\s.+?\.)(\s[A-ZÇĞİÖŞÜ].*)?$/.exec(s.text),vis=m?m[1]:s.text,rest=m&&m[2]?m[2].trim():"";   // ilk iki cümle görünür, kalanı (i) arkasında
+    var s=x.s,sm=veriMetin(s.text,"t.madde."+s.id+".metin"),m=/^(.+?\.\s.+?\.)(\s[A-ZÇĞİÖŞÜ].*)?$/.exec(sm.s),vis=m?m[1]:sm.s,rest=m&&m[2]?m[2].trim():"";   // ilk iki cümle görünür, kalanı (i) arkasında
     box.appendChild(infoCard(TCLS[s.level],s.inci.length>1?t("tem.enzim_l",{l:s.inci.join(", ").toLowerCase()}):s.inci[0],t(TLBL[s.level])+" · "+(s.kind==="koruyucu"?t("koz.ozet.koruyucu"):s.kind==="enzim"?t("tem.enzim"):s.kind),function(pn,d){
-      d.appendChild(el("div","ln",vis));if(rest)pn.appendChild(el("div","ln",rest));pn.appendChild(srcLinks(s.sources));
+      d.appendChild(vIsaret(el("div","ln",vis),sm));if(rest)pn.appendChild(vIsaret(el("div","ln",rest),sm));pn.appendChild(srcLinks(s.sources));
     }));
   });
   if(A.prec&&A.prec.length){
     var P=A.prec.slice().sort(function(a,b){return (b.p.aid?1:0)-(a.p.aid?1:0)});
     var pb=secBox(box,t("tem.onlemler"),P.length),pu=el("ul","klist");
-    P.forEach(function(x){var li=el("li");li.appendChild(el("b",null,x.code+" "));li.appendChild(document.createTextNode(x.p.tr));if(x.p.aid)li.appendChild(el("span","chip",t("tem.ilk_yardim")));if(x.how.indexOf("benzer")>-1&&x.how.indexOf("kod")<0)li.appendChild(el("span","fn"," · "+t("tem.how.benzer")));pu.appendChild(li)});
+    P.forEach(function(x){var li=el("li");li.appendChild(el("b",null,x.code+" "));li.appendChild(document.createTextNode(veriS(x.p.tr,null,{en:x.p.en})));if(x.p.aid)li.appendChild(el("span","chip",t("tem.ilk_yardim")));if(x.how.indexOf("benzer")>-1&&x.how.indexOf("kod")<0)li.appendChild(el("span","fn"," · "+t("tem.how.benzer")));pu.appendChild(li)});
     pb.appendChild(pu);
-    if(P.some(function(x){return x.p.aid})&&TIDX.uzem)pb.appendChild(el("div","ln",TIDX.uzem));
+    if(P.some(function(x){return x.p.aid})&&TIDX.uzem)pb.appendChild(vEl("div","ln",TIDX.uzem,"t.uzem"));
     if(P.some(function(x){return x.p.needs_review}))pb.appendChild(el("div","how",t("tem.onlem_ceviri")));
   }
   var G=A.groups.slice();
@@ -150,10 +150,10 @@ function renderT(A){
     var ib=secBox(box,t("tem.gruplar"),G.length);
     var ol=el("ul","klist");
     G.forEach(function(x){
-      var li=el("li");li.appendChild(el("b",null,x.g.tr));
+      var li=el("li");li.appendChild(el("b",null,tGrupAd(x.g)));
       if(x.neg)li.appendChild(el("span","fn",t("tem.icermez_beyan")));
-      else if(x.band)li.appendChild(el("span","chip",M.bands[x.band]));
-      li.appendChild(el("div","fn",x.g.about));ol.appendChild(li);
+      else if(x.band)li.appendChild(el("span","chip",veriS(M.bands[x.band],"t.bant."+x.band)));
+      li.appendChild(vEl("div","fn",x.g.about,"t.grup."+x.g.id+".about"));ol.appendChild(li);
     });
     ib.appendChild(ol);
     ib.appendChild(el("div","how it",t("tem.bant_not")));
@@ -164,7 +164,7 @@ function renderT(A){
     named.forEach(function(x){
       var li=el("li");li.appendChild(el("b",null,x.name));
       var fs=x.funcs.filter(function(f){return TFUNC_SKIP.indexOf(f)<0&&norm(f)!==norm(x.name)&&!(x.pres&&f==="Koruyucu")});   // kozmetiğe özgü işlevler ve adın tekrarı gösterilmez
-      if(fs.length)li.appendChild(el("span","fn"," · "+fs.join(", ")));
+      if(fs.length)li.appendChild(el("span","fn"," · "+fs.map(kIslevAd).join(", ")));
       if(x.how==="benzer")li.appendChild(el("span","fn",t("koz.okunan",{l:x.raw})));
       else if(norm(x.raw)!==norm(x.name))li.appendChild(el("span","fn",t("koz.etikette",{l:x.raw})));
       if(x.fragrance)li.appendChild(el("span","chip",t("koz.ozet.koku")));if(x.pres)li.appendChild(el("span","chip",t("koz.ozet.koruyucu")));if(x.color)li.appendChild(el("span","chip",t("tem.ozet.renk")));

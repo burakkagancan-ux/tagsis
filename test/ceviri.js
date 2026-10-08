@@ -29,6 +29,22 @@ for(const [kod,b] of Object.entries(bilgi)){
 // Veri çevirileri (i18n/veri/<kod>.json): yalnızca desteklenen dillerde
 const VD=path.join(I,'veri');if(fs.existsSync(VD))for(const f of fs.readdirSync(VD)){ok(bilgi[f.replace(/\.json$/,'')],'i18n/veri/'+f+': diller.json\'da yok');const d=oku(path.join(VD,f));for(const k of Object.keys(d))if(!k.startsWith('_'))ok(typeof d[k]==='string','i18n/veri/'+f+' değer metin değil: '+k)}
 
+// Veri çevirisi anahtarları gerçek bir kayda ya da veri metnine denk gelmeli (yazım hatasıyla boşa düşen çeviri olmasın)
+{
+  const D=f=>oku(path.join(R,'data',f)),E=D('e_kodlari.json'),B=D('bilesenler.json'),K=D('kozmetik.json'),KI=D('kozmetik_inci.json'),T=D('temizlik.json');
+  const tum=['e_kodlari.json','bilesenler.json','kozmetik.json','temizlik.json','eslesmeler.json'].map(f=>fs.readFileSync(path.join(R,'data',f),'utf8')).join('\n');
+  const varMi={alerjen:new Set(B.meta.allergens.map(a=>a[0])),'e.bayrak':new Set(Object.keys(E.meta.flags)),'k.bayrak':new Set(Object.keys(K.meta.flags)),'k.bayrak_neden':new Set(Object.keys(K.meta.inci_flag_reasons)),
+    'k.liste':new Set(Object.keys(K.meta.watch_lists)),'t.grup':new Set(T.groups.map(g=>g.id)),'t.bant':new Set(Object.keys(T.meta.bands)),'t.grup_etiket':new Set(Object.keys(T.meta.group_labels)),b:new Set(B.items.map(x=>x.id)),e:new Set(E.ingredients.map(x=>x.id))};
+  const islev=new Set(KI.functions);
+  if(fs.existsSync(VD))for(const f of fs.readdirSync(VD))for(const k of Object.keys(oku(path.join(VD,f)))){
+    if(k.startsWith('_'))continue;
+    if(k.startsWith('metin:')){const m=k.slice(6),js=JSON.stringify(m).slice(1,-1);ok(tum.indexOf('"'+js+'"')>-1||tum.indexOf(js)>-1&&/^[a-zçğıöşü]/.test(m)||Object.keys(E.ingredients.reduce((o,x)=>(x.category&&(o[x.category]=1),o),{})).includes(m)||B.items.some(x=>x.upf_class&&x.upf_class[0].toLocaleUpperCase('tr')+x.upf_class.slice(1)===m),'i18n/veri/'+f+': veride olmayan metin: '+k);continue}
+    if(k.startsWith('k.islev:')){ok(islev.has(k.slice(8)),'i18n/veri/'+f+': CosIng işlevi yok: '+k);continue}
+    if(k==='t.uzem'||k.startsWith('t.karistirma.')||k.startsWith('t.kapsul.'))continue;
+    const p=k.split('.'),on=['e.bayrak','k.bayrak','k.bayrak_neden','k.liste','t.grup','t.bant','t.grup_etiket'].find(x=>k.startsWith(x+'.'))||p[0],id=k.slice(on.length+1).split('.')[0];
+    ok(varMi[on]&&varMi[on].has(id),'i18n/veri/'+f+': kayıt yok: '+k);
+  }
+}
 // JS kaynağını parçalara ayırır: dizgeler (tırnaklı), düzenli ifadeler ve yorumlar ayrılır (kaba ama bu kod tabanının yazımı için yeterli)
 function parcala(src){
   const out={str:[],code:''};let i=0,prev='';
@@ -122,4 +138,15 @@ ok(C.DIL.yon==='rtl'&&C.DIL.yazi&&/Noto/.test(C.DIL.yazi.govde),'sağdan sola di
 const r=C.veriMetin('Türkçe not','x.y');ok(r.cevrilmedi&&r.s==='Türkçe not','veri çevirisi yoksa Türkçe + çevrilmedi işareti');
 ok(C.veriMetin('Türkçe','x.y',{ar:'رسمي'}).s==='رسمي','veride resmi metin (ör. CLP) varsa o');
 ok(C.dilSec(null,['de-DE','tr-TR'],['tr','en'])==='tr'&&C.dilSec(null,['en-US'],['tr','en'])==='en'&&C.dilSec(null,['de'],['tr','en'])==='en'&&C.dilSec('tr',['en'],['tr','en'])==='tr','dil seçimi: kayıtlı > tarayıcı > İngilizce');
+// 7) Her dilde paylaşım kartı: sayı kutusu etiketleri kutuya, metinler karta sığar (test/paylas.js'teki sahte ölçüm: karakter başına 0,55 px)
+for(const kod of Object.keys(bilgi)){
+  const sozluk={tr};for(const k of new Set(['en',kod]))if(fs.existsSync(path.join(I,k+'.json')))sozluk[k]=oku(path.join(I,k+'.json'));
+  const src=require('./yukle.js');const P=eval(src+';dilKur('+JSON.stringify(kod)+','+JSON.stringify(sozluk)+','+JSON.stringify(bilgi)+',{});({payModel,payDraw,PAYLAS_AYAR})');
+  const L=P.PAYLAS_AYAR.yerlesim.hikaye,c=(()=>{const T=[];let px=30;return {texts:T,set font(f){px=+(/(\d+)px/.exec(f)||[0,30])[1]},measureText:s=>({width:String(s).length*px*0.55}),
+    fillText:(s,X,Y)=>T.push({s,x:X,y:Y,w:String(s).length*px*0.55}),fillRect(){},beginPath(){},moveTo(){},lineTo(){},quadraticCurveTo(){},closePath(){},fill(){},stroke(){},arc(){},save(){},restore(){},translate(){},scale(){},clip(){},drawImage(){},set fillStyle(v){},set strokeStyle(v){},set lineWidth(v){},set lineCap(v){},set lineJoin(v){},set textAlign(v){},set textBaseline(v){},set direction(v){}}})();
+  const M=P.payModel({mode:'gida',items:[{name:'A',lvl:0},{name:'B',lvl:1,why:'x'},{name:'C',lvl:2,why:'y'}],facts:[],allergens:''},{name:'Ürün'},P.PAYLAS_AYAR,L);
+  P.payDraw(c,M,L,P.PAYLAS_AYAR,null);
+  const CW=L.w-2*L.pad,bw=(CW-40)/3;
+  ['pay.kart.kutu_yok','pay.kart.kutu_dikkat','pay.kart.kutu_uyari'].forEach((k,i)=>{const s=(sozluk[kod][k]||tr[k]),sag=L.pad+i*(bw+20)+bw-12,e=c.texts.filter(x=>s.indexOf(x.s.replace(/…$/,''))===0&&x.x>=L.pad+i*(bw+20)&&x.x<sag);ok(e.length&&e.every(x=>x.x+x.w<=sag),kod+': sayı kutusu etiketi taşıyor: '+s)});
+}
 console.log(n+' çeviri denetimi ('+Object.keys(tr).length+' anahtar, '+Object.keys(bilgi).length+' dil), '+fail+' hata');process.exit(fail?1:0);

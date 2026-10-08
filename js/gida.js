@@ -187,6 +187,8 @@ function analyze(text,idx){
   return res;
 }
 /* Analiz sonucunu özet bilgiye çevirir: şeker, palm, UPF, alerjen, laktoz, vegan, vejetaryen */
+/* Ekranda maddenin adı: E kodunda seçili dildeki resmi ad (İngilizcede name_en), bileşende veri çevirisi; yoksa Türkçe */
+function itAd(it){return it.isB?veriS(it.name,"b."+it.id+".ad"):veriS(it.primary_name,"e."+it.id+".ad",{en:it.name_en})}
 function summarize(res,idx){
   var bm=idx.bmeta,upfE=bm.upf_e_categories||{};
   var o={sugar:[],palm:[],upf:{},allergen:{},lactose:{yes:[],low:[],may:[]},vegan:{no:[],unsure:[]},veg:{no:[],insect:[],unsure:[]},claims:[],cancer:[],
@@ -198,8 +200,8 @@ function summarize(res,idx){
   function push(arr,v){if(arr.indexOf(v)<0)arr.push(v)}
   res.forEach(function(r){
     r.ids.forEach(function(id){
-      var it=idx.byId[id],name=it.isB?it.name:(it.id+" "+it.primary_name),fl=it.flags||[];
-      if(r.neg){push(o.claims,t("gida.ozet.icermez",{ad:it.isB?it.name:it.primary_name}));return}
+      var it=idx.byId[id],bn=itAd(it),name=it.isB?bn:(it.id+" "+bn),fl=it.flags||[];
+      if(r.neg){push(o.claims,t("gida.ozet.icermez",{ad:bn}));return}
       if(!it.isB&&it.reason&&/kanserojen/.test(it.reason)&&!/Grup 3/.test(it.reason))push(o.cancer,{name:name,may:r.may});   // maddenin kendisi IARC 1/2A/2B; benzoatların benzen notu (koşula bağlı) sayılmaz
       if(it.isB){
         if(r.aroma){
@@ -209,26 +211,26 @@ function summarize(res,idx){
           if(fl.indexOf("non_vegetarian")>-1)push(o.veg.unsure,name+" (aroma)");
           return;
         }
-        fl.forEach(function(f){if(f.indexOf("allergen_")===0)al(f,r.may?"may":"yes",it.name)});
-        if(r.may){if(fl.indexOf("lactose")>-1)push(o.lactose.may,it.name);return}
-        if(fl.indexOf("sugar")>-1)o.sugar.push({name:it.name,hidden:fl.indexOf("sugar_hidden")>-1,text:r.text});
-        if(fl.indexOf("palm")>-1)push(o.palm,it.name);
+        fl.forEach(function(f){if(f.indexOf("allergen_")===0)al(f,r.may?"may":"yes",bn)});
+        if(r.may){if(fl.indexOf("lactose")>-1)push(o.lactose.may,bn);return}
+        if(fl.indexOf("sugar")>-1)o.sugar.push({name:bn,hidden:fl.indexOf("sugar_hidden")>-1,text:r.text});
+        if(fl.indexOf("palm")>-1)push(o.palm,bn);
         if(it.upf_class)(o.upf[it.upf_class]=o.upf[it.upf_class]||[]).push(capFirst(r.text));
-        if(fl.indexOf("lactose")>-1)push(o.lactose.yes,it.name);
-        if(fl.indexOf("lactose_low")>-1)push(o.lactose.low,it.name);
-        if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,it.name);
-        if(fl.indexOf("vegan_suspect")>-1)push(o.vegan.unsure,it.name);
-        if(fl.indexOf("non_vegetarian")>-1)push(o.veg.no,it.name);
-        if(fl.indexOf("vegetarian_suspect")>-1||fl.indexOf("vegan_suspect")>-1)push(o.veg.unsure,it.name);
-        if(has(fl,"caffeine"))push(LF.caffeine,it.name);
-        if(has(fl,"alcohol"))push(LF.alcohol,it.name);
-        if(has(fl,"alcohol_trace"))push(LF.alcoholTrace,it.name);
-        if(has(fl,"raw_milk"))push(LF.raw,it.name);
-        if(has(fl,"infant_honey"))push(LF.honey,it.name);
-        if(has(fl,"pet_toxic"))push(LF.pet,it.name);
+        if(fl.indexOf("lactose")>-1)push(o.lactose.yes,bn);
+        if(fl.indexOf("lactose_low")>-1)push(o.lactose.low,bn);
+        if(fl.indexOf("non_vegan")>-1)push(o.vegan.no,bn);
+        if(fl.indexOf("vegan_suspect")>-1)push(o.vegan.unsure,bn);
+        if(fl.indexOf("non_vegetarian")>-1)push(o.veg.no,bn);
+        if(fl.indexOf("vegetarian_suspect")>-1||fl.indexOf("vegan_suspect")>-1)push(o.veg.unsure,bn);
+        if(has(fl,"caffeine"))push(LF.caffeine,bn);
+        if(has(fl,"alcohol"))push(LF.alcohol,bn);
+        if(has(fl,"alcohol_trace"))push(LF.alcoholTrace,bn);
+        if(has(fl,"raw_milk"))push(LF.raw,bn);
+        if(has(fl,"infant_honey"))push(LF.honey,bn);
+        if(has(fl,"pet_toxic"))push(LF.pet,bn);
         if(has(fl,"salt")){push(o.sodium.salt,r.text);if(r.ord&&(o.sodium.saltOrd===null||r.ord<o.sodium.saltOrd))o.sodium.saltOrd=r.ord}
-        if(has(fl,"sodium_hidden"))push(o.sodium.hidden,it.name);
-        if(it.upf_class==="tatlandırıcı")push(LF.sweet,it.name);
+        if(has(fl,"sodium_hidden"))push(o.sodium.hidden,bn);
+        if(it.upf_class==="tatlandırıcı")push(LF.sweet,bn);
       }else{
         var txt=" "+r.text+" ",kind=r.may?"may":"yes";
         if(fl.indexOf("allergen_sulphite")>-1)al("allergen_sulphite",kind,name);
@@ -248,7 +250,8 @@ function summarize(res,idx){
       }
     });
   });
-  if(LF.sweet.length>1)LF.sweet=LF.sweet.filter(function(x){return x!=="Tatlandırıcı"});   // genel "tatlandırıcı" sözcüğü, adı geçen tatlandırıcı varken tekrar edilmez
+  var genel=idx.byId["B:upf_sinif_tatlandirici"],ga=genel?itAd(genel):"";
+  if(LF.sweet.length>1)LF.sweet=LF.sweet.filter(function(x){return x!==ga});   // genel "tatlandırıcı" sözcüğü, adı geçen tatlandırıcı varken tekrar edilmez
   return o;
 }
 /* Bakanlık listesindeki marka adlarını metinde arar (yalnızca bilgi amaçlı bağlantı) */

@@ -1,7 +1,9 @@
 // Arayüz testi: sayfalar gerçek bir tarayıcıda (Chromium, telefon genişliği) açılır ve tıklanır.
 // Gerekli: npm i --no-save playwright@1.47.2 && npx playwright install chromium. Çalıştır: node test/arayuz.js
 // Denetlenen: konsol hatası yok; üç modda örnek analiz; üç modda karşılaştırma; ansiklopedi renkleri ve arama;
+// İngilizce tur (dil seçimi, üç modda analiz, paylaşım kartı, karşılaştırma, çevrilmemiş veri işareti, sağdan sola kart çizimi);
 // çevrimdışı açılış (service worker önbelleğinden kozmetik ve temizlik analizi).
+// Tarayıcının dili: Türkçe bölümler tr-TR ile açılır (Playwright varsayılanı en-US; o zaman sayfa İngilizce açılırdı).
 const http=require('http'),fs=require('fs'),path=require('path');
 const {chromium}=require('playwright');
 const R=path.join(__dirname,'..');
@@ -42,7 +44,7 @@ async function scan(p,mode,text){
   await new Promise(r=>server.listen(0,r));
   const B='http://localhost:'+server.address().port+'/';
   const br=await chromium.launch();
-  const opt={viewport:{width:390,height:844},serviceWorkers:'block'};
+  const opt={viewport:{width:390,height:844},serviceWorkers:'block',locale:'tr-TR'};
 
   // 1) Ana sayfa ve Etiket Oku açılışı
   let ctx=await br.newContext(opt),errs=[],p=await newPage(ctx);watch(p,errs);
@@ -185,10 +187,52 @@ async function scan(p,mode,text){
   ok(!errs.length,'ansiklopedi konsol hatası: '+errs.join(' | '));errs.length=0;
   await ctx.close();
 
+  // 4b) İngilizce: tarayıcı dili en-US, kayıtlı seçim yok → sayfa İngilizce açılır
+  ctx=await br.newContext(Object.assign({},opt,{locale:'en-US'}));p=await newPage(ctx);watch(p,errs);
+  await p.goto(B+'ocr.html');await p.waitForFunction(()=>typeof IDX!=='undefined'&&IDX,null,{timeout:15000});
+  ok(await p.getAttribute('html','lang')==='en'&&(await p.textContent('h1'))==='Read Label','İngilizce açılış: lang ve başlık');
+  ok((await p.textContent('#oku'))==='Analyse'&&(await p.getAttribute('#metin','placeholder')).startsWith('The text'),'İngilizce düğme ve placeholder');
+  const anahtarVar=()=>p.evaluate(()=>{const m=document.body.innerText.match(/\b(ortak|gida|koz|tem|kars|kayit|pay|profil|risk|sayfa|ulke|veri|kanser|eslesme|foto|ocr|nav|birim)\.[a-z0-9_]+(\.[a-z0-9_]+)*\b/);return m?m[0]:''});
+  for(const m of ['gida','koz','tem']){
+    await sample(p,m);
+    ok(await p.$$eval('#sonuc .res',e=>e.length)>2,'en '+m+': sonuç kartları');
+    ok(/Summary/.test(await p.textContent('#sonuc .sumbox .t')),'en '+m+': özet başlığı İngilizce');
+    const k=await anahtarVar();ok(!k,'en '+m+': ekranda çıplak anahtar: '+k);
+    ok((await p.textContent('#sonuc .resbar button.pay:not(.kayitb)')).trim()==='Share','en '+m+': Share düğmesi');
+    await p.click('#sonuc .resbar button.pay:not(.kayitb)');await p.waitForFunction(()=>{const c=document.querySelector('#sheet canvas');return c&&c.width>0&&/I checked the ingredients/.test(c.getAttribute('aria-label')||'')},null,{timeout:10000});
+    ok(true,'en '+m+': paylaşım kartı çizildi');await p.evaluate(()=>closeSheet());
+  }
+  // Çevrilmemiş veri metni: Türkçe gösterilir, lang="tr" ve "not yet translated" işareti
+  await sample(p,'gida');await p.evaluate(()=>document.querySelector('#sonuc .res.tap').click());
+  ok(await p.$$eval('#sheet .cvm',e=>e.length&&e.every(x=>x.textContent==='not yet translated'&&x.parentElement.closest('[lang]').getAttribute('lang')==='tr')),'çevrilmemiş veri işareti ve lang="tr"');
+  ok(/Read in the encyclopedia/.test(await p.textContent('#sheet')),'alt sayfa İngilizce');await p.evaluate(()=>closeSheet());
+  // Resmi İngilizce: E kodu adı (name_en), CLP tehlike ifadesi
+  ok(/E110 Sunset Yellow FCF/i.test(await p.textContent('#sonuc')),'E kodu resmi İngilizce adı');
+  await sample(p,'tem');ok(/Causes serious eye damage/.test(await p.textContent('#sonuc')),'CLP ifadesinin resmi İngilizcesi');
+  // Karşılaştırma (üç mod)
+  for(const m of Object.keys(pairs)){
+    await p.evaluate(()=>{document.getElementById('metin').value='';localStorage.removeItem('taramalar')});
+    await scan(p,m,pairs[m][0]);await scan(p,m,pairs[m][1]);await p.click('#karsla');
+    for(const it of await p.$$('#sheet .kpick button.kitem'))if(await it.getAttribute('aria-pressed')!=='true')await it.click();
+    await p.click('#sheet .kpick button:not(.kitem):not(.kclr)');await p.waitForSelector('#kars:not([hidden]) .kdec');
+    ok(/looks better in terms of ingredients/.test(await p.textContent('#kars .kdec .t')),'en '+m+': karşılaştırma kararı İngilizce');
+    const k=await anahtarVar();ok(!k,'en '+m+' karşılaştırma: çıplak anahtar: '+k);
+    await p.evaluate(()=>closeCompare());
+  }
+  // Sağdan sola dil: kart aynalanarak çizilir, hata vermez (Arapça çevirisi yok; yalnızca altyapı)
+  ok(await p.evaluate(()=>{const s=DIL;try{dilKur('ar',{tr:DIL.sozluk.tr,en:DIL.sozluk.en,ar:{}},{ar:{ad:'العربية',yon:'rtl'}});const c=document.createElement('canvas'),L=PAYLAS_AYAR.yerlesim.hikaye;c.width=L.w;c.height=L.h;
+    const out=payDraw(c.getContext('2d'),payModel(paySource(),{name:'X'},PAYLAS_AYAR,L),L,PAYLAS_AYAR,null);return out.length>5}finally{DIL=s}}),'sağdan sola kart çizimi');
+  // Dil seçimi: Hassasiyetlerim'den Türkçe → sayfa Türkçe yeniden yüklenir
+  await p.goto(B+'ocr.html#profil');await p.waitForSelector('#dilsec');
+  await Promise.all([p.waitForNavigation(),p.selectOption('#dilsec','tr')]);await p.waitForFunction(()=>typeof IDX!=='undefined'&&IDX);
+  ok(await p.getAttribute('html','lang')==='tr'&&await p.evaluate(()=>localStorage.getItem('dil'))==='tr','dil seçici: Türkçe kaydedildi ve uygulandı');
+  ok(!errs.length,'İngilizce tur konsol hatası: '+errs.join(' | '));errs.length=0;
+  await ctx.close();
+
   // 5) Çevrimdışı: service worker önbelleği dolunca sunucu kapatılır (ctx.setOffline service worker isteklerini kesmiyor);
   //    sayfa yeniden yüklenir, üç modda analiz önbellekten çalışmalı. Kozmetik ve temizlik verisi bu modlara hiç girilmeden önbellekte olmalı.
   // Bu bölümde istek yönlendirme kullanılmaz: yönlendirme açıkken service worker sayfayı denetlemez
-  ctx=await br.newContext({viewport:opt.viewport});p=await ctx.newPage();watch(p,errs);
+  ctx=await br.newContext({viewport:opt.viewport,locale:'tr-TR'});p=await ctx.newPage();watch(p,errs);
   await p.goto(B+'ocr.html');
   const need=['data/kozmetik.json','data/kozmetik_inci.json','data/temizlik.json','data/eslesmeler.json'];
   let have=[];

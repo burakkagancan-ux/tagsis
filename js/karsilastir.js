@@ -25,7 +25,7 @@ var CMP_SADE={};("su domates salca zeytin zeytinyagi aycicek kanola misir findik
   "nohut mercimek fasulye bezelye pirinc bulgur yulaf arpa cavdar irmik makarna un nisasta patates havuc sogan sarimsak pirasa ispanak lahana mantar "+
   "salatalik kabak patlican tursu sirke maya peynir yogurt tereyagi krema et tavuk dana kuzu hindi balik ton somon kakao bal pekmez meyve sebze "+
   "baharat baharatlar ot otlar suyu puresi konsantre kurutulmus kuru toz tane kirmizi yesil siyah beyaz").split(" ").forEach(function(w){CMP_SADE[w]=1});
-function cmpAlName(idx,f){var a=(idx.bmeta&&idx.bmeta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
+function cmpAlName(idx,f){var a=(idx.bmeta&&idx.bmeta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return veriS(a[i][1],"alerjen."+f);return f}
 
 /* Profile uymayan (sonuç ekranında kırmızı profil kartı çıkaran) durumlar. prof: localStorage "profil" biçimi. */
 function cmpMisfit(S,prof,idx){
@@ -56,7 +56,7 @@ function cmpProduct(text,idx,prof,name){
   res.forEach(function(r){
     if(r.neg||r.may||r.ids.every(function(id){return id.indexOf("B:upf_sinif_")===0}))return;   // "renklendirici" gibi sınıf adları madde sayılmaz
     var key=r.ids.slice().sort().join("+"),rk=Math.max(0,r.rank);
-    var nm=r.ids.map(function(id){var it=idx.byId[id];return it.isB?it.name:it.id+" "+it.primary_name}).join(" / ");
+    var nm=r.ids.map(function(id){var it=idx.byId[id];return it.isB?itAd(it):it.id+" "+itAd(it)}).join(" / ");
     if(by[key]){if(rk>by[key].rank)by[key].rank=rk;return}
     by[key]={key:key,ids:r.ids,name:nm,rank:rk,isB:r.isB,dogal:uretimDogal(r.ids,idx)};items.push(by[key]);
   });
@@ -126,7 +126,7 @@ function cmpMisfitT(S,A,T,prof){
 function cmpProductT(text,T,K,prof,name){
   var A=analyzeT(text,T,K),S=summarizeT(A),items=[],by={};
   function add(key,nm,rk,kind,x){if(by[key]){if(rk>by[key].rank)by[key].rank=rk;return}by[key]={key:key,ids:[key],name:nm,rank:rk,kind:kind,x:x};items.push(by[key])}
-  A.hazards.forEach(function(x){add(x.code,x.code+" "+x.h.tr.replace(/^içerir\. /,"").replace(/\.$/,""),CMP_TRANK[x.h.level]||0,"hz",x)});
+  A.hazards.forEach(function(x){add(x.code,x.code+" "+hzKisa(x.h),CMP_TRANK[x.h.level]||0,"hz",x)});
   A.subs.forEach(function(x){var s=x.s;add(s.inci[0],s.inci.length>1?"Enzim: "+s.inci.join(", ").toLowerCase():s.inci[0],CMP_TRANK[s.level]||0,"sub",x)});
   A.inci.forEach(function(x){add(x.name,x.name,0,"inci",x)});
   return cmpWrap({mode:"tem",name:name||"",text:text,A:A,S:S,noun:"tem",

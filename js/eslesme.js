@@ -17,7 +17,7 @@ function findCombos(rules,mode,items){
 }
 function comboItemsFood(res,idx){
   return res.filter(function(r){return !r.isB&&!r.neg&&!r.may}).map(function(r){
-    return {keys:r.ids,label:r.ids.length===1?r.ids[0]+" "+idx.byId[r.ids[0]].primary_name:r.text}});
+    return {keys:r.ids,label:r.ids.length===1?r.ids[0]+" "+itAd(idx.byId[r.ids[0]]):r.text}});
 }
 function comboItemsK(res){
   return res.filter(function(r){return r.found&&!r.may}).map(function(r){return {keys:[r.name].concat(r.name.split(" / ")),label:r.name}});
