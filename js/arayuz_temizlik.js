@@ -16,7 +16,7 @@ function loadT(){
 function suggestCardT(){
   var d=el("div","res suggest");d.appendChild(el("div","t","Bu bir temizlik ürünü etiketine benziyor"));
   d.appendChild(el("div","ln","Metinde yüzey aktif madde, tehlike ifadesi gibi deterjan etiketi bilgileri var."));
-  var b=el("button",null,"Temizlik ürünü olarak analiz et");b.type="button";b.onclick=function(){setMode("tem",true);window.scrollTo(0,0)};d.appendChild(b);
+  var b=el("button",null,"Temizlik ürünü olarak analiz et");b.type="button";b.onclick=function(){setMode("tem",true,true);window.scrollTo(0,0)};d.appendChild(b);
   return d;
 }
 var TFUNC_SKIP=["Saç boyası","Deodorant","Saç bakımı","Cilt bakımı","Ağız bakımı","Tırnak bakımı","Keratolitik","Bronzlaştırıcı","Cilt koruyucu","Kepek önleyici"];

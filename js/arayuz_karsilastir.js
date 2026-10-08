@@ -1,5 +1,8 @@
 /* Arayüz: aynı türden (gıda, kozmetik ya da temizlik) iki ürünü karşılaştırma ve tarama geçmişi (localStorage "taramalar"). Saf mantık js/karsilastir.js, ayarlar js/karsilastir_ayar.js. */
 var HCUR=null,HSCAN=true,HOCR=false,CMP_IDS=null;   // HCUR: ekrandaki taramanın kaydı; HSCAN: sonraki analiz yeni kayıt açar; HOCR: metin fotoğraftan/örnekten geldi
+// Mod değişince kutudaki metin yeni modda yeniden analiz edilir. HMOD: "gor" sekmeyle geçiş (geçmişe yazılmaz, tarama kendi türünde kalır),
+// "tasi" öneri kartıyla geçiş ("Kozmetik olarak analiz et": ekrandaki tarama yeni türe taşınır). Kullanıcı metni değiştirince ya da yeni tarama gelince sıfırlanır.
+var HMOD=null;
 function histLoad(){try{var a=JSON.parse(localStorage.getItem("taramalar")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}}
 function histStore(a){try{localStorage.setItem("taramalar",JSON.stringify(a))}catch(e){}}
 function histGet(id){return histLoad().filter(function(x){return x.id===id})[0]||null}
@@ -8,9 +11,15 @@ function histRename(id,name){var a=histLoad();a.forEach(function(x){if(x.id===id
 function histSave(text,mode){
   if(!KARS_AYAR.acik)return;
   mode=mode||"gida";
-  var t=(text||"").trim(),a=histLoad(),scan=HSCAN;
+  var t=(text||"").trim(),a=histLoad(),scan=HSCAN,hm=HMOD;
   if(!t)return;
-  HSCAN=false;HOCR=false;
+  HSCAN=false;HOCR=false;HMOD=null;
+  if(!scan&&hm==="gor")return;
+  if(!scan&&hm==="tasi"&&HCUR){   // ekrandaki tarama yeni türe taşınır; o türde aynı metin varsa eski kayıt silinir
+    var mv=a.filter(function(x){return x.id===HCUR})[0],dup=a.filter(function(x){return x.mode===mode&&x.text===t})[0];
+    if(mv&&dup&&dup.id!==mv.id){a=a.filter(function(x){return x.id!==mv.id});HCUR=dup.id;histStore(a);return}
+    if(mv){mv.mode=mode;mv.text=t;histStore(a);return}
+  }
   var same=a.filter(function(x){return x.mode===mode&&x.text===t})[0],cur=!scan&&HCUR?a.filter(function(x){return x.id===HCUR&&x.mode===mode})[0]:null,e;
   if(same)e=same;
   else if(cur){e=cur;e.text=t}

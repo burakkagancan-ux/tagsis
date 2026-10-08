@@ -357,7 +357,7 @@ function run(){
   else if(looksCosmetic(t))sonucUst(suggestCard());
 }
 // Metin elle düzeltildiğinde sonuç kendiliğinden güncellenir (yazmayı bitirmesi beklenir)
-var RUN_T=null;$("metin").addEventListener("input",function(){clearTimeout(RUN_T);RUN_T=setTimeout(run,600)});
+var RUN_T=null;$("metin").addEventListener("input",function(){HMOD=null;clearTimeout(RUN_T);RUN_T=setTimeout(run,600)});
 var ORNEK_GIDA="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";
 var ORNEK_KOZ="Ingredients: Aqua, Glycerin, Cetearyl Alcohol, Paraffinum Liquidum, Parfum, Methylparaben, DMDM Hydantoin, Linalool, Limonene, Hexyl Cinnamal, Butylphenyl Methylpropional, Retinyl Palmitate, Lanolin, Glycerln Stearate, Cl 77891 [+/- CI 77491]";
 var ORNEK_TEM="İçindekiler: %5-15 anyonik yüzey aktif maddeler, %5'ten az noniyonik yüzey aktif maddeler, sabun, fosfonatlar, enzimler, optik parlatıcılar, parfüm (Hexyl Cinnamal, Limonene, Linalool), koruyucu (Benzisothiazolinone, Methylisothiazolinone). TEHLİKE. Ciddi göz hasarına yol açar. Cilt tahrişine yol açar. Sucul ortamda uzun süre kalıcı, zararlı etki. Çocukların ulaşamayacağı yerde saklayın.";
