@@ -26,7 +26,7 @@ Bilerek ertelenen işler. Yayına (mağaza/duyuru) çıkmadan önce kapatılmal�
 - Kalan `inceleme=1` satırlar ikincil kaynaklı listeler: Danimarka (resmi duyuru bulunamadı), Fransa ANSES (Légifrance metni okunmadı), komedojenite (Fulton 1989 taranmış tablo), Türkiye taslağı (resmi metin yok).
 
 ## ocr.html tek dosyada — KAPANDI (04.10.2026)
-- ~1.550 satırlık ocr.html gıda, kozmetik, temizlik ve arayüz kodunu birlikte taşıyordu. Kod `js/` klasöründe alana göre 9 dosyaya bölündü (derleme adımı yok, davranış değişmedi; eski ve yeni sayfanın sonuç ekranları tarayıcıda birebir karşılaştırıldı). Kalan: arayüz kodunun sözdizimi dışında otomatik testi yok (tarayıcı testi CI'da çalışmıyor).
+- ~1.550 satırlık ocr.html gıda, kozmetik, temizlik ve arayüz kodunu birlikte taşıyordu. Kod `js/` klasöründe alana göre 9 dosyaya bölündü (derleme adımı yok, davranış değişmedi; eski ve yeni sayfanın sonuç ekranları tarayıcıda birebir karşılaştırıldı). Arayüz testi KAPANDI (08.10.2026): test/arayuz.js CI'da ayrı işte Chromium ile çalışıyor.
 
 ## Veri kod dosyalarının içinde — KAPANDI (04.10.2026)
 - Üreteçlerdeki (gen_e_kodlari.py 120 KB, gen_e_aciklama.py, gen_bilesenler.py, gen_temizlik.py, gen_kozmetik.py) gömülü veri `kaynak/` altındaki JSON/TSV dosyalarına taşındı: `e_kodlari_maddeler.json`, `e_kodlari_ek.json`, `e_aciklama.tsv`, `bilesenler.json`, `temizlik_ifadeler.tsv`, `temizlik_birlesik.tsv`, `temizlik_onlemler.tsv`, `temizlik_gruplar.json`, `kozmetik_listeler.json`, `kozmetik_islevler.tsv`, `kozmetik_tr_sozcukler.tsv`, `kozmetik_abd_renkler.tsv`. Üretilen data/*.json dosyaları birebir aynı kaldı.
