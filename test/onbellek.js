@@ -10,6 +10,8 @@ const want=new Set();
 fs.readdirSync(path.join(R,'js')).forEach(f=>{
   for(const m of fs.readFileSync(path.join(R,'js',f),'utf8').matchAll(/"(data\/[a-z_]+\.json)"/g))want.add(m[1]);
 });
+// Dil dosyaları (i18n/*.json, i18n/veri/*.json) dinamik yüklenir; hepsi önbellekte olmalı
+['i18n',path.join('i18n','veri')].forEach(d=>{const D=path.join(R,d);if(fs.existsSync(D))fs.readdirSync(D).filter(f=>f.endsWith('.json')).forEach(f=>want.add(d.replace(/\\/g,'/')+'/'+f))});
 want.forEach(f=>{ok(core.has(f),'sw.js CORE listesinde yok: '+f);ok(fs.existsSync(path.join(R,f)),'dosya yok: '+f)});
 core.forEach(f=>{if(f!=='./')ok(fs.existsSync(path.join(R,f)),'CORE listesindeki dosya yok: '+f)});
 console.log(n+' önbellek denetimi, '+fail+' hata');process.exit(fail?1:0);

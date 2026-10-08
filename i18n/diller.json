@@ -1,0 +1,6 @@
+{
+ "_aciklama": "Desteklenen diller. Her kayıt: ad (dilin kendi adı), yon (ltr | rtl), isteğe bağlı yazi: {baslik, govde: CSS font-family değeri, css: yazı tipi dosyası (fonts/...)}. Yeni dil: buraya bir kayıt + i18n/<kod>.json.",
+ "diller": {
+  "tr": {"ad": "Türkçe", "yon": "ltr"}
+ }
+}

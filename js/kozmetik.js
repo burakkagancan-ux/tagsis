@@ -13,10 +13,10 @@ function buildKIndex(kdb,kinci){
   function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i})}
   (kinci&&kinci.aliases||[]).forEach(function(a){
     var k=norm(a[0]);if(!k||map.has(k))return;
-    var ts=a[1].map(function(t){return map.get(norm(t))}).filter(Boolean);if(!ts.length)return;
-    map.set(k,ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(t){return t.funcs}))),
-      flags:uniq([].concat.apply([],ts.map(function(t){return t.flags}))),reg:uniq([].concat.apply([],ts.map(function(t){return t.reg}))),
-      k3:uniq([].concat.apply([],ts.map(function(t){return t.k3})))});
+    var ts=a[1].map(function(x){return map.get(norm(x))}).filter(Boolean);if(!ts.length)return;
+    map.set(k,ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(x){return x.funcs}))),
+      flags:uniq([].concat.apply([],ts.map(function(x){return x.flags}))),reg:uniq([].concat.apply([],ts.map(function(x){return x.reg}))),
+      k3:uniq([].concat.apply([],ts.map(function(x){return x.k3})))});
   });
   // Benzer yazım araması için kova: ilk harf + uzunluk; ilk harfi düşmüş okumalar için ikinci harf + uzunluk
   var bySecond={};
@@ -27,19 +27,19 @@ function buildKIndex(kdb,kinci){
 }
 /* Metin kozmetik etiketine benziyor mu? (Gıda seçiliyken öneri göstermek için) */
 function looksCosmetic(text){
-  var t=" "+norm(text)+" ",n=0;
-  ["aqua","parfum","ingredients","glycerin","cetearyl","sodium laureth","dimethicone","phenoxyethanol","tocopheryl","peg ","ci 77","butylene glycol","propylene glycol","xanthan gum","sodium benzoate","citric acid","fragrance","limonene","linalool","carbomer","isopropyl","paraben","stearate","gliserin","setearil","sodyum lauril","sodyum lauret","fenoksietanol","dimetikon","shea"].forEach(function(w){if(t.indexOf(" "+w)>-1)n++});
-  var food=["seker","tuz","un ","sut","yag","icindekiler","bugday","nisasta","aroma verici","enerji","protein"].filter(function(w){return t.indexOf(" "+w)>-1}).length;
+  var tx=" "+norm(text)+" ",n=0;
+  ["aqua","parfum","ingredients","glycerin","cetearyl","sodium laureth","dimethicone","phenoxyethanol","tocopheryl","peg ","ci 77","butylene glycol","propylene glycol","xanthan gum","sodium benzoate","citric acid","fragrance","limonene","linalool","carbomer","isopropyl","paraben","stearate","gliserin","setearil","sodyum lauril","sodyum lauret","fenoksietanol","dimetikon","shea"].forEach(function(w){if(tx.indexOf(" "+w)>-1)n++});
+  var food=["seker","tuz","un ","sut","yag","icindekiler","bugday","nisasta","aroma verici","enerji","protein"].filter(function(w){return tx.indexOf(" "+w)>-1}).length;
   return n>=3&&n>food;
 }
 /* INCI listesini öğelere böler. Dönüş: [{raw, may}] */
 function inciItems(text){
-  var t=String(text||"").replace(/\r/g,"");
-  var m=/(ingredients|ingrédients|ingredientes|zutaten|İçindekiler|İÇİNDEKİLER|içindekiler|i̇çindekiler|bileşenler|Bileşenler|BİLEŞENLER|bilesenler|composition|inci)\s*[:：]/i.exec(t);
-  if(m)t=t.slice(m.index+m[0].length);
-  t=t.replace(/-\s*\n\s*/g,"-").replace(/\s*\n\s*/g," ");
-  var mayAt=t.search(/\[\s*\+\s*\/?\s*-|\(\s*\+\s*\/?\s*-|\+\s*\/\s*-|may contain|peut contenir|puede contener|içerebilir|icerebilir/i);
-  var segs=mayAt>-1?[[t.slice(0,mayAt),false],[t.slice(mayAt),true]]:[[t,false]];
+  var tx=String(text||"").replace(/\r/g,"");
+  var m=/(ingredients|ingrédients|ingredientes|zutaten|İçindekiler|İÇİNDEKİLER|içindekiler|i̇çindekiler|bileşenler|Bileşenler|BİLEŞENLER|bilesenler|composition|inci)\s*[:：]/i.exec(tx);
+  if(m)tx=tx.slice(m.index+m[0].length);
+  tx=tx.replace(/-\s*\n\s*/g,"-").replace(/\s*\n\s*/g," ");
+  var mayAt=tx.search(/\[\s*\+\s*\/?\s*-|\(\s*\+\s*\/?\s*-|\+\s*\/\s*-|may contain|peut contenir|puede contener|içerebilir|icerebilir/i);
+  var segs=mayAt>-1?[[tx.slice(0,mayAt),false],[tx.slice(mayAt),true]]:[[tx,false]];
   var out=[];
   segs.forEach(function(sg){
     // "No. 5", "Ext. D&C", "Alcohol denat." gibi kısaltma noktaları ayırıcı sayılmaz
@@ -78,14 +78,14 @@ function kLookup(k,K,noFix){
     return hit&&K.map.get(hit)?{s:K.map.get(hit),how:"benzer",key:hit,dist:1}:null;
   }
   if(k.length>60)return null;
-  var t=k.length>=14?2:1,best=null,bd=t+1,tie=false,ln,q,list,c,d2;
+  var tol=k.length>=14?2:1,best=null,bd=tol+1,tie=false,ln,q,list,c,d2;
   function scan(bucket,ref){
-    for(ln=k.length-t;ln<=k.length+t;ln++){list=bucket[ref+ln]||[];
-      for(q=0;q<list.length;q++){c=list[q];d2=lev(k,c,t);if(d2<bd){bd=d2;best=c;tie=false}else if(d2===bd&&best&&K.map.get(best)!==K.map.get(c))tie=true}}
+    for(ln=k.length-tol;ln<=k.length+tol;ln++){list=bucket[ref+ln]||[];
+      for(q=0;q<list.length;q++){c=list[q];d2=lev(k,c,tol);if(d2<bd){bd=d2;best=c;tie=false}else if(d2===bd&&best&&K.map.get(best)!==K.map.get(c))tie=true}}
   }
   scan(K.byFirst,k[0]);
   if(!best)scan(K.bySecond,k[0]);   // ilk harf okunmamış olabilir ("SOHEXADECANE" -> ISOHEXADECANE)
-  if(best&&!tie&&bd<=t)return {s:K.map.get(best),how:"benzer",key:best,dist:bd};
+  if(best&&!tie&&bd<=tol)return {s:K.map.get(best),how:"benzer",key:best,dist:bd};
   return null;
 }
 function kMatch(raw,K){
@@ -134,14 +134,21 @@ function kResult(raw,h,may,pos,K,opts){
   r.k3.forEach(function(w){var L=K.watchLists[w.list],l=L&&L.level;if(l&&KRANK[l]>KRANK[r.level])r.level=l});
   if(/\bnano\b/i.test(raw))r.nano=true;
   var leaveLike=opts.ptype==="leave"||opts.ptype==="makeup"||opts.ptype==="baby";
-  function note(t){if(r.notes.indexOf(t)<0)r.notes.push(t)}   // aynı madde birden çok AB kaydında olabilir (ör. MIT: V/39 ve V/57); not bir kez yazılır
+  function note(k){if(r.notes.indexOf(k)<0)r.notes.push(k)}   // aynı madde birden çok AB kaydında olabilir (ör. MIT: V/39 ve V/57); not bir kez yazılır. Not kodu: "rinse", "k:<yaş>", "o:<ürün tipi>" (metni kNot)
   r.reg.forEach(function(e){
-    if(e.rinse_only&&leaveLike){note("Yalnızca durulanan ürünlerde izinli; seçtiğiniz ürün tipinde (durulanmayan) kullanılmamalı.");if(KRANK[r.level]<2)r.level="orange"}
-    if(e.kids_under&&opts.ptype==="baby"){note(e.kids_under+" yaş altı çocuklar için ürünlerde kısıtlı ya da yasak.");if(KRANK[r.level]<2)r.level="orange"}
+    if(e.rinse_only&&leaveLike){note("rinse");if(KRANK[r.level]<2)r.level="orange"}
+    if(e.kids_under&&opts.ptype==="baby"){note("k:"+e.kids_under);if(KRANK[r.level]<2)r.level="orange"}
     if(e.only_tr)note("o:"+e.only_tr);
   });
   r.rank=KRANK[r.level];
   return r;
+}
+/* Kart notu kodundan ekrandaki metin */
+function kNot(n){
+  if(n==="rinse")return t("koz.not.durulanan");
+  if(n.indexOf("k:")===0)return t("koz.not.cocuk",{n:n.slice(2)});
+  if(n.indexOf("o:")===0)return t("koz.not.yalnizca",{l:n.slice(2)});
+  return n;
 }
 /* opts: {ptype:"rinse"|"leave"|"makeup"|"baby"|""}. Dönüş dizisinin .extra alanı: liste dışında kalan metin. */
 function analyzeK(text,K,opts){

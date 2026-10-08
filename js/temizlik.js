@@ -23,8 +23,8 @@ function tAliasMap(T,K){
   var am=new Map();
   function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i})}
   T.aliases.forEach(function(a){
-    var ts=a[1].map(function(t){return K.map.get(norm(t))}).filter(Boolean);if(!ts.length)return;
-    var s=ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(t){return t.funcs}))),flags:uniq([].concat.apply([],ts.map(function(t){return t.flags}))),reg:[],k3:[]};
+    var ts=a[1].map(function(x){return K.map.get(norm(x))}).filter(Boolean);if(!ts.length)return;
+    var s=ts.length===1?ts[0]:{name:a[1].join(" / "),funcs:uniq([].concat.apply([],ts.map(function(x){return x.funcs}))),flags:uniq([].concat.apply([],ts.map(function(x){return x.flags}))),reg:[],k3:[]};
     am.set(norm(a[0]),{s:s,kisa:a[2]==="kisa",ad:a[0]});
   });
   return T.am=am;
@@ -63,10 +63,10 @@ function tPCodes(text,T){
 }
 /* EUH208 içinde adı geçen madde: "X içerir. Alerjik reaksiyona..." / "Contains X. May produce an allergic reaction" */
 function tEuh208(text){
-  var out=[],t=String(text||"").replace(/\s+/g," "),m;
+  var out=[],tx=String(text||"").replace(/\s+/g," "),m;
   var re1=/(?:^|[.:;!]\s*|EUH\s?208\s*:?\s*)([^.:;!]{3,140}?)\s+i[cç]erir\.?\s*Alerjik reaksiyon/gi;
   var re2=/Contains:?\s*([^.;!]{3,140}?)\.?\s*May produce an allergic reaction/gi;
-  [re1,re2].forEach(function(r){while((m=r.exec(t))){var n=m[1].replace(/^(EUH\s?208\s*:?\s*)/i,"").trim();if(n&&out.indexOf(n)<0)out.push(n)}});
+  [re1,re2].forEach(function(r){while((m=r.exec(tx))){var n=m[1].replace(/^(EUH\s?208\s*:?\s*)/i,"").trim();if(n&&out.indexOf(n)<0)out.push(n)}});
   return out;
 }
 function tPhrases(text,T,list){
@@ -111,7 +111,7 @@ function tGroups(N,T){
   hits.sort(function(a,b){return a.s-b.s});
   hits=hits.filter(function(h,i){return !hits.some(function(o,j){return j!==i&&o.s<=h.s&&o.e>=h.e&&(o.e-o.s)>(h.e-h.s)})});
   // Bant grubun hemen arkasında mı ("anyonik ... %5-15") yoksa önünde mi ("%5-15: anyonik ...")?
-  hits.forEach(function(h){var t=bands.filter(function(b){return b.s>=h.e&&b.s<=h.e+3})[0];h.trail=t?t.b:null});
+  hits.forEach(function(h){var bb=bands.filter(function(b){return b.s>=h.e&&b.s<=h.e+3})[0];h.trail=bb?bb.b:null});
   var trailMode=hits.some(function(h){return h.trail})&&bands.length&&hits.length&&bands[0].s>hits[0].s;
   var out={};
   hits.forEach(function(h){

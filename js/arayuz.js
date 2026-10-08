@@ -1,27 +1,28 @@
 /* Arayüz: ortak yardımcılar, veri yükleme, Hassasiyetlerim, gıda sonuç ekranı, mod anahtarı. */
 var OCR_URL="https://inapp-ocr-3a8f.burakkagancan.workers.dev";   // Cloudflare Worker adresi; boşsa telefonda Tesseract kullanılır
 var DB=null,BDB=null,ABOUT={},IDX=null,FLAGS={},BRANDS=null,ST=document.getElementById("st"),LAST=[],LASTSUM=null,LASTBR=[];
-var CLS=["g","u","y","r"],LBL=["Özel uyarı yok","Durum doğrulanmadı","Dikkat","Uyarı"];
+var CLS=["g","u","y","r"],LBL_K=["risk.yok","risk.dogrulanmadi","risk.dikkat","risk.uyari"];
+function LBL(i){return t(LBL_K[i])}
 function $(i){return document.getElementById(i)}
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
-function secBox(box,title,n){var d=el("details","sec");d.appendChild(el("summary",null,title+" ("+n+")"));box.appendChild(d);return d}   // varsayılan kapalı açılır bölüm
+function secBox(box,title,n){var d=el("details","sec");d.appendChild(el("summary",null,t("ortak.baslik_sayi",{ad:title,n:n})));box.appendChild(d);return d}   // varsayılan kapalı açılır bölüm
 /* Durum satırı her mod için ayrı tutulur; mod değişince o modun mesajı gösterilir */
 var STMSG={gida:"",koz:"",tem:""};
 function setSt(mode,msg){STMSG[mode]=msg;if((typeof MODE==="undefined"||!MODE?"gida":MODE)===mode)ST.textContent=msg}
-window.onerror=function(m,src,l){ST.textContent="Sayfa hatası: "+m+" (satır "+l+")";};
+window.onerror=function(m,src,l){ST.textContent=t("ortak.sayfa_hatasi",{m:m,l:l});};
 
 /* ---------- Veri yükleme ---------- */
 var PATHS=["data/e_kodlari.json","e_kodlari.json"];
 var COMBO=null;getJson("data/eslesmeler.json").then(function(j){COMBO=j.rules}).catch(function(){COMBO=null});
-function getJson(p){return fetch(p,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(p+" bulunamadı");return r.json()})}
+function getJson(p){return fetch(p,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(t("ortak.dosya_yok",{p:p}));return r.json()})}
 function loadDb(i){
-  if(i>=PATHS.length){var msg="Katkı maddesi listesi bulunamadı. GitHub'da dosyanın adı tam olarak e_kodlari.json olmalı ve data klasöründe durmalı.";setSt("gida",msg);$("sonuc").textContent=msg;return}
+  if(i>=PATHS.length){var msg=t("gida.liste_yok");setSt("gida",msg);$("sonuc").textContent=msg;return}
   getJson(PATHS[i]).then(function(j){
     DB=j;FLAGS=(j.meta&&j.meta.flags)||{};
     return getJson("data/bilesenler.json").then(function(b){BDB=b},function(){BDB=null});
   }).then(function(){
     IDX=buildIndex(DB,BDB);
-    setSt("gida","Gıda listeleri yüklendi: "+DB.ingredients.length+" katkı maddesi"+(BDB?", "+BDB.items.length+" bileşen grubu.":". Bileşen listesi (data/bilesenler.json) bulunamadı; yalnızca E kodları aranacak."));
+    setSt("gida",BDB?t("gida.yuklendi",{n:DB.ingredients.length,b:BDB.items.length}):t("gida.yuklendi_bilesensiz",{n:DB.ingredients.length}));
     buildProfile();
   }).catch(function(){if(!DB)loadDb(i+1)});
 }
@@ -29,67 +30,67 @@ function loadDb(i){
 /* ---------- Profil ---------- */
 var PROF={al:[],lactose:false,koku:false,astim:false,preg:false,emziriyorum:false,baby:false,child:false,vegan:false,veg:false,pku:false,pet:false,salt:false,cinsiyet:"",yas:null,boy:null,kilo:null};
 try{var sp=JSON.parse(localStorage.getItem("profil")||"null");if(sp&&sp.al)Object.keys(sp).forEach(function(k){PROF[k]=sp[k]})}catch(e){}
-var LIFE=[["baby","Bebek (1 yaşından küçük)"],["child","Çocuk"],["preg","Hamileyim"],["emziriyorum","Emziriyorum"],["vegan","Vegan"],["veg","Vejetaryen"],["pet","Evcil hayvanıma vereceğim"]];
-var OTHER=[["lactose","Laktoz intoleransı"],["koku","Koku alerjisi (kozmetik, temizlik)"],["astim","Astım / solunum hassasiyeti (temizlik)"],["salt","Tansiyon / tuz kısıtlaması"],["pku","Fenilketonüri (PKU)"]];
-/* Hassasiyetlerim'in altındaki sorumluluk reddi beyanı (metin yalnızca buradan değişir) */
-var SORUMLULUK=["Bu uygulama yalnızca bilgilendirme amaçlıdır; tıbbi tavsiye, teşhis ya da tedavi yerine geçmez.",
-  "Sonuçlar fotoğraftan okunan etiket metnine ve yayımlanmış resmî kaynaklara dayanır. Okuma hataları, eksik ya da güncel olmayan etiket bilgisi nedeniyle sonuç yanlış ya da eksik olabilir; ürünün içindeki miktarlar bilinmez.",
-  "Bir maddenin bulunamaması, üründe olmadığı ya da sizin için uygun olduğu anlamına gelmez. Hassasiyetlerim'deki seçimler yalnızca uyarıları kişiselleştirir.",
-  "Alerji, hastalık, hamilelik ve bebek beslenmesi gibi durumlarda karar vermeden önce ürün etiketini kendiniz kontrol edin ve hekiminize, eczacınıza ya da diyetisyeninize danışın."];
+/* Seçenek: [profil alanı, çeviri anahtarı] */
+var LIFE=[["baby","profil.secenek.baby"],["child","profil.secenek.child"],["preg","profil.secenek.preg"],["emziriyorum","profil.secenek.emziriyorum"],["vegan","profil.secenek.vegan"],["veg","profil.secenek.veg"],["pet","profil.secenek.pet"]];
+var OTHER=[["lactose","profil.secenek.lactose"],["koku","profil.secenek.koku"],["astim","profil.secenek.astim"],["salt","profil.secenek.salt"],["pku","profil.secenek.pku"]];
+/* Hassasiyetlerim'in altındaki sorumluluk reddi beyanı (metin i18n dosyalarında profil.sorumluluk.1-4) */
+var SORUMLULUK=["profil.sorumluluk.1","profil.sorumluluk.2","profil.sorumluluk.3","profil.sorumluluk.4"];
 function saveProf(){try{localStorage.setItem("profil",JSON.stringify(PROF))}catch(e){}}
 function buildProfile(){
   var box=$("profil");box.textContent="";
-  if(!BDB){box.appendChild(el("div","mut","Profil filtreleri için bileşen listesi gerekli."));return}
+  if(!BDB){box.appendChild(el("div","mut",t("profil.bilesen_gerekli")));return}
   function cb(label,checked,on){var l=el("label","pc");var i=document.createElement("input");i.type="checkbox";i.checked=checked;i.onchange=function(){on(i.checked);saveProf();updProfSum();[b1,b2,b3].forEach(function(b){if(b)b._upd()});if(LAST.length||$("metin").value.trim())run()};l.appendChild(i);l.appendChild(document.createTextNode(" "+label));return l}
-  function pbox(t){var d=el("div","pbox");d.appendChild(el("div","pt",t));box.appendChild(d);return d}
+  function pbox(ad){var d=el("div","pbox");d.appendChild(el("div","pt",ad));box.appendChild(d);return d}
   // Açılır kutu (kapalı başlar); başlıkta seçili sayısı görünür. n(): o kutudaki seçim sayısı
-  function pdrop(t,n){var d=document.createElement("details");d.className="pbox pdrop";var sm=el("summary","pt",t),c=el("span","pcnt");sm.appendChild(c);d.appendChild(sm);box.appendChild(d);
-    d._upd=function(){var k=n();c.textContent=k?k+" seçili":""};d._upd();return d}
-  function abc(a){return a.slice().sort(function(x,y){return x[1].localeCompare(y[1],"tr")})}
-  var b0=pbox("Kişisel Bilgiler"),g0=el("div","pg pnum");
-  var cl=el("label","pn");cl.appendChild(el("span",null,"Cinsiyet"));var cs=document.createElement("select");
-  [["","Seçin"],["kadin","Kadın"],["erkek","Erkek"]].forEach(function(o){var op=document.createElement("option");op.value=o[0];op.textContent=o[1];if(PROF.cinsiyet===o[0])op.selected=true;cs.appendChild(op)});
+  function pdrop(ad,n){var d=document.createElement("details");d.className="pbox pdrop";var sm=el("summary","pt",ad),c=el("span","pcnt");sm.appendChild(c);d.appendChild(sm);box.appendChild(d);
+    d._upd=function(){var k=n();c.textContent=k?t("profil.secili",{n:k}):""};d._upd();return d}
+  function abc(a){return a.map(function(x){return [x[0],t(x[1])]}).sort(function(x,y){return dilKarsilastir(x[1],y[1])})}
+  var b0=pbox(t("profil.kisisel")),g0=el("div","pg pnum");
+  var cl=el("label","pn");cl.appendChild(el("span",null,t("profil.cinsiyet")));var cs=document.createElement("select");
+  [["","profil.secin"],["kadin","profil.kadin"],["erkek","profil.erkek"]].forEach(function(o){var op=document.createElement("option");op.value=o[0];op.textContent=t(o[1]);if(PROF.cinsiyet===o[0])op.selected=true;cs.appendChild(op)});
   cs.onchange=function(){PROF.cinsiyet=cs.value;saveProf();updProfSum()};cl.appendChild(cs);g0.appendChild(cl);
-  [["yas","Yaş","yıl",0,120],["boy","Boy","cm",80,220],["kilo","Kilo","kg",2,300]].forEach(function(f){
-    var l=el("label","pn");l.appendChild(el("span",null,f[1]));var i=document.createElement("input");i.type="text";i.inputMode="decimal";i.autocomplete="off";
-    if(PROF[f[0]]!=null)i.value=String(PROF[f[0]]).replace(".",",");
-    i.onchange=function(){var v=parseFloat(String(i.value).replace(",","."));if(isNaN(v)||v<f[3]||v>f[4]){PROF[f[0]]=null;i.value=""}else{PROF[f[0]]=f[0]==="yas"?Math.floor(v):v;i.value=String(PROF[f[0]]).replace(".",",")}saveProf();updProfSum();updBmi();if(LAST.length||$("metin").value.trim())run()};
-    l.appendChild(i);l.appendChild(el("span","mut",f[2]));g0.appendChild(l)});
+  [["yas","profil.yas","profil.yil",0,120],["boy","profil.boy","birim.cm",80,220],["kilo","profil.kilo","birim.kg",2,300]].forEach(function(f){
+    var l=el("label","pn");l.appendChild(el("span",null,t(f[1])));var i=document.createElement("input");i.type="text";i.inputMode="decimal";i.autocomplete="off";
+    if(PROF[f[0]]!=null)i.value=dilSayi(PROF[f[0]],6);
+    i.onchange=function(){var v=parseFloat(String(i.value).replace(",","."));if(isNaN(v)||v<f[3]||v>f[4]){PROF[f[0]]=null;i.value=""}else{PROF[f[0]]=f[0]==="yas"?Math.floor(v):v;i.value=dilSayi(PROF[f[0]],6)}saveProf();updProfSum();updBmi();if(LAST.length||$("metin").value.trim())run()};
+    l.appendChild(i);l.appendChild(el("span","mut",t(f[2])));g0.appendChild(l)});
   b0.appendChild(g0);
   var bmiRow=el("div","bmi");b0.appendChild(bmiRow);
   function updBmi(){
     bmiRow.textContent="";
-    var lab=el("span",null,"Beden kitle indeksi (BKİ): ");bmiRow.appendChild(lab);
+    var lab=el("span",null,t("profil.bki.etiket"));bmiRow.appendChild(lab);
     if(PROF.boy&&PROF.kilo){
-      var v=PROF.kilo/Math.pow(PROF.boy/100,2),c=v<18.5?["#3B7DD8","Zayıf"]:v<25?["#2E8B57","Normal"]:v<30?["#D98E04","Fazla kilolu"]:["#C2410C","Obez"];
+      var v=PROF.kilo/Math.pow(PROF.boy/100,2),c=v<18.5?["#3B7DD8",t("profil.bki.zayif")]:v<25?["#2E8B57",t("profil.bki.normal")]:v<30?["#D98E04",t("profil.bki.fazla")]:["#C2410C",t("profil.bki.obez")];
       var dot=el("span","bmidot");dot.style.background=c[0];bmiRow.appendChild(dot);
       var val=el("b",null,sayi(Math.round(v*10)/10)+" · "+c[1]);val.style.color=c[0];bmiRow.appendChild(val);
-    }else bmiRow.appendChild(el("span","mut","boy ve kilo girin"));
-    var bb=el("button","info sm","i");bb.type="button";bb.setAttribute("aria-label","BKİ nedir");
-    bb.onclick=function(){alert("Beden kitle indeksi (BKİ) = kilo (kg) / boy (m)²\nZayıf: 18,5 altı · Normal: 18,5–24,9 · Fazla kilolu: 25–29,9 · Obez: 30 ve üzeri\nYetişkinler içindir; çocuk, hamile ve sporcularda yanıltabilir.\nKaynak: Dünya Sağlık Örgütü (WHO)")};
+    }else bmiRow.appendChild(el("span","mut",t("profil.bki.girin")));
+    var bb=el("button","info sm","i");bb.type="button";bb.setAttribute("aria-label",t("profil.bki.nedir"));
+    bb.onclick=function(){alert(t("profil.bki.aciklama"))};
     bmiRow.appendChild(bb);
   }
   updBmi();
-  b0.appendChild(el("div","mut","Kilonuz, katkı maddesi kartlarındaki günlük sınırı size göre hesaplamak için kullanılır."));
+  b0.appendChild(el("div","mut",t("profil.kilo_notu")));
   var b1=null,b2=null,b3=null;
-  b1=pdrop("Alerjenler",function(){return PROF.al.length});var g=el("div","pg");
-  abc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
+  b1=pdrop(t("profil.alerjenler"),function(){return PROF.al.length});var g=el("div","pg");
+  alAbc(BDB.meta.allergens).forEach(function(a){g.appendChild(cb(a[1],PROF.al.indexOf(a[0])>-1,function(v){PROF.al=PROF.al.filter(function(x){return x!==a[0]});if(v)PROF.al.push(a[0])}))});
   b1.appendChild(g);
-  b2=pdrop("Yaşam Evresi",function(){return LIFE.filter(function(x){return PROF[x[0]]}).length});var g2=el("div","pg");
+  b2=pdrop(t("profil.yasam"),function(){return LIFE.filter(function(x){return PROF[x[0]]}).length});var g2=el("div","pg");
   abc(LIFE).forEach(function(x){g2.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b2.appendChild(g2);
-  b3=pdrop("Diğer",function(){return OTHER.filter(function(x){return PROF[x[0]]}).length});var g3=el("div","pg");
+  b3=pdrop(t("profil.diger"),function(){return OTHER.filter(function(x){return PROF[x[0]]}).length});var g3=el("div","pg");
   abc(OTHER).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
-  box.appendChild(el("div","mut","Seçimleriniz yalnızca bu cihazda saklanır."));
-  var sr=el("div","sorumlu");sr.appendChild(el("div","pt","Sorumluluk reddi"));
-  SORUMLULUK.forEach(function(t){sr.appendChild(el("p",null,t))});box.appendChild(sr);
+  box.appendChild(el("div","mut",t("profil.cihazda")));
+  var sr=el("div","sorumlu");sr.appendChild(el("div","pt",t("profil.sorumluluk_baslik")));
+  SORUMLULUK.forEach(function(k){sr.appendChild(el("p",null,t(k)))});box.appendChild(sr);
   updProfSum();
 }
+/* Alerjen adları veriden (bilesenler.json meta.allergens); sıralama dilin alfabesine göre */
+function alAbc(a){return a.slice().sort(function(x,y){return dilKarsilastir(x[1],y[1])})}
 function alName(f){var a=(BDB&&BDB.meta.allergens)||[];for(var i=0;i<a.length;i++)if(a[i][0]===f)return a[i][1];return f}
 function updProfSum(){
   var n=(PROF.cinsiyet?1:0)+(PROF.kilo!=null?1:0)+(PROF.yas!=null?1:0)+(PROF.boy!=null?1:0)+PROF.al.length+LIFE.filter(function(x){return PROF[x[0]]}).length+OTHER.filter(function(x){return PROF[x[0]]}).length;
-  $("profsum").textContent=n?("Profilim · "+n+" seçim"):"Profilim";
+  $("profsum").textContent=n?t("profil.ozet_secim",{n:n}):t("profil.baslik");
 }
 
 /* ---------- Sonuç ekranı ---------- */
@@ -104,27 +105,27 @@ function profileCards(S){
   if(PROF.al.length){
     var yes=[],may=[];
     PROF.al.forEach(function(f){var a=S.allergen[f];if(!a)return;if(a.yes.length)yes.push(alName(f)+": "+a.yes.join(", "));if(a.may.length)may.push(alName(f)+": "+a.may.join(", "))});
-    if(yes.length)out.push(card("r","Seçtiğiniz alerjen var",yes.concat(may.length?["Ayrıca içerebilir → "+may.join("; ")]:[])));
-    else if(may.length)out.push(card("y","Seçtiğiniz alerjeni içerebilir",may));
-    else out.push(card("g","Seçtiğiniz alerjenler metinde bulunamadı",["Bu bir onay değildir. Okuma hatası olabilir; etiketteki koyu yazılmış alerjenleri kendiniz kontrol edin."]));
+    if(yes.length)out.push(card("r",t("gida.prof.alerjen_var"),yes.concat(may.length?[t("gida.prof.ayrica_icerebilir",{l:may.join("; ")})]:[])));
+    else if(may.length)out.push(card("y",t("gida.prof.alerjen_icerebilir"),may));
+    else out.push(card("g",t("gida.prof.alerjen_yok"),[t("gida.prof.alerjen_yok_not")]));
   }
   if(PROF.lactose){
     var L=S.lactose;
-    if(L.yes.length)out.push(card("r","Laktoz içerir",[L.yes.join(", ")].concat(L.low.length?["Düşük laktozlu: "+L.low.join(", ")]:[])));
-    else if(L.low.length||L.may.length)out.push(card("y","Laktoz düşük ya da belirsiz",[L.low.length?"Düşük laktozlu: "+L.low.join(", "):"",L.may.length?"İçerebilir / aroma: "+L.may.join(", "):""]));
-    else out.push(card("g","Laktoz kaynağı bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+    if(L.yes.length)out.push(card("r",t("gida.prof.laktoz_var"),[L.yes.join(", ")].concat(L.low.length?[t("gida.prof.laktoz_dusuk_l",{l:L.low.join(", ")})]:[])));
+    else if(L.low.length||L.may.length)out.push(card("y",t("gida.prof.laktoz_belirsiz"),[L.low.length?t("gida.prof.laktoz_dusuk_l",{l:L.low.join(", ")}):"",L.may.length?t("gida.prof.laktoz_aroma",{l:L.may.join(", ")}):""]));
+    else out.push(card("g",t("gida.prof.laktoz_yok"),[t("ortak.onay_degil_etiket")]));
   }
   if(PROF.vegan){
     var V=S.vegan;
-    if(V.no.length)out.push(card("r","Vegan değil",[V.no.join(", ")].concat(V.unsure.length?["Kaynağı belirsiz: "+V.unsure.join(", ")]:[])));
-    else if(V.unsure.length)out.push(card("y","Vegan uygunluğu belirsiz",["Kaynağı bitkisel ya da hayvansal olabilir: "+V.unsure.join(", ")]));
-    else out.push(card("g","Hayvansal içerik bulunamadı",["Bu bir onay değildir; vegan logosu ya da sertifika en güvenilir göstergedir."]));
+    if(V.no.length)out.push(card("r",t("gida.prof.vegan_degil"),[V.no.join(", ")].concat(V.unsure.length?[t("gida.prof.kaynak_belirsiz",{l:V.unsure.join(", ")})]:[])));
+    else if(V.unsure.length)out.push(card("y",t("gida.prof.vegan_belirsiz"),[t("gida.prof.vegan_belirsiz_l",{l:V.unsure.join(", ")})]));
+    else out.push(card("g",t("gida.prof.hayvansal_yok"),[t("ortak.onay_degil_vegan")]));
   }
   if(PROF.veg){
     var G=S.veg;
-    if(G.no.length||G.insect.length)out.push(card("r","Vejetaryen değil",[G.no.length?G.no.join(", "):"",G.insect.length?"Böcek kaynaklı: "+G.insect.join(", "):""].concat(G.unsure.length?["Kaynağı belirsiz: "+G.unsure.join(", ")]:[])));
-    else if(G.unsure.length)out.push(card("y","Vejetaryen uygunluğu belirsiz",["Kaynağı belirsiz: "+G.unsure.join(", ")]));
-    else out.push(card("g","Et, balık ve kesim yan ürünü bulunamadı",["Bu bir onay değildir; etiketi kendiniz kontrol edin."]));
+    if(G.no.length||G.insect.length)out.push(card("r",t("gida.prof.vejetaryen_degil"),[G.no.length?G.no.join(", "):"",G.insect.length?t("gida.prof.bocek",{l:G.insect.join(", ")}):""].concat(G.unsure.length?[t("gida.prof.kaynak_belirsiz",{l:G.unsure.join(", ")})]:[])));
+    else if(G.unsure.length)out.push(card("y",t("gida.prof.vejetaryen_belirsiz"),[t("gida.prof.kaynak_belirsiz",{l:G.unsure.join(", ")})]));
+    else out.push(card("g",t("gida.prof.et_yok"),[t("ortak.onay_degil_etiket")]));
   }
   return out.concat(lifeCards(S.life,S.sodium));
 }
@@ -137,93 +138,93 @@ function lifeCard(title,rows,okTitle,okNote,extra){
 }
 function lifeCards(L,NA){
   var out=[],j=function(a){return a.join(", ")};
-  var raw=L.raw.length?["r","Çiğ (pastörize edilmemiş) süt ürünü: "+j(L.raw)+". Listeria gibi bakteriler taşıyabilir."]:null;
-  var alc=L.alcohol.length?["r","Alkol: "+j(L.alcohol)+". Pişirmeyle tamamen uçmayabilir."]:null;
-  var trace=L.alcoholTrace.length?["y","“Alkolsüz” ürün: hacmen %0,5'e kadar alkol içerebilir."]:null;
-  var hyp=L.hyper.length?["y","Renklendirici: "+j(L.hyper)+". Bu boyaları içeren ürünlerde, çocukların aktivitesi ve dikkati üzerinde olumsuz etkisi olabileceği uyarısı zorunludur."]:null;
-  if(PROF.preg)out.push(lifeCard("Hamilelik: dikkat",[alc,raw,
-    L.caffeine.length?["y","Kafein kaynaği: "+j(L.caffeine)+". EFSA hamilelikte günde en fazla 200 mg öneriyor; miktar için etiketteki kafein bilgisine bakın."]:null,trace],
-    "Hamilelik için işaretli madde bulunamadı","Bu bir onay değildir; etiketi kendiniz kontrol edin, beslenmeniz için doktorunuza danışın."));
-  if(PROF.emziriyorum)out.push(lifeCard("Emzirme: dikkat",[alc,raw,trace],
-    "Emzirme için işaretli madde bulunamadı","Bu bir onay değildir; etiketi kendiniz kontrol edin, beslenmeniz için doktorunuza danışın."));
-  if(PROF.baby)out.push(lifeCard("Bebek (1 yaş altı): dikkat",[
-    L.honey.length?["r","Bal: 1 yaşından küçük bebeklere verilmez (bebek botulizmi riski)."]:null,alc,
-    L.caffeine.length?["r","Kafein kaynağı: "+j(L.caffeine)+"."]:null,raw,
-    L.sweet.length?["y","Tatlandırıcı: "+j(L.sweet)+". Bebek ve küçük çocuk gıdalarında tatlandırıcı kullanımına izin verilmez."]:null,hyp,trace],
-    "Bebekler için işaretli madde bulunamadı","Bu bir onay değildir; bebeğinizin beslenmesi için doktorunuza danışın."));
-  if(PROF.child)out.push(lifeCard("Çocuk: dikkat",[alc,hyp,
-    L.caffeine.length?["y","Kafein kaynağı: "+j(L.caffeine)+". Yüksek kafeinli ürünler çocuklara tavsiye edilmez."]:null,
-    L.sweet.length?["y","Tatlandırıcı içerir: "+j(L.sweet)+"."]:null,trace],
-    "Çocuklar için işaretli madde bulunamadı","Bu bir onay değildir; etiketi kendiniz kontrol edin."));
-  if(PROF.pku)out.push(lifeCard("Fenilalanin kaynağı içerir",[L.phe.length?["r","Aspartam (fenilalanin kaynağı): "+j(L.phe)+"."]:null],
-    "Aspartam bulunamadı","Bu kontrol yalnızca tatlandırıcıya bakar. Proteinli tüm gıdalar fenilalanin içerir; protein miktarı için besin değeri tablosuna bakın."));
-  if(PROF.pet)out.push(lifeCard("Evcil hayvanlar için zehirli madde",[L.pet.length?["r","Köpek ve kediler için zehirli olduğu bilinen: "+j(L.pet)+"."]:null],
-    "Bilinen zehirli madde bulunamadı","Bu bir onay değildir. İnsan yiyeceklerini evcil hayvanınıza vermeden önce veterinerinize danışın.",
-    "Miktar bilinmez; hayvanınız yediyse veterinerinize başvurun."));
-  if(PROF.salt&&NA)out.push(lifeCard("Tuz ve sodyum kaynakları",[
-    NA.salt.length?["y","Tuz içerir"+(NA.saltOrd&&NA.saltOrd<=3?": içerik listesinde "+NA.saltOrd+". sırada. Bileşenler çoktan aza doğru yazıldığı için üründe tuz oranı yüksek olabilir.":".")]:null,
-    NA.hidden.length?["y","Adında “tuz” geçmeyen sodyum kaynakları: "+j(NA.hidden)+". Katkı maddelerinden gelen sodyum çoğunlukla tuzdan azdır."]:null],
-    "Tuz ya da sodyum kaynağı bulunamadı","Bu bir onay değildir. Peynir, et, ekmek gibi bileşenler kendiliğinden tuz içerebilir; miktar için besin değerleri tablosuna bakın.",
-    "Miktarı etiketteki besin değerleri tablosunun “Tuz” satırı gösterir: 100 g'da 1,5 g'ın üzeri yüksek, 0,3 g'ın altı düşük sayılır (İngiltere NHS ölçütü)."));
+  var raw=L.raw.length?["r",t("gida.yasam.cig",{l:j(L.raw)})]:null;
+  var alc=L.alcohol.length?["r",t("gida.yasam.alkol",{l:j(L.alcohol)})]:null;
+  var trace=L.alcoholTrace.length?["y",t("gida.yasam.alkolsuz")]:null;
+  var hyp=L.hyper.length?["y",t("gida.yasam.renk",{l:j(L.hyper)})]:null;
+  if(PROF.preg)out.push(lifeCard(t("gida.yasam.hamile"),[alc,raw,
+    L.caffeine.length?["y",t("gida.yasam.kafein_hamile",{l:j(L.caffeine)})]:null,trace],
+    t("gida.yasam.hamile_yok"),t("gida.yasam.onay_doktor")));
+  if(PROF.emziriyorum)out.push(lifeCard(t("gida.yasam.emzirme"),[alc,raw,trace],
+    t("gida.yasam.emzirme_yok"),t("gida.yasam.onay_doktor")));
+  if(PROF.baby)out.push(lifeCard(t("gida.yasam.bebek"),[
+    L.honey.length?["r",t("gida.yasam.bal")]:null,alc,
+    L.caffeine.length?["r",t("gida.yasam.kafein",{l:j(L.caffeine)})]:null,raw,
+    L.sweet.length?["y",t("gida.yasam.tatlandirici_bebek",{l:j(L.sweet)})]:null,hyp,trace],
+    t("gida.yasam.bebek_yok"),t("gida.yasam.bebek_onay")));
+  if(PROF.child)out.push(lifeCard(t("gida.yasam.cocuk"),[alc,hyp,
+    L.caffeine.length?["y",t("gida.yasam.kafein_cocuk",{l:j(L.caffeine)})]:null,
+    L.sweet.length?["y",t("gida.yasam.tatlandirici",{l:j(L.sweet)})]:null,trace],
+    t("gida.yasam.cocuk_yok"),t("ortak.onay_degil_etiket")));
+  if(PROF.pku)out.push(lifeCard(t("gida.yasam.pku"),[L.phe.length?["r",t("gida.yasam.aspartam",{l:j(L.phe)})]:null],
+    t("gida.yasam.aspartam_yok"),t("gida.yasam.pku_not")));
+  if(PROF.pet)out.push(lifeCard(t("gida.yasam.pet"),[L.pet.length?["r",t("gida.yasam.pet_l",{l:j(L.pet)})]:null],
+    t("gida.yasam.pet_yok"),t("gida.yasam.pet_onay"),
+    t("gida.yasam.pet_ek")));
+  if(PROF.salt&&NA)out.push(lifeCard(t("gida.yasam.tuz"),[
+    NA.salt.length?["y",NA.saltOrd&&NA.saltOrd<=3?t("gida.yasam.tuz_sira",{n:NA.saltOrd}):t("gida.yasam.tuz_var")]:null,
+    NA.hidden.length?["y",t("gida.yasam.sodyum_gizli",{l:j(NA.hidden)})]:null],
+    t("gida.yasam.tuz_yok"),t("gida.yasam.tuz_onay"),
+    t("gida.yasam.tuz_ek")));
   return out;
 }
 function summaryCard(S,res){
-  var d=el("div","res sumbox");d.appendChild(el("div","t","Özet"));
+  var d=el("div","res sumbox");d.appendChild(el("div","t",t("ortak.ozet")));
   function row(label,val,cls){var r=el("div","srow");r.appendChild(el("span","sl",label));var v=el("span","sv"+(cls?" "+cls:""));if(typeof val==="string")v.textContent=val;else v.appendChild(val);r.appendChild(v);d.appendChild(r)}
   var E=res.filter(function(r){return !r.isB&&!r.neg}),cnt=[0,0,0,0];E.forEach(function(r){cnt[r.rank]++});
-  row("Katkı maddesi",E.length?(E.length+" adet: "+cnt[3]+" uyarı, "+cnt[2]+" dikkat"+(cnt[1]?", "+cnt[1]+" doğrulanmamış":"")):"Bulunamadı",cnt[3]?"r":cnt[2]?"y":"");
+  row(t("gida.ozet.katki"),E.length?t(cnt[1]?"gida.ozet.katki_say_dog":"gida.ozet.katki_say",{n:E.length,u:cnt[3],d:cnt[2],v:cnt[1]}):t("ortak.bulunamadi"),cnt[3]?"r":cnt[2]?"y":"");
   if(S.sugar.length){
     var f=document.createDocumentFragment();
-    f.appendChild(document.createTextNode(S.sugar.length+" kaynak: "));
-    S.sugar.forEach(function(s,i){if(i)f.appendChild(document.createTextNode(", "));f.appendChild(document.createTextNode(s.name));if(s.hidden){f.appendChild(document.createTextNode(" "));f.appendChild(el("span","chip","gizli"))}});
-    row("Şeker",f,S.sugar.some(function(s){return s.hidden})?"y":"");
-  }else row("Şeker","Kaynak bulunamadı");
-  row("Palm yağı",S.palm.length?"Var ("+S.palm.join(", ")+")":"Bulunamadı",S.palm.length?"y":"");
+    f.appendChild(document.createTextNode(t("gida.ozet.kaynak_say",{n:S.sugar.length})));
+    S.sugar.forEach(function(s,i){if(i)f.appendChild(document.createTextNode(", "));f.appendChild(document.createTextNode(s.name));if(s.hidden){f.appendChild(document.createTextNode(" "));f.appendChild(el("span","chip",t("gida.ozet.gizli")))}});
+    row(t("gida.ozet.seker"),f,S.sugar.some(function(s){return s.hidden})?"y":"");
+  }else row(t("gida.ozet.seker"),t("gida.ozet.kaynak_yok"));
+  row(t("gida.ozet.palm"),S.palm.length?t("ortak.var_l",{l:S.palm.join(", ")}):t("ortak.bulunamadi"),S.palm.length?"y":"");
   var u=Object.keys(S.upf).map(capFirst);
-  row("Ultra işlenmiş gıda",u.length?(u.length+" işaret: "+u.join(", ")):"İşaret bulunamadı",u.length>=2?"y":"");
+  row(t("gida.ozet.upf"),u.length?t("gida.ozet.upf_say",{n:u.length,l:u.join(", ")}):t("gida.ozet.upf_yok"),u.length>=2?"y":"");
   var ay=[],am=[];Object.keys(S.allergen).forEach(function(f){var a=S.allergen[f];if(a.yes.length)ay.push(alName(f));else if(a.may.length)am.push(alName(f))});
-  row("Alerjenler",ay.length||am.length?((ay.length?"İçerir: "+ay.join(", "):"")+(ay.length&&am.length?" · ":"")+(am.length?"İçerebilir: "+am.join(", "):"")):"Bulunamadı");
+  row(t("profil.alerjenler"),ay.length||am.length?((ay.length?t("ortak.icerir_l",{l:ay.join(", ")}):"")+(ay.length&&am.length?" · ":"")+(am.length?t("ortak.icerebilir_l",{l:am.join(", ")}):"")):t("ortak.bulunamadi"));
   var UO=uretimOzet(res,IDX),um=uretimMetin(UO);
-  if(um)row("Üretim yolu",um+" katkı maddesi");
-  if(S.claims.length)row("Etiket beyanı",S.claims.join(", "));
-  if(S.cancer.length)row("Kanserojen olabilir",S.cancer.map(function(c){return typeof c==="string"?c:c.name}).join(", "),"r");
-  if(u.length)d.appendChild(el("div","how upfnote","Ultra işlenmiş gıda işaretleri NOVA sınıflamasına göredir; bir puan değil, bu tür ürünlerde kullanılan madde gruplarının listesidir."));
+  if(um)row(t("gida.ozet.uretim"),t("gida.ozet.uretim_l",{l:um}));
+  if(S.claims.length)row(t("gida.ozet.beyan"),S.claims.join(", "));
+  if(S.cancer.length)row(t("gida.ozet.kanser"),S.cancer.map(function(c){return typeof c==="string"?c:c.name}).join(", "),"r");
+  if(u.length)d.appendChild(el("div","how upfnote",t("gida.ozet.upf_not")));
   return d;
 }
 function brandCard(br){
-  var d=el("div","res u");d.appendChild(el("div","t","Bakanlık listesinde benzer marka adı"));
+  var d=el("div","res u");d.appendChild(el("div","t",t("ulke.tr.marka.baslik")));
   br.forEach(function(b){
-    var r=el("div","ln");r.appendChild(document.createTextNode("“"+b.label+"” adı listede "+b.n+" kayıtta geçiyor. "));
-    var a=el("a",null,"Listede gör");a.href="index.html?q="+encodeURIComponent(b.q);r.appendChild(a);d.appendChild(r);
+    var r=el("div","ln");r.appendChild(document.createTextNode(t("ulke.tr.marka.satir",{ad:b.label,n:b.n})));
+    var a=el("a",null,t("ulke.tr.marka.gor"));a.href="index.html?q="+encodeURIComponent(b.q);r.appendChild(a);d.appendChild(r);
   });
-  d.appendChild(el("div","how","Liste ürün ve parti bazındadır. Aynı adın geçmesi bu ürünün listede olduğu anlamına gelmez; ürün adını ve parti numarasını karşılaştırın."));
+  d.appendChild(el("div","how",t("ulke.tr.marka.not")));
   return d;
 }
 // Günlük kabul edilebilir alım (ADI) satırı; değer mg/kg vücut ağırlığı (per=hafta: haftalık)
-function sayi(x){x=Math.round(x*100)/100;return String(x).replace(".",",")}
+function sayi(x){return dilSayi(Math.round(x*100)/100)}
 function yuv(x){return x>=100?Math.round(x):x>=10?Math.round(x*10)/10:x}
-function mgTxt(x){return x>=1000?sayi(yuv(x/1000))+" g":sayi(yuv(x))+" mg"}
+function mgTxt(x){return x>=1000?t("birim.g_l",{n:sayi(yuv(x/1000))}):t("birim.mg_l",{n:sayi(yuv(x))})}
 function adiBlock(a,pre){
-  var w=a.per==="hafta",kg=PROF.kilo,box=el("div","adi"),row=el("div","adr"),t;
-  var lb=(w?"Haftalık sınır":"Günlük sınır")+(a.st==="set"&&kg?"ınız":"");
-  if(a.st==="set")t=kg?"yaklaşık "+mgTxt(a.v*kg)+" ("+sayi(kg)+" kg için"+(a.as?", "+a.as:"")+")":"kilo başına "+sayi(a.v)+" mg"+(a.as?" ("+a.as+")":"")+". Kilonuzu Hassasiyetlerim'e girerseniz size göre hesaplanır.";
-  else t=a.st==="ns"?"sayısal sınır belirlenmedi.":"geçerli bir sınır yok.";
-  var tx=el("div","ln");tx.appendChild(el("b",null,(pre?pre+" · ":"")+lb+": "));tx.appendChild(document.createTextNode(t));row.appendChild(tx);
-  var bt=el("button","info sm","i");bt.type="button";bt.setAttribute("aria-label",lb+" kaynağı");bt.setAttribute("aria-expanded","false");row.appendChild(bt);
+  var w=a.per==="hafta",kg=PROF.kilo,box=el("div","adi"),row=el("div","adr"),m;
+  var lb=t("gida.adi."+(w?"haftalik":"gunluk")+(a.st==="set"&&kg?"_kisi":""));
+  if(a.st==="set")m=kg?t(a.as?"gida.adi.yaklasik_as":"gida.adi.yaklasik",{mg:mgTxt(a.v*kg),kg:sayi(kg),as:a.as}):t(a.as?"gida.adi.kilo_basina_as":"gida.adi.kilo_basina",{n:sayi(a.v),as:a.as});
+  else m=a.st==="ns"?t("gida.adi.ns"):t("gida.adi.yok");
+  var lx=el("div","ln");lx.appendChild(el("b",null,(pre?pre+" · ":"")+t("ortak.etiket_iki_nokta",{ad:lb})));lx.appendChild(document.createTextNode(m));row.appendChild(lx);
+  var bt=el("button","info sm","i");bt.type="button";bt.setAttribute("aria-label",t("gida.adi.kaynagi",{ad:lb}));bt.setAttribute("aria-expanded","false");row.appendChild(bt);
   box.appendChild(row);
   var pn=el("div","ipanel");pn.hidden=true;
   var p=el("div","ln");
-  if(a.st==="set")p.appendChild(document.createTextNode((w?"Haftalık kabul edilebilir alım (TWI): ":"Kabul edilebilir günlük alım (ADI): ")+sayi(a.v)+" mg/kg vücut ağırlığı"+(a.as?" ("+a.as+")":"")+", "+a.src+"."+(kg?" Hesap: "+sayi(a.v)+" mg × "+sayi(kg)+" kg = "+mgTxt(a.v*kg)+".":"")));
-  else p.appendChild(document.createTextNode(a.st==="ns"?a.src+": mevcut kullanımda sayısal sınır gerekli görülmedi.":a.src+"."));
+  if(a.st==="set")p.appendChild(document.createTextNode(t(a.as?"gida.adi.tanim_as":"gida.adi.tanim",{ad:t(w?"gida.adi.twi":"gida.adi.adi"),n:sayi(a.v),as:a.as,src:a.src})+(kg?t("gida.adi.hesap",{n:sayi(a.v),kg:sayi(kg),mg:mgTxt(a.v*kg)}):"")));
+  else p.appendChild(document.createTextNode(a.st==="ns"?t("gida.adi.ns_src",{src:a.src}):a.src+"."));
   if(a.note)p.appendChild(document.createTextNode(" "+a.note));
   pn.appendChild(p);
   var ps=el("div","how");
-  if(a.url){ps.appendChild(document.createTextNode("Kaynak: "));var l=el("a",null,a.url.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);l.href=a.url;l.target="_blank";l.rel="noopener";ps.appendChild(l)}
-  if(!a.ok)ps.appendChild(document.createTextNode((a.url?" · ":"")+"Bu değer henüz kaynakla doğrulanmadı."));
+  if(a.url){ps.appendChild(document.createTextNode(t("ortak.kaynak")));var l=el("a",null,a.url.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);l.href=a.url;l.target="_blank";l.rel="noopener";ps.appendChild(l)}
+  if(!a.ok)ps.appendChild(document.createTextNode((a.url?" · ":"")+t("gida.adi.dogrulanmadi")));
   if(ps.childNodes.length)pn.appendChild(ps);
   if(a.st==="set"){
-    if(PROF.yas===0)pn.appendChild(el("div","how","EFSA'ya göre bu sınırlar 16 haftadan küçük bebekler için geçerli değildir; bebeğinizin beslenmesi için hekiminize danışın."));
-    pn.appendChild(el("div","how","Sınır, bir ömür boyunca her gün alınsa bile sağlık riski beklenmeyen miktardır ve gün içinde bütün kaynaklardan alınan toplam içindir. Etikette miktar yazmadığı için bu üründen ne kadar alındığı hesaplanamaz."));
+    if(PROF.yas===0)pn.appendChild(el("div","how",t("gida.adi.bebek16")));
+    pn.appendChild(el("div","how",t("gida.adi.aciklama")));
   }
   box.appendChild(pn);
   bt.onclick=function(){pn.hidden=!pn.hidden;bt.setAttribute("aria-expanded",pn.hidden?"false":"true");bt.classList.toggle("on",!pn.hidden)};
@@ -235,53 +236,53 @@ function additiveCard(r){
   var d=el("div","res "+CLS[r.rank]+(notr?" n":""));
   var it=items.slice().sort(function(a,b){return RANK[b.risk_level]-RANK[a.risk_level]})[0];
   var top=el("div","hd");
-  var grp=items.every(function(i){return i.category===items[0].category})?items[0].category:"Katkı maddesi";
-  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):("Olası: "+items.map(function(i){return i.id}).join(", ")+" · "+grp+" (türü belirtilmemiş)")));
-  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",it.primary_name+" hakkında bilgi");b.setAttribute("aria-expanded","false");
+  var grp=items.every(function(i){return i.category===items[0].category})?items[0].category:t("gida.ozet.katki");
+  top.appendChild(el("div","t",items.length===1?(items[0].id+" · "+items[0].primary_name):t("gida.kart.olasi_grup",{l:items.map(function(i){return i.id}).join(", "),grp:grp})));
+  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",t("ortak.hakkinda",{ad:it.primary_name}));b.setAttribute("aria-expanded","false");
   top.appendChild(b);d.appendChild(top);
-  d.appendChild(el("div","how",LBL[r.rank]+" · "+(r.how==="kod"?"E koduyla bulundu"+(r.fixed?" (yazım düzeltildi, kontrol edin)":""):r.how==="isim"?"isimle bulundu":"benzer yazım, kontrol edin: “"+r.text+"”")+(r.may?" · “içerebilir” bölümünde":"")));
+  d.appendChild(el("div","how",LBL(r.rank)+" · "+(r.how==="kod"?t(r.fixed?"gida.kart.kodla_duzeltildi":"gida.kart.kodla"):r.how==="isim"?t("ortak.isimle"):t("ortak.benzer",{l:r.text}))+(r.may?t("ortak.icerebilir_bolum"):"")));
   it.flags.forEach(function(f){if((f==="sodium"&&!PROF.salt)||f==="aluminium"||f==="gmo_suspect")return;/* sodyum etiketi yalnızca tuz kısıtlaması seçiliyse */d.appendChild(el("span","chip",FLAGS[f]||f))});
   var us=uretimSinif(r.ids,IDX);   // üretim yolu: gri bilgi etiketi, risk rengini değiştirmez
-  if(us){var uc=el("span","chip uret");var ui=el("span","uic");ui.setAttribute("aria-hidden","true");uc.appendChild(ui);uc.appendChild(document.createTextNode(URETIM_AD[us]));d.appendChild(uc)}
+  if(us){var uc=el("span","chip uret");var ui=el("span","uic");ui.setAttribute("aria-hidden","true");uc.appendChild(ui);uc.appendChild(document.createTextNode(t(URETIM_AD[us])));d.appendChild(uc)}
   var seenA={};items.forEach(function(x){if(!x.adi)return;var k=JSON.stringify(x.adi);if(seenA[k])return;seenA[k]=1});
   var nA=Object.keys(seenA).length,doneA={};
   items.forEach(function(x){if(!x.adi)return;var k=JSON.stringify(x.adi);if(doneA[k])return;doneA[k]=1;d.appendChild(adiBlock(x.adi,nA>1||items.length>1&&items.some(function(y){return !y.adi})?x.id:""))});
   var pn=el("div","ipanel");pn.hidden=true;
   var same=items.length>1&&items.every(function(x){return ABOUT[x.id]===ABOUT[items[0].id]&&!x.tgk_note});
-  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,"Nedir? "));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4)}
+  if(same){var p4=el("div","ln");p4.appendChild(el("b",null,t("gida.kart.nedir")));p4.appendChild(document.createTextNode(ABOUT[items[0].id]||""));pn.appendChild(p4)}
   else items.forEach(function(x){
     var ab=ABOUT[x.id];
     if(items.length>1)pn.appendChild(el("div","ih",x.id+" · "+x.primary_name));
-    if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,"Nedir? "));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
-    if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,"Yönetmelikteki adı: "));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
-    if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,"Türkiye: "));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
+    if(ab){var p1=el("div","ln");p1.appendChild(el("b",null,t("gida.kart.nedir")));p1.appendChild(document.createTextNode(ab));pn.appendChild(p1)}
+    if(items.length===1&&x.tgk_name&&x.tgk_name.toLowerCase()!==x.primary_name.toLowerCase()){var p0=el("div","ln");p0.appendChild(el("b",null,t("ulke.tr.tgk_adi")));p0.appendChild(document.createTextNode(x.tgk_name));pn.appendChild(p0)}
+    if(x.tgk_note){var p3=el("div","ln");p3.appendChild(el("b",null,t("ulke.tr.etiket")));p3.appendChild(document.createTextNode(x.tgk_note));pn.appendChild(p3)}
   });
   items.forEach(function(x){   // üretim yolu notu
     var u=x.uretim;if(!u)return;
-    var pu=el("div","ln");pu.appendChild(el("b",null,(items.length>1?x.id+" · ":"")+"Nasıl üretilir? "));pu.appendChild(document.createTextNode(u.n));
-    if(u.u){pu.appendChild(document.createTextNode(" Kaynak: "));var a=el("a",null,u.u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u.u;a.target="_blank";a.rel="noopener";pu.appendChild(a)}
-    if(!u.ok)pu.appendChild(document.createTextNode(" (Genel bilgiye dayanır, kaynakla doğrulanmadı.)"));
+    var pu=el("div","ln");pu.appendChild(el("b",null,(items.length>1?x.id+" · ":"")+t("gida.kart.nasil_uretilir")));pu.appendChild(document.createTextNode(u.n));
+    if(u.u){pu.appendChild(document.createTextNode(" "+t("ortak.kaynak")));var a=el("a",null,u.u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u.u;a.target="_blank";a.rel="noopener";pu.appendChild(a)}
+    if(!u.ok)pu.appendChild(document.createTextNode(" "+t("gida.kart.uretim_dogrulanmadi")));
     pn.appendChild(pu);
   });
-  if(uretimSinif(r.ids,IDX))pn.appendChild(el("div","how","Üretim yolu bir risk değerlendirmesi değildir; maddenin rengini değiştirmez."));
-  var p2=el("div","ln");p2.appendChild(el("b",null,"Değerlendirme: "));
-  p2.appendChild(document.createTextNode(it.verification==="inventory_only"?"Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor.":it.reason));
+  if(uretimSinif(r.ids,IDX))pn.appendChild(el("div","how",t("gida.kart.uretim_not")));
+  var p2=el("div","ln");p2.appendChild(el("b",null,t("gida.kart.degerlendirme")));
+  p2.appendChild(document.createTextNode(it.verification==="inventory_only"?t("gida.kart.olcut_yok"):it.reason));
   pn.appendChild(p2);
   if(it.sources&&it.sources.length){   // doğrulama kaynakları: bağlantı metni alan adı
-    var ps=el("div","how","Kaynak: ");
+    var ps=el("div","how",t("ortak.kaynak"));
     it.sources.forEach(function(u,i){var a=el("a",null,u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u;a.target="_blank";a.rel="noopener";if(i)ps.appendChild(document.createTextNode(" · "));ps.appendChild(a)});
     pn.appendChild(ps);
   }
-  if(it.needs_review)pn.appendChild(el("div","how",it.sources&&it.verification!=="partially_checked"?"Türkiye'deki izin durumu henüz doğrulanmadı.":it.sources?"Bu değerlendirmenin bir kısmı henüz kaynakla doğrulanmadı.":"Bu değerlendirme henüz kaynakla doğrulanmadı."));
+  if(it.needs_review)pn.appendChild(el("div","how",it.sources&&it.verification!=="partially_checked"?t("ulke.tr.izin_dogrulanmadi"):it.sources?t("gida.kart.kismen_dogrulanmadi"):t("gida.kart.dogrulanmadi")));
   // Ayrıntı alt sayfada açılır: (i) düğmesi ya da kartın kendisine dokunma; her madde için "Ansiklopedide oku"
   pn.hidden=false;pn.className="";
-  items.forEach(function(x){var a=el("a","ans",(items.length>1?x.id+" · ":"")+"Ansiklopedide oku");a.href="ansiklopedi.html?id="+encodeURIComponent(x.id);pn.appendChild(a)});
-  var ttl=items.length===1?items[0].id+" · "+items[0].primary_name:"Olası: "+items.map(function(i){return i.id}).join(", ");
+  items.forEach(function(x){var a=el("a","ans",(items.length>1?x.id+" · ":"")+t("gida.kart.ansiklopedi"));a.href="ansiklopedi.html?id="+encodeURIComponent(x.id);pn.appendChild(a)});
+  var ttl=items.length===1?items[0].id+" · "+items[0].primary_name:t("gida.kart.olasi",{l:items.map(function(i){return i.id}).join(", ")});
   b.removeAttribute("aria-expanded");b.setAttribute("aria-haspopup","dialog");
-  b.onclick=function(e){e.stopPropagation();openSheet(ttl,LBL[r.rank],pn,b)};
+  b.onclick=function(e){e.stopPropagation();openSheet(ttl,LBL(r.rank),pn,b)};
   d.classList.add("tap");
-  d.addEventListener("click",function(e){if(e.target.closest("button,a,.adi"))return;openSheet(ttl,LBL[r.rank],pn,b)});
-  d._open=function(ret){openSheet(ttl,LBL[r.rank],pn,ret||b)};   // karşılaştırma ekranından açmak için
+  d.addEventListener("click",function(e){if(e.target.closest("button,a,.adi"))return;openSheet(ttl,LBL(r.rank),pn,b)});
+  d._open=function(ret){openSheet(ttl,LBL(r.rank),pn,ret||b)};   // karşılaştırma ekranından açmak için
   return d;
 }
 /* Alt sayfa: başlık, durum satırı ve içerik; kapatınca odak açan düğmeye döner */
@@ -297,38 +298,38 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSheet()
 function comboCard(c){
   var R=c.rule,d=el("div","res "+(R.level==="yellow"?"y":"g")),top=el("div","hd");
   top.appendChild(el("div","t",R.title));
-  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",R.title+" hakkında bilgi");b.setAttribute("aria-expanded","false");
+  var b=el("button","info","i");b.type="button";b.setAttribute("aria-label",t("ortak.hakkinda",{ad:R.title}));b.setAttribute("aria-expanded","false");
   top.appendChild(b);d.appendChild(top);
-  var p=el("div","ln");p.appendChild(el("b",null,"Bu üründe: "));
+  var p=el("div","ln");p.appendChild(el("b",null,t("eslesme.bu_urunde")));
   p.appendChild(document.createTextNode(c.hits.map(function(h,i){return (R.type==="cift"?R.groups[i].label+": ":"")+h.join(", ")}).join(" · ")));d.appendChild(p);
   // Ayrıntı (açıklama, kaynak, not) yalnızca (i) düğmesine basınca görünür
   var pn=el("div","ipanel");pn.hidden=true;
   pn.appendChild(el("div","ln",R.text));
-  var ps=el("div","how","Kaynak: ");
+  var ps=el("div","how",t("ortak.kaynak"));
   (R.sources||[]).forEach(function(u,i){var a=el("a",null,u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]);a.href=u;a.target="_blank";a.rel="noopener";if(i)ps.appendChild(document.createTextNode(" · "));ps.appendChild(a)});
   pn.appendChild(ps);
-  pn.appendChild(el("div","how","Miktar etiketten bilinemez; bu bir risk hesabı değil, bilgi notudur."));
+  pn.appendChild(el("div","how",t("eslesme.not")));
   d.appendChild(pn);
   b.onclick=function(){pn.hidden=!pn.hidden;b.setAttribute("aria-expanded",pn.hidden?"false":"true");b.classList.toggle("on",!pn.hidden)};
   return d;
 }
 function comboSection(box,list){
   if(!list.length)return;
-  box.appendChild(el("h2",null,"Birlikte Dikkat"));
+  box.appendChild(el("h2",null,t("eslesme.baslik")));
   list.forEach(function(c){box.appendChild(comboCard(c))});
 }
 function render(res,br){
   var box=$("sonuc");box.textContent="";LAST=res;LASTBR=br||[];
   var S=summarize(res,IDX);LASTSUM=S;
-  if(!res.length&&!LASTBR.length){box.textContent="Eşleşen bir şey bulunamadı. “Okunan Metin” bölümünü açıp okunan yazıyı kontrol edin.";return}
+  if(!res.length&&!LASTBR.length){box.textContent=t("gida.eslesme_yok");return}
   if(S.cancer.length){
     var canc={yes:[],may:[]};S.cancer.forEach(function(c){(c.may?canc.may:canc.yes).push(typeof c==="string"?c:c.name)});
-    var cd=el("div","res prof r"),hd=el("div","hd"),b=el("button","info sm","i");b.type="button";b.setAttribute("aria-label","Kanserojen madde hakkında bilgi");
-    hd.appendChild(el("div","t","Kanserojen olabilecek madde"));hd.appendChild(b);cd.appendChild(hd);
+    var cd=el("div","res prof r"),hd=el("div","hd"),b=el("button","info sm","i");b.type="button";b.setAttribute("aria-label",t("kanser.hakkinda"));
+    hd.appendChild(el("div","t",t("kanser.baslik")));hd.appendChild(b);cd.appendChild(hd);
     if(canc.yes.length)cd.appendChild(el("div","ln",canc.yes.join(", ")));
-    if(canc.may.length){var d=el("div","ln");d.appendChild(el("b",null,"İçerebilir: "));d.appendChild(document.createTextNode(canc.may.join(", ")));cd.appendChild(d)}
+    if(canc.may.length){var d=el("div","ln");d.appendChild(el("b",null,t("ortak.icerebilir_iki")));d.appendChild(document.createTextNode(canc.may.join(", ")));cd.appendChild(d)}
     var ipan=el("div","ipanel");ipan.hidden=true;
-    ipan.appendChild(el("div","how","IARC sınıflandırmasına göre (Grup 2A muhtemelen, 2B olası kanserojen). Miktar etikette yazmadığı için risk hesaplanamaz."));
+    ipan.appendChild(el("div","how",t("kanser.gida_not")));
     cd.appendChild(ipan);b.onclick=function(){ipan.hidden=!ipan.hidden;b.setAttribute("aria-expanded",ipan.hidden?"false":"true");b.classList.toggle("on",!ipan.hidden)};
     box.appendChild(cd);
   }
@@ -337,39 +338,37 @@ function render(res,br){
   if(LASTBR.length)box.appendChild(brandCard(LASTBR));
   comboSection(box,findCombos(COMBO,"gida",comboItemsFood(res,IDX)));
   var E=res.filter(function(r){return !r.isB&&!r.neg});
-  if(E.length){box.appendChild(el("h2",null,"Katkı Maddeleri"));E.forEach(function(r){box.appendChild(additiveCard(r))})}
+  if(E.length){box.appendChild(el("h2",null,t("gida.katkilar")));E.forEach(function(r){box.appendChild(additiveCard(r))})}
   var B=res.filter(function(r){return r.isB&&!r.neg}),notes=B.map(function(r){return IDX.byId[r.ids[0]]}).filter(function(it){return it.note});
   if(B.length){
-    var bd=secBox(box,"Okunan diğer içerik",B.length);
+    var bd=secBox(box,t("gida.diger_icerik"),B.length);
     var seen={};B.forEach(function(r){var it=IDX.byId[r.ids[0]];if(seen[it.id])return;seen[it.id]=1;var l=el("div","ln");l.appendChild(el("b",null,it.name));if(it.note){l.appendChild(document.createTextNode(": "+it.note))}bd.appendChild(l)});
   }
-  box.appendChild(el("div","how it","Sonuçlar yalnızca okunan metne dayanır, miktar bilgisi içermez ve tıbbi tavsiye değildir."));
+  box.appendChild(el("div","how it",t("gida.alt_not")));
   payBar(box,{mode:"gida",text:$("metin").value});
 }
 function run(){
-  var t=$("metin").value;
+  var tx=$("metin").value;
   if(MODE==="koz"){
-    if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
-    if(!KIDX){$("sonuc").textContent="Kozmetik listeleri yükleniyor…";loadK().then(run,function(){$("sonuc").textContent="Kozmetik listesi yüklenemedi; internet bağlantısını kontrol edin."});return}
-    try{renderK(analyzeK(t,KIDX,{ptype:PTYPE}));histSave(t,"koz")}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
-    if(looksCleaning(t))sonucUst(suggestCardT());
+    if(!tx.trim()){$("sonuc").textContent=t("ortak.once_metin");return}
+    if(!KIDX){$("sonuc").textContent=t("koz.yukleniyor");loadK().then(run,function(){$("sonuc").textContent=t("koz.yuklenemedi")});return}
+    try{renderK(analyzeK(tx,KIDX,{ptype:PTYPE}));histSave(tx,"koz")}catch(e){$("sonuc").textContent=t("ortak.analiz_hatasi",{m:e.message})}
+    if(looksCleaning(tx))sonucUst(suggestCardT());
     return;
   }
   if(MODE==="tem"){
-    if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
-    if(!TIDX){$("sonuc").textContent="Temizlik listeleri yükleniyor…";loadT().then(run,function(){$("sonuc").textContent="Temizlik listesi yüklenemedi; internet bağlantısını kontrol edin."});return}
-    try{renderT(analyzeT(t,TIDX,KIDX));histSave(t,"tem")}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
+    if(!tx.trim()){$("sonuc").textContent=t("ortak.once_metin");return}
+    if(!TIDX){$("sonuc").textContent=t("tem.yukleniyor");loadT().then(run,function(){$("sonuc").textContent=t("tem.yuklenemedi")});return}
+    try{renderT(analyzeT(tx,TIDX,KIDX));histSave(tx,"tem")}catch(e){$("sonuc").textContent=t("ortak.analiz_hatasi",{m:e.message})}
     return;
   }
-  if(!IDX){$("sonuc").textContent="Listeler henüz yüklenmedi; sayfanın üstündeki durum satırına bakın.";return}
-  if(!t.trim()){$("sonuc").textContent="Önce metin girin ya da fotoğraftan okutun.";return}
-  try{render(analyze(t,IDX),BRANDS?findBrands(t,BRANDS):[]);histSave(t)}catch(e){$("sonuc").textContent="Analiz hatası: "+e.message}
-  if(looksCleaning(t))sonucUst(suggestCardT());
-  else if(looksCosmetic(t))sonucUst(suggestCard());
+  if(!IDX){$("sonuc").textContent=t("gida.yuklenmedi");return}
+  if(!tx.trim()){$("sonuc").textContent=t("ortak.once_metin");return}
+  try{render(analyze(tx,IDX),BRANDS?findBrands(tx,BRANDS):[]);histSave(tx)}catch(e){$("sonuc").textContent=t("ortak.analiz_hatasi",{m:e.message})}
+  if(looksCleaning(tx))sonucUst(suggestCardT());
+  else if(looksCosmetic(tx))sonucUst(suggestCard());
 }
 // Metin elle düzeltildiğinde sonuç kendiliğinden güncellenir (yazmayı bitirmesi beklenir)
 var RUN_T=null;$("metin").addEventListener("input",function(){HMOD=null;clearTimeout(RUN_T);RUN_T=setTimeout(run,600)});
-var ORNEK_GIDA="İçindekiler: Şeker, buğday unu, bitkisel yağ (palm), glikoz şurubu, yağsız süt tozu, peynir altı suyu tozu, renklendirici (tartrazin, E 110), koruyucu (E2 11), titanyum dioks1t, asitlik düzenleyici (sitrik asit), emülgatör (soya lesitini), monosodyum glutamet, karamel, aroma verici, yumurta tozu. Eser miktarda fındık ve susam içerebilir. Enerji 450 kcal, E 100 g";
-var ORNEK_KOZ="Ingredients: Aqua, Glycerin, Cetearyl Alcohol, Paraffinum Liquidum, Parfum, Methylparaben, DMDM Hydantoin, Linalool, Limonene, Hexyl Cinnamal, Butylphenyl Methylpropional, Retinyl Palmitate, Lanolin, Glycerln Stearate, Cl 77891 [+/- CI 77491]";
-var ORNEK_TEM="İçindekiler: %5-15 anyonik yüzey aktif maddeler, %5'ten az noniyonik yüzey aktif maddeler, sabun, fosfonatlar, enzimler, optik parlatıcılar, parfüm (Hexyl Cinnamal, Limonene, Linalool), koruyucu (Benzisothiazolinone, Methylisothiazolinone). TEHLİKE. Ciddi göz hasarına yol açar. Cilt tahrişine yol açar. Sucul ortamda uzun süre kalıcı, zararlı etki. Çocukların ulaşamayacağı yerde saklayın.";
-$("ornek").onclick=function(){HSCAN=HOCR=true;$("metin").value=MODE==="koz"?ORNEK_KOZ:MODE==="tem"?ORNEK_TEM:ORNEK_GIDA;run()};
+/* "Örnek metin dene": etiket metni örnekleri dil dosyasında (ornek.gida/koz/tem); her dil kendi pazarındaki gibi bir etiket yazabilir */
+$("ornek").onclick=function(){HSCAN=HOCR=true;$("metin").value=t("ornek."+(MODE==="koz"?"koz":MODE==="tem"?"tem":"gida"));run()};
