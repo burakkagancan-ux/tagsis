@@ -1,5 +1,6 @@
 // Worker'ın yerel testi: node worker/test.mjs  (Vision ve rate limit taklit edilir)
 import w from "./src/index.js";
+import { urunSec, barkodGecerli, KATKI_ARALIK_MS } from "./src/barkod.js";
 const ORIGIN = "https://burakkagancan-ux.github.io";
 let calls = 0, visionReply = () => ({ status: 200, body: { responses: [{ fullTextAnnotation: { text: "Aqua, Glycerin" } }] } });
 globalThis.fetch = async (url, opt) => { calls++; const v = visionReply(url, opt); return new Response(JSON.stringify(v.body), { status: v.status }); };
@@ -41,5 +42,50 @@ const sreq = (q, o = {}) => new Request("https://x.workers.dev/sayac" + q, { met
   await t("sayaç: yabancı köken sayılmaz", sreq("?t=s", { origin: "https://evil.example" }), e, 403);
   await t("sayaç: bilinmeyen tür s sayılır", sreq("?t=<x>"), e, 204, () => e.SAYAC.m.get("g:" + gun + ":s") === "3"); }
 { const e = env(); e.SAYAC = kv(); e.SAYAC_LIMIT = lim(10); for (let i = 0; i < 10; i++) await w.fetch(sreq("?t=s"), e); await t("sayaç IP sınırı (11. istek)", sreq("?t=s"), e, 429); }
+// Barkod: /off (Open Food Facts taklit), /urun (D1 taklit)
+const breq = (yol, o = {}) => new Request("https://x.workers.dev" + yol, { method: o.method || "GET", headers: { "Content-Type": "application/json", "Origin": o.origin ?? ORIGIN, "CF-Connecting-IP": "1.2.3.4" }, body: o.body });
+let offCalls = [];
+const offYanit = (urunler) => (url) => { offCalls.push(url); const m = /https:\/\/([^/]+)\/api\/v2\/product\/(\d+)/.exec(url); const p = m && urunler[m[1] + "/" + m[2]];
+  return p ? { status: 200, body: { status: 1, product: p } } : { status: 200, body: { status: 0 } }; };
+const d1 = () => { const rows = []; let ddl = 0;
+  const st = (sql) => ({ sql, args: [], bind(...a) { this.args = a; return this; },
+    async all() { return { results: rows.filter((r) => r.kod === this.args[0]).sort((a, b) => b.t - a.t).map(({ tur, dil, metin, t }) => ({ tur, dil, metin, t })) }; },
+    async first() { return { n: rows.filter((r) => r.kod === this.args[0]).length }; },
+    async run() { const [kod, tur, dil, metin, t] = this.args; rows.push({ kod, tur, dil, metin, t }); return {}; } });
+  return { rows, get ddl() { return ddl; }, prepare: st, batch: async (l) => { ddl += l.length; return []; } }; };
+const metinA = "İçindekiler: buğday unu, şeker, palm yağı, kakao tozu, tuz, emülgatör (soya lesitini), kabartıcı (sodyum bikarbonat).";
+{ visionReply = offYanit({ "world.openfoodfacts.org/8690504025207": { code: "8690504025207", product_name_tr: "Bitter Çikolata", brands: "Ülker,X", lang: "tr", ingredients_text_tr: "Kakao kitlesi, şeker", ingredients_text: "Kakao kitlesi, şeker", last_modified_t: 1700000000 },
+    "world.openbeautyfacts.org/4005900036650": { code: "4005900036650", product_name: "Krem", brands: "N", lang: "de", ingredients_text: "Aqua, Glycerin" } });
+  offCalls = [];
+  await t("off: gıda bulundu", breq("/off/8690504025207"), env(), 200, (j) => j.bulundu && j.db === "food" && j.ad === "Bitter Çikolata" && j.marka === "Ülker" && j.metin.tr === "Kakao kitlesi, şeker" && j.t === 1700000000000);
+  if (offCalls.some((u) => !/^https:\/\/world\.open(food|beauty|products)facts\.org\/api\/v2\/product\/8690504025207\?/.test(u))) { fail++; console.log("HATA off: beklenmeyen adres", offCalls); }
+  await t("off: kozmetik (dil = etiket dili)", breq("/off/4005900036650"), env(), 200, (j) => j.bulundu && j.db === "beauty" && j.metin.de === "Aqua, Glycerin");
+  await t("off: bulunamadı", breq("/off/4006381333931"), env(), 200, (j) => j.bulundu === false);
+  await t("off: geçersiz barkod biçimi", breq("/off/12ab"), env(), 400);
+  await t("off: yabancı köken", breq("/off/8690504025207", { origin: "https://evil.example" }), env(), 403);
+  visionReply = () => { throw new Error("ağ yok"); };
+  await t("off: ağ hatası sessizce bulunamadı", breq("/off/8690504025207"), env(), 200, (j) => j.bulundu === false);
+  const e = env(); e.BARKOD_LIMIT = lim(30); for (let i = 0; i < 30; i++) await w.fetch(breq("/off/12345670"), e);
+  await t("barkod IP sınırı (31. istek)", breq("/off/12345670"), e, 429); }
+{ const e = env();
+  await t("urun: D1 yok, GET sessiz", breq("/urun/8690504025207"), e, 200, (j) => j.bulundu === false && j.devreDisi);
+  await t("urun: D1 yok, POST sessiz 204", breq("/urun", { method: "POST", body: JSON.stringify({ kod: "8690504025207", tur: "gida", dil: "tr", metin: metinA }) }), e, 204); }
+{ const e = env(); e.URUNLER = d1(); const post = (b) => breq("/urun", { method: "POST", body: JSON.stringify(b) });
+  await t("urun: geçersiz kontrol hanesi", post({ kod: "8690504025208", tur: "gida", dil: "tr", metin: metinA }), e, 400);
+  await t("urun: geçersiz tür", post({ kod: "8690504025207", tur: "x", dil: "tr", metin: metinA }), e, 400);
+  await t("urun: kısa metin", post({ kod: "8690504025207", tur: "gida", dil: "tr", metin: "su" }), e, 400);
+  await t("urun: katkı kaydedildi", post({ kod: "8690504025207", tur: "gida", dil: "tr", metin: metinA }), e, 201);
+  const r = e.URUNLER.rows[0];
+  if (!r || Object.keys(r).sort().join() !== "dil,kod,metin,t,tur") { fail++; console.log("HATA urun: satırda yalnızca kod, tür, dil, metin, zaman olmalı (IP yok)", r); }
+  await t("urun: tek katkı doğrulanmamış", breq("/urun/8690504025207"), e, 200, (j) => j.bulundu && !j.dogrulandi && j.sayi === 1 && j.tur === "gida");
+  if (e.URUNLER.ddl !== 2) { fail++; console.log("HATA urun: tablo ve indeks otomatik oluşmalı (CREATE IF NOT EXISTS)"); } }
+// Doğrulama kuralı (saf): farklı zamanlarda iki benzer katkı doğrulanmış; aynı anda gelen iki katkı doğrulanmamış; farklı içerik ayrı grup
+{ const T0 = 1_700_000_000_000, b = metinA.replace("tuz", "tuz,");
+  const s1 = urunSec([{ tur: "gida", dil: "tr", metin: metinA, t: T0 }, { tur: "gida", dil: "tr", metin: b, t: T0 + KATKI_ARALIK_MS }]);
+  const s2 = urunSec([{ tur: "gida", dil: "tr", metin: metinA, t: T0 }, { tur: "gida", dil: "tr", metin: b, t: T0 + 1000 }]);
+  const s3 = urunSec([{ tur: "gida", dil: "tr", metin: "Su, şeker, karbondioksit, aroma vericiler, asitlik düzenleyici (sitrik asit)", t: T0 + 5 }, { tur: "gida", dil: "tr", metin: metinA, t: T0 }, { tur: "gida", dil: "tr", metin: b, t: T0 + KATKI_ARALIK_MS }]);
+  const ok = s1.dogrulandi && s1.sayi === 2 && !s2.dogrulandi && s3.dogrulandi && s3.metin === b && !urunSec([]).bulundu;
+  if (!ok) { fail++; console.log("HATA urunSec doğrulama kuralı", s1, s2, s3); } else console.log("ok   urunSec doğrulama kuralı");
+  if (!barkodGecerli("8690504025207") || barkodGecerli("8690504025208") || !barkodGecerli("012345678905") || !barkodGecerli("01234565")) { fail++; console.log("HATA barkodGecerli"); } }
 console.log(fail ? fail + " hata" : "tüm testler geçti");
 process.exit(fail ? 1 : 0);

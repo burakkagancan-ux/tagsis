@@ -23,8 +23,13 @@ button.alt{background:none;color:var(--ok)}button:disabled{opacity:.5}
 label.camera{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:1.5px dashed var(--ok);border-radius:14px;background:var(--card);min-height:64px;color:var(--ink);font-weight:600;cursor:pointer}
 label.camera svg{flex:0 0 auto;width:40px;height:40px;padding:8px;border-radius:50%;background:var(--ok);fill:none;stroke:var(--bg);stroke-width:2;stroke-linejoin:round}
 #foto:focus-visible+img,label.camera:focus-within{outline:3px solid var(--ok)}
-label.dosya{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:8px;padding:10px 16px;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ok);font-weight:600;font-size:15px;cursor:pointer}
-label.dosya svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}label.dosya:focus-within{outline:3px solid var(--ok)}
+label.dosya,button.dosya{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:8px;padding:10px 16px;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ok);font-weight:600;font-size:15px;cursor:pointer}
+label.dosya svg,button.dosya svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}label.dosya:focus-within{outline:3px solid var(--ok)}
+button.dosya{font:inherit;font-weight:600}
+.bvid{display:block;width:100%;max-height:46vh;object-fit:cover;border-radius:12px;background:#000;margin:4px 0 8px}
+.bsheet .dosya{margin-top:10px}.belle input{flex:1;min-width:0;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:12px}
+.bkaynak .ln a{font-weight:600}.bkaynak button{margin-top:8px}.bkaynak .pc{display:flex;gap:6px;align-items:center;margin-top:6px;font-size:14px}
+.pbark{margin-top:14px}.pbark select{margin-top:6px;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
 #cropwrap{position:relative;display:none;width:fit-content;max-width:100%;margin:10px auto 0;overflow:hidden;border-radius:8px;user-select:none;-webkit-user-select:none}
 img#pre{display:block;max-width:100%;max-height:60vh;-webkit-user-drag:none;pointer-events:none}
 #crop{position:absolute;border:2px solid #fff;outline:1px solid rgba(0,0,0,.5);box-shadow:0 0 0 9999px rgba(0,0,0,.45);box-sizing:border-box}
@@ -148,6 +153,7 @@ button.kkayit{flex-direction:column;align-items:flex-start;gap:4px;width:100%;te
 <li data-i18n="gizlilik.2">Yalnızca ambalajın içindekiler bölümünü çekin. Kadrajda yüz, ad, adres ya da belge gibi kişisel bilgi bulunmamasına dikkat edin.</li>
 <li data-i18n="gizlilik.3">Profil seçimleriniz (alerjen, vegan vb.) yalnızca bu cihazda saklanır, bize iletilmez.</li>
 <li data-i18n="gizlilik.4">Uygulama üyelik istemez, reklam ya da izleme aracı kullanmaz. Bir sonucu paylaştığınızda yalnızca günlük paylaşım sayısı bir artar; ürün, okunan metin ya da kişisel bilgi gönderilmez.</li>
+<li data-i18n="gizlilik.5">Barkod okuttuğunuzda barkod numarası ürünü bulmak için sunucumuza gönderilir; sunucu Open Food Facts'e kendi adına sorar, IP adresiniz iletilmez ve saklanmaz. Fotoğrafla okuttuğunuz içerik yalnızca siz izin verirseniz barkodla birlikte kaydedilir (fotoğraf, konum ya da kişisel bilgi olmadan).</li>
 </ul></details>
 <div class="note"><strong data-i18n="sayfa.deneme">Deneme sürümü.</strong> <span data-i18n="sayfa.deneme_not">Katkı maddesi ve bileşen bilgileri taslaktır ve doğrulanmamıştır; tıbbi veya resmi bir tavsiye değildir. Bu resmi bir uygulama değildir.</span></div>
 
@@ -159,6 +165,7 @@ button.kkayit{flex-direction:column;align-items:flex-start;gap:4px;width:100%;te
 <input type="file" id="foto" class="vh" accept="image/*" capture="environment">
 <label class="dosya" for="dosya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg><span data-i18n="foto.dosya">Galeriden ya da dosyadan fotoğraf yükle</span></label>
 <input type="file" id="dosya" class="vh" accept="image/*">
+<button type="button" class="dosya" id="barkodb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6v12M7 6v12M10 6v12M14 6v12M16 6v12M20 6v12M3 4h3M18 4h3M3 20h3M18 20h3"/></svg><span data-i18n="barkod.dugme">Barkod okut</span></button>
 <div id="cropwrap"><img id="pre" alt="Seçilen fotoğraf" data-i18n-attr="alt:foto.secilen"><div id="crop" aria-hidden="true"><span class="h" data-h="nw"></span><span class="h" data-h="n"></span><span class="h" data-h="ne"></span><span class="h" data-h="e"></span><span class="h" data-h="se"></span><span class="h" data-h="s"></span><span class="h" data-h="sw"></span><span class="h" data-h="w"></span><span class="mv" data-h="move"></span></div></div>
 <div id="cropbar" class="row"><span data-i18n="foto.kirp">Köşeleri sürükleyerek yalnızca içerik listesini çerçeveye alın.</span><button type="button" class="alt" id="cropreset" data-i18n="foto.tumunu">Tümünü seç</button></div>
 <div class="row"><button id="oku" disabled data-i18n="sayfa.analiz">Analiz Et</button><button type="button" class="alt" id="karsla" data-i18n="kars.dugme">Karşılaştır</button><button class="alt" id="ornek" data-i18n="sayfa.ornek">Örnek metin dene</button></div>
@@ -189,12 +196,14 @@ button.kkayit{flex-direction:column;align-items:flex-start;gap:4px;width:100%;te
 <script src="js/paylas_ayar.js"></script>
 <script src="js/paylas.js"></script>
 <script src="js/kayit.js"></script>
+<script src="js/barkod.js"></script>
 <script src="js/arayuz.js"></script>
 <script src="js/arayuz_kozmetik.js"></script>
 <script src="js/arayuz_temizlik.js"></script>
 <script src="js/arayuz_karsilastir.js"></script>
 <script src="js/arayuz_paylas.js"></script>
 <script src="js/arayuz_kayit.js"></script>
+<script src="js/arayuz_barkod.js"></script>
 <script src="js/arayuz_sayfa.js"></script>
 </body>
 </html>

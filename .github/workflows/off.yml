@@ -1,0 +1,50 @@
+name: Open Food Facts güncelle
+# Ayda bir Open Food Facts / Open Beauty Facts / Open Products Facts'ten Türkiye'de satılan ürünlerin barkod, ad ve içerik
+# metnini indirir (barkodla ürün bulma, data/barkod_off.json). Değişiklik varsa üreteci ve barkod testini çalıştırıp PR açar.
+# OFF'un istek sınırına uymak için yavaş çalışır (yaklaşık 30-60 dakika). Lisans: ODbL; atıf uygulamada.
+on:
+  schedule:
+    - cron: "0 7 2 * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: off-guncelle
+  cancel-in-progress: false
+jobs:
+  off:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python off_al.py
+      - name: Değişiklik var mı
+        id: fark
+        run: git diff --quiet -I '"surum":' -- kaynak/off/ && echo "var=0" >> "$GITHUB_OUTPUT" || echo "var=1" >> "$GITHUB_OUTPUT"
+      - name: Üreteç ve test
+        if: steps.fark.outputs.var == '1'
+        run: |
+          python3 gen_barkod.py
+          node test/barkod.js
+      - name: PR aç
+        if: steps.fark.outputs.var == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          dal="off/$(date +%Y-%m)"
+          git config user.name "tagsis-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git checkout -b "$dal"
+          git add kaynak/off data/barkod_off.json
+          git commit -m "Open Food Facts Türkiye verisi güncellendi ($(date +%Y-%m-%d))"
+          git push -f origin "$dal"
+          gh pr create --base main --head "$dal" --title "Open Food Facts güncellemesi $(date +%Y-%m)" \
+            --body "Open Food Facts ailesinden aylık indirme (Türkiye'de satılan ürünler). Barkod testi bu iş içinde çalıştı." \
+            || echo "Bu ay için PR zaten açık"

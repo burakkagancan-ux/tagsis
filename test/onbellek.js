@@ -9,7 +9,7 @@ const want=new Set();
   want.add(p);
   for(const m of fs.readFileSync(path.join(R,p),'utf8').matchAll(/(?:src|href)="((?:js|fonts|data)\/[^"]+|[a-z_]+\.(?:css|webmanifest))"/g))want.add(m[1]);
 });
-fs.readdirSync(path.join(R,'js')).forEach(f=>{
+fs.readdirSync(path.join(R,'js')).filter(f=>f.endsWith('.js')).forEach(f=>{
   for(const m of fs.readFileSync(path.join(R,'js',f),'utf8').matchAll(/"(data\/[a-z_]+\.json)"/g))want.add(m[1]);
 });
 // Kaynak dil (Türkçe, her dilin son yedeği) ve dil listesi kurulumda iner; öteki dillerin dosyaları ve madde sayfaları inmez, DINAMIK'e uyar
@@ -22,6 +22,8 @@ ls('data').forEach(e=>{if(/^ansiklopedi_[a-z-]+\.json$/.test(e.name)&&e.name!=='
 (function gez(d){ls(d).forEach(e=>e.isDirectory()?gez(d+'/'+e.name):dinamik.push(d+'/'+e.name))})('data/ansiklopedi');
 ok(dinamik.includes('i18n/en.json')&&dinamik.includes('data/ansiklopedi/E322.json')&&dinamik.includes('data/ansiklopedi/tr/E322.json'),'dinamik dosya listesi eksik');
 dinamik.forEach(f=>{ok(!core.has(f),'dile ya da sayfaya bağlı dosya kurulumda inmemeli: '+f);ok(DIN.test(f),'sw.js DINAMIK önbelleğe almıyor: '+f)});
+// İstek geldikçe önbelleğe alınanlar (kurulumu büyütmesin): barkod verisi (Open Food Facts) ve iOS barkod kütüphanesi
+const ISTEKLE=new Set(['data/barkod_off.json']);ISTEKLE.forEach(f=>want.delete(f));
 want.forEach(f=>{ok(core.has(f),'sw.js CORE listesinde yok: '+f);ok(fs.existsSync(path.join(R,f)),'dosya yok: '+f)});
 core.forEach(f=>{if(f!=='./')ok(fs.existsSync(path.join(R,f)),'CORE listesindeki dosya yok: '+f)});
 // Boyut bütçesi: kurulumda inen toplam. Aşılırsa önce dosyayı bölmeyi düşünün (YOL_HARITASI.md O-10); bütçe bilerek artırılır.
