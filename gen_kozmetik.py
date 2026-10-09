@@ -498,7 +498,10 @@ def finalize(entries):
         s = set(e["inci"])
         if e["annex"] in ("V", "III") and s & fr: e["flags"].append("formaldehyde_releaser")
         if e["annex"] == "V" and s & pa: e["flags"].append("allergen_preservative")
-        if any(PFAS_RE.search(a) for a in e["inci"]): e["flags"].append("pfas")
+        # PFAS ad düzeyinde: kayıt bayrağı kaydın florsuz adlarına da geçiyordu (III/61, III/62: 282 ad; 09.10.2026).
+        # INCI listesinde olmayan kayıt adları (ör. Ek II PFOA) için hangi adların PFAS olduğu kayıtta yazılır.
+        pf = [a for a in e["inci"] if PFAS_RE.search(a)]
+        if pf: e["pfas_inci"] = pf
         e["flags"] = list(dict.fromkeys(e["flags"]))
 
     # Aynı ad hem yasaklı (II) hem izinli bir ekte geçiyorsa: II'deki ad o maddenin başka bir

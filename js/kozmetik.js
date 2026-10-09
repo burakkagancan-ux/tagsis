@@ -6,7 +6,7 @@ function buildKIndex(kdb,kinci){
   var map=new Map(),byFirst={};
   function slot(k,name){var s=map.get(k);if(!s){s={name:name,funcs:[],flags:[],reg:[],k3:[]};map.set(k,s)}return s}
   (kinci?kinci.items:[]).forEach(function(it){var k=norm(it[0]);if(!k)return;var s=slot(k,it[0]);s.funcs=it[1].map(function(i){return kinci.functions[i]});s.flags=it[2]||[]});
-  kdb.entries.forEach(function(e){e.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.reg.indexOf(e)<0)s.reg.push(e)})});
+  kdb.entries.forEach(function(e){e.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.reg.indexOf(e)<0)s.reg.push(e);if(e.pfas_inci&&e.pfas_inci.indexOf(a)>-1&&s.flags.indexOf("pfas")<0)s.flags=s.flags.concat("pfas")})});
   // K3: AB dışı yasaklar ve AB değerlendirme listeleri (kozmetik.json "watch")
   (kdb.watch||[]).forEach(function(w){w.inci.forEach(function(a){var k=norm(a);if(k.length<3)return;var s=slot(k,a);if(s.k3.indexOf(w)<0)s.k3.push(w)})});
   // Eş anlamlılar (Türkçe ad, ABD etiket adı, kısaltma): hedef INCI kaydına bağlanır; birden çok hedef birleştirilir
