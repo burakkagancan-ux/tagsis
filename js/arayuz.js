@@ -88,6 +88,7 @@ function buildProfile(){
   b3=pdrop(t("profil.diger"),function(){return OTHER.filter(function(x){return PROF[x[0]]}).length});var g3=el("div","pg");
   abc(OTHER).forEach(function(x){g3.appendChild(cb(x[1],!!PROF[x[0]],function(v){PROF[x[0]]=v}))});
   b3.appendChild(g3);
+  if(typeof barkodAyarKutusu==="function")box.appendChild(barkodAyarKutusu());   // barkodlu ürün katkısı tercihi
   box.appendChild(el("div","mut",t("profil.cihazda")));
   var sr=el("div","sorumlu");sr.appendChild(el("div","pt",t("profil.sorumluluk_baslik")));
   SORUMLULUK.forEach(function(k){sr.appendChild(el("p",null,t(k)))});box.appendChild(sr);
@@ -356,7 +357,9 @@ function render(res,br){
   box.appendChild(el("div","how it",t("gida.alt_not")));
   payBar(box,{mode:"gida",text:$("metin").value});
 }
-function run(){
+/* Analiz; ardından barkod kaynağı/katkı kartı (js/arayuz_barkod.js) */
+function run(){runIc();if(typeof barkodSonra==="function")barkodSonra()}
+function runIc(){
   var tx=$("metin").value;
   if(MODE==="koz"){
     if(!tx.trim()){$("sonuc").textContent=t("ortak.once_metin");return}

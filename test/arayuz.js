@@ -62,6 +62,44 @@ async function scan(p,mode,text){
   await p.waitForFunction(()=>getComputedStyle(document.getElementById('cropwrap')).display==='block'&&!document.getElementById('oku').disabled,null,{timeout:5000});
   ok(await p.evaluate(()=>/^blob:/.test(document.getElementById('pre').src)),'dosyadan yüklenen fotoğraf kırpma ekranında');
 
+  // 1c) Barkod: elle giriş (kamera testte yok) → uygulamadaki Open Food Facts verisinden içerik + kaynak kartı; geçersiz ve bulunamayan barkod
+  {
+    const D=JSON.parse(fs.readFileSync(path.join(R,'data','barkod_off.json'),'utf8')).u;
+    const kod=Object.keys(D).find(k=>D[k][0]==='food'&&D[k][4].tr&&D[k][1]&&/^869\d{10}$/.test(k));
+    const yok=['4006381333931','5000112637922','3017620422003'].find(k=>!D[k]&&!D['0'+k]);
+    ok(kod&&yok,'barkod testi için veri: '+kod+' / '+yok);
+    await p.click('#barkodb');await p.waitForSelector('#sheet:not([hidden]) .belle input');
+    await p.waitForFunction(()=>/Kamera açılamadı|Barkodu çerçevenin/.test(document.querySelector('#sheet .bsheet>.how').textContent),null,{timeout:8000});
+    await p.fill('#sheet .belle input','8690504025208');await p.click('#sheet .belle button');
+    ok(/Geçersiz barkod/.test(await p.textContent('#sheet .bsheet>.how'))&&!await p.isHidden('#sheet'),'geçersiz barkod reddedilir, alt sayfa açık kalır');
+    await p.fill('#sheet .belle input',kod);await p.click('#sheet .belle button');
+    await p.waitForSelector('#sonuc .bkaynak',{timeout:15000});
+    const st=await p.evaluate(()=>({mod:MODE,metin:document.getElementById('metin').value,kart:document.querySelector('#sonuc .bkaynak').textContent,link:(document.querySelector('#sonuc .bkaynak a')||{}).href,gecmis:histLoad()[0]}));
+    ok(st.mod==='gida'&&st.metin===D[kod][4].tr.trim(),'barkod: gıda modu ve Türkçe içerik kutuda');
+    ok(/Open Food Facts/.test(st.kart)&&/etiket farklı olabilir/.test(st.kart)&&/fotoğrafıyla doğrula/.test(st.kart)&&/openfoodfacts\.org\/product\//.test(st.link),'kaynak kartı: atıf, "etiket asıl kaynak", doğrula düğmesi: '+st.kart.slice(0,160));
+    ok(await p.isVisible('#sonuc .resbar')&&await p.evaluate(()=>document.querySelectorAll('#sonuc .res').length>1),'analiz sonucu kaynak kartının altında');
+    ok(st.gecmis&&st.gecmis.text===st.metin&&!/^Tarama \d+$/.test(st.gecmis.name),'tarama geçmişinde ürün adıyla: '+(st.gecmis&&st.gecmis.name));
+    ok(await p.isHidden('#sheet'),'alt sayfa kapandı');
+    await p.click('#barkodb');await p.waitForSelector('#sheet:not([hidden]) .belle input');
+    await p.fill('#sheet .belle input',yok);await p.click('#sheet .belle button');
+    await p.waitForFunction(()=>/henüz veritabanında yok/.test((document.querySelector('#sonuc .bkaynak')||{}).textContent||''),null,{timeout:15000});
+    ok(await p.evaluate(()=>document.getElementById('metin').value==='')&&await p.isVisible('#sonuc .bkaynak button'),'bulunamadı: kutu boş, "İçerik listesini fotoğrafla" düğmesi');
+    ok(await p.evaluate(()=>{const s=document.querySelector('#profil .pbark select');return !!s&&s.value===''&&[...s.options].map(o=>o.value).join()===',evet,hayir'}),'Hassasiyetlerim: katkı tercihi, varsayılan "her seferinde sor"');
+    // Bulunamayan ürünün etiketi okununca katkı önerisi; "Kaydet" yalnızca barkod, tür, dil ve içerik metnini gönderir
+    let gonderilen=null;
+    await p.route(/workers\.dev\/urun$/,r=>{gonderilen=r.request().postDataJSON();r.fulfill({status:201,contentType:'application/json',body:'{"tamam":true}'})});
+    await p.evaluate(()=>{document.getElementById('metin').value=t('ornek.gida');HSCAN=HOCR=true;barkodFoto();run()});
+    await p.waitForFunction(()=>/başka kullanıcılar için kaydedelim/.test(document.getElementById('sonuc').textContent),null,{timeout:10000});
+    ok(!gonderilen,'izin verilmeden hiçbir şey gönderilmez');
+    await p.click('#sonuc .bkaynak .row button:not(.alt)');
+    await p.waitForFunction(()=>/Teşekkürler/.test(document.getElementById('sonuc').textContent),null,{timeout:5000});
+    for(let i=0;i<20&&!gonderilen;i++)await p.waitForTimeout(100);
+    ok(gonderilen&&Object.keys(gonderilen).sort().join()==='dil,kod,metin,tur'&&gonderilen.kod===yok&&gonderilen.tur==='gida'&&gonderilen.dil==='tr','katkı: yalnızca kod, tür, dil, metin: '+JSON.stringify(gonderilen&&Object.keys(gonderilen)));
+    ok(await p.evaluate(()=>localStorage.getItem('barkod_katki')===null),'"hatırla" seçilmedikçe tercih kaydedilmez');
+    await p.unroute(/workers\.dev\/urun$/);
+    await p.evaluate(()=>{BARKOD=null;document.getElementById('metin').value='';document.getElementById('sonuc').textContent=''});
+  }
+
   // 2) Üç modda örnek analiz
   for(const m of ['gida','koz','tem']){
     await sample(p,m);

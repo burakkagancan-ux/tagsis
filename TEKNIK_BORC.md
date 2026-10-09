@@ -159,3 +159,12 @@ Sayılar data/ ve i18n/veri/en.json'dan 08.10.2026'da sayıldı. Ansiklopedi har
   - Hardal yaprağı (mustard greens) hardal alerjeni sayılır (İngiltere FSA: hardal bitkisinin yaprağı da alerjen).
   - Türkçe OCR toleransında küçük kayıp: sözlükte gerçek sözcük olan bozulmalar artık düzeltilmiyor ("karya zamkı" karaya mı kasya mı belirsiz; "çam bazı" → çam balı değil). Yapay tek harf testi %94,4 → %94,3; başka maddeye düşen 13 → 10, bunlardan dikkat/uyarı verenler 3 → 0.
 - Türkçe derlem karşılaştırması: `node test/olcum_turkce.js <kök>` iki sürümün çıktısını yazar, `--fark a.json b.json` farkları listeler (test/veri/turkce_etiketler.json + testlerdeki Türkçe metinler).
+
+## Barkod (08.10.2026)
+- **Ölçüm (08.10.2026):** Open Food Facts'te Türkiye'de satılan gıda: klasik dizinde ~11.500, yeni arama servisinde (search-a-licious) 3.345 ürün; bunların yalnızca 563'ünün (%17) içerik listesi tam. Open Beauty Facts 1.031, Open Products Facts 101 ürün. Büyük markalarda içerik listesi olan ürün sayısı az (search-a-licious; ürün / içerikli): Ülker 95/36, Eti 63/19, Pınar 22/3, Torku 21/10, Nestlé 29/3, Sütaş 2/1, Komili 0. Yani ilk günlerde barkodların çoğu "içerik yok" ya da "bulunamadı" verecek; kullanıcı katkısı (D1) asıl veriyi oluşturacak.
+- Open Food Facts'e geri katkı (kullanıcının izniyle; OFF uygulama hesabı ve "fotoğraf + içerik" yazma API'si) yapılmadı. Lisans gereği değil (veriyi biz göndermiyoruz) ama hem OFF'a hem tanınırlığa yarar.
+- Hukuki görüşte sorulacak: OFF verisinin uygulama içinde gösterimi ve atıf biçimi yeterli mi (ODbL "Produced Work" sayılır mı); kullanıcı katkısı veritabanımızın lisansı ve kullanım koşulları; katkının "kişisel veri" olmadığı (barkod + içerik metni) değerlendirmesi.
+- D1'deki katkıları denetleyecek bir yönetim aracı yok (yanlış ya da kötü niyetli katkıyı silmek için şimdilik Cloudflare panelinde SQL). Katkı sayısı artınca basit bir inceleme sayfası gerekir.
+- Barkodun kamerayla okunması bu ortamda test edilemedi (telefon testi). iOS Safari'de BarcodeDetector yok; ZXing yedeği yükleniyor (~330 KB, yalnızca gerekince).
+- Mağaza sürümünde (C-08): Worker'ın /off ve /urun uç noktaları ALLOWED_ORIGIN ve BARKOD_LIMIT ile uygulama içinden yeniden denetlenir; mağaza sürümünde barkod okuma ML Kit'e geçebilir.
+

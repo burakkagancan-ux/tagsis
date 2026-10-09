@@ -67,4 +67,4 @@ Ayrıntılı kararlar, veri kaynakları ve bilinen sınırlamalar için [CLAUDE.
 
 ## Lisans
 
-Tüm hakları saklıdır (bkz. [LICENSE](LICENSE)). Depo şeffaflık için görünürdür; kod ve veri yazılı izin olmadan kopyalanamaz, başka bir üründe ya da veritabanında kullanılamaz. Üçüncü taraf verileri (AB CosIng, Open Food Facts madde sözlüğü, resmi mevzuat metinleri) kendi lisanslarına tabidir; kaynakları ilgili dosyanın başında yazılıdır.
+Tüm hakları saklıdır (bkz. [LICENSE](LICENSE)). Depo şeffaflık için görünürdür; kod ve veri yazılı izin olmadan kopyalanamaz, başka bir üründe ya da veritabanında kullanılamaz. Üçüncü taraf verileri (AB CosIng, Open Food Facts madde sözlüğü ve barkodlu ürün verisi (ODbL), ZXing barkod kütüphanesi (Apache 2.0), resmi mevzuat metinleri) kendi lisanslarına tabidir; kaynakları ilgili dosyanın başında yazılıdır.

@@ -40,6 +40,14 @@ namespace_id = "1003"
   limit = 10
   period = 60
 
+# Barkod uç noktaları (/off, /urun) için IP başına dakikada en fazla 30 istek
+[[ratelimits]]
+name = "BARKOD_LIMIT"
+namespace_id = "1004"
+  [ratelimits.simple]
+  limit = 30
+  period = 60
+
 # Anonim paylaşım sayacı (KV). Panelde Storage & Databases > KV > Create: "paylasim-sayac".
 # Namespace ID yazıldı; sayaç bu bağlamayla çalışır (bağlı değilse /sayac sayım yapmadan 204 döner).
 [[kv_namespaces]]
