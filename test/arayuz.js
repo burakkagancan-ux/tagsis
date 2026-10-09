@@ -27,6 +27,10 @@ async function newPage(ctx){
   await p.route('**/*',r=>external(r.request().url())?r.abort():r.continue());
   return p;
 }
+// Service worker önbelleğinde bulunan dosyalar (verilen listeden)
+async function onbellekte(p,list){
+  return p.evaluate(async list=>{const out=[];for(const k of await caches.keys()){const c=await caches.open(k);for(const f of list)if(!out.includes(f)&&await c.match(f))out.push(f)}return out.sort()},list);
+}
 // Örnek metinle analiz: "Örnek metin dene" düğmesi
 async function sample(p,mode){
   await p.click('#m-'+mode);
@@ -229,11 +233,23 @@ async function scan(p,mode,text){
   ok(!errs.length,'İngilizce tur konsol hatası: '+errs.join(' | '));errs.length=0;
   await ctx.close();
 
+  // 4c) Seçili dilin dosyaları kurulumda inmez; ilk ziyarette (sayfa henüz service worker denetiminde değilken) sayfa bildirir, önbelleğe iner.
+  //     İstek yönlendirmesiz bağlam: yönlendirme açıkken service worker kurulmuyor
+  ctx=await br.newContext({viewport:opt.viewport,locale:'en-US'});p=await ctx.newPage();watch(p,errs);
+  await p.goto(B+'ocr.html');
+  {let c=[];for(let i=0;i<60&&c.length<2;i++){c=await onbellekte(p,['i18n/en.json','i18n/veri/en.json']);if(c.length<2)await p.waitForTimeout(500)}
+   ok(c.length===2,'İngilizce dosyaları ilk ziyarette önbelleğe inmedi: '+c.join(','))}
+  ok(!errs.length,'İngilizce önbellek konsol hatası: '+errs.join(' | '));errs.length=0;
+  await ctx.close();
+
   // 5) Çevrimdışı: service worker önbelleği dolunca sunucu kapatılır (ctx.setOffline service worker isteklerini kesmiyor);
   //    sayfa yeniden yüklenir, üç modda analiz önbellekten çalışmalı. Kozmetik ve temizlik verisi bu modlara hiç girilmeden önbellekte olmalı.
   // Bu bölümde istek yönlendirme kullanılmaz: yönlendirme açıkken service worker sayfayı denetlemez
   ctx=await br.newContext({viewport:opt.viewport,locale:'tr-TR'});p=await ctx.newPage();watch(p,errs);
   await p.goto(B+'ocr.html');
+  // Açılan ansiklopedi sayfası internetsiz de açılır (madde sayfaları kurulumda inmez)
+  await p.waitForFunction(()=>navigator.serviceWorker.controller,null,{timeout:15000});
+  await p.goto(B+'ansiklopedi.html?id=E250');await p.waitForSelector('#ana .risk');await p.goto(B+'ocr.html');
   const need=['data/kozmetik.json','data/kozmetik_inci.json','data/temizlik.json','data/eslesmeler.json'];
   let have=[];
   for(let i=0;i<60;i++){   // waitForFunction async işlevi beklemez; elle yoklanır
@@ -242,12 +258,21 @@ async function scan(p,mode,text){
     if(need.every(f=>have.includes(f)))break;await p.waitForTimeout(500);
   }
   need.forEach(f=>ok(have.includes(f),'kurulumda önbelleğe alınmadı: '+f));
+  {const c=await onbellekte(p,['i18n/en.json','i18n/veri/en.json','data/ansiklopedi/E322.json','data/ansiklopedi/E250.json','data/ansiklopedi/tr/E250.json']);
+   ok(c.join()==='data/ansiklopedi/E250.json,data/ansiklopedi/tr/E250.json','Türkçe kullanıcıda yalnızca açılan sayfa önbellekte olmalı: '+c.join(','))}
   await new Promise(r=>{server.close(r);server.closeAllConnections()});
   await p.reload();await p.waitForFunction(()=>typeof IDX!=='undefined'&&IDX,null,{timeout:15000});
   for(const m of ['koz','tem','gida']){
     try{await sample(p,m);ok(await p.$$eval('#sonuc .res',e=>e.length)>2,'çevrimdışı '+m+' analizi')}
     catch(e){ok(false,'çevrimdışı '+m+' analizi: '+(await p.textContent('#sonuc')).slice(0,80))}
   }
+  await p.goto(B+'ansiklopedi.html?id=E250');await p.waitForSelector('#ana .risk',{timeout:10000}).catch(()=>{});
+  ok(/E250/.test(await p.textContent('#ana .badges').catch(()=>''))&&(await p.$$('#ana .panel')).length===3,'çevrimdışı: açılmış ansiklopedi sayfası');
+  await p.goto(B+'ansiklopedi.html?id=E322');await p.waitForFunction(()=>/henüz bu cihaza inmedi/.test(document.getElementById('ana').textContent),null,{timeout:10000}).catch(()=>{});
+  ok(/henüz bu cihaza inmedi/.test(await p.textContent('#ana')),'çevrimdışı: açılmamış sayfa notu: '+(await p.textContent('#ana')).slice(0,80));
+  await p.goto(B+'ansiklopedi.html');await p.waitForSelector('#ara');await p.fill('#ara','lesitin');
+  await p.waitForFunction(()=>{const n=document.querySelectorAll('#ana a.row').length;return n>0&&n<50},null,{timeout:10000}).catch(()=>{});
+  ok(await p.$$eval('#ana a.row .rc',e=>e.length&&e[0].textContent==='E322'),'çevrimdışı: ansiklopedi araması');
   ok(!errs.length,'çevrimdışı konsol hatası: '+errs.join(' | '));
   await ctx.close();
 

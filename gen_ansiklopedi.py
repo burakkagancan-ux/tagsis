@@ -4,7 +4,9 @@
 Girdi: kaynak/ansiklopedi.json (elle yazılan tam kayıtlar, kategori tanımları, kurum ve bayrak eşlemeleri),
 data/e_kodlari.json (ad, eş anlamlılar, kategori, risk, bayraklar, kaynaklar), data/e_aciklama.json (tek cümlelik tanım),
 data/bilesenler.json (alerjen adları).
-Çıktı: data/ansiklopedi.json (kayıtlar; metinler yerine çeviri anahtarı) ve data/ansiklopedi_tr.json (Türkçe metinler).
+Çıktı: data/ansiklopedi.json (dizin: arama ve liste için kısaltılmış kayıtlar; metinler yerine çeviri anahtarı),
+data/ansiklopedi_tr.json (dizinin ve ortak Türkçe metinler), data/ansiklopedi/<kimlik>.json (madde sayfasının tam kaydı) ve
+data/ansiklopedi/tr/<kimlik>.json (yalnızca o sayfanın Türkçe metinleri). Sayfa dosyaları madde açılınca iner.
 gen_e_kodlari.py ve gen_e_aciklama.py'den SONRA çalıştırılır. Elle incelenmemiş E kodlarının sayfası otomatik oluşturulur
 (review: "auto"); bunlarda kanıt düzeyi ve son inceleme tarihi boştur.
 """
@@ -276,17 +278,57 @@ def main():
     n_noff = sum(1 for r in recs if not any(s["official"] for s in r["sources"]))
     meta = {"version": VERSION, "generated": today, "lang": ["tr"], "count": len(recs), "curated": n_cur,
             "without_official_source": n_noff,
-            "description": "Madde sözlüğü. Metin alanları çeviri anahtarıdır; Türkçe metinler ansiklopedi_tr.json'da. review=auto kayıtlar e_kodlari.json'dan otomatik oluşturuldu, elle incelenmedi."}
+            "description": "Madde sözlüğü dizini; tam kayıtlar ansiklopedi/<kimlik>.json'da. Metin alanları çeviri anahtarıdır; Türkçe metinler ansiklopedi_tr.json ve ansiklopedi/tr/<kimlik>.json'da. review=auto kayıtlar e_kodlari.json'dan otomatik oluşturuldu, elle incelenmedi."}
+    # Açılışta yalnızca dizin iner (arama, liste, benzer maddeler); madde sayfasının tam kaydı ve metinleri sayfa açılınca
+    # (data/ansiklopedi/<kimlik>.json, data/ansiklopedi/<dil>/<kimlik>.json). Böylece dil ve madde sayısı arttıkça açılış hafif kalır.
+    def keys_in(x, out):
+        if isinstance(x, str):
+            if x in T:
+                out.add(x)
+        elif isinstance(x, dict):
+            for v in x.values():
+                keys_in(v, out)
+        elif isinstance(x, list):
+            for v in x:
+                keys_in(v, out)
+        return out
+    used = {r["id"]: keys_in(r, set()) for r in recs}
+    count = {}
+    for ks in used.values():
+        for k in ks:
+            count[k] = count.get(k, 0) + 1
+    names = set(r["names"]["primary"] for r in recs)
+    # Yalnızca tek kaydın kullandığı metin o kaydın sayfa dosyasına gider; adlar ve ortak metinler dizinde kalır
+    page_t = {i: {k: T[k] for k in sorted(ks) if count[k] == 1 and k not in names} for i, ks in used.items()}
+    moved = set(k for d in page_t.values() for k in d)
+    index_t = {k: v for k, v in T.items() if k not in moved}
+
+    def index_rec(r):
+        x = {k: r[k] for k in ("id", "slug", "names", "category", "product_types", "risk_level", "review")}
+        if r.get("production"):
+            x["production"] = {"class": r["production"]["class"]}
+        return x
+
+    def dump(path, text):
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text)
+
+    d = os.path.join(HERE, "data", "ansiklopedi")
+    dt = os.path.join(d, "tr")
+    for dd in (d, dt):
+        os.makedirs(dd, exist_ok=True)
+        for f in os.listdir(dd):   # kaldırılan maddelerin eski sayfa dosyaları kalmasın
+            if f.endswith(".json"):
+                os.remove(os.path.join(dd, f))
+    for r in recs:
+        dump(os.path.join(d, r["id"] + ".json"), json.dumps(r, ensure_ascii=False, separators=(",", ":")) + "\n")
+        dump(os.path.join(dt, r["id"] + ".json"), json.dumps({"t": page_t[r["id"]]}, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n")
     p = os.path.join(HERE, "data", "ansiklopedi.json")
-    with open(p, "w", encoding="utf-8") as f:
-        f.write('{"meta":' + json.dumps(meta, ensure_ascii=False) + ',\n"records":[\n')
-        f.write(",\n".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) for r in recs))
-        f.write("\n]}\n")
+    dump(p, '{"meta":' + json.dumps(meta, ensure_ascii=False) + ',\n"records":[\n'
+         + ",\n".join(json.dumps(index_rec(r), ensure_ascii=False, separators=(",", ":")) for r in recs) + "\n]}\n")
     p2 = os.path.join(HERE, "data", "ansiklopedi_tr.json")
-    with open(p2, "w", encoding="utf-8") as f:
-        f.write('{"meta":' + json.dumps({"lang": "tr", "generated": today, "count": len(T)}, ensure_ascii=False) + ',\n"t":{\n')
-        f.write(",\n".join(json.dumps(k, ensure_ascii=False) + ":" + json.dumps(v, ensure_ascii=False) for k, v in sorted(T.items())))
-        f.write("\n}}\n")
+    dump(p2, '{"meta":' + json.dumps({"lang": "tr", "generated": today, "count": len(T)}, ensure_ascii=False) + ',\n"t":{\n'
+         + ",\n".join(json.dumps(k, ensure_ascii=False) + ":" + json.dumps(v, ensure_ascii=False) for k, v in sorted(index_t.items())) + "\n}}\n")
     print("ansiklopedi: %d kayıt (%d elle incelenmiş, %d resmi kaynaksız), %d metin" % (len(recs), n_cur, n_noff, len(T)))
 
 

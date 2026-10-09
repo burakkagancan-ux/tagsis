@@ -2,10 +2,22 @@
 // Çalıştır: node test/ansiklopedi.js
 const fs=require('fs');
 eval(['ortak','ansiklopedi'].map(f=>fs.readFileSync(__dirname+'/../js/'+f+'.js','utf8')).join('\n'));
-const D=JSON.parse(fs.readFileSync(__dirname+'/../data/ansiklopedi.json')),T=JSON.parse(fs.readFileSync(__dirname+'/../data/ansiklopedi_tr.json')).t;
-const E=JSON.parse(fs.readFileSync(__dirname+'/../data/e_kodlari.json'));
+// Dizin (data/ansiklopedi.json, ansiklopedi_tr.json) açılışta, madde sayfası (data/ansiklopedi/<kimlik>.json, data/ansiklopedi/tr/<kimlik>.json) açılınca iner
+const J=f=>JSON.parse(fs.readFileSync(__dirname+'/../data/'+f));
+const D=J('ansiklopedi.json'),TI=J('ansiklopedi_tr.json').t,T=Object.assign({},TI);
+const E=J('e_kodlari.json');
 let fail=0,n=0;const ok=(c,m)=>{n++;if(!c){fail++;console.log('HATA',m)}};
-const R=D.records,by={};R.forEach(r=>by[r.id]=r);
+const R=D.records.map(x=>J('ansiklopedi/'+x.id+'.json')),by={};R.forEach(r=>by[r.id]=r);
+// 0. Bölme: dizin kaydı tam kaydın kısaltması; sayfa metinleri yalnızca o sayfada, dizinde ve öteki sayfalarda yok; dizinde ad ve liste metinleri var
+const ALAN=['id','slug','names','category','product_types','risk_level','review'];
+D.records.forEach((x,i)=>{const r=R[i];
+  ok(JSON.stringify(x)===JSON.stringify(Object.assign(Object.fromEntries(ALAN.map(k=>[k,r[k]])),r.production?{production:{class:r.production.class}}:{})),x.id+' dizin kaydı tam kayıtla uyuşmuyor');
+  const pt=J('ansiklopedi/tr/'+x.id+'.json').t;
+  Object.keys(pt).forEach(k=>{ok(!(k in T),x.id+' sayfa metni başka yerde de var: '+k);T[k]=pt[k]});
+  ok(TI[x.names.primary]&&TI['cat.'+x.category]&&TI['risk.'+x.risk_level],x.id+' liste satırının metni dizinde yok');
+});
+{const f=fs.readdirSync(__dirname+'/../data/ansiklopedi').filter(x=>x.endsWith('.json')).length,g=fs.readdirSync(__dirname+'/../data/ansiklopedi/tr').length;
+ ok(f===D.records.length&&g===D.records.length,'artık sayfa dosyası: '+f+'/'+g+', kayıt '+D.records.length)}
 
 // 1. Veri bütünlüğü: her kayıt geçerli, slug ve id tekil, tarama verisindeki her E kodunun sayfası var
 R.forEach(r=>{const e=ansValidate(r,T,by);ok(!e.length,r.id+': '+e.join('; '))});
@@ -72,7 +84,7 @@ bad(r=>r.effects[0].text='YOK.anahtar','effects.text eksik');
 {const a=JSON.parse(JSON.stringify(by.E1203));a.review='auto';a.evidence_level=null;a.last_reviewed=null;a.effects=[];a.content.in_the_body=null;a.agency_note=null;ok(ansValidate(a,T,by).length===0,'otomatik kayıt geçerli')}
 
 // 3. Türkçe harf duyarsız arama
-const IX=ansIndex(R,T),first=q=>{const s=ansSearch(IX,q,5);return s.length?s[0].id:null};
+const IX=ansIndex(D.records,TI),first=q=>{const s=ansSearch(IX,q,5);return s.length?s[0].id:null};
 [['E322','E322'],['e-322','E322'],['E 322','E322'],['soya lesitini','E322'],['SOYA LESİTİNİ','E322'],['Soya Lesıtını','E322'],['soy lecithin','E322'],
  ['aycicegi lesitini','E322'],['ayçiçeği lesitini','E322'],['AYÇİÇEĞİ LESİTİNİ','E322'],
  ['sodyum benzoat','E211'],['SODYUM BENZOAT','E211'],['sodyum benzoat'.replace('s','ş'),'E211'],['aspartam','E951'],['ASPARTAM','E951'],

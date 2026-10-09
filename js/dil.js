@@ -1,16 +1,21 @@
 /* Arayüz: dil dosyalarını yükler (i18n/diller.json, i18n/<dil>.json, i18n/veri/<dil>.json), <html lang dir>, dile özel yazı tipi,
    sayfadaki data-i18n işaretli metinler. Saf mantık js/ceviri.js'te. Açılış işleri DIL_HAZIR çözülünce başlar (js/arayuz_sayfa.js). */
 function dilGetir(p){return fetch(p).then(function(r){if(!r.ok)throw new Error(p);return r.json()})}
+/* Dile ve sayfaya bağlı dosyalar kurulumda önbelleğe inmez (sw.js); sayfa kullandıklarını service worker'a bildirir ki internetsiz de açılsın.
+   (İlk ziyarette sayfa henüz service worker'ın denetiminde değil; kendi isteği önbelleğe yazılmaz.) */
+function dilOnbellege(u){try{if(navigator.serviceWorker)navigator.serviceWorker.ready.then(function(r){if(r.active)r.active.postMessage({onbellek:u})})}catch(e){}}
 function dilKayitli(){try{return localStorage.getItem("dil")}catch(e){return null}}
 var DIL_HAZIR=dilGetir("i18n/diller.json").catch(function(){return {diller:{tr:{ad:"Türkçe",yon:"ltr"}}}}).then(function(b){
   var bilgi=b.diller||{},destek=Object.keys(bilgi);
   var kod=dilSec(dilKayitli(),navigator.languages||[navigator.language],destek);
   var gerek=[DIL_KAYNAK,kod===DIL_KAYNAK?null:DIL_YEDEK,kod].filter(function(x,i,a){return x&&a.indexOf(x)===i});
-  var veri=kod===DIL_KAYNAK?Promise.resolve(null):dilGetir("i18n/veri/"+kod+".json").catch(function(){return null});
-  return Promise.all(gerek.map(function(k){return dilGetir("i18n/"+k+".json").catch(function(){return {}})}).concat([veri])).then(function(v){
+  var u=gerek.map(function(k){return "i18n/"+k+".json"}),vu="i18n/veri/"+kod+".json";
+  var veri=kod===DIL_KAYNAK?Promise.resolve(null):dilGetir(vu).catch(function(){return null});
+  return Promise.all(u.map(function(p){return dilGetir(p).catch(function(){return {}})}).concat([veri])).then(function(v){
     var s={};gerek.forEach(function(k,i){s[k]=v[i]});
     var vd={};if(v[gerek.length])vd[kod]=v[gerek.length];
     dilKur(kod,s,bilgi,vd);dilUygula(document);
+    dilOnbellege(u.concat(v[gerek.length]?[vu]:[],DIL.yazi&&DIL.yazi.css?[DIL.yazi.css]:[]));
   });
 });
 /* <html lang dir>, yazı tipi (dil dosyasında tanımlıysa) ve data-i18n / data-i18n-attr ("aria-label:anahtar;placeholder:anahtar").
