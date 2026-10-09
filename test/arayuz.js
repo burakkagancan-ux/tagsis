@@ -217,7 +217,7 @@ async function scan(p,mode,text){
   ok(!errs.length,'kayıt konsol hatası: '+errs.join(' | '));errs.length=0;
 
   // 4) Ansiklopedi: renk kuralı (yeşil yalnızca doğal üretimde), arama
-  for(const [id,cls] of [['E322','green'],['E162','green'],['E330','green n'],['E250','amber'],['E553b','amber']]){
+  for(const [id,cls] of [['E322','green'],['E162','green'],['E330','green n'],['E250','red'],['E553b','red'],['E211','amber']]){
     await p.goto(B+'ansiklopedi.html?id='+id);await p.waitForSelector('#ana .risk');
     const c=await p.getAttribute('#ana .risk','class');
     ok(c.split(' ').slice(2).join(' ')===cls,id+' risk kartı sınıfı "'+c+'", beklenen '+cls);

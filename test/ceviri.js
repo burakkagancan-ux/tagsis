@@ -64,7 +64,7 @@ const kaynak={};JS.forEach(f=>kaynak['js/'+f]=fs.readFileSync(path.join(R,'js',f
 const html=fs.readFileSync(path.join(R,'ocr.html'),'utf8');
 
 // 2) Kullanılan anahtarlar: koddaki anahtar biçimli dizgeler + ocr.html data-i18n. Birleştirilerek kurulan anahtarlar ("kars.az_"+tür) DINAMIK listesinde.
-const DINAMIK=['kars.az_','kars.yukleniyor_','kars.baslik_','kars.sev.','kars.noun.','kars.uyum.','kars.uyum.cmr_','kars.uyum.ed_','kars.uyum.yutma_','kars.uyum.kapsul_','gida.uretim.say_','kayit.yuklenemedi_','foto.kamera_','gida.adi.','gida.uretim.say_','pay.kart.ust_','pay.neden.','pay.nedenk.','pay.metin.','tem.prof.','ornek.','koz.yukleniyor','tem.yukleniyor','gida.yukleniyor'];
+const DINAMIK=['ulke.ad.','kars.az_','kars.yukleniyor_','kars.baslik_','kars.sev.','kars.noun.','kars.uyum.','kars.uyum.cmr_','kars.uyum.ed_','kars.uyum.yutma_','kars.uyum.kapsul_','gida.uretim.say_','kayit.yuklenemedi_','foto.kamera_','gida.adi.','gida.uretim.say_','pay.kart.ust_','pay.neden.','pay.nedenk.','pay.metin.','tem.prof.','ornek.','koz.yukleniyor','tem.yukleniyor','gida.yukleniyor'];
 const NS=new Set(Object.keys(tr).map(k=>k.split('.')[0]));
 const kullanilan=new Set(),dinamikKullanim=new Set();
 for(const [f,src] of Object.entries(kaynak)){
@@ -120,7 +120,7 @@ for(const [f,src] of Object.entries(kaynak)){
 }
 
 // 6) Çalışma: Türkçe biçimler eski görünümle aynı
-eval(fs.readFileSync(path.join(R,'js','ceviri.js'),'utf8')+';global.C={dilKur,t,tVar,dilSayi,dilTarih,veriMetin,dilSec,DIL}');
+eval(fs.readFileSync(path.join(R,'js','ceviri.js'),'utf8')+';global.C={dilKur,t,tVar,dilSayi,dilTarih,veriMetin,dilSec,ulkeSec,DIL}');
 C.dilKur('tr',{tr:Object.assign({},tr,{'test.cogul':{one:'{n} madde',other:'{n} maddeler'}})},bilgi);
 ok(C.t('kars.sadece',{ad:'Süt'})==='Sadece Süt','yer tutucu: '+C.t('kars.sadece',{ad:'Süt'}));
 ok(C.t('yok.boyle.anahtar')==='yok.boyle.anahtar','tanımsız anahtar kendisini döndürür');
@@ -137,6 +137,7 @@ C.dilKur('ar',{tr:{},ar:{}},{ar:{ad:'العربية',yon:'rtl',yazi:{govde:'"Not
 ok(C.DIL.yon==='rtl'&&C.DIL.yazi&&/Noto/.test(C.DIL.yazi.govde),'sağdan sola dil ve yazı tipi bilgisi');
 const r=C.veriMetin('Türkçe not','x.y');ok(r.cevrilmedi&&r.s==='Türkçe not','veri çevirisi yoksa Türkçe + çevrilmedi işareti');
 ok(C.veriMetin('Türkçe','x.y',{ar:'رسمي'}).s==='رسمي','veride resmi metin (ör. CLP) varsa o');
+ok(C.ulkeSec(null,'tr')==='TR'&&C.ulkeSec(null,'en')===''&&C.ulkeSec('','tr')===''&&C.ulkeSec('TR','en')==='TR'&&C.ulkeSec('XX','tr')==='TR','ülke seçimi: kayıtlı > Türkçe → Türkiye > seçilmedi');
 ok(C.dilSec(null,['de-DE','tr-TR'],['tr','en'])==='tr'&&C.dilSec(null,['en-US'],['tr','en'])==='en'&&C.dilSec(null,['de'],['tr','en'])==='en'&&C.dilSec('tr',['en'],['tr','en'])==='tr','dil seçimi: kayıtlı > tarayıcı > İngilizce');
 // 7) Her dilde paylaşım kartı: sayı kutusu etiketleri kutuya, metinler karta sığar (test/paylas.js'teki sahte ölçüm: karakter başına 0,55 px)
 for(const kod of Object.keys(bilgi)){

@@ -37,12 +37,15 @@ UI = {
     "profile.pku": "Fenilketonüri (PKU)", "profile.pet": "Evcil hayvan", "profile.salt": "Tansiyon / tuz kısıtlaması",
     "eval.inventory": "Bu uygulamanın uyarı ölçütlerinden (AB yasağı, zorunlu uyarı, IARC sınıflaması vb.) hiçbirine girmiyor. Bu bir onay değildir.",
     "reg.tr_listed": "Türk Gıda Kodeksi'nin izinli katkı maddeleri listesinde.",
+    "reg.tr_not_listed": "Türk Gıda Kodeksi'nin güncel (2023) izinli katkı maddeleri listesinde yok.",
     "eff.resmi": "Resmi uyarı", "eff.bildirildi": "Bazı kişilerde bildirildi", "eff.tutarsiz": "Kanıt tutarsız",
     "eff.hayvan": "Yalnızca hayvan çalışmasında", "eff.asim": "Sınır aşılabilir", "eff.belirsiz": "Değerlendirilemedi",
     "eff.yok": "Bilinen yan etki yok", "eff.none_text": "Normal kullanımda bilinen bir yan etki yok.",
     "eff.doctor": "Bir şikâyetiniz varsa hekiminize danışın. Bu liste teşhis ya da tedavi önerisi değildir.",
 }
 EFF_LEVELS = ("resmi", "bildirildi", "tutarsiz", "hayvan", "asim", "belirsiz", "yok")
+from gen_e_kodlari import TGK_2024, TGK_2024_ESDEGER   # Türkiye güncel izinli liste (kaynak/tgk_ek2_2024.tsv)
+
 EU_STATUS = {"banned": ("banned", "AB'de gıda katkısı olarak yasak."), "withdrawn": ("withdrawn", "AB'de izni geri çekildi."),
              "not_listed": ("not_listed", "AB'nin izinli gıda katkı maddeleri listesinde yer almıyor.")}
 
@@ -168,9 +171,12 @@ def main():
             T[rid + ".reg.eu"] = st[1]
             regs.append({"agency": "Avrupa Komisyonu", "region": "EU", "status": st[0], "detail": rid + ".reg.eu",
                          "year": None, "source_url": ""})
-        if it.get("tgk_name") and "TR_withdrawn_2024" not in it["agencies"]:
-            regs.append({"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved",
-                         "detail": "reg.tr_listed", "year": 2013, "source_url": SRC["tgk2013"]["url"]})
+        # Türkiye: güncel izinli liste (Bakanlık kılavuzu 2024, kaynak/tgk_ek2_2024.tsv); jelatin gibi katkı sayılmayanlar satırsız
+        tr_var = rid in TGK_2024 or TGK_2024_ESDEGER.get(rid) in TGK_2024
+        if "TR_withdrawn_2024" not in it["agencies"] and rid != "E441" and (tr_var or it.get("tgk_name") or it.get("tgk_note")):
+            regs.append({"agency": "Tarım ve Orman Bakanlığı", "region": "TR", "status": "approved" if tr_var else "not_listed",
+                         "detail": "reg.tr_listed" if tr_var else "reg.tr_not_listed", "year": 2024,
+                         "source_url": SRC["tgk2024k"]["url"]})
         pws = []
         for f in fl:
             for n, w in enumerate(FL.get(f, [])):
@@ -187,6 +193,8 @@ def main():
                 srcs.append(url_src(u))
         if it.get("tgk_name"):
             srcs.append(src_obj("tgk2013"))
+        if any(g["region"] == "TR" and g["source_url"] == SRC["tgk2024k"]["url"] for g in regs):
+            srcs.append(src_obj("tgk2024k"))
         same = sorted((x for x in bycat[it["category"]] if x != rid), key=lambda x: (abs(num(x) - num(rid)), x))
         r.update({"evidence_level": None, "summary": rid + ".summary" if rid in about else None, "evaluation": ev,
                   "content": {"what_it_does": "cat." + cat["code"] + ".what", "found_in": [], "in_the_body": None},
