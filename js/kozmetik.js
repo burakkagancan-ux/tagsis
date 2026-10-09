@@ -158,7 +158,7 @@ function kGerekce(e,tt){
   var p=[];
   if(a==="III"){if(has("allergen_fragrance")&&!e.max)p.push(tt("koz.gerekce.koku"));else{p.push(tt("koz.gerekce.ek3"));if(has("allergen_fragrance"))p.push(tt("koz.gerekce.ek3_koku"))}}
   else if(a==="IV")p.push(tt("koz.gerekce.ek4"));else if(a==="V")p.push(tt("koz.gerekce.ek5"));else if(a==="VI")p.push(tt("koz.gerekce.ek6"));
-  if(has("cmr2"))p.push(tt("koz.gerekce.cmr2"));
+  if(has("cmr2_carc"))p.push(tt("koz.gerekce.cmr2_kanser"));else if(has("cmr2"))p.push(tt("koz.gerekce.cmr2"));
   if(has("formaldehyde_releaser"))p.push(tt("koz.gerekce.formaldehit"));
   if(has("allergen_preservative"))p.push(tt("koz.gerekce.koruyucu_alerjen"));
   if(has("allergen_hairdye"))p.push(tt("koz.gerekce.sac_boyasi"));
@@ -196,14 +196,14 @@ function analyzeK(text,K,opts){
   return out;
 }
 function summarizeK(res,K){
-  var o={total:res.length,found:0,red:[],orange:[],yellow:[],ban:[],ed:[],child:[],comedo:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],cancer:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
+  var o={total:res.length,found:0,red:[],euBan:[],carc:[],orange:[],yellow:[],ban:[],ed:[],child:[],comedo:[],fragrance:[],formaldehyde:[],preservative:[],pfas:[],nonVegan:[],nonVeg:[],veganUnsure:[],cancer:[],parfum:false,unknown:[],kids:[],vitA:[],hairdye:[],fuzzy:[]};
   function push(a,v){if(a.indexOf(v)<0)a.push(v)}
   res.forEach(function(r){
     if(!r.found){o.unknown.push(r.raw);if(/^(parfum|fragrance|aroma|perfume|parfüm)$/i.test(r.raw.trim()))o.parfum=true;return}
     o.found++;
     if(r.how==="benzer")o.fuzzy.push(r.raw);
     if(/^(PARFUM|FRAGRANCE|AROMA|PERFUME)\b/.test(r.name))o.parfum=true;
-    if(r.level==="red")push(o.red,r.name);else if(r.level==="orange")push(o.orange,r.name);else if(r.level==="yellow")push(o.yellow,r.name);
+    if(r.level==="red"){push(o.red,r.name);push(r.reg.some(function(e){return e.annex==="II"})?o.euBan:o.carc,r.name)}else if(r.level==="orange")push(o.orange,r.name);else if(r.level==="yellow")push(o.yellow,r.name);
     var fl={};r.reg.forEach(function(e){e.flags.forEach(function(f){fl[f]=1});if(e.kids_under)push(o.kids,r.name);if(/^III\/376$/.test(e.id))push(o.vitA,r.name)});
     r.iflags.forEach(function(f){fl[f]=1});
     (r.k3||[]).forEach(function(w){var L=K&&K.watchLists[w.list],kind=L?L.kind:(w.list==="ca"||w.list==="asean"?"ban":"ed");

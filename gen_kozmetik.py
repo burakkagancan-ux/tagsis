@@ -77,8 +77,8 @@ H4 = ["ref", "inn", "ci", "cas", "ec", "colour", "product_type", "max", "other",
 HEADERS = {"II": H2, "III": H3, "IV": H4, "V": H3, "VI": H3}
 
 LEVELS = {
-    "red": "AB kozmetik yönetmeliği Ek II'de (yasaklı maddeler) yer alıyor.",
-    "orange": "Resmi bir tehlike sınıflaması var (ör. AB'de CMR kategori 2) ya da büyük bir pazarda yasak.",
+    "red": "AB kozmetik yönetmeliği Ek II'de (yasaklı maddeler) yer alıyor ya da AB'de şüpheli kanserojen (CMR kategori 2, Carc. 2) sınıfında (09.10.2026, kullanıcı kararı).",
+    "orange": "Resmi bir tehlike sınıflaması var (ör. AB'de mutajen ya da üreme toksiği CMR kategori 2) ya da büyük bir pazarda yasak.",
     "yellow": "Yasal sınırla izinli (Ek III kısıtlaması) ya da bilinen bir alerjen/formaldehit salıcı.",
     "info": "İzinli listede (renklendirici, koruyucu, UV filtresi) ya da yalnızca profil için önemli. 'Güvenli' anlamına gelmez.",
 }
@@ -89,6 +89,7 @@ FLAGS = {
     "allergen_preservative": "Bilinen koruyucu alerjeni",
     "formaldehyde_releaser": "Formaldehit salıcı koruyucu",
     "cmr2": "AB'de CMR kategori 2 (şüpheli kanserojen/mutajen/üreme toksiği)",
+"cmr2_carc": "AB'de şüpheli kanserojen (CMR kategori 2)",
     "cmr_ban": "CMR (kanserojen, mutajen, üreme toksiği) sınıflaması nedeniyle yasak",
     "nano": "Nano biçim",
     "pfas": "PFAS (florlu, doğada kalıcı madde grubu)",
@@ -233,7 +234,9 @@ def level_reason(e):
         parts.append("İzinli koruyucu (AB Ek V), üst sınırla.")
     elif a == "VI":
         parts.append("İzinli UV filtresi (AB Ek VI), üst sınırla.")
-    if "cmr2" in f:
+    if "cmr2_carc" in f:
+        parts.append("AB'de şüpheli kanserojen (CMR kategori 2) sınıfında; bu yüzden yalnızca sınırlı kullanıma izin veriliyor.")
+    elif "cmr2" in f:
         parts.append("AB'de CMR kategori 2 (şüpheli) sınıflaması var; bu yüzden yalnızca sınırlı kullanıma izin veriliyor.")
     if "formaldehyde_releaser" in f:
         parts.append("Formaldehit salabilir. Formaldehit AB'de kanserojen (1B) sınıfındadır ve yaygın bir alerjendir; toplam formaldehit %0,001'i aşarsa etikette \"releases formaldehyde\" yazılması zorunludur.")
@@ -281,6 +284,8 @@ def use_fields(e):
 def compute_level(e):
     f = set(e["flags"])
     if e["annex"] == "II":
+        return "red"
+    if "cmr2_carc" in f:
         return "red"
     if "cmr2" in f:
         return "orange"
@@ -341,6 +346,8 @@ def build(cdir):
             cmr = clean(d.get("cmr"))
             if annex != "II" and re.search(r"(Carcinogenic|Mutagenic|Reprotoxic)", cmr):
                 flags.append("cmr2")
+            if annex != "II" and "Carcinogenic" in cmr:
+                flags.append("cmr2_carc")
             txt = " ".join(clean(d.get(k)) for k in ("product_type", "max", "other", "wording"))
             if annex == "III" and re.search(r"(shall|must) be indicated", txt, re.I):
                 flags.append("allergen_fragrance")
